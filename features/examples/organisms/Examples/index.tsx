@@ -4,11 +4,16 @@ import Counter from '@app/ui/atoms/Counter'
 interface Props {
   lastUpdate: number
   light: boolean
+  count: number
+
+  inc: () => void
+  dec: () => void
+  reset: () => void
 }
 
-export default ({ lastUpdate, light }: Props) => (
+export default ({ lastUpdate, light, count, ...actions }: Props) => (
   <div>
     <Clock lastUpdate={lastUpdate} light={light} />
-    <Counter />
+    <Counter count={count} {...actions} />
   </div>
 )

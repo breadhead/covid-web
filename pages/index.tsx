@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Dispatch, AnyAction } from 'redux'
 
-import { startClock, serverRenderClock } from '@app/lib/store'
 import { AppContext } from '@app/lib/server-types'
-import Examples from '@app/features/examples'
+import Examples, { actions } from '@app/features/examples'
 
 interface Props {
-  dispatch: any // TODO: fix it
+  start: () => NodeJS.Timer
 }
 
 class Index extends React.Component<Props> {
@@ -14,14 +14,13 @@ class Index extends React.Component<Props> {
 
   static getInitialProps({ reduxStore, req }: AppContext) {
     const isServer = !!req
-    reduxStore.dispatch(serverRenderClock(isServer) as any)
+    reduxStore.dispatch(actions.serverRenderClock(isServer) as any)
 
     return {}
   }
 
   componentDidMount () {
-    const { dispatch } = this.props
-    this.timer = startClock(dispatch)
+    this.timer = this.props.start()
   }
 
   componentWillUnmount () {
@@ -35,4 +34,9 @@ class Index extends React.Component<Props> {
   }
 }
 
-export default connect()(Index)
+export default connect(
+  null,
+  (dispatch: Dispatch<AnyAction>) => ({
+    start: () => actions.startClock(dispatch) as any
+  })
+)(Index)

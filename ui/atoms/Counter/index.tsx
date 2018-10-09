@@ -1,44 +1,25 @@
 import React, {Component} from 'react'
-import { connect } from 'react-redux'
-import { incrementCount, decrementCount, resetCount, State } from '@app/lib/store' // TODO: remove redux from UI!
 
 interface Props {
-  dispatch: any
   count: number
+
+  inc: () => void
+  dec: () => void
+  reset: () => void
 }
 
 class Counter extends Component<Props> {
-  increment = () => {
-    const {dispatch} = this.props
-    dispatch(incrementCount())
-  }
-
-  decrement = () => {
-    const {dispatch} = this.props
-    dispatch(decrementCount())
-  }
-
-  reset = () => {
-    const {dispatch} = this.props
-    dispatch(resetCount())
-  }
-
   render () {
-    const { count } = this.props
+    const { count, inc, dec, reset } = this.props
     return (
       <div>
         <h1>Count: <span>{count}</span></h1>
-        <button onClick={this.increment}>+1</button>
-        <button onClick={this.decrement}>-1</button>
-        <button onClick={this.reset}>Reset</button>
+        <button onClick={inc}>+1</button>
+        <button onClick={dec}>-1</button>
+        <button onClick={reset}>Reset</button>
       </div>
     )
   }
 }
 
-function mapStateToProps (state: State) {
-  const {count} = state
-  return {count}
-}
-
-export default connect(mapStateToProps)(Counter)
+export default Counter
