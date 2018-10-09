@@ -1,7 +1,7 @@
 import React from 'react'
 import { Store as ReduxStore } from 'redux'
 
-import { initializeStore, State } from '../store'
+import { initializeStore, State } from './store'
 import { AppContext } from './server-types'
 
 const isServer = typeof window === 'undefined'

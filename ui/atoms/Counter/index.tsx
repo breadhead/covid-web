@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { incrementCount, decrementCount, resetCount, State } from '../store'
+import { incrementCount, decrementCount, resetCount, State } from '@app/lib/store' // TODO: remove redux from UI!
 
 interface Props {
   dispatch: any

@@ -1,10 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { startClock, serverRenderClock } from '../store'
-import Examples from '../components/examples'
-
-import { AppContext } from '../lib/server-types'
+import { startClock, serverRenderClock } from '@app/lib/store'
+import { AppContext } from '@app/lib/server-types'
+import Examples from '@app/features/examples'
 
 interface Props {
   dispatch: any // TODO: fix it
