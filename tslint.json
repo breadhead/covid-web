@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "@solid-soda/tslint-config"
+  ],
+}

@@ -1,0 +1,35 @@
+{
+  "name": "oncohelp-web",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-typescript": "^1.1.1",
+    "classnames": "^2.2.6",
+    "next": "^7.0.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "@solid-soda/tslint-config": "^2.1.0",
+    "@types/classnames": "^2.2.6",
+    "@types/next": "^7.0.1",
+    "@types/react": "^16.4.16",
+    "@types/react-redux": "^6.0.9",
+    "postcss": "^7.0.5",
+    "postcss-nesting": "^7.0.0",
+    "postcss-normalize": "^7.0.1",
+    "postcss-preset-env": "^6.0.10",
+    "stylelint": "^9.6.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "tslint": "^5.11.0"
+  }
+}
