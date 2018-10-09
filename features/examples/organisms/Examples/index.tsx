@@ -6,9 +6,9 @@ interface Props {
   light: boolean
   count: number
 
-  inc: () => void
-  dec: () => void
-  reset: () => void
+  inc(): void
+  dec(): void
+  reset(): void
 }
 
 export default ({ lastUpdate, light, count, ...actions }: Props) => (

@@ -1,4 +1,4 @@
-import { Dispatch, AnyAction }  from 'redux'
+import { AnyAction, Dispatch } from 'redux'
 
 import { actions } from './reducer'
 

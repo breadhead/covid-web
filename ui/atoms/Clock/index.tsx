@@ -1,5 +1,5 @@
-import React from 'react'
 import cx from 'classnames'
+import React from 'react'
 
 import styles from './clock.css'
 
@@ -12,7 +12,7 @@ export default ({ lastUpdate, light }: Props) => {
   return (
     <div className={cx([
       styles.clock,
-      light && styles.light
+      light && styles.light,
     ])}>
       {format(new Date(lastUpdate))}
     </div>

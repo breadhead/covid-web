@@ -1,15 +1,15 @@
-import React, {Component} from 'react'
+import react, { Component } from 'react'
 
 interface Props {
   count: number
 
-  inc: () => void
-  dec: () => void
-  reset: () => void
+  inc(): void
+  dec(): void
+  reset(): void
 }
 
 class Counter extends Component<Props> {
-  render () {
+  public render() {
     const { count, inc, dec, reset } = this.props
     return (
       <div>

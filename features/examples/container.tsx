@@ -1,13 +1,11 @@
 import { connect } from 'react-redux'
-import { Dispatch, AnyAction } from 'redux'
-
-import { State } from '@app/lib/store'
+import { AnyAction, Dispatch } from 'redux'
 
 import Examples from './organisms/Examples'
+import { actions } from './reducer'
 import { getAll } from './selectors'
-import { actions } from './reducer';
 
-const mapStateToProps = (state: State) => getAll(state)
+const mapStateToProps = getAll
 
 const mapDipatchToProps = (dispatch: Dispatch<AnyAction>) => ({
   inc: () => dispatch(actions.increment()),

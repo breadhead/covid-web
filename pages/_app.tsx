@@ -1,5 +1,5 @@
 import App, { Container } from 'next/app'
-import React, { Component } from 'react'
+import React, { Component as ReactComponent } from 'react'
 import { Provider } from 'react-redux'
 
 import withReduxStore, { Store } from '@app/lib/with-redux-store'
@@ -7,11 +7,11 @@ import withReduxStore, { Store } from '@app/lib/with-redux-store'
 interface Props {
   reduxStore: Store
   pageProps: any
-  Component: Component
+  Component: ReactComponent
 }
 
 class OncohelpWeb extends App<Props> {
-  render () {
+  public render() {
     const { Component, pageProps, reduxStore } = this.props
 
     return (
