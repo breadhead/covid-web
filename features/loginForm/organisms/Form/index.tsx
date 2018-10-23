@@ -3,34 +3,15 @@ import Input from '@app/ui/molecules/Input'
 import { Button, Form as AntForm } from 'antd'
 import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
-import yup from 'yup'
 import styles from './Form.css'
 
-// const schema = yup.object().shape({
-//   name: yup.string().required(),
-//   age: yup
-//     .number()
-//     .required()
-//     .positive()
-//     .integer(),
-//   email: yup.string().email(),
-//   website: yup.string().url(),
-//   createdOn: yup.date().default(function() {
-//     return new Date()
-//   }),
-// })
-
-// // check validity
-// schema
-//   .isValid({
-//     name: 'jimmy',
-//     age: 24,
-//   })
-//   .then(function(valid) {
-//     valid // => true
-//   })
-
 const FormItem = AntForm.Item
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+// const onFormSubmit = async (values) => {
+//   await sleep(500)
+//   return { login: 'invalid' }
+// }
 
 class Form extends React.Component {
 
@@ -39,12 +20,13 @@ class Form extends React.Component {
     return (
       <FinalForm
         onSubmit={onFormSubmit}
-        render={({ handleSubmit }) => (
+        render={(props) => (
           <AntForm
-            onSubmit={handleSubmit}
+            onSubmit={props.handleSubmit}
             className={styles.Form}
             layout="vertical"
           >
+            {/* {console.log(props)} */}
             <h1 className={styles.title}>Войти на сайт</h1>
             <Input required name="login" type="text" label="Логин" />
             <Input required name="password" type="password" label="Пароль" />

@@ -22,8 +22,13 @@ const Input = ({
   ...rest
 }: Props) =>
   <FinalField className={className} name={name}>
-    {({ input }) => (
+    {({ input, meta }) => (
       <FormItem>
+        {(() => {
+          if (meta.submitError) {
+            console.log(meta.submitError)
+          }
+        })()}
         {label && <label htmlFor={name}>{label}</label>}
         <AntInput
           id={name}
