@@ -1,3 +1,1 @@
-import Page from './page'
-
-export default Page
+export { default as default } from './page'
