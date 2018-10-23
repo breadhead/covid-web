@@ -23,12 +23,10 @@ const Input = ({
 }: Props) =>
   <FinalField className={className} name={name}>
     {({ input, meta }) => (
-      <FormItem>
-        {(() => {
-          if (meta.submitError) {
-            console.log(meta.submitError)
-          }
-        })()}
+      <FormItem
+        validateStatus={meta.submitError && 'error'}
+        help={meta.submitError}
+      >
         {label && <label htmlFor={name}>{label}</label>}
         <AntInput
           id={name}

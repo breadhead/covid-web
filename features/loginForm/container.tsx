@@ -5,13 +5,28 @@ import { login } from './actions'
 import LoginForm from './organisms/Form'
 
 import * as yup from 'yup'
+
+interface Credentials {
+  [key: string]: string
+}
+
+interface Props {
+  login: (credentials: Credentials) => any
+}
+
 const schema = yup.object().shape({
-  password: yup.string().min(3, 'Пароль должен быть больше 2 символов').required(),
-  login: yup.string().min(3, 'Логин должен быть больше 2 символов').required(),
+  password: yup
+    .string()
+    .min(3, 'Пароль должен быть длиннее 2 символов')
+    .required('Пароль должен быть длиннее 2 символов'),
+  login: yup
+    .string()
+    .min(3, 'Логин должен быть длиннее 2 символов')
+    .required('Логин должен быть длиннее 2 символов'),
 })
 
-const Container = (WrappedComponent) => {
-  return class extends React.Component {
+const Container = (WrappedComponent: any) => { // TODO: fix typings
+  return class extends React.Component<Props> {
 
     public render() {
       return <WrappedComponent
@@ -20,7 +35,7 @@ const Container = (WrappedComponent) => {
       />
     }
 
-    private onFormSubmit = async (credentials) => {
+    private onFormSubmit = async (credentials: Credentials) => {
       try {
         await schema.validate(credentials)
         this.props.login(credentials)
@@ -33,8 +48,12 @@ const Container = (WrappedComponent) => {
   }
 }
 
-const mapDipatchToProps = (dispatch: Dispatch<AnyAction>) => ({
-  login: (credentials) => dispatch(login(credentials)),
+const mapState = (state) => ({
+  error: state.login.error,
 })
 
-export default connect(null, mapDipatchToProps)(Container(LoginForm))
+const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
+  login: (credentials: Credentials) => dispatch(login(credentials)),
+})
+
+export default connect(mapState, mapDipatch)(Container(LoginForm))

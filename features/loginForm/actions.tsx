@@ -1,12 +1,11 @@
-import axios from 'axios'
 import { Dispatch } from 'redux'
 
 import { actions } from './reducer'
 
 export const login = (credentials) => async (
   dispatch: Dispatch<any>,
-  getState,
-  apiContainer,
+  getState: () => any,
+  apiContainer: () => any, // TODO: fix typings
 ) => {
 
   try {
