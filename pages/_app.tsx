@@ -1,3 +1,4 @@
+import 'antd/dist/antd.css?cssModulesDisbale'
 import App, { Container } from 'next/app'
 import React, { Component as ReactComponent } from 'react'
 import { Provider } from 'react-redux'
