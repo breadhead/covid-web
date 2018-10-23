@@ -14,9 +14,9 @@ const initialState = {
 } as State
 
 interface Actions {
-  request(state: State): Action
-  success(state: State, token: string): Action
-  error(state: State, error: string): Action
+  request(): Action
+  success(token: string): Action
+  error(error: string): Action
 }
 
 const { actions, reducer } = createSymbiote<State, Actions>(

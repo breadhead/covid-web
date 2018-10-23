@@ -7,15 +7,22 @@ import {
   State as ExampleState,
 } from '@app/features/examples'
 
+import {
+  reducer as loginReducer,
+  State as LoginState,
+} from '@app/features/loginForm'
+
 import ApiClient from './api/ApiClient'
 import RealApiClient from './api/RealApiClient'
 
 export interface State {
-  example: ExampleState
+  example: ExampleState,
+  login: LoginState
 }
 
 const reducer = combineReducers({
   example: exampleReducer,
+  login: loginReducer,
 })
 
 export interface ExtraArgs {
