@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux'
-
+import { setAuthToken } from './helpers/setAuthToken'
 import { actions } from './reducer'
 
 export const login = (credentials) => async (
@@ -11,6 +11,7 @@ export const login = (credentials) => async (
   try {
     dispatch(actions.request())
     const { data: { token } } = await apiContainer.api.login(credentials)
+    setAuthToken(token)
     return dispatch(actions.success(token))
   } catch (error) {
     return dispatch(actions.error(error.message))
