@@ -6,9 +6,16 @@ import { AppContext } from '@app/lib/server-types'
 class Index extends React.Component {
 
   public static getInitialProps(context: AppContext) {
-    // prepare data for landing
+    console.log(context.req.cookies)
 
-    return {}
+    return {
+      c: context.req.cookies,
+    }
+  }
+
+  public componentDidMount() {
+    console.log(this.props)
+
   }
 
   public render() {
