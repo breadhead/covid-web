@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 export const setAuthToken = (token: string) => {
-  if (document) {
+  if (typeof window !== 'undefined') {
     document.cookie = `token=${token}; path=/; expires=${new Date(Date.now() + 900000)};`
   }
   axios.defaults.headers.common.Authorization = `Bearer ${token}`

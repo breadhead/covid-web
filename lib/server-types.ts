@@ -7,3 +7,10 @@ export interface AppContext {
   req: IncomingMessage & { cookies?: any[] }
   ctx: any // TODO: fix it
 }
+
+export interface ExpressError {
+  message: string,
+  response?: {
+    status: number,
+  }
+}

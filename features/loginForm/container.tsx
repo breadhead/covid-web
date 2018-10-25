@@ -11,13 +11,6 @@ export interface Credentials {
   [key: string]: string
 }
 
-export interface ExpressError {
-  message: string,
-  response?: {
-    status: number,
-  }
-}
-
 interface Props {
   login: (credentials: Credentials) => any
 }
