@@ -1,9 +1,8 @@
-import Link from 'next/link'
 import React from 'react'
-
+import NavLink from './atoms/NavLink'
 const Navigation = () => <nav>
-  <Link href="/quotas"><a>Квоты</a></Link>
-  <Link href="/statistics"><a>Статистика</a></Link>
+  <NavLink href="/quotas"><a>Квоты</a></NavLink>
+  <NavLink href="/login"><a>Логин</a></NavLink>
 </nav>
 
 export default Navigation
