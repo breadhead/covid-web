@@ -17,7 +17,6 @@ import ApiClient from './api/ApiClient'
 import RealApiClient from './api/RealApiClient'
 
 export interface State {
-  example: ExampleState,
   login: LoginState
 }
 
