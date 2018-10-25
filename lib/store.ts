@@ -6,7 +6,7 @@ import { BACK_URL } from './config'
 import {
   reducer as loginReducer,
   State as LoginState,
-} from '@app/features/loginForm'
+} from '@app/features/login'
 
 import {
   reducer as quotasReducer,
