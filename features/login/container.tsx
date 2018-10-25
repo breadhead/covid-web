@@ -1,7 +1,7 @@
 import { State } from '@app/lib/store'
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { Action, AnyAction, Dispatch } from 'redux'
+import { AnyAction, Dispatch } from 'redux'
 import { login } from './actions'
 import LoginForm from './organisms/Form'
 
