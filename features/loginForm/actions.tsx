@@ -3,7 +3,6 @@ import { State } from '@app/lib/store'
 import { Dispatch } from 'redux'
 import { Credentials } from './container'
 import { setAuthToken } from './helpers/setAuthToken'
-import { throwAuthErrorFurther } from './helpers/throwAuthErrorFurther'
 import { actions } from './reducer'
 
 export const login = (credentials: Credentials) => async (
