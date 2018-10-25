@@ -1,12 +1,15 @@
+import ApiClient from '@app/lib/api/ApiClient'
+import { State } from '@app/lib/store'
 import { Dispatch } from 'redux'
+import { Credentials } from './container'
 import { setAuthToken } from './helpers/setAuthToken'
 import { throwAuthErrorFurther } from './helpers/throwAuthErrorFurther'
 import { actions } from './reducer'
 
-export const login = (credentials) => async (
+export const login = (credentials: Credentials) => async (
   dispatch: Dispatch<any>,
-  getState: () => any,
-  apiContainer: () => any, // TODO: fix typings
+  getState: () => State,
+  apiContainer: { api: ApiClient },
 ) => {
 
   try {
@@ -16,7 +19,6 @@ export const login = (credentials) => async (
 
     return dispatch(actions.success(token))
   } catch (error) {
-    throwAuthErrorFurther(error)
     return dispatch(actions.error(error.message))
   }
 

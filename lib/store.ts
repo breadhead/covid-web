@@ -4,11 +4,6 @@ import thunk from 'redux-thunk'
 import { BACK_URL } from './config'
 
 import {
-  reducer as exampleReducer,
-  State as ExampleState,
-} from '@app/features/examples'
-
-import {
   reducer as loginReducer,
   State as LoginState,
 } from '@app/features/loginForm'
@@ -21,7 +16,6 @@ export interface State {
 }
 
 const reducer = combineReducers({
-  example: exampleReducer,
   login: loginReducer,
 })
 

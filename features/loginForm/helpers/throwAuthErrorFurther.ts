@@ -1,6 +1,6 @@
 import { checkForAuthError } from './checkForAuthError'
 
-export const throwAuthErrorFurther = (error) => {
+export const throwAuthErrorFurther = (error: Error) => {
   if (checkForAuthError(error)) {
     throw error
   }

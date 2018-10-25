@@ -1,13 +1,21 @@
+import { State } from '@app/lib/store'
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { AnyAction, Dispatch } from 'redux'
+import { Action, AnyAction, Dispatch } from 'redux'
 import { login } from './actions'
 import LoginForm from './organisms/Form'
 
 import * as yup from 'yup'
 
-interface Credentials {
+export interface Credentials {
   [key: string]: string
+}
+
+export interface ExpressError {
+  message: string,
+  response?: {
+    status: number,
+  }
 }
 
 interface Props {
@@ -48,12 +56,12 @@ const Container = (WrappedComponent: any) => { // TODO: fix typings
   }
 }
 
-const mapState = (state) => ({
+const mapState = (state: State) => ({
   error: state.login.error,
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
-  login: (credentials: Credentials) => dispatch(login(credentials)),
+  login: (credentials: Credentials) => dispatch(login(credentials) as any),
 })
 
 export default connect(mapState, mapDipatch)(Container(LoginForm))
