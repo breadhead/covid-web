@@ -1,4 +1,4 @@
-import RegularLayout from '@app/layouts/Regular'
+import RegularLayout from '@app/features/layout'
 import withReduxStore, { Store } from '@app/lib/with-redux-store'
 import 'antd/dist/antd.css?CSSModulesDisbale'
 import App, { Container } from 'next/app'

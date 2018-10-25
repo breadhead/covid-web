@@ -5,7 +5,7 @@ interface Props {
   children: React.ReactNode
 }
 
-const RegularLayout = ({ children }: Props) => {
+const Layout = ({ children }: Props) => {
   return <React.Fragment>
     <header>
       <nav>
@@ -20,4 +20,4 @@ const RegularLayout = ({ children }: Props) => {
   </React.Fragment>
 
 }
-export default RegularLayout
+export default Layout
