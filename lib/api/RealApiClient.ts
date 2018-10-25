@@ -13,8 +13,8 @@ export default class RealApiClient implements ApiClient {
     })
   }
 
-  public quotas() {
-    return Promise.resolve([])
+  public quotas = async () => {
+    return this.axiosInstance.get('/quotas')
   }
 
   public login = async (credentials: Credentials) => {
