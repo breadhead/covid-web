@@ -1,7 +1,7 @@
 import ApiClient from '@app/lib/api/ApiClient'
 import { State } from '@app/lib/store'
 import { Dispatch } from 'redux'
-import { throwAuthErrorFurther } from '../loginForm'
+import { throwAuthErrorFurther } from '../login'
 import { actions } from './reducer'
 
 export const fetchQuotas = () => async (

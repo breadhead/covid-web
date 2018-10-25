@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { AppContext, ExpressError } from '@app/lib/server-types'
-import { handleAnonymous } from '../loginForm'
+import { handleAnonymous } from '../login'
 import { fetchQuotas } from './actions'
 import QuotasPage from './page'
 
