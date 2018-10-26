@@ -1,5 +1,5 @@
+import { Col, Row } from 'antd'
 import axios from 'axios'
-import { Row, Col } from 'antd'
 import Link from 'next/link'
 import * as React from 'react'
 
@@ -8,6 +8,7 @@ import QuotaDescription from '../organisms/QuotaDescription'
 import styles from './Page.css'
 
 const quota = {
+  // tslint:disable:quotemark object-literal-key-quotes
   "id": "fdsf34",
   "name": "Рак молочной железы, Кемеровская область",
   "count": 1000,
@@ -16,11 +17,11 @@ const quota = {
     "donation": 12233,
     "logo": "/path/to/logo.png",
     "site": "google.com",
-    "publicComment": "Средства на консультацию предоставлены Фондом профилактики рака"
+    "publicComment": "Средства на консультацию предоставлены Фондом профилактики рака",
   },
   "type": "Special",
   "constraints": [
-    "Красноярский край"
+    "Красноярский край",
   ],
   "publicCompany": true,
   "comment": "Какой-то комментарий",
@@ -34,7 +35,7 @@ class QuotaPage extends React.Component {
     }
   }
 
-  // public getQuotas(quotas) {
+  // public getQuota(quota) {
   //   this.setState( {quota} )
   // }
 
@@ -42,13 +43,14 @@ class QuotaPage extends React.Component {
   //   axios.get('http://localhost:3000/quotas')
   //     .then((response) => {
   //       console.log('response', response)
-  //       // this.getQuotas(response.data)
+  //       // this.getQuota(response.data)
   //     })
   //     .catch(console.log)
   // }
 
   public render() {
     return (
+      // TODO: add header when it's completed
       <section className={styles.QuotaWrapper}>
         <a href="#">{'< '}Вернуться ко всем квотам</a>
         <QuotaDescription quota={quota} />
