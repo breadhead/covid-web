@@ -1,14 +1,22 @@
 import { State } from '@app/lib/store'
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { AnyAction, Dispatch } from 'redux'
+import { AnyAction, compose, Dispatch } from 'redux'
 import { login } from './actions'
 import LoginForm from './organisms/Form'
 
 import * as yup from 'yup'
 
 export interface Credentials {
-  [key: string]: string
+  login: string,
+  password: string
+}
+
+export interface ServerError {
+  message: string,
+  response?: {
+    status: number,
+  }
 }
 
 interface Props {
@@ -26,7 +34,7 @@ const schema = yup.object().shape({
     .required('Логин должен быть длиннее 2 символов'),
 })
 
-const Container = (WrappedComponent: any) => { // TODO: fix typings
+const Container = (WrappedComponent: any) => { // TODO: fix types
   return class extends React.Component<Props> {
 
     public render() {
@@ -54,7 +62,10 @@ const mapState = (state: State) => ({
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
-  login: (credentials: Credentials) => dispatch(login(credentials) as any),
+  login: (credentials: Credentials) => dispatch(login(credentials.login, credentials.password) as any),
 })
 
-export default connect(mapState, mapDipatch)(Container(LoginForm))
+export default compose(
+  connect(mapState, mapDipatch),
+  Container,
+)
