@@ -1,5 +1,5 @@
 import React from 'react'
-
-const Logo = () => <div>Logo</div>
+import styles from './Logo.css'
+const Logo = () => <div className={styles.Logo}>Logo</div>
 
 export default Logo
