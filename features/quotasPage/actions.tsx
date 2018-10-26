@@ -11,8 +11,8 @@ export const fetchQuotas = () => async (
 ) => {
   try {
     dispatch(actions.request())
-    const { data } = await apiContainer.api.quotas()
-    return dispatch(actions.success(data))
+    const quotas = await apiContainer.api.quotas()
+    return dispatch(actions.success(quotas))
   } catch (error) {
     throwAuthErrorFurther(error)
     return dispatch(actions.error(error.message))
