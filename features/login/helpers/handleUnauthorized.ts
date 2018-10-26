@@ -1,7 +1,7 @@
 import Router from 'next/router'
 import { checkForAuthError } from './checkForAuthError'
 
-export const handleAnonymous = (error: any, res: any) => {
+export const handleUnauthorized = (error: any, res: any) => {
 
   if (checkForAuthError(error)) {
     if (res) {
