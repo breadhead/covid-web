@@ -1,7 +1,11 @@
+import Link from 'next/link'
 import * as React from 'react'
 
 const LandingPage = () => (
-  <p>Oncohelp</p>
+  <main>
+    <p>Oncohelp</p>
+    <Link href="/login"><a>login</a></Link>
+  </main>
 )
 
 export default LandingPage

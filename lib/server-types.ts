@@ -1,9 +1,9 @@
 import { IncomingMessage } from 'http'
 
-import { Store  } from './with-redux-store'
+import { Store } from './with-redux-store'
 
 export interface AppContext {
   reduxStore: Store
-  req: IncomingMessage
+  req: IncomingMessage & { cookies?: any[] }
   ctx: any // TODO: fix it
 }
