@@ -1,4 +1,4 @@
-import { ExpressError } from '../container'
+import { ServerError } from '../container'
 
-export const checkForAuthError = (error: ExpressError) =>
+export const checkForAuthError = (error: ServerError) =>
   error.response && error.response.status === 401

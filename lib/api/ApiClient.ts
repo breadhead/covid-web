@@ -1,7 +1,10 @@
-import { Credentials } from '@app/features/loginForm/container'
-import { AxiosResponse } from 'axios'
+
+export interface User {
+  token: string
+}
 
 export default interface ApiClient {
   quotas(): Promise<any[]>
-  login(credentials: Credentials): Promise<AxiosResponse<any>>
+  login(login: string, password: string): Promise<User>
+  setToken(token: string): void
 }

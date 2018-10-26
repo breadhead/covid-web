@@ -1422,6 +1422,11 @@ argparse@^1.0.7:
   dependencies:
     sprintf-js "~1.0.2"
 
+args-parser@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/args-parser/-/args-parser-1.1.0.tgz#6253bfcd694d279fe63eaafd78d628d14a05ffa9"
+  integrity sha1-YlO/zWlNJ5/mPqr9eNYo0UoF/6k=
+
 arr-diff@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/arr-diff/-/arr-diff-2.0.0.tgz#8f3b827f955a8bd669697e4a4256ac3ceae356cf"

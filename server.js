@@ -1,6 +1,9 @@
 const next = require('next')
 const express = require('express')
 const cookieParser = require('cookie-parser')
+const args = require('args-parser')(process.argv)
+
+const FALLBACK_PORT = 3001
 
 const dev = process.env.NODE_ENV !== 'production'
 
@@ -20,5 +23,5 @@ app.prepare().then(() => {
 
 
 
-  server.listen(3001)
+  server.listen(args.p || FALLBACK_PORT) // listen on port which is supplied as -p console argument
 });
