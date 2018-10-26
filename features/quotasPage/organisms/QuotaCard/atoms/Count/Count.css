@@ -1,5 +1,5 @@
 .Count {
-  font-weight: 700;
   font: var(--text18-24);
+  font-weight: 700;
   color: #111111;
 }
