@@ -1,0 +1,11 @@
+.Footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  & > * {
+    color: #292F40;
+    font: var(--text14-18);
+    margin-right: 18px;
+  }
+}
+
