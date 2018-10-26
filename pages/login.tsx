@@ -1,6 +1,6 @@
 import React from 'react'
 
-import LoginPage from '@app/features/login'
+import LoginPage from '@app/features/loginPage'
 import { AppContext } from '@app/lib/server-types'
 
 class Index extends React.Component {

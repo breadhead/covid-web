@@ -1,27 +1,21 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
-
-import {
-  reducer as exampleReducer,
-  State as ExampleState,
-} from '@app/features/examples'
+import { BACK_URL } from './config'
 
 import {
   reducer as loginReducer,
   State as LoginState,
-} from '@app/features/loginForm'
+} from '@app/features/login'
 
 import ApiClient from './api/ApiClient'
 import RealApiClient from './api/RealApiClient'
 
 export interface State {
-  example: ExampleState,
   login: LoginState
 }
 
 const reducer = combineReducers({
-  example: exampleReducer,
   login: loginReducer,
 })
 
@@ -35,7 +29,7 @@ export const initializeStore = (initialState?: State) =>
     initialState,
     composeWithDevTools(applyMiddleware(
       thunk.withExtraArgument({
-        api: new RealApiClient(),
+        api: new RealApiClient(BACK_URL),
       } as ExtraArgs),
     )),
   )

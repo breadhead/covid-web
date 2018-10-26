@@ -1,5 +1,4 @@
-// const withCSS = require("@zeit/next-css");
-const withCSS = require("./next-css");
+const withCSS = require("@zeit/next-css");
 
 const withTypescript = require("@zeit/next-typescript");
 
