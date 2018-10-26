@@ -22,7 +22,8 @@ const QuotaControl = ({ quota }: Props) => (
         <Form
           className={styles.Form}
           layout="inline"
-          onSubmit={}
+          // TODO: add quota accrual process on submit
+          // onSubmit={}
         >
           <FormItem>
             <Input
