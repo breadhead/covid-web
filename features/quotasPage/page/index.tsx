@@ -1,8 +1,9 @@
 import React from 'react'
+import Quota from '../organisms/QuotaCard'
 
-const Page = () =>
+const Page = ({ quotas }) =>
   <div>
-    quotas page
+    {quotas.map((quota) => <Quota key={quota.name} {...quota}></Quota>)}
   </div>
 
 export default Page

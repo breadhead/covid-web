@@ -1,6 +1,6 @@
 import { Company } from '../Company'
 
-enum QuotaType { Common, Corporate, Special }
+export enum QuotaType { Common, Corporate, Special }
 
 export interface Quota {
   id: string
