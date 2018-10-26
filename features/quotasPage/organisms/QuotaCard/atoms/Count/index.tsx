@@ -1,11 +1,12 @@
 import * as React from 'react'
+import styles from './Count.css'
 
 export interface CountProps {
-  count: number
+  children: number
 }
 
-const Count: React.SFC<CountProps> = ({ count }) => {
-  return (<div>{count}</div>)
+const Count: React.SFC<CountProps> = ({ children }) => {
+  return (<div className={styles.Count}>{children}</div>)
 }
 
 export default Count

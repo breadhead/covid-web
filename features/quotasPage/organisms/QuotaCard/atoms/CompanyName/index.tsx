@@ -1,11 +1,12 @@
 import * as React from 'react'
+import styles from './CompanyName.css'
 
 export interface CompanyNameProps {
-  companyName: string
+  children: string
 }
 
-const CompanyName: React.SFC<CompanyNameProps> = ({ companyName }) => {
-  return (<div>{companyName}</div>)
+const CompanyName: React.SFC<CompanyNameProps> = ({ children }) => {
+  return (<div className={styles.CompanyName}>{children}</div>)
 }
 
 export default CompanyName

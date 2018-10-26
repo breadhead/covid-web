@@ -1,18 +1,13 @@
 import { Quota } from '@app/models/Quota'
 import * as React from 'react'
-import Comment from './atoms/Comment'
-import CompanyName from './atoms/CompanyName'
-import Count from './atoms/Count'
-import Name from './atoms/Name'
-import Type from './atoms/Type'
+import Footer from './molecules/Footer'
+import Header from './molecules/Header'
+import styles from './QuotaCard.css'
 
-const QuotaCard: React.SFC<Quota> = ({ comment, company, count, name, type }) => {
-  return <div>
-    <Comment comment={comment} />
-    <CompanyName companyName={company.name} />
-    <Count count={count} />
-    <Name name={name} />
-    <Type type={type} />
+const QuotaCard: React.SFC<Quota> = ({ comment, id, company, count, name, type }) => {
+  return <div className={styles.QuotaCard}>
+    <Header company={company} name={name} count={count} id={id} />
+    <Footer companyName={company.name} type={type} comment={comment} />
   </div>
 }
 

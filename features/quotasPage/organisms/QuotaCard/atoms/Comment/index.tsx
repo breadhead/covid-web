@@ -1,11 +1,11 @@
 import * as React from 'react'
 
 export interface CommentProps {
-  comment: string
+  children: string
 }
 
-const Comment: React.SFC<CommentProps> = ({ comment }) => {
-  return (<div>{comment}</div>)
+const Comment: React.SFC<CommentProps> = ({ children }) => {
+  return (<div>{children}</div>)
 }
 
 export default Comment

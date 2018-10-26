@@ -1,9 +1,14 @@
+import { Quota } from '@app/models/Quota'
 import React from 'react'
-import Quota from '../organisms/QuotaCard'
+import QuotaCard from '../organisms/QuotaCard'
 
-const Page = ({ quotas }) =>
-  <div>
-    {quotas.map((quota) => <Quota key={quota.name} {...quota}></Quota>)}
-  </div>
+interface PageProps {
+  quotas: Quota[]
+}
+
+const Page: React.SFC<PageProps> = ({ quotas }) =>
+  <main>
+    {quotas.map((quota) => <QuotaCard key={quota.name} {...quota}></QuotaCard>)}
+  </main>
 
 export default Page
