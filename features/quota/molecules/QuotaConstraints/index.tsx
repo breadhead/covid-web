@@ -4,10 +4,12 @@ import styles from './QuotaConstraints.css'
 
 class QuotaConstraints extends React.Component {
 
+  private const constraints = this.constraints
+
   public render() {
     return (
       <p className={styles.QuotaConstraints}>
-        {this.constraints + ' '}
+        {constraints + ' '}
         {/* TODO: change icon by button after UI-kit availability */}
         <Icon type="edit" theme="filled" onClick={this.handleClick} />
       </p>
