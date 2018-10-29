@@ -28,25 +28,12 @@ const quota = {
 }
 
 class QuotaPage extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      quota: [],
-    }
+
+  public state = {
+    quota: [],
   }
 
-  // public getQuota(quota) {
-  //   this.setState( {quota} )
-  // }
-
-  // public componentDidMount() {
-  //   axios.get('http://localhost:3000/quotas')
-  //     .then((response) => {
-  //       console.log('response', response)
-  //       // this.getQuota(response.data)
-  //     })
-  //     .catch(console.log)
-  // }
+  // TODO: get quota from server when quota api is complete
 
   public render() {
     return (
