@@ -3,7 +3,7 @@ import * as React from 'react'
 
 import styles from './QuotaDetails.css'
 
-const QuotaDetails = ({ type, name, comment }: Props) =>
+const QuotaDetails = ({ type, name, comment }) =>
   <p className={styles.QuotaDetails}>
     <Row gutter={16}>
       <Col span={2}>

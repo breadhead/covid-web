@@ -1,13 +1,14 @@
 import { Col, Icon, Row } from 'antd'
 import * as React from 'react'
 
+import { Quota } from '@app/models/Quota'
 import CompanyLogo from '@app/ui/molecules/CompanyLogo'
 import QuotaDetails from '@app/ui/molecules/QuotaDetails'
 import IsCompaniyPublic from '../../molecules/IsCompanyPublic'
 import QuotaConstraints from '../../molecules/QuotaConstraints'
 import styles from './QuotaDescription.css'
 
-const QuotaDescription = ({ quota }: Props) => (
+const QuotaDescription = ({ quota }: Quota) => (
   <div className={styles.QuotaDescription}>
     <QuotaConstraints constraints={quota.constraints} />
     <QuotaDetails name={quota.company.name} type={quota.type} comment={quota.comment} />

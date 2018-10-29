@@ -1,12 +1,13 @@
 import { Button, Card, Col, Form, Input as AntInput, Row } from 'antd'
 import * as React from 'react'
 
+import { Quota } from '@app/models/Quota'
 import Input from '@app/ui/molecules/Input'
 import styles from './QuotaControl.css'
 
 const FormItem = Form.Item
 
-const QuotaControl = ({ quota }: Props) => (
+const QuotaControl = ({ quota }: Quota) => (
 
   <Card>
     <Row type="flex" aling="center" gutter={24}>
