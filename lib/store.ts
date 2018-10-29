@@ -10,7 +10,7 @@ import {
 import {
   reducer as quotasReducer,
   State as QuotasState,
-} from '@app/features/quotasPage'
+} from '@app/features/quotas'
 
 import ApiClient from './api/ApiClient'
 import ApiClientFactory from './api/ApiClientFactory'
