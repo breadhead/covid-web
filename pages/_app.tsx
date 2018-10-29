@@ -13,6 +13,8 @@ interface Props {
 }
 
 class OncohelpWeb extends App<Props> {
+
+
   public render() {
     const { Component, pageProps, reduxStore } = this.props
 
