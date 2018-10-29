@@ -1,4 +1,3 @@
-import Uploading from '@app/features/uploading/Uploading'
 import { Quota } from '@app/models/Quota'
 import React from 'react'
 import Header from '../organisms/Header'
