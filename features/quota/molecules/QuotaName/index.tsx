@@ -6,11 +6,11 @@ class QuotaName extends React.Component {
 
   public render() {
     return (
-      <p className={styles.QuotaName}>
+      <h1 className={styles.QuotaName}>
         {this.props.name + ' '}
         {/* TODO: change icon by button after UI-kit availability */}
         <Icon type="edit" theme="filled" onClick={this.handleClick} />
-      </p>
+      </h1>
     )
   }
 
