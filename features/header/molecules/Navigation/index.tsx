@@ -5,6 +5,7 @@ import styles from './Navigation.css'
 const Navigation = () => <nav className={styles.Navigation}>
   <NavLink href="/quotas">Квоты</NavLink>
   <NavLink href="/login">Логин</NavLink>
+  <NavLink href="/transfer">Трансфер</NavLink>
 </nav>
 
 export default Navigation
