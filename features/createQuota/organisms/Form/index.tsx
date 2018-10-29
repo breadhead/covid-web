@@ -1,4 +1,5 @@
 import Input from '@app/ui/molecules/Input'
+import Select from '@app/ui/molecules/Select'
 import TextArea from '@app/ui/molecules/TextАrea'
 import { Button, Form as AntForm } from 'antd'
 import * as React from 'react'
@@ -20,6 +21,21 @@ const onSubmit = (evt: any) => {
   console.log(evt.target)
 }
 
+const QUOTA_CATEGORY = [
+  {
+    title: 'Обычная',
+    value: 'Common',
+  },
+  {
+    title: 'Корпоративная',
+    value: 'Corporate',
+  },
+  {
+    title: 'Специальная',
+    value: 'Special',
+  },
+]
+
 const Form = ({ onFormSubmit, error }: Props) => (
   <FinalForm
     onSubmit={onSubmit}
@@ -36,10 +52,11 @@ const Form = ({ onFormSubmit, error }: Props) => (
           type="text"
           label="Название типа квот"
         />
-        <Input // нужно сделать селект
-          name="categiry"
-          type="text"
+        <Select
+          name="category"
           label="Категория типа квот"
+          options={QUOTA_CATEGORY}
+          defaultValue="Common"
         />
         <Input
           name="donor"
@@ -84,7 +101,7 @@ const Form = ({ onFormSubmit, error }: Props) => (
             htmlType="submit"
           >
             Создать
-            </Button>
+          </Button>
         </FormItem>
       </AntForm>
     )}
