@@ -3,7 +3,6 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 import * as yup from 'yup'
-import Form from './organisms/Form'
 import { createQuota } from './actions'
 
 export interface Credentials {
@@ -18,6 +17,20 @@ export interface Credentials {
   logotypeComment: string
 }
 
+export interface TrueCredentials {
+  count: number
+  quota: {
+    name: string,
+    companyName: string,
+    companyLogoUrl: string,
+    companyLink: string,
+    constraints: string[],
+    corporate: boolean,
+    publicCompany: boolean,
+    comment: string,
+  }
+}
+
 export interface ServerError {
   message: string,
   response?: {
@@ -26,24 +39,15 @@ export interface ServerError {
 }
 
 const schema = yup.object().shape({
-  name: yup
-    .string()
-    .required('Название должно быть длиннее 2 символов'),
-  donor: yup
-    .string(),
-  comment: yup
-    .string(),
-  count: yup
-    .string()
-    .required('Укажите количество квот'),
-  showDonor: yup
-    .string(),
-  logotype: yup
-    .string(),
-  donorSite: yup
-    .string(),
-  logotypeComment: yup
-    .string(),
+  name: yup.string().required('Название должно быть длиннее 2 символов'),
+  category: yup.string(),
+  companyName: yup.string().required('Укажите имя жертвователя'),
+  comment: yup.string(),
+  count: yup.string().required('Укажите количество квот'),
+  publicCompany: yup.string(),
+  logotype: yup.string(),
+  companyLink: yup.string(),
+  logotypeComment: yup.string(),
 })
 
 const Container = (WrappedComponent: any) => { // TODO: fix types
@@ -57,6 +61,7 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
     }
 
     private onFormSubmit = async (credentials: Credentials) => {
+      console.log('credentials', credentials)
       try {
         await schema.validate(credentials)
         this.props.createQuota(credentials)
@@ -69,7 +74,7 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
 }
 
 const mapState = (state: State) => ({
-  error: state.login.error,
+  error: state.createQuota.error,
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({

@@ -52,7 +52,7 @@ const Form = ({ onFormSubmit, error }: Props) => (
           defaultValue="Common"
         />
         <Input
-          name="donor"
+          name="companyName"
           type="text"
           label="Жертвователь"
         />
@@ -66,7 +66,7 @@ const Form = ({ onFormSubmit, error }: Props) => (
           label="Количество квот"
         />
         <Input
-          name="show-donor"
+          name="publicCompany"
           type="checkbox"
           label="Показывать жертвователя на сайте"
         />
@@ -76,7 +76,7 @@ const Form = ({ onFormSubmit, error }: Props) => (
           label="Загрузить логотип"
         />
         <Input
-          name="donor-site"
+          name="companyLink"
           type="text"
           placeholder="Ссылка на сайт жертвователя"
         />
@@ -99,4 +99,5 @@ const Form = ({ onFormSubmit, error }: Props) => (
     )}
   />
 )
+
 export default Form

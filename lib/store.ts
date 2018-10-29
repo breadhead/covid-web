@@ -8,6 +8,11 @@ import {
   State as LoginState,
 } from '@app/features/login'
 
+import createQuota, {
+  reducer as createQuotaReducer,
+  State as createQuotaState,
+} from '@app/features/createQuota'
+
 import {
   reducer as quotasReducer,
   State as QuotasState,
@@ -19,11 +24,13 @@ import RealApiClient from './api/RealApiClient'
 export interface State {
   login: LoginState,
   quotas: QuotasState,
+  createQuota: createQuotaState,
 }
 
 const reducer = combineReducers({
   login: loginReducer,
   quotas: quotasReducer,
+  createQuota: createQuotaReducer,
 })
 
 export interface ExtraArgs {

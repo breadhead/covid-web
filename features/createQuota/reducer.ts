@@ -2,8 +2,6 @@ import { Action } from 'redux'
 import { createSymbiote } from 'redux-symbiote'
 
 interface State {
-  token: string,
-  fetching: boolean,
   error: false | string
 }
 
@@ -19,15 +17,12 @@ interface Actions {
 const { actions, reducer } = createSymbiote<State, Actions>(
   initialState,
   {
-    success: (state, token) => ({
+    success: (state) => ({
       ...state,
-      fetching: false,
       error: false,
-      token,
     }),
     error: (state, error) => ({
       ...state,
-      fetching: false,
       error,
     }),
   },
