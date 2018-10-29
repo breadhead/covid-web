@@ -1,6 +1,7 @@
 import { Quota } from '@app/models/Quota'
 import React from 'react'
-import QuotaCard from '../organisms/QuotaCard'
+import Header from '../organisms/Header'
+import QuotasList from '../organisms/QuotasList'
 
 interface PageProps {
   quotas: Quota[]
@@ -8,7 +9,8 @@ interface PageProps {
 
 const Page: React.SFC<PageProps> = ({ quotas }) =>
   <main>
-    {quotas.map((quota) => <QuotaCard key={quota.name} {...quota}></QuotaCard>)}
+    <Header />
+    <QuotasList quotas={quotas} />
   </main>
 
 export default Page
