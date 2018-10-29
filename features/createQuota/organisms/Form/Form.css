@@ -2,7 +2,7 @@ form.Form {
   max-width: 640px;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 0 9em;
+  padding: 0 6em;
 }
 
 form.Form input[type="checkbox"] {
@@ -13,4 +13,13 @@ form.Form input[type="checkbox"] {
 form.Form input[type="file"] {
     border: none;
     padding: 5px 0 0 0;
+}
+
+form.Form textarea {
+    padding: 5px 0 0 0;
+    resize: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    width: 100%;
+    padding: 4px 11px;
 }

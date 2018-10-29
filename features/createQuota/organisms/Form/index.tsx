@@ -1,4 +1,5 @@
 import Input from '@app/ui/molecules/Input'
+import TextArea from '@app/ui/molecules/TextАrea'
 import { Button, Form as AntForm } from 'antd'
 import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
@@ -45,9 +46,8 @@ const Form = ({ onFormSubmit, error }: Props) => (
           type="text"
           label="Жертвователь"
         />
-        <Input // textarea
+        <TextArea
           name="comment"
-          type="text"
           label="Комментарий к типу квот"
         />
         <Input
@@ -71,11 +71,11 @@ const Form = ({ onFormSubmit, error }: Props) => (
           type="text"
           placeholder="Ссылка на сайт жертвователя"
         />
-        <Input
+        <TextArea
           name="logotype-comment"
-          type="text"
-          label="Публичное пояснение возле логотипа
+          placeholder="Публичное пояснение возле логотипа
           (Например, «Средства на консультацию предоставлены Фондом профилактики рака»)"
+          rows={3}
         />
         <FormItem validateStatus={error ? 'error' : undefined}
           help={error && INVALID_CREDENTIALS_MESSAGE}  >
