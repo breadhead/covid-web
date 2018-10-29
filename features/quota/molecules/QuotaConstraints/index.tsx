@@ -14,8 +14,9 @@ class QuotaConstraints extends React.Component {
     )
   }
 
-  private handeleClick = () =>
+  private handeleClick = () => {
     // TODO: add popup showing on click after popup availability
+  }
 }
 
 export default QuotaConstraints
