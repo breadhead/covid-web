@@ -5,9 +5,7 @@ import Form from './organisms/Form'
 class CreateQuota extends React.Component {
   public render() {
     return (
-      <Layout>
         <Form />
-      </Layout>
     )
   }
 }

@@ -35,7 +35,6 @@ const Form = ({ onFormSubmit, error }: Props) => (
         <FormItem validateStatus={error ? 'error' : undefined}
           help={error && INVALID_CREDENTIALS_MESSAGE}  >
           <Button
-
             type="primary"
             htmlType="submit"
           >
