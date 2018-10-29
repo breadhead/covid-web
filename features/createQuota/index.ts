@@ -1,1 +1,3 @@
-export { default as default } from './container'
+import Container from './container'
+import Form from './organisms/Form'
+export default Container(Form)

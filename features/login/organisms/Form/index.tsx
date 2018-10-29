@@ -39,7 +39,7 @@ const Form = ({ onFormSubmit, error }: Props) => (
             htmlType="submit"
           >
             Войти
-              </Button>
+          </Button>
         </FormItem>
       </AntForm>
     )}

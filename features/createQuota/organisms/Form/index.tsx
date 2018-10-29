@@ -15,12 +15,6 @@ interface Props {
   error: boolean | string
 }
 
-const onSubmit = (evt: any) => {
-  evt.stopPropagation()
-  evt.preventDefault()
-  console.log(evt.target)
-}
-
 const QUOTA_CATEGORY = [
   {
     title: 'Обычная',
@@ -38,11 +32,10 @@ const QUOTA_CATEGORY = [
 
 const Form = ({ onFormSubmit, error }: Props) => (
   <FinalForm
-    onSubmit={onSubmit}
+    onSubmit={onFormSubmit}
     render={(props) => (
       <AntForm
-        // onSubmit={props.handleSubmit}
-        onSubmit={onSubmit}
+        onSubmit={props.handleSubmit}
         className={styles.Form}
         layout="vertical"
       >
@@ -77,7 +70,6 @@ const Form = ({ onFormSubmit, error }: Props) => (
           type="checkbox"
           label="Показывать жертвователя на сайте"
         />
-
         <Input
           name="logotype"
           type="file"

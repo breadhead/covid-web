@@ -21,7 +21,7 @@ const Input = ({
   placeholder,
   ...rest
 }: Props) =>
-  <FinalField className={className} name={name}>
+  <FinalField className={className} name={name} type={type}>
     {({ input, meta }) => (
       <FormItem
         validateStatus={meta.submitError && 'error'}
