@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { AppContext, ExpressError } from '@app/lib/server-types'
+import { tapOrHandle } from '@app/features/login/helpers/tabOrHandle'
+import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { Quota } from '@app/models/Quota'
 import { connect } from 'react-redux'
-import { handleUnauthorized } from '../login'
 import { fetchQuotas } from './actions'
 import QuotasPage from './page'
 import { getQuotas } from './selectors'
@@ -18,7 +18,7 @@ class Container extends React.Component<Props> {
   public static async getInitialProps(context: AppContext) {
     await context.reduxStore
       .dispatch(fetchQuotas() as any)
-      .catch((error: ExpressError) => handleUnauthorized(error, context.res))
+      .catch(tapOrHandle(context))
     return {}
   }
 

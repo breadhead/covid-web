@@ -1,3 +1,4 @@
+import { errorSymbiote, requestSymbiote } from '@app/lib/symbioteFactory'
 import { Action } from 'redux'
 import { createSymbiote } from 'redux-symbiote'
 
@@ -22,21 +23,14 @@ interface Actions {
 const { actions, reducer } = createSymbiote<State, Actions>(
   initialState,
   {
-    request: (state) => ({
-      ...state,
-      fetching: true,
-    }),
+    request: requestSymbiote,
     success: (state, data) => ({
       ...state,
       fetching: false,
       error: false,
       data,
     }),
-    error: (state, error) => ({
-      ...state,
-      fetching: false,
-      error,
-    }),
+    error: errorSymbiote,
   },
   'quotas',
 )

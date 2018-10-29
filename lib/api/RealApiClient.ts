@@ -12,9 +12,6 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance = axios.create({
       baseURL: this.baseUrl,
     })
-
-    // tslint:disable-next-line:max-line-length
-    axios.defaults.headers.common.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImFkbWluIiwicm9sZXMiOlsiYWRtaW4iLCJjbGllbnQiXSwiaWF0IjoxNTQwNTU0MTE0LCJleHAiOjE1NzIwOTAxMTR9.rF_AiH0xxhBfjOovv15lKo63r8K4P63WiK88bdHmnaA`
   }
 
   public quotas = () => this.axiosInstance.get('/quotas').then((response) => response.data as Quota[])

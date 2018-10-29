@@ -1,5 +1,4 @@
 import { State } from '@app/lib/store'
-import Router from 'next/router'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
@@ -48,7 +47,6 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
       try {
         await schema.validate(credentials)
         this.props.login(credentials)
-          .then(() => Router.push('/quotas'))
       } catch (props) {
 
         return { [props.path]: props.message }

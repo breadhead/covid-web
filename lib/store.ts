@@ -40,3 +40,8 @@ export const initializeStore = (initialState?: State) =>
       } as ExtraArgs),
     )),
   )
+
+  // export const requestSymbiote = (state) => ({
+    //   ...state,
+    //   fetching: true,
+    // })
