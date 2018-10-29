@@ -5,6 +5,7 @@ const LandingPage = () => (
   <main>
     <p>Oncohelp</p>
     <Link href="/login"><a>login</a></Link>
+    <Link href="/quotas"><a>quotas</a></Link>
   </main>
 )
 
