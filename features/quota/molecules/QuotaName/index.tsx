@@ -1,15 +1,13 @@
 import { Icon } from 'antd'
 import * as React from 'react'
-import styles from './QuotaConstraints.css'
+import styles from './QuotaName.css'
 
-class QuotaConstraints extends React.Component {
-
-  private const constraints = this.constraints
+class QuotaName extends React.Component {
 
   public render() {
     return (
-      <p className={styles.QuotaConstraints}>
-        {constraints + ' '}
+      <p className={styles.QuotaName}>
+        {this.props.name + ' '}
         {/* TODO: change icon by button after UI-kit availability */}
         <Icon type="edit" theme="filled" onClick={this.handleClick} />
       </p>
@@ -21,4 +19,4 @@ class QuotaConstraints extends React.Component {
   }
 }
 
-export default QuotaConstraints
+export default QuotaName

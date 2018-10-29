@@ -5,12 +5,12 @@ import { Quota } from '@app/models/Quota'
 import CompanyLogo from '@app/ui/molecules/CompanyLogo'
 import QuotaDetails from '@app/ui/molecules/QuotaDetails'
 import IsCompaniyPublic from '../../molecules/IsCompanyPublic'
-import QuotaConstraints from '../../molecules/QuotaConstraints'
+import QuotaName from '../../molecules/QuotaName'
 import styles from './QuotaDescription.css'
 
 const QuotaDescription = ({ quota }: Quota) => (
   <div className={styles.QuotaDescription}>
-    <QuotaConstraints constraints={quota.constraints} />
+    <QuotaName name={quota.name} />
     <QuotaDetails name={quota.company.name} type={quota.type} comment={quota.comment} />
     <IsCompaniyPublic publicCompany={quota.publicCompany}/>
     <Row gutter={16}>
