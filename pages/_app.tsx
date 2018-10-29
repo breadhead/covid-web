@@ -2,6 +2,7 @@ import RegularLayout from '@app/features/layout'
 import ApiClientFactory from '@app/lib/api/ApiClientFactory'
 import withReduxStore, { Store } from '@app/lib/with-redux-store'
 import 'antd/dist/antd.css?CSSModulesDisbale'
+import Cookie from 'js-cookie'
 import App, { Container, NextAppContext } from 'next/app'
 import React, { Component as ReactComponent } from 'react'
 import { Provider } from 'react-redux'
@@ -18,11 +19,15 @@ class OncohelpWeb extends App<Props> {
     if (context.ctx.req) {
       const token: string = (context.ctx.req as any).cookies.token
       if (token) {
-        ApiClientFactory.getApiClient().setToken(token)
+        ApiClientFactory.getApiClient().token = token
       }
     }
 
     return App.getInitialProps(context)
+  }
+
+  public componentDidMount() {
+    ApiClientFactory.getApiClient().token = Cookie.get('token')
   }
 
   public render() {
