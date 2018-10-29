@@ -39,6 +39,7 @@ class QuotaPage extends React.Component {
     return (
       // TODO: add header when it's completed
       <section className={styles.QuotaWrapper}>
+        {/* TODO: add link address */}
         <a href="#">{'< '}Вернуться ко всем квотам</a>
         <QuotaDescription quota={quota} />
         <QuotaControl quota={quota} />
