@@ -14,6 +14,7 @@ import {
 
 import ApiClient from './api/ApiClient'
 import ApiClientFactory from './api/ApiClientFactory'
+import { unauthorizedMiddleware } from './unauthorizedMiddleware'
 
 export interface State {
   login: LoginState,
@@ -34,6 +35,7 @@ export const initializeStore = (initialState?: State) =>
     reducer,
     initialState,
     composeWithDevTools(applyMiddleware(
+      unauthorizedMiddleware,
       thunk.withExtraArgument({
         api: ApiClientFactory.getApiClient(),
       } as ExtraArgs),
