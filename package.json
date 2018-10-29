@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@zeit/next-css": "git+ssh://git@github.com/breadhead/next-css.git",
+    "next-css": "git+ssh://git@github.com/breadhead/next-css.git",
     "@zeit/next-typescript": "^1.1.1",
     "antd": "^3.10.1",
     "args-parser": "^1.1.0",
@@ -53,7 +53,6 @@
     "enzyme-to-json": "^3.3.4",
     "jest": "^23.6.0",
     "jest-enzyme": "^7.0.0",
-    "mini-css-extract-plugin": "^0.4.4",
     "postcss": "^7.0.5",
     "postcss-nesting": "^7.0.0",
     "postcss-normalize": "^7.0.1",
