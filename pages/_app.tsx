@@ -18,11 +18,25 @@ class OncohelpWeb extends App<Props> {
     if (context.ctx.req) {
       const token: string = (context.ctx.req as any).cookies.token
       if (token) {
-        ApiClientFactory.getApiClient().setToken(token)
+        ApiClientFactory.getApiClient().token = token
       }
     }
 
     return App.getInitialProps(context)
+  }
+
+  public componentDidMount() {
+    // TODO: move it!
+    function getCookie(name: string) {
+      const matches = document.cookie.match(new RegExp(
+        '(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)',
+      ))
+      return matches
+        ? decodeURIComponent(matches[1])
+        : undefined
+    }
+
+    ApiClientFactory.getApiClient().token = getCookie('token') || ''
   }
 
   public render() {

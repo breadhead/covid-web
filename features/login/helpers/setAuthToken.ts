@@ -3,7 +3,7 @@ import ApiClient from '@app/lib/api/ApiClient'
 
 export const setAuthToken = (token: string, apiClient: ApiClient) => {
   setCookie(token)
-  apiClient.setToken(token)
+  apiClient.token = token
 }
 
 const setCookie = (token: string) => {
