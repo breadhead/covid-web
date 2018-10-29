@@ -28,11 +28,6 @@ const quota = {
 }
 
 class QuotaPage extends React.Component {
-
-  public state = {
-    quota: [],
-  }
-
   // TODO: get quota from server when quota api is complete
 
   public render() {
