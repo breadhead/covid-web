@@ -7,7 +7,7 @@ import {
   State as LoginState,
 } from '@app/features/login'
 
-import createQuota, {
+import {
   reducer as createQuotaReducer,
   State as createQuotaState,
 } from '@app/features/createQuota'

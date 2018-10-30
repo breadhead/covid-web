@@ -28,11 +28,7 @@ export default class RealApiClient implements ApiClient {
 
   public setToken = (token: string) => axios.defaults.headers.common.Authorization = `Bearer ${token}`
 
-  public createQuota = (credentials: any) => this.axiosInstance.post('/quotas/create', { credentials })
-  .then((response) => response.data as User)
-  public get token() {
-    return this._token
-  }
+  public createQuota = (credentials: any) => this.axiosInstance.post('/quotas/create', credentials)
 
   public set token(newToken: string) {
     axios.defaults.headers.common.Authorization = `Bearer ${newToken}`
