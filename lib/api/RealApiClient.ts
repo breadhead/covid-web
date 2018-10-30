@@ -39,7 +39,7 @@ export default class RealApiClient implements ApiClient {
     .get('/quotas')
     .then((response) => response.data as Quota[])
 
-  public history = () => this.axiosInstance
+  public history = (from?: Date, to?: Date) => this.axiosInstance
     .get('/quotas/history')
     .then((response) => response.data as Transaction[])
 
