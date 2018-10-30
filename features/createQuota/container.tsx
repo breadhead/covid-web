@@ -61,9 +61,7 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
     }
 
     private onFormSubmit = async (credentials: Credentials) => {
-      console.log('credentials', credentials)
       const constraints = []
-
       if (credentials.category === 'Special') {
         constraints.push('Special')
       }
@@ -81,10 +79,10 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
           comment: credentials.comment,
         },
       }
-      console.log('postCredentials', postCredentials)
+
       try {
         await schema.validate(credentials)
-        this.props.createQuota(credentials)
+          .then(() => this.props.createQuota(postCredentials))
       } catch (props) {
         return { [props.path]: props.message }
       }
