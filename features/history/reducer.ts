@@ -1,10 +1,8 @@
 import { Action } from 'redux'
-import { createSymbiote } from 'redux-symbiote'
 
 import {
-  createInitialState,
-  errorSymbiote, FetchingActions,
-  FetchingState, requestSymbiote,
+  createFetchingSymbiote, createInitialState,
+  FetchingActions, FetchingState,
 } from '@app/lib/symbioteFactory'
 import { Transaction } from '@app/models/Quota/Transaction'
 
@@ -12,27 +10,20 @@ interface State extends FetchingState {
   transactions: Transaction[]
 }
 
+interface Actions extends FetchingActions {
+  success(transactions: Transaction[]): Action
+}
+
 const initialState = createInitialState({
   transactions: [],
 })
 
-interface Actions extends FetchingActions {
-  request(): Action
-  success(transactions: Transaction[]): Action
-}
-
-const { actions, reducer } = createSymbiote<State, Actions>(
+const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  {
-    request: requestSymbiote,
-    success: (state, transactions) => ({
-      ...state,
-      fetching: false,
-      error: false,
-      transactions,
-    }),
-    error: errorSymbiote,
-  },
+  (state, transactions) => ({
+    ...state,
+    transactions,
+  }),
   'login',
 )
 

@@ -1,4 +1,5 @@
 import { Action } from 'redux'
+import { createSymbiote } from 'redux-symbiote'
 
 export interface FetchingState {
   fetching: boolean,
@@ -12,6 +13,7 @@ export const createInitialState = <AdditionalState>(state: AdditionalState) => (
 } as (AdditionalState & FetchingState))
 
 export interface FetchingActions {
+  request(): Action
   error(error: string | boolean): Action
 }
 
@@ -29,3 +31,22 @@ export const errorSymbiote = <AnyState extends FetchingState>
     error,
     fetching: false,
   } as AnyState)
+
+export const createFetchingSymbiote = <State extends FetchingState, Actions extends FetchingActions>(
+  initialState: State,
+  successSymbiote: (state: State, ...payload: any[]) => State,
+  prefix: string,
+) =>
+  createSymbiote<State, Actions>(
+    initialState,
+    {
+      request: requestSymbiote,
+      success: (state: State, ...payload: any[]) => ({
+        ...(successSymbiote(state, ...payload) as {}),
+        fetching: false,
+        error: false,
+      }),
+      error: errorSymbiote,
+    } as any,
+    prefix,
+  )
