@@ -1,4 +1,4 @@
-import { QuotaType } from '@app/models/Quota'
+import { QuotaType } from '@app/models/Quota/Quota'
 import * as React from 'react'
 import styles from './Type.css'
 

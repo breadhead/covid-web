@@ -1,7 +1,7 @@
-import { Quota } from '@app/models/Quota'
 import axios, { AxiosInstance } from 'axios'
-import { User } from './ApiClient'
-import ApiClient from './ApiClient'
+
+import { Quota, Transaction } from '@app/models/Quota'
+import ApiClient, { User } from './ApiClient'
 import FileUploader from './FileUploader/FileUploader'
 import RealFileUploader from './FileUploader/RealFileUploader'
 
@@ -22,6 +22,10 @@ export default class RealApiClient implements ApiClient {
   public quotas = () => this.axiosInstance
     .get('/quotas')
     .then((response) => response.data as Quota[])
+
+  public history = () => this.axiosInstance
+    .get('/quotas/history')
+    .then((response) => response.data as Transaction[])
 
   public login = (login: string, password: string) => this.axiosInstance
     .post('/auth/login', { login, password })

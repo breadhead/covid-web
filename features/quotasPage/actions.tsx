@@ -5,11 +5,12 @@ import { actions } from './reducer'
 
 export const fetchQuotas = () => async (
   dispatch: Dispatch<any>,
-  getState: () => State,
+  _: () => State,
   apiContainer: { api: ApiClient },
 ) => {
+  dispatch(actions.request())
+
   try {
-    dispatch(actions.request())
     const quotas = await apiContainer.api.quotas()
 
     return dispatch(actions.success(quotas))
