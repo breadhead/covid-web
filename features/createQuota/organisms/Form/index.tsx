@@ -6,6 +6,7 @@ import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
 
 import * as styles from './Form.css'
+import Uploading from '@app/features/uploading/Uploading';
 
 const FormItem = AntForm.Item
 
@@ -70,11 +71,7 @@ const Form = ({ onFormSubmit, error }: Props) => (
           type="checkbox"
           label="Показывать жертвователя на сайте"
         />
-        <Input
-          name="logotype"
-          type="file"
-          label="Загрузить логотип"
-        />
+        <Uploading onUploaded={(url) => console.log('url', url)} />
         <Input
           name="companyLink"
           type="text"

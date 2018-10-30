@@ -15,7 +15,6 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance = axios.create({
       baseURL: baseUrl,
     })
-
     this.fileUploader = new RealFileUploader(baseUrl)
   }
 
