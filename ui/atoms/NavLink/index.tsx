@@ -11,7 +11,7 @@ interface Props {
 
 const NavLink = ({ children, className, href }: Props) =>
   <NextLink href={href}>
-    <a className={styles.NavLink}>{children}</a>
+    <a className={cx(styles.NavLink, className)}>{children}</a>
   </NextLink>
 
 export default NavLink

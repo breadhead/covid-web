@@ -3,17 +3,12 @@ import * as React from 'react'
 import styles from './Type.css'
 
 export interface TypeProps {
-  children: QuotaType
-}
-
-const typesMap: { [key: string]: string } = {
-  corporate: 'Корпоративная',
-  common: 'Общая',
-  special: 'Специальная',
+  children: keyof typeof QuotaType
 }
 
 const Type: React.SFC<TypeProps> = ({ children }) => {
-  return (<div className={styles.Type}>{typesMap[children.toString().toLowerCase()]}</div>)
+  const key = children as keyof typeof QuotaType // because of types for children
+  return (<div className={styles.Type}>{QuotaType[key].toString().toLowerCase()}</div>)
 }
 
 export default Type

@@ -1,5 +1,6 @@
+import NavLink from '@app/ui/atoms/NavLink'
 import * as React from 'react'
-import NavLink from './atoms/NavLink'
+
 import styles from './Navigation.css'
 
 const Navigation = () => <nav className={styles.Navigation}>

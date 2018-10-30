@@ -9,7 +9,7 @@ export interface AppContext {
   ctx: any // TODO: fix it
 }
 
-export interface ExpressError {
+export interface ServerError {
   message: string,
   response?: {
     status: number,

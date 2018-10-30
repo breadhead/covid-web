@@ -1,7 +1,6 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
-import { BACK_URL } from './config'
 
 import {
   reducer as loginReducer,
@@ -19,7 +18,8 @@ import {
 } from '@app/features/quotasPage'
 
 import ApiClient from './api/ApiClient'
-import RealApiClient from './api/RealApiClient'
+import ApiClientFactory from './api/ApiClientFactory'
+import { unauthorizedMiddleware } from './unauthorizedMiddleware'
 
 export interface State {
   login: LoginState,
@@ -42,8 +42,9 @@ export const initializeStore = (initialState?: State) =>
     reducer,
     initialState,
     composeWithDevTools(applyMiddleware(
+      unauthorizedMiddleware,
       thunk.withExtraArgument({
-        api: new RealApiClient(BACK_URL),
+        api: ApiClientFactory.getApiClient(),
       } as ExtraArgs),
     )),
   )
