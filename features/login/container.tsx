@@ -19,7 +19,8 @@ export interface ServerError {
 }
 
 interface Props {
-  login: (credentials: Credentials) => any
+  login: (credentials: Credentials) => any,
+  onFormSubmit: () => Promise<any>,
 }
 
 const schema = yup.object().shape({
@@ -33,7 +34,7 @@ const schema = yup.object().shape({
     .required('Логин должен быть длиннее 2 символов'),
 })
 
-const Container = (WrappedComponent: any) => { // TODO: fix types
+const Container = (WrappedComponent: React.ComponentType<Props>) => {
   return class extends React.Component<Props> {
 
     public render() {

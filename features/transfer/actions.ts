@@ -15,7 +15,8 @@ export const transfer = (quotaTransferRequest: QuotaTransferRequest) => async (
 
     return dispatch(actions.success(result))
   } catch (error) {
-    return dispatch(actions.error(error.message))
+    dispatch(actions.error(error.message))
+    throw error
   }
 
 }

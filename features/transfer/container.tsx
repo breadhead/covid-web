@@ -19,9 +19,10 @@ export interface StrippedQuota {
 interface Props {
   transfer: (quotaTransferRequest: QuotaTransferRequest) => any
   quotas: Quota[]
+  onFormSubmit: () => Promise<any>,
 }
 
-const Container = (WrappedComponent: any) => { // TODO: fix types
+const Container = (WrappedComponent: React.ComponentType<Props>) => {
   return class extends React.Component<Props> {
 
     public render() {
