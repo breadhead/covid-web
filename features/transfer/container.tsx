@@ -1,5 +1,5 @@
 import { State } from '@app/lib/store'
-import { Quota } from '@app/models/Quota'
+import { Quota } from '@app/models/Quota/Quota'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'

@@ -1,4 +1,4 @@
-import { Quota } from '@app/models/Quota'
+import { Quota } from '@app/models/Quota/Quota'
 import QuotaCard from '../QuotaCard'
 
 export interface QuotasListProps {

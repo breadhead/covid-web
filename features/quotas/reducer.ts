@@ -1,18 +1,16 @@
-import { errorSymbiote, requestSymbiote } from '@app/lib/symbioteFactory'
+import {
+  createFetchingSymbiote, createInitialState,
+  FetchingActions, FetchingState,
+} from '@app/lib/symbioteFactory'
 import { Action } from 'redux'
-import { createSymbiote } from 'redux-symbiote'
 
-interface State {
+interface State extends FetchingState {
   data: any[],
-  fetching: boolean,
-  error: false | string
 }
 
-const initialState = {
+const initialState = createInitialState({
   data: [],
-  fetching: false,
-  error: false,
-} as State
+})
 
 interface Actions {
   request(): Action
@@ -20,18 +18,16 @@ interface Actions {
   error(error: string): Action
 }
 
-const { actions, reducer } = createSymbiote<State, Actions>(
+interface Actions extends FetchingActions {
+  success(data: any[]): Action
+}
+
+const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  {
-    request: requestSymbiote,
-    success: (state, data) => ({
-      ...state,
-      fetching: false,
-      error: false,
-      data,
-    }),
-    error: errorSymbiote,
-  },
+  (state, data) => ({
+    ...state,
+    data,
+  }),
   'quotas',
 )
 

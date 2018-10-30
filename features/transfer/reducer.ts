@@ -1,44 +1,30 @@
-import { Quota } from '@app/models/Quota'
+import {
+  createFetchingSymbiote, createInitialState,
+  FetchingActions, FetchingState,
+} from '@app/lib/symbioteFactory'
+import { Quota } from '@app/models/Quota/Quota'
 import { Action } from 'redux'
-import { createSymbiote } from 'redux-symbiote'
 
-interface State {
+interface State extends FetchingState {
   result: { source: Quota, target: Quota } | null,
-  fetching: boolean,
-  error: false | string
 }
 
-const initialState = {
+const initialState = createInitialState({
   result: null,
-  fetching: false,
-  error: false,
-} as State
+})
 
-interface Actions {
-  request(): Action
+interface Actions extends FetchingActions {
   success(result: { source: Quota, target: Quota }): Action
-  error(error: string): Action
 }
 
-const { actions, reducer } = createSymbiote<State, Actions>(
+const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  {
-    request: (state) => ({
-      ...state,
-      fetching: true,
-    }),
-    success: (state, result) => ({
-      ...state,
-      fetching: false,
-      error: false,
-      result,
-    }),
-    error: (state, error) => ({
-      ...state,
-      fetching: false,
-      error,
-    }),
-  },
+  (state, result) => ({
+    ...state,
+    fetching: false,
+    error: false,
+    result,
+  }),
   'transfer',
 )
 
