@@ -34,6 +34,7 @@
     "redux-symbiote": "^2.6.0",
     "redux-thunk": "^2.1.0",
     "reselect": "^4.0.0",
+    "ts-option": "^1.1.5",
     "yup": "^0.26.6"
   },
   "devDependencies": {

@@ -44,10 +44,10 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
       />
     }
 
-    private onFormSubmit = async (credentials: Credentials) => {
+    private onFormSubmit = (credentials: Credentials) => {
       try {
-        await schema.validate(credentials)
-        this.props.login(credentials)
+        schema.validateSync(credentials)
+        return this.props.login(credentials)
       } catch (props) {
 
         return { [props.path]: props.message }

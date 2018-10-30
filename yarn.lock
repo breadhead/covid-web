@@ -9496,6 +9496,11 @@ trough@^1.0.0:
   resolved "https://registry.yarnpkg.com/trough/-/trough-1.0.3.tgz#e29bd1614c6458d44869fc28b255ab7857ef7c24"
   integrity sha512-fwkLWH+DimvA4YCy+/nvJd61nWQQ2liO/nF/RjkTpiOGi+zxZzVkhb1mvbHIIW4b/8nDsYI8uTmAlc0nNkRMOw==
 
+ts-option@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/ts-option/-/ts-option-1.1.5.tgz#80ab18a122e9540f702962374417ca8684147649"
+  integrity sha512-oHa+BgcQJsctFFegNpjL6P+PbsUi4oHifyTq158yLmx1LSgGMi1v7I3sCkwatvT3tmJQQAkxaP7lPC+m93BQXg==
+
 tslib@1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"

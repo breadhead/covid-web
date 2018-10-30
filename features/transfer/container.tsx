@@ -8,7 +8,7 @@ import { transfer } from './actions'
 import { QuotaTransferRequest } from '@app/lib/api/request/QuotaTransfer'
 
 import { validateForm } from './helpers/validateForm'
-import { getQuotas } from './selectors'
+import { getQuotasCounts } from './selectors'
 
 export interface StrippedQuota {
   id: string,
@@ -32,7 +32,7 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
       />
     }
 
-    private onFormSubmit = async (quotaTransferData:
+    private onFormSubmit = (quotaTransferData:
       { sourceId: string, targetId: string, count: string },
     ) => {
       try {
@@ -41,8 +41,8 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
           ...quotaTransferData,
           count: parseInt(quotaTransferData.count, 10),
         }
-        await validateForm(castedQuotaTransferData, this.props.quotas)
-        this.props.transfer(castedQuotaTransferData)
+        validateForm(castedQuotaTransferData, this.props.quotas)
+        return this.props.transfer(castedQuotaTransferData)
       } catch (props) {
 
         return { [props.path]: props.message }
@@ -53,8 +53,8 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
 }
 
 const mapState = (state: State) => ({
-  error: state.login.error,
-  quotas: getQuotas(state),
+  error: state.transfer.error,
+  quotas: getQuotasCounts(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
