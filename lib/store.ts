@@ -5,6 +5,7 @@ import thunk from 'redux-thunk'
 import {
   reducer as loginReducer,
   State as LoginState,
+  unauthorizedMiddleware,
 } from '@app/features/login'
 
 import {
@@ -12,18 +13,24 @@ import {
   State as QuotasState,
 } from '@app/features/quotasPage'
 
-import { unauthorizedMiddleware } from '../features/login'
+import {
+  reducer as historyReducer,
+  State as HistoryState,
+} from '@app/features/history'
+
 import ApiClient from './api/ApiClient'
 import ApiClientFactory from './api/ApiClientFactory'
 
 export interface State {
-  login: LoginState,
+  login: LoginState
   quotas: QuotasState
+  history: HistoryState,
 }
 
 const reducer = combineReducers({
   login: loginReducer,
   quotas: quotasReducer,
+  history: historyReducer,
 })
 
 export interface ExtraArgs {
