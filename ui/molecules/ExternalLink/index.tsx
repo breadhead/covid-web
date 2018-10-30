@@ -1,7 +1,12 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 
-const ExternalLink = ({ children, href, className }) => {
+interface Props {
+  children: ReactNode,
+  href: string,
+  className: string
+}
+
+const ExternalLink = ({ children, href, className }: Props) => {
   return (
     <a
       href={href}
@@ -12,10 +17,6 @@ const ExternalLink = ({ children, href, className }) => {
       {children}
     </a>
   )
-}
-
-ExternalLink.propTypes = {
-  href: PropTypes.string.isRequired,
 }
 
 export default ExternalLink
