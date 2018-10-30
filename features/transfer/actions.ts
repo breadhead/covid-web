@@ -1,4 +1,4 @@
-import { QuotaTransferRequest } from '@app/lib/api/request/QuotaTransferRequest'
+import { QuotaTransferRequest } from '@app/lib/api/request/QuotaTransfer'
 import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
 import { actions } from './reducer'

@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 import { transfer } from './actions'
 
-import { QuotaTransferRequest } from '@app/lib/api/request/QuotaTransferRequest'
+import { QuotaTransferRequest } from '@app/lib/api/request/QuotaTransfer'
 
-import * as yup from 'yup'
+
 import { getQuotas } from './selectors'
 
 export interface StrippedQuota {
@@ -21,14 +21,7 @@ interface Props {
   quotas: Quota[]
 }
 
-const schema = yup.object().shape({
-  sourceId: yup
-    .string()
-    .required('Пароль должен быть длиннее 2 символов'),
-  targetId: yup
-    .string()
-    .required('Логин должен быть длиннее 2 символов'),
-})
+
 
 const Container = (WrappedComponent: any) => { // TODO: fix types
   return class extends React.Component<Props> {
