@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { compose } from 'redux'
+import { AnyAction, compose, Dispatch } from 'redux'
 
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
@@ -20,7 +20,6 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
     public render() {
       return <WrappedComponent {...this.props} />
     }
-
   }
 }
 
@@ -28,7 +27,11 @@ const mapState = (state: State) => ({
   transactions: getTransactions(state),
 })
 
+const mapDispath = (dispath: Dispatch<AnyAction>) => ({
+  fetch: (from?: Date, to?: Date) => dispath(fetchHistory(from, to) as any),
+})
+
 export default compose(
-  connect(mapState),
+  connect(mapState, mapDispath),
   Container,
 )

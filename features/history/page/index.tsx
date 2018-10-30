@@ -6,13 +6,13 @@ import TransactionList from '../organisms/TransactionList'
 import * as styles from './page.css'
 export interface Props {
   transactions: Transaction[]
+  fetch: (from?: Date, to?: Date) => Promise<void>
 }
 
-const HistoryPage = ({ transactions }: Props) => {
-
+const HistoryPage = ({ fetch, transactions }: Props) => {
   return (
     <section className={styles.wrapper}>
-      <Header />
+      <Header onChangePeriod={fetch} />
       <TransactionList transations={transactions} />
     </section>
   )
