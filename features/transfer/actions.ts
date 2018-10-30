@@ -1,9 +1,9 @@
+import { QuotaTransferRequest } from '@app/lib/api/request/QuotaTransfer'
 import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
-import { setAuthToken } from './helpers/setAuthToken'
 import { actions } from './reducer'
 
-export const login = (username: string, password: string) => async (
+export const transfer = (quotaTransferRequest: QuotaTransferRequest) => async (
   dispatch: Dispatch<any>,
   _: () => State,
   { api }: ExtraArgs,
@@ -11,10 +11,9 @@ export const login = (username: string, password: string) => async (
 
   try {
     dispatch(actions.request())
-    const { token } = await api.login(username, password)
-    setAuthToken(token, api)
+    const result = await api.transfer(quotaTransferRequest)
 
-    return dispatch(actions.success(token))
+    return dispatch(actions.success(result))
   } catch (error) {
     dispatch(actions.error(error.message))
     throw error

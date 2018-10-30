@@ -1,3 +1,3 @@
-import LoginPage from '@app/features/loginPage'
+import LoginPage from '@app/features/login'
 
 export default LoginPage

@@ -1,5 +1,5 @@
 import { Action } from 'redux'
-import { createSymbiote } from 'redux-symbiote'
+import { createSymbiote, Symbiote } from 'redux-symbiote'
 
 export interface FetchingState {
   fetching: boolean,
@@ -36,6 +36,7 @@ export const createFetchingSymbiote = <State extends FetchingState, Actions exte
   initialState: State,
   successSymbiote: (state: State, ...payload: any[]) => State,
   prefix: string,
+  additionalSymbiotes: { [key: string]: Symbiote<State> } = {},
 ) =>
   createSymbiote<State, Actions>(
     initialState,
@@ -47,6 +48,7 @@ export const createFetchingSymbiote = <State extends FetchingState, Actions exte
         error: false,
       }),
       error: errorSymbiote,
+      ...additionalSymbiotes,
     } as any,
     prefix,
   )

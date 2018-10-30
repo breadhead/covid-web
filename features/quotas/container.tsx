@@ -17,7 +17,6 @@ class Container extends React.Component<Props> {
   public static async getInitialProps(context: AppContext) {
     await context.reduxStore
       .dispatch(fetchQuotas() as any)
-
     return {}
   }
 

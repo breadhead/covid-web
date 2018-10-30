@@ -1,4 +1,4 @@
-import { Quota } from '@app/models/Quota'
+import { Quota } from '@app/models/Quota/Quota'
 import * as React from 'react'
 import Footer from './molecules/Footer'
 import Header from './molecules/Header'

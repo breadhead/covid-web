@@ -11,7 +11,12 @@ import {
 import {
   reducer as quotasReducer,
   State as QuotasState,
-} from '@app/features/quotasPage'
+} from '@app/features/quotas'
+
+import {
+  reducer as transferReducer,
+  State as TransferState,
+} from '@app/features/transfer'
 
 import {
   reducer as historyReducer,
@@ -24,12 +29,14 @@ import ApiClientFactory from './api/ApiClientFactory'
 export interface State {
   login: LoginState
   quotas: QuotasState
+  transfer: TransferState
   history: HistoryState,
 }
 
 const reducer = combineReducers({
   login: loginReducer,
   quotas: quotasReducer,
+  transfer: transferReducer,
   history: historyReducer,
 })
 
