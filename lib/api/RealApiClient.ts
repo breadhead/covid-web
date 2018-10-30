@@ -5,6 +5,7 @@ import { Transaction } from '@app/models/Quota/Transaction'
 import ApiClient, { User } from './ApiClient'
 import FileUploader from './FileUploader/FileUploader'
 import RealFileUploader from './FileUploader/RealFileUploader'
+import { queryString } from './helper/queryString'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 
@@ -40,7 +41,7 @@ export default class RealApiClient implements ApiClient {
     .then((response) => response.data as Quota[])
 
   public history = (from?: Date, to?: Date) => this.axiosInstance
-    .get('/quotas/history')
+    .get(`/quotas/history?${queryString({ from, to })}`)
     .then((response) => response.data as Transaction[])
 
   public login = (login: string, password: string) => this.axiosInstance
