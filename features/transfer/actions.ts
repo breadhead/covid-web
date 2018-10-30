@@ -8,5 +8,14 @@ export const transfer = (quotaTransferRequest: QuotaTransferRequest) => async (
   _: () => State,
   { api }: ExtraArgs,
 ) => {
-  debugger
+
+  try {
+    dispatch(actions.request())
+    const result = await api.transfer(quotaTransferRequest)
+
+    return dispatch(actions.success(result))
+  } catch (error) {
+    return dispatch(actions.error(error.message))
+  }
+
 }

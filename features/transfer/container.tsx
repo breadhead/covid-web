@@ -7,7 +7,6 @@ import { transfer } from './actions'
 
 import { QuotaTransferRequest } from '@app/lib/api/request/QuotaTransfer'
 
-
 import { getQuotas } from './selectors'
 
 export interface StrippedQuota {
@@ -20,8 +19,6 @@ interface Props {
   transfer: (quotaTransferRequest: QuotaTransferRequest) => any
   quotas: Quota[]
 }
-
-
 
 const Container = (WrappedComponent: any) => { // TODO: fix types
   return class extends React.Component<Props> {
@@ -36,7 +33,7 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
     private onFormSubmit = async (quotaTransferRequest: QuotaTransferRequest) => {
 
       try {
-        await schema.validate(quotaTransferRequest)
+        // await schema.validate(quotaTransferRequest)
         this.props.transfer(quotaTransferRequest)
       } catch (props) {
 
