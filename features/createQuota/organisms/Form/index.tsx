@@ -1,13 +1,14 @@
 import Input from '@app/ui/molecules/Input'
 import Select from '@app/ui/molecules/Select'
 import TextArea from '@app/ui/molecules/TextАrea'
-import { Button, Form as AntForm } from 'antd'
+import { Button, Form as AntForm,  Select as AntSelect  } from 'antd'
 import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
 
 import * as styles from './Form.css'
 
 const FormItem = AntForm.Item
+const Option = AntSelect.Option
 
 const INVALID_CREDENTIALS_MESSAGE = 'Неверные данные'
 interface Props {
@@ -48,11 +49,14 @@ const Form = ({ onFormSubmit, error }: Props) => (
         <Select
           name="category"
           label="Категория типа квот"
-          options={QUOTA_CATEGORY}
           defaultValue="Common"
-        />
+        >
+        {QUOTA_CATEGORY.map((option) => (
+          <Option key={option.value} value={option.value}>{option.title}</Option>
+        ))}
+        </Select>
         <Input
-          name="companyName"
+            name="companyName"
           type="text"
           label="Жертвователь"
         />
