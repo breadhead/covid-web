@@ -3,6 +3,7 @@ import * as React from 'react'
 
 import { Quota } from '@app/models/Quota'
 import Input from '@app/ui/molecules/Input'
+import QuotaAmount from '../../molecules/QuotaAmount'
 import styles from './QuotaControl.css'
 
 const FormItem = Form.Item
@@ -10,20 +11,20 @@ const FormItem = Form.Item
 const QuotaControl = ({ quota }: Quota) => (
 
   <div className={styles.QuotaControl}>
-    <div span={3} className={styles.QuotaAmount}>
-      <h4>Всего</h4>
-      <strong>{quota.company.donation}</strong>
-    </div>
-    <div span={3} className={styles.QuotaAmount}>
-      <h4>Доступно</h4>
-      <strong className={styles.QuotaAvailable}>{quota.count}</strong>
-    </div>
+    <QuotaAmount
+      amount={quota.company.donation}
+      title="Всего"
+    />
+    <QuotaAmount
+      amount={quota.count}
+      color="green"
+      title="Доступно"
+    />
     <div className={styles.AddingInput}>
       <Form
         className={styles.Form}
         layout="inline"
-        // TODO: add quota accrual process on submit
-        // onSubmit={}
+        // TODO: add quota accrual process on submit when api method is complete
       >
         <FormItem>
           <Input
