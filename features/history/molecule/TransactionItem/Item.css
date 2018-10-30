@@ -1,0 +1,7 @@
+.Row {
+  width: 100%;
+}
+
+.withoutBottomBorder {
+  border-bottom: 0 !important;
+}
