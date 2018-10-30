@@ -5,6 +5,7 @@ import { AnyAction, compose, Dispatch } from 'redux'
 import { login } from './actions'
 
 import * as yup from 'yup'
+import { getLoginError } from './selectors'
 
 export interface Credentials {
   login: string,
@@ -58,7 +59,7 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
 }
 
 const mapState = (state: State) => ({
-  error: state.login.error,
+  error: getLoginError(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({

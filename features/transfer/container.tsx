@@ -8,7 +8,7 @@ import { transfer } from './actions'
 import { QuotaTransferRequest } from '@app/lib/api/request/QuotaTransfer'
 
 import { validateForm } from './helpers/validateForm'
-import { getQuotasCounts } from './selectors'
+import { getQuotasCounts, getTransferError } from './selectors'
 
 export interface StrippedQuota {
   id: string,
@@ -53,7 +53,7 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
 }
 
 const mapState = (state: State) => ({
-  error: state.transfer.error,
+  error: getTransferError(state),
   quotas: getQuotasCounts(state),
 })
 
