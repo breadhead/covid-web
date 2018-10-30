@@ -1,10 +1,52 @@
-export const requestSymbiote = <AnyState extends { fetching: boolean, error: false | string }>(state: AnyState) =>
+import { Action } from 'redux'
+import { createSymbiote } from 'redux-symbiote'
+
+export interface FetchingState {
+  fetching: boolean,
+  error: boolean | string
+}
+
+export const createInitialState = <AdditionalState>(state: AdditionalState) => ({
+  fetching: false,
+  error: false,
+  ...(state || {}) as object,
+} as (AdditionalState & FetchingState))
+
+export interface FetchingActions {
+  request(): Action
+  error(error: string | boolean): Action
+}
+
+export const requestSymbiote = <AnyState extends FetchingState>(state: AnyState) =>
   ({
-    ...(state || {}) as object, fetching: true, error: false,
+    ...(state || {}) as object,
+    fetching: true,
+    error: false,
   } as AnyState)
 
-export const errorSymbiote = <AnyState extends { error: false | string, fetching: boolean }>
-  (state: AnyState, error: string) =>
+export const errorSymbiote = <AnyState extends FetchingState>
+  (state: AnyState, error: boolean | string) =>
   ({
-    ...(state || {}) as object, error, fetching: false,
+    ...(state || {}) as object,
+    error,
+    fetching: false,
   } as AnyState)
+
+export const createFetchingSymbiote = <State extends FetchingState, Actions extends FetchingActions>(
+  initialState: State,
+  successSymbiote: (state: State, ...payload: any[]) => State,
+  prefix: string,
+) =>
+  createSymbiote<State, Actions>(
+    initialState,
+    {
+      request: requestSymbiote,
+      success: (state: State, ...payload: any[]) => ({
+        ...(successSymbiote(state, ...payload) as {}),
+        fetching: false,
+        error: false,
+      }),
+      error: errorSymbiote,
+    } as any,
+    prefix,
+  )

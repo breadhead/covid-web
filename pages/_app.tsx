@@ -27,7 +27,11 @@ class OncohelpWeb extends App<Props> {
   }
 
   public componentDidMount() {
-    ApiClientFactory.getApiClient().token = Cookie.get('token')
+    const token = Cookie.get('token')
+
+    if (token) {
+      ApiClientFactory.getApiClient().token = token
+    }
   }
 
   public render() {
