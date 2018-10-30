@@ -8,7 +8,6 @@ import Container from '../../container'
 import styles from './Form.css'
 
 const FormItem = AntForm.Item
-const Option = AntSelect.Option
 
 interface Props {
   onFormSubmit: () => Promise<any>,
@@ -31,21 +30,20 @@ const Form = ({ onFormSubmit, error, quotas }: Props) => (
         <Select
           name="sourceId"
           label="Откуда"
-          defaultValue=""
-        >
-          {quotas
-            .map((quota) => <Option key={quota.id} value={quota.id}>{quota.name}</Option>)
+          options={quotas
+            .map((quota) => ({ name: quota.name, value: quota.id }))
           }
+        >
 
         </Select>
         <Select
           name="targetId"
           label="Куда"
-          defaultValue=""
-        >
-          {quotas
-            .map((quota) => <Option key={quota.id} value={quota.id}>{quota.name}</Option>)
+          options={quotas
+            .map((quota) => ({ name: quota.name, value: quota.id }))
           }
+        >
+
         </Select>
         <Input
           name="count"

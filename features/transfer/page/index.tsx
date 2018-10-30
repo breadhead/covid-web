@@ -11,7 +11,6 @@ class Page extends React.Component {
   public static async getInitialProps(context: AppContext) {
     await context.reduxStore
       .dispatch(fetchQuotas() as any)
-      .catch(tapOrHandle(context))
     return {}
   }
 
