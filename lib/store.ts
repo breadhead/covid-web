@@ -5,6 +5,7 @@ import thunk from 'redux-thunk'
 import {
   reducer as loginReducer,
   State as LoginState,
+  unauthorizedMiddleware,
 } from '@app/features/login'
 
 import {
@@ -19,7 +20,6 @@ import {
 
 import ApiClient from './api/ApiClient'
 import ApiClientFactory from './api/ApiClientFactory'
-import { unauthorizedMiddleware } from './unauthorizedMiddleware'
 
 export interface State {
   login: LoginState

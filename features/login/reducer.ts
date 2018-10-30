@@ -5,18 +5,21 @@ interface State {
   token: string,
   fetching: boolean,
   error: false | string
+  authViolateStatus?: boolean
 }
 
 const initialState = {
   token: '',
   fetching: false,
   error: false,
+  authViolateStatus: undefined,
 } as State
 
 interface Actions {
   request(): Action
   success(token: string): Action
   error(error: string): Action
+  authViolateStatus(value: boolean): Action
 }
 
 const { actions, reducer } = createSymbiote<State, Actions>(
@@ -36,6 +39,12 @@ const { actions, reducer } = createSymbiote<State, Actions>(
       ...state,
       fetching: false,
       error,
+    }),
+    authViolateStatus: (state, authViolateStatus) => ({
+      ...state,
+      error: false,
+      fetching: false,
+      authViolateStatus,
     }),
   },
   'login',
