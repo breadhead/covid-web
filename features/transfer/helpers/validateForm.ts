@@ -3,14 +3,15 @@ import * as yup from 'yup'
 import { validateCountToTransfer } from './validateCountToTransfer'
 import { validateIds } from './validateIds'
 const schema = yup.object().shape({
-  sourceId: yup
-    .string()
+  count: yup
+    .mixed()
+    .notOneOf([NaN], 'Обязательное поле')
     .required('Обязательное поле'),
   targetId: yup
     .string()
     .required('Обязательное поле'),
-  count: yup
-    .number()
+  sourceId: yup
+    .string()
     .required('Обязательное поле'),
 })
 
