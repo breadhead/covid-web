@@ -8,12 +8,12 @@ import { createQuota } from './actions'
 export interface Credentials {
   name: string
   category: string
-  donor: string
+  companyName: string
   comment: string
   count: string
-  showDonor: string
+  publicCompany: string
   logotype: string
-  donorSite: string
+  companyLink: string
   logotypeComment: string
 }
 
@@ -43,7 +43,7 @@ const schema = yup.object().shape({
   category: yup.string(),
   companyName: yup.string().required('Укажите имя жертвователя'),
   comment: yup.string(),
-  count: yup.string().required('Укажите количество квот'),
+  count: yup.number().required('Укажите количество квот'),
   publicCompany: yup.string(),
   logotype: yup.string(),
   companyLink: yup.string(),
@@ -62,6 +62,26 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
 
     private onFormSubmit = async (credentials: Credentials) => {
       console.log('credentials', credentials)
+      const constraints = []
+
+      if (credentials.category === 'Special') {
+        constraints.push('Special')
+      }
+
+      const postCredentials = {
+        count: credentials.count,
+        quota: {
+          name: credentials.name,
+          companyName: credentials.companyName,
+          companyLink: credentials.companyLink,
+        //   companyLogoUrl: string,
+          constraints,
+          corporate: credentials.category === 'Corporate',
+          publicCompany: credentials.publicCompany,
+          comment: credentials.comment,
+        },
+      }
+      console.log('postCredentials', postCredentials)
       try {
         await schema.validate(credentials)
         this.props.createQuota(credentials)

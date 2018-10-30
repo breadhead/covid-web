@@ -52,7 +52,7 @@ const Form = ({ onFormSubmit, error }: Props) => (
           options={QUOTA_CATEGORY}
         />
         <Input
-            name="companyName"
+          name="companyName"
           type="text"
           label="Жертвователь"
         />
