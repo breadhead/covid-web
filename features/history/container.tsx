@@ -6,7 +6,7 @@ import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { fetchHistory } from './actions'
 import { Props as ComponentProps } from './page'
-import { getTransactions } from './selectors'
+import { getLoading, getTransactions } from './selectors'
 
 const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
   return class extends React.Component<ComponentProps> {
@@ -25,6 +25,7 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
 
 const mapState = (state: State) => ({
   transactions: getTransactions(state),
+  loading: getLoading(state),
 })
 
 const mapDispath = (dispath: Dispatch<AnyAction>) => ({

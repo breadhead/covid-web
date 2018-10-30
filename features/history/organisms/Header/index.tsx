@@ -14,10 +14,10 @@ const Header = ({ onChangePeriod }: Props) => (
   <React.Fragment>
     <BackButton />
     <Row className={styles.Main}>
-      <Col span={18}>
+      <Col span={15}>
         <Title />
       </Col>
-      <Col span={6}>
+      <Col span={9}>
         <RangePicker onChange={onChangePeriod} />
       </Col>
     </Row>
