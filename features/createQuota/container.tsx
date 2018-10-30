@@ -1,4 +1,5 @@
 import { State } from '@app/lib/store'
+import { QuotaType } from '@app/models/Quota'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
@@ -17,7 +18,7 @@ export interface Credentials {
   logotypeComment: string
 }
 
-export interface TrueCredentials {
+export interface ReqCredentials {
   count: number
   quota: {
     name: string,
@@ -30,7 +31,6 @@ export interface TrueCredentials {
     comment: string,
   }
 }
-
 export interface ServerError {
   message: string,
   response?: {
@@ -62,8 +62,8 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
 
     private onFormSubmit = async (credentials: Credentials) => {
       const constraints = []
-      if (credentials.category === 'Special') {
-        constraints.push('Special')
+      if (credentials.category === QuotaType.Special) {
+        constraints.push(QuotaType.Special)
       }
 
       const postCredentials = {
@@ -74,7 +74,7 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
           companyLink: credentials.companyLink,
           companyLogoUrl: credentials.logo,
           constraints,
-          corporate: credentials.category === 'Corporate',
+          corporate: credentials.category === QuotaType.Corporate,
           publicCompany: credentials.publicCompany,
           comment: credentials.comment,
         },
@@ -96,7 +96,7 @@ const mapState = (state: State) => ({
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
-  createQuota: (credentials: Credentials) => dispatch(createQuota(credentials) as any),
+  createQuota: (credentials: ReqCredentials) => dispatch(createQuota(credentials) as any),
 })
 
 export default compose(

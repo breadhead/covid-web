@@ -8,7 +8,7 @@ export interface TypeProps {
 
 const Type: React.SFC<TypeProps> = ({ children }) => {
   const key = children as keyof typeof QuotaType // because of types for children
-  return (<div className={styles.Type}>{QuotaType[key].toString().toLowerCase()}</div>)
+  return <div className={styles.Type}>{QuotaType[key].toString().toLowerCase()}</div>
 }
 
 export default Type

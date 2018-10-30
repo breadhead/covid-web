@@ -1,3 +1,4 @@
+import { QuotaType } from '@app/models/Quota'
 import Input from '@app/ui/molecules/Input'
 import Select from '@app/ui/molecules/Select'
 import TextArea from '@app/ui/molecules/TextАrea'
@@ -12,26 +13,17 @@ const FormItem = AntForm.Item
 
 const INVALID_CREDENTIALS_MESSAGE = 'Неверные данные'
 interface Props {
-  onFormSubmit: () => Promise<any>,
+  onFormSubmit: () => Promise<any>
   error: boolean | string
 }
 
-const QUOTA_CATEGORY = [
-  {
-    title: 'Обычная',
-    value: 'Common',
-  },
-  {
-    title: 'Корпоративная',
-    value: 'Corporate',
-  },
-  {
-    title: 'Специальная',
-    value: 'Special',
-  },
-]
+const QUOTA_TYPE = new Array()
+for (const key in QuotaType) { //tslint:disable-line
+  QUOTA_TYPE.push({title: QuotaType[key], value: key})
+}
 
-const Form = ({ onFormSubmit, error }: Props) => (
+const Form = ({ onFormSubmit, error }: Props) => {
+  return (
   <FinalForm
     onSubmit={onFormSubmit}
     render={(props) => (
@@ -50,7 +42,7 @@ const Form = ({ onFormSubmit, error }: Props) => (
           name="category"
           label="Категория типа квот"
           defaultValue="Common"
-          options={QUOTA_CATEGORY}
+          options={QUOTA_TYPE}
         />
         <Input
           name="companyName"
@@ -101,6 +93,6 @@ const Form = ({ onFormSubmit, error }: Props) => (
       </AntForm>
     )}
   />
-)
+  )}
 
 export default Form
