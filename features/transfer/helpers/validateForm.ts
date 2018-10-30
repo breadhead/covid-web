@@ -1,5 +1,7 @@
 import { QuotaTransferRequest } from '@app/lib/api/request/QuotaTransfer'
 import * as yup from 'yup'
+import { validateCountToTransfer } from './validateCountToTransfer'
+import { validateIds } from './validateIds'
 const schema = yup.object().shape({
   sourceId: yup
     .string()
@@ -12,8 +14,11 @@ const schema = yup.object().shape({
     .required('Обязательное поле'),
 })
 
-export const validateForm = (data: QuotaTransferRequest) => {
+export const validateForm = async (
+  data: QuotaTransferRequest,
+  quotas: Array<{ id: string, name: string, count: number }>) => {
 
-
-  schema.validate(data)
+  await schema.validate(data)
+  validateIds(data.sourceId, data.targetId)
+  validateCountToTransfer(data.sourceId, data.count, quotas)
 }

@@ -34,7 +34,6 @@ const Form = ({ onFormSubmit, error, quotas }: Props) => (
           defaultValue=""
         >
           {quotas
-            .filter((quota) => quota.id !== props.values.target)
             .map((quota) => <Option key={quota.id} value={quota.id}>{quota.name}</Option>)
           }
 
@@ -45,7 +44,6 @@ const Form = ({ onFormSubmit, error, quotas }: Props) => (
           defaultValue=""
         >
           {quotas
-            .filter((quota) => quota.id !== props.values.source)
             .map((quota) => <Option key={quota.id} value={quota.id}>{quota.name}</Option>)
           }
         </Select>
