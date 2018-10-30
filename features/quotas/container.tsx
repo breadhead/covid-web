@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { tapOrHandle } from '@app/features/login/helpers/tabOrHandle'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { Quota } from '@app/models/Quota/Quota'

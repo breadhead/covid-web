@@ -6,21 +6,18 @@ import { Action } from 'redux'
 
 interface State extends FetchingState {
   token: string,
+  authViolateStatus?: boolean
 }
 
 interface Actions extends FetchingActions {
   success(token: string): Action
+  authViolateStatus(value: boolean): Action
 }
 
 const initialState = createInitialState({
   token: '',
+  authViolateStatus: undefined,
 })
-
-interface Actions {
-  request(): Action
-  success(token: string): Action
-  error(error: string): Action
-}
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
@@ -29,6 +26,14 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
     token,
   }),
   'login',
+  {
+    authViolateStatus: (state, authViolateStatus) => ({
+      ...state,
+      error: false,
+      fetching: false,
+      authViolateStatus,
+    }),
+  },
 )
 
 export {
