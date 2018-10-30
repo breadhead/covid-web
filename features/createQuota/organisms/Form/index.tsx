@@ -71,11 +71,13 @@ const Form = ({ onFormSubmit, error }: Props) => (
           type="checkbox"
           label="Показывать жертвователя на сайте"
         />
+        <div className={styles.imageField}>
         <FinalField name="logo">
           {(fieldProps) => (
             <Uploading onUploaded={fieldProps.input.onChange} />
             )}
         </FinalField>
+        </div>
         <Input
           name="companyLink"
           type="text"

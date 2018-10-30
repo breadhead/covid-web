@@ -12,7 +12,7 @@ form.Form input[type="checkbox"] {
 
 form.Form input[type="file"] {
     border: none;
-    padding: 5px 0 0 0;
+    margin: 4px 0;
 }
 
 form.Form textarea {
@@ -22,4 +22,8 @@ form.Form textarea {
     border-radius: 4px;
     width: 100%;
     padding: 4px 11px;
+}
+
+.imageField {
+    margin-bottom: 32px;
 }
