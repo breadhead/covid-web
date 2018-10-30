@@ -12,7 +12,7 @@ export interface Credentials {
   comment: string
   count: string
   publicCompany: string
-  logotype: string
+  logo: string
   companyLink: string
   logotypeComment: string
 }
@@ -74,7 +74,7 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
           name: credentials.name,
           companyName: credentials.companyName,
           companyLink: credentials.companyLink,
-        //   companyLogoUrl: string,
+          companyLogoUrl: credentials.logo,
           constraints,
           corporate: credentials.category === 'Corporate',
           publicCompany: credentials.publicCompany,

@@ -3,10 +3,10 @@ import Select from '@app/ui/molecules/Select'
 import TextArea from '@app/ui/molecules/TextАrea'
 import { Button, Form as AntForm  } from 'antd'
 import * as React from 'react'
-import { Form as FinalForm } from 'react-final-form'
+import { Field as FinalField, Form as FinalForm } from 'react-final-form'
 
+import Uploading from '@app/features/uploading/Uploading'
 import * as styles from './Form.css'
-import Uploading from '@app/features/uploading/Uploading';
 
 const FormItem = AntForm.Item
 
@@ -71,7 +71,11 @@ const Form = ({ onFormSubmit, error }: Props) => (
           type="checkbox"
           label="Показывать жертвователя на сайте"
         />
-        <Uploading onUploaded={(url) => console.log('url', url)} />
+        <FinalField name="logo">
+          {(fieldProps) => (
+            <Uploading onUploaded={fieldProps.input.onChange} />
+            )}
+        </FinalField>
         <Input
           name="companyLink"
           type="text"
