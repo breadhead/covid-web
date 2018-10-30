@@ -1,6 +1,7 @@
 import axios, { AxiosInstance } from 'axios'
 
-import { Quota, Transaction } from '@app/models/Quota'
+import { Quota } from '@app/models/Quota/Quota'
+import { Transaction } from '@app/models/Quota/Transaction'
 import ApiClient, { User } from './ApiClient'
 import FileUploader from './FileUploader/FileUploader'
 import RealFileUploader from './FileUploader/RealFileUploader'

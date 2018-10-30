@@ -7,6 +7,6 @@ export interface Transaction {
   from: string,
   to: string,
   amount: number,
-  date: Date,
+  date: string,
   kind: TransactionKind
 }
