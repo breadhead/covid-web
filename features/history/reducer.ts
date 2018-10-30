@@ -6,7 +6,7 @@ import {
   errorSymbiote, FetchingActions,
   FetchingState, requestSymbiote,
 } from '@app/lib/symbioteFactory'
-import { Transaction } from '@app/models/Quota'
+import { Transaction } from '@app/models/Quota/Transaction'
 
 interface State extends FetchingState {
   transactions: Transaction[]
