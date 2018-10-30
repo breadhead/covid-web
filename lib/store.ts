@@ -12,9 +12,9 @@ import {
   State as QuotasState,
 } from '@app/features/quotasPage'
 
+import { unauthorizedMiddleware } from '../features/login'
 import ApiClient from './api/ApiClient'
 import ApiClientFactory from './api/ApiClientFactory'
-import { unauthorizedMiddleware } from './unauthorizedMiddleware'
 
 export interface State {
   login: LoginState,

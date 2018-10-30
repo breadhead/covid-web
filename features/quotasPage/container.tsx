@@ -1,9 +1,8 @@
 import React from 'react'
 
-import { tapOrHandle } from '@app/features/login/helpers/tabOrHandle'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
-import { Quota } from '@app/models/Quota'
+import { Quota } from '@app/models/Quota/Quota'
 import { connect } from 'react-redux'
 import { fetchQuotas } from './actions'
 import QuotasPage from './page'
@@ -18,7 +17,7 @@ class Container extends React.Component<Props> {
   public static async getInitialProps(context: AppContext) {
     await context.reduxStore
       .dispatch(fetchQuotas() as any)
-      .catch(tapOrHandle(context))
+
     return {}
   }
 
