@@ -7,7 +7,7 @@ import { AnyAction, compose, Dispatch } from 'redux'
 import * as yup from 'yup'
 import { push as pushNotification } from '../toast'
 import { createQuota } from './actions'
-import { getCreatedQuotaId } from './selectors'
+import { getCreatedQuotaId, getCreateQuotaError } from './selectors'
 
 export interface QuotaFields {
   name: string
@@ -101,7 +101,7 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
 }
 
 const mapState = (state: State) => ({
-  error: state.createQuota.error,
+  error: getCreateQuotaError(state),
   createdQuotaId: getCreatedQuotaId(state),
 })
 
