@@ -57,7 +57,7 @@ const Form = ({ onFormSubmit, error }: Props) => {
         />
         <Input
           name="count"
-          type="text"
+          type="number"
           label="Количество квот"
         />
         <div className={styles.Switch}>
