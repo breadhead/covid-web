@@ -1,5 +1,5 @@
 import { State } from '@app/lib/store'
-import { QuotaType } from '@app/models/Quota'
+import { QuotaType } from '@app/models/Quota/Quota'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
@@ -62,6 +62,7 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
 
     private onFormSubmit = async (credentials: Credentials) => {
       const constraints = []
+
       if (credentials.category === QuotaType.Special) {
         constraints.push(QuotaType.Special)
       }

@@ -1,4 +1,4 @@
-import { QuotaType } from '@app/models/Quota'
+import { QuotaType } from '@app/models/Quota/Quota'
 import Input from '@app/ui/molecules/Input'
 import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch/Switch'
@@ -20,14 +20,14 @@ interface Props {
 
 const QUOTA_TYPE = new Array()
 for (const key in QuotaType) { //tslint:disable-line
-  QUOTA_TYPE.push({title: QuotaType[key], value: key})
+  QUOTA_TYPE.push({name: QuotaType[key], value: QuotaType[key]})
 }
 
 const Form = ({ onFormSubmit, error }: Props) => {
   return (
   <FinalForm
     onSubmit={onFormSubmit}
-    render={(props) => (
+    render={(props: any) => (
       <AntForm
         onSubmit={props.handleSubmit}
         className={styles.Form}

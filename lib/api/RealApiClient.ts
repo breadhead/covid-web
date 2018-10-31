@@ -53,6 +53,7 @@ export default class RealApiClient implements ApiClient {
 
   public createQuota = (credentials: any) => this.axiosInstance.post('/quotas/create', credentials)
 
+  // tslint:disable-next-line:adjacent-overload-signatures
   public get token() {
     return this._token
   }
