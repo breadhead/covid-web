@@ -1,7 +1,6 @@
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 import axios, { AxiosInstance } from 'axios'
-import Router from 'next/router'
 import ApiClient, { User } from './ApiClient'
 import FileUploader from './FileUploader/FileUploader'
 import RealFileUploader from './FileUploader/RealFileUploader'
@@ -47,7 +46,6 @@ export default class RealApiClient implements ApiClient {
     .post('/quotas/create', credentials)
     .then((response) => response.data as Quota)
 
-  // tslint:disable-next-line:adjacent-overload-signatures
   public get token() {
     return this._token
   }
