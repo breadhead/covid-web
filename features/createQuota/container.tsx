@@ -43,7 +43,7 @@ const schema = yup.object().shape({
   category: yup.string(),
   companyName: yup.string().required('Укажите имя жертвователя'),
   comment: yup.string(),
-  count: yup.number().required('Укажите количество квот'),
+  count: yup.number().typeError('Количество квот должно быть числом').required('Укажите количество квот'),
   publicCompany: yup.string(),
   logotype: yup.string(),
   companyLink: yup.string(),
