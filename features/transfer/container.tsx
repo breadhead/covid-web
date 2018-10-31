@@ -1,12 +1,13 @@
-import { State } from '@app/lib/store'
-import { Quota } from '@app/models/Quota/Quota'
+import Router from 'next/router'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
-import { transfer } from './actions'
 
 import { QuotaTransferRequest } from '@app/lib/api/request/QuotaTransfer'
-
+import { State } from '@app/lib/store'
+import { Quota } from '@app/models/Quota/Quota'
+import { push as pushNotification } from '../toast'
+import { transfer } from './actions'
 import { validateForm } from './helpers/validateForm'
 import { getQuotasCounts, getTransferError } from './selectors'
 
@@ -36,13 +37,21 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
       { sourceId: string, targetId: string, count: string },
     ) => {
       try {
-
         const castedQuotaTransferData = {
           ...quotaTransferData,
           count: parseInt(quotaTransferData.count, 10),
         }
+
         validateForm(castedQuotaTransferData, this.props.quotas)
+
         return this.props.transfer(castedQuotaTransferData)
+          .then(() => {
+            pushNotification({
+              message: 'Перевод успешно завершен',
+            })
+
+            Router.push('/quotas')
+          })
       } catch (props) {
 
         return { [props.path]: props.message }
