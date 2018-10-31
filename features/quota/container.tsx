@@ -1,11 +1,10 @@
-import React from 'react'
-
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { Quota } from '@app/models/Quota/Quota'
+import React from 'react'
 import { connect } from 'react-redux'
+import { compose } from 'redux'
 import { fetchQuota } from './actions'
-import QuotaPage from './page'
 import { getQuota, getQuotaError } from './selectors'
 
 interface Props {
@@ -13,22 +12,26 @@ interface Props {
   error: string | false
 }
 
-class Container extends React.Component<Props> {
+interface Query {
+  query: { id: string }
+}
+const Container = (WrappedComponent: React.ComponentType<Props>) => {
 
-  public static async getInitialProps(context: AppContext) {
+  return class extends React.Component<Props> {
 
-    await context.reduxStore
-      .dispatch(fetchQuota(context.query.id) as any)
+    public static async getInitialProps(context: AppContext & Query) {
+      await context.reduxStore
+        .dispatch(fetchQuota(context.query.id) as any)
+      return {}
+    }
 
-    return {}
+    public render() {
+      return (
+        <WrappedComponent  {...this.props} />
+      )
+    }
   }
 
-  public render() {
-    const { quota, error } = this.props
-    return (
-      <QuotaPage quota={quota} error={error} />
-    )
-  }
 }
 
 const mapState = (state: State) => ({
@@ -36,4 +39,7 @@ const mapState = (state: State) => ({
   error: getQuotaError(state),
 })
 
-export default connect(mapState)(Container)
+export default compose(
+  connect(mapState),
+  Container,
+)

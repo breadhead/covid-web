@@ -1,10 +1,16 @@
 import * as React from 'react'
 
+import { Quota } from '@app/models/Quota/Quota'
 import QuotaControl from '../organisms/QuotaControl'
 import QuotaDescription from '../organisms/QuotaDescription'
 import styles from './Page.css'
 
-const QuotaPage = ({ quota, error }) =>
+interface Props {
+  quota: Quota
+  error: string | false
+}
+
+const QuotaPage = ({ quota, error }: Props) =>
   <section className={styles.QuotaWrapper}>
     <a href="/quotas">{'< '}Вернуться ко всем квотам</a>
     {
