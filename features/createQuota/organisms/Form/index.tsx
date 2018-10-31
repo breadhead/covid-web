@@ -1,6 +1,7 @@
 import { QuotaType } from '@app/models/Quota'
 import Input from '@app/ui/molecules/Input'
 import Select from '@app/ui/molecules/Select'
+import Switch from '@app/ui/molecules/Switch/Switch'
 import TextArea from '@app/ui/molecules/TextАrea'
 import { Button, Form as AntForm  } from 'antd'
 import * as React from 'react'
@@ -58,17 +59,26 @@ const Form = ({ onFormSubmit, error }: Props) => {
           type="text"
           label="Количество квот"
         />
-        <Input
-          name="publicCompany"
-          type="checkbox"
-          label="Показывать жертвователя на сайте"
-        />
+        <div className={styles.Switch}>
+            <Switch
+            name="publicCompany"
+            checkedChildren="Да"
+            unCheckedChildren="Нет"
+            label="Показывать жертвователя на сайте"
+          />
+        </div>
+
+        {props.values.publicCompany && <div className={styles.companyField}>
         <div className={styles.imageField}>
-        <FinalField name="logo">
-          {(fieldProps) => (
-            <Uploading onUploaded={fieldProps.input.onChange} />
+          <FinalField name="logo">
+            {(fieldProps) => (
+              <React.Fragment>
+                <label htmlFor="logo">Загрузить логотип</label>
+                <Uploading onUploaded={fieldProps.input.onChange}
+              />
+              </React.Fragment>
             )}
-        </FinalField>
+          </FinalField>
         </div>
         <Input
           name="companyLink"
@@ -81,6 +91,7 @@ const Form = ({ onFormSubmit, error }: Props) => {
           (Например, «Средства на консультацию предоставлены Фондом профилактики рака»)"
           rows={3}
         />
+        </div>}
         <FormItem validateStatus={error ? 'error' : undefined}
           help={error && INVALID_CREDENTIALS_MESSAGE}  >
           <Button
@@ -91,8 +102,9 @@ const Form = ({ onFormSubmit, error }: Props) => {
           </Button>
         </FormItem>
       </AntForm>
-    )}
-  />
-  )}
+      )}
+/>
+  )
+}
 
 export default Form
