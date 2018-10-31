@@ -19,8 +19,6 @@ app.prepare().then(() => {
 
   server.get(
     '*', (req, res) => {
-      req.headers.Authorization = req.cookies.token
-
       app.render(req, res, req.path, req.query)
     }
   )

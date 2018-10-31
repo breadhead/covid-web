@@ -16,7 +16,8 @@ export const login = (username: string, password: string) => async (
 
     return dispatch(actions.success(token))
   } catch (error) {
-    return dispatch(actions.error(error.message))
+    dispatch(actions.error(error.message))
+    throw error
   }
 
 }

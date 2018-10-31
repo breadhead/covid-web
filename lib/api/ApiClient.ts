@@ -1,12 +1,18 @@
-import QuotaAmount from "@app/features/quotaPage/molecules/QuotaAmount";
-
+import { Quota } from '@app/models/Quota/Quota'
+import { Transaction } from '@app/models/Quota/Transaction'
+import FileUploader from './FileUploader/FileUploader'
+import { QuotaTransferRequest } from './request/QuotaTransfer'
+import { QuotaTransferResponse } from './response/QuotaTransfer'
 export interface User {
   token: string
 }
 
 export default interface ApiClient {
-  quotas(): Promise<any[]>
-  quota(id: string): Promise<any>
+  token: string
+  fileUploader: FileUploader
+  quota(id: string): Promise<Quota>
+  quotas(): Promise<Quota[]>
+  history(from?: Date, to?: Date): Promise<Transaction[]>
   login(login: string, password: string): Promise<User>
-  setToken(token: string): void
+  transfer(quotaTransferRequest: QuotaTransferRequest): Promise<QuotaTransferResponse>
 }

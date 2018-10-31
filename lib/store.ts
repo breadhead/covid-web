@@ -1,17 +1,27 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
-import { BACK_URL } from './config'
 
 import {
   reducer as loginReducer,
   State as LoginState,
+  unauthorizedMiddleware,
 } from '@app/features/login'
 
 import {
   reducer as quotasReducer,
   State as QuotasState,
-} from '@app/features/quotasPage'
+} from '@app/features/quotas'
+
+import {
+  reducer as transferReducer,
+  State as TransferState,
+} from '@app/features/transfer'
+
+import {
+  reducer as historyReducer,
+  State as HistoryState,
+} from '@app/features/history'
 
 import {
   reducer as quotaReducer,
@@ -19,18 +29,22 @@ import {
 } from '@app/features/quotaPage'
 
 import ApiClient from './api/ApiClient'
-import RealApiClient from './api/RealApiClient'
+import ApiClientFactory from './api/ApiClientFactory'
 
 export interface State {
-  login: LoginState,
-  quotas: QuotasState,
+  login: LoginState
+  quotas: QuotasState
   quota: QuotaState
+  transfer: TransferState
+  history: HistoryState,
 }
 
 const reducer = combineReducers({
   login: loginReducer,
   quotas: quotasReducer,
   quota: quotaReducer,
+  transfer: transferReducer,
+  history: historyReducer,
 })
 
 export interface ExtraArgs {
@@ -42,8 +56,9 @@ export const initializeStore = (initialState?: State) =>
     reducer,
     initialState,
     composeWithDevTools(applyMiddleware(
+      unauthorizedMiddleware,
       thunk.withExtraArgument({
-        api: new RealApiClient(BACK_URL),
+        api: ApiClientFactory.getApiClient(),
       } as ExtraArgs),
     )),
   )
