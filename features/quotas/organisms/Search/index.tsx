@@ -8,7 +8,7 @@ interface Props {
 }
 
 interface State {
-  nowValue?: string
+  currentValue?: string
 }
 
 export default class Search extends React.Component<Props, State> {
@@ -18,16 +18,16 @@ export default class Search extends React.Component<Props, State> {
   private debouncedOnChange = debounce(this.props.onChange, 500)
 
   public render() {
-    const { nowValue } = this.state
+    const { currentValue } = this.state
 
-    return <Input value={nowValue} onChange={this.handleChange} placeholder="Поиск" />
+    return <Input value={currentValue} onChange={this.handleChange} placeholder="Поиск" />
   }
 
   private handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
 
     this.setState(
-      { nowValue: value },
+      { currentValue: value },
       () => this.debouncedOnChange(value),
     )
   }
