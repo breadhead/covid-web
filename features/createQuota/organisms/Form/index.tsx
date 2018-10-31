@@ -33,6 +33,7 @@ const Form = ({ onFormSubmit, error }: Props) => {
         className={styles.Form}
         layout="vertical"
       >
+      <div className={styles.mainField}>
         <h1 className={styles.title}>Новый тип квот</h1>
         <Input
           name="name"
@@ -67,7 +68,7 @@ const Form = ({ onFormSubmit, error }: Props) => {
             label="Показывать жертвователя на сайте"
           />
         </div>
-
+      </div>
         {props.values.publicCompany && <div className={styles.companyField}>
         <div className={styles.imageField}>
           <FinalField name="logo">
@@ -92,6 +93,7 @@ const Form = ({ onFormSubmit, error }: Props) => {
           rows={3}
         />
         </div>}
+        <div className={styles.submitButtonField}>
         <FormItem validateStatus={error ? 'error' : undefined}
           help={error && INVALID_CREDENTIALS_MESSAGE}  >
           <Button
@@ -101,6 +103,7 @@ const Form = ({ onFormSubmit, error }: Props) => {
             Создать
           </Button>
         </FormItem>
+        </div>
       </AntForm>
       )}
 />

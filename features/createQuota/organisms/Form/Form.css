@@ -1,8 +1,26 @@
 form.Form {
-  max-width: 640px;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 0 7em;
+}
+
+form.Form div {
+    width: 390px;
+}
+
+form.Form div.mainField {
+    padding: 48px 80px 0;
+    width: 100%;
+}
+
+form.Form div.companyField {
+    background-color: #f8f8fa;
+    padding: 30px 80px;
+    margin-bottom: 28px;
+    width: 100%;
+}
+
+form.Form div.submitButtonField {
+    padding: 0 80px;
 }
 
 form.Form input[type="checkbox"] {
@@ -25,4 +43,13 @@ form.Form textarea {
 
 .imageField {
     margin-bottom: 32px;
+}
+
+form.Form input[role="switch"] {
+    width: 300px;
+}
+
+.Switch button[role="switch"] {
+    width: 50px;
+    display: block;
 }
