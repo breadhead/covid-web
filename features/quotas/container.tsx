@@ -1,10 +1,11 @@
+import { flow } from 'lodash'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
-import { QuotaType } from '@app/models/Quota/Quota'
+import { Quota, QuotaType } from '@app/models/Quota/Quota'
 import { fetchQuotas } from './actions'
 import { Filter } from './organisms/Filters'
 import { Props as ComponentProps } from './page'
@@ -35,7 +36,9 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
         ...this.props,
         ...this.state,
         changeFilter: this.changeFilter,
-        quotas: this.getFilteredQuotas(),
+        quotas: flow([
+          this.filterQuotas,
+        ])(this.props.quotas),
       } as ComponentProps
 
       return (
@@ -45,9 +48,8 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
 
     private changeFilter = (activeFilter: QuotaType | 'All') => this.setState({ activeFilter })
 
-    private getFilteredQuotas = () => {
+    private filterQuotas = (quotas: Quota[]) => {
       const { activeFilter } = this.state
-      const { quotas } = this.props
 
       return quotas.filter((quota) => activeFilter === 'All' || quota.type === activeFilter)
     }
