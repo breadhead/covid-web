@@ -1,0 +1,45 @@
+import { AppContext } from '@app/lib/server-types'
+import { State } from '@app/lib/store'
+import { Quota } from '@app/models/Quota/Quota'
+import React from 'react'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { fetchQuota } from './actions'
+import { getQuota, getQuotaError } from './selectors'
+
+interface Props {
+  quota: Quota,
+  error: string | false
+}
+
+interface Query {
+  query: { id: string }
+}
+const Container = (WrappedComponent: React.ComponentType<Props>) => {
+
+  return class extends React.Component<Props> {
+
+    public static async getInitialProps(context: AppContext & Query) {
+      await context.reduxStore
+        .dispatch(fetchQuota(context.query.id) as any)
+      return {}
+    }
+
+    public render() {
+      return (
+        <WrappedComponent  {...this.props} />
+      )
+    }
+  }
+
+}
+
+const mapState = (state: State) => ({
+  quota: getQuota(state),
+  error: getQuotaError(state),
+})
+
+export default compose(
+  connect(mapState),
+  Container,
+)

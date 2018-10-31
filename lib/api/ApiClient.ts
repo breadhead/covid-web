@@ -10,6 +10,7 @@ export interface User {
 export default interface ApiClient {
   token: string
   fileUploader: FileUploader
+  quota(id: string): Promise<Quota>
   quotas(): Promise<Quota[]>
   history(from?: Date, to?: Date): Promise<Transaction[]>
   login(login: string, password: string): Promise<User>

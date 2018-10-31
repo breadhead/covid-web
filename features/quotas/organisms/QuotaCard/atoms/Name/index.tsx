@@ -9,7 +9,7 @@ export interface NameProps {
 
 const Name: React.SFC<NameProps> = ({ children, id }) => {
   return (
-    <Link href={`/quotas/${id}`} >
+    <Link href={`/quota/${id}`} >
       <a className={styles.Name}>{children}</a>
     </Link >
   )
