@@ -5,6 +5,7 @@ import Filters, { Filter } from '../organisms/Filters'
 import Header from '../organisms/Header'
 import QuotasList from '../organisms/QuotasList'
 import Sorting, { Order } from '../organisms/Sorting'
+import * as styles from './page.css'
 
 export interface Props {
   quotas: Quota[]
@@ -27,16 +28,23 @@ const Page: React.SFC<Props> = ({
 }) =>
   <main>
     <Header />
-    <Sorting
-      onChange={changeOrder}
-      activeOrder={activeOrder}
-    />
-    <Filters
-      onChange={changeFilter}
-      activeFilter={activeFilter}
-      totalCount={totalCount}
-      countByTypes={countByTypes}
-    />
+
+    <div className={styles.settings}>
+      <div>search</div>
+      <Sorting
+        onChange={changeOrder}
+        activeOrder={activeOrder}
+        className={styles.rowEnd}
+      />
+      <Filters
+        onChange={changeFilter}
+        activeFilter={activeFilter}
+        totalCount={totalCount}
+        countByTypes={countByTypes}
+        className={styles.allRow}
+      />
+    </div>
+
     <QuotasList quotas={quotas} />
   </main>
 

@@ -1,6 +1,8 @@
 import { Select } from 'antd'
 import * as React from 'react'
+
 import { orderToLabel } from './helpers/orderToLabel'
+import * as styles from './Sorting.css'
 
 export enum Order {
   Name = 'name',
@@ -12,18 +14,23 @@ export enum Order {
 interface Props {
   onChange: (order: Order) => void
   activeOrder: Order
+  className?: string
 }
 
-const Sorting = ({ onChange, activeOrder }: Props) => {
+const Sorting = ({ className, onChange, activeOrder }: Props) => {
   return (
-    <Select
-      defaultValue={activeOrder}
-      onSelect={(e) => onChange(e as Order)} /* due to typings of antd */
-    >
-      {Object.values(Order).map((value) =>
-        <Select.Option key={value} value={value}>{orderToLabel(value)}</Select.Option>,
-      )}
-    </Select>
+    <section className={className}>
+      {'Сортировать по '}
+      <Select
+        className={styles.Select}
+        defaultValue={activeOrder}
+        onSelect={(e) => onChange(e as Order)} /* due to typings of antd */
+      >
+        {Object.values(Order).map((value) =>
+          <Select.Option key={value} value={value}>{orderToLabel(value)}</Select.Option>,
+        )}
+      </Select>
+    </section>
   )
 }
 

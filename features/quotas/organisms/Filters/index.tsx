@@ -2,7 +2,6 @@ import { Radio } from 'antd'
 import * as React from 'react'
 
 import { QuotaType } from '@app/models/Quota/Quota'
-import * as styles from './Filters.css'
 import { propsToVariants } from './helpers/propsToVariants'
 
 export type Filter = QuotaType | 'All'
@@ -14,6 +13,7 @@ export interface Props {
   }
   activeFilter: Filter
   onChange: (value: Filter) => void
+  className?: string
 }
 
 const Filters = (props: Props) => {
@@ -23,7 +23,7 @@ const Filters = (props: Props) => {
     <Radio.Group
       onChange={(e) => props.onChange(e.target.value)}
       defaultValue={props.activeFilter}
-      className={styles.Filters}
+      className={props.className}
       buttonStyle="solid"
     >
       {variants.map(({ quotaType, count, label }) =>
