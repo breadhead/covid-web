@@ -5,22 +5,24 @@ import { compose } from 'redux'
 
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
-import { QuotaType } from '@app/models/Quota/Quota'
 import { fetchQuotas } from './actions'
 import { filterQuotas } from './helpers/filterQuotas'
+import { sortQuotas } from './helpers/sortQuotas'
 import { Filter } from './organisms/Filters'
+import { Order } from './organisms/Sorting'
 import { Props as ComponentProps } from './page'
 import { getCount, getCountByTypes, getQuotas } from './selectors'
 
 interface ComponentState {
   activeFilter: Filter
+  activeOrder: Order
 }
 
 const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
   return class extends React.Component<
-  Exclude<ComponentProps, 'activeFilter' | 'changeFilter'>,
-  ComponentState
-> {
+    Pick<ComponentProps, 'quotas' | 'totalCount' | 'countByTypes'>,
+    ComponentState
+    > {
 
     public static async getInitialProps(context: AppContext) {
       await context.reduxStore
@@ -30,27 +32,33 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
 
     public state = {
       activeFilter: 'All',
+      activeOrder: Order.Count,
     } as ComponentState
 
     public render() {
-      const { activeFilter } = this.state
-      const { quotas } = this.props
-
-      const childProps = {
-        ...this.props,
-        ...this.state,
-        changeFilter: this.changeFilter,
-        quotas: flow([
-          filterQuotas(activeFilter),
-        ])(quotas),
-      } as ComponentProps
-
       return (
-        <WrappedComponent {...childProps} />
+        <WrappedComponent {...this.getChildProps()} />
       )
     }
 
-    private changeFilter = (activeFilter: QuotaType | 'All') => this.setState({ activeFilter })
+    private getChildProps = () => {
+      const { activeFilter, activeOrder } = this.state
+      const { quotas } = this.props
+
+      return {
+        ...this.props,
+        ...this.state,
+        changeFilter: this.changeFilter,
+        changeOrder: this.changeOrder,
+        quotas: flow([
+          filterQuotas(activeFilter),
+          sortQuotas(activeOrder),
+        ])(quotas),
+      } as ComponentProps
+    }
+
+    private changeFilter = (activeFilter: Filter) => this.setState({ activeFilter })
+    private changeOrder = (activeOrder: Order) => this.setState({ activeOrder })
   }
 }
 
