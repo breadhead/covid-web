@@ -1,13 +1,17 @@
+import { push } from '@app/features/toast'
 import { Quota } from '@app/models/Quota/Quota'
 import * as React from 'react'
 import * as yup from 'yup'
 
-export interface SubmitValues { amount: number }
+export interface SubmitValues { amount?: number }
 
 interface Props {
+  onFormSubmit: (submitValues: SubmitValues) => Promise<any>
+}
+interface ParentProps {
   income: (amount: number, quotaId: string) => Promise<Quota>
   quotaId: string
-  onFormSubmit: (submitValues: SubmitValues) => void
+  onFormSubmit: (submitValues: SubmitValues) => Promise<any>
 }
 
 const schema = yup.object().shape({
@@ -17,21 +21,21 @@ const schema = yup.object().shape({
 })
 
 const Container = (WrappedComponent: React.ComponentType<Props>) => {
-  return class extends React.Component<Props> {
-
+  return class extends React.Component<ParentProps> {
     public render() {
+      const { income, ...rest } = this.props
       return <WrappedComponent
-        {...this.props}
+        {...rest}
         onFormSubmit={this.onFormSubmit}
       />
     }
 
-    private onFormSubmit = (values: SubmitValues) => {
+    private onFormSubmit = async (values: SubmitValues) => {
       try {
-        // schema.validateSync(values)
         const amount = Number(values.amount)
         schema.validateSync({ amount })
-        return this.props.income(amount, this.props.quotaId)
+        await this.props.income(amount, this.props.quotaId)
+        push({ message: 'Квота успешно обновлена', duration: 2000 })
       } catch (props) {
         return { [props.path]: props.message }
       }

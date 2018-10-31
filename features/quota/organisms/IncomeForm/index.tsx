@@ -8,7 +8,7 @@ import styles from './IncomeForm.css'
 const FormItem = Form.Item
 
 export interface IncomeFormProps {
-  onFormSubmit: (submitValues: SubmitValues) => void
+  onFormSubmit: (submitValues: SubmitValues) => Promise<any>,
 }
 
 const IncomeForm: React.SFC<IncomeFormProps> = ({ onFormSubmit }) => {
