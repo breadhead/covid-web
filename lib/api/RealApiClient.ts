@@ -16,6 +16,8 @@ export default class RealApiClient implements ApiClient {
 
   public quotas = () => this.axiosInstance.get('/quotas').then((response) => response.data as Quota[])
 
+  public quota = (id) => this.axiosInstance.get(`/quotas/${id}`).then((response) => redponse.data as Quota)
+
   public login = (login: string, password: string) => this.axiosInstance.post('/auth/login', { login, password })
     .then((response) => response.data as User)
 

@@ -3,20 +3,20 @@ import { Action } from 'redux'
 import { createSymbiote } from 'redux-symbiote'
 
 interface State {
-  data: any[],
+  quota: any,
   fetching: boolean,
   error: false | string
 }
 
 const initialState = {
-  data: [],
+  quota: {},
   fetching: false,
   error: false,
 } as State
 
 interface Actions {
   request(): Action
-  success(quota: any): Action
+  success(token: string): Action
   error(error: string): Action
 }
 
@@ -24,15 +24,15 @@ const { actions, reducer } = createSymbiote<State, Actions>(
   initialState,
   {
     request: requestSymbiote,
-    success: (state, data) => ({
+    success: (state, quota) => ({
       ...state,
       fetching: false,
       error: false,
-      data,
+      quota,
     }),
     error: errorSymbiote,
   },
-  'quotas',
+  'quota',
 )
 
 export {
