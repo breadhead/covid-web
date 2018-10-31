@@ -4,6 +4,7 @@ import { Quota, QuotaType } from '@app/models/Quota/Quota'
 import Filters, { Filter } from '../organisms/Filters'
 import Header from '../organisms/Header'
 import QuotasList from '../organisms/QuotasList'
+import Search from '../organisms/Search'
 import Sorting, { Order } from '../organisms/Sorting'
 import * as styles from './page.css'
 
@@ -19,9 +20,13 @@ export interface Props {
 
   activeFilter: Filter
   changeFilter: (filter: Filter) => void
+
+  searchQuery?: string
+  changeSearchQuery: (value: string) => void
 }
 
 const Page: React.SFC<Props> = ({
+  changeSearchQuery, searchQuery,
   changeOrder, activeOrder,
   changeFilter, activeFilter,
   totalCount, countByTypes, quotas,
@@ -30,7 +35,10 @@ const Page: React.SFC<Props> = ({
     <Header />
 
     <div className={styles.settings}>
-      <div>search</div>
+      <Search
+        onChange={changeSearchQuery}
+        value={searchQuery}
+      />
       <Sorting
         onChange={changeOrder}
         activeOrder={activeOrder}
