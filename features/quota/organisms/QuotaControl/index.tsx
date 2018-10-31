@@ -3,7 +3,7 @@ import * as React from 'react'
 
 import { Quota } from '@app/models/Quota/Quota'
 import Input from '@app/ui/molecules/Input'
-import QuotaAmount from '../../molecules/QuotaAmount'
+import QuotaAmount, { AmountKind } from '../../molecules/QuotaAmount'
 import styles from './QuotaControl.css'
 
 const FormItem = Form.Item
@@ -16,12 +16,13 @@ const QuotaControl = ({ quota }: Props) => (
 
   <div className={styles.QuotaControl}>
     <QuotaAmount
-      amount={quota.company.donation}
+      amount={quota.summarizedCount}
       title="Всего"
+      kind={AmountKind.Total}
     />
     <QuotaAmount
       amount={quota.count}
-      color="green"
+      kind={AmountKind.Available}
       title="Доступно"
     />
     <div className={styles.AddingInput}>

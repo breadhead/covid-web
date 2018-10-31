@@ -3,6 +3,10 @@
   margin-right: 24px;
 }
 
-.AvailableQuota {
+.Available {
   color: #417505;
+}
+
+.Total {
+  color: #000000;
 }
