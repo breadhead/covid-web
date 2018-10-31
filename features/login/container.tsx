@@ -5,6 +5,7 @@ import { AnyAction, compose, Dispatch } from 'redux'
 import { login } from './actions'
 
 import * as yup from 'yup'
+import { getLoginError } from './selectors'
 
 export interface Credentials {
   login: string,
@@ -19,7 +20,8 @@ export interface ServerError {
 }
 
 interface Props {
-  login: (credentials: Credentials) => any
+  login: (credentials: Credentials) => any,
+  onFormSubmit: () => Promise<any>,
 }
 
 const schema = yup.object().shape({
@@ -33,7 +35,7 @@ const schema = yup.object().shape({
     .required('Логин должен быть длиннее 2 символов'),
 })
 
-const Container = (WrappedComponent: any) => { // TODO: fix types
+const Container = (WrappedComponent: React.ComponentType<Props>) => {
   return class extends React.Component<Props> {
 
     public render() {
@@ -43,10 +45,10 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
       />
     }
 
-    private onFormSubmit = async (credentials: Credentials) => {
+    private onFormSubmit = (credentials: Credentials) => {
       try {
-        await schema.validate(credentials)
-        this.props.login(credentials)
+        schema.validateSync(credentials)
+        return this.props.login(credentials)
       } catch (props) {
 
         return { [props.path]: props.message }
@@ -57,7 +59,7 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
 }
 
 const mapState = (state: State) => ({
-  error: state.login.error,
+  error: getLoginError(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({

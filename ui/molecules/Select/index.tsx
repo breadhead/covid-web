@@ -13,7 +13,7 @@ interface Props {
   placeholder?: string
   required?: true
   options: Array<{
-    title: string,
+    name: string,
     value: string,
   }>
 }
@@ -42,7 +42,7 @@ const Select = ({
           {...input}
         >
           {options.map((option) => (
-            <Option key={option.value} value={option.value}>{option.title}</Option>
+            <Option key={option.value} value={option.value}>{option.name}</Option>
           ))}
         </AntSelect>
       </FormItem>

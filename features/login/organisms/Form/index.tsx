@@ -2,6 +2,7 @@ import Input from '@app/ui/molecules/Input'
 import { Button, Form as AntForm } from 'antd'
 import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
+import Container from '../../container'
 import styles from './Form.css'
 
 const FormItem = AntForm.Item
@@ -46,4 +47,4 @@ const Form = ({ onFormSubmit, error }: Props) => (
   />
 )
 
-export default Form
+export default Container(Form)
