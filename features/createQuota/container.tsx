@@ -65,7 +65,7 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
 
     private onFormSubmit = async (quotaFields: QuotaFields) => {
       const constraints = []
-
+      // TODO: пометка для специальной квоты для дальнейшей сортировки
       if (quotaFields.category === QuotaType.Special) {
         constraints.push(QuotaType.Special)
       }
@@ -87,15 +87,16 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
       try {
         await schema.validate(quotaFields)
           .then(() => this.props.createQuota(postQuotaFields))
-          .then(() => pushNotification({
-            message: 'Квота создана',
-          }))
-          .then(() => Router.push(`/quota/${this.props.createdQuotaId}`))
+          .then(() => {
+            pushNotification({
+              message: 'Квота создана',
+            })
+            Router.push(`/quota/${this.props.createdQuotaId}`)
+          })
       } catch (props) {
         return { [props.path]: props.message }
       }
     }
-
   }
 }
 
