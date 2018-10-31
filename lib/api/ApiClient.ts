@@ -11,7 +11,7 @@ export default interface ApiClient {
   token: string
   fileUploader: FileUploader
   quota(id: string): Promise<Quota>
-  quotaIncome(amount: number, quotaId: string): Promise<Quota>
+  income(amount: number, quotaId: string): Promise<Quota>
   quotas(): Promise<Quota[]>
   history(from?: Date, to?: Date): Promise<Transaction[]>
   login(login: string, password: string): Promise<User>

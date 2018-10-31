@@ -40,7 +40,7 @@ export default class RealApiClient implements ApiClient {
     .get(`/quotas/${id}`)
     .then((response) => response.data as Quota)
 
-  public quotaIncome = (amount: number, quotaId: string) => this.axiosInstance
+  public income = (amount: number, quotaId: string) => this.axiosInstance
     .post('/quotas/income', { amount, quotaId })
     .then((response) => response.data as Quota)
 
