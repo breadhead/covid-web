@@ -5,8 +5,9 @@ import { compose } from 'redux'
 
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
-import { Quota, QuotaType } from '@app/models/Quota/Quota'
+import { QuotaType } from '@app/models/Quota/Quota'
 import { fetchQuotas } from './actions'
+import { filterQuotas } from './helpers/filterQuotas'
 import { Filter } from './organisms/Filters'
 import { Props as ComponentProps } from './page'
 import { getCount, getCountByTypes, getQuotas } from './selectors'
@@ -32,13 +33,16 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
     } as ComponentState
 
     public render() {
+      const { activeFilter } = this.state
+      const { quotas } = this.props
+
       const childProps = {
         ...this.props,
         ...this.state,
         changeFilter: this.changeFilter,
         quotas: flow([
-          this.filterQuotas,
-        ])(this.props.quotas),
+          filterQuotas(activeFilter),
+        ])(quotas),
       } as ComponentProps
 
       return (
@@ -47,12 +51,6 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
     }
 
     private changeFilter = (activeFilter: QuotaType | 'All') => this.setState({ activeFilter })
-
-    private filterQuotas = (quotas: Quota[]) => {
-      const { activeFilter } = this.state
-
-      return quotas.filter((quota) => activeFilter === 'All' || quota.type === activeFilter)
-    }
   }
 }
 
