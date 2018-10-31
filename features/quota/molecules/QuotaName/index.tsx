@@ -8,14 +8,9 @@ class QuotaName extends React.Component {
     return (
       <h1 className={styles.QuotaName}>
         {this.props.name + ' '}
-        {/* TODO: change icon by button after UI-kit availability */}
         <Icon type="edit" theme="filled" onClick={this.handleClick} />
       </h1>
     )
-  }
-
-  private handeleClick = () => {
-    // TODO: add popup showing on click after popup availability
   }
 }
 
