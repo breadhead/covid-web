@@ -3,6 +3,7 @@ import { createSymbiote } from 'redux-symbiote'
 
 interface State {
   error: false | string
+  quotaId?: string
 }
 
 const initialState = {
@@ -10,16 +11,17 @@ const initialState = {
 } as State
 
 interface Actions {
-  success(): Action
+  success(quotaId: string): Action
   error(error: string): Action
 }
 
 const { actions, reducer } = createSymbiote<State, Actions>(
   initialState,
   {
-    success: (state) => ({
+    success: (state, quotaId) => ({
       ...state,
       error: false,
+      quotaId,
     }),
     error: (state, error) => ({
       ...state,

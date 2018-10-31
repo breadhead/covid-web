@@ -7,8 +7,9 @@ import { AnyAction, compose, Dispatch } from 'redux'
 import * as yup from 'yup'
 import { push as pushNotification } from '../toast'
 import { createQuota } from './actions'
+import { getCreatedQuotaId } from './selectors'
 
-export interface Credentials {
+export interface QuotaFields {
   name: string
   category: string
   companyName: string
@@ -20,7 +21,7 @@ export interface Credentials {
   logotypeComment: string
 }
 
-export interface ReqCredentials {
+export interface ReqQuotaFields {
   count: number
   quota: {
     name: string,
@@ -62,33 +63,34 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
       />
     }
 
-    private onFormSubmit = async (credentials: Credentials) => {
+    private onFormSubmit = async (quotaFields: QuotaFields) => {
       const constraints = []
 
-      if (credentials.category === QuotaType.Special) {
+      if (quotaFields.category === QuotaType.Special) {
         constraints.push(QuotaType.Special)
       }
 
-      const postCredentials = {
-        count: credentials.count,
+      const postQuotaFields = {
+        count: quotaFields.count,
         quota: {
-          name: credentials.name,
-          companyName: credentials.companyName,
-          companyLink: credentials.companyLink,
-          companyLogoUrl: credentials.logo,
+          name: quotaFields.name,
+          companyName: quotaFields.companyName,
+          companyLink: quotaFields.companyLink,
+          companyLogoUrl: quotaFields.logo,
           constraints,
-          corporate: credentials.category === QuotaType.Corporate,
-          publicCompany: credentials.publicCompany,
-          comment: credentials.comment,
+          corporate: quotaFields.category === QuotaType.Corporate,
+          publicCompany: quotaFields.publicCompany,
+          comment: quotaFields.comment,
         },
       }
 
       try {
-        await schema.validate(credentials)
-          .then(() => this.props.createQuota(postCredentials))
+        await schema.validate(quotaFields)
+          .then(() => this.props.createQuota(postQuotaFields))
           .then(() => pushNotification({
             message: 'Квота создана',
           }))
+          .then(() => Router.push(`/quota/${this.props.createdQuotaId}`))
       } catch (props) {
         return { [props.path]: props.message }
       }
@@ -99,10 +101,11 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
 
 const mapState = (state: State) => ({
   error: state.createQuota.error,
+  createdQuotaId: getCreatedQuotaId(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
-  createQuota: (credentials: ReqCredentials) => dispatch(createQuota(credentials) as any),
+  createQuota: (quotaFields: ReqQuotaFields) => dispatch(createQuota(quotaFields) as any),
 })
 
 export default compose(

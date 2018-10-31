@@ -7,7 +7,7 @@ import { login } from './actions'
 import * as yup from 'yup'
 import { getLoginError } from './selectors'
 
-export interface Credentials {
+export interface QuotaFields {
   login: string,
   password: string
 }
@@ -20,7 +20,7 @@ export interface ServerError {
 }
 
 interface Props {
-  login: (credentials: Credentials) => any,
+  login: (credentials: QuotaFields) => any,
   onFormSubmit: () => Promise<any>,
 }
 
@@ -45,7 +45,7 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
       />
     }
 
-    private onFormSubmit = (credentials: Credentials) => {
+    private onFormSubmit = (credentials: QuotaFields) => {
       try {
         schema.validateSync(credentials)
         return this.props.login(credentials)
@@ -63,7 +63,7 @@ const mapState = (state: State) => ({
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
-  login: (credentials: Credentials) => dispatch(login(credentials.login, credentials.password) as any),
+  login: (credentials: QuotaFields) => dispatch(login(credentials.login, credentials.password) as any),
 })
 
 export default compose(

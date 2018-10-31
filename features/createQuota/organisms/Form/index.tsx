@@ -61,7 +61,7 @@ const Form = ({ onFormSubmit, error }: Props) => {
           label="Количество квот"
         />
         <div className={styles.Switch}>
-            <Switch
+          <Switch
             name="publicCompany"
             checkedChildren="Да"
             unCheckedChildren="Нет"

@@ -7,10 +7,9 @@ export const createQuota = (credentials: any) => async (
   _: () => State,
   { api }: ExtraArgs,
 ) => {
-
   try {
-    api.createQuota(credentials)
-    return dispatch(actions.success())
+    const quota = await api.createQuota(credentials)
+    return dispatch(actions.success(quota.id))
   } catch (error) {
     return dispatch(actions.error(error.message))
   }

@@ -1,7 +1,7 @@
-import axios, { AxiosInstance } from 'axios'
-
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
+import axios, { AxiosInstance } from 'axios'
+import Router from 'next/router'
 import ApiClient, { User } from './ApiClient'
 import FileUploader from './FileUploader/FileUploader'
 import RealFileUploader from './FileUploader/RealFileUploader'
@@ -11,14 +11,6 @@ import { QuotaTransferResponse } from './response/QuotaTransfer'
 
 export default class RealApiClient implements ApiClient {
 
-  public get token() {
-    return this._token
-  }
-
-  public set token(newToken: string) {
-    axios.defaults.headers.common.Authorization = `Bearer ${newToken}`
-    this._token = newToken
-  }
   public readonly fileUploader: FileUploader
 
   private readonly axiosInstance: AxiosInstance
@@ -51,7 +43,9 @@ export default class RealApiClient implements ApiClient {
     .post('/auth/login', { login, password })
     .then((response) => response.data as User)
 
-  public createQuota = (credentials: any) => this.axiosInstance.post('/quotas/create', credentials)
+  public createQuota = (credentials: any) => this.axiosInstance
+    .post('/quotas/create', credentials)
+    .then((response) => response.data as Quota)
 
   // tslint:disable-next-line:adjacent-overload-signatures
   public get token() {
