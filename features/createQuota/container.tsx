@@ -1,9 +1,11 @@
 import { State } from '@app/lib/store'
 import { QuotaType } from '@app/models/Quota/Quota'
+import Router from 'next/router'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 import * as yup from 'yup'
+import { push as pushNotification } from '../toast'
 import { createQuota } from './actions'
 
 export interface Credentials {
@@ -84,6 +86,9 @@ const Container = (WrappedComponent: any) => { // TODO: fix types
       try {
         await schema.validate(credentials)
           .then(() => this.props.createQuota(postCredentials))
+          .then(() => pushNotification({
+            message: 'Квота создана',
+          }))
       } catch (props) {
         return { [props.path]: props.message }
       }
