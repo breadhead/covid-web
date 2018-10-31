@@ -1,7 +1,13 @@
 import * as React from 'react'
 import styles from './QuotaAmount.css'
 
-const QuotaAmount = ({ amount, color, title }) => (
+interface Props {
+  amount: number
+  color?: string
+  title: string
+}
+
+const QuotaAmount = ({ amount, color, title }: Props) => (
   <div className={styles.QuotaAmount}>
     <h4>{title}</h4>
     <strong

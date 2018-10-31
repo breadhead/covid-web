@@ -10,7 +10,7 @@ interface Props {
   className?: string
   label?: string,
   placeholder?: string
-  required?: true
+  required?: true,
 }
 
 const Input = ({

@@ -1,14 +1,18 @@
 import { Button, Card, Col, Form, Input as AntInput, Row } from 'antd'
 import * as React from 'react'
 
-import { Quota } from '@app/models/Quota'
+import { Quota } from '@app/models/Quota/Quota'
 import Input from '@app/ui/molecules/Input'
 import QuotaAmount from '../../molecules/QuotaAmount'
 import styles from './QuotaControl.css'
 
 const FormItem = Form.Item
 
-const QuotaControl = ({ quota }: Quota) => (
+interface Props {
+  quota: Quota
+}
+
+const QuotaControl = ({ quota }: Props) => (
 
   <div className={styles.QuotaControl}>
     <QuotaAmount
@@ -24,12 +28,11 @@ const QuotaControl = ({ quota }: Quota) => (
       <Form
         className={styles.Form}
         layout="inline"
-        // TODO: add quota accrual process on submit when api method is complete
       >
         <FormItem>
           <Input
+            name="quantity"
             type="number"
-            size="large"
             label="Количество квот" />
         </FormItem>
         <FormItem>

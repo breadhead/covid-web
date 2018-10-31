@@ -1,6 +1,10 @@
 import * as React from 'react'
 
-const IsCompaniyPublic = ( publicCompany: boolean) =>
+interface Props {
+  publicCompany: boolean
+}
+
+const IsCompaniyPublic = ({ publicCompany }: Props) =>
   <p>
     {
       publicCompany
