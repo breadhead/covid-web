@@ -26,7 +26,7 @@ import {
 import {
   reducer as quotaReducer,
   State as QuotaState,
-} from '@app/features/quotaPage'
+} from '@app/features/quota'
 
 import ApiClient from './api/ApiClient'
 import ApiClientFactory from './api/ApiClientFactory'

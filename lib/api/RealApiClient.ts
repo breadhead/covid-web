@@ -36,9 +36,9 @@ export default class RealApiClient implements ApiClient {
     .post('/quotas/transfer', quotaTransferRequest)
     .then((response) => response.data as QuotaTransferResponse)
 
-  public quota = (id) => this.axiosInstance
+  public quota = (id: string) => this.axiosInstance
     .get(`/quotas/${id}`)
-    .then((response) => redponse.data as Quota)
+    .then((response) => response.data as Quota)
 
   public quotas = () => this.axiosInstance
     .get('/quotas')

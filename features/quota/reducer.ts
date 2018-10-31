@@ -1,22 +1,23 @@
 import { errorSymbiote, requestSymbiote } from '@app/lib/symbioteFactory'
+import { Quota } from '@app/models/Quota/Quota'
 import { Action } from 'redux'
 import { createSymbiote } from 'redux-symbiote'
 
 interface State {
-  quota: any,
+  quota: Quota | null,
   fetching: boolean,
   error: false | string
 }
 
 const initialState = {
-  quota: {},
+  quota: null,
   fetching: false,
   error: false,
 } as State
 
 interface Actions {
   request(): Action
-  success(token: string): Action
+  success(quota: Quota): Action
   error(error: string): Action
 }
 
