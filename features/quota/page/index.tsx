@@ -8,9 +8,10 @@ import styles from './Page.css'
 interface Props {
   quota: Quota
   error: string | false
+  income: (amount: number, quotaId: string) => Promise<Quota>
 }
 
-const QuotaPage = ({ quota, error }: Props) =>
+const QuotaPage = ({ quota, error, income }: Props) =>
   <section className={styles.QuotaWrapper}>
     <a href="/quotas">{'< '}Вернуться ко всем квотам</a>
     {
@@ -18,7 +19,7 @@ const QuotaPage = ({ quota, error }: Props) =>
         <h1>Произошла ошибка</h1> :
         <React.Fragment>
           <QuotaDescription quota={quota} />
-          <QuotaControl quota={quota} />
+          <QuotaControl income={income} quota={quota} />
         </React.Fragment>
     }
   </section>
