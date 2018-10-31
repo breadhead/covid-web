@@ -66,10 +66,9 @@ const Form = ({ onFormSubmit, error }: Props) => {
             checkedChildren="Да"
             unCheckedChildren="Нет"
             label="Показывать жертвователя на сайте"
+            defaultChecked
           />
         </div>
-      </div>
-        {props.values.publicCompany && <div className={styles.companyField}>
         <div className={styles.imageField}>
           <FinalField name="logo">
             {(fieldProps) => (
@@ -92,7 +91,7 @@ const Form = ({ onFormSubmit, error }: Props) => {
           (Например, «Средства на консультацию предоставлены Фондом профилактики рака»)"
           rows={3}
         />
-        </div>}
+        </div>
         <div className={styles.submitButtonField}>
         <FormItem validateStatus={error ? 'error' : undefined}
           help={error && INVALID_CREDENTIALS_MESSAGE}  >
