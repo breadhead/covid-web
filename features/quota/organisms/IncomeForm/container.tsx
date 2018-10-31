@@ -2,16 +2,13 @@ import { push } from '@app/features/toast'
 import { Quota } from '@app/models/Quota/Quota'
 import * as React from 'react'
 import * as yup from 'yup'
+import { IncomeFormProps } from './Form'
 
 export interface SubmitValues { amount?: number }
 
-interface Props {
-  onFormSubmit: (submitValues: SubmitValues) => Promise<any>
-}
-interface ParentProps {
+interface ParentProps extends IncomeFormProps {
   income: (amount: number, quotaId: string) => Promise<Quota>
   quotaId: string
-  onFormSubmit: (submitValues: SubmitValues) => Promise<any>
 }
 
 const schema = yup.object().shape({
@@ -20,7 +17,7 @@ const schema = yup.object().shape({
     .required('Обязательное поле'),
 })
 
-const Container = (WrappedComponent: React.ComponentType<Props>) => {
+const Container = (WrappedComponent: React.ComponentType<IncomeFormProps>) => {
   return class extends React.Component<ParentProps> {
     public render() {
       const { income, ...rest } = this.props

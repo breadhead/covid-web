@@ -40,4 +40,4 @@ const IncomeForm: React.SFC<IncomeFormProps> = ({ onFormSubmit }) => {
   />)
 }
 
-export default Container(IncomeForm)
+export default IncomeForm
