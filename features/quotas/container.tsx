@@ -7,6 +7,7 @@ import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { fetchQuotas } from './actions'
 import { filterQuotas } from './helpers/filterQuotas'
+import { searchQuotas } from './helpers/searchQuotas'
 import { sortQuotas } from './helpers/sortQuotas'
 import { Filter } from './organisms/Filters'
 import { Order } from './organisms/Sorting'
@@ -16,6 +17,7 @@ import { getCount, getCountByTypes, getQuotas } from './selectors'
 interface ComponentState {
   activeFilter: Filter
   activeOrder: Order
+  searchQuery?: string
 }
 
 const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
@@ -42,7 +44,7 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
     }
 
     private getChildProps = () => {
-      const { activeFilter, activeOrder } = this.state
+      const { activeFilter, activeOrder, searchQuery } = this.state
       const { quotas } = this.props
 
       return {
@@ -50,15 +52,18 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
         ...this.state,
         changeFilter: this.changeFilter,
         changeOrder: this.changeOrder,
+        changeSearchQuery: this.changeSearchQuery,
         quotas: flow([
           filterQuotas(activeFilter),
           sortQuotas(activeOrder),
+          searchQuotas(searchQuery || ''),
         ])(quotas),
       } as ComponentProps
     }
 
     private changeFilter = (activeFilter: Filter) => this.setState({ activeFilter })
     private changeOrder = (activeOrder: Order) => this.setState({ activeOrder })
+    private changeSearchQuery = (searchQuery: string) => this.setState({ searchQuery })
   }
 }
 
