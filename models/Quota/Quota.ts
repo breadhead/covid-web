@@ -15,4 +15,5 @@ export interface Quota {
   constraints: string[]
   publicCompany: boolean
   comment: string
+  createdAt: string
 }
