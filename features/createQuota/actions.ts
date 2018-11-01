@@ -1,9 +1,9 @@
+import { QuotaCreateRequest } from '@app/lib/api/request/QuotaCreate'
 import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
-import { QuotaFields } from './organisms/Form'
 import { actions } from './reducer'
 
-export const createQuota = (quotaFields: QuotaFields) => async (
+export const createQuota = (quotaFields: QuotaCreateRequest) => async (
   dispatch: Dispatch<any>,
   _: () => State,
   { api }: ExtraArgs,

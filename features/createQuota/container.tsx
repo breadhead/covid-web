@@ -1,4 +1,4 @@
-import { QuotaCreateRequest } from '@app/lib/api/request/QuotaTransfer'
+import { QuotaCreateRequest } from '@app/lib/api/request/QuotaCreate'
 import { State } from '@app/lib/store'
 import { QuotaType } from '@app/models/Quota/Quota'
 import Router from 'next/router'
