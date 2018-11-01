@@ -9,6 +9,11 @@ import {
 } from '@app/features/login'
 
 import {
+  reducer as createQuotaReducer,
+  State as createQuotaState,
+} from '@app/features/createQuota'
+
+import {
   reducer as quotasReducer,
   State as QuotasState,
 } from '@app/features/quotas'
@@ -32,8 +37,9 @@ import ApiClient from './api/ApiClient'
 import ApiClientFactory from './api/ApiClientFactory'
 
 export interface State {
-  login: LoginState
-  quotas: QuotasState
+  login: LoginState,
+  quotas: QuotasState,
+  createQuota: createQuotaState,
   quota: QuotaState
   transfer: TransferState
   history: HistoryState,
@@ -42,6 +48,7 @@ export interface State {
 const reducer = combineReducers({
   login: loginReducer,
   quotas: quotasReducer,
+  createQuota: createQuotaReducer,
   quota: quotaReducer,
   transfer: transferReducer,
   history: historyReducer,

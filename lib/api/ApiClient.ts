@@ -15,5 +15,6 @@ export default interface ApiClient {
   quotas(): Promise<Quota[]>
   history(from?: Date, to?: Date): Promise<Transaction[]>
   login(login: string, password: string): Promise<User>
+  createQuota(quotaFields: any): Promise<Quota>
   transfer(quotaTransferRequest: QuotaTransferRequest): Promise<QuotaTransferResponse>
 }
