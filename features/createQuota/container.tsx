@@ -42,7 +42,8 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
 
     private onFormSubmit = async (quotaFields: QuotaFields) => {
       const constraints = []
-      // TODO: пометка для специальной квоты для дальнейшей сортировки
+      // TODO: Понять что квота специальная можно только по полю constraints.
+      // Так как сейчас мы не используем его, просто заполняем строкой. Будет исправлено в будущем.
       if (quotaFields.category === QuotaType.Special) {
         constraints.push(QuotaType.Special)
       }
