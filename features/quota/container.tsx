@@ -3,13 +3,16 @@ import { State } from '@app/lib/store'
 import { Quota } from '@app/models/Quota/Quota'
 import React from 'react'
 import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { fetchQuota } from './actions'
+import { AnyAction, compose, Dispatch } from 'redux'
+import { push } from '../toast'
+import { fetchQuota, income } from './actions'
 import { getQuota, getQuotaError } from './selectors'
 
 interface Props {
   quota: Quota,
   error: string | false
+  income: (amount: number, quotaId: string) => Promise<Quota>
+  pushNotification: (notification: Notification) => void
 }
 
 interface Query {
@@ -27,7 +30,7 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
 
     public render() {
       return (
-        <WrappedComponent  {...this.props} />
+        <WrappedComponent pushNotification={push}  {...this.props} />
       )
     }
   }
@@ -39,7 +42,11 @@ const mapState = (state: State) => ({
   error: getQuotaError(state),
 })
 
+const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
+  income: (amount: number, quotaId: string) => dispatch(income(amount, quotaId) as any),
+})
+
 export default compose(
-  connect(mapState),
+  connect(mapState, mapDispatch),
   Container,
 )
