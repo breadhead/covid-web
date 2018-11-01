@@ -4,7 +4,7 @@ import Input from '@app/ui/molecules/Input'
 import TextArea from '@app/ui/molecules/TextАrea'
 import Select from '../../atoms/Select'
 
-const MainField = () => (
+const MainFields = () => (
   <React.Fragment>
     <Input
       name="name"
@@ -29,4 +29,4 @@ const MainField = () => (
   </React.Fragment>
 )
 
-export default MainField
+export default MainFields

@@ -2,9 +2,10 @@ import { Form as AntForm } from 'antd'
 import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
 
+import Router from 'next/router'
 import SubmitButton from '../../atoms/SubmitButton'
 import CompanyFields from '../CompanyFields'
-import MainField from '../MainField'
+import MainFields from '../MainFields'
 import * as styles from './Form.css'
 
 export interface QuotaFields {
@@ -35,8 +36,9 @@ const Form = ({ onFormSubmit, error }: Props) => {
           layout="vertical"
         >
           <div className={styles.main}>
+            {console.log('Router.route', Router)}
             <h1 className={styles.title}>Новый тип квот</h1>
-            <MainField />
+            <MainFields />
             <CompanyFields />
           </div>
           <div className={styles.submitButtonField}>
