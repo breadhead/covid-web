@@ -1,10 +1,8 @@
 import * as React from 'react'
 
-import Uploading from '@app/features/uploading/Uploading'
 import Input from '@app/ui/molecules/Input'
 import Switch from '@app/ui/molecules/Switch/Switch'
 import TextArea from '@app/ui/molecules/TextАrea'
-import { Field as FinalField } from 'react-final-form'
 
 import * as styles from './CompanyFields.css'
 
@@ -17,19 +15,8 @@ const Company = () => {
         checkedChildren="Да"
         unCheckedChildren="Нет"
         label="Показывать жертвователя на сайте"
-        defaultChecked
+        defaultChecked={false}
       />
-    </div>
-    <div className={styles.imageField}>
-      <FinalField name="logo">
-        {(fieldProps) => (
-          <React.Fragment>
-            <label htmlFor="logo">Загрузить логотип</label>
-            <Uploading onUploaded={fieldProps.input.onChange}
-          />
-          </React.Fragment>
-        )}
-      </FinalField>
     </div>
     <Input
       name="companyLink"
