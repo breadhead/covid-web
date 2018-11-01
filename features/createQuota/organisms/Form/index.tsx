@@ -20,7 +20,7 @@ export interface QuotaFields {
 }
 
 interface Props {
-  onFormSubmit: (quotaFields: QuotaFields) => Promise<{ [x: number]: any; } | undefined>
+  onFormSubmit: (quotaFields: QuotaFields) => Promise<any>
   error: boolean | string
 }
 
