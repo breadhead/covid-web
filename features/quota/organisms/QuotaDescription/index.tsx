@@ -13,7 +13,7 @@ interface Props {
 }
 const QuotaDescription = ({ quota }: Props) => (
   <div className={styles.QuotaDescription}>
-    <QuotaName name={quota.name} />
+    <QuotaName name={quota.name} id={quota.id} />
     <QuotaDetails name={quota.company.name} type={quota.type} comment={quota.comment} />
     <IsCompaniyPublic publicCompany={quota.publicCompany} />
     <Row gutter={16}>
