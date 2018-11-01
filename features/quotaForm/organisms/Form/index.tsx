@@ -25,29 +25,42 @@ interface Props {
   error: boolean | string
 }
 
-const Form = ({ onFormSubmit, error }: Props) => {
-  return (
-    <FinalForm
-      onSubmit={onFormSubmit}
-      render={(props: any) => (
-        <AntForm
-          onSubmit={props.handleSubmit}
-          className={styles.Form}
-          layout="vertical"
-        >
-          <div className={styles.main}>
-            {console.log('Router.route', Router)}
-            <h1 className={styles.title}>Новый тип квот</h1>
-            <MainFields />
-            <CompanyFields />
-          </div>
-          <div className={styles.submitButtonField}>
-            <SubmitButton error={error} />
-          </div>
-        </AntForm>
-      )}
-    />
-  )
+class Form extends React.Component<Props> {
+
+  public state = {
+    isEditing: false,
+  }
+
+  public componentDidMount() {
+    if (Router.ready) {
+      console.log('Router.route', Router && Router.route.replace(/^\//, ''))
+    }
+  }
+
+  public render() {
+    const { onFormSubmit, error } = this.props
+    return (
+      <FinalForm
+        onSubmit={onFormSubmit}
+        render={(props: any) => (
+          <AntForm
+            onSubmit={props.handleSubmit}
+            className={styles.Form}
+            layout="vertical"
+          >
+            <div className={styles.main}>
+              <h1 className={styles.title}>Новый тип квот</h1>
+              <MainFields />
+              <CompanyFields />
+            </div>
+            <div className={styles.submitButtonField}>
+              <SubmitButton error={error} />
+            </div>
+          </AntForm>
+        )}
+      />
+    )
+  }
 }
 
 export default Form
