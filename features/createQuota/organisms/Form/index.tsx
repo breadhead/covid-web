@@ -6,6 +6,7 @@ import TextArea from '@app/ui/molecules/TextАrea'
 import { Button, Form as AntForm  } from 'antd'
 import * as React from 'react'
 import { Field as FinalField, Form as FinalForm } from 'react-final-form'
+import { QuotaFields } from '../../interfaces'
 
 import Uploading from '@app/features/uploading/Uploading'
 import * as styles from './Form.css'
@@ -14,17 +15,6 @@ const FormItem = AntForm.Item
 
 const INVALID_CREDENTIALS_MESSAGE = 'Неверные данные'
 
-export interface QuotaFields {
-  name: string
-  category: string
-  companyName: string
-  comment: string
-  count: string
-  publicCompany: string
-  logo: string
-  companyLink: string
-  logotypeComment: string
-}
 interface Props {
   onFormSubmit: (quotaFields: QuotaFields) => Promise<{ [x: number]: any; } | undefined>
   error: boolean | string
