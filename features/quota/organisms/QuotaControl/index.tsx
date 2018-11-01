@@ -13,11 +13,6 @@ interface Props {
 const QuotaControl = ({ quota, income }: Props) => (
 
   <div className={styles.QuotaControl}>
-    {/* <QuotaAmount
-      amount={quota.summarizedCount}
-      title="Всего"
-      kind={AmountKind.Total}
-    /> */}
     <QuotaAmount
       amount={quota.count}
       kind={AmountKind.Available}

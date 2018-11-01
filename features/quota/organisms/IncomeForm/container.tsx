@@ -6,7 +6,7 @@ import { IncomeFormProps } from './Form'
 
 export interface SubmitValues { amount?: number }
 
-interface ParentProps extends IncomeFormProps {
+interface ContainerProps {
   income: (amount: number, quotaId: string) => Promise<Quota>
   quotaId: string
 }
@@ -18,13 +18,11 @@ const schema = yup.object().shape({
 })
 
 const Container = (WrappedComponent: React.ComponentType<IncomeFormProps>) => {
-  return class extends React.Component<ParentProps> {
+  return class extends React.Component<ContainerProps> {
     public render() {
-      const { income, ...rest } = this.props
-      return <WrappedComponent
-        {...rest}
-        onFormSubmit={this.onFormSubmit}
-      />
+      return (
+        <WrappedComponent onFormSubmit={this.onFormSubmit}/>
+      )
     }
 
     private onFormSubmit = async (values: SubmitValues) => {

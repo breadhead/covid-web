@@ -2,7 +2,7 @@ import Input from '@app/ui/molecules/Input'
 import { Button, Form } from 'antd'
 import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
-import Container, { SubmitValues } from './container'
+import { SubmitValues } from './container'
 import styles from './IncomeForm.css'
 
 const FormItem = Form.Item
