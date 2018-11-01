@@ -7,6 +7,7 @@ import { AnyAction, compose, Dispatch } from 'redux'
 import * as yup from 'yup'
 import { push as pushNotification } from '../toast'
 import { createQuota } from './actions'
+import { Props as ComponentProps } from './page'
 import { getCreatedQuotaId, getCreateQuotaError } from './selectors'
 
 export interface QuotaFields {
@@ -34,12 +35,6 @@ export interface ReqQuotaFields {
     comment: string,
   }
 }
-export interface ServerError {
-  message: string,
-  response?: {
-    status: number,
-  }
-}
 
 const schema = yup.object().shape({
   name: yup.string().required('Название должно быть длиннее 2 символов'),
@@ -53,7 +48,7 @@ const schema = yup.object().shape({
   logotypeComment: yup.string(),
 })
 
-const Container = (WrappedComponent: any) => { // TODO: fix types
+const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
   return class extends React.Component {
 
     public render() {

@@ -13,8 +13,20 @@ import * as styles from './Form.css'
 const FormItem = AntForm.Item
 
 const INVALID_CREDENTIALS_MESSAGE = 'Неверные данные'
+
+export interface QuotaFields {
+  name: string
+  category: string
+  companyName: string
+  comment: string
+  count: string
+  publicCompany: string
+  logo: string
+  companyLink: string
+  logotypeComment: string
+}
 interface Props {
-  onFormSubmit: () => Promise<any>
+  onFormSubmit: (quotaFields: QuotaFields) => Promise<{ [x: number]: any; } | undefined>
   error: boolean | string
 }
 
