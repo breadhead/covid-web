@@ -1,3 +1,4 @@
+import { QuotaCreateRequest } from '@app/lib/api/request/QuotaTransfer'
 import { State } from '@app/lib/store'
 import { QuotaType } from '@app/models/Quota/Quota'
 import Router from 'next/router'
@@ -7,7 +8,7 @@ import { AnyAction, compose, Dispatch } from 'redux'
 import * as yup from 'yup'
 import { push as pushNotification } from '../toast'
 import { createQuota } from './actions'
-import { QuotaFields, ReqQuotaFields } from './interfaces'
+import { QuotaFields } from './organisms/Form'
 import { Props as ComponentProps } from './page'
 import { getCreatedQuotaId, getCreateQuotaError } from './selectors'
 
@@ -23,8 +24,14 @@ const schema = yup.object().shape({
   logotypeComment: yup.string(),
 })
 
+interface Props {
+  error: boolean | string
+  createdQuotaId?: string
+  createQuota: (request: QuotaCreateRequest) => Promise<any>
+}
+
 const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
-  return class extends React.Component {
+  return class extends React.Component<Props> {
 
     public render() {
       return <WrappedComponent
@@ -41,7 +48,7 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
       }
 
       const postQuotaFields = {
-        count: quotaFields.count,
+        count: parseInt(quotaFields.count, 10),
         quota: {
           name: quotaFields.name,
           companyName: quotaFields.companyName,
@@ -49,7 +56,7 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
           companyLogoUrl: quotaFields.logo,
           constraints,
           corporate: quotaFields.category === QuotaType.Corporate,
-          publicCompany: quotaFields.publicCompany,
+          publicCompany: !!quotaFields.publicCompany,
           comment: quotaFields.comment,
         },
       }
@@ -76,7 +83,7 @@ const mapState = (state: State) => ({
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
-  createQuota: (quotaFields: ReqQuotaFields) => dispatch(createQuota(quotaFields) as any),
+  createQuota: (quotaFields: QuotaCreateRequest) => dispatch(createQuota(quotaFields) as any),
 })
 
 export default compose(

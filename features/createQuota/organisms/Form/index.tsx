@@ -1,12 +1,23 @@
 import { Form as AntForm } from 'antd'
 import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
-import { QuotaFields } from '../../interfaces'
 
 import SubmitButton from '../../atoms/SubmitButton'
 import CompanyFields from '../CompanyFields'
 import MainField from '../MainField'
 import * as styles from './Form.css'
+
+export interface QuotaFields {
+  name: string
+  category: string
+  companyName: string
+  comment: string
+  count: string
+  publicCompany: string
+  logo: string
+  companyLink: string
+  logotypeComment: string
+}
 
 interface Props {
   onFormSubmit: (quotaFields: QuotaFields) => Promise<{ [x: number]: any; } | undefined>
