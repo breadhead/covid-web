@@ -8,7 +8,7 @@ form.Form div {
     width: 390px;
 }
 
-form.Form div.mainField {
+form.Form div.main {
     padding: 48px 80px 0;
     width: 100%;
 }
@@ -41,15 +41,6 @@ form.Form textarea {
     padding: 4px 11px;
 }
 
-.imageField {
-    margin-bottom: 32px;
-}
-
 form.Form input[role="switch"] {
     width: 300px;
-}
-
-.Switch button[role="switch"] {
-    width: 50px;
-    display: block;
 }
