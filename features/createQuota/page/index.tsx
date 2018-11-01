@@ -5,6 +5,6 @@ export interface Props {
   error: boolean | string
 }
 
-const Page = ({ onFormSubmit, error }: Props) => <Form onFormSubmit={onFormSubmit} error={error} />
+const Page = (props: Props) => <Form {...props} />
 
 export default Page
