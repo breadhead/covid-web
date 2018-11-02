@@ -34,7 +34,6 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
       )
     }
   }
-
 }
 
 const mapState = (state: State) => ({

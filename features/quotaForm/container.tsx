@@ -1,6 +1,6 @@
 import { QuotaCreateRequest } from '@app/lib/api/request/QuotaCreate'
 import { State } from '@app/lib/store'
-import { QuotaType } from '@app/models/Quota/Quota'
+import { Quota, QuotaType } from '@app/models/Quota/Quota'
 import Router from 'next/router'
 import * as React from 'react'
 import { connect } from 'react-redux'
@@ -10,7 +10,7 @@ import { push as pushNotification } from '../toast'
 import { createQuota } from './actions'
 import { QuotaFields } from './organisms/Form'
 import { Props as ComponentProps } from './page'
-import { getCreatedQuotaId, getCreateQuotaError } from './selectors'
+import { getCreatedQuota, getCreateQuotaError } from './selectors'
 
 const schema = yup.object().shape({
   name: yup.string().required('Название должно быть длиннее 2 символов'),
@@ -26,7 +26,6 @@ const schema = yup.object().shape({
 
 interface Props {
   error: boolean | string
-  createdQuotaId?: string
   createQuota: (request: QuotaCreateRequest) => Promise<any>
 }
 
@@ -41,6 +40,8 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
     }
 
     private onFormSubmit = async (quotaFields: QuotaFields) => {
+      const { quota } = this.props
+
       const constraints = []
       // TODO: Понять что квота специальная можно только по полю constraints.
       // Так как сейчас мы не используем его, просто заполняем строкой. Будет исправлено в будущем.
@@ -64,12 +65,21 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
 
       try {
         await schema.validate(quotaFields)
-          .then(() => this.props.createQuota(postQuotaFields))
+          .then(() => {
+            if (!!quota) {
+              console.log('edit quota')
+            } else {
+              this.props.createQuota(postQuotaFields)
+            }
+          },
+          )
           .then(() => {
             pushNotification({
-              message: 'Квота создана',
+              message: quota ? 'Квота отредактирована' : 'Квота создана',
             })
-            Router.push(`/quota/${this.props.createdQuotaId}`)
+          })
+          .then(() => {
+            Router.push(`/quota/${quota.id}`)
           })
       } catch (props) {
         return { [props.path]: props.message }
@@ -80,11 +90,11 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
 
 const mapState = (state: State) => ({
   error: getCreateQuotaError(state),
-  createdQuotaId: getCreatedQuotaId(state),
+  quota: getCreatedQuota(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
-  createQuota: (quotaFields: QuotaCreateRequest) => dispatch(createQuota(quotaFields) as any),
+  createQuota: (quotaFields: Quota) => dispatch(createQuota(quotaFields) as any),
 })
 
 export default compose(

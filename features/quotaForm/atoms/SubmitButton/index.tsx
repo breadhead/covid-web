@@ -1,7 +1,7 @@
 import { Button, Form as AntForm } from 'antd'
 const FormItem = AntForm.Item
 
-const INVALID_MESSAGE = 'Неверные данные'
+const INVALID_MESSAGE = 'Неверные данные пользователя'
 
 interface Props {
   error: boolean | string

@@ -2,7 +2,6 @@ import { Form as AntForm } from 'antd'
 import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
 
-import Router from 'next/router'
 import SubmitButton from '../../atoms/SubmitButton'
 import CompanyFields from '../CompanyFields'
 import MainFields from '../MainFields'
@@ -29,12 +28,6 @@ class Form extends React.Component<Props> {
 
   public state = {
     isEditing: false,
-  }
-
-  public componentDidMount() {
-    if (Router.ready) {
-      console.log('Router.route', Router && Router.route.replace(/^\//, ''))
-    }
   }
 
   public render() {
