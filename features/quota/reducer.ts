@@ -4,8 +4,8 @@ import { Action } from 'redux'
 import { createSymbiote } from 'redux-symbiote'
 
 interface State {
-  quota: Quota | null,
-  fetching: boolean,
+  quota: Quota | null
+  fetching: boolean
   error: false | string
 }
 

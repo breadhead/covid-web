@@ -21,7 +21,6 @@ class Uploading extends React.Component<Props, State> {
   public render() {
     const { key } = this.state
     const url = ApiClientFactory.getApiClient().fileUploader.uploadUrl
-
     return (
       <FileUploadProgress
         key={key} url={url}

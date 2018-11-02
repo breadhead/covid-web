@@ -6,31 +6,29 @@ const FormItem = AntForm.Item
 
 interface Props {
   name: string,
-  type: string,
   className?: string
   label?: string,
   placeholder?: string
-  required?: true,
+  required?: true
+  rows?: number
 }
 
-const Input = ({
+const TextArea = ({
   name,
-  type,
   className,
   label,
   placeholder,
   ...rest
 }: Props) =>
-  <FinalField className={className} name={name} type={type}>
+  <FinalField className={className} name={name}>
     {({ input, meta }) => (
       <FormItem
         validateStatus={meta.submitError && 'error'}
         help={meta.submitError}
       >
         {label && <label htmlFor={name}>{label}</label>}
-        <AntInput
+        <AntInput.TextArea
           id={name}
-          type={type}
           placeholder={placeholder}
           {...input}
           {...rest}
@@ -40,4 +38,4 @@ const Input = ({
     )}
   </FinalField>
 
-export default Input
+export default TextArea

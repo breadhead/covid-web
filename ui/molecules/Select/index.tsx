@@ -4,22 +4,27 @@ import { Field as FinalField } from 'react-final-form'
 
 const FormItem = AntForm.Item
 const Option = AntSelect.Option
+
 interface Props {
-  name: string,
+  name: string
+  defaultValue: string
   className?: string
-  label?: string,
-  children: React.ReactNode,
+  label?: string
   placeholder?: string
-  required?: true,
-  options: Array<{ name: string, value: string }>
+  required?: true
+  options: Array<{
+    name: string,
+    value: string,
+  }>
 }
 
 const Select = ({
   name,
+  defaultValue,
   className,
   label,
-  placeholder,
   options,
+  placeholder,
   ...rest
 }: Props) =>
   <FinalField className={className} name={name}>
@@ -32,15 +37,14 @@ const Select = ({
         <AntSelect
           id={name}
           placeholder={placeholder}
+          defaultValue={defaultValue}
           {...rest}
           {...input}
         >
-          {options.map((option) =>
-            <Option key={option.value} value={option.value}>
-              {option.name}
-            </Option>)}
+          {options.map((option) => (
+            <Option key={option.value} value={option.value}>{option.name}</Option>
+          ))}
         </AntSelect>
-
       </FormItem>
     )}
   </FinalField>
