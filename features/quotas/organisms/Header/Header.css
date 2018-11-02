@@ -5,9 +5,9 @@
 }
 
 .Title {
-  font: var(--text36-40);
   margin: 0;
   margin-right: 24px;
+  font: var(--text36-40);
 }
 
 .HistoryLink {

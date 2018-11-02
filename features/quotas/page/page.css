@@ -1,9 +1,9 @@
 .settings {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   grid-template-rows: 32px 32px;
-  gap: 16px;
+  grid-template-columns: 1fr 1fr;
   padding-bottom: 32px;
+  gap: 16px;
 }
 
 .rowEnd {

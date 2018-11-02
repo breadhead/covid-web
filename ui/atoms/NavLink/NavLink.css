@@ -1,9 +1,9 @@
 
 
 .NavLink {
+  margin-right: 18px;
   font-size: 16px;	
   line-height: 19px;
-  margin-right: 18px;
   & a {
     color: #000000;
   }
