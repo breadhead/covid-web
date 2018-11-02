@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint:code": "tslint -p tsconfig.json -c tslint.json",
-    "lint:style": "stylelint './**/*.css'",
+    "lint:style": "stylelint './**/*.css' --fix",
     "test": "jest"
   },
   "dependencies": {
@@ -65,8 +65,10 @@
     "postcss-nesting": "^7.0.0",
     "postcss-normalize": "^7.0.1",
     "postcss-preset-env": "^6.3.0",
-    "stylelint": "^9.7.0",
+    "stylelint": "^9.7.1",
+    "stylelint-config-recess-order": "^2.0.0",
     "stylelint-config-recommended": "^2.1.0",
+    "stylelint-order": "^1.0.0",
     "tslint": "^5.11.0",
     "tslint-eslint-rules": "^5.4.0",
     "typescript": "^3.1.3"
