@@ -1,4 +1,5 @@
 import { QuotaCreateRequest } from '@app/lib/api/request/QuotaCreate'
+import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { Quota, QuotaType } from '@app/models/Quota/Quota'
 import Router from 'next/router'
@@ -7,7 +8,7 @@ import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 import * as yup from 'yup'
 import { push as pushNotification } from '../toast'
-import { createQuota } from './actions'
+import { createQuota, fetchQuota } from './actions'
 import { QuotaFields } from './organisms/Form'
 import { Props as ComponentProps } from './page'
 import { getCreatedQuota, getCreateQuotaError } from './selectors'
@@ -29,8 +30,21 @@ interface Props {
   createQuota: (request: QuotaCreateRequest) => Promise<any>
 }
 
+interface Query {
+  query: { id: string }
+}
+
 const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
   return class extends React.Component<Props> {
+
+    public static async getInitialProps(context: AppContext & Query) {
+
+      console.log('context.query.id', context.query.id)
+
+      await context.reduxStore
+        .dispatch(fetchQuota(context.query.id) as any)
+      return {}
+    }
 
     public render() {
       return <WrappedComponent
@@ -41,7 +55,7 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
 
     private onFormSubmit = async (quotaFields: QuotaFields) => {
       const { quota } = this.props
-
+      console.log('this.props', this.props);
       const constraints = []
       // TODO: Понять что квота специальная можно только по полю constraints.
       // Так как сейчас мы не используем его, просто заполняем строкой. Будет исправлено в будущем.
@@ -79,7 +93,7 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
             })
           })
           .then(() => {
-            Router.push(`/quota/${quota.id}`)
+            // Router.push(`/quota/${quota.id}`)
           })
       } catch (props) {
         return { [props.path]: props.message }
