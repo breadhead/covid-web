@@ -1,0 +1,20 @@
+/* .ant-input.ant-input {
+  &:hover {
+    border: 1px solid green;
+  }
+} */
+
+.ant-input.ant-input {
+  box-sizing: border-box;
+
+  outline-color: transparent;
+}
+
+.ant-input.ant-input:hover {
+    border: 1px solid #3C54EE;
+  }
+
+.ant-input.ant-input:focus {
+    border: 2px solid #3C54EE;
+  }
+

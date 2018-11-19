@@ -1,5 +1,8 @@
-import { Form as AntForm, Input as AntInput } from 'antd'
 import * as React from 'react'
+import './TextArea.css'
+import './TextArea.css?CSSModulesDisbale'
+
+import { Form as AntForm, Input as AntInput } from 'antd'
 import { Field as FinalField } from 'react-final-form'
 
 const FormItem = AntForm.Item
@@ -28,6 +31,7 @@ const TextArea = ({
       >
         {label && <label htmlFor={name}>{label}</label>}
         <AntInput.TextArea
+
           id={name}
           placeholder={placeholder}
           {...input}
