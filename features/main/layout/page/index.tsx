@@ -6,8 +6,7 @@ interface Props {
 const Layout = ({ children }: Props) => {
   return (
     <div className="admin">
-
-      <h1>oncohelp</h1>
+      {children}
     </div>
   )
 

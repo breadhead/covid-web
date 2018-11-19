@@ -7,6 +7,7 @@ body {
 
   --text14-18: 14px/18px var(--fontFamily);
   --text16-19: 16px/19px var(--fontFamily);
+  --text16-24: 16px/24px var(--fontFamily);
   --text18-24: 18px/24px var(--fontFamily);
   --text36-40: 36px/40px var(--fontFamily);
 }
