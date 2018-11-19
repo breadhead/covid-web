@@ -3,13 +3,13 @@ import { authViolateStatus } from '@app/features/login'
 import { getViolateState } from '@app/features/login'
 import ApiClientFactory from '@app/lib/api/ApiClientFactory'
 import withReduxStore, { Store } from '@app/lib/with-redux-store'
-import 'antd/dist/antd.css?CSSModulesDisbale'
+import 'antd/dist/antd.css?CSSModulesDisable'
 import Cookie from 'js-cookie'
 import App, { Container, NextAppContext } from 'next/app'
 import Router from 'next/router'
 import React, { Component as ReactComponent } from 'react'
 import { Provider } from 'react-redux'
-import './index.css?CSSModulesDisbale'
+import './index.css?CSSModulesDisable'
 
 interface Props {
   reduxStore: Store
