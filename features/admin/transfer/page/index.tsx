@@ -1,7 +1,7 @@
 import 'antd/lib/date-picker/style/index.css'
 import * as React from 'react'
 
-import { fetchQuotas } from '@app/features/quotas/actions'
+import { fetchQuotas } from '@app/features/admin/quotas/actions'
 import { AppContext } from '@app/lib/server-types'
 import TransferForm from '../organisms/Form'
 import styles from './Page.css'

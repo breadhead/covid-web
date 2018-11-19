@@ -1,3 +1,3 @@
-import TransferPage from '@app/features/transfer'
+import TransferPage from '@app/features/admin/transfer'
 
 export default TransferPage

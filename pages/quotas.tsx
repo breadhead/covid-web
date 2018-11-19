@@ -1,3 +1,3 @@
-import QuotasPage from '@app/features/quotas'
+import QuotasPage from '@app/features/admin/quotas'
 
 export default QuotasPage

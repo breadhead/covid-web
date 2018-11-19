@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-import LandingPage from '@app/features/landing'
+import LandingPage from '@app/features/admin/landing'
 
 class Index extends React.Component {
 
