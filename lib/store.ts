@@ -6,32 +6,32 @@ import {
   reducer as loginReducer,
   State as LoginState,
   unauthorizedMiddleware,
-} from '@app/features/login'
+} from '@app/features/admin/login'
 
 import {
   reducer as createQuotaReducer,
   State as createQuotaState,
-} from '@app/features/createQuota'
+} from '@app/features/admin/createQuota'
 
 import {
   reducer as quotasReducer,
   State as QuotasState,
-} from '@app/features/quotas'
+} from '@app/features/admin/quotas'
 
 import {
   reducer as transferReducer,
   State as TransferState,
-} from '@app/features/transfer'
+} from '@app/features/admin/transfer'
 
 import {
   reducer as historyReducer,
   State as HistoryState,
-} from '@app/features/history'
+} from '@app/features/admin/history'
 
 import {
   reducer as quotaReducer,
   State as QuotaState,
-} from '@app/features/quota'
+} from '@app/features/admin/quota'
 
 import ApiClient from './api/ApiClient'
 import ApiClientFactory from './api/ApiClientFactory'
