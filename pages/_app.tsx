@@ -57,15 +57,13 @@ class OncohelpWeb extends App<Props> {
     return !authViolate && (
       <Container>
         <Provider store={reduxStore}>
-          {
-            route.startsWith('/admin') ?
-              <AdminLayout {...pageProps}>
-                <Component {...pageProps} />
-              </AdminLayout>
-              :
-              <MainLayout {...pageProps}>
-                <Component {...pageProps} />
-              </MainLayout>
+          {route.startsWith('/admin') ?
+            <AdminLayout {...pageProps}>
+              <Component {...pageProps} />
+            </AdminLayout> :
+            <MainLayout {...pageProps}>
+              <Component {...pageProps} />
+            </MainLayout>
           }
         </Provider>
       </Container>

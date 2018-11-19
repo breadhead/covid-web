@@ -2,7 +2,7 @@ import * as React from 'react'
 
 const LandingPage = () => (
   <main>
-    <h1>Oncohelp</h1>
+    <h1>Oncohelp main</h1>
   </main>
 )
 
