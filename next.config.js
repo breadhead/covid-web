@@ -1,4 +1,4 @@
-const withCSS = require("next-css");
+const withCSS = require("next-css-unpluggable");
 
 const withTypescript = require("@zeit/next-typescript");
 
