@@ -7,11 +7,11 @@ import styles from './Header.css'
 const Header = () =>
   <header className={styles.Header}>
     <h1 className={styles.Title}>Квоты</h1>
-    <NavLink className={styles.HistoryLink} href="/history">История операций</NavLink>
-    <Link href="/transfer">
+    <NavLink className={styles.HistoryLink} href="/admin/history">История операций</NavLink>
+    <Link href="/admin/transfer">
       <Button className={styles.ButtonLink}>Сделать перевод</Button>
     </Link>
-    <Link href="/create">
+    <Link href="/admin/create">
       <Button className={styles.ButtonLink}>Создать новый тип квот</Button>
     </Link>
   </header>

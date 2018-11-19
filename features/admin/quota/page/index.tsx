@@ -13,7 +13,7 @@ interface Props {
 
 const QuotaPage = ({ quota, error, income }: Props) =>
   <section className={styles.QuotaWrapper}>
-    <a href="/quotas">{'< '}Вернуться ко всем квотам</a>
+    <a href="/admin/quotas">{'< '}Вернуться ко всем квотам</a>
     {
       error ?
         <h1>Произошла ошибка</h1> :
