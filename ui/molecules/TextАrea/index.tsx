@@ -1,6 +1,5 @@
 import * as React from 'react'
 import * as styles from './TextArea.css'
-import './TextArea.css'
 
 import { Form as AntForm, Input as AntInput } from 'antd'
 import { Field as FinalField } from 'react-final-form'
