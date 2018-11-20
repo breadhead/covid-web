@@ -1,7 +1,6 @@
-.textarea.textarea {
+.ant-input.ant-input {
   box-sizing: border-box;
   max-width: 480px;
-  min-height: 60px;
   font: var(--text16-24);
   color: #151833;
   border: none;
