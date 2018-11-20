@@ -2,7 +2,7 @@ import { Form as AntForm, Switch as AntSwitch } from 'antd'
 import * as React from 'react'
 import { Field as FinalField } from 'react-final-form'
 
-import * as styles from './Switch.css'
+import './Switch.css?CSSModulesDisable'
 
 const FormItem = AntForm.Item
 
@@ -31,7 +31,6 @@ const Switch = ({
       >
         {label && <label htmlFor={name}>{label}</label>}
         <AntSwitch
-          className={styles.switch}
           checkedChildren="Да"
           unCheckedChildren="Нет"
           onChange={fieldProps.input.onChange}

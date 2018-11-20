@@ -1,25 +1,30 @@
 import * as React from 'react'
-import './RadioButton.css?CSSModulesDisable'
+
+import './RadioGroup.css?CSSModulesDisable'
 
 import { Form as AntForm, Radio } from 'antd'
 import { Field as FinalField } from 'react-final-form'
 
 const FormItem = AntForm.Item
+const AntRadioGroup = Radio.Group
 
 interface Props {
   name: string
-  value: string
+  buttons: Array<{
+    id: string,
+    value: string,
+  }>
+  defaultValue?: string
   className?: string
   label?: string
-  children?: React.ReactNode
 }
 
-const RadioButton = ({
+const RadioGroup = ({
   name,
   className,
   label,
-  value,
-  children,
+  defaultValue,
+  buttons,
   ...rest
 }: Props) =>
   <FinalField className={className} name={name}>
@@ -29,12 +34,20 @@ const RadioButton = ({
         help={meta.submitError}
       >
         {label && <label htmlFor={name}>{label}</label>}
-        <Radio name={name} value={value} {...rest}>
-          {children}
-        </Radio>
+        <AntRadioGroup className="radioGroup" name={name} defaultValue={defaultValue}>
+          {buttons.map((button) =>
+            <Radio
+              key={button.id}
+              value={button.value}
+              {...rest}
+            >
+              {button.value}
+            </Radio>,
+          )}
+        </AntRadioGroup>
       </FormItem>
     )
     }
   </FinalField>
 
-export default RadioButton
+export default RadioGroup

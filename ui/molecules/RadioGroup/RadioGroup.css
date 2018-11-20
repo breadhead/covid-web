@@ -1,0 +1,37 @@
+.radioGroup.radioGroup {
+  display: flex;
+
+  & .ant-radio-inner {
+    display: none;
+  }
+
+  & .ant-radio + span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 40px;
+    padding: 0;
+    font: var(--text16-24);
+    color: #000;
+    text-align: center;
+    background-color: #E8E9F2;
+    border-radius: 100px;
+
+    &:hover {
+      background-color: #DCDCE7;
+    }
+  }
+
+  & .ant-radio-checked + span {
+    color: #fff;
+    background-color: var(--color-primary);
+  }
+
+  & .ant-radio-checked + span {
+    &:hover {
+      color: #fff;
+      background-color: var(--color-hover);
+    }
+  }
+}

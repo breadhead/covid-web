@@ -3,11 +3,23 @@ import * as React from 'react'
 import { Form as AntForm } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
+import RadioButton from '@app/ui/atoms/RadioButton'
 import Button from '@app/ui/molecules/Button'
 import Input from '@app/ui/molecules/Input'
-import RadioButton from '@app/ui/molecules/RadioButton'
+import RadioGroup from '@app/ui/molecules/RadioGroup'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextАrea'
+
+const testRadioButtons = [
+  {
+    id: '1',
+    value: 'Да',
+  },
+  {
+    id: '2',
+    value: 'Нет',
+  },
+]
 
 const LandingPage = () => (
   <main
@@ -21,6 +33,7 @@ const LandingPage = () => (
           <TextArea name="testTextArea" placeholder="текстарея" />
           <Input name="input" type="text" placeholder="инпут" />
           <Switch name="testSWitch" />
+          <RadioGroup buttons={testRadioButtons} name="testRadioGroup" />
           <RadioButton name="testRadioButton" value="memem">
             label
           </RadioButton>
