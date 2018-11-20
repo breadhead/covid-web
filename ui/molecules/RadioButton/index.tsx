@@ -1,44 +1,40 @@
 import * as React from 'react'
-import './TextArea.css?CSSModulesDisable'
+import './RadioButton.css?CSSModulesDisable'
 
-import { Form as AntForm, Input as AntInput } from 'antd'
+import { Form as AntForm, Radio } from 'antd'
 import { Field as FinalField } from 'react-final-form'
 
 const FormItem = AntForm.Item
 
 interface Props {
-  name: string,
+  name: string
+  value: string
   className?: string
-  label?: string,
-  placeholder?: string
-  required?: true
-  rows?: number
+  label?: string
+  children?: React.ReactNode
 }
 
-const TextArea = ({
+const RadioButton = ({
   name,
   className,
   label,
-  placeholder,
+  value,
+  children,
   ...rest
 }: Props) =>
   <FinalField className={className} name={name}>
-    {({ input, meta }) => (
+    {({ meta }) => (
       <FormItem
         validateStatus={meta.submitError && 'error'}
         help={meta.submitError}
       >
         {label && <label htmlFor={name}>{label}</label>}
-        <AntInput.TextArea
-          id={name}
-          placeholder={placeholder}
-          autosize
-          {...input}
-          {...rest}
-        />
+        <Radio name={name} value={value} {...rest}>
+          {children}
+        </Radio>
       </FormItem>
     )
     }
   </FinalField>
 
-export default TextArea
+export default RadioButton

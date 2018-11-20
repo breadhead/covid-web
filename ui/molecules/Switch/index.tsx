@@ -40,4 +40,5 @@ const Switch = ({
       </FormItem>
     )}
   </FinalField>
+
 export default Switch
