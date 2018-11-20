@@ -29,6 +29,7 @@ body {
 
   /* colors */
   --color-primary: #3C54EE;
+  --color-hover:  #354AD4; 
   --color-success: #19CD92;
   --color-link: #2D47EA;
   --color-danger: #F11635;
