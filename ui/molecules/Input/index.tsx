@@ -1,6 +1,7 @@
 import { Form as AntForm, Input as AntInput } from 'antd'
 import * as React from 'react'
 import { Field as FinalField } from 'react-final-form'
+import './Input.css?CSSModulesDisable'
 
 const FormItem = AntForm.Item
 

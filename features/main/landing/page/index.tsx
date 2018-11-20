@@ -3,18 +3,18 @@ import * as React from 'react'
 import { Form as AntForm } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
+import Input from '@app/ui/molecules/Input'
 import TextArea from '@app/ui/molecules/TextАrea'
-
-import * as styles from './Test.css'
 
 const LandingPage = () => (
   <main>
-    <h1 className={styles.title}>Oncohelp</h1>
+    <h1>Oncohelp</h1>
     <FinalForm
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
           <TextArea name="test" />
+          <Input name="input" type="text" />
         </AntForm>
       )}
 
