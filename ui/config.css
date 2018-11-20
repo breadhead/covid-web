@@ -15,6 +15,7 @@ body {
   --title-small: 24px/32px var(--fontFamily-title);
   --title-bold: bold 16px/24px var(--fontFamily-bold);
 
+  --text18-28: 18px/28px var(--fontFamily);
   --text16-24: 16px/24px var(--fontFamily);
   --text14-20: 14px/20px var(--fontFamily);
   --text12-16: 12px/16px var(--fontFamily);
@@ -36,6 +37,7 @@ body {
 
   --text-color-primary: #151833;
   --text-color-secondary: #616681;
+  
   --link-color: #2D47EA;
   --link-color-underline: rgba(45, 71, 234, 0.5);
 
