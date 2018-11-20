@@ -1,6 +1,7 @@
-import RegularLayout from '@app/features/layout'
-import { authViolateStatus } from '@app/features/login'
-import { getViolateState } from '@app/features/login'
+import AdminLayout from '@app/features/admin/layout'
+import { authViolateStatus } from '@app/features/admin/login'
+import { getViolateState } from '@app/features/admin/login'
+import MainLayout from '@app/features/main/layout'
 import ApiClientFactory from '@app/lib/api/ApiClientFactory'
 import withReduxStore, { Store } from '@app/lib/with-redux-store'
 import 'antd/dist/antd.css?CSSModulesDisable'
@@ -43,12 +44,12 @@ class OncohelpWeb extends App<Props> {
 
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
-      Router.push('/login')
+      Router.push('/admin/login')
     }
   }
 
   public render() {
-    const { Component, pageProps, reduxStore } = this.props
+    const { Component, pageProps, reduxStore, router: { route } } = this.props
 
     const authViolate = getViolateState(
       reduxStore.getState(),
@@ -57,9 +58,14 @@ class OncohelpWeb extends App<Props> {
     return !authViolate && (
       <Container>
         <Provider store={reduxStore}>
-          <RegularLayout {...pageProps}>
-            <Component {...pageProps} />
-          </RegularLayout>
+          {route.startsWith('/admin') ?
+            <AdminLayout {...pageProps}>
+              <Component {...pageProps} />
+            </AdminLayout> :
+            <MainLayout {...pageProps}>
+              <Component {...pageProps} />
+            </MainLayout>
+          }
         </Provider>
       </Container>
     )
