@@ -4,6 +4,7 @@ import { Form as AntForm } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
 import Input from '@app/ui/molecules/Input'
+import RadioButton from '@app/ui/molecules/RadioButton'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextАrea'
 
@@ -19,6 +20,9 @@ const LandingPage = () => (
           <TextArea name="testTextArea" />
           <Switch name="testSWitch" />
           <Input name="input" type="text" />
+          <RadioButton name="testRadioButton" value="memem">
+            label
+          </RadioButton>
         </AntForm>
       )}
 
