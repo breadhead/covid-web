@@ -30,10 +30,6 @@
 
   &[aria-checked="true"] {
     background-color: var(--color-primary);
-
-    & span {
-      color: #fff;
-    }
   }
 
   &[aria-checked="true"]:hover {
@@ -42,6 +38,7 @@
 
   &[aria-checked="true"] span {
     margin-left: 21px;
+    color: #fff;
     text-align: left;
   }
 }
