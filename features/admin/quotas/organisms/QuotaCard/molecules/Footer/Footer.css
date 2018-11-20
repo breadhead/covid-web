@@ -4,7 +4,7 @@
   justify-content: flex-start;
   & > * {
     margin-right: 18px;
-    font: var(--text14-18);
+    font: var(--text14-20);
     color: #292F40;
   }
 }

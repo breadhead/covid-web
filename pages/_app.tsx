@@ -10,7 +10,8 @@ import App, { Container, NextAppContext } from 'next/app'
 import Router from 'next/router'
 import React, { Component as ReactComponent } from 'react'
 import { Provider } from 'react-redux'
-import './index.css?CSSModulesDisable'
+
+import '@app/ui/config.css?CSSModulesDisable'
 
 interface Props {
   reduxStore: Store

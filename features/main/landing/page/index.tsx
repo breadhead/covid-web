@@ -5,9 +5,11 @@ import { Form as FinalForm } from 'react-final-form'
 
 import TextArea from '@app/ui/molecules/TextАrea'
 
+import * as styles from './Test.css'
+
 const LandingPage = () => (
   <main>
-    <h1>Oncohelp</h1>
+    <h1 className={styles.title}>Oncohelp</h1>
     <FinalForm
       onSubmit={() => undefined}
       render={() => (
