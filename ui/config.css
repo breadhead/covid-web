@@ -2,8 +2,8 @@
 
 body {
   /* fonts */
-  --fontFamily: 'IBM Plex Sans', sans-serif;
-  --fontFamily-title: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  --fontFamily: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --fontFamily-title: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
   --title-extra: 48px/56px var(--fontFamily-title);
   --title-regular: 40px/48px var(--fontFamily-title);
@@ -29,6 +29,7 @@ body {
   --link-color: #2D47EA;
   --link-color-underline: rgba(45, 71, 234, 0.5);
 
+  /* styles */
   font-family: var(--fontFamily);
   color: var(--text-color-primary);
 }
