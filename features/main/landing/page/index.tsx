@@ -17,9 +17,9 @@ const LandingPage = () => (
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
-          <TextArea name="testTextArea" />
+          <TextArea name="testTextArea" placeholder="текстарея" />
           <Switch name="testSWitch" />
-          <Input name="input" type="text" />
+          <Input name="input" type="text" placeholder="инпут" />
           {/* buttons */}
           <Button size="xl" type="button">Огромная кнопка</Button>
           <Button size="l" type="button">Большая кнопка</Button>
