@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import Input from '@app/ui/molecules/Input'
-import Switch from '@app/ui/molecules/Switch/Switch'
+import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextАrea'
 
 import * as styles from './CompanyFields.css'
@@ -12,8 +12,6 @@ const Company = () => {
       <div className={styles.Switch}>
       <Switch
         name="publicCompany"
-        checkedChildren="Да"
-        unCheckedChildren="Нет"
         label="Показывать жертвователя на сайте"
         defaultChecked={false}
       />
