@@ -2,6 +2,8 @@ import { Form as AntForm, Switch as AntSwitch } from 'antd'
 import * as React from 'react'
 import { Field as FinalField } from 'react-final-form'
 
+import * as styles from './Switch.css'
+
 const FormItem = AntForm.Item
 
 interface Props {
@@ -19,8 +21,6 @@ interface Props {
 const Switch = ({
   name,
   label,
-  checkedChildren,
-  unCheckedChildren,
   defaultChecked,
 }: Props) =>
   <FinalField name={name} type="checkbox">
@@ -31,12 +31,14 @@ const Switch = ({
       >
         {label && <label htmlFor={name}>{label}</label>}
         <AntSwitch
-          checkedChildren={checkedChildren}
-          unCheckedChildren={unCheckedChildren}
+          className={styles.switch}
+          checkedChildren="Да"
+          unCheckedChildren="Нет"
           onChange={fieldProps.input.onChange}
           defaultChecked={defaultChecked}
         />
       </FormItem>
     )}
   </FinalField>
+
 export default Switch

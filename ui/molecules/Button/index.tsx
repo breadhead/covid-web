@@ -1,38 +1,37 @@
-import { Form as AntForm, Input as AntInput } from 'antd'
+import { Button as AntButton, Form as AntForm } from 'antd'
 import * as React from 'react'
 import { Field as FinalField } from 'react-final-form'
-import './Input.css?CSSModulesDisable'
+import './Button.css?CSSModulesDisable'
 
 const FormItem = AntForm.Item
 
 interface Props {
-  name: string,
-  type: string,
+  type: 'button' | 'submmit',
   className?: string
   label?: string,
-  placeholder?: string
-  required?: true,
+  size?: 's' | 'm' | 'l' | 'xl',
+  disabled?: true
+  kind?: 'primary' | 'secondary' | 'extra'
 }
 
-const Input = ({
-  name,
+const Button = ({
   type,
   className,
   label,
-  placeholder,
+  size = 'm',
+  kind = 'primary',
   ...rest
 }: Props) =>
-  <FinalField className={className} name={name} type={type}>
+  <FinalField className={className} name="" type={type}>
     {({ input, meta }) => (
       <FormItem
         validateStatus={meta.submitError && 'error'}
         help={meta.submitError}
       >
-        {label && <label htmlFor={name}>{label}</label>}
-        <AntInput
-          id={name}
+        {label && <label>{label}</label>}
+        <AntButton
+          className={`ant-btn-${size} ant-btn-${kind}`}
           type={type}
-          placeholder={placeholder}
           {...input}
           {...rest}
         />
@@ -41,4 +40,4 @@ const Input = ({
     )}
   </FinalField>
 
-export default Input
+export default Button
