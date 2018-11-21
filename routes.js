@@ -11,3 +11,4 @@ module.exports = nextRoutes()
   .add('quotas', '/admin/quotas', 'admin-quotas')
   // main routes
   .add('home', '/', 'main-index')
+  .add('claim', '/claim', 'main-claim')
