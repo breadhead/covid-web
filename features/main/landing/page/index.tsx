@@ -13,11 +13,18 @@ import TextArea from '@app/ui/molecules/TextАrea'
 const testRadioButtons = [
   {
     id: '1',
-    value: 'Да',
+    text: 'Общие',
+    value: '329',
   },
   {
     id: '2',
-    value: 'Нет',
+    text: 'Специальные',
+    value: '217',
+  },
+  {
+    id: '3',
+    text: 'Другие',
+    value: '29',
   },
 ]
 
@@ -33,9 +40,18 @@ const LandingPage = () => (
           <TextArea name="testTextArea" placeholder="текстарея" />
           <Input name="input" type="text" placeholder="инпут" />
           <Switch name="testSWitch" />
-          <RadioGroup buttons={testRadioButtons} name="testRadioGroup" />
+          <RadioGroup name="bool" type="bool" />
+          <RadioGroup
+            name="controls"
+            type="controls"
+            buttons={testRadioButtons}
+            defaultValue={testRadioButtons[1].value}
+          />
           <RadioButton name="testRadioButton" value="memem">
-            label
+            радиокнопка
+          </RadioButton>
+          <RadioButton name="testRadioButton" value="memem1">
+            радиокнопка2
           </RadioButton>
           {/* buttons */}
           <Button size="xl" type="button">Огромная кнопка</Button>

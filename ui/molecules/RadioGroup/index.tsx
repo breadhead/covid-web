@@ -8,11 +8,17 @@ import { Field as FinalField } from 'react-final-form'
 const FormItem = AntForm.Item
 const AntRadioGroup = Radio.Group
 
+const boolRadioButtons = [
+  { id: '1', value: 'Да'},
+  { id: '2', value: 'Нет'},
+]
 interface Props {
   name: string
-  buttons: Array<{
+  type: 'bool' | 'controls'
+  buttons?: Array<{
     id: string,
     value: string,
+    text?: string,
   }>
   defaultValue?: string
   className?: string
@@ -21,33 +27,46 @@ interface Props {
 
 const RadioGroup = ({
   name,
+  type,
   className,
   label,
+  buttons = boolRadioButtons,
   defaultValue,
-  buttons,
   ...rest
-}: Props) =>
-  <FinalField className={className} name={name}>
+}: Props) => {
+
+  const radioGroup = type === 'controls'
+    ? <AntRadioGroup className="controls" name={name} defaultValue={defaultValue || buttons[0].value}>
+      {buttons.map((button) =>
+        <Radio
+          key={button.id}
+          value={button.value}
+          {...rest}
+        >
+          {button.text}<div className="semibold">{button.value}</div>
+        </Radio>)}
+    </AntRadioGroup>
+    : <AntRadioGroup name={name} defaultValue={defaultValue}>
+      {boolRadioButtons.map((button) =>
+        <Radio
+          key={button.id}
+          value={button.value}
+          {...rest}
+        >
+          {button.value}
+        </Radio>)}
+    </AntRadioGroup>
+
+  return <FinalField className={className} name={name}>
     {({ meta }) => (
       <FormItem
         validateStatus={meta.submitError && 'error'}
         help={meta.submitError}
       >
         {label && <label htmlFor={name}>{label}</label>}
-        <AntRadioGroup className="radioGroup" name={name} defaultValue={defaultValue}>
-          {buttons.map((button) =>
-            <Radio
-              key={button.id}
-              value={button.value}
-              {...rest}
-            >
-              {button.value}
-            </Radio>,
-          )}
-        </AntRadioGroup>
-      </FormItem>
-    )
-    }
+        {radioGroup}
+      </FormItem>)}
   </FinalField>
+}
 
 export default RadioGroup

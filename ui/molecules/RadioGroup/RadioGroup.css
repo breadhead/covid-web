@@ -1,5 +1,20 @@
-.radioGroup.radioGroup {
+.controls.controls {
+  & .ant-radio + span {
+    width: auto;
+    padding: 16px;
+  }
+}
+
+.ant-radio-group.ant-radio-group {
   display: flex;
+
+  & .ant-radio-wrapper {
+    margin-right: 8px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
 
   & .ant-radio-inner {
     display: none;
@@ -17,10 +32,7 @@
     text-align: center;
     background-color: #E8E9F2;
     border-radius: 100px;
-
-    &:hover {
-      background-color: #DCDCE7;
-    }
+    transition: all 0.36s;
   }
 
   & .ant-radio-checked + span {
@@ -28,10 +40,19 @@
     background-color: var(--color-primary);
   }
 
-  & .ant-radio-checked + span {
-    &:hover {
+  & .ant-radio-checked + span:hover {
       color: #fff;
       background-color: var(--color-hover);
-    }
+  }
+
+  & .ant-radio + span&:hover {
+    background-color: #DCDCE7;
+  }
+
+  & .semibold {
+    display: inline;
+    margin-left: 8px;
+    font-weight: 500;
   }
 }
+
