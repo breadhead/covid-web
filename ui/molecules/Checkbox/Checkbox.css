@@ -43,8 +43,8 @@ form input[type="checkbox"][type="checkbox"] {
 }
 
 .ant-checkbox-disabled.ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner {
-  background-color: var(--color-disabled);
-  border-color: var(--color-disabled) !important;
+  border-color: var(--color-primary) !important;
+  opacity: 0.4;
 }
 
 .ant-checkbox-disabled.ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner:after {
