@@ -44,7 +44,9 @@ const LandingPage = () => (
           <Button kind="extra" size="s" type="button">Маленькая кнопка</Button>
           <Button kind="extra" disabled size="s" type="button">Маленькая кнопка</Button>
 
-          <Checkbox />
+          <Checkbox>Чекбокс с лейблом</Checkbox>
+          <Checkbox disabled>Чекбокс с очень длинным лейблом</Checkbox>
+          <Checkbox checked disabled>Чекбокс с очень длинным лейблом</Checkbox>
         </AntForm>
       )}
 
