@@ -10,7 +10,18 @@ import RadioGroup from '@app/ui/molecules/RadioGroup'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextАrea'
 
-const testRadioButtons = [
+const testBoolRadioButtons = [
+  {
+    id: '1',
+    value: 'Котейки',
+  },
+  {
+    id: '2',
+    value: 'Собакены',
+  },
+]
+
+const testControlsRadioButtons = [
   {
     id: '1',
     text: 'Общие',
@@ -40,12 +51,12 @@ const LandingPage = () => (
           <TextArea name="testTextArea" placeholder="текстарея" />
           <Input name="input" type="text" placeholder="инпут" />
           <Switch name="testSWitch" />
-          <RadioGroup name="bool" type="bool" />
+          <RadioGroup name="bool" type="bool" buttons={testBoolRadioButtons} />
           <RadioGroup
             name="controls"
             type="controls"
-            buttons={testRadioButtons}
-            defaultValue={testRadioButtons[1].value}
+            buttons={testControlsRadioButtons}
+            defaultValue={testControlsRadioButtons[1].value}
           />
           <RadioButton name="testRadioButton" value="memem">
             радиокнопка

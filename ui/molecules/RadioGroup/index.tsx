@@ -8,14 +8,10 @@ import { Field as FinalField } from 'react-final-form'
 const FormItem = AntForm.Item
 const AntRadioGroup = Radio.Group
 
-const boolRadioButtons = [
-  { id: '1', value: 'Да' },
-  { id: '2', value: 'Нет' },
-]
 interface Props {
   name: string
   type: 'bool' | 'controls'
-  buttons?: Array<{
+  buttons: Array<{
     id: string,
     value: string,
     text?: string,
@@ -30,7 +26,7 @@ const RadioGroup = ({
   type,
   className,
   label,
-  buttons = boolRadioButtons,
+  buttons,
   defaultValue,
   ...rest
 }: Props) => {
@@ -39,6 +35,7 @@ const RadioGroup = ({
 
   const getRadioGroup = (groupType: string) => {
     let radioGroup
+
     switch (groupType) {
     case 'controls':
       radioGroup = <AntRadioGroup className="controls" name={name} defaultValue={defaultValueForControlsRadioGroup}>
@@ -54,7 +51,7 @@ const RadioGroup = ({
       break
     case 'bool':
       radioGroup = <AntRadioGroup name={name} defaultValue={defaultValue}>
-          {boolRadioButtons.map((button) =>
+          {buttons.map((button) =>
             <Radio
               key={button.id}
               value={button.value}
@@ -65,6 +62,7 @@ const RadioGroup = ({
         </AntRadioGroup>
       break
     default:
+      radioGroup = null
       break
     }
 
