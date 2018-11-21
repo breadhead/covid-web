@@ -34,11 +34,9 @@ const RadioGroup = ({
   const defaultValueForControlsRadioGroup = defaultValue || buttons[0].value
 
   const getRadioGroup = (groupType: string) => {
-    let radioGroup
-
     switch (groupType) {
     case 'controls':
-      radioGroup = <AntRadioGroup className="controls" name={name} defaultValue={defaultValueForControlsRadioGroup}>
+      return <AntRadioGroup className="controls" name={name} defaultValue={defaultValueForControlsRadioGroup}>
           {buttons.map((button) =>
             <Radio
               key={button.id}
@@ -50,7 +48,7 @@ const RadioGroup = ({
         </AntRadioGroup>
       break
     case 'bool':
-      radioGroup = <AntRadioGroup name={name} defaultValue={defaultValue}>
+      return <AntRadioGroup name={name} defaultValue={defaultValue}>
           {buttons.map((button) =>
             <Radio
               key={button.id}
@@ -62,11 +60,9 @@ const RadioGroup = ({
         </AntRadioGroup>
       break
     default:
-      radioGroup = null
+      return null
       break
     }
-
-    return radioGroup
   }
 
   return <FinalField className={className} name={name}>
