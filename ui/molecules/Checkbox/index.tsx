@@ -8,19 +8,14 @@ const FormItem = AntForm.Item
 
 interface Props {
   name: string
-  value: string
+  // value: strin
   className?: string
   label?: string
   children?: React.ReactNode
-  disabled?: boolean
-  className?: string
-  checked?: boolean
-  style?: React.CSSProperties
 }
 
 const Checkbox = ({
   name,
-  value,
   className,
   label,
   children,
