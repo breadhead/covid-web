@@ -5,6 +5,7 @@ import { Form as FinalForm } from 'react-final-form'
 
 import RadioButton from '@app/ui/atoms/RadioButton'
 import Button from '@app/ui/molecules/Button'
+import Checkbox from '@app/ui/molecules/Checkbox'
 import Input from '@app/ui/molecules/Input'
 import RadioGroup from '@app/ui/molecules/RadioGroup'
 import Switch from '@app/ui/molecules/Switch'
@@ -83,6 +84,9 @@ const LandingPage = () => (
           <Button kind="extra" size="s" type="button">Маленькая кнопка</Button>
           <Button kind="extra" disabled size="s" type="button">Маленькая кнопка</Button>
 
+          <Checkbox>Чекбокс с лейблом</Checkbox>
+          <Checkbox disabled>Чекбокс с очень длинным лейблом</Checkbox>
+          <Checkbox checked disabled>Чекбокс с очень длинным лейблом</Checkbox>
         </AntForm>
       )}
 
