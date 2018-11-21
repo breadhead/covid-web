@@ -30,11 +30,14 @@ body {
 
   /* colors */
   --color-primary: #3C54EE;
-  --color-hover:  #354AD4; 
+  --color-hover:  #354AD4;
+  --color-disabled: #B2BCF9;
   --color-success: #19CD92;
   --color-link: #2D47EA;
   --color-danger: #F11635;
   --color-highlight: #FFD46D;
+  --color-default: #B3B4C8;
+
   --text-color-primary: #151833;
   --text-color-secondary: #616681;
   
