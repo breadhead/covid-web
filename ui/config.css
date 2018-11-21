@@ -24,6 +24,12 @@ body {
   }
 
   /* colors */
+  --color-primary: #3C54EE;
+  --color-success: #19CD92;
+  --color-link: #2D47EA;
+  --color-danger: #F11635;
+  --color-highlight: #FFD46D;
+  
   --text-color-primary: #151833;
   --text-color-secondary: #616681;
   --link-color: #2D47EA;
