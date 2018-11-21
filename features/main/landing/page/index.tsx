@@ -3,12 +3,42 @@ import * as React from 'react'
 import { Form as AntForm } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
+import RadioButton from '@app/ui/atoms/RadioButton'
 import Button from '@app/ui/molecules/Button'
 import Checkbox from '@app/ui/molecules/Checkbox'
 import Input from '@app/ui/molecules/Input'
-import RadioButton from '@app/ui/molecules/RadioButton'
+import RadioGroup from '@app/ui/molecules/RadioGroup'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextАrea'
+
+const testBoolRadioButtons = [
+  {
+    id: '1',
+    value: 'Котейки',
+  },
+  {
+    id: '2',
+    value: 'Собакены',
+  },
+]
+
+const testControlsRadioButtons = [
+  {
+    id: '1',
+    text: 'Общие',
+    value: '329',
+  },
+  {
+    id: '2',
+    text: 'Специальные',
+    value: '217',
+  },
+  {
+    id: '3',
+    text: 'Другие',
+    value: '29',
+  },
+]
 
 const LandingPage = () => (
   <main
@@ -19,11 +49,21 @@ const LandingPage = () => (
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
-          <TextArea name="testTextArea" />
+          <TextArea name="testTextArea" placeholder="текстарея" />
+          <Input name="input" type="text" placeholder="инпут" />
           <Switch name="testSWitch" />
-          <Input name="input" type="text" />
+          <RadioGroup name="bool" type="bool" buttons={testBoolRadioButtons} />
+          <RadioGroup
+            name="controls"
+            type="controls"
+            buttons={testControlsRadioButtons}
+            defaultValue={testControlsRadioButtons[1].value}
+          />
           <RadioButton name="testRadioButton" value="memem">
-            label
+            радиокнопка
+          </RadioButton>
+          <RadioButton name="testRadioButton" value="memem1">
+            радиокнопка2
           </RadioButton>
           {/* buttons */}
           <Button size="xl" type="button">Огромная кнопка</Button>

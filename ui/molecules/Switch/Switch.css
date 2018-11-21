@@ -1,4 +1,4 @@
-.switch.switch {
+.ant-switch.ant-switch {
   display: block;
   width: 96px;
   height: 40px;
@@ -23,7 +23,6 @@
   & span {
     margin: 0;
     margin-right: 21px;
-    font-size: var(--text16-24);
     color: #000;
     text-align: right;
   }
@@ -40,5 +39,9 @@
     margin-left: 21px;
     color: #fff;
     text-align: left;
+  }
+
+  & .ant-switch-inner {
+    font: var(--text16-24);
   }
 }
