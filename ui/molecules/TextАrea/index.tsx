@@ -30,6 +30,7 @@ const TextArea = ({
       >
         {label && <label htmlFor={name}>{label}</label>}
         <AntInput.TextArea
+          className="textarea"
           id={name}
           placeholder={placeholder}
           autosize

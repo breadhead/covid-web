@@ -10,14 +10,12 @@ interface Props {
   name: string
   value: string
   className?: string
-  label?: string
   children?: React.ReactNode
 }
 
 const RadioButton = ({
   name,
   className,
-  label,
   value,
   children,
   ...rest
@@ -28,7 +26,6 @@ const RadioButton = ({
         validateStatus={meta.submitError && 'error'}
         help={meta.submitError}
       >
-        {label && <label htmlFor={name}>{label}</label>}
         <Radio name={name} value={value} {...rest}>
           {children}
         </Radio>
