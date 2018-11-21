@@ -1,6 +1,10 @@
 .ant-radio-group.ant-radio-group {
   display: flex;
 
+  & .ant-radio-input {
+    display: none;
+  }
+
   & .ant-radio-wrapper {
     margin-right: 8px;
 
@@ -18,7 +22,9 @@
     align-items: center;
     justify-content: center;
     width: auto;
+    min-width: 96px;
     padding: 8px 16px;
+    overflow: hidden;
     font: var(--text16-24);
     color: #000;
     text-align: center;
