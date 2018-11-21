@@ -8,7 +8,6 @@ const FormItem = AntForm.Item
 
 interface Props {
   name: string
-  // value: strin
   className?: string
   label?: string
   children?: React.ReactNode
