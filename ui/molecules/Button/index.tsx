@@ -1,4 +1,5 @@
 import { Button as AntButton, Form as AntForm } from 'antd'
+import cx from 'classnames'
 import * as React from 'react'
 import { Field as FinalField } from 'react-final-form'
 import './Button.css?CSSModulesDisable'
@@ -22,7 +23,7 @@ const Button = ({
   kind = 'primary',
   ...rest
 }: Props) =>
-  <FinalField className={className} name="" type={type}>
+  <FinalField name="" type={type}>
     {({ input, meta }) => (
       <FormItem
         validateStatus={meta.submitError && 'error'}
@@ -30,7 +31,7 @@ const Button = ({
       >
         {label && <label>{label}</label>}
         <AntButton
-          className={`ant-btn-${size} ant-btn-${kind}`}
+          className={cx(`ant-btn-${size} ant-btn-${kind}`, className)}
           htmlType={type}
           {...input}
           {...rest}

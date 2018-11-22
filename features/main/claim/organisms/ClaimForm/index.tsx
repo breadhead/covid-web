@@ -70,7 +70,7 @@ const ClaimForm = () => {
             </article>
 
             <article className={styles.article}>
-              <Button size="l" type="button">Продолжить</Button>
+              <Button size="l" type="submit" className={styles.button}>Продолжить</Button>
             </article>
           </AntForm>
         )}

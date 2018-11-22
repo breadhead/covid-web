@@ -43,7 +43,7 @@
       background-color: var(--color-hover);
   }
 
-  & .ant-radio + span&:hover {
+  & .ant-radio + span:hover {
     background-color: #DCDCE7;
   }
 
