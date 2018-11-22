@@ -6,7 +6,7 @@ import './Button.css?CSSModulesDisable'
 const FormItem = AntForm.Item
 
 interface Props {
-  type: 'button' | 'submmit',
+  type?: 'button' | 'submit',
   className?: string
   label?: string,
   size?: 's' | 'm' | 'l' | 'xl',
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const Button = ({
-  type,
+  type = 'button',
   className,
   label,
   size = 'm',
@@ -31,7 +31,7 @@ const Button = ({
         {label && <label>{label}</label>}
         <AntButton
           className={`ant-btn-${size} ant-btn-${kind}`}
-          type={type}
+          htmlType={type}
           {...input}
           {...rest}
         />
