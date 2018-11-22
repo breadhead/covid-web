@@ -3,6 +3,7 @@ import * as styles from './Footer.css'
 
 import NavLink from '@app/ui/atoms/NavLink'
 import Button from '@app/ui/molecules/Button'
+import Partners from './organisms/Partners'
 
 const Footer = () => {
   return (
@@ -22,9 +23,8 @@ const Footer = () => {
           <Button kind="primary">Просто спросить</Button>
         </div>
       </div>
-
       <div className={styles.row}>
-      
+        <Partners />
       </div>
     </footer>
   )
