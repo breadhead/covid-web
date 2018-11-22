@@ -90,7 +90,12 @@
 
   &[disabled] {
     color: var(--text-color-primary) !important;
+    background-color: #E8E9F2;
     border: 1px solid #DCDCE7;
+
+    &:hover, &:focus {
+      background-color: #E8E9F2;
+    }
   }
 }
 

@@ -1,11 +1,12 @@
 import * as React from 'react'
 
-import { Form as AntForm } from 'antd'
+import { Form as AntForm, TimePicker } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
 import NavLink from '@app/ui/atoms/NavLink'
 import RadioButton from '@app/ui/atoms/RadioButton'
 import Button from '@app/ui/molecules/Button'
+import Checkbox from '@app/ui/molecules/Checkbox'
 import Input from '@app/ui/molecules/Input'
 import RadioGroup from '@app/ui/molecules/RadioGroup'
 import Switch from '@app/ui/molecules/Switch'
@@ -51,6 +52,7 @@ const LandingPage = () => (
         <AntForm>
           <NavLink type="link" href="#">link</NavLink> <br />
           <NavLink type="nav" href="#">navlink</NavLink>
+          <TimePicker />
           <TextArea name="testTextArea" placeholder="текстарея" />
           <Input name="input" type="text" placeholder="инпут" />
           <Switch name="testSWitch" />
@@ -86,6 +88,9 @@ const LandingPage = () => (
           <Button kind="extra" size="s" type="button">Маленькая кнопка</Button>
           <Button kind="extra" disabled size="s" type="button">Маленькая кнопка</Button>
 
+          <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
+          <Checkbox name="checkbox1" disabled>Чекбокс с очень длинным лейблом</Checkbox>
+          <Checkbox name="checkbox2" checked disabled>Чекбокс с очень длинным лейблом</Checkbox>
         </AntForm>
       )}
 
