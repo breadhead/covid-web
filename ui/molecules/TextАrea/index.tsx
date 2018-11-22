@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as styles from './TextArea.css'
+import './TextArea.css?CSSModulesDisable'
 
 import { Form as AntForm, Input as AntInput } from 'antd'
 import { Field as FinalField } from 'react-final-form'
@@ -30,7 +30,7 @@ const TextArea = ({
       >
         {label && <label htmlFor={name}>{label}</label>}
         <AntInput.TextArea
-          className={styles.textarea}
+          className="textarea"
           id={name}
           placeholder={placeholder}
           autosize
