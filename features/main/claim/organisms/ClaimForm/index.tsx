@@ -11,7 +11,7 @@ import Input from '@app/ui/molecules/Input'
 import RadioGroup from '@app/ui/molecules/RadioGroup'
 import Switch from '@app/ui/molecules/Switch'
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 
 const statementRadioGroup = [
   { id: '1', value: 'Да' },
@@ -39,8 +39,10 @@ const ClaimForm = () => {
               <p className={styles.label}>У вас есть установленный врачом онкологический диагноз?</p>
               <RadioGroup name="bool" type="bool" buttons={statementRadioGroup} />
               <p className={styles.label}>
-                Вы консультируетесь по корпоративной программе от своего работодателя?{NON_BREAKING_SPACE}
-              <NavLink href="#">Узнать больше о программе</NavLink>
+                Вы консультируетесь по корпоративной программе от своего работодателя?{SPACE}
+                <NavLink href="#">
+                  Узнать{NON_BREAKING_SPACE}больше{NON_BREAKING_SPACE}о{NON_BREAKING_SPACE}программе
+                </NavLink>
               </p>
               <Switch name="corp" />
             </article>
