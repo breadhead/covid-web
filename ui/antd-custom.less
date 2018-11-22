@@ -1,11 +1,22 @@
-@primary-color: red;                         // primary color for all components
-@link-color: red;                            // link color
-@success-color: #52c41a;                         // success state color
-@warning-color: #faad14;                         // warning state color
-@error-color: #f5222d;                           // error state color
-@font-size-base: 14px;                           // major text font size
-@heading-color: rgba(0, 0, 0, .85);              // heading text color
-@text-color: rgba(0, 0, 0, .65);                 // major text color
-@border-radius-base: 4px;                        // major border radius
-@border-color-base: #d9d9d9;                     // major border color
-@box-shadow-base: 0 2px 8px rgba(0, 0, 0, .15);  // major shadow for layers
+// COLORS
+@primary-color: #3C54EE; // primary color for all components
+@link-color: #2D47EA; // link color
+@success-color: #19CD92; // success state color
+@error-color: #F11635; // error state color
+@background-color-light : hsv(0, 0, 98%); // background of header and selected item
+@background-color-base : hsv(0, 0, 96%); // Default grey background color
+
+// FONTS
+@font-size-base: 16px; // major text font size
+
+// STATES
+// Disabled
+@disabled-color : fade(#000, 25%);
+@disabled-bg : fade(@primary-color, 60%); // equivalent to opacity: 0.4;
+@disabled-color-dark : fade(#fff, 35%);
+
+// COMPONENTS
+// Checkbox
+@checkbox-size : 20px;
+@checkbox-color : @primary-color;
+@checkbox-check-color : #fff;
