@@ -54,3 +54,14 @@
   }
 }
 
+.ant-row.ant-form-item {
+  margin: 0;
+}
+
+.ant-radio.ant-radio {
+  display: none;
+}
+
+.ant-radio-wrapper.ant-radio-wrapper {
+  line-height: 0;
+}

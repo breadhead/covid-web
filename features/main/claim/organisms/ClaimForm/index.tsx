@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as styles from './ClaimForm.css'
+import './ClaimForm.css'
 
 import { Form as AntForm } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
@@ -9,6 +10,8 @@ import Button from '@app/ui/molecules/Button'
 import Input from '@app/ui/molecules/Input'
 import RadioGroup from '@app/ui/molecules/RadioGroup'
 import Switch from '@app/ui/molecules/Switch'
+
+import { NON_BREAKING_SPACE } from '@app/lib/config'
 
 const statementRadioGroup = [
   { id: '1', value: 'Да' },
@@ -36,8 +39,8 @@ const ClaimForm = () => {
               <p className={styles.label}>У вас есть установленный врачом онкологический диагноз?</p>
               <RadioGroup name="bool" type="bool" buttons={statementRadioGroup} />
               <p className={styles.label}>
-                Вы консультируетесь по корпоративной программе от своего работодателя?
-              <NavLink> Узнать больше о программе</NavLink>
+                Вы консультируетесь по корпоративной программе от своего работодателя?{NON_BREAKING_SPACE}
+              <NavLink href="#">Узнать больше о программе</NavLink>
               </p>
               <Switch name="corp" />
             </article>

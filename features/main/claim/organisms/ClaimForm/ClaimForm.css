@@ -1,7 +1,7 @@
 .ClaimForm {
   position: relative;
   max-width: 800px;
-  padding: 0 160px;
+  padding: 0;
   margin: 0 auto;
   text-align: left;
   background-color: #fff;
@@ -10,15 +10,18 @@
 
 .title {
   font: var(--title-medium);
+  margin: 0 0 24px 0;
 }
 
 .article {
-  padding: 48px 0 56px 0;
+  padding: 48px 160px 56px 160px;
   font: var(--text16-24);
+  position: relative;
 
   &::after {
     position: absolute;
     left: 0;
+    bottom: 0;
     width: 100%;
     height: 1px;
     content: '';
@@ -36,7 +39,7 @@
 }
 
 .label {
-  margin: 0;
+  margin: 0 0 8px 0;
   color: #151833;
 }
 
