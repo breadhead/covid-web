@@ -9,7 +9,7 @@ interface Props {
 const Partner = ({text, logo}: Props) => {
   return (
     <article className={styles.partner}>
-      <p>{text}</p>
+      <p className={styles.text}>{text}</p>
       <img className={styles.logo} src={logo} alt={text}/>
     </article>
   )

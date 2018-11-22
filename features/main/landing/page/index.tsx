@@ -11,7 +11,9 @@ import Input from '@app/ui/molecules/Input'
 import RadioGroup from '@app/ui/molecules/RadioGroup'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextАrea'
-import Header from '../../layout/organisms/Header'
+
+import Footer from '@app/features/main/layout/organisms/Footer'
+import Header from '@app/features/main/layout/organisms/Header'
 
 const testBoolRadioButtons = [
   {
@@ -99,6 +101,7 @@ const LandingPage = () => (
 
       />
     </main>
+    <Footer />
   </React.Fragment>
 )
 export default LandingPage

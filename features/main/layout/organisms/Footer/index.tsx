@@ -1,3 +1,4 @@
+import cx from 'classnames'
 import * as React from 'react'
 import * as styles from './Footer.css'
 
@@ -8,8 +9,7 @@ import Partners from './organisms/Partners'
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-
-      <div className={styles.row}>
+      <div className={cx(styles.row, styles.top)}>
         <div className={styles.logo}>Просто спросить</div>
         <nav className={styles.menu}>
           <NavLink type="nav" className={styles.link}>Партнёры</NavLink>
@@ -18,13 +18,23 @@ const Footer = () => {
           <NavLink type="nav" className={styles.link}>Обратная связь</NavLink>
           <NavLink type="nav" className={styles.link}>Эксперты</NavLink>
         </nav>
-        <div>
-          <Button kind="secondary">Войти</Button>
-          <Button kind="primary">Просто спросить</Button>
+        <div className={styles.buttons}>
+          <Button wrapperClassName={styles.button} kind="secondary">Войти</Button>
+          <Button wrapperClassName={styles.button} kind="primary">Просто спросить</Button>
         </div>
       </div>
-      <div className={styles.row}>
+      <div className={cx(styles.row, styles.middle)}>
         <Partners />
+      </div>
+      <div className={cx(styles.row, styles.bottom)}>
+        <div>
+          <span className={styles.copyright}>© Просто спросить, 2018</span>
+          <NavLink className={styles.infoLink} type="nav">Пользовательское соглашение</NavLink>
+        </div>
+        <span>
+          <span className={styles.secondaryText}>Сайт сделан в </span>
+          <NavLink className={styles.infoLink} type="nav">Breadhead</NavLink>
+        </span>
       </div>
     </footer>
   )
