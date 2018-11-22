@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Form as AntForm } from 'antd'
+import { Form as AntForm, TimePicker } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
 import RadioButton from '@app/ui/atoms/RadioButton'
@@ -49,6 +49,7 @@ const LandingPage = () => (
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
+          <TimePicker />
           <TextArea name="testTextArea" placeholder="текстарея" />
           <Input name="input" type="text" placeholder="инпут" />
           <Switch name="testSWitch" />
