@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Form as AntForm } from 'antd'
+import { Form as AntForm, TimePicker } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
 import Button from '@app/ui/molecules/Button'
@@ -14,6 +14,7 @@ const LandingPage = () => (
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
+          <TimePicker />
           <TextArea name="test" />
           <Input name="input" type="text" />
           {/* buttons */}
