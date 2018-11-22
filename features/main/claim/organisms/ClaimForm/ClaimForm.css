@@ -7,12 +7,14 @@
   background-color: #fff;
 }
 
+
 .title {
   font: var(--title-medium);
 }
 
 .article {
   padding: 48px 0 56px 0;
+  font: var(--text16-24);
 
   &::after {
     position: absolute;
@@ -22,6 +24,15 @@
     content: '';
     background-color: rgba(21,24,51,0.12);
   }
+
+  &:last-of-type {
+    padding-bottom: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+
 }
 
 .label {

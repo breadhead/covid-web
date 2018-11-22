@@ -4,6 +4,7 @@ import * as styles from './ClaimForm.css'
 import { Form as AntForm } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
+import NavLink from '@app/ui/atoms/NavLink'
 import Button from '@app/ui/molecules/Button'
 import Input from '@app/ui/molecules/Input'
 import RadioGroup from '@app/ui/molecules/RadioGroup'
@@ -29,14 +30,14 @@ const ClaimForm = () => {
             <article className={styles.article}>
               <h2 className={styles.title}>Кратко о теме консультации</h2>
               <p className={styles.label}>Для кого эта консультация</p>
-              <select name="1" id="1"></select>
+              <select name="1" id="1">Выберите консультируемого</select>
               <p className={styles.label}>Тема вашего вопроса</p>
-              <select name="2" id="2"></select>
+              <select name="2" id="2">Выберите тему</select>
               <p className={styles.label}>У вас есть установленный врачом онкологический диагноз?</p>
               <RadioGroup name="bool" type="bool" buttons={statementRadioGroup} />
               <p className={styles.label}>
                 Вы консультируетесь по корпоративной программе от своего работодателя?
-              <a> Узнать больше о программе</a>
+              <NavLink> Узнать больше о программе</NavLink>
               </p>
               <Switch name="corp" />
             </article>
@@ -48,7 +49,7 @@ const ClaimForm = () => {
               </p>
               <Input name="name" type="text" />
               <p className={styles.label}>Регион вашего проживания</p>
-              <select name="3" id="3"></select>
+              <select name="3" id="3">Выберите регион</select>
               <p className={styles.label}>Возраст (полных лет)</p>
               <Input name="age" type="number" />
               <p className={styles.label}>Пол</p>
@@ -56,13 +57,13 @@ const ClaimForm = () => {
               <p className={styles.label}>Электронная почта.
                 <span className={styles.sectondaryText}> Будем присылать вам уведомления о ходе консультации.</span>
               </p>
-              <Input name="email" type="email" />
+              <Input name="email" type="email" placeholder="konstantinopolsky@gmail.com" />
               <p className={styles.label}>Контактный телефон.
               <span className={styles.sectondaryText}>
-                Необязательно, но так нам будет проще и быстрее связаться с вами.
+                  Необязательно, но так нам будет проще и быстрее связаться с вами.
               </span>
               </p>
-              <Input name="tel" type="tel" />
+              <Input name="tel" type="tel" placeholder="+7" />
             </article>
 
             <article className={styles.article}>

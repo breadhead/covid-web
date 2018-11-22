@@ -3,6 +3,7 @@ import * as React from 'react'
 import { Form as AntForm } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
+import NavLink from '@app/ui/atoms/NavLink'
 import RadioButton from '@app/ui/atoms/RadioButton'
 import Button from '@app/ui/molecules/Button'
 import Input from '@app/ui/molecules/Input'
@@ -48,6 +49,8 @@ const LandingPage = () => (
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
+          <NavLink type="link" href="#">link</NavLink> <br />
+          <NavLink type="nav" href="#">navlink</NavLink>
           <TextArea name="testTextArea" placeholder="текстарея" />
           <Input name="input" type="text" placeholder="инпут" />
           <Switch name="testSWitch" />
