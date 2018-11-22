@@ -38,7 +38,7 @@
     background-color: var(--color-primary);
   }
 
-  & .ant-radio-checked + span:hover {
+  & .ant-radio.ant-radio-checked + span:hover {
       color: #fff;
       background-color: var(--color-hover);
   }

@@ -20,7 +20,7 @@ body {
   --text14-20: 14px/20px var(--fontFamily);
   --text12-16: 12px/16px var(--fontFamily);
 
-  @media (--smallDown) {
+  @media (max-width: 767px) {
     --title-extra: 28px/32px var(--fontFamily-title);
     --title-regular: 28px/32px var(--fontFamily-title);
     --title-medium: 24px/32px var(--fontFamily-title);
@@ -47,5 +47,5 @@ body {
 }
 
 /* custom media queries */
-@custom-media --smallDown (max-width: 767px);
+@custom-media --smallDown (max-width: 767px)
 

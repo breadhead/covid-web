@@ -3,6 +3,11 @@
   font: var(--text16-24);
   text-align: center;
   background-color: #FAF9F7;
+
+  @media (max-width: 767px) {
+    padding: 24px 16px 80px;
+    font: var(--text14-20);
+  }
 }
 
 .title {
