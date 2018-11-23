@@ -4,7 +4,7 @@ import DefaultHeader from './organisms/DefaultHeader'
 import MediumHeader from './organisms/MediumHeader'
 
 interface Props {
-  type: 'default' | 'medium' | 'medium-white'
+  type?: 'default' | 'medium' | 'medium-white'
 }
 
 const Header = ({ type = 'default' }: Props) => {

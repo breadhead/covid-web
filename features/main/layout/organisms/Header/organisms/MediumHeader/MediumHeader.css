@@ -1,4 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid #EDEDEF;
+  background-color: #FAF9F7;
+}
+
 .logo {
   width: 200px;
   height: 38px;
+}
+
+.white {
+  background-color: #fff;
 }

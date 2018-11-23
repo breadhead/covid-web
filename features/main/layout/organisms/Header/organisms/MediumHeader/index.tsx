@@ -1,3 +1,4 @@
+import cx from 'classnames'
 import * as React from 'react'
 import * as styles from './MediumHeader.css'
 
@@ -10,18 +11,25 @@ interface Props {
 
 const MediumHeader = ({ type = 'default' }: Props) => {
 
+  const content = (
+    <React.Fragment>
+      <Logo className={styles.logo} />
+      <Menu />
+    </React.Fragment>
+  )
+
   const getHeader = (headerType: string) => {
     switch (headerType) {
     case 'default':
-      return <header className={styles.header}>
-        <Logo className={styles.logo} />
-        <Menu />
-      </header>
+      return (
+          <header className={styles.header}>
+            {content}
+          </header>)
     case 'white':
-      return <header className={styles.header}>
-        <Logo className={styles.logo} />
-        <Menu />
-      </header>
+      return (
+          <header className={cx(styles.header, styles.white)}>
+            {content}
+          </header>)
     default:
       return null
     }
