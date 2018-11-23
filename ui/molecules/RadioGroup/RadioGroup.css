@@ -38,13 +38,13 @@
     background-color: var(--color-primary);
   }
 
+  & .ant-radio + span:hover {
+    background-color: #DCDCE7;
+  }
+
   & .ant-radio.ant-radio-checked + span:hover {
       color: #fff;
       background-color: var(--color-hover);
-  }
-
-  & .ant-radio + span:hover {
-    background-color: #DCDCE7;
   }
 
   & .semibold {
