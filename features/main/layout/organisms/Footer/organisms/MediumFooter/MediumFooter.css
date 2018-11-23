@@ -1,0 +1,13 @@
+.footer {
+  padding: 24px 48px 32px 48px;
+  background-color: #FAF9F7;
+}
+
+.white {
+  background-color: #fff;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}

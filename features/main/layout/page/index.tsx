@@ -13,7 +13,7 @@ const Layout = ({ children }: Props) => {
       <div className="admin">
         {children}
       </div>
-      <Footer />
+      <Footer type="medium" />
     </React.Fragment>
   )
 
