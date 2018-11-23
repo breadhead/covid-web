@@ -20,7 +20,7 @@ body {
   --text14-20: 14px/20px var(--fontFamily);
   --text12-16: 12px/16px var(--fontFamily);
 
-  @media (--smallDown) {
+  @media (max-width: 767px) {
     --title-extra: 28px/32px var(--fontFamily-title);
     --title-regular: 28px/32px var(--fontFamily-title);
     --title-medium: 24px/32px var(--fontFamily-title);
@@ -32,7 +32,6 @@ body {
   --color-primary: #3C54EE;
   --color-hover:  #354AD4;
   --color-success: #19CD92;
-  --color-link: #2D47EA;
   --color-danger: #F11635;
   --color-highlight: #FFD46D;
   --color-default: #B3B4C8;
@@ -40,8 +39,8 @@ body {
   --text-color-primary: #151833;
   --text-color-secondary: #616681;
   
-  --link-color: #2D47EA;
-  --link-color-underline: rgba(45, 71, 234, 0.5);
+  --color-link: #2D47EA;
+  --color-link-underline: rgba(45, 71, 234, 0.5);
 
   /* styles */
   font-family: var(--fontFamily);
@@ -49,5 +48,5 @@ body {
 }
 
 /* custom media queries */
-@custom-media --smallDown (max-width: 767px);
+@custom-media --smallDown (max-width: 767px)
 

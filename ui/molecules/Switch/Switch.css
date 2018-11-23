@@ -45,3 +45,7 @@
     font: var(--text16-24);
   }
 }
+
+.ant-form-item.ant-form-item .ant-switch.ant-switch {
+    margin: 0;
+}

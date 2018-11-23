@@ -71,7 +71,6 @@ const RadioGroup = ({
         validateStatus={meta.submitError && 'error'}
         help={meta.submitError}
       >
-        {label && <label htmlFor={name}>{label}</label>}
         {getRadioGroup(type)}
       </FormItem>)}
   </FinalField>
