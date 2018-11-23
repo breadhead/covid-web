@@ -58,9 +58,9 @@
     font: var(--text14-20);
   }
 
-  @media (max-width: 767px) {
-    font: var(--text12-16);    
+  @media (max-width: 767px) {    
     flex-direction: column;
+    font: var(--text12-16);
 
     & .infoLink {
     font: var(--text12-16);
@@ -83,9 +83,9 @@
 
 .oncohelp {
   @media (max-width: 767px) {
-    margin-bottom: 12px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 12px;
   }
 }
 

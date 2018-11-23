@@ -2,6 +2,7 @@ import cx from 'classnames'
 import * as React from 'react'
 import * as styles from './Footer.css'
 
+import Logo from '@app/ui/atoms/Logo'
 import NavLink from '@app/ui/atoms/NavLink'
 import Button from '@app/ui/molecules/Button'
 import Partners from './organisms/Partners'
@@ -10,6 +11,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={cx(styles.row, styles.top)}>
+        <Logo />
         <div className={styles.logo}>Просто спросить</div>
         <nav className={styles.menu}>
           <NavLink type="nav" className={styles.link}>Партнёры</NavLink>
