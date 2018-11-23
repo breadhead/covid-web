@@ -3,16 +3,14 @@ import * as React from 'react'
 import * as styles from './Footer.css'
 
 import NavLink from '@app/ui/atoms/NavLink'
-import Partners from './organisms/Partners'
+import MiddleRow from './organisms/MiddleRow'
 import TopRow from './organisms/TopRow'
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <TopRow className={styles.row} />
-      <div className={cx(styles.row, styles.middle)}>
-        <Partners />
-      </div>
+      <MiddleRow className={styles.row} />
       <div className={cx(styles.row, styles.bottom)}>
         <div className={styles.oncohelp}>
           <span className={styles.copyright}>© Просто спросить, 2018</span>
