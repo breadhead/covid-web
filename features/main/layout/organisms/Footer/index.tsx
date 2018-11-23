@@ -27,11 +27,11 @@ const Footer = () => {
         <Partners />
       </div>
       <div className={cx(styles.row, styles.bottom)}>
-        <div>
+        <div className={styles.oncohelp}>
           <span className={styles.copyright}>© Просто спросить, 2018</span>
           <NavLink className={styles.infoLink} type="nav">Пользовательское соглашение</NavLink>
         </div>
-        <span>
+        <span className={styles.breadhead}>
           <span className={styles.secondaryText}>Сайт сделан в </span>
           <NavLink className={styles.infoLink} type="nav">Breadhead</NavLink>
         </span>

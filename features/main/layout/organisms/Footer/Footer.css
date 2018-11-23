@@ -1,5 +1,9 @@
 .footer {
   padding: 48px 48px 32px 48px;
+
+  @media (max-width: 767px) {
+    padding: 80px 16px 56px 16px;    
+  }
 }
 
 .row {
@@ -53,13 +57,38 @@
   & .infoLink {
     font: var(--text14-20);
   }
+
+  @media (max-width: 767px) {
+    font: var(--text12-16);    
+    flex-direction: column;
+
+    & .infoLink {
+    font: var(--text12-16);
+    }
+  }
 }
 
 .copyright {
   padding-right: 24px;
   color: #616681;
+
+  @media (max-width: 767px) { 
+    padding-right: 8px;
+  }
 }
 
 .secondaryText {
   color: #616681;
+}
+
+.oncohelp {
+  @media (max-width: 767px) {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.breadhead {
+  align-self: center;
 }
