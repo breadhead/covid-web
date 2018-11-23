@@ -4,7 +4,7 @@ import * as styles from './Menu.css'
 import NavLink from '@app/ui/atoms/NavLink'
 import Button from '@app/ui/molecules/Button'
 
-const DefaultHeader = () =>
+const Menu = () =>
   <nav className={styles.menu}>
     <NavLink type="nav" className={styles.link}>Партнёры</NavLink>
     <NavLink type="nav" className={styles.link}>Эксперты</NavLink>
@@ -13,4 +13,4 @@ const DefaultHeader = () =>
     <Button kind="secondary">Войти</Button>
   </nav>
 
-export default DefaultHeader
+export default Menu
