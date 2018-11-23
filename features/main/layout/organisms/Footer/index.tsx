@@ -1,15 +1,25 @@
 import * as React from 'react'
-import * as styles from './Footer.css'
 
-import BottomRow from './organisms/BottomRow'
-import MiddleRow from './organisms/MiddleRow'
-import TopRow from './organisms/TopRow'
+import DefaultFooter from './organisms/DefaultFooter'
 
-const Footer = () =>
-  <footer className={styles.footer}>
-    <TopRow className={styles.row} />
-    <MiddleRow className={styles.row} />
-    <BottomRow className={styles.row} />
-  </footer>
+interface Props {
+  type?: 'default' | 'medium'
+}
+
+const Footer = ({type = 'default'}: Props) => {
+
+  const getFooter = (footerType: string) => {
+    switch (footerType) {
+    case 'default':
+      return <DefaultFooter />
+    case 'medium':
+      return <DefaultFooter />
+    default:
+      return null
+    }
+  }
+
+  return getFooter(type)
+}
 
 export default Footer
