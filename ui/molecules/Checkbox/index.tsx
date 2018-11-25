@@ -11,6 +11,8 @@ interface Props {
   className?: string
   label?: string
   children?: React.ReactNode
+  checked?: boolean
+  disabled?: boolean
 }
 
 const Checkbox = ({
@@ -18,6 +20,8 @@ const Checkbox = ({
   className,
   label,
   children,
+  checked,
+  disabled,
   ...rest
 }: Props) =>
   <FinalField className={className} name={name}>
@@ -27,8 +31,10 @@ const Checkbox = ({
         help={meta.submitError}
       >
         <AntCheckbox
+          checked
+          disabled
           {...rest}
-          >
+        >
           {children}
         </AntCheckbox>
       </FormItem>

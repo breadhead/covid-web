@@ -1,10 +1,35 @@
-
-
 .NavLink {
-  margin-right: 18px;
-  font-size: 16px;	
-  line-height: 19px;
-  & a {
-    color: #000000;
+  font: var(--text16-24);
+  text-decoration: none;
+
+  &:focus {
+    text-decoration: none;
+    border-bottom: none;
+  }
+}
+
+.Link.Link {
+  color: var(--color-link);
+
+  &:hover {
+    color: var(--color-link);
+    border-bottom: 1px solid var(--color-link-underline);
+  }
+
+  &:active {
+    color: var(--color-link);
+    border-bottom: 1px solid var(--color-link-underline);
+  }
+}
+
+.Nav.Nav {
+  color: var(--text-color-primary);
+
+  &:hover {
+    color: var(--color-link);
+  }
+
+  &:active {
+    color: var(--color-link);
   }
 }
