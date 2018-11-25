@@ -54,9 +54,10 @@
   }
 }
 
-.ant-row.ant-form-item {
+// this style broken margin of every form component
+/* .ant-row.ant-form-item {
   margin: 0;
-}
+} */
 
 .ant-radio.ant-radio {
   display: none;
