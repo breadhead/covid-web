@@ -1,14 +1,7 @@
 import * as React from 'react'
 
-import ClaimPage from './page'
+import ClaimPage from './organisms/firstStep/page'
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
-
-const Claim = () => {
-  return <ClaimPage
-  title="Заполните заявку"
-  text={`Личные данные будут использованы только для${NON_BREAKING_SPACE}консультации.`}
-  />
-}
+const Claim = () => <ClaimPage />
 
 export default Claim
