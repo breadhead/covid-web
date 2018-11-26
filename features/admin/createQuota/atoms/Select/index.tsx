@@ -8,7 +8,7 @@ const Select = () => (
     defaultValue="Common"
     options={Object
       .entries(QuotaType)
-      .map(([_, value]) => ({ name: value, value }))
+      .map(([_, value]) => ({ value }))
     }
   />
 )

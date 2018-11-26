@@ -15,25 +15,24 @@ interface Props {
   defaultValue?: string
   className?: string
   label?: string
-  placeholder?: string
-  required?: true
+  disabled?: boolean
 }
 
 const Select = ({
   name,
-  defaultValue,
   className,
   label,
   options,
-  placeholder,
+  defaultValue,
+  disabled,
   ...rest
 }: Props) => {
 
-  const defaultSelectValue = defaultValue || options[1].value
+  const defaultSelectValue = defaultValue || options[0].value
 
   return (
     <FinalField className={className} name={name}>
-      {({ input, meta }) => (
+      {({ meta }) => (
         <FormItem
           validateStatus={meta.submitError && 'error'}
           help={meta.submitError}
@@ -41,10 +40,9 @@ const Select = ({
           {label && <label htmlFor={name}>{label}</label>}
           <AntSelect
             id={name}
-            placeholder={placeholder}
             defaultValue={defaultSelectValue}
+            disabled={disabled}
             {...rest}
-            {...input}
           >
             {options.map((option) => (
               <Option key={option.value} value={option.value}>{option.value}</Option>

@@ -9,6 +9,7 @@ import Button from '@app/ui/molecules/Button'
 import Checkbox from '@app/ui/molecules/Checkbox'
 import Input from '@app/ui/molecules/Input'
 import RadioGroup from '@app/ui/molecules/RadioGroup'
+import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextАrea'
 
@@ -41,15 +42,29 @@ const testControlsRadioButtons = [
   },
 ]
 
+const testSelectOptions = [
+  { value: 'Первый пункт' },
+  { value: 'Второй пункт' },
+  { value: 'Третий пункт такой длинный по ширине и количеству символов, что не помещается в одну строку' },
+  { value: 'Четверый пункт' },
+]
+
 const Test = () => (
   <main
     style={{ margin: '0 auto', maxWidth: '800px' }}
   >
-    <h1>components preciew page</h1>
+    <h1>components preview page</h1>
     <FinalForm
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
+          <Select
+            disabled
+            options={testSelectOptions}
+            name="selectDis" /> <br />
+          <Select
+            options={testSelectOptions}
+            name="select" />
           <NavLink type="link" href="#">link</NavLink> <br />
           <NavLink type="nav" href="#">navlink</NavLink> <br />
           <TimePicker /><br /><br />
