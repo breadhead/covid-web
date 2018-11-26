@@ -11,7 +11,7 @@ interface Props {
 }
 
 const SecondaryFooter = ({ theme = 'default' }: Props) =>
-  <footer className={theme === 'default' ? styles.footer : cx(styles.footer, styles.white)}>
+  <footer className={cx(styles.footer, styles[theme])}>
     <TopRow />
     <BottomRow className={styles.row} />
   </footer>
