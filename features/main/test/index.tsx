@@ -55,7 +55,7 @@ const Test = () => (
           <TimePicker /><br /><br />
           <TextArea name="testTextArea" placeholder="текстарея" /><br />
           <Input name="input" type="text" placeholder="инпут" /><br />
-          <Switch name="testSWitch" /><br />
+          <Switch name="testSwitch" /><br />
           <RadioGroup name="bool" type="bool" buttons={testBoolRadioButtons} /><br />
           <RadioGroup
             name="controls"

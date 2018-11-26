@@ -7,29 +7,13 @@ import BottomRow from '../PrimaryFooter/organisms/BottomRow'
 import TopRow from './organisms/TopRow'
 
 interface Props {
-  type?: 'default' | 'white'
+  theme?: 'default' | 'white'
 }
 
-const SecondaryFooter = ({ type = 'default' }: Props) => {
-
-  const getFooter = (footerType: string) => {
-    switch (footerType) {
-      case 'default':
-        return <footer className={styles.footer}>
-          <TopRow />
-          <BottomRow className={styles.row} />
-        </footer>
-      case 'white':
-        return <footer className={cx(styles.footer, styles.white)}>
-          <TopRow />
-          <BottomRow className={styles.row} />
-        </footer>
-      default:
-        return null
-    }
-  }
-
-  return getFooter(type)
-}
+const SecondaryFooter = ({ theme = 'default' }: Props) =>
+  <footer className={theme === 'default' ? styles.footer : cx(styles.footer, styles.white)}>
+    <TopRow />
+    <BottomRow className={styles.row} />
+  </footer>
 
 export default SecondaryFooter

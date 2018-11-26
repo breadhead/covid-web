@@ -10,14 +10,14 @@ interface Props {
   className?: string
 }
 
-const TopRow = ({className}: Props) =>
+const TopRow = ({ className }: Props) =>
   <div className={cx(styles.top, className)}>
     <Logo />
     <Menu />
     <div className={styles.buttons}>
-      <Button wrapperClassName={styles.button} kind="secondary">Войти</Button>
-      <Button wrapperClassName={styles.button} kind="primary">Просто спросить</Button>
+      <Button classNames={{ wrapperClassName: styles.button }} kind="secondary">Войти</Button>
+      <Button classNames={{ wrapperClassName: styles.button }} kind="primary">Просто спросить</Button>
     </div>
-  </div>
+  </div >
 
 export default TopRow

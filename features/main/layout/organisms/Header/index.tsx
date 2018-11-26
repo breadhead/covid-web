@@ -4,19 +4,18 @@ import PrimaryHeader from './organisms/PrimaryHeader'
 import SecondaryHeader from './organisms/SecondaryHeader'
 
 interface Props {
-  type?: 'primary' | 'secondary' | 'secondary-white'
+  type?: 'primary' | 'secondary'
+  theme?: 'default' | 'white'
 }
 
-const Header = ({ type = 'primary' }: Props) => {
+const Header = ({ type = 'primary', theme = 'default' }: Props) => {
 
   const getHeader = (headerType: string) => {
     switch (headerType) {
-    case 'default':
-        return <PrimaryHeader />
+    case 'primary':
+      return <PrimaryHeader />
     case 'secondary':
-        return <SecondaryHeader />
-    case 'secondary-white':
-        return <SecondaryHeader type="white" />
+      return <SecondaryHeader theme={theme} />
     default:
       return null
     }

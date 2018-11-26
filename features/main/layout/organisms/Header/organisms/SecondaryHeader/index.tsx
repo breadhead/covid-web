@@ -6,36 +6,13 @@ import Logo from '@app/ui/atoms/Logo'
 import Menu from './organisms/Menu'
 
 interface Props {
-  type?: 'default' | 'white'
+  theme?: 'default' | 'white'
 }
 
-const SecondaryHeader = ({ type = 'default' }: Props) => {
-
-  const content = (
-    <React.Fragment>
-      <Logo className={styles.logo} />
-      <Menu />
-    </React.Fragment>
-  )
-
-  const getHeader = (headerType: string) => {
-    switch (headerType) {
-      case 'default':
-        return (
-          <header className={styles.header}>
-            {content}
-          </header>)
-      case 'white':
-        return (
-          <header className={cx(styles.header, styles.white)}>
-            {content}
-          </header>)
-      default:
-        return null
-    }
-  }
-
-  return getHeader(type)
-}
+const SecondaryHeader = ({ theme = 'default' }: Props) =>
+  <header className={theme === 'default' ? styles.header : cx(styles.header, styles.white)}>
+    <Logo className={styles.logo} />
+    <Menu />
+  </header>
 
 export default SecondaryHeader

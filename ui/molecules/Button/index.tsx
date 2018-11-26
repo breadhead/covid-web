@@ -6,10 +6,17 @@ import './Button.css?CSSModulesDisable'
 
 const FormItem = AntForm.Item
 
+const defaultClassNames = {
+  wrapperClassName: '',
+  buttonClassName: '',
+}
+
 interface Props {
   type?: 'button' | 'submit',
-  wrapperClassName?: string
-  buttonClassName?: string
+  classNames?: {
+    wrapperClassName?: string,
+    buttonClassName?: string,
+  }
   label?: string,
   size?: 's' | 'm' | 'l' | 'xl',
   disabled?: true
@@ -18,8 +25,7 @@ interface Props {
 
 const Button = ({
   type = 'button',
-  wrapperClassName,
-  buttonClassName,
+  classNames = defaultClassNames,
   label,
   size = 'm',
   kind = 'primary',
@@ -28,13 +34,13 @@ const Button = ({
   <FinalField name="" type={type}>
     {({ input, meta }) => (
       <FormItem
-        className={wrapperClassName}
+        className={classNames.wrapperClassName}
         validateStatus={meta.submitError && 'error'}
         help={meta.submitError}
       >
         {label && <label>{label}</label>}
         <AntButton
-          className={cx(`ant-btn-${size} ant-btn-${kind}`, buttonClassName)}
+          className={cx(`ant-btn-${size} ant-btn-${kind}`, classNames.buttonClassName)}
           htmlType={type}
           {...input}
           {...rest}

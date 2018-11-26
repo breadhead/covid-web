@@ -4,21 +4,20 @@ import PrimaryFooter from './organisms/PrimaryFooter'
 import SecondaryFooter from './organisms/SecondaryFooter'
 
 interface Props {
-  type?: 'default' | 'medium'
+  type?: 'primary' | 'secondary'
+  theme?: 'default' | 'white'
 }
 
-const Footer = ({ type = 'default' }: Props) => {
+const Footer = ({ type = 'primary', theme = 'default' }: Props) => {
 
   const getFooter = (footerType: string) => {
     switch (footerType) {
-      case 'default':
-        return <PrimaryFooter />
-      case 'medium':
-        return <SecondaryFooter />
-      case 'medium-white':
-        return <SecondaryFooter type="white" />
-      default:
-        return null
+    case 'primary':
+      return <PrimaryFooter />
+    case 'secondary':
+      return <SecondaryFooter theme={theme} />
+    default:
+      return null
     }
   }
 

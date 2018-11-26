@@ -22,11 +22,6 @@ const partners = [
   },
 ]
 
-const Partners = () => {
-  return (
-    <React.Fragment>
-      {partners.map((partner) => <Partner key={partner.id} text={partner.text} logo={partner.logo} />)}
-    </React.Fragment>)
-}
+const Partners = () => partners.map((partner) => <Partner key={partner.id} text={partner.text} logo={partner.logo} />)
 
 export default Partners
