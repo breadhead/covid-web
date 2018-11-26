@@ -89,9 +89,11 @@ const LandingPage = () => (
           <Button kind="extra" size="s" type="button">Маленькая кнопка</Button>
           <Button kind="extra" disabled size="s" type="button">Маленькая кнопка</Button>
 
-          <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
-          <Checkbox name="checkbox1" disabled>Чекбокс с очень длинным лейблом</Checkbox>
-          <Checkbox name="checkbox2" checked disabled>Чекбокс с очень длинным лейблом</Checkbox>
+          <EmergingFormElement type="switch">
+            <Checkbox name="checkbox2">Чекбокс с лейблом</Checkbox>
+            <Checkbox name="checkbox20" defaultChecked >Чекбокс с очень длинным лейблом</Checkbox>
+            <Checkbox name="checkbox30" defaultChecked disabled >Чекбокс с очень длинным лейблом</Checkbox>
+          </EmergingFormElement>
         </AntForm>
       )}
 
