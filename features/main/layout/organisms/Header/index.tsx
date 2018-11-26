@@ -10,18 +10,12 @@ interface Props {
 
 const Header = ({ type = 'primary', theme = 'default' }: Props) => {
 
-  const getHeader = (headerType: string) => {
-    switch (headerType) {
-    case 'primary':
-      return <PrimaryHeader />
-    case 'secondary':
-      return <SecondaryHeader theme={theme} />
-    default:
-      return null
-    }
+  const componentsMap = {
+    primary: <PrimaryHeader />,
+    secondary: <SecondaryHeader theme={theme} />,
   }
 
-  return getHeader(type)
+  return componentsMap[type]
 }
 
 export default Header

@@ -10,18 +10,12 @@ interface Props {
 
 const Footer = ({ type = 'primary', theme = 'default' }: Props) => {
 
-  const getFooter = (footerType: string) => {
-    switch (footerType) {
-    case 'primary':
-      return <PrimaryFooter />
-    case 'secondary':
-      return <SecondaryFooter theme={theme} />
-    default:
-      return null
-    }
+  const componentsMap = {
+    primary: <PrimaryFooter />,
+    secondary: <SecondaryFooter theme={theme} />,
   }
 
-  return getFooter(type)
+  return componentsMap[type]
 }
 
 export default Footer
