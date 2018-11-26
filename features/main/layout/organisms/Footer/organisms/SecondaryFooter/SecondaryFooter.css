@@ -1,0 +1,17 @@
+.footer {
+  padding: 24px 48px 32px 48px;
+  background-color: #FAF9F7;
+
+  @media (max-width: 767px) {
+    padding: 16px 16px 20px 16px;
+  }
+}
+
+.white {
+  background-color: #fff;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
