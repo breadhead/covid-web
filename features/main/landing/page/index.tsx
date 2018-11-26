@@ -9,6 +9,7 @@ import Button from '@app/ui/molecules/Button'
 import Checkbox from '@app/ui/molecules/Checkbox'
 import Input from '@app/ui/molecules/Input'
 import RadioGroup from '@app/ui/molecules/RadioGroup'
+import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextАrea'
 
@@ -41,6 +42,21 @@ const testControlsRadioButtons = [
   },
 ]
 
+const testSelectOptions = [
+  {
+    name: '1',
+    value: 'first',
+  },
+  {
+    name: '2',
+    value: 'second',
+  },
+  {
+    name: '3',
+    value: 'third',
+  },
+]
+
 const LandingPage = () => (
   <main
     style={{ margin: '0 auto', maxWidth: '800px' }}
@@ -50,6 +66,7 @@ const LandingPage = () => (
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
+          <Select options={testSelectOptions} name="select" />
           <NavLink type="link" href="#">link</NavLink> <br />
           <NavLink type="nav" href="#">navlink</NavLink>
           <TimePicker />

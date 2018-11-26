@@ -31,7 +31,7 @@ const Form = ({ onFormSubmit, error, quotas }: Props) => (
           name="sourceId"
           label="Откуда"
           options={quotas
-            .map((quota) => ({ name: quota.name, value: quota.id }))
+            .map((quota) => ({ value: quota.id }))
           }
         >
 
@@ -40,7 +40,7 @@ const Form = ({ onFormSubmit, error, quotas }: Props) => (
           name="targetId"
           label="Куда"
           options={quotas
-            .map((quota) => ({ name: quota.name, value: quota.id }))
+            .map((quota) => ({ value: quota.id }))
           }
         >
 
