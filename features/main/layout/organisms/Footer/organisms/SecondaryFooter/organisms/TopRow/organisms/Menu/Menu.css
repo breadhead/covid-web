@@ -1,0 +1,25 @@
+.menu {
+   @media (max-width: 767px) {
+     display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.link {
+  margin-right: 32px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+   @media (max-width: 767px) {
+    padding: 8px 0;
+    margin: 0;
+    border-bottom: 1px solid #EDEDEF;
+
+    &:first-of-type {
+      box-shadow: 0px -1px 0px 0px #EDEDEF;
+    }
+  }
+}

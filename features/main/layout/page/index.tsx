@@ -5,9 +5,9 @@ interface Props {
 }
 const Layout = ({ children }: Props) => {
   return (
-    <div className="admin">
-      {children}
-    </div>
+      <div className="admin">
+        {children}
+      </div>
   )
 
 }
