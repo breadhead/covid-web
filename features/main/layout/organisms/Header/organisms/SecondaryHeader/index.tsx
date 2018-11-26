@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import * as React from 'react'
-import * as styles from './MediumHeader.css'
+import * as styles from './SecondaryHeader.css'
 
 import Logo from '@app/ui/atoms/Logo'
 import Menu from './organisms/Menu'
@@ -9,7 +9,7 @@ interface Props {
   type?: 'default' | 'white'
 }
 
-const MediumHeader = ({ type = 'default' }: Props) => {
+const SecondaryHeader = ({ type = 'default' }: Props) => {
 
   const content = (
     <React.Fragment>
@@ -20,22 +20,22 @@ const MediumHeader = ({ type = 'default' }: Props) => {
 
   const getHeader = (headerType: string) => {
     switch (headerType) {
-    case 'default':
-      return (
+      case 'default':
+        return (
           <header className={styles.header}>
             {content}
           </header>)
-    case 'white':
-      return (
+      case 'white':
+        return (
           <header className={cx(styles.header, styles.white)}>
             {content}
           </header>)
-    default:
-      return null
+      default:
+        return null
     }
   }
 
   return getHeader(type)
 }
 
-export default MediumHeader
+export default SecondaryHeader

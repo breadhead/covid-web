@@ -1,24 +1,24 @@
 import * as React from 'react'
 
-import DefaultFooter from './organisms/DefaultFooter'
-import MediumFooter from './organisms/MediumFooter'
+import PrimaryFooter from './organisms/PrimaryFooter'
+import SecondaryFooter from './organisms/SecondaryFooter'
 
 interface Props {
   type?: 'default' | 'medium'
 }
 
-const Footer = ({type = 'default'}: Props) => {
+const Footer = ({ type = 'default' }: Props) => {
 
   const getFooter = (footerType: string) => {
     switch (footerType) {
-    case 'default':
-      return <DefaultFooter />
-    case 'medium':
-      return <MediumFooter />
-    case 'medium-white':
-      return <MediumFooter type="white" />
-    default:
-      return null
+      case 'default':
+        return <PrimaryFooter />
+      case 'medium':
+        return <SecondaryFooter />
+      case 'medium-white':
+        return <SecondaryFooter type="white" />
+      default:
+        return null
     }
   }
 

@@ -1,22 +1,22 @@
 import * as React from 'react'
 
-import DefaultHeader from './organisms/DefaultHeader'
-import MediumHeader from './organisms/MediumHeader'
+import PrimaryHeader from './organisms/PrimaryHeader'
+import SecondaryHeader from './organisms/SecondaryHeader'
 
 interface Props {
-  type?: 'default' | 'medium' | 'medium-white'
+  type?: 'primary' | 'secondary' | 'secondary-white'
 }
 
-const Header = ({ type = 'default' }: Props) => {
+const Header = ({ type = 'primary' }: Props) => {
 
   const getHeader = (headerType: string) => {
     switch (headerType) {
     case 'default':
-      return <DefaultHeader />
-    case 'medium':
-      return <MediumHeader />
-    case 'medium-white':
-      return <MediumHeader type="white" />
+        return <PrimaryHeader />
+    case 'secondary':
+        return <SecondaryHeader />
+    case 'secondary-white':
+        return <SecondaryHeader type="white" />
     default:
       return null
     }

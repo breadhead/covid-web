@@ -11,7 +11,7 @@ import Header from '@app/features/main/layout/organisms/Header'
 const ClaimPage = () => {
   return (
     <React.Fragment>
-      <Header type="medium" />
+      <Header type="secondary" />
       <main className={styles.claimPage}>
         <h1 className={styles.title}>Заполните заявку</h1>
         <p className={styles.infoText}>
@@ -19,7 +19,7 @@ const ClaimPage = () => {
         </p>
         <ClaimForm />
       </main>
-      <Footer type="medium" />
+      <Footer type="secondary" />
     </React.Fragment>
   )
 }
