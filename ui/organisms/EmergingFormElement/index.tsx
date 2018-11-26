@@ -7,69 +7,66 @@ import Switch from '@app/ui/molecules/Switch'
 import * as styles from './EmergingFormElement.css'
 
 interface Props {
-  type: 'switch' | 'radiogroup',
+  controlType: 'switch' | 'radiogroup',
   className?: string,
   children?: React.ReactNode,
+  defaultVisible?: boolean,
+  radioGroupButtons?: Array< {
+    id: string,
+    value: string,
+    text ?: string,
+  } >
 }
 
 class EmergingFormElement extends React.Component {
 
-  constructor(props: Props) {
-    super(props)
-    this.state = {
-      isFormElementHidden: false,
-      boolRadioButtons: [
-        {
-          id: '1',
-          value: 'Да',
-        },
-        {
-          id: '2',
-          value: 'Нет',
-        },
-      ],
-    }
-    this.toggleTrigger = this.toggleTrigger.bind(this)
+  public state = {
+    isVisible: this.props.defaultVisible,
   }
 
-  public defineType(type) {
-    switch (type) {
+  public getControlType(controlType) {
+    switch (controlType) {
     case 'switch':
       return <Switch
-          name="controlForEmergingElement"
-          onChange={this.toggleTrigger}
-          defaultChecked
-        />
+            name="controlForEmergingElement"
+            onChange={this.toggleTrigger}
+            defaultChecked={this.state.isVisible}
+          />
       break
     case 'radiogroup':
       return <RadioGroup
-        name="controlForEmergingElement"
-        type="controls"
-        buttons={this.state.boolRadioButtons}
-        onClick={this.toggleTrigger}
-      />
+          name="controlForEmergingElement"
+          type="controls"
+          buttons={this.props.radioGroupButtons}
+          onClick={this.toggleTrigger}
+        />
+      break
+    default:
+      return null
       break
     }
   }
 
-  public toggleTrigger(event) {
-    this.setState({
-      isFormElementHidden: !this.state.isFormElementHidden,
-    })
-  }
+  public toggleTrigger = () =>
+    this.setState((state) => ({
+      isVisible: !state.isVisible,
+    }))
 
   public render() {
     return (
       <React.Fragment>
         <div className={styles.EmergingFormControl}>
-          {this.defineType(this.props.type)}
+          {this.getControlType(this.props.controlType)}
         </div>
-        <div
-          className={styles.EmergingFormElement}
-          hidden={this.state.isFormElementHidden}
-        >
-          {this.props.children}
-        </div>
+        {this.getControlType(this.props.controlType)
+          &&
+          <div
+            className={styles.EmergingFormElement}
+            hidden={!this.state.isVisible}
+          >
+            {this.props.children}
+          </div>
+        }
       </React.Fragment>
     )
   }
