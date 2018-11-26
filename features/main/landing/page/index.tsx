@@ -7,11 +7,11 @@ import NavLink from '@app/ui/atoms/NavLink'
 import RadioButton from '@app/ui/atoms/RadioButton'
 import Button from '@app/ui/molecules/Button'
 import Checkbox from '@app/ui/molecules/Checkbox'
-import EmergingFormElement from '@app/ui/molecules/EmergingFormElement'
 import Input from '@app/ui/molecules/Input'
 import RadioGroup from '@app/ui/molecules/RadioGroup'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextАrea'
+import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
 
 const testBoolRadioButtons = [
   {
@@ -89,7 +89,7 @@ const LandingPage = () => (
           <Button kind="extra" size="s" type="button">Маленькая кнопка</Button>
           <Button kind="extra" disabled size="s" type="button">Маленькая кнопка</Button>
 
-          <EmergingFormElement type="switch">
+          <EmergingFormElement type="radiogroup">
             <Checkbox name="checkbox2">Чекбокс с лейблом</Checkbox>
             <Checkbox name="checkbox20" defaultChecked >Чекбокс с очень длинным лейблом</Checkbox>
             <Checkbox name="checkbox30" defaultChecked disabled >Чекбокс с очень длинным лейблом</Checkbox>
