@@ -14,7 +14,6 @@ interface Props {
   label?: string
   placeholder?: string
   required?: true
-  onChange?: any
   defaultChecked?: boolean
 }
 
@@ -22,6 +21,7 @@ const Switch = ({
   name,
   label,
   defaultChecked,
+  ...rest
 }: Props) =>
   <FinalField name={name} type="checkbox">
     {(fieldProps) => (
@@ -33,8 +33,8 @@ const Switch = ({
         <AntSwitch
           checkedChildren="Да"
           unCheckedChildren="Нет"
-          onChange={fieldProps.input.onChange}
           defaultChecked={defaultChecked}
+          {...rest}
         />
       </FormItem>
     )}
