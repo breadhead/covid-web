@@ -45,13 +45,14 @@
   }
 }
 
-.ant-select-dropdown-menu-item-selected {
-  font-weight: 600;
-  background-color: #fff;
-}
 
 .ant-select-dropdown-menu-item-active {
   background-color: #F7F6F2;  
+}
+
+.ant-select-dropdown-menu-item-selected {
+  font-weight: 600;
+  background-color: #fff;
 }
 
 .ant-select-selection-selected-value {
@@ -81,3 +82,7 @@
     display: none;
   }
 }
+/* 
+.ant-select-dropdown-placement-bottomLeft {
+  display: none;
+} */
