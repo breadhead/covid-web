@@ -10,6 +10,7 @@ const Option = AntSelect.Option
 interface Props {
   name: string
   options: Array<{
+    id: string,
     value: string,
   }>
   defaultValue?: string
@@ -45,7 +46,7 @@ const Select = ({
             {...rest}
           >
             {options.map((option) => (
-              <Option key={option.value} value={option.value}>{option.value}</Option>
+              <Option key={option.id} value={option.value}>{option.value}</Option>
             ))}
           </AntSelect>
         </FormItem>

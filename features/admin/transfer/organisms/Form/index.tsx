@@ -1,6 +1,6 @@
 import Input from '@app/ui/molecules/Input'
 import Select from '@app/ui/molecules/Select'
-import { Button, Form as AntForm, Select as AntSelect } from 'antd'
+import { Button, Form as AntForm } from 'antd'
 import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
 import { StrippedQuota } from '../../container'
@@ -31,7 +31,7 @@ const Form = ({ onFormSubmit, error, quotas }: Props) => (
           name="sourceId"
           label="Откуда"
           options={quotas
-            .map((quota) => ({ value: quota.id }))
+            .map((quota) => ({ id: quota.id, value: quota.id }))
           }
         >
 
@@ -40,7 +40,7 @@ const Form = ({ onFormSubmit, error, quotas }: Props) => (
           name="targetId"
           label="Куда"
           options={quotas
-            .map((quota) => ({ value: quota.id }))
+            .map((quota) => ({ id: quota.id, value: quota.id }))
           }
         >
 
