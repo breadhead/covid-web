@@ -59,12 +59,12 @@ const Test = () => (
       render={() => (
         <AntForm>
           <Select
+            options={testSelectOptions}
+            name="select" /><br />
+          <Select
             disabled
             options={testSelectOptions}
             name="selectDis" /> <br />
-          <Select
-            options={testSelectOptions}
-            name="select" />
           <NavLink type="link" href="#">link</NavLink> <br />
           <NavLink type="nav" href="#">navlink</NavLink> <br />
           <TimePicker /><br /><br />
