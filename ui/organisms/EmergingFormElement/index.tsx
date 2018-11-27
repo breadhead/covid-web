@@ -43,11 +43,14 @@ class EmergingFormElement extends React.Component<Props> {
           name="controlForEmergingElement"
           type="controls"
           buttons={this.props.radioGroupButtons}
-          onClick={this.toggleRadioGroup}
+          onClick={(e) =>
+            e.target.parentElement.parentElement.classList[1] !== 'ant-radio-wrapper-checked'
+              && this.toggleVisibility()
+          }
           defaultValue={
             this.state.isVisible
-            ? this.props.radioGroupButtons[0].value
-            : this.props.radioGroupButtons[1].value
+              ? this.props.radioGroupButtons[0].value
+              : this.props.radioGroupButtons[1].value
           }
         />
       break
@@ -61,13 +64,6 @@ class EmergingFormElement extends React.Component<Props> {
     this.setState((state) => ({
       isVisible: !state.isVisible,
     }))
-  }
-
-  public toggleRadioGroup = (e) => {
-    const radioButton = e.target.parentElement.parentElement
-    radioButton.classList[1] !== 'ant-radio-wrapper-checked'
-      ? this.toggleVisibility()
-      : null
   }
 
   public render() {
