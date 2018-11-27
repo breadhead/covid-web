@@ -15,8 +15,8 @@ interface Props {
   }>
   defaultValue?: string
   className?: string
-  initialLabelValue?: string,
-  inputLabelValue?: string,
+  initialValue?: string,
+  currentValue?: string,
   disabled?: boolean
 }
 
@@ -25,27 +25,35 @@ const NOT_FOUND_TEXT = 'К сожалению, ничего не найдено'
 class Combobox extends React.Component<Props> {
 
   public static defaultProps: Partial<Props> = {
-    initialLabelValue: '',
-    inputLabelValue: '',
+    initialValue: '',
+    currentValue: '',
   }
 
   public state = {
-    label: this.props.initialLabelValue,
+    label: this.props.initialValue,
   }
 
   public onChange = (evt: any) => {
-    if (this.props.initialLabelValue && this.props.inputLabelValue) {
+    const { initialValue, currentValue } = this.props
 
-      const { initialLabelValue, inputLabelValue } = this.props
+    if (initialValue && currentValue) {
+      const label = evt.target.value.length > 0 ? currentValue : initialValue
 
-      evt.target.value.length > 0
-        ? this.setState({ label: inputLabelValue })
-        : this.setState({ label: initialLabelValue })
+      this.setState({ label })
     }
   }
 
   public render() {
-    const { name, className, initialLabelValue, inputLabelValue, options, defaultValue, disabled, ...rest } = this.props
+    const {
+      name,
+      className,
+      initialValue,
+      currentValue,
+      options,
+      defaultValue,
+      disabled,
+      ...rest
+    } = this.props
 
     return (
       <FinalField className={className} name={name}>

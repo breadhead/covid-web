@@ -122,9 +122,9 @@ const Test = () => (
           <Combobox
             defaultValue={'Выберите пункт'}
             options={testComboOptions}
-              initialLabelValue="Начните вводить название населенного пункта и
+              initialValue="Начните вводить название населенного пункта и
               выберите подходящее значение из списка:"
-              inputLabelValue="Продолжайте вводить название, если не видите свой город:"
+              currentValue="Продолжайте вводить название, если не видите свой город:"
             name="combo"
           /><br />
           <Select
