@@ -11,6 +11,7 @@ import Input from '@app/ui/molecules/Input'
 import RadioGroup from '@app/ui/molecules/RadioGroup'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextАrea'
+import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
 
 const testBoolRadioButtons = [
   {
@@ -88,9 +89,11 @@ const Test = () => (
           <Button kind="extra" size="s" type="button">Маленькая кнопка</Button><br />
           <Button kind="extra" disabled size="s" type="button">Маленькая кнопка</Button><br />
 
-          <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox><br />
-          <Checkbox name="checkbox1" disabled>Чекбокс с очень длинным лейблом</Checkbox><br />
-          <Checkbox name="checkbox2" checked disabled>Чекбокс с очень длинным лейблом</Checkbox>
+          <EmergingFormElement controlType="radiogroup" radioGroupButtons={testBoolRadioButtons}>
+            <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox><br />
+            <Checkbox name="checkbox1" disabled>Чекбокс с очень длинным лейблом</Checkbox><br />
+            <Checkbox name="checkbox2" checked disabled>Чекбокс с очень длинным лейблом</Checkbox>
+          </EmergingFormElement>
         </AntForm>
       )}
 
