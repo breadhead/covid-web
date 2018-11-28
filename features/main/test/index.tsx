@@ -114,21 +114,24 @@ const Test = () => (
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
+          <p>Комбобокс</p>
           <Combobox
-            defaultValue={'Выберите пункт'}
+            defaultValue="Выберите пункт"
             options={testComboOptions}
             name="combo2"
           /><br />
           <Combobox
-            defaultValue={'Выберите пункт'}
+            defaultValue="Выберите пункт"
             options={testComboOptions}
               initialValue="Начните вводить название населенного пункта и
               выберите подходящее значение из списка:"
               currentValue="Продолжайте вводить название, если не видите свой город:"
             name="combo"
           /><br />
+          <p>Селект</p>
           <Select
             options={testSelectOptions}
+            defaultValue="Выберите опцию"
             name="select" /><br />
           <Select
             disabled
@@ -140,7 +143,8 @@ const Test = () => (
           <TextArea name="testTextArea" placeholder="текстарея" /><br />
           <Input name="input" type="text" placeholder="инпут" /><br />
           <Switch name="testSwitch" /><br />
-          <RadioGroup name="bool" type="bool" buttons={testBoolRadioButtons} /><br />
+          <RadioGroup name="bool"
+          type="bool" buttons={testBoolRadioButtons} /><br />
           <RadioGroup
             name="controls"
             type="controls"
