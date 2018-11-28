@@ -144,12 +144,10 @@ const Test = () => (
           <Input name="input" type="text" placeholder="инпут" /><br />
           <Switch name="testSwitch" /><br />
           <RadioGroup name="bool"
-          onChange={() => console.log('mememem')}
           type="bool" buttons={testBoolRadioButtons} /><br />
           <RadioGroup
             name="controls"
             type="controls"
-            onChange={() => console.log('mememem')}
             buttons={testControlsRadioButtons}
             defaultValue={testControlsRadioButtons[1].value}
           /><br />
