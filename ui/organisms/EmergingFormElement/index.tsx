@@ -1,4 +1,4 @@
-import { Form as AntForm, Switch as AntSwitch } from 'antd'
+import { Form as AntForm, Radio, Switch as AntSwitch } from 'antd'
 import * as React from 'react'
 import { Field as FinalField } from 'react-final-form'
 
@@ -41,16 +41,13 @@ class EmergingFormElement extends React.Component<Props> {
     case controlTypes.radiogroup:
       return <RadioGroup
           name="controlForEmergingElement"
-          type="controls"
+          type="bool"
           buttons={this.props.radioGroupButtons}
-          onClick={(e) =>
-            e.target.parentElement.parentElement.classList[1] !== 'ant-radio-wrapper-checked'
-              && this.toggleVisibility()
-          }
+          onChange={this.toggleVisibility}
           defaultValue={
             this.state.isVisible
-              ? this.props.radioGroupButtons[0].value
-              : this.props.radioGroupButtons[1].value
+            ? this.props.radioGroupButtons[0].value
+            : this.props.radioGroupButtons[1].value
           }
         />
       break
@@ -60,7 +57,7 @@ class EmergingFormElement extends React.Component<Props> {
     }
   }
 
-  public toggleVisibility = () => {
+  public toggleVisibility = (e) => {
     this.setState((state) => ({
       isVisible: !state.isVisible,
     }))
