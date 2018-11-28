@@ -9,6 +9,7 @@ import NavLink from '@app/ui/atoms/NavLink'
 import Button from '@app/ui/molecules/Button'
 import Input from '@app/ui/molecules/Input'
 import RadioGroup from '@app/ui/molecules/RadioGroup'
+import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
 
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
@@ -23,6 +24,17 @@ const genderRadioGroup = [
   { id: '2', value: 'Женский' },
 ]
 
+const mockSelectOptions = [
+  {
+    id: '1',
+    value: 'first',
+  },
+  {
+    id: '2',
+    value: 'second',
+  },
+]
+
 const ClaimForm = () => {
   return (
     <section className={styles.ClaimForm}>
@@ -33,9 +45,9 @@ const ClaimForm = () => {
             <article className={styles.article}>
               <h2 className={styles.title}>Кратко о теме консультации</h2>
               <p className={styles.label}>Для кого эта консультация</p>
-              <select name="1" id="1">Выберите консультируемого</select>
+              <Select options={mockSelectOptions} name="choose_user" defaultValue="Выберите консультируемого" />
               <p className={styles.label}>Тема вашего вопроса</p>
-              <select name="2" id="2">Выберите тему</select>
+              <Select options={mockSelectOptions} name="choose_theme" defaultValue="Выберите тему" />
               <p className={styles.label}>У вас есть установленный врачом онкологический диагноз?</p>
               <RadioGroup name="bool" type="bool" buttons={statementRadioGroup} />
               <p className={styles.label}>
@@ -54,7 +66,7 @@ const ClaimForm = () => {
               </p>
               <Input name="name" type="text" />
               <p className={styles.label}>Регион вашего проживания</p>
-              <select name="3" id="3">Выберите регион</select>
+              <Select options={mockSelectOptions} name="choose_region" defaultValue="Выберите регион" />
               <p className={styles.label}>Возраст (полных лет)</p>
               <Input name="age" type="number" />
               <p className={styles.label}>Пол</p>
