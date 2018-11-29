@@ -1,7 +1,15 @@
 /* Checked */
 .ant-checkbox-checked.ant-checkbox-checked .ant-checkbox-inner {
   background-color: var(--color-primary) !important;
-  border-width: 2px;
+  border-width: 1px;
+}
+
+.ant-checkbox-wrapper:hover .ant-checkbox-inner {
+  box-shadow: inner 0px 0px 0px 2px var(--color-primary);
+}
+
+.ant-checkbox-checked:after {
+  display: none;
 }
 
 /* Disabled */
@@ -29,7 +37,11 @@
 .ant-checkbox-wrapper.ant-checkbox-wrapper:hover .ant-checkbox-inner,
 .ant-checkbox.ant-checkbox:hover .ant-checkbox-inner,
 .ant-checkbox-input.ant-checkbox-input:focus + .ant-checkbox-inner {
-  border-width: 2px;
+  border-width: 1px;
+  box-shadow: 0px 0px 0px 1px var(--color-primary);
 }
 
 
+.ant-checkbox-wrapper.ant-checkbox-wrapper.ant-checkbox-wrapper:hover .ant-checkbox-disabled span.ant-checkbox-inner {
+  box-shadow: none;
+}
