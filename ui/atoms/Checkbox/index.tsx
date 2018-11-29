@@ -9,18 +9,16 @@ const FormItem = AntForm.Item
 interface Props {
   name: string
   className?: string
-  label?: string
   children?: React.ReactNode
-  checked?: boolean
+  defaultChecked?: boolean
   disabled?: boolean
 }
 
 const Checkbox = ({
   name,
   className,
-  label,
   children,
-  checked,
+  defaultChecked,
   disabled,
   ...rest
 }: Props) =>
@@ -31,8 +29,8 @@ const Checkbox = ({
         help={meta.submitError}
       >
         <AntCheckbox
-          checked
-          disabled
+          defaultChecked={defaultChecked}
+          disabled={disabled}
           {...rest}
         >
           {children}
