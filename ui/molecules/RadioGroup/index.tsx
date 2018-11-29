@@ -19,7 +19,7 @@ interface Props {
   defaultValue?: string
   className?: string
   label?: string
-  onChange?: () => void
+  onChange?: (evt: any) => void
 }
 
 const RadioGroup = ({

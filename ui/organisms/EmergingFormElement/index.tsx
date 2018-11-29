@@ -9,13 +9,19 @@ enum controlTypes {
   radiogroup = 'radiogroup',
 }
 
+const radioButtons = [
+  {
+    id: '1',
+    value: 'Да',
+  },
+  {
+    id: '2',
+    value: 'Нет',
+  },
+]
+
 interface Props {
   controlType: string
-  radioGroupButtons: Array<{
-    id: string,
-    value: string,
-    text?: string,
-  }>
   defaultVisible?: boolean
   className?: string
   children?: React.ReactNode
@@ -36,25 +42,30 @@ class EmergingFormElement extends React.Component<Props> {
     case controlTypes.switch:
       return <Switch
           name="controlForEmergingElement"
-          onChange={this.toggleVisibility}
+          onChange={this.switchChangeHandler}
           defaultChecked={this.state.isVisible}
         />
     case controlTypes.radiogroup:
       return <RadioGroup
           name="controlForEmergingElement"
           type="bool"
-          buttons={this.props.radioGroupButtons}
-          onChange={this.toggleVisibility}
+          buttons={radioButtons}
+          onChange={this.radioGroupChangeHandler}
         />
     default:
       return null
     }
   }
 
-  public toggleVisibility = () => {
+  public switchChangeHandler = () => {
     this.setState((state: { isVisible: boolean }) => ({
       isVisible: !state.isVisible,
     }))
+  }
+
+  public radioGroupChangeHandler = (evt: any) => {
+    const isVisible = evt.target.value === radioButtons[0].value ? true : false
+    this.setState({ isVisible })
   }
 
   public render() {
