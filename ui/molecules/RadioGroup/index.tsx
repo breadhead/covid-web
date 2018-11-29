@@ -39,23 +39,25 @@ const RadioGroup = ({
     switch (groupType) {
     case 'controls':
       return <AntRadioGroup
-              className="controls"
-              onChange={onChange}
-              name={name}
-              defaultValue={defaultValueForControlsRadioGroup}
+          className="controls"
+          name={name}
+          onChange={onChange}
+          defaultValue={defaultValueForControlsRadioGroup}
+        >
+          {buttons.map((button) =>
+            <Radio
+              key={button.id}
+              value={button.value}
+              {...rest}
             >
-              {buttons.map((button) =>
-                <Radio
-                  key={button.id}
-                  value={button.value}
-                  {...rest}
-                >
-                  {button.text}<div className="semibold">{button.value}</div>
-                </Radio>)}
+              {button.text}<div className="semibold">{button.value}</div>
+            </Radio>)}
         </AntRadioGroup>
-      break
     case 'bool':
-      return <AntRadioGroup name={name} onChange={onChange} defaultValue={defaultValue}>
+      return <AntRadioGroup
+          name={name}
+          onChange={onChange}
+          defaultValue={defaultValue}>
           {buttons.map((button) =>
             <Radio
               key={button.id}
@@ -65,10 +67,8 @@ const RadioGroup = ({
               {button.value}
             </Radio>)}
         </AntRadioGroup>
-      break
     default:
       return null
-      break
     }
   }
 

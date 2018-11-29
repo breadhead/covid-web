@@ -115,6 +115,14 @@ const Test = () => (
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
+          <EmergingFormElement controlType="switch">
+            <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox><br />
+            <Checkbox name="checkbox1" disabled>Чекбокс с очень длинным лейблом</Checkbox><br />
+          </EmergingFormElement>
+          <EmergingFormElement controlType="radiogroup" radioGroupButtons={testBoolRadioButtons}>
+            <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox><br />
+            <Checkbox name="checkbox1" disabled>Чекбокс с очень длинным лейблом</Checkbox><br />
+          </EmergingFormElement>
           <p>Комбобокс</p>
           <Combobox
             defaultValue="Выберите пункт"
@@ -176,12 +184,6 @@ const Test = () => (
           <Button kind="extra" type="button">Средняя кнопка</Button><br />
           <Button kind="extra" size="s" type="button">Маленькая кнопка</Button><br />
           <Button kind="extra" disabled size="s" type="button">Маленькая кнопка</Button><br />
-
-          <EmergingFormElement controlType="radiogroup" radioGroupButtons={testBoolRadioButtons}>
-            <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox><br />
-            <Checkbox name="checkbox1" disabled>Чекбокс с очень длинным лейблом</Checkbox><br />
-            <Checkbox name="checkbox2" checked disabled>Чекбокс с очень длинным лейблом</Checkbox>
-          </EmergingFormElement>
         </AntForm>
       )}
 
