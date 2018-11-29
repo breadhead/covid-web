@@ -14,6 +14,7 @@ import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextАrea'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
+import ModalSmsConfirm from '@app/ui/organisms/ModalSmsConfirm'
 
 const testBoolRadioButtons = [
   {
@@ -115,6 +116,8 @@ const Test = () => (
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
+          <p>Модалка с подтверждением смс</p>
+          <ModalSmsConfirm />
           <p>Комбобокс</p>
           <Combobox
             defaultValue="Выберите пункт"
