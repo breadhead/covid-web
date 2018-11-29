@@ -3,10 +3,11 @@ import * as React from 'react'
 import { Form as AntForm, TimePicker } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
+import Checkbox from '@app/ui/atoms/Checkbox'
 import NavLink from '@app/ui/atoms/NavLink'
 import RadioButton from '@app/ui/atoms/RadioButton'
 import Button from '@app/ui/molecules/Button'
-import Checkbox from '@app/ui/molecules/Checkbox'
+import Combobox from '@app/ui/molecules/Combobox'
 import Input from '@app/ui/molecules/Input'
 import RadioGroup from '@app/ui/molecules/RadioGroup'
 import Select from '@app/ui/molecules/Select'
@@ -49,16 +50,59 @@ const testSelectOptions = [
     value: 'Первый пункт',
   },
   {
-    id: '1',
+    id: '2',
     value: 'Второй пункт',
   },
   {
-    id: '1',
+    id: '3',
     value: 'Третий пункт такой длинный по ширине и количеству символов, что не помещается в одну строку',
   },
   {
-    id: '1',
+    id: '4',
     value: 'Четверый пункт',
+  },
+]
+
+const testComboOptions = [
+  {
+    id: '1',
+    value: 'Первый пункт',
+  },
+  {
+    id: '2',
+    value: 'Второй пункт',
+  },
+  {
+    id: '3',
+    value: 'Третий пункт такой длинный по ширине и количеству символов, что не помещается в одну строку',
+  },
+  {
+    id: '4',
+    value: 'Четверый пункт',
+  },
+  {
+    id: '5',
+    value: 'Пепятый пункт',
+  },
+  {
+    id: '6',
+    value: 'Шестой пункт',
+  },
+  {
+    id: '7',
+    value: 'Седьмо пункт',
+  },
+  {
+    id: '8',
+    value: 'Воседьмой',
+  },
+  {
+    id: '9',
+    value: 'Девятый',
+  },
+  {
+    id: '10',
+    value: 'Десятый',
   },
 ]
 
@@ -71,8 +115,24 @@ const Test = () => (
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
+          <p>Комбобокс</p>
+          <Combobox
+            defaultValue="Выберите пункт"
+            options={testComboOptions}
+            name="combo2"
+          /><br />
+          <Combobox
+            defaultValue="Выберите пункт"
+            options={testComboOptions}
+              initialValue="Начните вводить название населенного пункта и
+              выберите подходящее значение из списка:"
+              currentValue="Продолжайте вводить название, если не видите свой город:"
+            name="combo"
+          /><br />
+          <p>Селект</p>
           <Select
             options={testSelectOptions}
+            defaultValue="Выберите опцию"
             name="select" /><br />
           <Select
             disabled
@@ -84,7 +144,8 @@ const Test = () => (
           <TextArea name="testTextArea" placeholder="текстарея" /><br />
           <Input name="input" type="text" placeholder="инпут" /><br />
           <Switch name="testSwitch" /><br />
-          <RadioGroup name="bool" type="bool" buttons={testBoolRadioButtons} /><br />
+          <RadioGroup name="bool"
+          type="bool" buttons={testBoolRadioButtons} /><br />
           <RadioGroup
             name="controls"
             type="controls"
