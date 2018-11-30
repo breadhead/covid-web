@@ -895,6 +895,11 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@breadhead/thunk-error@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@breadhead/thunk-error/-/thunk-error-1.0.2.tgz#a736dc509faafb12bafb4e1897afb98309edb499"
+  integrity sha512-/7KgDWV61hV2j7Yfl6Ad0mPwb/vXK8JC0/zrfs7Ml8E+1chxTQZKBq+j5udwNS3ihe7+iNXc59PvKmZ7y9VxAg==
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
