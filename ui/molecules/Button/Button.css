@@ -1,0 +1,129 @@
+.ant-btn.ant-btn {
+  display: block;
+
+  max-width: 200px;
+  height: auto;
+  
+  text-align: center;
+  white-space: normal;
+
+  &::after {
+    display: none !important; 
+  }
+
+  & > span {
+    display: block;
+
+  }
+
+  &[disabled] {
+    opacity: 0.4;
+  }
+}
+
+.ant-btn-primary.ant-btn-primary {
+  color: #ffffff;
+  background-color: var(--color-primary);
+  box-shadow: inset 0 1px 1px 0.5px rgba(255, 255, 255, 0.1), 0 3px 8px rgba(60, 84, 238, 0.2);
+
+
+  &:hover, &:focus {
+    color: #ffffff;
+    background-color: #354AD4;
+  }
+
+  &:active {
+    color: #ffffff;
+    background-color: #2F41BA;
+  }
+
+
+  &[disabled] {
+    color: #ffffff !important;
+    background-color: var(--color-primary) !important;
+  }
+}
+
+.ant-btn-secondary.ant-btn-secondary {
+  color: var(--color-link);
+  background-color: #ffffff;
+  border: 1px solid rgba(60,84,238, 0.65);
+  
+
+  &:hover, &:focus {
+    color: var(--color-link);
+    border-color: #3C54EE;
+  }
+
+  &:active {
+    background-color: rgba(60,84,238,0.08);
+  }
+
+
+  &[disabled] {
+    color: var(--color-link) !important;
+    background-color: #ffffff !important;
+  }
+
+  &.ant-btn-s.ant-btn-s {
+    border-color: rgba(60,84,238, 0.6);
+  }
+}
+
+.ant-btn-extra.ant-btn-extra {
+  color: var(--text-color-primary);
+  background-color: #E8E9F2;
+  border: 1px solid #DCDCE7;
+
+  &:hover, &:focus {
+    color: var(--text-color-primary);
+    background-color: #DCDCE7;
+    border: 1px solid #DCDCE7;
+  }
+
+  &:active {
+    color: var(--text-color-primary);
+    background-color: #D0D0DB;
+    border: 1px solid #DCDCE7;
+  }
+
+
+  &[disabled] {
+    color: var(--text-color-primary) !important;
+    background-color: #E8E9F2;
+    border: 1px solid #DCDCE7;
+
+    &:hover, &:focus {
+      background-color: #E8E9F2;
+    }
+  }
+}
+
+
+.ant-btn-xl.ant-btn-xl {
+  max-width: 300px;
+  padding: 17px 36px 19px 36px;
+  font: var(--text18-28);
+  border-radius: 8px;
+}
+
+.ant-btn-l.ant-btn-l {
+  max-width: 300px;
+  padding: 11px 28px 13px 28px;
+  font: var(--text16-24);
+  border-radius: 6px;
+}
+
+.ant-btn-m.ant-btn-m {
+  padding: 7px 20px 9px 20px;
+  font: var(--text16-24);
+  border-radius: 6px;
+}
+
+.ant-btn-s.ant-btn-s {
+  padding: 5px 16px 7px 16px;
+  font: var(--text14-20);
+  border-radius: 4px;
+}
+
+

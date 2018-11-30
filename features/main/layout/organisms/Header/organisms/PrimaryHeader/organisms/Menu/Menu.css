@@ -1,0 +1,12 @@
+.menu {
+  display: flex; 
+  align-items: center; 
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.link {
+  margin-right: 32px;
+}

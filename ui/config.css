@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600,700&subset=cyrillic');
+
+*, *::before , *::after {
+  box-sizing: border-box;
+}
+
+body {
+  /* fonts */
+  --fontFamily: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --fontFamily-title: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+  --title-extra: 48px/56px var(--fontFamily-title);
+  --title-regular: 40px/48px var(--fontFamily-title);
+  --title-medium: 32px/40px var(--fontFamily-title);
+  --title-small: 24px/32px var(--fontFamily-title);
+  --title-bold: bold 16px/24px var(--fontFamily-bold);
+
+  --text18-28: 18px/28px var(--fontFamily);
+  --text16-24: 16px/24px var(--fontFamily);
+  --text14-20: 14px/20px var(--fontFamily);
+  --text12-16: 12px/16px var(--fontFamily);
+
+  @media (max-width: 767px) {
+    --title-extra: 28px/32px var(--fontFamily-title);
+    --title-regular: 28px/32px var(--fontFamily-title);
+    --title-medium: 24px/32px var(--fontFamily-title);
+    --title-small: 20px/28px var(--fontFamily-title);
+    --title-bold: bold 16px/24px var(--fontFamily);
+  }
+
+  /* colors */
+  --color-primary: #3C54EE;
+  --color-hover:  #354AD4;
+  --color-success: #19CD92;
+  --color-danger: #F11635;
+  --color-highlight: #FFD46D;
+  --color-default: #B3B4C8;
+
+  --text-color-primary: #151833;
+  --text-color-secondary: #616681;
+  
+  --color-link: #2D47EA;
+  --color-link-underline: rgba(45, 71, 234, 0.5);
+
+  /* styles */
+  font-family: var(--fontFamily);
+  color: var(--text-color-primary);
+}
+
+/* custom media queries */
+@custom-media --smallDown (max-width: 767px)
+

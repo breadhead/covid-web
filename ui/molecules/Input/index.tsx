@@ -1,6 +1,7 @@
 import { Form as AntForm, Input as AntInput } from 'antd'
 import * as React from 'react'
 import { Field as FinalField } from 'react-final-form'
+import './Input.css?CSSModulesDisable'
 
 const FormItem = AntForm.Item
 
@@ -21,7 +22,7 @@ const Input = ({
   placeholder,
   ...rest
 }: Props) =>
-  <FinalField className={className} name={name}>
+  <FinalField className={className} name={name} type={type}>
     {({ input, meta }) => (
       <FormItem
         validateStatus={meta.submitError && 'error'}

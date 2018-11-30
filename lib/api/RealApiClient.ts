@@ -1,7 +1,6 @@
-import axios, { AxiosInstance } from 'axios'
-
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
+import axios, { AxiosInstance } from 'axios'
 import ApiClient, { User } from './ApiClient'
 import FileUploader from './FileUploader/FileUploader'
 import RealFileUploader from './FileUploader/RealFileUploader'
@@ -11,14 +10,6 @@ import { QuotaTransferResponse } from './response/QuotaTransfer'
 
 export default class RealApiClient implements ApiClient {
 
-  public get token() {
-    return this._token
-  }
-
-  public set token(newToken: string) {
-    axios.defaults.headers.common.Authorization = `Bearer ${newToken}`
-    this._token = newToken
-  }
   public readonly fileUploader: FileUploader
 
   private readonly axiosInstance: AxiosInstance
@@ -28,7 +19,6 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance = axios.create({
       baseURL: baseUrl,
     })
-
     this.fileUploader = new RealFileUploader(baseUrl)
   }
 
@@ -55,4 +45,17 @@ export default class RealApiClient implements ApiClient {
   public login = (login: string, password: string) => this.axiosInstance
     .post('/auth/login', { login, password })
     .then((response) => response.data as User)
+
+  public createQuota = (credentials: any) => this.axiosInstance
+    .post('/quotas/create', credentials)
+    .then((response) => response.data as Quota)
+
+  public get token() {
+    return this._token
+  }
+
+  public set token(newToken: string) {
+    axios.defaults.headers.common.Authorization = `Bearer ${newToken}`
+    this._token = newToken
+  }
 }

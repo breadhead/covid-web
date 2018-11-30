@@ -1,0 +1,17 @@
+.textarea.textarea {
+  box-sizing: border-box;
+  max-width: 480px;
+  min-height: 60px;
+  font: var(--text16-24);
+  color: #151833;
+  border: none;
+  box-shadow: 0 0 0 1px #d9d9d9;
+
+  &:hover {
+    box-shadow: 0 0 0 1px var(--color-primary);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px var(--color-primary);
+  }
+}

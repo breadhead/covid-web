@@ -1,0 +1,12 @@
+.Form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-height: 110px;
+  margin-left: auto;
+}
+
+div.Button {
+  margin-top: 36px;
+  margin-bottom: auto;
+}

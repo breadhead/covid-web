@@ -1,0 +1,8 @@
+.QuotaWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding-top: 16px;
+  margin: auto;
+}

@@ -1,0 +1,15 @@
+.top {
+  margin-bottom: 40px;
+}
+
+.buttons {
+  display: flex;
+
+  & .button {
+    margin-right: 12px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}

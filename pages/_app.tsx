@@ -1,15 +1,18 @@
-import RegularLayout from '@app/features/layout'
-import { authViolateStatus } from '@app/features/login'
-import { getViolateState } from '@app/features/login'
+// import 'antd/dist/antd.css?CSSModulesDisable'
+import AdminLayout from '@app/features/admin/layout'
+import { authViolateStatus } from '@app/features/admin/login'
+import { getViolateState } from '@app/features/admin/login'
+import MainLayout from '@app/features/main/layout'
 import ApiClientFactory from '@app/lib/api/ApiClientFactory'
 import withReduxStore, { Store } from '@app/lib/with-redux-store'
-import 'antd/dist/antd.css?CSSModulesDisbale'
+import '@app/ui/antd-styles.less'
 import Cookie from 'js-cookie'
 import App, { Container, NextAppContext } from 'next/app'
 import Router from 'next/router'
 import React, { Component as ReactComponent } from 'react'
 import { Provider } from 'react-redux'
-import './index.css?CSSModulesDisbale'
+
+import '@app/ui/config.css?CSSModulesDisable'
 
 interface Props {
   reduxStore: Store
@@ -42,12 +45,12 @@ class OncohelpWeb extends App<Props> {
 
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
-      Router.push('/login')
+      Router.push('/admin/login')
     }
   }
 
   public render() {
-    const { Component, pageProps, reduxStore } = this.props
+    const { Component, pageProps, reduxStore, router: { route } } = this.props
 
     const authViolate = getViolateState(
       reduxStore.getState(),
@@ -56,9 +59,14 @@ class OncohelpWeb extends App<Props> {
     return !authViolate && (
       <Container>
         <Provider store={reduxStore}>
-          <RegularLayout {...pageProps}>
-            <Component {...pageProps} />
-          </RegularLayout>
+          {route.startsWith('/admin') ?
+            <AdminLayout {...pageProps}>
+              <Component {...pageProps} />
+            </AdminLayout> :
+            <MainLayout {...pageProps}>
+              <Component {...pageProps} />
+            </MainLayout>
+          }
         </Provider>
       </Container>
     )
