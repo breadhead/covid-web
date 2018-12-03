@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import Input from '@app/ui/molecules/Input'
-import TextArea from '@app/ui/molecules/TextАrea'
+import TextArea from '@app/ui/molecules/TextArea'
 import Select from '../../atoms/Select'
 
 const MainField = () => (
