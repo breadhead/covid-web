@@ -58,4 +58,10 @@ export default class RealApiClient implements ApiClient {
     axios.defaults.headers.common.Authorization = `Bearer ${newToken}`
     this._token = newToken
   }
+
+  public sendSms = (telNumber: string) => this.axiosInstance
+    .post('/verification/send', number)
+
+  public verificateSms = (code: string) => this.axiosInstance
+    .post('/verification/verificate', code)
 }
