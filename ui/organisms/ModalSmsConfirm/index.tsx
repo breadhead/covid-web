@@ -24,9 +24,13 @@ export class PopupSmsConfirm extends Component {
     })
   }
 
-  public sendSms = () => null
+  public sendSms = () => {
+    {/* TODO: add sms sending funcional*/ }
+  }
 
-  public validateSmsCode = () => null
+  public validateSmsCode = () => {
+    {/* TODO: add sms validation functional*/ }
+  }
 
   public handleOk = (e) => {
     console.log(e)
@@ -50,7 +54,7 @@ export class PopupSmsConfirm extends Component {
         </Button>
         <Modal
           visible={this.state.visible}
-          // onOk={this.handleOk}
+          onOk={this.handleOk}
           onCancel={this.handleCancel}
           bodyStyle={{padding: '40px'}}
           footer={null}
@@ -70,6 +74,7 @@ export class PopupSmsConfirm extends Component {
             name="telephone"
             type="tel"
             label="Номер вашего телефона"
+            // TODO: fix default value attribute
             defaultValue="+7"
             required
           />
