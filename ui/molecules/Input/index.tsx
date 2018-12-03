@@ -12,6 +12,8 @@ interface Props {
   label?: string,
   placeholder?: string
   required?: true,
+  defaultValue?: string,
+  onChange?: () => any,
 }
 
 const Input = ({
@@ -20,6 +22,8 @@ const Input = ({
   className,
   label,
   placeholder,
+  defaultValue,
+  onChange,
   ...rest
 }: Props) =>
   <FinalField className={className} name={name} type={type}>
@@ -33,6 +37,7 @@ const Input = ({
           id={name}
           type={type}
           placeholder={placeholder}
+          defaultValue={defaultValue}
           {...input}
           {...rest}
         />
