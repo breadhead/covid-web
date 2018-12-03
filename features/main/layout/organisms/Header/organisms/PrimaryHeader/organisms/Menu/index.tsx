@@ -6,10 +6,10 @@ import Button from '@app/ui/molecules/Button'
 
 const Menu = () =>
   <nav className={styles.menu}>
-    <NavLink type="nav" className={styles.link}>Партнёры</NavLink>
-    <NavLink type="nav" className={styles.link}>Эксперты</NavLink>
-    <NavLink type="nav" className={styles.link}>Контакты</NavLink>
-    <NavLink type="nav" className={styles.link}>Помочь проекту</NavLink>
+    <NavLink type="nav" href="#" className={styles.link}>Партнёры</NavLink>
+    <NavLink type="nav" href="#" className={styles.link}>Эксперты</NavLink>
+    <NavLink type="nav" href="#" className={styles.link}>Контакты</NavLink>
+    <NavLink type="nav" href="#" className={styles.link}>Помочь проекту</NavLink>
     <Button kind="secondary">Войти</Button>
   </nav>
 

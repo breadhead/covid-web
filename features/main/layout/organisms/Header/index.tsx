@@ -3,7 +3,7 @@ import * as React from 'react'
 import PrimaryHeader from './organisms/PrimaryHeader'
 import SecondaryHeader from './organisms/SecondaryHeader'
 
-interface Props {
+export interface Props {
   type?: 'primary' | 'secondary'
   theme?: 'default' | 'white'
 }
