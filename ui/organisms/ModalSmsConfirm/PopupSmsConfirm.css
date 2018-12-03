@@ -11,6 +11,10 @@
   display: flex;
   align-items: center;
 
+  & > * {
+    margin-bottom: 24px;
+  }
+
   & > *:first-child {
     margin-right: 16px;
   }
