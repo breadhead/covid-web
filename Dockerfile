@@ -7,7 +7,7 @@ RUN yarn install
 COPY . .
 RUN yarn build && yarn --production
 
-FROM mhart/alpine-node:base-10
+FROM keymetrics/pm2:10-alpine
 
 WORKDIR /usr/src
 ENV NODE_ENV="production"
@@ -15,4 +15,4 @@ ENV PATH="./node_modules/.bin:$PATH"
 
 COPY --from=build /usr/src .
 
-CMD ["next", "start"]
+CMD [ "pm2-docker", "start", "pm2.json" ]
