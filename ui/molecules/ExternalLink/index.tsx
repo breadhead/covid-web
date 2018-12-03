@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface Props {
-  children: ReactNode,
+  children: React.ReactNode,
   href: string,
   className: string
 }
