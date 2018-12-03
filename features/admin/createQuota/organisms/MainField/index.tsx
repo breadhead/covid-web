@@ -1,17 +1,25 @@
 import * as React from 'react'
 
+import { QuotaType } from '@app/models/Quota/Quota'
+
 import Input from '@app/ui/molecules/Input'
-import TextArea from '@app/ui/molecules/TextАrea'
-import Select from '../../atoms/Select'
+import Select from '@app/ui/molecules/Select'
+import TextArea from '@app/ui/molecules/TextArea'
+
+const selectOptions = Object
+  .values(QuotaType)
+  .map((value) => ({ id: value, value }))
 
 const MainField = () => (
   <React.Fragment>
     <Input
-      name="name"
+      name="input"
       type="text"
       label="Название типа квот"
     />
-    <Select />
+    <Select
+      name="category"
+      options={selectOptions} />
     <Input
       name="companyName"
       type="text"

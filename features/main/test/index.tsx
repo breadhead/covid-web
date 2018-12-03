@@ -12,8 +12,8 @@ import Input from '@app/ui/molecules/Input'
 import RadioGroup from '@app/ui/molecules/RadioGroup'
 import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
-import TextArea from '@app/ui/molecules/TextАrea'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
+import TextArea from '@app/ui/molecules/TextArea'
 
 const testBoolRadioButtons = [
   {

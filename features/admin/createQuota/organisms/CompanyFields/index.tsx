@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import Input from '@app/ui/molecules/Input'
 import Switch from '@app/ui/molecules/Switch'
-import TextArea from '@app/ui/molecules/TextАrea'
+import TextArea from '@app/ui/molecules/TextArea'
 
 import * as styles from './CompanyFields.css'
 
