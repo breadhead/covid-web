@@ -14,8 +14,8 @@ interface Props {
   label?: string
   placeholder?: string
   required?: true
-  onChange?: any
   defaultChecked?: boolean
+  onChange?: () => void
 }
 
 const Switch = ({

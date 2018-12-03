@@ -19,6 +19,7 @@ interface Props {
   defaultValue?: string
   className?: string
   label?: string
+  onChange?: (evt: any) => void
 }
 
 const RadioGroup = ({
@@ -28,6 +29,7 @@ const RadioGroup = ({
   label,
   buttons,
   defaultValue,
+  onChange,
   ...rest
 }: Props) => {
 
@@ -36,7 +38,12 @@ const RadioGroup = ({
   const getRadioGroup = (groupType: string) => {
     switch (groupType) {
     case 'controls':
-      return <AntRadioGroup className="controls" name={name} defaultValue={defaultValueForControlsRadioGroup}>
+      return <AntRadioGroup
+          className="controls"
+          name={name}
+          onChange={onChange}
+          defaultValue={defaultValueForControlsRadioGroup}
+        >
           {buttons.map((button) =>
             <Radio
               key={button.id}
@@ -46,9 +53,11 @@ const RadioGroup = ({
               {button.text}<div className="semibold">{button.value}</div>
             </Radio>)}
         </AntRadioGroup>
-      break
     case 'bool':
-      return <AntRadioGroup name={name} defaultValue={defaultValue}>
+      return <AntRadioGroup
+          name={name}
+          onChange={onChange}
+          defaultValue={defaultValue}>
           {buttons.map((button) =>
             <Radio
               key={button.id}
@@ -58,10 +67,8 @@ const RadioGroup = ({
               {button.value}
             </Radio>)}
         </AntRadioGroup>
-      break
     default:
       return null
-      break
     }
   }
 
