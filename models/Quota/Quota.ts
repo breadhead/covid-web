@@ -1,8 +1,8 @@
 import { Company } from '../Company'
 
 export enum QuotaType {
-  Corporate = 'Корпоративная',
   Common = 'Общая',
+  Corporate = 'Корпоративная',
   Special = 'Специальная',
 }
 

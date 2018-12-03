@@ -11,7 +11,8 @@ import styles from './QuotaDescription.css'
 interface Props {
   quota: Quota
 }
-const QuotaDescription = ({ quota }: Props) => (
+
+const QuotaDescription = ({ quota }: Props) =>
   <div className={styles.QuotaDescription}>
     <QuotaName name={quota.name} />
     <QuotaDetails name={quota.company.name} type={quota.type} comment={quota.comment} />
@@ -25,6 +26,5 @@ const QuotaDescription = ({ quota }: Props) => (
       </Col>
     </Row>
   </div>
-)
 
 export default QuotaDescription
