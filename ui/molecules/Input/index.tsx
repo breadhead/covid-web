@@ -13,7 +13,7 @@ interface Props {
   placeholder?: string
   required?: true,
   defaultValue?: string,
-  onChange?: () => any,
+  onChange?: () => void,
 }
 
 const Input = ({
