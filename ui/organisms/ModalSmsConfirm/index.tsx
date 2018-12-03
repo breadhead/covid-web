@@ -33,14 +33,12 @@ export class PopupSmsConfirm extends Component {
   }
 
   public handleOk = (e) => {
-    console.log(e)
     this.setState({
       visible: false,
     })
   }
 
   public handleCancel = (e) => {
-    console.log(e)
     this.setState({
       visible: false,
     })
