@@ -1,6 +1,5 @@
 const nextRoutes = require('next-routes')
 
-
 module.exports = nextRoutes()
   // admin routes
   .add('transfer', '/admin/transfer', 'admin-transfer')
@@ -13,3 +12,4 @@ module.exports = nextRoutes()
   .add('home', '/', 'main-index')
   .add('claim', '/claim', 'main-claim')
   .add('test', '/test', 'main-test')
+  .add('client', '/client', 'main-client')
