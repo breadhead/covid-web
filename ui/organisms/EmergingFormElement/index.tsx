@@ -1,6 +1,4 @@
-import { Form as AntForm, Radio, Switch as AntSwitch } from 'antd'
 import * as React from 'react'
-import { Field as FinalField } from 'react-final-form'
 
 import RadioGroup from '@app/ui/molecules/RadioGroup'
 import Switch from '@app/ui/molecules/Switch'
@@ -11,74 +9,87 @@ enum controlTypes {
   radiogroup = 'radiogroup',
 }
 
+const radioButtons = [
+  {
+    id: '1',
+    value: 'Да',
+  },
+  {
+    id: '2',
+    value: 'Нет',
+  },
+]
+
 interface Props {
-  radioGroupButtons: Array< {
-    id: string,
-    value: string,
-    text ?: string,
-  } >
-  controlType: string,
-  defaultVisible: boolean,
-  className?: string,
-  children?: React.ReactNode,
+  controlType: string
+  defaultVisible?: boolean
+  className?: string
+  children?: React.ReactNode
 }
 
 class EmergingFormElement extends React.Component<Props> {
+
+  public static defaultProps: Partial<Props> = {
+    defaultVisible: false,
+  }
 
   public state = {
     isVisible: this.props.defaultVisible,
   }
 
-  public getControlType(controlType) {
+  public getControl(controlType: string) {
     switch (controlType) {
     case controlTypes.switch:
       return <Switch
-            name="controlForEmergingElement"
-            onChange={this.toggleVisibility}
-            defaultChecked={this.state.isVisible}
-          />
-      break
+          name="controlForEmergingElement"
+          onChange={this.switchChangeHandler}
+          defaultChecked={this.state.isVisible}
+        />
     case controlTypes.radiogroup:
       return <RadioGroup
           name="controlForEmergingElement"
           type="bool"
-          buttons={this.props.radioGroupButtons}
-          onChange={this.toggleVisibility}
-          defaultValue={
-            this.state.isVisible
-            ? this.props.radioGroupButtons[0].value
-            : this.props.radioGroupButtons[1].value
-          }
+          buttons={radioButtons}
+          onChange={this.radioGroupChangeHandler}
         />
-      break
     default:
       return null
-      break
     }
   }
 
-  public toggleVisibility = (e) => {
-    this.setState((state) => ({
+  public switchChangeHandler = () => {
+    this.setState((state: { isVisible: boolean }) => ({
       isVisible: !state.isVisible,
     }))
   }
 
+  public radioGroupChangeHandler = (evt: any) => {
+    const isVisible = evt.target.value === radioButtons[0].value ? true : false
+    this.setState({ isVisible })
+  }
+
   public render() {
+
+    const { controlType, children } = this.props
+    const { isVisible } = this.state
+
+    const currentControl = this.getControl(controlType)
+
     return (
-        <React.Fragment>
-          <div className={styles.EmergingFormControl} >
-            {this.getControlType(this.props.controlType)}
+      <React.Fragment>
+        <div className={styles.EmergingFormControl} >
+          {currentControl}
+        </div>
+        {currentControl
+          &&
+          <div
+            className={styles.EmergingFormElement}
+            hidden={!isVisible}
+          >
+            {children}
           </div>
-          {this.getControlType(this.props.controlType)
-            &&
-            <div
-              className={styles.EmergingFormElement}
-              hidden={!this.state.isVisible}
-            >
-              {this.props.children}
-            </div>
-          }
-        </React.Fragment>
+        }
+      </React.Fragment>
     )
   }
 }

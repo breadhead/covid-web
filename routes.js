@@ -12,4 +12,4 @@ module.exports = nextRoutes()
   // main routes
   .add('home', '/', 'main-index')
   .add('claim', '/claim', 'main-claim')
-  .add('test', '/test', 'main-test') // TODO: добавить мусорницу
+  .add('test', '/test', 'main-test')
