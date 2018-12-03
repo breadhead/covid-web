@@ -17,4 +17,6 @@ export default interface ApiClient {
   login(login: string, password: string): Promise<User>
   createQuota(quotaFields: any): Promise<Quota>
   transfer(quotaTransferRequest: QuotaTransferRequest): Promise<QuotaTransferResponse>
+  sendSms(telNumber: string)
+  verificateSms(code: string)
 }
