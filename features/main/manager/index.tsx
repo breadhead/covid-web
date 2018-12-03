@@ -1,12 +1,12 @@
 import * as React from 'react'
 import Layout from '../layout'
 
-const ManagerPage = () =>
+const DoctorPage = () =>
   <Layout
     headerType="secondary"
     footerType="secondary">
-    <div>Консультация</div>
+    <div>Консультация в работе у врача</div>
     <h1>Кратко о теме консультации</h1>
   </Layout>
 
-export default ManagerPage
+export default DoctorPage
