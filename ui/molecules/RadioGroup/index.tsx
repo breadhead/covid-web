@@ -5,6 +5,8 @@ import './RadioGroup.css?CSSModulesDisable'
 import { Form as AntForm, Radio } from 'antd'
 import { Field as FinalField } from 'react-final-form'
 
+import { RadioChangeEvent } from 'antd/lib/radio'
+
 const FormItem = AntForm.Item
 const AntRadioGroup = Radio.Group
 
@@ -19,7 +21,7 @@ interface Props {
   defaultValue?: string
   className?: string
   label?: string
-  onChange?: (evt: any) => void
+  onChange?: (evt: RadioChangeEvent) => void
 }
 
 const RadioGroup = ({
