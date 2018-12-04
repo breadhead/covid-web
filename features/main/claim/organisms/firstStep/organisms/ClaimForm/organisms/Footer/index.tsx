@@ -6,8 +6,8 @@ import Button, { ButtonSize, ButtonType } from '@app/ui/molecules/Button'
 const Footer = () =>
   <article className={styles.article}>
     <Button
-      size={ButtonSize.l}
-      type={ButtonType.submit}
+      size={ButtonSize.Large}
+      type={ButtonType.Submit}
       classNames={{
         buttonClassName: styles.button,
       }}

@@ -10,7 +10,7 @@ const Menu = () =>
     <NavLink type={NavLinkType.nav} href="#" className={styles.link}>Эксперты</NavLink>
     <NavLink type={NavLinkType.nav} href="#" className={styles.link}>Контакты</NavLink>
     <NavLink type={NavLinkType.nav} href="#" className={styles.link}>Помочь проекту</NavLink>
-    <Button kind={ButtonKind.secondary}>Войти</Button>
+    <Button kind={ButtonKind.Secondary}>Войти</Button>
   </nav>
 
 export default Menu

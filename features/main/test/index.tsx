@@ -172,23 +172,23 @@ const Test = () => (
             радиокнопка2
           </RadioButton><br />
           {/* buttons */}
-          <Button size={ButtonSize.xl}>Огромная кнопка</Button><br />
-          <Button size={ButtonSize.l} >Большая кнопка</Button><br />
+          <Button size={ButtonSize.XL}>Огромная кнопка</Button><br />
+          <Button size={ButtonSize.Large} >Большая кнопка</Button><br />
           <Button>Средняя кнопка</Button><br />
-          <Button size={ButtonSize.s} >Маленькая кнопка</Button><br />
-          <Button disabled size={ButtonSize.s} >Маленькая кнопка</Button><br />
+          <Button size={ButtonSize.Small} >Маленькая кнопка</Button><br />
+          <Button disabled size={ButtonSize.Small} >Маленькая кнопка</Button><br />
 
-          <Button kind={ButtonKind.secondary} size={ButtonSize.xl} >Огромная кнопка</Button><br />
-          <Button kind={ButtonKind.secondary} size={ButtonSize.l} >Большая кнопка</Button><br />
-          <Button kind={ButtonKind.secondary} >Средняя кнопка</Button><br />
-          <Button kind={ButtonKind.secondary} size={ButtonSize.s} >Маленькая кнопка</Button><br />
-          <Button kind={ButtonKind.secondary} disabled size={ButtonSize.s} >Маленькая кнопка</Button><br />
+          <Button kind={ButtonKind.Secondary} size={ButtonSize.XL} >Огромная кнопка</Button><br />
+          <Button kind={ButtonKind.Secondary} size={ButtonSize.Large} >Большая кнопка</Button><br />
+          <Button kind={ButtonKind.Secondary} >Средняя кнопка</Button><br />
+          <Button kind={ButtonKind.Secondary} size={ButtonSize.Small} >Маленькая кнопка</Button><br />
+          <Button kind={ButtonKind.Secondary} disabled size={ButtonSize.Small} >Маленькая кнопка</Button><br />
 
-          <Button kind={ButtonKind.extra} size={ButtonSize.xl} >Огромная кнопка</Button><br />
-          <Button kind={ButtonKind.extra} size={ButtonSize.l} >Большая кнопка</Button><br />
-          <Button kind={ButtonKind.extra} >Средняя кнопка</Button><br />
-          <Button kind={ButtonKind.extra} size={ButtonSize.s} >Маленькая кнопка</Button><br />
-          <Button kind={ButtonKind.extra} disabled size={ButtonSize.s} >Маленькая кнопка</Button><br />
+          <Button kind={ButtonKind.Extra} size={ButtonSize.XL} >Огромная кнопка</Button><br />
+          <Button kind={ButtonKind.Extra} size={ButtonSize.Large} >Большая кнопка</Button><br />
+          <Button kind={ButtonKind.Extra} >Средняя кнопка</Button><br />
+          <Button kind={ButtonKind.Extra} size={ButtonSize.Small} >Маленькая кнопка</Button><br />
+          <Button kind={ButtonKind.Extra} disabled size={ButtonSize.Small} >Маленькая кнопка</Button><br />
         </AntForm>
       )}
 

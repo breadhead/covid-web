@@ -16,7 +16,7 @@ const TopRow = ({ className }: Props) =>
     <Logo />
     <Menu />
     <div className={styles.buttons}>
-      <Button classNames={{ wrapperClassName: styles.button }} kind={ButtonKind.secondary}>Войти</Button>
+      <Button classNames={{ wrapperClassName: styles.button }} kind={ButtonKind.Secondary}>Войти</Button>
       <Button classNames={{ wrapperClassName: styles.button }}>Просто спросить</Button>
     </div>
   </div >
