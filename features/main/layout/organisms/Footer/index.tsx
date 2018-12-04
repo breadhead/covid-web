@@ -20,8 +20,8 @@ interface Props {
 const Footer = ({ type = FooterType.Primary, theme = FooterTheme.Default }: Props) => {
 
   const componentsMap = {
-    primary: <PrimaryFooter />,
-    secondary: <SecondaryFooter theme={theme} />,
+    Primary: <PrimaryFooter />,
+    Secondary: <SecondaryFooter theme={theme} />,
   }
 
   return componentsMap[type]
