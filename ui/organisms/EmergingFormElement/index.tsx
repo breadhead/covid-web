@@ -67,7 +67,7 @@ class EmergingFormElement extends React.Component<Props> {
 
   public radioGroupChangeHandler = (evt: RadioChangeEvent) => {
     const { value } = evt.target
-    const isVisible = value === radioButtons[0].value ? true : false
+    const isVisible = value === radioButtons[0].value
     this.setState({ isVisible })
   }
 

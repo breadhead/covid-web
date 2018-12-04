@@ -33,7 +33,7 @@ class Combobox extends React.Component<Props> {
     label: this.props.initialValue,
   }
 
-  public onChange = (evt: React.SyntheticEvent) => {
+  public onChange = (evt: React.FormEvent<HTMLInputElement>) => {
     const { value } = evt.target as HTMLInputElement
     const { initialValue, currentValue } = this.props
 
