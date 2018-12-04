@@ -1,13 +1,13 @@
 import * as React from 'react'
 import * as styles from '../../ClaimForm.css'
 
-import { default as Button, Size, Type } from '@app/ui/molecules/Button'
+import Button, { ButtonSize, ButtonType } from '@app/ui/molecules/Button'
 
 const Footer = () =>
   <article className={styles.article}>
     <Button
-      size={Size.l}
-      type={Type.submit}
+      size={ButtonSize.l}
+      type={ButtonType.submit}
       classNames={{
         buttonClassName: styles.button,
       }}

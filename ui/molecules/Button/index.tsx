@@ -11,43 +11,43 @@ const defaultClassNames = {
   buttonClassName: '',
 }
 
-export enum Type {
+export enum ButtonType {
   button = 'button',
   submit = 'submit',
 }
 
-export enum Size {
+export enum ButtonSize {
   s = 's',
   m = 'm',
   l = 'l',
   xl = 'xl',
 }
 
-export enum Kind {
+export enum ButtonKind {
   primary = 'primary',
   secondary = 'secondary',
   extra = 'extra',
 }
 
 interface Props {
-  type?: Type,
+  type?: ButtonType,
   classNames?: {
     wrapperClassName?: string,
     buttonClassName?: string,
   }
   label?: string,
-  size?: Size,
+  size?: ButtonSize,
   disabled?: true
-  kind?: Kind
+  kind?: ButtonKind
   children?: any
 }
 
 const Button = ({
-  type = Type.button,
+  type = ButtonType.button,
   classNames = defaultClassNames,
   label,
-  size = Size.m,
-  kind = Kind.primary,
+  size = ButtonSize.m,
+  kind = ButtonKind.primary,
   children,
   ...rest
 }: Props) =>

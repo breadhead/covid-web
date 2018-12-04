@@ -6,7 +6,7 @@ import { Form as FinalForm } from 'react-final-form'
 import Checkbox from '@app/ui/atoms/Checkbox'
 import {default as NavLink, Type as NavType } from '@app/ui/atoms/NavLink'
 import RadioButton from '@app/ui/atoms/RadioButton'
-import {default as Button, Kind as ButtonKind, Size as ButtonSize } from '@app/ui/molecules/Button'
+import Button, { ButtonKind, ButtonSize } from '@app/ui/molecules/Button';
 import Combobox from '@app/ui/molecules/Combobox'
 import Input from '@app/ui/molecules/Input'
 import { default as RadioGroup, Type as RadioGroupType } from '@app/ui/molecules/RadioGroup'
