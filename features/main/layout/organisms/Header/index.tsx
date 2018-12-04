@@ -4,13 +4,13 @@ import PrimaryHeader from './organisms/PrimaryHeader'
 import SecondaryHeader from './organisms/SecondaryHeader'
 
 export enum HeaderType {
-  primary = 'primary',
-  secondary = 'secondary',
+  Primary = 'primary',
+  Secondary = 'secondary',
 }
 
 export enum HeaderTheme {
-  default = 'default',
-  white = 'white',
+  Default = 'default',
+  White = 'white',
 }
 
 export interface Props {
@@ -18,7 +18,7 @@ export interface Props {
   theme?: HeaderTheme
 }
 
-const Header = ({ type = HeaderType.primary, theme = HeaderTheme.default }: Props) => {
+const Header = ({ type = HeaderType.Primary, theme = HeaderTheme.Default }: Props) => {
 
   const componentsMap = {
     primary: <PrimaryHeader />,

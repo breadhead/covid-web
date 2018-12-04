@@ -14,10 +14,10 @@ interface Props {
 class Layout extends React.Component<Props> {
 
   public static defaultProps: Partial<Props> = {
-    headerType: HeaderType.primary,
-    headerTheme: HeaderTheme.default,
-    footerType: FooterType.primary,
-    footerTheme: FooterTheme.default,
+    headerType: HeaderType.Primary,
+    headerTheme: HeaderTheme.Default,
+    footerType: FooterType.Primary,
+    footerTheme: FooterTheme.Default,
   }
 
   public render() {

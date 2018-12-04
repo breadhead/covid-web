@@ -12,7 +12,7 @@ interface Props {
   theme?: FooterTheme
 }
 
-const SecondaryFooter = ({ theme = FooterTheme.default }: Props) =>
+const SecondaryFooter = ({ theme = FooterTheme.Default }: Props) =>
   <footer className={cx(styles.footer, styles[theme])}>
     <TopRow />
     <BottomRow className={styles.row} />

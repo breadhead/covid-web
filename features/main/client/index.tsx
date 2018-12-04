@@ -6,8 +6,8 @@ import { HeaderType } from '../layout/organisms/Header'
 
 const ClientPage = () =>
   <Layout
-  headerType={HeaderType.secondary}
-  footerType={FooterType.secondary}>
+    headerType={HeaderType.Secondary}
+    footerType={FooterType.Secondary}>
     <div>Мои консультации</div>
   </Layout>
 
