@@ -4,6 +4,8 @@ import RadioGroup from '@app/ui/molecules/RadioGroup'
 import Switch from '@app/ui/molecules/Switch'
 import * as styles from './EmergingFormElement.css'
 
+import { RadioChangeEvent } from 'antd/lib/radio'
+
 enum controlTypes {
   switch = 'switch',
   radiogroup = 'radiogroup',
@@ -63,8 +65,9 @@ class EmergingFormElement extends React.Component<Props> {
     }))
   }
 
-  public radioGroupChangeHandler = (evt: any) => {
-    const isVisible = evt.target.value === radioButtons[0].value ? true : false
+  public radioGroupChangeHandler = (evt: RadioChangeEvent) => {
+    const { value } = evt.target
+    const isVisible = value === radioButtons[0].value ? true : false
     this.setState({ isVisible })
   }
 
