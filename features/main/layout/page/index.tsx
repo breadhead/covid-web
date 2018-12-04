@@ -1,23 +1,23 @@
 import * as React from 'react'
 
-import Footer from '../organisms/Footer'
-import Header from '../organisms/Header'
+import Footer, { FooterTheme, FooterType } from '../organisms/Footer'
+import Header, { HeaderTheme, HeaderType } from '../organisms/Header'
 
 interface Props {
   children: React.ReactNode
-  headerType?: 'primary' | 'secondary'
-  headerTheme?: 'default' | 'white'
-  footerType?: 'primary' | 'secondary'
-  footerTheme?: 'default' | 'white'
+  headerType?: HeaderType
+  headerTheme?: HeaderTheme
+  footerType?: FooterType
+  footerTheme?: FooterTheme
 }
 
 class Layout extends React.Component<Props> {
 
   public static defaultProps: Partial<Props> = {
-    headerType: 'primary',
-    headerTheme: 'default',
-    footerType: 'primary',
-    footerTheme: 'default',
+    headerType: HeaderType.primary,
+    headerTheme: HeaderTheme.default,
+    footerType: FooterType.primary,
+    footerTheme: FooterTheme.default,
   }
 
   public render() {
