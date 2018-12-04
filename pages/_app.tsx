@@ -2,7 +2,6 @@
 import AdminLayout from '@app/features/admin/layout'
 import { authViolateStatus } from '@app/features/admin/login'
 import { getViolateState } from '@app/features/admin/login'
-import MainLayout from '@app/features/main/layout'
 import ApiClientFactory from '@app/lib/api/ApiClientFactory'
 import withReduxStore, { Store } from '@app/lib/with-redux-store'
 import '@app/ui/antd-styles.less'
@@ -63,9 +62,7 @@ class OncohelpWeb extends App<Props> {
             <AdminLayout {...pageProps}>
               <Component {...pageProps} />
             </AdminLayout> :
-            <MainLayout {...pageProps}>
-              <Component {...pageProps} />
-            </MainLayout>
+            <Component {...pageProps} />
           }
         </Provider>
       </Container>
