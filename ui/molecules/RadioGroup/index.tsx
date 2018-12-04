@@ -10,9 +10,13 @@ import { RadioChangeEvent } from 'antd/lib/radio'
 const FormItem = AntForm.Item
 const AntRadioGroup = Radio.Group
 
+export enum Type {
+  bool = 'bool',
+  controls = 'controls',
+}
 interface Props {
   name: string
-  type: 'bool' | 'controls'
+  type: Type
   buttons: Array<{
     id: string,
     value: string,
@@ -39,7 +43,7 @@ const RadioGroup = ({
 
   const getRadioGroup = (groupType: string) => {
     switch (groupType) {
-    case 'controls':
+    case Type.controls:
       return <AntRadioGroup
           className="controls"
           name={name}
@@ -55,7 +59,7 @@ const RadioGroup = ({
               {button.text}<div className="semibold">{button.value}</div>
             </Radio>)}
         </AntRadioGroup>
-    case 'bool':
+    case Type.bool:
       return <AntRadioGroup
           name={name}
           onChange={onChange}

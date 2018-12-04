@@ -9,7 +9,7 @@ import RadioButton from '@app/ui/atoms/RadioButton'
 import {default as Button, Kind as ButtonKind, Size as ButtonSize } from '@app/ui/molecules/Button'
 import Combobox from '@app/ui/molecules/Combobox'
 import Input from '@app/ui/molecules/Input'
-import RadioGroup from '@app/ui/molecules/RadioGroup'
+import { default as RadioGroup, Type as RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextArea'
@@ -155,11 +155,13 @@ const Test = () => (
           <TextArea name="testTextArea" placeholder="текстарея" /><br />
           <Input name="input" type="text" placeholder="инпут" /><br />
           <Switch name="testSwitch" /><br />
-          <RadioGroup name="bool"
-          type="bool" buttons={testBoolRadioButtons} /><br />
+          <RadioGroup
+            name="bool"
+            type={RadioGroupType.bool}
+            buttons={testBoolRadioButtons} /><br />
           <RadioGroup
             name="controls"
-            type="controls"
+            type={RadioGroupType.controls}
             buttons={testControlsRadioButtons}
             defaultValue={testControlsRadioButtons[1].value}
           /><br />

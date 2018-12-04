@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as styles from '../../ClaimForm.css'
 
 import Input from '@app/ui/molecules/Input'
-import RadioGroup from '@app/ui/molecules/RadioGroup'
+import { default as RadioGroup, Type as RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import Select from '@app/ui/molecules/Select'
 
 const genderRadioGroup = [
@@ -33,7 +33,7 @@ const Contacts = () =>
     <p className={styles.label}>Возраст (полных лет)</p>
     <Input name="age" type="number" />
     <p className={styles.label}>Пол</p>
-    <RadioGroup name="bool" type="bool" buttons={genderRadioGroup} />
+    <RadioGroup name="bool" type={RadioGroupType.bool} buttons={genderRadioGroup} />
     <p className={styles.label}>Электронная почта.
   <span className={styles.sectondaryText}> Будем присылать вам уведомления о ходе консультации.</span>
     </p>
