@@ -4,12 +4,12 @@ import { Form as AntForm, TimePicker } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
 import Checkbox from '@app/ui/atoms/Checkbox'
-import {default as NavLink, Type as NavType } from '@app/ui/atoms/NavLink'
+import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 import RadioButton from '@app/ui/atoms/RadioButton'
-import Button, { ButtonKind, ButtonSize } from '@app/ui/molecules/Button';
+import Button, { ButtonKind, ButtonSize } from '@app/ui/molecules/Button'
 import Combobox from '@app/ui/molecules/Combobox'
 import Input from '@app/ui/molecules/Input'
-import { default as RadioGroup, Type as RadioGroupType } from '@app/ui/molecules/RadioGroup'
+import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextArea'
@@ -150,7 +150,7 @@ const Test = () => (
             options={testSelectOptions}
             name="selectDis" /> <br />
           <NavLink href="#">link</NavLink> <br />
-          <NavLink type={NavType.nav} href="#">navlink</NavLink> <br />
+          <NavLink type={NavLinkType.nav} href="#">navlink</NavLink> <br />
           <TimePicker /><br /><br />
           <TextArea name="testTextArea" placeholder="текстарея" /><br />
           <Input name="input" type="text" placeholder="инпут" /><br />

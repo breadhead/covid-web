@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as styles from '../../ClaimForm.css'
 
 import NavLink from '@app/ui/atoms/NavLink'
-import { default as RadioGroup, Type as RadioGroupType } from '@app/ui/molecules/RadioGroup'
+import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
 

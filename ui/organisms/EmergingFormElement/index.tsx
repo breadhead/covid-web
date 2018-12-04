@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { default as RadioGroup, Type as RadioGroupType } from '@app/ui/molecules/RadioGroup'
+import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import Switch from '@app/ui/molecules/Switch'
 import * as styles from './EmergingFormElement.css'
 
