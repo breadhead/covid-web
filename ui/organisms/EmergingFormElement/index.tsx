@@ -43,17 +43,17 @@ class EmergingFormElement extends React.Component<Props> {
     switch (controlType) {
     case controlTypes.switch:
       return <Switch
-        name="controlForEmergingElement"
-        onChange={this.switchChangeHandler}
-        defaultChecked={this.state.isVisible}
-      />
+          name="controlForEmergingElement"
+          onChange={this.switchChangeHandler}
+          defaultChecked={this.state.isVisible}
+        />
     case controlTypes.radiogroup:
       return <RadioGroup
-        name="controlForEmergingElement"
-        type={RadioGroupType.bool}
-        buttons={radioButtons}
-        onChange={this.radioGroupChangeHandler}
-      />
+          name="controlForEmergingElement"
+          type={RadioGroupType.Bool}
+          buttons={radioButtons}
+          onChange={this.radioGroupChangeHandler}
+        />
     default:
       return null
     }

@@ -11,8 +11,8 @@ const FormItem = AntForm.Item
 const AntRadioGroup = Radio.Group
 
 export enum RadioGroupType {
-  bool = 'bool',
-  controls = 'controls',
+  Bool = 'Bool',
+  Controls = 'Controls',
 }
 interface Props {
   name: string
@@ -43,7 +43,7 @@ const RadioGroup = ({
 
   const getRadioGroup = (groupType: string) => {
     switch (groupType) {
-    case RadioGroupType.controls:
+    case RadioGroupType.Controls:
       return <AntRadioGroup
           className="controls"
           name={name}
@@ -59,7 +59,7 @@ const RadioGroup = ({
               {button.text}<div className="semibold">{button.value}</div>
             </Radio>)}
         </AntRadioGroup>
-    case RadioGroupType.bool:
+    case RadioGroupType.Bool:
       return <AntRadioGroup
           name={name}
           onChange={onChange}

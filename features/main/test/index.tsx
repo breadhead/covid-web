@@ -157,11 +157,11 @@ const Test = () => (
           <Switch name="testSwitch" /><br />
           <RadioGroup
             name="bool"
-            type={RadioGroupType.bool}
+            type={RadioGroupType.Bool}
             buttons={testBoolRadioButtons} /><br />
           <RadioGroup
             name="controls"
-            type={RadioGroupType.controls}
+            type={RadioGroupType.Controls}
             buttons={testControlsRadioButtons}
             defaultValue={testControlsRadioButtons[1].value}
           /><br />

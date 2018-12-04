@@ -32,7 +32,7 @@ const Main = () =>
     <p className={styles.label}>Тема вашего вопроса</p>
     <Select options={mockSelectOptions} name="choose_theme" defaultValue="Выберите тему" />
     <p className={styles.label}>У вас есть установленный врачом онкологический диагноз?</p>
-    <RadioGroup name="bool" type={RadioGroupType.bool} buttons={statementRadioGroup} />
+    <RadioGroup name="bool" type={RadioGroupType.Bool} buttons={statementRadioGroup} />
     <p className={styles.label}>
       Вы консультируетесь по корпоративной программе от своего работодателя?{SPACE}
       <NavLink href="#">

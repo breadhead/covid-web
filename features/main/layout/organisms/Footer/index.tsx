@@ -4,13 +4,13 @@ import PrimaryFooter from './organisms/PrimaryFooter'
 import SecondaryFooter from './organisms/SecondaryFooter'
 
 export enum FooterType {
-  Primary = 'primary',
-  Secondary = 'secondary',
+  Primary = 'Primary',
+  Secondary = 'Secondary',
 }
 
 export enum FooterTheme {
-  Default = 'default',
-  White = 'white',
+  Default = 'Default',
+  White = 'White',
 }
 interface Props {
   type?: FooterType

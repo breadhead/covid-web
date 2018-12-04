@@ -4,13 +4,13 @@ import PrimaryHeader from './organisms/PrimaryHeader'
 import SecondaryHeader from './organisms/SecondaryHeader'
 
 export enum HeaderType {
-  Primary = 'primary',
+  Primary = 'Primary',
   Secondary = 'secondary',
 }
 
 export enum HeaderTheme {
-  Default = 'default',
-  White = 'white',
+  Default = 'Default',
+  White = 'White',
 }
 
 export interface Props {

@@ -33,7 +33,7 @@ const Contacts = () =>
     <p className={styles.label}>Возраст (полных лет)</p>
     <Input name="age" type="number" />
     <p className={styles.label}>Пол</p>
-    <RadioGroup name="bool" type={RadioGroupType.bool} buttons={genderRadioGroup} />
+    <RadioGroup name="bool" type={RadioGroupType.Bool} buttons={genderRadioGroup} />
     <p className={styles.label}>Электронная почта.
   <span className={styles.sectondaryText}> Будем присылать вам уведомления о ходе консультации.</span>
     </p>
