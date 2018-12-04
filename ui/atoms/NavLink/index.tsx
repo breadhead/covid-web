@@ -3,20 +3,24 @@ import NextLink from 'next/link'
 import * as React from 'react'
 import styles from './NavLink.css'
 
+export enum Type {
+  link = 'link',
+  nav = 'nav',
+}
 interface Props {
-  children: React.ReactNode
-  type?: 'link' | 'nav'
+  children: React.ReactNode | string
+  type?: Type
   className?: string
   href?: string
 }
 
-const NavLink = ({ children, className, href, type = 'link' }: Props) => {
+const NavLink = ({ children, className, href, type = Type.link }: Props) => {
 
   const getClassName = (linkType: string) => {
     switch (linkType) {
-    case 'link':
+    case Type.link:
       return styles.Link
-    case 'nav':
+    case Type.nav:
       return styles.Nav
     default:
       return null
