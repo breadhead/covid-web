@@ -4,8 +4,8 @@ import * as React from 'react'
 import styles from './NavLink.css'
 
 export enum NavLinkType {
-  link = 'link',
-  nav = 'nav',
+  Link = 'Link',
+  Nav = 'Nav',
 }
 interface Props {
   children: React.ReactNode | string
@@ -14,13 +14,13 @@ interface Props {
   href?: string
 }
 
-const NavLink = ({ children, className, href, type = NavLinkType.link }: Props) => {
+const NavLink = ({ children, className, href, type = NavLinkType.Link }: Props) => {
 
   const getClassName = (linkType: string) => {
     switch (linkType) {
-    case NavLinkType.link:
+    case NavLinkType.Link:
       return styles.Link
-    case NavLinkType.nav:
+    case NavLinkType.Nav:
       return styles.Nav
     default:
       return null

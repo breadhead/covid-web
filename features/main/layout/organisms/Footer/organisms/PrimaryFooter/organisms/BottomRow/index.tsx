@@ -12,11 +12,11 @@ const BottomRow = ({ className }: Props) =>
   <div className={cx(styles.bottom, className)}>
     <div className={styles.oncohelp}>
       <span className={styles.copyright}>© Просто спросить, 2018</span>
-      <NavLink className={styles.infoLink} type={NavLinkType.nav}>Пользовательское соглашение</NavLink>
+      <NavLink className={styles.infoLink} type={NavLinkType.Nav}>Пользовательское соглашение</NavLink>
     </div>
     <span className={styles.breadhead}>
       <span className={styles.secondaryText}>Сайт сделан в </span>
-      <NavLink className={styles.infoLink} type={NavLinkType.nav}>Breadhead</NavLink>
+      <NavLink className={styles.infoLink} type={NavLinkType.Nav}>Breadhead</NavLink>
     </span>
   </div>
 

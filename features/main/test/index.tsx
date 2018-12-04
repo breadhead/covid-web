@@ -150,7 +150,7 @@ const Test = () => (
             options={testSelectOptions}
             name="selectDis" /> <br />
           <NavLink href="#">link</NavLink> <br />
-          <NavLink type={NavLinkType.nav} href="#">navlink</NavLink> <br />
+          <NavLink type={NavLinkType.Nav} href="#">navlink</NavLink> <br />
           <TimePicker /><br /><br />
           <TextArea name="testTextArea" placeholder="текстарея" /><br />
           <Input name="input" type="text" placeholder="инпут" /><br />
