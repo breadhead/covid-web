@@ -40,6 +40,7 @@ interface Props {
   disabled?: true
   kind?: ButtonKind
   children?: any
+  onClick?: () => void
 }
 
 const Button = ({
