@@ -118,7 +118,7 @@ const Test = ({openPopup, closePopup}) => (
   >
     <h1>components preview page</h1>
 
-    <Uploader onUploaded={console.log} />
+    <Uploader />
 
     <FinalForm
       onSubmit={() => undefined}
