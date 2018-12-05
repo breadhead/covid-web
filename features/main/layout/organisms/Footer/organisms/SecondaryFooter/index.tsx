@@ -6,11 +6,13 @@ import cx from 'classnames'
 import BottomRow from '../PrimaryFooter/organisms/BottomRow'
 import TopRow from './organisms/TopRow'
 
+import { FooterTheme } from '../..'
+
 interface Props {
-  theme?: 'default' | 'white'
+  theme?: FooterTheme
 }
 
-const SecondaryFooter = ({ theme = 'default' }: Props) =>
+const SecondaryFooter = ({ theme = FooterTheme.Default }: Props) =>
   <footer className={cx(styles.footer, styles[theme])}>
     <TopRow />
     <BottomRow className={styles.row} />
