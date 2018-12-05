@@ -1,4 +1,3 @@
-
 import ApiClient from '@app/lib/api/ApiClient'
 
 export const setAuthToken = (token: string, apiClient: ApiClient) => {

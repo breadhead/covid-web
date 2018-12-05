@@ -1,4 +1,3 @@
-import Header from '@app/features/admin/header/organisms/Header'
 import * as React from 'react'
 import styles from './Page.css'
 
@@ -8,7 +7,6 @@ interface Props {
 const Layout = ({ children }: Props) => {
   return (
     <div className="admin">
-      <Header />
       <main className={styles.Main}>
         {children}
       </main>

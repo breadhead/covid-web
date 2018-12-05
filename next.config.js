@@ -30,5 +30,9 @@ module.exports = withPlugins([
   }],
   [withCSS, {
     cssModules: true,
-  }]
+  }], {
+    publicRuntimeConfig: {
+      backUrl: process.env.BACK_URL || 'http://localhost:3000',
+    }
+  }
 ])

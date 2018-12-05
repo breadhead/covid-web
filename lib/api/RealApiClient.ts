@@ -1,16 +1,12 @@
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 import axios, { AxiosInstance } from 'axios'
-import ApiClient, { User } from './ApiClient'
-import FileUploader from './FileUploader/FileUploader'
-import RealFileUploader from './FileUploader/RealFileUploader'
+import ApiClient, { UploadedFile, User } from './ApiClient'
 import { queryString } from './helper/queryString'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 
 export default class RealApiClient implements ApiClient {
-
-  public readonly fileUploader: FileUploader
 
   private readonly axiosInstance: AxiosInstance
   private _token: string = ''
@@ -19,7 +15,6 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance = axios.create({
       baseURL: baseUrl,
     })
-    this.fileUploader = new RealFileUploader(baseUrl)
   }
 
   public transfer = (quotaTransferRequest: QuotaTransferRequest) => this.axiosInstance
@@ -67,4 +62,20 @@ export default class RealApiClient implements ApiClient {
   public verificateSms = (code: string) => this.axiosInstance
   .post('/verification/verificate', code)
   // TODO: add sms verification functional
+
+  public uploadFile = async (
+    file: File,
+    onProgress?: (precent: number) => void,
+  ) => {
+    const form = new FormData()
+    form.append('file', file)
+
+    const response = await this.axiosInstance.post('/file/upload', form, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+      onUploadProgress: ({ loaded, total }) => onProgress && onProgress(loaded / total * 100),
+    })
+
+    return response.data as UploadedFile
+  }
+>>>>>>> origin/master
 }
