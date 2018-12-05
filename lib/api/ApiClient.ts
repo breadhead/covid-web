@@ -5,6 +5,14 @@ import { QuotaTransferRequest } from './request/QuotaTransfer'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 export interface User {
   token: string
+  roles: string[]
+}
+
+export enum Role {
+  Client = 'client',
+  CaseManager = 'case-manager',
+  Doctor = 'doctor',
+  Admin = 'admin',
 }
 
 export default interface ApiClient {
