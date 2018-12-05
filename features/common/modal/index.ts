@@ -1,6 +1,5 @@
 import Container from './container'
-import Page from './page'
 
-export default Container(Page)
+export default Container
 
-export { reducer, State } from './reducer'
+export { reducer, State, actions } from './reducer'
