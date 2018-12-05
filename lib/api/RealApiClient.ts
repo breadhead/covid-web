@@ -1,6 +1,8 @@
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
-import axios, { AxiosInstance } from 'axios'
+import axios, { AxiosError, AxiosInstance } from 'axios'
+import HttpStatus from 'http-status-codes'
+
 import ApiClient, { UploadedFile, User } from './ApiClient'
 import { queryString } from './helper/queryString'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
@@ -54,14 +56,24 @@ export default class RealApiClient implements ApiClient {
     this._token = newToken
   }
 
-  public sendSms = (telNumber: {number: string}) => this.axiosInstance
-    .post('/verification/send', telNumber)
+  public sendSms = (phone: string) => this.axiosInstance
+    .post('/verification/send', { number: phone })
     .then((response) => response.data)
-    // TODO: add sms sending functional
 
   public verificateSms = (code: string) => this.axiosInstance
-  .post('/verification/verificate', code)
-  // TODO: add sms verification functional
+    .post('/verification/verificate', { code })
+    .then(
+      () => true,
+      (error: AxiosError) => {
+        const { response } = error
+
+        if (!response || response.status !== HttpStatus.BAD_REQUEST) {
+          throw error
+        }
+
+        return false
+      },
+    )
 
   public uploadFile = async (
     file: File,

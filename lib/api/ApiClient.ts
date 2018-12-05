@@ -29,8 +29,8 @@ export default interface ApiClient {
   createQuota(quotaFields: any): Promise<Quota>
   transfer(quotaTransferRequest: QuotaTransferRequest): Promise<QuotaTransferResponse>
 
-  sendSms(telNumber: string)
-  verificateSms(code: string)
+  sendSms(phone: string): Promise<void>
+  verificateSms(code: string): Promise<boolean>
 
   uploadFile(file: File, onProgress?: (precent: number) => void): Promise<UploadedFile>
 }
