@@ -7,7 +7,7 @@ export enum ModalState {
   mainSMS = 'mainSMS',
   adminSignUp = 'adminSignUp',
   adminLogin = 'adminLogin',
-  empty = '',
+  empty = 'empty',
 }
 
 type State = ModalState
