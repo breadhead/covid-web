@@ -33,6 +33,11 @@ import {
   State as QuotaState,
 } from '@app/features/admin/quota'
 
+import {
+  reducer as modalReducer,
+  State as ModalState,
+} from '@app/features/common/modal'
+
 import ApiClient from './api/ApiClient'
 import ApiClientFactory from './api/ApiClientFactory'
 
@@ -43,6 +48,7 @@ export interface State {
   quota: QuotaState
   transfer: TransferState
   history: HistoryState,
+  modal: ModalState
 }
 
 const reducer = combineReducers({
@@ -52,6 +58,7 @@ const reducer = combineReducers({
   quota: quotaReducer,
   transfer: transferReducer,
   history: historyReducer,
+  modal: modalReducer,
 })
 
 export interface ExtraArgs {
