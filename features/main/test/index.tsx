@@ -111,11 +111,12 @@ const testComboOptions = [
 ]
 
 interface Props {
-  openPopup: () => void,
+  openLoginPopup: () => void,
+  openSingInPopup: () => void,
   closePopup: () => void,
 }
 
-const Test = ({openPopup, closePopup}: Props) => (
+const Test = ({openLoginPopup, openSingInPopup, closePopup}: Props) => (
   <main
     style={{ margin: '0 auto', maxWidth: '800px' }}
   >
@@ -124,8 +125,8 @@ const Test = ({openPopup, closePopup}: Props) => (
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
-          <button onClick={openPopup}>login popup</button>
-          <button onClick={closePopup}>close popup</button>
+          <button onClick={openLoginPopup}>login popup</button>
+          <button onClick={openSingInPopup}>sign in popup</button>
           <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
           <Checkbox name="checkbox" defaultChecked>Чекбокс с лейблом</Checkbox>
           <Checkbox name="checkbox" disabled>Чекбокс с лейблом</Checkbox>
@@ -208,7 +209,8 @@ const Test = ({openPopup, closePopup}: Props) => (
 )
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
-  openPopup: () => dispatch(modalActions.open(ModalState.mainLogin)),
+  openLoginPopup: () => dispatch(modalActions.open(ModalState.mainLogin)),
+  openSingInPopup: () => dispatch(modalActions.open(ModalState.mainSignUp)),
   closePopup: () => dispatch(modalActions.close()),
 })
 
