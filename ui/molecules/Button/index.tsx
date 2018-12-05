@@ -11,24 +11,44 @@ const defaultClassNames = {
   buttonClassName: '',
 }
 
+export enum ButtonType {
+  Button = 'button',
+  Submit = 'submit',
+}
+
+export enum ButtonSize {
+  Small = 'Small',
+  Medium = 'Sedium',
+  Large = 'Large',
+  ExtraLarge = 'ExtraLarge',
+}
+
+export enum ButtonKind {
+  Primary = 'Primary',
+  Secondary = 'Secondary',
+  Extra = 'Extra',
+}
+
 interface Props {
-  type?: 'button' | 'submit',
+  type?: ButtonType,
   classNames?: {
     wrapperClassName?: string,
     buttonClassName?: string,
   }
   label?: string,
-  size?: 's' | 'm' | 'l' | 'xl',
+  size?: ButtonSize,
   disabled?: true
-  kind?: 'primary' | 'secondary' | 'extra'
+  kind?: ButtonKind
+  children?: any
 }
 
 const Button = ({
-  type = 'button',
+  type = ButtonType.Button,
   classNames = defaultClassNames,
   label,
-  size = 'm',
-  kind = 'primary',
+  size = ButtonSize.Medium,
+  kind = ButtonKind.Primary,
+  children,
   ...rest
 }: Props) =>
   <FinalField name="" type={type}>
@@ -44,8 +64,9 @@ const Button = ({
           htmlType={type}
           {...input}
           {...rest}
-        />
-
+        >
+          {children}
+        </AntButton>
       </FormItem>
     )}
   </FinalField>
