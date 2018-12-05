@@ -2,13 +2,14 @@ import * as React from 'react'
 
 import './RadioGroup.css?CSSModulesDisable'
 
-import { Form as AntForm, Radio } from 'antd'
+import { Form as AntForm } from 'antd'
 import { Field as FinalField } from 'react-final-form'
 
 import { RadioChangeEvent } from 'antd/lib/radio'
+import Bool from './Bool'
+import Controls from './Controls'
 
 const FormItem = AntForm.Item
-const AntRadioGroup = Radio.Group
 
 export enum RadioGroupType {
   Bool = 'Bool',
@@ -28,55 +29,24 @@ interface Props {
   onChange?: (evt: RadioChangeEvent) => void
 }
 
-const RadioGroup = ({
-  name,
-  type,
-  className,
-  label,
-  buttons,
-  defaultValue,
-  onChange,
-  ...rest
-}: Props) => {
+const RadioGroup = (props: Props) => {
+  const {
+    name, type, buttons, defaultValue, className, onChange,
+  } = props
 
-  const defaultValueForControlsRadioGroup = defaultValue || buttons[0].value
-
-  const getRadioGroup = (groupType: string) => {
-    switch (groupType) {
-    case RadioGroupType.Controls:
-      return <AntRadioGroup
-          className="controls"
-          name={name}
-          onChange={onChange}
-          defaultValue={defaultValueForControlsRadioGroup}
-        >
-          {buttons.map((button) =>
-            <Radio
-              key={button.id}
-              value={button.value}
-              {...rest}
-            >
-              {button.text}<div className="semibold">{button.value}</div>
-            </Radio>)}
-        </AntRadioGroup>
-    case RadioGroupType.Bool:
-      return <AntRadioGroup
-          name={name}
-          onChange={onChange}
-          defaultValue={defaultValue}>
-          {buttons.map((button) =>
-            <Radio
-              key={button.id}
-              value={button.value}
-              {...rest}
-            >
-              {button.value}
-            </Radio>)}
-        </AntRadioGroup>
-    default:
-      return null
-    }
-  }
+  const radioGroup = type === RadioGroupType.Controls
+    ? <Controls
+      name={name}
+      buttons={buttons}
+      defaultValue={defaultValue}
+      onChange={onChange}
+    />
+    : <Bool
+      name={name}
+      buttons={buttons}
+      defaultValue={defaultValue}
+      onChange={onChange}
+    />
 
   return <FinalField className={className} name={name}>
     {({ meta }) => (
@@ -84,7 +54,7 @@ const RadioGroup = ({
         validateStatus={meta.submitError && 'error'}
         help={meta.submitError}
       >
-        {getRadioGroup(type)}
+        {radioGroup}
       </FormItem>)}
   </FinalField>
 }

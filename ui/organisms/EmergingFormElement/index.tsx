@@ -1,29 +1,19 @@
 import * as React from 'react'
 
-import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
-import Switch from '@app/ui/molecules/Switch'
 import * as styles from './EmergingFormElement.css'
 
 import { RadioChangeEvent } from 'antd/lib/radio'
+import RadioGroupElement, { radioButtons } from './organisms/RadioGroupElement'
+import SwitchElement from './organisms/SwitchElement'
 
 enum controlTypes {
   switch = 'switch',
   radiogroup = 'radiogroup',
 }
 
-const radioButtons = [
-  {
-    id: '1',
-    value: 'Да',
-  },
-  {
-    id: '2',
-    value: 'Нет',
-  },
-]
-
 interface Props {
   controlType: string
+  name: string
   defaultVisible?: boolean
   className?: string
   children?: React.ReactNode
@@ -37,26 +27,6 @@ class EmergingFormElement extends React.Component<Props> {
 
   public state = {
     isVisible: this.props.defaultVisible,
-  }
-
-  public getControl(controlType: string) {
-    switch (controlType) {
-    case controlTypes.switch:
-      return <Switch
-          name="controlForEmergingElement"
-          onChange={this.switchChangeHandler}
-          defaultChecked={this.state.isVisible}
-        />
-    case controlTypes.radiogroup:
-      return <RadioGroup
-          name="controlForEmergingElement"
-          type={RadioGroupType.Bool}
-          buttons={radioButtons}
-          onChange={this.radioGroupChangeHandler}
-        />
-    default:
-      return null
-    }
   }
 
   public switchChangeHandler = () => {
@@ -73,19 +43,18 @@ class EmergingFormElement extends React.Component<Props> {
 
   public render() {
 
-    const { controlType, children } = this.props
+    const { controlType, children, name } = this.props
     const { isVisible } = this.state
-
-    const currentControl = this.getControl(controlType)
 
     return (
       <React.Fragment>
         <div className={styles.EmergingFormControl} >
-          {currentControl}
+          {controlType === controlTypes.switch
+            ? <SwitchElement name={name} onChange={this.switchChangeHandler} />
+            : <RadioGroupElement name={name} onChange={this.radioGroupChangeHandler} />}
         </div>
-        {currentControl
-          &&
-          <div
+        {isVisible
+          && <div
             className={styles.EmergingFormElement}
             hidden={!isVisible}
           >

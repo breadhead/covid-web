@@ -12,8 +12,8 @@ const defaultClassNames = {
 }
 
 export enum ButtonType {
-  Button = 'Button',
-  Submit = 'Submit',
+  Button = 'button',
+  Submit = 'submit',
 }
 
 export enum ButtonSize {
