@@ -172,19 +172,19 @@ const Test = () => (
             радиокнопка2
           </RadioButton><br />
           {/* buttons */}
-          <Button size={ButtonSize.XL}>Огромная кнопка</Button><br />
+          <Button size={ButtonSize.ExtraLarge}>Огромная кнопка</Button><br />
           <Button size={ButtonSize.Large} >Большая кнопка</Button><br />
           <Button>Средняя кнопка</Button><br />
           <Button size={ButtonSize.Small} >Маленькая кнопка</Button><br />
           <Button disabled size={ButtonSize.Small} >Маленькая кнопка</Button><br />
 
-          <Button kind={ButtonKind.Secondary} size={ButtonSize.XL} >Огромная кнопка</Button><br />
+          <Button kind={ButtonKind.Secondary} size={ButtonSize.ExtraLarge} >Огромная кнопка</Button><br />
           <Button kind={ButtonKind.Secondary} size={ButtonSize.Large} >Большая кнопка</Button><br />
           <Button kind={ButtonKind.Secondary} >Средняя кнопка</Button><br />
           <Button kind={ButtonKind.Secondary} size={ButtonSize.Small} >Маленькая кнопка</Button><br />
           <Button kind={ButtonKind.Secondary} disabled size={ButtonSize.Small} >Маленькая кнопка</Button><br />
 
-          <Button kind={ButtonKind.Extra} size={ButtonSize.XL} >Огромная кнопка</Button><br />
+          <Button kind={ButtonKind.Extra} size={ButtonSize.ExtraLarge} >Огромная кнопка</Button><br />
           <Button kind={ButtonKind.Extra} size={ButtonSize.Large} >Большая кнопка</Button><br />
           <Button kind={ButtonKind.Extra} >Средняя кнопка</Button><br />
           <Button kind={ButtonKind.Extra} size={ButtonSize.Small} >Маленькая кнопка</Button><br />
