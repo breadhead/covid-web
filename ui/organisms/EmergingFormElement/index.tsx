@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import RadioGroup from '@app/ui/molecules/RadioGroup'
+import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import Switch from '@app/ui/molecules/Switch'
 import * as styles from './EmergingFormElement.css'
 
@@ -50,7 +50,7 @@ class EmergingFormElement extends React.Component<Props> {
     case controlTypes.radiogroup:
       return <RadioGroup
           name="controlForEmergingElement"
-          type="bool"
+          type={RadioGroupType.Bool}
           buttons={radioButtons}
           onChange={this.radioGroupChangeHandler}
         />

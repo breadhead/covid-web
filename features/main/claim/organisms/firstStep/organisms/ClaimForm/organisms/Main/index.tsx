@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as styles from '../../ClaimForm.css'
 
 import NavLink from '@app/ui/atoms/NavLink'
-import RadioGroup from '@app/ui/molecules/RadioGroup'
+import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
 
@@ -32,7 +32,7 @@ const Main = () =>
     <p className={styles.label}>Тема вашего вопроса</p>
     <Select options={mockSelectOptions} name="choose_theme" defaultValue="Выберите тему" />
     <p className={styles.label}>У вас есть установленный врачом онкологический диагноз?</p>
-    <RadioGroup name="bool" type="bool" buttons={statementRadioGroup} />
+    <RadioGroup name="bool" type={RadioGroupType.Bool} buttons={statementRadioGroup} />
     <p className={styles.label}>
       Вы консультируетесь по корпоративной программе от своего работодателя?{SPACE}
       <NavLink href="#">

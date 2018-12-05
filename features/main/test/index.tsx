@@ -4,12 +4,12 @@ import { Form as AntForm, TimePicker } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
 import Checkbox from '@app/ui/atoms/Checkbox'
-import NavLink from '@app/ui/atoms/NavLink'
+import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 import RadioButton from '@app/ui/atoms/RadioButton'
-import Button from '@app/ui/molecules/Button'
+import Button, { ButtonKind, ButtonSize } from '@app/ui/molecules/Button'
 import Combobox from '@app/ui/molecules/Combobox'
 import Input from '@app/ui/molecules/Input'
-import RadioGroup from '@app/ui/molecules/RadioGroup'
+import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextArea'
@@ -149,17 +149,19 @@ const Test = () => (
             disabled
             options={testSelectOptions}
             name="selectDis" /> <br />
-          <NavLink type="link" href="#">link</NavLink> <br />
-          <NavLink type="nav" href="#" href="#">navlink</NavLink> <br />
+          <NavLink href="#">link</NavLink> <br />
+          <NavLink type={NavLinkType.Nav} href="#">navlink</NavLink> <br />
           <TimePicker /><br /><br />
           <TextArea name="testTextArea" placeholder="текстарея" /><br />
           <Input name="input" type="text" placeholder="инпут" /><br />
           <Switch name="testSwitch" /><br />
-          <RadioGroup name="bool"
-          type="bool" buttons={testBoolRadioButtons} /><br />
+          <RadioGroup
+            name="bool"
+            type={RadioGroupType.Bool}
+            buttons={testBoolRadioButtons} /><br />
           <RadioGroup
             name="controls"
-            type="controls"
+            type={RadioGroupType.Controls}
             buttons={testControlsRadioButtons}
             defaultValue={testControlsRadioButtons[1].value}
           /><br />
@@ -170,23 +172,23 @@ const Test = () => (
             радиокнопка2
           </RadioButton><br />
           {/* buttons */}
-          <Button size="xl" type="button">Огромная кнопка</Button><br />
-          <Button size="l" type="button">Большая кнопка</Button><br />
-          <Button type="button">Средняя кнопка</Button><br />
-          <Button size="s" type="button">Маленькая кнопка</Button><br />
-          <Button disabled size="s" type="button">Маленькая кнопка</Button><br />
+          <Button size={ButtonSize.ExtraLarge}>Огромная кнопка</Button><br />
+          <Button size={ButtonSize.Large} >Большая кнопка</Button><br />
+          <Button>Средняя кнопка</Button><br />
+          <Button size={ButtonSize.Small} >Маленькая кнопка</Button><br />
+          <Button disabled size={ButtonSize.Small} >Маленькая кнопка</Button><br />
 
-          <Button kind="secondary" size="xl" type="button">Огромная кнопка</Button><br />
-          <Button kind="secondary" size="l" type="button">Большая кнопка</Button><br />
-          <Button kind="secondary" type="button">Средняя кнопка</Button><br />
-          <Button kind="secondary" size="s" type="button">Маленькая кнопка</Button><br />
-          <Button kind="secondary" disabled size="s" type="button">Маленькая кнопка</Button><br />
+          <Button kind={ButtonKind.Secondary} size={ButtonSize.ExtraLarge} >Огромная кнопка</Button><br />
+          <Button kind={ButtonKind.Secondary} size={ButtonSize.Large} >Большая кнопка</Button><br />
+          <Button kind={ButtonKind.Secondary} >Средняя кнопка</Button><br />
+          <Button kind={ButtonKind.Secondary} size={ButtonSize.Small} >Маленькая кнопка</Button><br />
+          <Button kind={ButtonKind.Secondary} disabled size={ButtonSize.Small} >Маленькая кнопка</Button><br />
 
-          <Button kind="extra" size="xl" type="button">Огромная кнопка</Button><br />
-          <Button kind="extra" size="l" type="button">Большая кнопка</Button><br />
-          <Button kind="extra" type="button">Средняя кнопка</Button><br />
-          <Button kind="extra" size="s" type="button">Маленькая кнопка</Button><br />
-          <Button kind="extra" disabled size="s" type="button">Маленькая кнопка</Button><br />
+          <Button kind={ButtonKind.Extra} size={ButtonSize.ExtraLarge} >Огромная кнопка</Button><br />
+          <Button kind={ButtonKind.Extra} size={ButtonSize.Large} >Большая кнопка</Button><br />
+          <Button kind={ButtonKind.Extra} >Средняя кнопка</Button><br />
+          <Button kind={ButtonKind.Extra} size={ButtonSize.Small} >Маленькая кнопка</Button><br />
+          <Button kind={ButtonKind.Extra} disabled size={ButtonSize.Small} >Маленькая кнопка</Button><br />
         </AntForm>
       )}
 
