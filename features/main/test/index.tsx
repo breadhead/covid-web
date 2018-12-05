@@ -1,7 +1,11 @@
 import * as React from 'react'
 
+import { actions as modalActions } from '@app/features/common/modal'
+import { ModalState } from '@app/features/common/modal'
 import { Form as AntForm, TimePicker } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
+import { connect } from 'react-redux'
+import { AnyAction, Dispatch } from 'redux'
 
 import Checkbox from '@app/ui/atoms/Checkbox'
 import NavLink from '@app/ui/atoms/NavLink'
@@ -106,7 +110,7 @@ const testComboOptions = [
   },
 ]
 
-const Test = () => (
+const Test = ({openPopup, closePopup}) => (
   <main
     style={{ margin: '0 auto', maxWidth: '800px' }}
   >
@@ -115,6 +119,8 @@ const Test = () => (
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
+          <button onClick={openPopup}>login popup</button>
+          <button onClick={closePopup}>close popup</button>
           <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
           <Checkbox name="checkbox" defaultChecked>Чекбокс с лейблом</Checkbox>
           <Checkbox name="checkbox" disabled>Чекбокс с лейблом</Checkbox>
@@ -194,4 +200,9 @@ const Test = () => (
   </main>
 )
 
-export default Test
+const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
+  openPopup: () => dispatch(modalActions.open(ModalState.mainLogin)),
+  closePopup: () => dispatch(modalActions.close()),
+})
+
+export default connect(null, mapDispatch)(Test)
