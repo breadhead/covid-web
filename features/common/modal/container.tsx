@@ -33,7 +33,7 @@ class Modal extends React.Component<Props> {
   public render() {
     const { modal, close } = this.props
 
-    const ModalComponent = this.getModalComponent()
+    const ModalComponent = this.getModalComponent(modal)
 
     return (
       <ReactModal
@@ -60,9 +60,7 @@ class Modal extends React.Component<Props> {
     }
   }
 
-  private getModalComponent = () => {
-    const { modal } = this.props
-
+  private getModalComponent = (modal: string) => {
     const SpecificModal = ModalDispatcher.getInstance().components[modal]
 
     return SpecificModal
