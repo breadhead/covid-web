@@ -1,7 +1,7 @@
 import { SmsConfirmModal } from '@app/features/login'
 
 const modals = [
-  () => SmsConfirmModal,
+  SmsConfirmModal,
 ]
 
-export default () => modals.every(() => false)
+export default () => modals

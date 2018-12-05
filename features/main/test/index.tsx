@@ -17,6 +17,7 @@ import TextArea from '@app/ui/molecules/TextArea'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
 
 import Uploader from '@app/features/common/uploader'
+import { SMS_CONFIRM_MODAL } from '@app/features/login'
 
 const testBoolRadioButtons = [
   {
@@ -122,9 +123,9 @@ const Test = ({ modal }: WithModalProps) => (
       render={() => (
         <AntForm>
           <p>Модалка с подтверждением смс</p>
-          <button onClick={() => modal.open('sms-confirm')}>SMS popup</button>
+          <button onClick={() => modal.open(SMS_CONFIRM_MODAL)}>SMS popup</button>
 
-          <button onClick={() => modal.open('sms-confirm')}>login popup</button>
+          <button onClick={() => modal.open(SMS_CONFIRM_MODAL)}>login popup</button>
           <button onClick={modal.close}>close popup</button>
           <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
           <Checkbox name="checkbox" defaultChecked>Чекбокс с лейблом</Checkbox>
