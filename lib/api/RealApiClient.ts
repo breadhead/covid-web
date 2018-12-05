@@ -77,5 +77,4 @@ export default class RealApiClient implements ApiClient {
 
     return response.data as UploadedFile
   }
->>>>>>> origin/master
 }
