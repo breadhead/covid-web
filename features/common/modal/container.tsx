@@ -4,8 +4,10 @@ import ReactModal from 'react-modal'
 import { connect } from 'react-redux'
 import { Action, AnyAction, Dispatch } from 'redux'
 import { shouldOpenModal } from './helpers/shouldModalOpen'
+import styles from './index.css'
 import MainLogin from './modals/MainLogin'
 import MainSignUp from './modals/MainSignUp'
+import Layout from './organisms/Layout'
 import { ModalState } from './reducer'
 import { actions } from './reducer'
 import { getModal } from './selectors'
@@ -23,16 +25,16 @@ const modalsMap: ModalsMap = {
   adminSignUp: null,
   empty: null,
 }
-
-const Modal = ({ modal, close }: Props) => {
-  return <ReactModal
-    shouldCloseOnOverlayClick
-    isOpen={shouldOpenModal(modal)}
-    onRequestClose={close}
-  >
+const Modal = ({ modal, close }: Props) => <ReactModal
+  shouldCloseOnOverlayClick
+  className={styles.Modal}
+  isOpen={shouldOpenModal(modal)}
+  onRequestClose={close}
+>
+  <Layout closePopup={close}>
     {modalsMap[modal]}
-  </ReactModal>
-}
+  </Layout>
+</ReactModal>
 
 const mapState = (state: State) => ({
   modal: getModal(state),
