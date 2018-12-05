@@ -59,8 +59,9 @@ export default class RealApiClient implements ApiClient {
     this._token = newToken
   }
 
-  public sendSms = (telNumber: string) => this.axiosInstance
-    .post('/verification/send', number)
+  public sendSms = (telNumber: {number: string}) => this.axiosInstance
+    .post('/verification/send', telNumber)
+    .then((response) => response.data)
     // TODO: add sms sending functional
 
   public verificateSms = (code: string) => this.axiosInstance
