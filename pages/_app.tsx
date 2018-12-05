@@ -1,7 +1,7 @@
-// import 'antd/dist/antd.css?CSSModulesDisable'
 import AdminLayout from '@app/features/admin/layout'
-import { authViolateStatus } from '@app/features/admin/login'
 import { getViolateState } from '@app/features/admin/login'
+import { authViolateStatus } from '@app/features/admin/login'
+import Modal from '@app/features/common/modal'
 import ApiClientFactory from '@app/lib/api/ApiClientFactory'
 import withReduxStore, { Store } from '@app/lib/with-redux-store'
 import '@app/ui/antd-styles.less'
@@ -58,12 +58,15 @@ class OncohelpWeb extends App<Props> {
     return !authViolate && (
       <Container>
         <Provider store={reduxStore}>
-          {route.startsWith('/admin') ?
-            <AdminLayout {...pageProps}>
+          <div>
+            {route.startsWith('/admin') ?
+              <AdminLayout {...pageProps}>
+                <Component {...pageProps} />
+              </AdminLayout> :
               <Component {...pageProps} />
-            </AdminLayout> :
-            <Component {...pageProps} />
-          }
+            }
+            <Modal />
+          </div>
         </Provider>
       </Container>
     )
