@@ -1,5 +1,5 @@
-import withLockScroll from '@app/features/common/lockScroll'
 import { State } from '@app/lib/store'
+import withLockScroll from '@breadhead/with-scroll-lock'
 import * as React from 'react'
 import ReactModal from 'react-modal'
 import { connect } from 'react-redux'
