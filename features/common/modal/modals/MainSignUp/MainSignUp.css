@@ -1,0 +1,32 @@
+.popup {
+  width: 100%;
+  height: 100%;
+  padding: 0 24px;
+  background-color: #fff;
+  border: none;
+}
+
+.title {
+  margin: 0 0 8px 0;
+  font: var(--title-medium);
+}
+
+.secondaryText {
+  margin-bottom: 24px;
+  font: var(--text14-20);
+  color: #82839B;
+}
+
+.link.link {
+  font: var(--text14-20);
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font: var(--text16-24);
+}
+
+.input {
+  margin-bottom: 8px;
+}
