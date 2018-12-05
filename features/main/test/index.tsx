@@ -1,13 +1,11 @@
 import * as React from 'react'
 
-import { actions as modalActions } from '@app/features/common/modal'
+import { withModal, WithModalProps } from '@app/features/common/modal'
 import { ModalState } from '@app/features/common/modal'
 import { Form as AntForm, TimePicker } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
-import { connect } from 'react-redux'
-import { AnyAction, Dispatch } from 'redux'
 
-import ModalSmsConfirm from '@app/features/login/ModalSmsConfirm'
+import { SmsConfirmModal } from '@app/features/login'
 import Checkbox from '@app/ui/atoms/Checkbox'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 import RadioButton from '@app/ui/atoms/RadioButton'
@@ -113,7 +111,7 @@ const testComboOptions = [
   },
 ]
 
-const Test = ({openPopup, closePopup}) => (
+const Test = ({ modal }: WithModalProps) => (
   <main
     style={{ margin: '0 auto', maxWidth: '800px' }}
   >
@@ -126,10 +124,10 @@ const Test = ({openPopup, closePopup}) => (
       render={() => (
         <AntForm>
           <p>Модалка с подтверждением смс</p>
-          <ModalSmsConfirm />
+          <button onClick={() => modal.open(ModalState.mainSMS)}>SMS popup</button>
 
-          <button onClick={openPopup}>login popup</button>
-          <button onClick={closePopup}>close popup</button>
+          <button onClick={() => modal.open(ModalState.adminLogin)}>login popup</button>
+          <button onClick={modal.close}>close popup</button>
           <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
           <Checkbox name="checkbox" defaultChecked>Чекбокс с лейблом</Checkbox>
           <Checkbox name="checkbox" disabled>Чекбокс с лейблом</Checkbox>
@@ -211,9 +209,4 @@ const Test = ({openPopup, closePopup}) => (
   </main>
 )
 
-const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
-  openPopup: () => dispatch(modalActions.open(ModalState.mainLogin)),
-  closePopup: () => dispatch(modalActions.close()),
-})
-
-export default connect(null, mapDispatch)(Test)
+export default withModal(Test)

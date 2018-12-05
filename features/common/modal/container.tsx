@@ -1,3 +1,4 @@
+import { SmsConfirmModal } from '@app/features/login'
 import { State } from '@app/lib/store'
 import withLockScroll from '@breadhead/with-scroll-lock'
 import * as React from 'react'
@@ -26,7 +27,7 @@ type ModalsMap = { [key in keyof typeof ModalState]: (() => JSX.Element) | null 
 const modalsMap: ModalsMap = {
   mainSignUp: MainSignUp,
   mainLogin: MainLogin,
-  mainSMS: null,
+  [ModalState.mainSMS]: SmsConfirmModal,
   adminLogin: null,
   adminSignUp: null,
   empty: null,
@@ -42,6 +43,7 @@ class Modal extends React.Component<Props> {
 
   public render() {
     const { modal, close } = this.props
+    console.log(modal)
     return <ReactModal
       shouldCloseOnOverlayClick
       className={styles.Modal}
