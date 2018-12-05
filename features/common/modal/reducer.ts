@@ -5,6 +5,7 @@ export enum ModalState {
   mainLogin = 'mainLogin',
   mainSignUp = 'mainSignUp',
   mainSMS = 'mainSMS',
+  adminSignUp = 'adminSignUp',
   adminLogin = 'adminLogin',
   empty = '',
 }

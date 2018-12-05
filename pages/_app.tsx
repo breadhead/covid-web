@@ -1,4 +1,3 @@
-// import 'antd/dist/antd.css?CSSModulesDisable'
 import AdminLayout from '@app/features/admin/layout'
 import { getViolateState } from '@app/features/admin/login'
 import { authViolateStatus } from '@app/features/admin/login'

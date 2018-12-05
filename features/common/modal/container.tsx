@@ -20,9 +20,9 @@ interface Props {
   bodyScrolling: { lock: () => void, unlock: () => void }
 }
 
-interface ModalsMap {
-  [key: string]: (() => JSX.Element) | null, // как сюда запихнуть енам?
-}
+type ModalsMap = { [key in keyof typeof ModalState]: (() => JSX.Element) | null }
+
+// TODO: place real modals here
 const modalsMap: ModalsMap = {
   mainSignUp: MainSignUp,
   mainLogin: MainLogin,
