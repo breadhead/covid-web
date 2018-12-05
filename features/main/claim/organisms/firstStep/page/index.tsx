@@ -5,13 +5,13 @@ import ClaimForm from '../organisms/ClaimForm'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 
-import Footer from '@app/features/main/layout/organisms/Footer'
-import Header from '@app/features/main/layout/organisms/Header'
+import Footer, { FooterType } from '@app/features/main/layout/organisms/Footer'
+import Header, { HeaderType } from '@app/features/main/layout/organisms/Header'
 
 const ClaimPage = () => {
   return (
     <React.Fragment>
-      <Header type="secondary" />
+      <Header type={HeaderType.Secondary} />
       <main className={styles.claimPage}>
         <h1 className={styles.title}>Заполните заявку</h1>
         <p className={styles.infoText}>
@@ -19,7 +19,7 @@ const ClaimPage = () => {
         </p>
         <ClaimForm />
       </main>
-      <Footer type="secondary" />
+      <Footer type={FooterType.Secondary} />
     </React.Fragment>
   )
 }

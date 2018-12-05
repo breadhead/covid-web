@@ -30,7 +30,6 @@ interface Props {
 }
 
 const RadioGroup = (props: Props) => {
-
   const {
     name, type, buttons, defaultValue, className, onChange,
   } = props
