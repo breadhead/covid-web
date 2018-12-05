@@ -110,7 +110,12 @@ const testComboOptions = [
   },
 ]
 
-const Test = ({openPopup, closePopup}) => (
+interface Props {
+  openPopup: () => void,
+  closePopup: () => void,
+}
+
+const Test = ({openPopup, closePopup}: Props) => (
   <main
     style={{ margin: '0 auto', maxWidth: '800px' }}
   >

@@ -20,12 +20,12 @@ interface Props {
   bodyScrolling: { lock: () => void, unlock: () => void }
 }
 
-type ModalsMap = { [key in keyof typeof ModalState]: (() => JSX.Element) | null }
+type ModalsMap = { [key in keyof typeof ModalState]: JSX.Element | null }
 
 // TODO: place real modals here
 const modalsMap: ModalsMap = {
-  mainSignUp: MainSignUp,
-  mainLogin: MainLogin,
+  mainSignUp: <MainSignUp />,
+  mainLogin: <MainLogin />,
   mainSMS: null,
   adminLogin: null,
   adminSignUp: null,
@@ -42,14 +42,18 @@ class Modal extends React.Component<Props> {
 
   public render() {
     const { modal, close } = this.props
+
+    const currentModal = modalsMap[modal]
+
     return <ReactModal
       shouldCloseOnOverlayClick
       className={styles.Modal}
       isOpen={shouldOpenModal(modal)}
       onRequestClose={close}
+      ariaHideApp={false}
     >
       <Layout closePopup={close}>
-        {modalsMap[modal]}
+        {currentModal}
       </Layout>
     </ReactModal>
   }
