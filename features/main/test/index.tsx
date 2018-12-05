@@ -14,7 +14,7 @@ import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextArea'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
-import ModalSmsConfirm from '@app/ui/organisms/ModalSmsConfirm'
+import ModalSmsConfirm from '@app/ui/organisms/ModalSmsConfirm/Container'
 
 const testBoolRadioButtons = [
   {
