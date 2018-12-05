@@ -815,6 +815,13 @@
   resolved "https://registry.yarnpkg.com/@breadhead/thunk-error/-/thunk-error-1.0.2.tgz#a736dc509faafb12bafb4e1897afb98309edb499"
   integrity sha512-/7KgDWV61hV2j7Yfl6Ad0mPwb/vXK8JC0/zrfs7Ml8E+1chxTQZKBq+j5udwNS3ihe7+iNXc59PvKmZ7y9VxAg==
 
+"@breadhead/with-scroll-lock@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@breadhead/with-scroll-lock/-/with-scroll-lock-1.0.0.tgz#30a26b202077b6ee54bd2ff62bbd51c072d480c9"
+  integrity sha512-zCRRCLhb776x5Envb7j0qMJC5aUEqh7dIUGCcXqI3biHMns9o/8Yo+eouMzOoNuGhodgfR1RT/eAZyKPbRKm1Q==
+  dependencies:
+    body-scroll-lock "^2.6.1"
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -935,6 +942,13 @@
   dependencies:
     "@types/react" "*"
     "@types/webpack" "*"
+
+"@types/react-modal@^3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@types/react-modal/-/react-modal-3.6.0.tgz#57e7c74f2b39b1a90116bdb30aeaac89e5e1866a"
+  integrity sha512-GBj80Nff06tNJhg1t+PGIINUVC5566La7GYIFuUJSZTI9EmEg88oillz7m5BEVp/DUqvMP0PIG5jeDemJuFA0w==
+  dependencies:
+    "@types/react" "*"
 
 "@types/react-redux@^6.0.9":
   version "6.0.9"
@@ -1899,6 +1913,11 @@ body-parser@1.18.3:
     qs "6.5.2"
     raw-body "2.3.3"
     type-is "~1.6.16"
+
+body-scroll-lock@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/body-scroll-lock/-/body-scroll-lock-2.6.1.tgz#3782ff37404886faaee366968ceee40c3964d8f2"
+  integrity sha512-fsDsq10+BJrk/+eGADqxspyZpGiKSh3dK8ByE6KuDK0REmPB99U05p1t9xVTAM9J6j9PJGm6W/W+HsCPnOFj+Q==
 
 boolbase@~1.0.0:
   version "1.0.0"
@@ -3344,6 +3363,11 @@ execall@^1.0.0:
   integrity sha1-c9CQTjlbPKsGWLCNCewlMH8pu3M=
   dependencies:
     clone-regexp "^1.0.0"
+
+exenv@^1.2.0:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
+  integrity sha1-KueOhdmJQVhnCwPUe+wfA72Ru50=
 
 exit@^0.1.2:
   version "0.1.2"
@@ -8084,6 +8108,16 @@ react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.2, react-lifecycles
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-modal@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.6.1.tgz#54d27a1ec2b493bbc451c7efaa3557b6af82332d"
+  integrity sha512-vAhnawahH1fz8A5x/X/1X20KHMe6Q0mkfU5BKPgKSVPYhMhsxtRbNHSitsoJ7/oP27xZo3naZZlwYuuzuSO1xw==
+  dependencies:
+    exenv "^1.2.0"
+    prop-types "^15.5.10"
+    react-lifecycles-compat "^3.0.0"
+    warning "^3.0.0"
 
 react-redux@^5.1.0:
   version "5.1.0"
