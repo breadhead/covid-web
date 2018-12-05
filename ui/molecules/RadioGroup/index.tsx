@@ -6,8 +6,8 @@ import { Form as AntForm } from 'antd'
 import { Field as FinalField } from 'react-final-form'
 
 import { RadioChangeEvent } from 'antd/lib/radio'
-import Bool from './organisms/Bool'
-import Controls from './organisms/Controls'
+import Bool from './Bool'
+import Controls from './Controls'
 
 const FormItem = AntForm.Item
 
