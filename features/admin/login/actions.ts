@@ -12,15 +12,18 @@ export const login = (username: string, password: string) => async (
 
   try {
     dispatch(actions.request())
-    const { token } = await api.login(username, password)
+    const { token, roles } = await api.login(username, password)
     setAuthToken(token, api)
-    Router
-    .push('/admin/quotas')
+
+    if (roles.includes('admin')) {
+      Router.push('/admin/quotas')
+    } else if (roles.includes('client')) {
+      Router.push('/client')
+    }
 
     return dispatch(actions.success(token))
   } catch (error) {
     dispatch(actions.error(error.message))
     throw error
   }
-
 }
