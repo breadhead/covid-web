@@ -8,6 +8,13 @@ export interface User {
   roles: string[]
 }
 
+export enum Role {
+  Client = 'client',
+  CaseManager = 'case-manager',
+  Doctor = 'doctor',
+  Admin = 'admin',
+}
+
 export default interface ApiClient {
   token: string
   fileUploader: FileUploader
