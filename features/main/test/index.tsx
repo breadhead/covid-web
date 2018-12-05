@@ -3,6 +3,7 @@ import * as React from 'react'
 import { Form as AntForm, TimePicker } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
+import ModalSmsConfirm from '@app/features/login/ModalSmsConfirm'
 import Checkbox from '@app/ui/atoms/Checkbox'
 import NavLink from '@app/ui/atoms/NavLink'
 import RadioButton from '@app/ui/atoms/RadioButton'
@@ -14,7 +15,6 @@ import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextArea'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
-import ModalSmsConfirm from '@app/ui/organisms/ModalSmsConfirm/Container'
 
 const testBoolRadioButtons = [
   {

@@ -1,9 +1,10 @@
 import { Form, Icon, Modal } from 'antd'
 import React, { Component } from 'react'
+import { Field as FinalField, Form as FinalForm } from 'react-final-form'
 
 import Button from '@app/ui/molecules/Button'
 import Input from '@app/ui/molecules/Input'
-import * as styles from './Styles.css'
+import * as styles from './Modal.css'
 
 const confirm = Modal.confirm
 
@@ -16,7 +17,7 @@ const ModalSmsConfirm = ({
   isVisible,
   isCodeSent,
   showModal,
-  handleSubmit,
+  onFormSubmit,
   sendSms,
   validateSmsCode,
   handleCancel,
@@ -29,7 +30,7 @@ const ModalSmsConfirm = ({
       <Modal
         visible={isVisible}
         onCancel={handleCancel}
-        bodyStyle={{padding: '40px'}}
+        bodyStyle={{ padding: '40px' }}
         footer={null}
         width={400}
         closable
@@ -42,31 +43,36 @@ const ModalSmsConfirm = ({
             условиями обработки личных данных
           </a>
         </p>
-        <Form onSubmit={handleSubmit}>
-          <Input
-            name="telephone"
-            type="tel"
-            label="Номер вашего телефона"
-            // TODO: fix default value attribute when the input component will be replaced for new one
-            defaultValue="+7"
-            required
-          />
-          <div className={styles.blockGettingCode}>
-            <Button htmlType="submit">Получить код</Button>
-            <p className={styles.messageCodeSent} hidden={!isCodeSent}>
-              <Icon type="check-circle" style={IconMessageCodeSentStyles} />
-              &nbsp;
-              Код отправлен
-            </p>
-          </div>
-        </Form>
+        <FinalForm
+          onSubmit={onFormSubmit}
+          render={(props) => (
+            <Form onSubmit={props.handleSubmit}>
+              <Input
+                name="number"
+                type="tel"
+                label="Номер вашего телефона"
+                // TODO: fix default value attribute when the input component will be replaced for new one
+                defaultValue="+7"
+                required
+              />
+              <div className={styles.blockGettingCode}>
+                <Button htmlType="submit">Получить код</Button>
+                <p className={styles.messageCodeSent} hidden={!isCodeSent}>
+                  <Icon type="check-circle" style={IconMessageCodeSentStyles} />
+                  &nbsp;
+                  Код отправлен
+              </p>
+              </div>
+            </Form>
+          )}
+        />
         <Input
           name="sms code"
           type="number"
           label="Код из СМС"
           onChange={validateSmsCode}
           addonAfter={
-            <Icon type="check" style={IconMessageCodeSentStyles}/>
+            <Icon type="check" style={IconMessageCodeSentStyles} />
           }
           maxLength="6"
           required
