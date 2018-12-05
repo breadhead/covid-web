@@ -1,11 +1,9 @@
 import * as React from 'react'
 
 import { withModal, WithModalProps } from '@app/features/common/modal'
-import { ModalState } from '@app/features/common/modal'
 import { Form as AntForm, TimePicker } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
-import { SmsConfirmModal } from '@app/features/login'
 import Checkbox from '@app/ui/atoms/Checkbox'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 import RadioButton from '@app/ui/atoms/RadioButton'
@@ -124,9 +122,9 @@ const Test = ({ modal }: WithModalProps) => (
       render={() => (
         <AntForm>
           <p>Модалка с подтверждением смс</p>
-          <button onClick={() => modal.open(ModalState.mainSMS)}>SMS popup</button>
+          <button onClick={() => modal.open('sms-confirm')}>SMS popup</button>
 
-          <button onClick={() => modal.open(ModalState.adminLogin)}>login popup</button>
+          <button onClick={() => modal.open('sms-confirm')}>login popup</button>
           <button onClick={modal.close}>close popup</button>
           <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
           <Checkbox name="checkbox" defaultChecked>Чекбокс с лейблом</Checkbox>

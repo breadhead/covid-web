@@ -1,45 +1,26 @@
 import * as React from 'react'
 import ReactModal from 'react-modal'
-import { connect, Matching } from 'react-redux'
+import { connect } from 'react-redux'
 import { compose } from 'recompose'
 import { Action, AnyAction, Dispatch } from 'redux'
 
-import { SmsConfirmModal } from '@app/features/login'
 import { State } from '@app/lib/store'
 import withLockScroll from '@breadhead/with-scroll-lock'
 
 import { shouldOpenModal } from './helpers/shouldModalOpen'
 import styles from './index.css'
-import MainLogin from './modals/MainLogin'
-import MainSignUp from './modals/MainSignUp'
+import ModalDispatcher from './ModalDispatcher'
 import Layout from './organisms/Layout'
-import { ModalState } from './reducer'
 import { actions } from './reducer'
 import { getModal } from './selectors'
-import withModal, { WithModalProps } from './withModal'
+import withModal from './withModal'
 
 interface Props {
-  modal: ModalState,
+  modal: string,
   close: () => Action,
   bodyScrolling: { lock: () => void, unlock: () => void }
 }
 
-type ModalComponentType = React.ComponentType<Matching<WithModalProps, WithModalProps>>
-  | React.StatelessComponent<WithModalProps>
-
-type ModalsMap = {
-  [key in keyof typeof ModalState]: ModalComponentType | null
-}
-
-// TODO: place real modals here
-const modalsMap: ModalsMap = {
-  [ModalState.mainSignUp]: MainSignUp,
-  [ModalState.mainLogin]: MainLogin,
-  [ModalState.mainSMS]: SmsConfirmModal,
-  [ModalState.adminLogin]: null,
-  [ModalState.adminSignUp]: null,
-  [ModalState.empty]: null,
-}
 class Modal extends React.Component<Props> {
 
   public componentDidUpdate({ modal: prevModal }: Props) {
@@ -52,11 +33,7 @@ class Modal extends React.Component<Props> {
   public render() {
     const { modal, close } = this.props
 
-    const SpecificModal = modalsMap[modal]
-
-    const ModalComponent = SpecificModal
-      ? withModal(SpecificModal)
-      : null
+    const ModalComponent = this.getModalComponent()
 
     return (
       <ReactModal
@@ -72,7 +49,7 @@ class Modal extends React.Component<Props> {
     )
   }
 
-  private handleScrollLock = (modal: ModalState) => {
+  private handleScrollLock = (modal: string) => {
     const { bodyScrolling } = this.props
     const { lock, unlock } = bodyScrolling
 
@@ -81,6 +58,16 @@ class Modal extends React.Component<Props> {
     } else {
       unlock()
     }
+  }
+
+  private getModalComponent = () => {
+    const { modal } = this.props
+
+    const SpecificModal = ModalDispatcher.getInstance().components[modal]
+
+    return SpecificModal
+      ? withModal(SpecificModal)
+      : null
   }
 }
 
@@ -92,7 +79,7 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   close: () => dispatch(actions.close()),
 })
 
-const hoc = compose(
+const hoc = compose<Props, {}>(
   connect(mapState, mapDispatch),
   withLockScroll(true),
 )

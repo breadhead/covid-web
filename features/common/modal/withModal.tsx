@@ -1,18 +1,18 @@
 import { connect } from 'react-redux'
 import { AnyAction, Dispatch } from 'redux'
 
-import { actions, ModalState } from './reducer'
+import { actions } from './reducer'
 
 export interface WithModalProps {
   modal: {
-    open: (modal: ModalState) => void,
+    open: (modal: string) => void,
     close: () => void,
   }
 }
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   modal: {
-    open: (modal: ModalState) => dispatch(actions.open(modal)),
+    open: (modal: string) => dispatch(actions.open(modal)),
     close: () => dispatch(actions.close()),
   },
 } as WithModalProps)
