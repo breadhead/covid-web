@@ -12,21 +12,26 @@ import Form from '@app/ui/molecules/Form'
 import FormButton from '@app/ui/molecules/FormButton'
 import FormInput from '@app/ui/molecules/FormInput'
 
-const SignIn = () =>
+interface Props {
+  onFormSubmit: () => Promise<any>,
+  error: boolean | string
+}
+
+const SignIn = ({ onFormSubmit }: Props) =>
   <article className={styles.popup}>
     <h1 className={styles.title}>Войти</h1>
     <p className={styles.secondaryText}>Ещё нет аккаунта?{SPACE}
       <NavLink className={styles.link}>Зарегистрироваться</NavLink>
     </p>
     <FinalForm
-      onSubmit={() => undefined}
+      onSubmit={onFormSubmit}
       render={(props) => (
         <Form {...props}>
-          <label htmlFor="email" className={styles.label}>Логин (email)</label>
-          <FormInput className={styles.input} name="email" type={InputType.Email} />
-          <label htmlFor="password" className={styles.label}>Пароль</label>
-          <FormInput className={styles.input} name="password" type={InputType.Password} />
+          <FormInput className={styles.input} name="login" label={'Логин (email)'} type={InputType.Email} />
+          <FormInput className={styles.input} name="password" label={'Пароль'} type={InputType.Password} />
+
           <NavLink className={styles.link}>Забыли пароль?</NavLink>
+
           <FormButton type={ButtonType.Submit} className={styles.mainButton}>Войти</FormButton>
           <FormButton className={styles.socialButton}>Войти через соцсети</FormButton>
         </Form>
@@ -36,7 +41,7 @@ const SignIn = () =>
       <p>
         Если у вас есть аккаунт на <b>nenaprasno.ru</b>, вы{NON_BREAKING_SPACE}можете{SPACE}
         <NavLink className={styles.link}>войти</NavLink>, используя те же данные
-    </p>
+      </p>
     </footer>
   </article >
 

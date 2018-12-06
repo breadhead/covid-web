@@ -11,6 +11,8 @@ export {
 export {
   default as SignInModal,
   MODAL_KEY as SIGN_IN_MODAL,
+  unauthorizedMiddleware,
+  authViolateStatus, getViolateState,
 } from './features/signIn'
 
 export {

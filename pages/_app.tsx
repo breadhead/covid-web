@@ -1,7 +1,6 @@
 import AdminLayout from '@app/features/admin/layout'
-import { getViolateState } from '@app/features/admin/login'
-import { authViolateStatus } from '@app/features/admin/login'
 import Modal from '@app/features/common/modal'
+import { authViolateStatus, getViolateState } from '@app/features/login'
 import ApiClientFactory from '@app/lib/api/ApiClientFactory'
 import withReduxStore, { Store } from '@app/lib/with-redux-store'
 import '@app/ui/antd-styles.less'
