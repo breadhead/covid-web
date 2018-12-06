@@ -4,6 +4,8 @@ import { Field as FinalField } from 'react-final-form'
 
 import Input, { Props as InputProps } from '@app/ui/atoms/Input'
 
+import './FormInput.css?CSSModulesDisable'
+
 const FormInput = ({
   name,
   type,

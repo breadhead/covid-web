@@ -7,18 +7,19 @@ import SmsCode from '../../molecules/SmsCode'
 
 export interface Props {
   sendSmsCode: (phone: string) => Promise<void>
+  validateSmsCode: (code: string) => Promise<void>
   smsSendSuccess: boolean
+  validationSuccess: boolean
 }
 
-const ModalSmsConfirm = ({ smsSendSuccess, sendSmsCode }: Props) => {
+const ModalSmsConfirm = ({ smsSendSuccess, sendSmsCode, validationSuccess, validateSmsCode }: Props) => {
   return (
     <>
       <Title />
       <Conditions />
 
       <SendSms success={smsSendSuccess} send={sendSmsCode} />
-
-      <SmsCode />
+      <SmsCode valid={validationSuccess} validate={validateSmsCode} />
     </>
   )
 }

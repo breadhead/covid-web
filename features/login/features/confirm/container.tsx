@@ -6,25 +6,29 @@ import { AnyAction, Dispatch } from 'redux'
 import { isModal } from '@app/features/common/modal'
 import { State } from '@app/lib/store'
 
-import { sendSms } from './actions'
+import { sendSms, validateCode } from './actions'
 import { Props as WrappedProps } from './organisms/Modal'
-import { getSendSuccess } from './selectors'
+import { getCodeValid, getSendSuccess } from './selectors'
 
 export const MODAL_KEY = 'sms-confirm'
 
 interface Props {
   sendSmsCode: (phone: string) => Promise<void>
+  validateSmsCode: (code: string) => Promise<void>
   smsSendSuccess: boolean
+  codeValid: boolean
 }
 
 const Container = (WrappedComponent: ComponentType<WrappedProps>) =>
   class extends React.Component<Props> {
     public render() {
-      const { sendSmsCode, smsSendSuccess } = this.props
+      const { sendSmsCode, smsSendSuccess, codeValid, validateSmsCode } = this.props
 
       const childProps: WrappedProps = {
         sendSmsCode,
         smsSendSuccess,
+        validateSmsCode,
+        validationSuccess: smsSendSuccess && codeValid,
       }
 
       return (
@@ -35,10 +39,12 @@ const Container = (WrappedComponent: ComponentType<WrappedProps>) =>
 
 const mapState = (state: State) => ({
   smsSendSuccess: getSendSuccess(state),
+  codeValid: getCodeValid(state),
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   sendSmsCode: (phone: string) => dispatch(sendSms(phone) as any),
+  validateSmsCode: (code: string) => dispatch(validateCode(code) as any),
 })
 
 export default compose<WrappedProps, {}>(

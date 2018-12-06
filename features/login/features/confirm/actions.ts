@@ -20,3 +20,21 @@ export const sendSms = (phone: string) => async (
     throw error
   }
 }
+
+export const validateCode = (code: string) => async (
+  dispatch: Dispatch<any>,
+  _: () => State,
+  { api }: ExtraArgs,
+) => {
+  dispatch(actions.validateCode.request())
+
+  try {
+    const valid = await api.verificateSms(code)
+
+    dispatch(actions.validateCode.success(valid))
+  } catch (error) {
+    dispatch(actions.validateCode.success(false))
+    dispatch(actions.validateCode.error(error))
+    throw error
+  }
+}
