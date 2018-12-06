@@ -24,7 +24,7 @@ const FormButton = ({
         help={meta.submitError}
       >
         {label && <label>{label}</label>}
-        <Button type={type} {...rest} {...input} />
+        <Button type={type} {...rest} {...input}>{children}</Button>
       </AntForm.Item>
     )}
   </FinalField>
