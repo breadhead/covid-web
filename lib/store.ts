@@ -2,9 +2,10 @@ import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
+// TODO: move to real admin feature
 import {
-  reducer as loginReducer,
-  State as LoginState,
+//   reducer as loginReducer,
+//   State as LoginState,
   unauthorizedMiddleware,
 } from '@app/features/admin/login'
 
@@ -38,6 +39,11 @@ import {
   State as ModalState,
 } from '@app/features/common/modal'
 
+import {
+  reducer as loginReducer,
+  State as LoginState,
+} from '@app/features/login'
+
 import ApiClient from './api/ApiClient'
 import ApiClientFactory from './api/ApiClientFactory'
 
@@ -59,7 +65,7 @@ const reducer = combineReducers({
   transfer: transferReducer,
   history: historyReducer,
   modal: modalReducer,
-})
+} as any)
 
 export interface ExtraArgs {
   api: ApiClient
