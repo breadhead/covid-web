@@ -1,4 +1,5 @@
 import { Form as AntForm, Input as AntInput } from 'antd'
+import { InputProps } from 'antd/lib/input'
 import * as React from 'react'
 import { Field as FinalField } from 'react-final-form'
 import './Input.css?CSSModulesDisable'
@@ -25,7 +26,7 @@ const Input = ({
   defaultValue,
   onChange,
   ...rest
-}: Props) =>
+}: Props & InputProps) =>
   <FinalField className={className} name={name} type={type}>
     {({ input, meta }) => (
       <FormItem
