@@ -5,6 +5,8 @@ import Title from '../../atoms/Title'
 import SendSms from '../../molecules/SendSms'
 import SmsCode from '../../molecules/SmsCode'
 
+import * as styles from './Modal.css'
+
 export interface Props {
   sendSmsCode: (phone: string) => Promise<void>
   validateSmsCode: (code: string) => Promise<void>
@@ -14,13 +16,13 @@ export interface Props {
 
 const ModalSmsConfirm = ({ smsSendSuccess, sendSmsCode, validationSuccess, validateSmsCode }: Props) => {
   return (
-    <>
+    <div className={styles.modal}>
       <Title />
       <Conditions />
 
       <SendSms success={smsSendSuccess} send={sendSmsCode} />
       <SmsCode valid={validationSuccess} validate={validateSmsCode} />
-    </>
+    </div>
   )
 }
 
