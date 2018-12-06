@@ -1,7 +1,10 @@
-import Input from '@app/ui/molecules/Input'
 import { Button, Form } from 'antd'
 import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
+
+import { InputType } from '@app/ui/atoms/Input'
+import Input from '@app/ui/molecules/FormInput'
+
 import { SubmitValues } from './container'
 import styles from './IncomeForm.css'
 
@@ -23,7 +26,7 @@ const IncomeForm: React.SFC<IncomeFormProps> = ({ onFormSubmit }) => {
         <FormItem>
           <Input
             name="amount"
-            type="number"
+            type={InputType.Number}
             label="Количество квот" />
         </FormItem>
         <FormItem className={styles.Button}>

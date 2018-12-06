@@ -2,7 +2,8 @@ import * as React from 'react'
 
 import { QuotaType } from '@app/models/Quota/Quota'
 
-import Input from '@app/ui/molecules/Input'
+import { InputType } from '@app/ui/atoms/Input'
+import Input from '@app/ui/molecules/FormInput'
 import Select from '@app/ui/molecules/Select'
 import TextArea from '@app/ui/molecules/TextArea'
 
@@ -14,7 +15,6 @@ const MainField = () => (
   <React.Fragment>
     <Input
       name="input"
-      type="text"
       label="Название типа квот"
     />
     <Select
@@ -22,7 +22,6 @@ const MainField = () => (
       options={selectOptions} />
     <Input
       name="companyName"
-      type="text"
       label="Жертвователь"
     />
     <TextArea
@@ -31,7 +30,7 @@ const MainField = () => (
     />
     <Input
       name="count"
-      type="number"
+      type={InputType.Number}
       label="Количество квот"
     />
   </React.Fragment>

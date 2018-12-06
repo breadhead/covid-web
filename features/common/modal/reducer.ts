@@ -1,28 +1,20 @@
 import { Action } from 'redux'
 import { createSymbiote } from 'redux-symbiote'
 
-export enum ModalState {
-  mainLogin = 'mainLogin',
-  mainSignUp = 'mainSignUp',
-  mainSMS = 'mainSMS',
-  adminSignUp = 'adminSignUp',
-  adminLogin = 'adminLogin',
-  empty = '',
-}
+export const EMPTY_MODAL = 'empty'
 
-type State = ModalState
-const initialState = ModalState.empty
+type State = string
 
 interface Actions {
-  open(modal: ModalState): Action
+  open(modal: string): Action
   close(): Action
 }
 
 const { actions, reducer } = createSymbiote<State, Actions>(
-  initialState,
+  EMPTY_MODAL,
   {
     open: (_, modal) => modal,
-    close: () => ModalState.empty,
+    close: () => EMPTY_MODAL,
   },
   'modal',
 )

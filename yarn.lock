@@ -1088,6 +1088,13 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
+"@types/recompose@^0.30.0":
+  version "0.30.0"
+  resolved "https://registry.yarnpkg.com/@types/recompose/-/recompose-0.30.0.tgz#25d1e7bf31b096c2edf6239876dcfa7c167ce03f"
+  integrity sha512-Jx87joXlo3FH8ZMsV+pIgWXWz1oOjQnJ12f6xkKLWM0m06WVJVOwNduXyeLuVb1RYAwX9z/H+Hufu16H3ZG5Qw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/redux-thunk@^2.1.0":
   version "2.1.0"
   resolved "http://registry.npmjs.org/@types/redux-thunk/-/redux-thunk-2.1.0.tgz#bc2b6e972961831afb82a9bf4f06726e351f9416"
@@ -4611,6 +4618,11 @@ http-signature@~1.2.0:
     assert-plus "^1.0.0"
     jsprim "^1.2.2"
     sshpk "^1.7.0"
+
+http-status-codes@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/http-status-codes/-/http-status-codes-1.3.0.tgz#9cd0e71391773d0671b489d41cbc5094aa4163b6"
+  integrity sha1-nNDnE5F3PQZxtInUHLxQlKpBY7Y=
 
 http-status@1.0.1:
   version "1.0.1"
