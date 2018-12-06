@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import Input from '@app/ui/molecules/Input'
+import Input from '@app/ui/molecules/FormInput'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextArea'
 

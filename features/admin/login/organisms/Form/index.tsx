@@ -1,4 +1,4 @@
-import Input from '@app/ui/molecules/Input'
+import Input from '@app/ui/molecules/FormInput'
 import { Button, Form as AntForm } from 'antd'
 import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'

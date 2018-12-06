@@ -12,7 +12,7 @@ export enum InputType {
   Phone = 'tel',
 }
 
-type Props = {
+export type Props = {
   name: string,
   type?: InputType,
   label?: string,

@@ -1,4 +1,4 @@
-import Input from '@app/ui/molecules/Input'
+import Input from '@app/ui/molecules/FormInput'
 import Select from '@app/ui/molecules/Select'
 import { Button, Form as AntForm } from 'antd'
 import * as React from 'react'
