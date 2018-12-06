@@ -18,7 +18,7 @@ import TextArea from '@app/ui/molecules/TextArea'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
 
 import Uploader from '@app/features/common/uploader'
-import { SIGN_UP_MODAL, SMS_CONFIRM_MODAL } from '@app/features/login'
+import { SIGN_IN_MODAL, SIGN_UP_MODAL, SMS_CONFIRM_MODAL } from '@app/features/login'
 
 const testBoolRadioButtons = [
   {
@@ -126,8 +126,10 @@ const Test = ({ modal }: WithModalProps) => (
           <p>Модалка с подтверждением смс</p>
           <button onClick={() => modal.open(SMS_CONFIRM_MODAL)}>SMS popup</button>
 
-          <button onClick={() => modal.open(SIGN_UP_MODAL)}>login popup</button>
-          <button onClick={modal.close}>close popup</button>
+          <button onClick={() => modal.open(SIGN_UP_MODAL)}>auth popup</button>
+
+          <button onClick={() => modal.open(SIGN_IN_MODAL)}>login popup</button>
+
           <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
           <Checkbox name="checkbox" defaultChecked>Чекбокс с лейблом</Checkbox>
           <Checkbox name="checkbox" disabled>Чекбокс с лейблом</Checkbox>
