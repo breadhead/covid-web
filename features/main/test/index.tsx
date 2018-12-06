@@ -19,6 +19,8 @@ import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextArea'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
 
+import Uploader from '@app/features/common/uploader'
+
 const testBoolRadioButtons = [
   {
     id: '1',
@@ -121,6 +123,9 @@ const Test = ({openLoginPopup, openSingInPopup, closePopup}: Props) => (
     style={{ margin: '0 auto', maxWidth: '800px' }}
   >
     <h1>components preview page</h1>
+
+    <Uploader />
+
     <FinalForm
       onSubmit={() => undefined}
       render={() => (
