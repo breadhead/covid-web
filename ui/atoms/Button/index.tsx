@@ -10,26 +10,26 @@ export enum ButtonType {
 }
 
 export enum ButtonSize {
-  Small = 'Small',
-  Medium = 'Sedium',
-  Large = 'Large',
-  ExtraLarge = 'ExtraLarge',
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg',
+  ExtraLarge = 'xl',
 }
 
 export enum ButtonKind {
-  Primary = 'Primary',
-  Secondary = 'Secondary',
-  Extra = 'Extra',
+  Primary = 'primary',
+  Secondary = 'secondary',
+  Extra = 'extra',
 }
 
-interface Props {
+export interface Props {
   type?: ButtonType,
   className?: string,
   label?: string,
   size?: ButtonSize,
   disabled?: true
   kind?: ButtonKind
-  children?: any
+  children?: React.ReactNode
   onClick?: () => void
 }
 
