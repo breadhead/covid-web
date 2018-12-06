@@ -10,10 +10,8 @@ import withLockScroll from '@breadhead/with-scroll-lock'
 import { ModalDispatcher } from './helpers/ModalDispatcher'
 import { shouldOpenModal } from './helpers/shouldModalOpen'
 import styles from './index.css'
-import Layout from './organisms/Layout'
 import { actions } from './reducer'
 import { getModal } from './selectors'
-import withModal from './withModal'
 
 interface Props {
   modal: string,
@@ -42,9 +40,7 @@ class Modal extends React.Component<Props> {
         isOpen={shouldOpenModal(modal)}
         onRequestClose={close}
       >
-        <Layout closePopup={close}>
-          {ModalComponent && <ModalComponent />}
-        </Layout>
+        {ModalComponent && <ModalComponent />}
       </ReactModal>
     )
   }
@@ -60,13 +56,8 @@ class Modal extends React.Component<Props> {
     }
   }
 
-  private getModalComponent = (modal: string) => {
-    const SpecificModal = ModalDispatcher.getInstance().components[modal]
-
-    return SpecificModal
-      ? withModal(SpecificModal)
-      : null
-  }
+  private getModalComponent = (modal: string) =>
+    ModalDispatcher.getInstance().components[modal]
 }
 
 const mapState = (state: State) => ({
