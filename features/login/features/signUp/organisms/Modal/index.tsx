@@ -1,14 +1,15 @@
 import * as React from 'react'
 import styles from './SignUp.css'
 
-import { Form as AntForm } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
 import NavLink from '@app/ui/atoms/NavLink'
 
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
-import Button from '@app/ui/atoms/Button'
+import { ButtonType } from '@app/ui/atoms/Button'
 import { InputType } from '@app/ui/atoms/Input'
+import Form from '@app/ui/molecules/Form'
+import FormButton from '@app/ui/molecules/FormButton'
 import FormInput from '@app/ui/molecules/FormInput'
 
 const SignUp = () =>
@@ -19,14 +20,14 @@ const SignUp = () =>
     </p>
     <FinalForm
       onSubmit={() => undefined}
-      render={() => (
-        <AntForm>
+      render={(props) => (
+        <Form {...props}>
           <FormInput label="Логин (email)" className={styles.input} name="email" type={InputType.Email} />
           <FormInput label="Пароль" className={styles.input} name="password" type={InputType.Password} />
           <FormInput
             label="Повторите пароль" className={styles.input} name="repeat-password" type={InputType.Password} />
-          <Button className={styles.button}>Зарегистрироваться</Button>
-        </AntForm>
+          <FormButton type={ButtonType.Submit} className={styles.button}>Зарегистрироваться</FormButton>
+        </Form>
       )}
     />
     <footer className={styles.footer}>

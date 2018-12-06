@@ -1,14 +1,15 @@
 import * as React from 'react'
 import * as styles from './SignIn.css'
 
-import { Form as AntForm } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
 import NavLink from '@app/ui/atoms/NavLink'
 
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
-import Button, { ButtonKind } from '@app/ui/atoms/Button'
+import { ButtonType } from '@app/ui/atoms/Button'
 import { InputType } from '@app/ui/atoms/Input'
+import Form from '@app/ui/molecules/Form'
+import FormButton from '@app/ui/molecules/FormButton'
 import FormInput from '@app/ui/molecules/FormInput'
 
 const SignIn = () =>
@@ -19,16 +20,16 @@ const SignIn = () =>
     </p>
     <FinalForm
       onSubmit={() => undefined}
-      render={() => (
-        <AntForm>
+      render={(props) => (
+        <Form {...props}>
           <label htmlFor="email" className={styles.label}>Логин (email)</label>
           <FormInput className={styles.input} name="email" type={InputType.Email} />
           <label htmlFor="password" className={styles.label}>Пароль</label>
           <FormInput className={styles.input} name="password" type={InputType.Password} />
           <NavLink className={styles.link}>Забыли пароль?</NavLink>
-          <Button className={styles.mainButton}>Войти</Button>
-          <Button className={styles.socialButton} kind={ButtonKind.Secondary}>Войти через соцсети</Button>
-        </AntForm>
+          <FormButton type={ButtonType.Submit} className={styles.mainButton}>Войти</FormButton>
+          <FormButton className={styles.socialButton}>Войти через соцсети</FormButton>
+        </Form>
       )}
     />
     <footer className={styles.footer}>
