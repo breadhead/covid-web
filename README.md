@@ -2,6 +2,7 @@
 
 ## Development
 + `git clone`
++ `npm i -g commitizen`
 + `yarn`
 + `yarn dev`
 
