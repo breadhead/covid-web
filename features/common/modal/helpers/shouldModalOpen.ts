@@ -1,6 +1,17 @@
-import ModalDispatcher from '../ModalDispatcher'
 import { EMPTY_MODAL } from '../reducer'
 
-export const shouldOpenModal = (modal: string) =>
-  modal !== EMPTY_MODAL &&
-    ModalDispatcher.getInstance().keys.includes(modal)
+import { ModalDispatcher } from './ModalDispatcher'
+import UnknownModalException from './UnknownModalException'
+
+export const shouldOpenModal = (modal: string) => {
+  const allowedKeys = [
+    ...ModalDispatcher.getInstance().keys,
+    EMPTY_MODAL,
+  ]
+
+  if (!allowedKeys.includes(modal)) {
+    throw new UnknownModalException(modal)
+  }
+
+  return modal !== EMPTY_MODAL
+}

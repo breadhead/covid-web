@@ -1,5 +1,5 @@
 import Container from './container'
-import ModalDispatcher from './ModalDispatcher'
+import { ModalDispatcher } from './helpers/ModalDispatcher'
 
 export default Container
 
