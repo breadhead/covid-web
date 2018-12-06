@@ -1,5 +1,6 @@
 .popup {
   width: 100%;
+  max-width: 400px;
   height: 100%;
   padding: 0 24px;
   background-color: #fff;

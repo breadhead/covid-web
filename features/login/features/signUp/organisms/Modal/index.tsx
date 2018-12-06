@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styles from './MainSignUp.css'
+import styles from './SignUp.css'
 
 import { Button, Form as AntForm } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
@@ -7,7 +7,8 @@ import { Form as FinalForm } from 'react-final-form'
 import NavLink from '@app/ui/atoms/NavLink'
 
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
-import Input from '@app/ui/molecules/Input'
+import { InputType } from '@app/ui/atoms/Input'
+import FormInput from '@app/ui/molecules/FormInput'
 
 const SignUp = () =>
   <article className={styles.popup}>
@@ -20,9 +21,9 @@ const SignUp = () =>
       render={() => (
         <AntForm>
           <label htmlFor="email" className={styles.label}>Логин (email)</label>
-          <Input className={styles.input} name="email" type="email" />
+          <FormInput className={styles.input} name="email" type={InputType.Email} />
           <label htmlFor="password" className={styles.label}>Пароль</label>
-          <Input className={styles.input} name="password" type="password" />
+          <FormInput className={styles.input} name="password" type={InputType.Password} />
           <NavLink className={styles.link}>Забыли пароль?</NavLink>
           <Button className={styles.mainButton}>Войти</Button>
           <Button className={styles.socialButton}>Войти через соцсети</Button>
