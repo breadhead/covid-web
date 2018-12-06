@@ -38,4 +38,4 @@ module.exports = {
   allowBreakingChanges: false,
   footerPrefix: "META:",
   subjectLimit: 72
-};
+}
