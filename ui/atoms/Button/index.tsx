@@ -10,9 +10,9 @@ export enum ButtonType {
 }
 
 export enum ButtonSize {
-  Small = 'sm',
-  Medium = 'md',
-  Large = 'lg',
+  Small = 's',
+  Medium = 'm',
+  Large = 'l',
   ExtraLarge = 'xl',
 }
 
