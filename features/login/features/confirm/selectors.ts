@@ -1,5 +1,5 @@
 import { State } from '@app/lib/store'
 
-export const getSendSuccess = (state: State) => state.login.confirm.sendSms && !state.login.confirm.sendSms.error
+export const getSendSuccess = ({ login }: State) => login.confirm.sendSms.send && !login.confirm.sendSms.error
 
-export const getCodeValid = (state: State) => state.login.confirm.validateCode.valid
+export const getCodeValid = ({ login }: State) => login.confirm.validateCode.valid
