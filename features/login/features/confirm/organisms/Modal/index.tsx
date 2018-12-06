@@ -2,26 +2,19 @@ import React from 'react'
 
 import Conditions from '../../atoms/Conditions'
 import Title from '../../atoms/Title'
-
 import SendSms from '../../molecules/SendSms'
+import SmsCode from '../../molecules/SmsCode'
 
 const ModalSmsConfirm = () => {
   return (
-    <React.Fragment>
+    <>
       <Title />
       <Conditions />
 
       <SendSms />
 
-      {/* <Input
-        name="sms code"
-        type="number"
-        label="Код из СМС"
-        addonAfter={<Icon type="check" style={IconMessageCodeSentStyles} />}
-        maxLength={6}
-        required
-      /> */}
-    </React.Fragment>
+      <SmsCode />
+    </>
   )
 }
 
