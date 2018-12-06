@@ -10,6 +10,7 @@ export enum InputType {
   Number = 'number',
   Email = 'email',
   Phone = 'tel',
+  Password = 'password',
 }
 
 export type Props = {

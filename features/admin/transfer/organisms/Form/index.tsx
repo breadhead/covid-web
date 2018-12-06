@@ -1,8 +1,12 @@
-import Input from '@app/ui/molecules/FormInput'
-import Select from '@app/ui/molecules/Select'
+
 import { Button, Form as AntForm } from 'antd'
 import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
+
+import { InputType } from '@app/ui/atoms/Input'
+import Input from '@app/ui/molecules/FormInput'
+import Select from '@app/ui/molecules/Select'
+
 import { StrippedQuota } from '../../container'
 import Container from '../../container'
 import styles from './Form.css'
@@ -47,7 +51,7 @@ const Form = ({ onFormSubmit, error, quotas }: Props) => (
         </Select>
         <Input
           name="count"
-          type="number"
+          type={InputType.Number}
           label="Количество квот" />
 
         <FormItem validateStatus={error ? 'error' : undefined}

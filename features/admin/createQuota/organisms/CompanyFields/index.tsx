@@ -18,7 +18,6 @@ const Company = () => {
     </div>
     <Input
       name="companyLink"
-      type="text"
       placeholder="Ссылка на сайт жертвователя"
     />
     <TextArea
