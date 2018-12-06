@@ -32,13 +32,10 @@
   margin-bottom: 8px;
 }
 
-.mainButton {
-  margin-top: 24px;
-  margin-bottom: 16px;
-}
-
-.socialButton {
-  margin-bottom: 56px;
+.button.button {
+  width: 100%;
+  max-width: 100%;
+  margin: 24px 0 32px 0;
 }
 
 .footer {
