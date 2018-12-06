@@ -7,7 +7,7 @@ interface State extends FetchingState {
 }
 
 interface Actions extends FetchingActions {
-  success(result: boolean): Action
+  success(): Action
 }
 
 const initialState = createInitialState({
@@ -16,9 +16,9 @@ const initialState = createInitialState({
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  (state, result) => ({
+  (state) => ({
     ...state,
-    send: result,
+    send: true,
   }),
   'login/send-sms',
 )
