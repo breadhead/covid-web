@@ -1,18 +1,16 @@
 import * as React from 'react'
 
-import { actions as modalActions } from '@app/features/common/modal'
-import { ModalState } from '@app/features/common/modal'
+import { withModal, WithModalProps } from '@app/features/common/modal'
 import { Form as AntForm, TimePicker } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
-import { connect } from 'react-redux'
-import { AnyAction, Dispatch } from 'redux'
 
+import { ButtonKind, ButtonSize } from '@app/ui/atoms/Button'
 import Checkbox from '@app/ui/atoms/Checkbox'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 import RadioButton from '@app/ui/atoms/RadioButton'
-import Button, { ButtonKind, ButtonSize } from '@app/ui/molecules/Button'
 import Combobox from '@app/ui/molecules/Combobox'
-import Input from '@app/ui/molecules/Input'
+import Button from '@app/ui/molecules/FormButton'
+import Input from '@app/ui/molecules/FormInput'
 import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
@@ -20,6 +18,7 @@ import TextArea from '@app/ui/molecules/TextArea'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
 
 import Uploader from '@app/features/common/uploader'
+import { SMS_CONFIRM_MODAL } from '@app/features/login'
 
 const testBoolRadioButtons = [
   {
@@ -112,13 +111,7 @@ const testComboOptions = [
   },
 ]
 
-interface Props {
-  openLoginPopup: () => void,
-  openSingInPopup: () => void,
-  closePopup: () => void,
-}
-
-const Test = ({openLoginPopup, openSingInPopup, closePopup}: Props) => (
+const Test = ({ modal }: WithModalProps) => (
   <main
     style={{ margin: '0 auto', maxWidth: '800px' }}
   >
@@ -130,8 +123,11 @@ const Test = ({openLoginPopup, openSingInPopup, closePopup}: Props) => (
       onSubmit={() => undefined}
       render={() => (
         <AntForm>
-          <button onClick={openLoginPopup}>login popup</button>
-          <button onClick={openSingInPopup}>sign in popup</button>
+          <p>Модалка с подтверждением смс</p>
+          <button onClick={() => modal.open(SMS_CONFIRM_MODAL)}>SMS popup</button>
+
+          <button onClick={() => modal.open(SMS_CONFIRM_MODAL)}>login popup</button>
+          <button onClick={modal.close}>close popup</button>
           <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
           <Checkbox name="checkbox" defaultChecked>Чекбокс с лейблом</Checkbox>
           <Checkbox name="checkbox" disabled>Чекбокс с лейблом</Checkbox>
@@ -170,7 +166,7 @@ const Test = ({openLoginPopup, openSingInPopup, closePopup}: Props) => (
           <NavLink type={NavLinkType.Nav} href="#">navlink</NavLink> <br />
           <TimePicker /><br /><br />
           <TextArea name="testTextArea" placeholder="текстарея" /><br />
-          <Input name="input" type="text" placeholder="инпут" /><br />
+          <Input name="input" placeholder="инпут" /><br />
           <Switch name="testSwitch" /><br />
           <RadioGroup
             name="bool"
@@ -213,10 +209,4 @@ const Test = ({openLoginPopup, openSingInPopup, closePopup}: Props) => (
   </main>
 )
 
-const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
-  openLoginPopup: () => dispatch(modalActions.open(ModalState.mainLogin)),
-  openSingInPopup: () => dispatch(modalActions.open(ModalState.mainSignUp)),
-  closePopup: () => dispatch(modalActions.close()),
-})
-
-export default connect(null, mapDispatch)(Test)
+export default withModal(Test)

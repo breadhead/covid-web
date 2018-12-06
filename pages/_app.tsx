@@ -13,6 +13,8 @@ import { Provider } from 'react-redux'
 
 import '@app/ui/config.css?CSSModulesDisable'
 
+import registerModals from '@app/lib/register-modals'
+
 interface Props {
   reduxStore: Store
   pageProps: any
@@ -27,6 +29,8 @@ class OncohelpWeb extends App<Props> {
         ApiClientFactory.getApiClient().token = token
       }
     }
+
+    registerModals()
 
     return App.getInitialProps(context)
   }

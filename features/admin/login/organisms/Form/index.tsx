@@ -1,7 +1,10 @@
-import Input from '@app/ui/molecules/Input'
+import Input from '@app/ui/molecules/FormInput'
 import { Button, Form as AntForm } from 'antd'
 import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
+
+import { InputType } from '@app/ui/atoms/Input'
+
 import Container from '../../container'
 import styles from './Form.css'
 
@@ -24,14 +27,8 @@ const Form = ({ onFormSubmit, error }: Props) => (
         layout="vertical"
       >
         <h1 className={styles.title}>Войти на сайт</h1>
-        <Input
-          name="login"
-          type="text"
-          label="Логин" />
-        <Input
-          name="password"
-          type="password"
-          label="Пароль" />
+        <Input name="login" label="Логин" />
+        <Input name="password" type={InputType.Password} label="Пароль" />
 
         <FormItem validateStatus={error ? 'error' : undefined}
           help={error && INVALID_CREDENTIALS_MESSAGE}  >

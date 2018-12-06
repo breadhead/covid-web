@@ -1,8 +1,9 @@
 import * as React from 'react'
 import * as styles from './Menu.css'
 
+import { ButtonKind } from '@app/ui/atoms/Button'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
-import Button, { ButtonKind } from '@app/ui/molecules/Button'
+import Button from '@app/ui/molecules/FormButton'
 
 const Menu = () =>
   <nav className={styles.menu}>
