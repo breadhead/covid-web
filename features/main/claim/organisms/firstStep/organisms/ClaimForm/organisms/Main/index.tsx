@@ -11,7 +11,6 @@ import Combobox from '@app/ui/molecules/Combobox'
 import FormInput from '@app/ui/molecules/FormInput'
 import TextArea from '@app/ui/molecules/TextArea'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
-import { Checkbox } from 'antd'
 
 const statementRadioGroup = [
   { id: '1', value: 'Да' },
