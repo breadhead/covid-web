@@ -11,20 +11,13 @@ import { getLoginError } from './selectors'
 export const MODAL_KEY = 'sign-in'
 
 export interface Credentials {
-  login: string,
+  login: string
   password: string
 }
 
-export interface ServerError {
-  message: string,
-  response?: {
-    status: number,
-  }
-}
-
 interface Props {
-  login: (credentials: Credentials) => any,
-  onFormSubmit: () => Promise<any>,
+  login: (credentials: Credentials) => any
+  onFormSubmit: () => Promise<any>
 }
 
 const schema = yup.object().shape({
@@ -40,12 +33,10 @@ const schema = yup.object().shape({
 
 const Container = (WrappedComponent: React.ComponentType<Props>) => {
   return class extends React.Component<Props> {
-
     public render() {
-      return <WrappedComponent
-        onFormSubmit={this.onFormSubmit}
-        {...this.props}
-      />
+      return (
+        <WrappedComponent onFormSubmit={this.onFormSubmit} {...this.props} />
+      )
     }
 
     private onFormSubmit = (credentials: Credentials) => {
@@ -53,11 +44,9 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
         schema.validateSync(credentials)
         return this.props.login(credentials)
       } catch (props) {
-
         return { [props.path]: props.message }
       }
     }
-
   }
 }
 
@@ -66,11 +55,15 @@ const mapState = (state: State) => ({
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
-  login: (credentials: Credentials) => dispatch(login(credentials.login, credentials.password) as any),
+  login: (credentials: Credentials) =>
+    dispatch(login(credentials.login, credentials.password) as any),
 })
 
 export default compose(
   isModal(MODAL_KEY),
-  connect(mapState, mapDipatch),
+  connect(
+    mapState,
+    mapDipatch,
+  ),
   Container,
 )

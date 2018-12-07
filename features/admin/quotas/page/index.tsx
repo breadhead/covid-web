@@ -11,9 +11,7 @@ import * as styles from './page.css'
 export interface Props {
   quotas: Quota[]
   totalCount: number
-  countByTypes: {
-    [key in keyof QuotaType]: number
-  }
+  countByTypes: { [key in keyof QuotaType]: number }
 
   activeOrder: Order
   changeOrder: (order: Order) => void
@@ -26,19 +24,21 @@ export interface Props {
 }
 
 const Page: React.SFC<Props> = ({
-  changeSearchQuery, searchQuery,
-  changeOrder, activeOrder,
-  changeFilter, activeFilter,
-  totalCount, countByTypes, quotas,
-}) =>
+  changeSearchQuery,
+  searchQuery,
+  changeOrder,
+  activeOrder,
+  changeFilter,
+  activeFilter,
+  totalCount,
+  countByTypes,
+  quotas,
+}) => (
   <main>
     <Header />
 
     <div className={styles.settings}>
-      <Search
-        onChange={changeSearchQuery}
-        value={searchQuery}
-      />
+      <Search onChange={changeSearchQuery} value={searchQuery} />
       <Sorting
         onChange={changeOrder}
         activeOrder={activeOrder}
@@ -55,5 +55,6 @@ const Page: React.SFC<Props> = ({
 
     <QuotasList quotas={quotas} />
   </main>
+)
 
 export default Page

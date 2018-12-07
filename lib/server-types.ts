@@ -9,9 +9,11 @@ export interface AppContext {
   ctx: any // TODO: fix it
 }
 
+interface ServerResponse {
+  status: number
+}
+
 export interface ServerError {
-  message: string,
-  response?: {
-    status: number,
-  }
+  message: string
+  response?: ServerResponse
 }

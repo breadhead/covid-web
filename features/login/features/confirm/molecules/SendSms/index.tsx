@@ -19,7 +19,7 @@ interface Props {
 const SendSms = ({ success, send }: Props) => (
   <FinalForm
     onSubmit={({ phone }: any) => send(phone)}
-    render={(props) => (
+    render={props => (
       <Form {...props}>
         <Input
           name="phone"

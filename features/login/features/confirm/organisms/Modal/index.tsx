@@ -14,7 +14,12 @@ export interface Props {
   validationSuccess: boolean
 }
 
-const ModalSmsConfirm = ({ smsSendSuccess, sendSmsCode, validationSuccess, validateSmsCode }: Props) => {
+const ModalSmsConfirm = ({
+  smsSendSuccess,
+  sendSmsCode,
+  validationSuccess,
+  validateSmsCode,
+}: Props) => {
   return (
     <div className={styles.modal}>
       <Title />

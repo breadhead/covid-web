@@ -18,14 +18,9 @@ interface Props {
   onChange?: () => void
 }
 
-const Switch = ({
-  name,
-  label,
-  defaultChecked,
-  ...rest
-}: Props) =>
+const Switch = ({ name, label, defaultChecked, ...rest }: Props) => (
   <FinalField name={name} type="checkbox">
-    {(fieldProps) => (
+    {fieldProps => (
       <FormItem
         validateStatus={fieldProps.meta.submitError && 'error'}
         help={fieldProps.meta.submitError}
@@ -40,5 +35,6 @@ const Switch = ({
       </FormItem>
     )}
   </FinalField>
+)
 
 export default Switch

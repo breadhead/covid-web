@@ -4,8 +4,8 @@ import IconColor from './IconColor'
 import IconType from './IconType'
 
 interface Props {
-  type: IconType,
-  color: IconColor,
+  type: IconType
+  color: IconColor
 }
 
 const createStyles = (color: IconColor) => ({
@@ -19,7 +19,4 @@ const Icon = ({ type, color }: Props) => (
 
 export default Icon
 
-export {
-  IconColor,
-  IconType,
-}
+export { IconColor, IconType }

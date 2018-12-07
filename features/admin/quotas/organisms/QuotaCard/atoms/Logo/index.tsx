@@ -6,7 +6,7 @@ export interface LogoProps {
 }
 
 const Logo: React.SFC<LogoProps> = ({ src, alt }) => {
-  return (<img src={src} alt={alt} />)
+  return <img src={src} alt={alt} />
 }
 
 export default Logo

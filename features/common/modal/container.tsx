@@ -14,13 +14,12 @@ import { actions } from './reducer'
 import { getModal } from './selectors'
 
 interface Props {
-  modal: string,
-  close: () => Action,
-  bodyScrolling: { lock: () => void, unlock: () => void }
+  modal: string
+  close: () => Action
+  bodyScrolling: { lock: () => void; unlock: () => void }
 }
 
 class Modal extends React.Component<Props> {
-
   public componentDidUpdate({ modal: prevModal }: Props) {
     const { modal } = this.props
     if (modal !== prevModal) {
@@ -70,7 +69,10 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
 })
 
 const hoc = compose<Props, {}>(
-  connect(mapState, mapDispatch),
+  connect(
+    mapState,
+    mapDispatch,
+  ),
   withLockScroll(true),
 )
 

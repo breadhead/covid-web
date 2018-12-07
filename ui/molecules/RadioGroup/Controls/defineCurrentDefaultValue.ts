@@ -1,7 +1,10 @@
 import { head } from 'lodash'
-import { Button } from '.'
+import Button from '../ButtonVariant'
 
-const defineCurrentDefaultValue = (buttons: Button[], defaultValue?: string): string => {
+const defineCurrentDefaultValue = (
+  buttons: Button[],
+  defaultValue?: string,
+): string => {
   if (!!defaultValue) {
     return defaultValue
   }

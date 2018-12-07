@@ -11,7 +11,6 @@ interface Props {
 }
 
 const QuotaControl = ({ quota, income }: Props) => (
-
   <div className={styles.QuotaControl}>
     <QuotaAmount
       amount={quota.count}
@@ -20,7 +19,6 @@ const QuotaControl = ({ quota, income }: Props) => (
     />
     <div className={styles.AddingInput}>
       <IncomeForm income={income} quotaId={quota.id} />
-
     </div>
   </div>
 )

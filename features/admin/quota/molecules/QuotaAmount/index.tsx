@@ -14,11 +14,7 @@ interface Props {
 const QuotaAmount = ({ amount, title, kind }: Props) => (
   <div className={styles.QuotaAmount}>
     <h4>{title}</h4>
-    <strong
-      className={styles[kind]}
-    >
-      {amount}
-    </strong>
+    <strong className={styles[kind]}>{amount}</strong>
   </div>
 )
 

@@ -7,12 +7,14 @@ import './Select.css?CSSModulesDisable'
 const FormItem = AntForm.Item
 const Option = AntSelect.Option
 
+interface OptionVariant {
+  id: string
+  value: string
+}
+
 interface Props {
   name: string
-  options: Array<{
-    id: string,
-    value: string,
-  }>
+  options: OptionVariant[]
   defaultValue?: string
   className?: string
   label?: string
@@ -28,7 +30,6 @@ const Select = ({
   disabled,
   ...rest
 }: Props) => {
-
   const defaultSelectValue = defaultValue || options[0].value
 
   return (
@@ -45,8 +46,10 @@ const Select = ({
             disabled={disabled}
             {...rest}
           >
-            {options.map((option) => (
-              <Option key={option.id} value={option.value}>{option.value}</Option>
+            {options.map(option => (
+              <Option key={option.id} value={option.value}>
+                {option.value}
+              </Option>
             ))}
           </AntSelect>
         </FormItem>

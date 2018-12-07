@@ -42,12 +42,12 @@ import ApiClient from './api/ApiClient'
 import ApiClientFactory from './api/ApiClientFactory'
 
 export interface State {
-  login: LoginState,
-  quotas: QuotasState,
-  createQuota: createQuotaState,
+  login: LoginState
+  quotas: QuotasState
+  createQuota: createQuotaState
   quota: QuotaState
   transfer: TransferState
-  history: HistoryState,
+  history: HistoryState
   modal: ModalState
 }
 
@@ -69,10 +69,12 @@ export const initializeStore = (initialState?: State) =>
   createStore(
     reducer,
     initialState,
-    composeWithDevTools(applyMiddleware(
-      unauthorizedMiddleware,
-      thunk.withExtraArgument({
-        api: ApiClientFactory.getApiClient(),
-      } as ExtraArgs),
-    )),
+    composeWithDevTools(
+      applyMiddleware(
+        unauthorizedMiddleware,
+        thunk.withExtraArgument({
+          api: ApiClientFactory.getApiClient(),
+        } as ExtraArgs),
+      ),
+    ),
   )

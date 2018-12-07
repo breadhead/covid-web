@@ -1,11 +1,13 @@
 import {
-  createFetchingSymbiote, createInitialState,
-  FetchingActions, FetchingState,
+  createFetchingSymbiote,
+  createInitialState,
+  FetchingActions,
+  FetchingState,
 } from '@app/lib/symbioteFactory'
 import { Action } from 'redux'
 
 interface State extends FetchingState {
-  token: string,
+  token: string
   authViolateStatus?: boolean
 }
 
@@ -36,7 +38,4 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   },
 )
 
-export {
-  State, reducer,
-  Actions, actions,
-}
+export { State, reducer, Actions, actions }

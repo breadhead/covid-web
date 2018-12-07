@@ -10,7 +10,6 @@ export const login = (username: string, password: string) => async (
   _: () => State,
   { api }: ExtraArgs,
 ) => {
-
   try {
     dispatch(actions.request())
     const { token, roles } = await api.login(username, password)

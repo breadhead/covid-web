@@ -1,8 +1,10 @@
 import { Action } from 'redux'
 
 import {
-  createFetchingSymbiote, createInitialState,
-  FetchingActions, FetchingState,
+  createFetchingSymbiote,
+  createInitialState,
+  FetchingActions,
+  FetchingState,
 } from '@app/lib/symbioteFactory'
 import { Transaction } from '@app/models/Quota/Transaction'
 
@@ -27,7 +29,4 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   'login',
 )
 
-export {
-  State, reducer,
-  Actions, actions,
-}
+export { State, reducer, Actions, actions }

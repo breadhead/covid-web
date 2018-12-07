@@ -4,7 +4,7 @@ import * as styles from '../../ClaimForm.css'
 import { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
 import Button from '@app/ui/molecules/FormButton'
 
-const Footer = () =>
+const Footer = () => (
   <article className={styles.article}>
     <Button
       size={ButtonSize.Large}
@@ -14,5 +14,6 @@ const Footer = () =>
       Продолжить
     </Button>
   </article>
+)
 
 export default Footer

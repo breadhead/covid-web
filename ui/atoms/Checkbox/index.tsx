@@ -21,7 +21,7 @@ const Checkbox = ({
   defaultChecked,
   disabled,
   ...rest
-}: Props) =>
+}: Props) => (
   <FinalField className={className} name={name}>
     {({ meta }) => (
       <FormItem
@@ -38,5 +38,6 @@ const Checkbox = ({
       </FormItem>
     )}
   </FinalField>
+)
 
 export default Checkbox

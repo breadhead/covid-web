@@ -7,23 +7,24 @@ import './Combobox.css?CSSModulesDisable'
 const FormItem = AntForm.Item
 const { Option, OptGroup } = AntSelect
 
+interface OptionVariant {
+  id: string
+  value: string
+}
+
 interface Props {
   name: string
-  options: Array<{
-    id: string,
-    value: string,
-  }>
+  options: OptionVariant[]
   defaultValue?: string
   className?: string
-  initialValue?: string,
-  currentValue?: string,
+  initialValue?: string
+  currentValue?: string
   disabled?: boolean
 }
 
 const NOT_FOUND_TEXT = 'К сожалению, ничего не найдено'
 
 class Combobox extends React.Component<Props> {
-
   public static defaultProps: Partial<Props> = {
     initialValue: '',
     currentValue: '',
@@ -69,13 +70,17 @@ class Combobox extends React.Component<Props> {
               defaultValue={defaultValue}
               onInputKeyDown={this.onChange}
               maxTagCount={6}
-              notFoundContent={<div className="not-found">{NOT_FOUND_TEXT}</div>}
+              notFoundContent={
+                <div className="not-found">{NOT_FOUND_TEXT}</div>
+              }
               disabled={disabled}
               {...rest}
             >
               <OptGroup label={this.state.label}>
-                {options.map((option: { id: string, value: string }) => (
-                  <Option key={option.id} value={option.value}>{option.value}</Option>
+                {options.map((option: { id: string; value: string }) => (
+                  <Option key={option.id} value={option.value}>
+                    {option.value}
+                  </Option>
                 ))}
               </OptGroup>
             </AntSelect>

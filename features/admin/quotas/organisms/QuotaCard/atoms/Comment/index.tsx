@@ -5,7 +5,7 @@ export interface CommentProps {
 }
 
 const Comment: React.SFC<CommentProps> = ({ children }) => {
-  return (<div>{children}</div>)
+  return <div>{children}</div>
 }
 
 export default Comment

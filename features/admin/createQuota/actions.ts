@@ -15,5 +15,4 @@ export const createQuota = (quotaFields: QuotaCreateRequest) => async (
   } catch (error) {
     return dispatch(actions.error(error.message))
   }
-
 }

@@ -5,10 +5,10 @@ import { numberToSignedString } from './helpers/numberToSignedString'
 import * as styles from './Item.css'
 
 interface Props {
-  from: string,
+  from: string
   to: string
-  amount: number,
-  date: Date,
+  amount: number
+  date: Date
 }
 
 const TransferItem = ({ from, to, amount, date }: Props) => {
@@ -26,7 +26,7 @@ const TransferItem = ({ from, to, amount, date }: Props) => {
 
       <List.Item>
         <Row gutter={16} className={styles.Row}>
-          <Col span={7}></Col>
+          <Col span={7} />
           <Col span={7}>{from}</Col>
           <Col span={7}>перевод в "{to}"</Col>
           <Col span={3}>{numberToSignedString(amount)}</Col>

@@ -9,7 +9,6 @@ import { QuotaTransferRequest } from './request/QuotaTransfer'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 
 export default class RealApiClient implements ApiClient {
-
   private readonly axiosInstance: AxiosInstance
   private _token: string = ''
 
@@ -19,33 +18,38 @@ export default class RealApiClient implements ApiClient {
     })
   }
 
-  public transfer = (quotaTransferRequest: QuotaTransferRequest) => this.axiosInstance
-    .post('/quotas/transfer', quotaTransferRequest)
-    .then((response) => response.data as QuotaTransferResponse)
+  public transfer = (quotaTransferRequest: QuotaTransferRequest) =>
+    this.axiosInstance
+      .post('/quotas/transfer', quotaTransferRequest)
+      .then(response => response.data as QuotaTransferResponse)
 
-  public quota = (id: string) => this.axiosInstance
-    .get(`/quotas/${id}`)
-    .then((response) => response.data as Quota)
+  public quota = (id: string) =>
+    this.axiosInstance
+      .get(`/quotas/${id}`)
+      .then(response => response.data as Quota)
 
-  public income = (amount: number, quotaId: string) => this.axiosInstance
-    .post('/quotas/income', { amount, quotaId })
-    .then((response) => response.data as Quota)
+  public income = (amount: number, quotaId: string) =>
+    this.axiosInstance
+      .post('/quotas/income', { amount, quotaId })
+      .then(response => response.data as Quota)
 
-  public quotas = () => this.axiosInstance
-    .get('/quotas')
-    .then((response) => response.data as Quota[])
+  public quotas = () =>
+    this.axiosInstance.get('/quotas').then(response => response.data as Quota[])
 
-  public history = (from?: Date, to?: Date) => this.axiosInstance
-    .get(`/quotas/history?${queryString({ from, to })}`)
-    .then((response) => response.data as Transaction[])
+  public history = (from?: Date, to?: Date) =>
+    this.axiosInstance
+      .get(`/quotas/history?${queryString({ from, to })}`)
+      .then(response => response.data as Transaction[])
 
-  public login = (login: string, password: string) => this.axiosInstance
-    .post('/auth/login', { login, password })
-    .then((response) => response.data as User)
+  public login = (login: string, password: string) =>
+    this.axiosInstance
+      .post('/auth/login', { login, password })
+      .then(response => response.data as User)
 
-  public createQuota = (credentials: any) => this.axiosInstance
-    .post('/quotas/create', credentials)
-    .then((response) => response.data as Quota)
+  public createQuota = (credentials: any) =>
+    this.axiosInstance
+      .post('/quotas/create', credentials)
+      .then(response => response.data as Quota)
 
   public get token() {
     return this._token
@@ -56,13 +60,13 @@ export default class RealApiClient implements ApiClient {
     this._token = newToken
   }
 
-  public sendSms = (phone: string) => this.axiosInstance
-    .post('/verification/send', { number: phone })
-    .then((response) => response.data)
+  public sendSms = (phone: string) =>
+    this.axiosInstance
+      .post('/verification/send', { number: phone })
+      .then(response => response.data)
 
-  public verificateSms = (code: string) => this.axiosInstance
-    .post('/verification/verificate', { code })
-    .then(
+  public verificateSms = (code: string) =>
+    this.axiosInstance.post('/verification/verificate', { code }).then(
       () => true,
       (error: AxiosError) => {
         const { response } = error
@@ -84,7 +88,8 @@ export default class RealApiClient implements ApiClient {
 
     const response = await this.axiosInstance.post('/file/upload', form, {
       headers: { 'Content-Type': 'multipart/form-data' },
-      onUploadProgress: ({ loaded, total }) => onProgress && onProgress(loaded / total * 100),
+      onUploadProgress: ({ loaded, total }) =>
+        onProgress && onProgress((loaded / total) * 100),
     })
 
     return response.data as UploadedFile

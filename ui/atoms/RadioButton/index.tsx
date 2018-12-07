@@ -13,13 +13,7 @@ interface Props {
   children?: React.ReactNode
 }
 
-const RadioButton = ({
-  name,
-  className,
-  value,
-  children,
-  ...rest
-}: Props) =>
+const RadioButton = ({ name, className, value, children, ...rest }: Props) => (
   <FinalField className={className} name={name}>
     {({ meta }) => (
       <FormItem
@@ -30,8 +24,8 @@ const RadioButton = ({
           {children}
         </Radio>
       </FormItem>
-    )
-    }
+    )}
   </FinalField>
+)
 
 export default RadioButton
