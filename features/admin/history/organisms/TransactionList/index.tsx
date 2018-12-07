@@ -14,9 +14,9 @@ const TransactionList = ({ transations }: Props) => {
       size="large"
       bordered
       dataSource={transations}
-      renderItem={
-        (transation: Transaction) => <TransactionItem {...transation} />
-      }
+      renderItem={(transation: Transaction) => (
+        <TransactionItem {...transation} />
+      )}
     />
   )
 }

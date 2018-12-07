@@ -23,10 +23,10 @@ export enum ButtonKind {
 }
 
 export interface Props {
-  type?: ButtonType,
-  className?: string,
-  label?: string,
-  size?: ButtonSize,
+  type?: ButtonType
+  className?: string
+  label?: string
+  size?: ButtonSize
   disabled?: true
   kind?: ButtonKind
   children?: React.ReactNode
@@ -40,7 +40,7 @@ const Button = ({
   children,
   className,
   ...rest
-}: Props) =>
+}: Props) => (
   <AntButton
     className={cx(`ant-btn-${size} ant-btn-${kind}`, className)}
     htmlType={type}
@@ -48,5 +48,6 @@ const Button = ({
   >
     {children}
   </AntButton>
+)
 
 export default Button

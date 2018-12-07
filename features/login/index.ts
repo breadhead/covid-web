@@ -12,10 +12,8 @@ export {
   default as SignInModal,
   MODAL_KEY as SIGN_IN_MODAL,
   unauthorizedMiddleware,
-  authViolateStatus, getViolateState,
+  authViolateStatus,
+  getViolateState,
 } from './features/signIn'
 
-export {
-  Actions, actions,
-  State, reducer,
-} from './reducer'
+export { Actions, actions, State, reducer } from './reducer'

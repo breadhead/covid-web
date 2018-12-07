@@ -22,7 +22,12 @@ interface Props {
 const Container = (WrappedComponent: ComponentType<WrappedProps>) =>
   class extends React.Component<Props> {
     public render() {
-      const { sendSmsCode, smsSendSuccess, codeValid, validateSmsCode } = this.props
+      const {
+        sendSmsCode,
+        smsSendSuccess,
+        codeValid,
+        validateSmsCode,
+      } = this.props
 
       const childProps: WrappedProps = {
         sendSmsCode,
@@ -31,9 +36,7 @@ const Container = (WrappedComponent: ComponentType<WrappedProps>) =>
         validationSuccess: smsSendSuccess && codeValid,
       }
 
-      return (
-        <WrappedComponent {...childProps} />
-      )
+      return <WrappedComponent {...childProps} />
     }
   }
 
@@ -49,6 +52,9 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
 
 export default compose<WrappedProps, {}>(
   isModal(MODAL_KEY),
-  connect(mapState, mapDispatch),
+  connect(
+    mapState,
+    mapDispatch,
+  ),
   Container,
 )

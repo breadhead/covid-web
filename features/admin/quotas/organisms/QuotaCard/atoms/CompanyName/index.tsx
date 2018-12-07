@@ -5,7 +5,7 @@ export interface CompanyNameProps {
 }
 
 const CompanyName: React.SFC<CompanyNameProps> = ({ children }) => {
-  return (<div>{children}</div>)
+  return <div>{children}</div>
 }
 
 export default CompanyName

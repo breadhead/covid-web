@@ -6,7 +6,8 @@ export { MODAL_KEY } from './container'
 
 export { State, reducer, Actions, actions } from './reducer'
 
-export const authViolateStatus = (value: boolean) => actions.authViolateStatus(value)
+export const authViolateStatus = (value: boolean) =>
+  actions.authViolateStatus(value)
 
 export { login } from './actions'
 export { unauthorizedMiddleware } from './middleware'

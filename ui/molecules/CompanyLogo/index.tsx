@@ -4,7 +4,7 @@ import ExternalLink from '@app/ui/molecules/ExternalLink'
 import styles from './CompanyLogo.css'
 
 interface Props {
-  logo: string,
+  logo: string
   site: string | null
 }
 
@@ -13,12 +13,10 @@ const logoImg = (src: string) => (
 )
 
 const CompanyLogo = ({ logo, site }: Props) => {
-  return !!site
-  ? logoImg(logo)
-  : (
-      <ExternalLink href={site}>
-        {logoImg(logo)}
-      </ExternalLink>
+  return !!site ? (
+    logoImg(logo)
+  ) : (
+    <ExternalLink href={site}>{logoImg(logo)}</ExternalLink>
   )
 }
 

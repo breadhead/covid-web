@@ -6,8 +6,9 @@ interface Notification {
   duration?: number
 }
 
-export const push = ({ message, description, duration }: Notification) => notification.open({
-  message,
-  description,
-  duration,
-})
+export const push = ({ message, description, duration }: Notification) =>
+  notification.open({
+    message,
+    description,
+    duration,
+  })

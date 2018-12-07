@@ -15,7 +15,8 @@ const ClaimPage = () => {
       <main className={styles.claimPage}>
         <h1 className={styles.title}>Заполните заявку</h1>
         <p className={styles.infoText}>
-          Личные данные будут использованы только для{NON_BREAKING_SPACE}консультации.
+          Личные данные будут использованы только для{NON_BREAKING_SPACE}
+          консультации.
         </p>
         <ClaimForm />
       </main>

@@ -1,13 +1,17 @@
 import { combineReducers } from 'redux'
 
 import {
-  Actions as ConfirmActions, actions as confirmActions,
-  reducer as confirmReducer, State as ConfirmState,
+  Actions as ConfirmActions,
+  actions as confirmActions,
+  reducer as confirmReducer,
+  State as ConfirmState,
 } from './features/confirm'
 
 import {
-  Actions as SignInActions, actions as signInActions,
-  reducer as signInReducer, State as SignInState,
+  Actions as SignInActions,
+  actions as signInActions,
+  reducer as signInReducer,
+  State as SignInState,
 } from './features/signIn'
 
 export interface Actions {
@@ -16,14 +20,13 @@ export interface Actions {
 }
 
 export interface State {
-  confirm: ConfirmState,
-  signIn: SignInState,
+  confirm: ConfirmState
+  signIn: SignInState
 }
 
 export const reducer = combineReducers<State>({
   confirm: confirmReducer,
   signIn: signInReducer,
-
 } as any)
 
 export const actions = {

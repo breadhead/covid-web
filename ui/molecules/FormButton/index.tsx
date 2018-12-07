@@ -5,7 +5,7 @@ import { Field as FinalField } from 'react-final-form'
 import Button, { ButtonType, Props as ButtonProps } from '@app/ui/atoms/Button'
 
 interface Props {
-  wrapperClassName?: string,
+  wrapperClassName?: string
 }
 
 const FormButton = ({
@@ -13,7 +13,7 @@ const FormButton = ({
   type = ButtonType.Button,
   children,
   ...rest
-}: Props & ButtonProps) =>
+}: Props & ButtonProps) => (
   <FinalField name="" type={type}>
     {({ input, meta }) => (
       <AntForm.Item
@@ -21,9 +21,12 @@ const FormButton = ({
         validateStatus={meta.submitError && 'error'}
         help={meta.submitError && meta.submitError[name]}
       >
-        <Button type={type} {...rest} {...input}>{children}</Button>
+        <Button type={type} {...rest} {...input}>
+          {children}
+        </Button>
       </AntForm.Item>
     )}
   </FinalField>
+)
 
 export default FormButton

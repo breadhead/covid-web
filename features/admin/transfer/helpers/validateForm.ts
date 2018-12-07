@@ -7,18 +7,14 @@ const schema = yup.object().shape({
     .mixed()
     .notOneOf([NaN], 'Обязательное поле')
     .required('Обязательное поле'),
-  targetId: yup
-    .string()
-    .required('Обязательное поле'),
-  sourceId: yup
-    .string()
-    .required('Обязательное поле'),
+  targetId: yup.string().required('Обязательное поле'),
+  sourceId: yup.string().required('Обязательное поле'),
 })
 
 export const validateForm = (
   data: QuotaTransferRequest,
-  quotas: Array<{ id: string, name: string, count: number }>) => {
-
+  quotas: Array<{ id: string; name: string; count: number }>,
+) => {
   schema.validateSync(data)
   validateIds(data.sourceId, data.targetId)
   validateCountToTransfer(data.sourceId, data.count, quotas)

@@ -16,7 +16,6 @@ interface State {
 const apiClient = ApiClientFactory.getApiClient()
 
 class Uploader extends React.Component<Props, State> {
-
   public state = {
     path: null,
   } as State
@@ -49,10 +48,7 @@ class Uploader extends React.Component<Props, State> {
     const { onUploaded } = this.props
     const { path } = await apiClient.uploadFile(file)
 
-    this.setState(
-      { path },
-      () => onUploaded && onUploaded(path),
-    )
+    this.setState({ path }, () => onUploaded && onUploaded(path))
   }
 }
 

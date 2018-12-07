@@ -6,9 +6,13 @@ export interface QuotasListProps {
 }
 
 const QuotasList: React.SFC<QuotasListProps> = ({ quotas }) => {
-  return (<div>
-    {quotas.map((quota) => <QuotaCard key={quota.name} {...quota}></QuotaCard>)}
-  </div>)
+  return (
+    <div>
+      {quotas.map(quota => (
+        <QuotaCard key={quota.name} {...quota} />
+      ))}
+    </div>
+  )
 }
 
 export default QuotasList

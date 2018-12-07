@@ -9,10 +9,11 @@ interface Props {
   className?: string
 }
 
-const TopRow = ({ className }: Props) =>
+const TopRow = ({ className }: Props) => (
   <div className={cx(styles.top, className)}>
     <Logo className={styles.logo} />
     <Menu />
   </div>
+)
 
 export default TopRow

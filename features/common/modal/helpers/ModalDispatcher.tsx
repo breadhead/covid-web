@@ -2,6 +2,10 @@ import { ComponentType } from 'react'
 
 export type Key = string
 
+interface Components {
+  [key: string]: ComponentType
+}
+
 export class ModalDispatcher {
   public static getInstance = () => {
     if (!ModalDispatcher.instance) {
@@ -13,9 +17,7 @@ export class ModalDispatcher {
 
   private static instance: ModalDispatcher | null = null
 
-  private _components: {
-    [key: string]: ComponentType,
-  } = {}
+  private _components: Components = {}
 
   public get keys(): string[] {
     return Object.keys(this._components)
@@ -25,15 +27,14 @@ export class ModalDispatcher {
     return this._components
   }
 
-  private constructor() { }
+  private constructor() {}
 
-  public isModal = (key: string) =>
-    (ModalComponent: ComponentType) => {
-      this._components = {
-        ...this._components,
-        [key]: ModalComponent,
-      }
-
-      return (props: any) => <ModalComponent {...props} />
+  public isModal = (key: string) => (ModalComponent: ComponentType) => {
+    this._components = {
+      ...this._components,
+      [key]: ModalComponent,
     }
+
+    return (props: any) => <ModalComponent {...props} />
+  }
 }

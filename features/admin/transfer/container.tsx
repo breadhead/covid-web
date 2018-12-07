@@ -12,30 +12,32 @@ import { validateForm } from './helpers/validateForm'
 import { getQuotasCounts, getTransferError } from './selectors'
 
 export interface StrippedQuota {
-  id: string,
-  count: string,
+  id: string
+  count: string
   name: string
+}
+
+interface QuotaTransferData {
+  sourceId: string
+  targetId: string
+  count: string
 }
 
 interface Props {
   transfer: (quotaTransferRequest: QuotaTransferRequest) => any
   quotas: Quota[]
-  onFormSubmit: () => Promise<any>,
+  onFormSubmit: () => Promise<any>
 }
 
 const Container = (WrappedComponent: React.ComponentType<Props>) => {
   return class extends React.Component<Props> {
-
     public render() {
-      return <WrappedComponent
-        onFormSubmit={this.onFormSubmit}
-        {...this.props}
-      />
+      return (
+        <WrappedComponent onFormSubmit={this.onFormSubmit} {...this.props} />
+      )
     }
 
-    private onFormSubmit = (quotaTransferData:
-      { sourceId: string, targetId: string, count: string },
-    ) => {
+    private onFormSubmit = (quotaTransferData: QuotaTransferData) => {
       try {
         const castedQuotaTransferData = {
           ...quotaTransferData,
@@ -44,20 +46,17 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
 
         validateForm(castedQuotaTransferData, this.props.quotas)
 
-        return this.props.transfer(castedQuotaTransferData)
-          .then(() => {
-            pushNotification({
-              message: 'Перевод успешно завершен',
-            })
-
-            Router.push('/admin/quotas')
+        return this.props.transfer(castedQuotaTransferData).then(() => {
+          pushNotification({
+            message: 'Перевод успешно завершен',
           })
-      } catch (props) {
 
+          Router.push('/admin/quotas')
+        })
+      } catch (props) {
         return { [props.path]: props.message }
       }
     }
-
   }
 }
 
@@ -72,6 +71,9 @@ const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
 })
 
 export default compose(
-  connect(mapState, mapDipatch),
+  connect(
+    mapState,
+    mapDipatch,
+  ),
   Container,
 )

@@ -13,36 +13,53 @@ import FormButton from '@app/ui/molecules/FormButton'
 import FormInput from '@app/ui/molecules/FormInput'
 
 interface Props {
-  onFormSubmit: () => Promise<any>,
+  onFormSubmit: () => Promise<any>
   error: boolean | string
 }
 
-const SignIn = ({ onFormSubmit }: Props) =>
+const SignIn = ({ onFormSubmit }: Props) => (
   <article className={styles.popup}>
     <h1 className={styles.title}>Войти</h1>
-    <p className={styles.secondaryText}>Ещё нет аккаунта?{SPACE}
+    <p className={styles.secondaryText}>
+      Ещё нет аккаунта?{SPACE}
       <NavLink className={styles.link}>Зарегистрироваться</NavLink>
     </p>
     <FinalForm
       onSubmit={onFormSubmit}
-      render={(props) => (
+      render={props => (
         <Form {...props}>
-          <FormInput className={styles.input} name="login" label={'Логин (email)'} type={InputType.Email} />
-          <FormInput className={styles.input} name="password" label={'Пароль'} type={InputType.Password} />
+          <FormInput
+            className={styles.input}
+            name="login"
+            label={'Логин (email)'}
+            type={InputType.Email}
+          />
+          <FormInput
+            className={styles.input}
+            name="password"
+            label={'Пароль'}
+            type={InputType.Password}
+          />
 
           <NavLink className={styles.link}>Забыли пароль?</NavLink>
 
-          <FormButton type={ButtonType.Submit} className={styles.mainButton}>Войти</FormButton>
-          <FormButton className={styles.socialButton}>Войти через соцсети</FormButton>
+          <FormButton type={ButtonType.Submit} className={styles.mainButton}>
+            Войти
+          </FormButton>
+          <FormButton className={styles.socialButton}>
+            Войти через соцсети
+          </FormButton>
         </Form>
       )}
     />
     <footer className={styles.footer}>
       <p>
-        Если у вас есть аккаунт на <b>nenaprasno.ru</b>, вы{NON_BREAKING_SPACE}можете{SPACE}
+        Если у вас есть аккаунт на <b>nenaprasno.ru</b>, вы{NON_BREAKING_SPACE}
+        можете{SPACE}
         <NavLink className={styles.link}>войти</NavLink>, используя те же данные
       </p>
     </footer>
-  </article >
+  </article>
+)
 
 export default SignIn

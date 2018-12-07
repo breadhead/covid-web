@@ -14,9 +14,9 @@ export interface HeaderProps {
 const Header: React.SFC<HeaderProps> = ({ name, count, id, company }) => {
   return (
     <header className={styles.Header}>
-      <Name id={id} >{name}</Name>
+      <Name id={id}>{name}</Name>
       <Logo src={company.logo} alt={company.name} />
-      <Count >{count}</Count>
+      <Count>{count}</Count>
     </header>
   )
 }

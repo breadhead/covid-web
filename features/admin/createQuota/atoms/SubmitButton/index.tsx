@@ -12,12 +12,11 @@ interface Props {
 
 const SubmitButton = ({ error }: Props) => {
   return (
-    <FormItem validateStatus={error ? 'error' : undefined}
-      help={error && INVALID_MESSAGE}  >
-      <Button
-        kind={ButtonKind.Primary}
-        type={ButtonType.Submit}
-      >
+    <FormItem
+      validateStatus={error ? 'error' : undefined}
+      help={error && INVALID_MESSAGE}
+    >
+      <Button kind={ButtonKind.Primary} type={ButtonType.Submit}>
         Создать
       </Button>
     </FormItem>

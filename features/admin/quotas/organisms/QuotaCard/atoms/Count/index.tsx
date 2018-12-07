@@ -6,7 +6,7 @@ export interface CountProps {
 }
 
 const Count: React.SFC<CountProps> = ({ children }) => {
-  return (<div className={styles.Count}>{children}</div>)
+  return <div className={styles.Count}>{children}</div>
 }
 
 export default Count

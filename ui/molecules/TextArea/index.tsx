@@ -7,21 +7,15 @@ import { Field as FinalField } from 'react-final-form'
 const FormItem = AntForm.Item
 
 interface Props {
-  name: string,
+  name: string
   className?: string
-  label?: string,
+  label?: string
   placeholder?: string
   required?: true
   rows?: number
 }
 
-const TextArea = ({
-  name,
-  className,
-  label,
-  placeholder,
-  ...rest
-}: Props) =>
+const TextArea = ({ name, className, label, placeholder, ...rest }: Props) => (
   <FinalField className={className} name={name}>
     {({ input, meta }) => (
       <FormItem
@@ -38,8 +32,8 @@ const TextArea = ({
           {...rest}
         />
       </FormItem>
-    )
-    }
+    )}
   </FinalField>
+)
 
 export default TextArea

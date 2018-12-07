@@ -1,6 +1,11 @@
 import { Action } from 'redux'
 
-import { createFetchingSymbiote, createInitialState, FetchingActions, FetchingState } from '@app/lib/symbioteFactory'
+import {
+  createFetchingSymbiote,
+  createInitialState,
+  FetchingActions,
+  FetchingState,
+} from '@app/lib/symbioteFactory'
 
 interface State extends FetchingState {
   valid: boolean
@@ -23,7 +28,4 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   'login/validate-code',
 )
 
-export {
-  State, reducer,
-  Actions, actions,
-}
+export { State, reducer, Actions, actions }

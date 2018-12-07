@@ -22,6 +22,9 @@ const partners = [
   },
 ]
 
-const Partners = () => partners.map((partner) => <Partner key={partner.id} text={partner.text} logo={partner.logo} />)
+const Partners = () =>
+  partners.map(partner => (
+    <Partner key={partner.id} text={partner.text} logo={partner.logo} />
+  ))
 
 export default Partners

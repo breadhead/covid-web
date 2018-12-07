@@ -9,14 +9,14 @@ export interface FooterProps {
   type: QuotaType
   companyName: string
   comment: string
-
 }
 const Footer: React.SFC<FooterProps> = ({ type, companyName, comment }) => {
   return (
     <footer className={styles.Footer}>
-      <Type>{type as any}</Type>{/* Due to bug with enum as child */}
-      <CompanyName >{companyName}</ CompanyName>
-      <Comment >{comment}</ Comment>
+      <Type>{type as any}</Type>
+      {/* Due to bug with enum as child */}
+      <CompanyName>{companyName}</CompanyName>
+      <Comment>{comment}</Comment>
     </footer>
   )
 }

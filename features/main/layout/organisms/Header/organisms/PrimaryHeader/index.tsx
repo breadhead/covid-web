@@ -5,10 +5,12 @@ import Logo from '@app/ui/atoms/Logo'
 import Menu from './organisms/Menu'
 
 const PrimaryHeader = () => {
-  return <header className={styles.header}>
-    <Logo />
-    <Menu />
-  </header>
+  return (
+    <header className={styles.header}>
+      <Logo />
+      <Menu />
+    </header>
+  )
 }
 
 export default PrimaryHeader

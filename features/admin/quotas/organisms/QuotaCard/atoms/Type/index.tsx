@@ -6,7 +6,8 @@ export interface TypeProps {
   children: QuotaType
 }
 
-const Type: React.SFC<TypeProps> = ({ children }: TypeProps) =>
+const Type: React.SFC<TypeProps> = ({ children }: TypeProps) => (
   <div className={styles.Type}>{children.toString().toLowerCase()}</div>
+)
 
 export default Type

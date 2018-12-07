@@ -8,7 +8,9 @@ const { publicRuntimeConfig } = getConfig()
 export default class ApiClientFactory {
   public static getApiClient(): ApiClient {
     if (!ApiClientFactory.apiClient) {
-      ApiClientFactory.apiClient = new RealApiClient(publicRuntimeConfig.backUrl)
+      ApiClientFactory.apiClient = new RealApiClient(
+        publicRuntimeConfig.backUrl,
+      )
     }
 
     return ApiClientFactory.apiClient

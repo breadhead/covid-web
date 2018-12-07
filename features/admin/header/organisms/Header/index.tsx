@@ -4,11 +4,12 @@ import User from '../../atoms/User'
 import Navigation from '../../molecules/Navigation'
 import styles from './Header.css'
 
-const Header = () =>
+const Header = () => (
   <header className={styles.Header}>
     <Logo />
     <Navigation />
     <User />
   </header>
+)
 
 export default Header
