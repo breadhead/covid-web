@@ -1,17 +1,16 @@
-import { QuotaCreateRequest } from '@app/lib/api/request/QuotaCreate'
-import { AppContext } from '@app/lib/server-types'
+import { QuotaEditRequest } from '@app/lib/api/request/QuotaEdit'
 import { State } from '@app/lib/store'
-import { Quota, QuotaType } from '@app/models/Quota/Quota'
+import { QuotaType } from '@app/models/Quota/Quota'
 import Router from 'next/router'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 import * as yup from 'yup'
-import { push } from '../admin/toast'
-import { createQuota, fetchQuota } from './actions'
+import { push as pushNotification } from '../toast'
+import { editQuota } from './actions'
 import { QuotaFields } from './organisms/Form'
 import { Props as ComponentProps } from './page'
-import { getCreatedQuota, getCreateQuotaError } from './selectors'
+import { getEditQuotaError } from './selectors'
 
 const schema = yup.object().shape({
   name: yup.string().required('Название должно быть длиннее 2 символов'),
@@ -27,22 +26,12 @@ const schema = yup.object().shape({
 
 interface Props {
   error: boolean | string
-  createQuota: (request: QuotaCreateRequest) => Promise<any>
-}
-
-interface Query {
-  query: { id: string }
+  quotaId: string
+  createQuota: (request: QuotaEditRequest) => Promise<any>
 }
 
 const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
   return class extends React.Component<Props> {
-
-    public static async getInitialProps(context: AppContext & Query) {
-
-      await context.reduxStore
-        .dispatch(fetchQuota(context.query.id) as any)
-      return {}
-    }
 
     public render() {
       return <WrappedComponent
@@ -52,7 +41,6 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
     }
 
     private onFormSubmit = async (quotaFields: QuotaFields) => {
-      const { quota } = this.props
       const constraints = []
       // TODO: Понять что квота специальная можно только по полю constraints.
       // Так как сейчас мы не используем его, просто заполняем строкой. Будет исправлено в будущем.
@@ -76,21 +64,12 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
 
       try {
         await schema.validate(quotaFields)
+          .then(() => this.props.createQuota(postQuotaFields))
           .then(() => {
-            if (!!quota) {
-              console.log('edit quota')
-            } else {
-              this.props.createQuota(postQuotaFields)
-            }
-          },
-          )
-          .then(() => {
-            push({
-              message: quota ? 'Квота отредактирована' : 'Квота создана',
+            pushNotification({
+              message: 'Квота отредактирована',
             })
-          })
-          .then(() => {
-            Router.push(`admin/quota/${quota.id}`)
+            // Router.push(`/admin/quota/${this.props.quotaId}`)
           })
       } catch (props) {
         return { [props.path]: props.message }
@@ -100,12 +79,11 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
 }
 
 const mapState = (state: State) => ({
-  error: getCreateQuotaError(state),
-  quota: getCreatedQuota(state),
+  error: getEditQuotaError(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
-  createQuota: (quotaFields: Quota) => dispatch(createQuota(quotaFields) as any),
+  createQuota: (quotaFields: QuotaEditRequest) => dispatch(editQuota(quotaFields) as any),
 })
 
 export default compose(

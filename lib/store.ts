@@ -15,6 +15,11 @@ import {
 } from '@app/features/admin/createQuota'
 
 import {
+  reducer as editQuotaReducer,
+  State as editQuotaState,
+} from '@app/features/admin/editQuota'
+
+import {
   reducer as quotasReducer,
   State as QuotasState,
 } from '@app/features/admin/quotas'
@@ -51,6 +56,7 @@ export interface State {
   login: LoginState,
   quotas: QuotasState,
   createQuota: createQuotaState,
+  editQuota: editQuotaState,
   quota: QuotaState
   transfer: TransferState
   history: HistoryState,
@@ -61,6 +67,7 @@ const reducer = combineReducers({
   login: loginReducer,
   quotas: quotasReducer,
   createQuota: createQuotaReducer,
+  editQuota: editQuotaReducer,
   quota: quotaReducer,
   transfer: transferReducer,
   history: historyReducer,
