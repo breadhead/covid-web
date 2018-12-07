@@ -47,7 +47,7 @@ jobs:
           name: Unit Test
           command: yarn test
 
-  test:
+  type:
     docker:
       - image: circleci/node:8.11.1
 
@@ -67,7 +67,7 @@ jobs:
             - ./node_modules
       - run:
           name: Check Typings
-          command: yarn test
+          command: yarn types
 
   push:
     docker:
@@ -114,6 +114,11 @@ workflows:
               ignore: 
                 - master
       - test:
+          filters:
+            branches:
+              ignore: 
+                - master
+      - types:
           filters:
             branches:
               ignore: 
