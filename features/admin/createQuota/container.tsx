@@ -69,7 +69,7 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
             pushNotification({
               message: 'Квота создана',
             })
-            Router.push(`/quota/${this.props.createdQuotaId}`)
+            Router.push(`/admin/quota/${this.props.createdQuotaId}`)
           })
       } catch (props) {
         return { [props.path]: props.message }

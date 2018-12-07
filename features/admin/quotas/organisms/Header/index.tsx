@@ -11,7 +11,7 @@ const Header = () =>
     <Link href="/admin/transfer">
       <Button className={styles.ButtonLink}>Сделать перевод</Button>
     </Link>
-    <Link href="/admin/create">
+    <Link href="/admin/create-quota">
       <Button className={styles.ButtonLink}>Создать новый тип квот</Button>
     </Link>
   </header>
