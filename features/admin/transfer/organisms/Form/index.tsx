@@ -55,4 +55,5 @@ const Form = ({ onFormSubmit, error, quotas }: Props) => (
   />
 )
 
-export default Container(Form)
+// TODO: fix typing issue
+export default Container(Form as any)

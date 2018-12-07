@@ -16,7 +16,7 @@ const CompanyLogo = ({ logo, site }: Props) => {
   return !!site ? (
     logoImg(logo)
   ) : (
-    <ExternalLink href={site}>{logoImg(logo)}</ExternalLink>
+    <ExternalLink href={site || ''}>{logoImg(logo)}</ExternalLink>
   )
 }
 

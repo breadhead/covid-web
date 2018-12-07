@@ -3,7 +3,7 @@ import React from 'react'
 interface Props {
   children: React.ReactNode
   href: string
-  className: string
+  className?: string
 }
 
 const ExternalLink = ({ children, href, className }: Props) => {

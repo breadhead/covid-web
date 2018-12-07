@@ -1,5 +1,5 @@
 import { head } from 'lodash'
-import { Button } from '.'
+import Button from '../ButtonVariant'
 
 const defineCurrentDefaultValue = (
   buttons: Button[],

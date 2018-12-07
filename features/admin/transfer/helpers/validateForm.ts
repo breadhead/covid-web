@@ -1,7 +1,11 @@
-import { QuotaTransferRequest } from '@app/lib/api/request/QuotaTransfer'
 import * as yup from 'yup'
+
+import { QuotaTransferRequest } from '@app/lib/api/request/QuotaTransfer'
+
+import { StrippedQuota } from '../container'
 import { validateCountToTransfer } from './validateCountToTransfer'
 import { validateIds } from './validateIds'
+
 const schema = yup.object().shape({
   count: yup
     .mixed()
@@ -13,7 +17,7 @@ const schema = yup.object().shape({
 
 export const validateForm = (
   data: QuotaTransferRequest,
-  quotas: Array<{ id: string; name: string; count: number }>,
+  quotas: StrippedQuota[],
 ) => {
   schema.validateSync(data)
   validateIds(data.sourceId, data.targetId)

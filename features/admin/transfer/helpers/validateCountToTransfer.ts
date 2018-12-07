@@ -1,9 +1,10 @@
+import { StrippedQuota } from '../container'
 import { getQuotaCount } from './getQuotaCount'
 
 export const validateCountToTransfer = (
   sourceId: string,
   countToTransfer: number,
-  quotas: Array<{ id: string; name: string; count: number }>,
+  quotas: StrippedQuota[],
 ) => {
   const sourceCount = getQuotaCount(sourceId, quotas)
   const isCountToTransferValid = sourceCount >= countToTransfer

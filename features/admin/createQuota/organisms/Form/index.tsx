@@ -27,7 +27,8 @@ interface Props {
 const Form = ({ onFormSubmit, error }: Props) => {
   return (
     <FinalForm
-      onSubmit={onFormSubmit}
+      // TODO: fix this typing issue
+      onSubmit={onFormSubmit as any}
       render={(props: any) => (
         <AntForm
           onSubmit={props.handleSubmit}

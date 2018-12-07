@@ -8,6 +8,7 @@
     "lint": "yarn lint:code && yarn lint:style",
     "lint:code": "tslint -p tsconfig.json -c tslint.json",
     "lint:style": "stylelint './**/*.css' --fix",
+    "types": "tsc",
     "pretty": "prettier --write \"{,!(.next|out)/**/}*.{ts,tsx,js}\"",
     "test": "jest"
   },

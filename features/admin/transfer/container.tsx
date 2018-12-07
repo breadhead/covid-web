@@ -1,7 +1,8 @@
 import Router from 'next/router'
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { AnyAction, compose, Dispatch } from 'redux'
+import { compose } from 'recompose'
+import { AnyAction, Dispatch } from 'redux'
 
 import { QuotaTransferRequest } from '@app/lib/api/request/QuotaTransfer'
 import { State } from '@app/lib/store'
@@ -13,7 +14,7 @@ import { getQuotasCounts, getTransferError } from './selectors'
 
 export interface StrippedQuota {
   id: string
-  count: string
+  count: number | string
   name: string
 }
 
@@ -29,8 +30,8 @@ interface Props {
   onFormSubmit: () => Promise<any>
 }
 
-const Container = (WrappedComponent: React.ComponentType<Props>) => {
-  return class extends React.Component<Props> {
+const Container = (WrappedComponent: React.ComponentType<Props>) =>
+  class extends React.Component<Props> {
     public render() {
       return (
         <WrappedComponent onFormSubmit={this.onFormSubmit} {...this.props} />
@@ -58,7 +59,6 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
       }
     }
   }
-}
 
 const mapState = (state: State) => ({
   error: getTransferError(state),
