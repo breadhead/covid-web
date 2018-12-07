@@ -10,7 +10,7 @@ interface Props {
 
 const QuotaName = ({ name, id }: Props) => {
   const goToEditingQuotaPage = () => {
-    Router.push(`/quota-form/${id}`)
+    Router.push(`/admin/quota/edit/${id}`)
   }
   return (
     <h1 className={styles.QuotaName}>
