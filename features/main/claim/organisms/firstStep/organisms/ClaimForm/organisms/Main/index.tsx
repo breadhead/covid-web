@@ -1,3 +1,4 @@
+import cx from 'classnames'
 import * as React from 'react'
 import * as styles from '../../ClaimForm.css'
 
@@ -37,7 +38,7 @@ const Main = () =>
     <Select options={mockSelectOptions} name="choose_theme" defaultValue="Выберите тему" />
     <p className={styles.label}>У вас есть установленный врачом онкологический диагноз?</p>
     <EmergingFormElement controlType="radiogroup" name="diagnosis">
-      <p className={`${styles.label} ${styles.emergingLabel}`}>Локализация</p>
+      <p className={cx(styles.label, styles.emergingLabel)}>Локализация</p>
       <Combobox
         name="cancer_localization"
         options={mockSelectOptions}
