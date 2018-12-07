@@ -14,7 +14,7 @@ const selectOptions = Object
 const MainField = () => (
   <React.Fragment>
     <Input
-      name="input"
+      name="name"
       label="Название типа квот"
     />
     <Select
