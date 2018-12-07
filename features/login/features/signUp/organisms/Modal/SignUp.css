@@ -1,0 +1,43 @@
+.popup {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  padding: 0 24px;
+  background-color: #fff;
+  border: none;
+}
+
+.title {
+  margin: 0 0 8px 0;
+  font: var(--title-medium);
+}
+
+.secondaryText {
+  margin: 0 0 24px 0;
+  font: var(--text14-20);
+  color: #82839B;
+}
+
+.link.link {
+  font: var(--text14-20);
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font: var(--text16-24);
+}
+
+.input {
+  margin-bottom: 8px;
+}
+
+.button.button {
+  width: 100%;
+  max-width: 100%;
+  margin: 24px 0 32px 0;
+}
+
+.footer {
+  font: var(--text14-20);
+}

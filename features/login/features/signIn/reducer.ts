@@ -25,7 +25,7 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
     ...state,
     token,
   }),
-  'login',
+  'signIn',
   {
     authViolateStatus: (state, authViolateStatus) => ({
       ...state,

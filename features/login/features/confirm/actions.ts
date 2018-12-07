@@ -12,10 +12,8 @@ export const sendSms = (phone: string) => async (
 
   try {
     await api.sendSms(phone)
-
-    dispatch(actions.sendSms.success(true))
+    dispatch(actions.sendSms.success())
   } catch (error) {
-    dispatch(actions.sendSms.success(false))
     dispatch(actions.sendSms.error(error))
     throw error
   }

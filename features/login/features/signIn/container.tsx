@@ -4,8 +4,11 @@ import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 import { login } from './actions'
 
+import { isModal } from '@app/features/common/modal'
 import * as yup from 'yup'
 import { getLoginError } from './selectors'
+
+export const MODAL_KEY = 'sign-in'
 
 export interface Credentials {
   login: string,
@@ -67,6 +70,7 @@ const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
 })
 
 export default compose(
+  isModal(MODAL_KEY),
   connect(mapState, mapDipatch),
   Container,
 )

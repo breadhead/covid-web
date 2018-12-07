@@ -39,6 +39,7 @@ class Modal extends React.Component<Props> {
         className={styles.Modal}
         isOpen={shouldOpenModal(modal)}
         onRequestClose={close}
+        ariaHideApp={false}
       >
         {ModalComponent && <ModalComponent />}
       </ReactModal>
