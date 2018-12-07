@@ -2,13 +2,6 @@ import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
-// TODO: move to real admin feature
-import {
-//   reducer as loginReducer,
-//   State as LoginState,
-  unauthorizedMiddleware,
-} from '@app/features/admin/login'
-
 import {
   reducer as createQuotaReducer,
   State as createQuotaState,
@@ -42,6 +35,7 @@ import {
 import {
   reducer as loginReducer,
   State as LoginState,
+  unauthorizedMiddleware,
 } from '@app/features/login'
 
 import ApiClient from './api/ApiClient'

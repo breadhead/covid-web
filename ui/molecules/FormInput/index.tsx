@@ -16,8 +16,9 @@ const FormInput = ({
   <FinalField name={name} type={type}>
     {({ input, meta }) => (
       <AntForm.Item
+        className={className}
         validateStatus={meta.submitError && 'error'}
-        help={meta.submitError}
+        help={meta.submitError && meta.submitError[name]}
       >
         <Input
           name={name}
