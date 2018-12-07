@@ -47,7 +47,7 @@ jobs:
           name: Unit Test
           command: yarn test
 
-  type:
+  types:
     docker:
       - image: circleci/node:8.11.1
 
