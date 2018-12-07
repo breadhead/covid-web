@@ -1,11 +1,9 @@
-import { actions } from './reducer'
-export const authViolateStatus = (value: boolean) => actions.authViolateStatus(value)
+export {
+  default as SmsConfirmModal,
+  MODAL_KEY as SMS_CONFIRM_MODAL,
+} from './features/confirm'
 
-import Container from './container'
-import Form from './organisms/Form'
-export default Container(Form)
-
-export { reducer, State } from './reducer'
-export { login } from './actions'
-export { unauthorizedMiddleware } from './middleware'
-export { getViolateState } from './selectors'
+export {
+  Actions, actions,
+  State, reducer,
+} from './reducer'

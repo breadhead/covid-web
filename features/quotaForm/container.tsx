@@ -7,7 +7,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 import * as yup from 'yup'
-import { push as pushNotification } from '../toast'
+import { push } from '../admin/toast'
 import { createQuota, fetchQuota } from './actions'
 import { QuotaFields } from './organisms/Form'
 import { Props as ComponentProps } from './page'
@@ -88,12 +88,12 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
           },
           )
           .then(() => {
-            pushNotification({
+            push({
               message: quota ? 'Квота отредактирована' : 'Квота создана',
             })
           })
           .then(() => {
-            // Router.push(`/quota/${quota.id}`)
+            Router.push(`admin/quota/${quota.id}`)
           })
       } catch (props) {
         return { [props.path]: props.message }

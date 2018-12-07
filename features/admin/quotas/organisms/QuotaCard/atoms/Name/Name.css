@@ -1,0 +1,5 @@
+.Name {
+  font: var(--text16-24);
+  color: #111111;
+  text-decoration: underline;
+}

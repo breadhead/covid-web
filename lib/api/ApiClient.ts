@@ -1,15 +1,26 @@
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
-import FileUploader from './FileUploader/FileUploader'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 export interface User {
   token: string
+  roles: string[]
+}
+
+export enum Role {
+  Client = 'client',
+  CaseManager = 'case-manager',
+  Doctor = 'doctor',
+  Admin = 'admin',
+}
+
+export interface UploadedFile {
+  path: string
 }
 
 export default interface ApiClient {
   token: string
-  fileUploader: FileUploader
+
   quota(id: string): Promise<Quota>
   income(amount: number, quotaId: string): Promise<Quota>
   quotas(): Promise<Quota[]>
@@ -17,4 +28,9 @@ export default interface ApiClient {
   login(login: string, password: string): Promise<User>
   createQuota(quotaFields: any): Promise<Quota>
   transfer(quotaTransferRequest: QuotaTransferRequest): Promise<QuotaTransferResponse>
+
+  sendSms(phone: string): Promise<void>
+  verificateSms(code: string): Promise<boolean>
+
+  uploadFile(file: File, onProgress?: (precent: number) => void): Promise<UploadedFile>
 }

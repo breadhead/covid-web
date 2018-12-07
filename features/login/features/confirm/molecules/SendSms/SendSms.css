@@ -1,0 +1,23 @@
+.blockGettingCode {
+  display: flex;
+  align-items: center;
+
+  & > * {
+    margin-bottom: 24px;
+  }
+
+  & > *:first-child {
+    margin-right: 16px;
+  }
+}
+
+.messageCodeSent {
+  display: inline-flex;
+  align-items: center;
+  font: var(--text14-20);
+  color: var(--color-success);
+}
+
+.inputWrapper {
+  margin-bottom: 16px;
+}

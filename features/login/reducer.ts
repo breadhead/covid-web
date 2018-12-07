@@ -1,42 +1,22 @@
+import { combineReducers } from 'redux'
+
 import {
-  createFetchingSymbiote, createInitialState,
-  FetchingActions, FetchingState,
-} from '@app/lib/symbioteFactory'
-import { Action } from 'redux'
+  Actions as ConfirmActions, actions as confirmActions,
+  reducer as confirmReducer, State as ConfirmState,
+} from './features/confirm'
 
-interface State extends FetchingState {
-  token: string,
-  authViolateStatus?: boolean
+export interface Actions {
+  confirm: ConfirmActions
 }
 
-interface Actions extends FetchingActions {
-  success(token: string): Action
-  authViolateStatus(value: boolean): Action
+export interface State {
+  confirm: ConfirmState,
 }
 
-const initialState = createInitialState({
-  token: '',
-  authViolateStatus: undefined,
-})
+export const reducer = combineReducers<State>({
+  confirm: confirmReducer,
+} as any)
 
-const { actions, reducer } = createFetchingSymbiote<State, Actions>(
-  initialState,
-  (state, token) => ({
-    ...state,
-    token,
-  }),
-  'login',
-  {
-    authViolateStatus: (state, authViolateStatus) => ({
-      ...state,
-      error: false,
-      fetching: false,
-      authViolateStatus,
-    }),
-  },
-)
-
-export {
-  State, reducer,
-  Actions, actions,
+export const actions = {
+  confirm: confirmActions,
 }

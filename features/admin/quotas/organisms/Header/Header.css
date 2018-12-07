@@ -1,0 +1,19 @@
+.Header {
+  display: flex;
+  align-items: baseline;
+  margin: 50px 0;
+}
+
+.Title {
+  margin: 0;
+  margin-right: 24px;
+  font: var(--title24-32);
+}
+
+.HistoryLink {
+  margin-right: auto;
+}
+
+.ButtonLink {
+  margin-left: 8px;
+}

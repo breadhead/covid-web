@@ -1,0 +1,19 @@
+.partner {
+  display: flex;
+  align-items: center;
+  width: calc(100% / 3);
+  padding: 12px 16px;
+  margin-right: 16px;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.text {
+  margin-right: 20px;
+  font: var(--text12-16);
+  color: #616681;
+}

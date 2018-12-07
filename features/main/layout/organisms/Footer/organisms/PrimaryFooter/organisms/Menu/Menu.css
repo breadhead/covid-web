@@ -1,0 +1,19 @@
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 350px;
+}
+
+.link {
+  min-width: 120px;
+  margin-top: 16px;
+
+  &:nth-of-type(1),
+  &:nth-of-type(2) {
+    margin-top: 0;
+  }
+
+  &:nth-of-type(2n) {
+    margin-left: auto;
+  }
+}

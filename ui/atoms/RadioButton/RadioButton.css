@@ -1,0 +1,44 @@
+.ant-radio-wrapper.ant-radio-wrapper {
+  display: flex;
+  align-items: center;
+
+  & span + span {
+    font: var(--text16-24);
+  }
+
+  & span span {
+      width: 24px;
+      height: 24px;
+      border-color: #BEBFD0;
+    }
+
+  &:hover span span {
+    border-color: var(--color-primary) !important;
+    border-width: 2px;
+  }
+
+  & input[type="radio"] + span::after {
+      display: none;
+  }
+
+  & input[type="radio"]:checked + span {
+    border-color: var(--color-primary) !important;
+    border-width: 7px;
+  }
+
+  & input[type="radio"][disabled] + span {
+    border-color: #BEBFD0;
+    border-width: 1px;    
+  }
+
+  &:hover input[type="radio"][disabled] + span {
+    border-color: #BEBFD0 !important;
+    border-width: 1px;    
+  }
+
+   & input[type="radio"][disabled]:checked + span {
+    border-color: var(--color-primary) !important;
+    border-width: 7px;
+    opacity: 0.4;
+   }
+}
