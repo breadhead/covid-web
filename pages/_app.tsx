@@ -1,7 +1,6 @@
 import AdminLayout from '@app/features/admin/layout'
-import { getViolateState } from '@app/features/admin/login'
-import { authViolateStatus } from '@app/features/admin/login'
 import Modal from '@app/features/common/modal'
+import { authViolateStatus, getViolateState } from '@app/features/login'
 import ApiClientFactory from '@app/lib/api/ApiClientFactory'
 import withReduxStore, { Store } from '@app/lib/with-redux-store'
 import '@app/ui/antd-styles.less'
@@ -42,9 +41,7 @@ class OncohelpWeb extends App<Props> {
       ApiClientFactory.getApiClient().token = token
     }
 
-    const authViolate = getViolateState(
-      this.props.reduxStore.getState(),
-    )
+    const authViolate = getViolateState(this.props.reduxStore.getState())
 
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
@@ -53,26 +50,32 @@ class OncohelpWeb extends App<Props> {
   }
 
   public render() {
-    const { Component, pageProps, reduxStore, router: { route } } = this.props
+    const {
+      Component,
+      pageProps,
+      reduxStore,
+      router: { route },
+    } = this.props
 
-    const authViolate = getViolateState(
-      reduxStore.getState(),
-    )
+    const authViolate = getViolateState(reduxStore.getState())
 
-    return !authViolate && (
-      <Container>
-        <Provider store={reduxStore}>
-          <div>
-            {route.startsWith('/admin') ?
-              <AdminLayout {...pageProps}>
+    return (
+      !authViolate && (
+        <Container>
+          <Provider store={reduxStore}>
+            <div>
+              {route.startsWith('/admin') ? (
+                <AdminLayout {...pageProps}>
+                  <Component {...pageProps} />
+                </AdminLayout>
+              ) : (
                 <Component {...pageProps} />
-              </AdminLayout> :
-              <Component {...pageProps} />
-            }
-            <Modal />
-          </div>
-        </Provider>
-      </Container>
+              )}
+              <Modal />
+            </div>
+          </Provider>
+        </Container>
+      )
     )
   }
 }

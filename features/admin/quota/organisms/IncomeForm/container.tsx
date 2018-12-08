@@ -4,7 +4,9 @@ import * as React from 'react'
 import * as yup from 'yup'
 import { IncomeFormProps } from './Form'
 
-export interface SubmitValues { amount?: number }
+export interface SubmitValues {
+  amount?: number
+}
 
 interface ContainerProps {
   income: (amount: number, quotaId: string) => Promise<Quota>
@@ -12,7 +14,8 @@ interface ContainerProps {
 }
 
 const schema = yup.object().shape({
-  amount: yup.mixed()
+  amount: yup
+    .mixed()
     .notOneOf([NaN, 0], 'Обязательное поле')
     .required('Обязательное поле'),
 })
@@ -20,9 +23,7 @@ const schema = yup.object().shape({
 const Container = (WrappedComponent: React.ComponentType<IncomeFormProps>) => {
   return class extends React.Component<ContainerProps> {
     public render() {
-      return (
-        <WrappedComponent onFormSubmit={this.onFormSubmit}/>
-      )
+      return <WrappedComponent onFormSubmit={this.onFormSubmit} />
     }
 
     private onFormSubmit = async (values: SubmitValues) => {

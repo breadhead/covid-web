@@ -8,16 +8,16 @@ import styles from './Page.css'
 
 class Page extends React.Component {
   public static async getInitialProps(context: AppContext) {
-    await context.reduxStore
-      .dispatch(fetchQuotas() as any)
+    await context.reduxStore.dispatch(fetchQuotas() as any)
     return {}
   }
 
   public render() {
-    return <div className={styles.FormWrapper}>
-      <TransferForm />
-    </div>
-
+    return (
+      <div className={styles.FormWrapper}>
+        <TransferForm />
+      </div>
+    )
   }
 }
 

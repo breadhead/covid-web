@@ -20,12 +20,13 @@ export interface Props {
   defaultChecked?: boolean
 }
 
-const SwitchElement = ({ name = '', onChange }: Props) =>
+const SwitchElement = ({ name = '', onChange }: Props) => (
   <RadioGroup
     name={name}
     type={RadioGroupType.Bool}
     buttons={radioButtons}
     onChange={onChange}
   />
+)
 
 export default SwitchElement

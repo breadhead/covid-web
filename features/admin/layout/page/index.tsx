@@ -7,11 +7,8 @@ interface Props {
 const Layout = ({ children }: Props) => {
   return (
     <div className="admin">
-      <main className={styles.Main}>
-        {children}
-      </main>
+      <main className={styles.Main}>{children}</main>
     </div>
   )
-
 }
 export default Layout

@@ -4,9 +4,9 @@ export enum TransactionKind {
 }
 
 export interface Transaction {
-  from: string,
-  to: string,
-  amount: number,
-  date: string,
+  from: string
+  to: string
+  amount: number
+  date: string
   kind: TransactionKind
 }

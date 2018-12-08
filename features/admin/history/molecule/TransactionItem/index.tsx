@@ -8,9 +8,11 @@ const TransactionItem = (transaction: Transaction) => {
     date: new Date(transaction.date),
   }
 
-  return transaction.kind === TransactionKind.Income
-    ? <IncomeItem {...parsedTransaction} />
-    : <TransferItem {...parsedTransaction} />
+  return transaction.kind === TransactionKind.Income ? (
+    <IncomeItem {...parsedTransaction} />
+  ) : (
+    <TransferItem {...parsedTransaction} />
+  )
 }
 
 export default TransactionItem

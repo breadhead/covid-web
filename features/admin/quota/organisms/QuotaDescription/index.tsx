@@ -12,10 +12,14 @@ interface Props {
   quota: Quota
 }
 
-const QuotaDescription = ({ quota }: Props) =>
+const QuotaDescription = ({ quota }: Props) => (
   <div className={styles.QuotaDescription}>
     <QuotaName name={quota.name} id={quota.id} />
-    <QuotaDetails name={quota.company.name} type={quota.type} comment={quota.comment} />
+    <QuotaDetails
+      name={quota.company.name}
+      type={quota.type}
+      comment={quota.comment}
+    />
     <IsCompaniyPublic publicCompany={quota.publicCompany} />
     <Row gutter={16}>
       <Col span={3}>
@@ -26,5 +30,6 @@ const QuotaDescription = ({ quota }: Props) =>
       </Col>
     </Row>
   </div>
+)
 
 export default QuotaDescription

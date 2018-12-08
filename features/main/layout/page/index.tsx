@@ -12,7 +12,6 @@ interface Props {
 }
 
 class Layout extends React.Component<Props> {
-
   public static defaultProps: Partial<Props> = {
     headerType: HeaderType.Primary,
     headerTheme: HeaderTheme.Default,
@@ -21,21 +20,21 @@ class Layout extends React.Component<Props> {
   }
 
   public render() {
-    const { children, headerType, headerTheme, footerType, footerTheme } = this.props
+    const {
+      children,
+      headerType,
+      headerTheme,
+      footerType,
+      footerTheme,
+    } = this.props
 
     return (
       <React.Fragment>
-        <Header
-          type={headerType}
-          theme={headerTheme}
-        />
+        <Header type={headerType} theme={headerTheme} />
         <main style={{ minHeight: '50vh', textAlign: 'center' }}>
           {children}
         </main>
-        <Footer
-          type={footerType}
-          theme={footerTheme}
-        />
+        <Footer type={footerType} theme={footerTheme} />
       </React.Fragment>
     )
   }

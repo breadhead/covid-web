@@ -2,21 +2,14 @@ import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
-// TODO: move to real admin feature
-import {
-  //   reducer as loginReducer,
-  //   State as LoginState,
-  unauthorizedMiddleware,
-} from '@app/features/admin/login'
-
 import {
   reducer as createQuotaReducer,
-  State as createQuotaState,
-} from '@app/features/admin/createQuota'
+  State as CreateQuotaState,
+} from '@app/features/admin/features/createQuota'
 
 import {
   reducer as editQuotaReducer,
-  State as editQuotaState,
+  State as EditQuotaState,
 } from '@app/features/admin/editQuota'
 
 import {
@@ -47,19 +40,20 @@ import {
 import {
   reducer as loginReducer,
   State as LoginState,
+  unauthorizedMiddleware,
 } from '@app/features/login'
 
 import ApiClient from './api/ApiClient'
 import ApiClientFactory from './api/ApiClientFactory'
 
 export interface State {
-  login: LoginState,
-  quotas: QuotasState,
-  createQuota: createQuotaState,
-  editQuota: editQuotaState,
+  login: LoginState
+  quotas: QuotasState
+  createQuota: CreateQuotaState
+  editQuota: EditQuotaState
   quota: QuotaState
   transfer: TransferState
-  history: HistoryState,
+  history: HistoryState
   modal: ModalState
 }
 
@@ -82,10 +76,12 @@ export const initializeStore = (initialState?: State) =>
   createStore(
     reducer,
     initialState,
-    composeWithDevTools(applyMiddleware(
-      unauthorizedMiddleware,
-      thunk.withExtraArgument({
-        api: ApiClientFactory.getApiClient(),
-      } as ExtraArgs),
-    )),
+    composeWithDevTools(
+      applyMiddleware(
+        unauthorizedMiddleware,
+        thunk.withExtraArgument({
+          api: ApiClientFactory.getApiClient(),
+        } as ExtraArgs),
+      ),
+    ),
   )

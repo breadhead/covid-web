@@ -2,9 +2,7 @@ import { queryString } from '../queryString'
 
 describe('queryString', () => {
   test('should create empty string for empty query', () => {
-    expect(
-      queryString(),
-    ).toBe('')
+    expect(queryString()).toBe('')
   })
 
   test('should create empty string for empty with empty values', () => {

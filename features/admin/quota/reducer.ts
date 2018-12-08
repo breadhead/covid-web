@@ -36,7 +36,4 @@ const { actions, reducer } = createSymbiote<State, Actions>(
   'quota',
 )
 
-export {
-  State, reducer,
-  Actions, actions,
-}
+export { State, reducer, Actions, actions }

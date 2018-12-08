@@ -1,7 +1,5 @@
-import { SmsConfirmModal } from '@app/features/login'
+import { SignUpModal, SmsConfirmModal } from '@app/features/login'
 
-const modals = [
-  SmsConfirmModal,
-]
+const modals = [SmsConfirmModal, SignUpModal]
 
 export default () => modals

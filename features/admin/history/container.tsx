@@ -10,7 +10,6 @@ import { getLoading, getTransactions } from './selectors'
 
 const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
   return class extends React.Component<ComponentProps> {
-
     public static async getInitialProps({ reduxStore }: AppContext) {
       await reduxStore.dispatch(fetchHistory() as any)
 
@@ -33,6 +32,9 @@ const mapDispath = (dispath: Dispatch<AnyAction>) => ({
 })
 
 export default compose(
-  connect(mapState, mapDispath),
+  connect(
+    mapState,
+    mapDispath,
+  ),
   Container,
 )

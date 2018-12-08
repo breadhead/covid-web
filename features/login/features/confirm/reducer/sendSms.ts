@@ -1,6 +1,11 @@
 import { Action } from 'redux'
 
-import { createFetchingSymbiote, createInitialState, FetchingActions, FetchingState } from '@app/lib/symbioteFactory'
+import {
+  createFetchingSymbiote,
+  createInitialState,
+  FetchingActions,
+  FetchingState,
+} from '@app/lib/symbioteFactory'
 
 interface State extends FetchingState {
   send: boolean
@@ -16,14 +21,11 @@ const initialState = createInitialState({
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  (state) => ({
+  state => ({
     ...state,
     send: true,
   }),
   'login/send-sms',
 )
 
-export {
-  State, reducer,
-  Actions, actions,
-}
+export { State, reducer, Actions, actions }
