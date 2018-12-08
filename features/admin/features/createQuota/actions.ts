@@ -1,4 +1,4 @@
-import { QuotaCreateRequest } from '@app/lib/api/request/QuotaCreate'
+import { QuotaCreateRequest } from '@app/lib/api/request/Quota'
 import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
 import { actions } from './reducer'

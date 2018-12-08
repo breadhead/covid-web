@@ -14,7 +14,7 @@ const selectOptions = Object.values(QuotaType).map(value => ({
 
 const MainField = () => (
   <React.Fragment>
-    <Input name="input" label="Название типа квот" />
+    <Input name="name" label="Название типа квот" />
     <Select name="category" options={selectOptions} />
     <Input name="companyName" label="Жертвователь" />
     <TextArea name="comment" label="Комментарий к типу квот" />
