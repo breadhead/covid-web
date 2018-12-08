@@ -15,7 +15,12 @@ const QuotaName = ({ name, id }: Props) => {
   return (
     <h1 className={styles.QuotaName}>
       {name + ' '}
-      <Icon type="edit" theme="filled" className={styles.button} onClick={goToEditingQuotaPage} />
+      <Icon
+        type="edit"
+        theme="filled"
+        className={styles.button}
+        onClick={goToEditingQuotaPage}
+      />
     </h1>
   )
 }

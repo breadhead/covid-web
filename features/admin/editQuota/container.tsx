@@ -17,7 +17,10 @@ const schema = yup.object().shape({
   category: yup.string(),
   companyName: yup.string().required('Укажите имя жертвователя'),
   comment: yup.string(),
-  count: yup.number().typeError('Количество квот должно быть числом').required('Укажите количество квот'),
+  count: yup
+    .number()
+    .typeError('Количество квот должно быть числом')
+    .required('Укажите количество квот'),
   publicCompany: yup.string(),
   logotype: yup.string(),
   companyLink: yup.string(),
@@ -32,12 +35,10 @@ interface Props {
 
 const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
   return class extends React.Component<Props> {
-
     public render() {
-      return <WrappedComponent
-        onFormSubmit={this.onFormSubmit}
-        {...this.props}
-      />
+      return (
+        <WrappedComponent onFormSubmit={this.onFormSubmit} {...this.props} />
+      )
     }
 
     private onFormSubmit = async (quotaFields: QuotaFields) => {
@@ -63,7 +64,8 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
       }
 
       try {
-        await schema.validate(quotaFields)
+        await schema
+          .validate(quotaFields)
           .then(() => this.props.createQuota(postQuotaFields))
           .then(() => {
             pushNotification({
@@ -83,10 +85,14 @@ const mapState = (state: State) => ({
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
-  createQuota: (quotaFields: QuotaEditRequest) => dispatch(editQuota(quotaFields) as any),
+  createQuota: (quotaFields: QuotaEditRequest) =>
+    dispatch(editQuota(quotaFields) as any),
 })
 
 export default compose(
-  connect(mapState, mapDipatch),
+  connect(
+    mapState,
+    mapDipatch,
+  ),
   Container,
 )

@@ -18,7 +18,10 @@ const schema = yup.object().shape({
   category: yup.string(),
   companyName: yup.string().required('Укажите имя жертвователя'),
   comment: yup.string(),
-  count: yup.number().typeError('Количество квот должно быть числом').required('Укажите количество квот'),
+  count: yup
+    .number()
+    .typeError('Количество квот должно быть числом')
+    .required('Укажите количество квот'),
   publicCompany: yup.string(),
   logotype: yup.string(),
   companyLink: yup.string(),
@@ -36,19 +39,15 @@ interface Query {
 
 const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
   return class extends React.Component<Props> {
-
     public static async getInitialProps(context: AppContext & Query) {
-
-      await context.reduxStore
-        .dispatch(fetchQuota(context.query.id) as any)
+      await context.reduxStore.dispatch(fetchQuota(context.query.id) as any)
       return {}
     }
 
     public render() {
-      return <WrappedComponent
-        onFormSubmit={this.onFormSubmit}
-        {...this.props}
-      />
+      return (
+        <WrappedComponent onFormSubmit={this.onFormSubmit} {...this.props} />
+      )
     }
 
     private onFormSubmit = async (quotaFields: QuotaFields) => {
@@ -75,15 +74,15 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
       }
 
       try {
-        await schema.validate(quotaFields)
+        await schema
+          .validate(quotaFields)
           .then(() => {
             if (!!quota) {
               console.log('edit quota')
             } else {
               this.props.createQuota(postQuotaFields)
             }
-          },
-          )
+          })
           .then(() => {
             push({
               message: quota ? 'Квота отредактирована' : 'Квота создана',
@@ -105,10 +104,14 @@ const mapState = (state: State) => ({
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
-  createQuota: (quotaFields: Quota) => dispatch(createQuota(quotaFields) as any),
+  createQuota: (quotaFields: Quota) =>
+    dispatch(createQuota(quotaFields) as any),
 })
 
 export default compose(
-  connect(mapState, mapDipatch),
+  connect(
+    mapState,
+    mapDipatch,
+  ),
   Container,
 )

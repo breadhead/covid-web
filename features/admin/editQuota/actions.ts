@@ -15,5 +15,4 @@ export const editQuota = (quotaFields: QuotaEditRequest) => async (
   } catch (error) {
     return dispatch(actions.error(error.message))
   }
-
 }

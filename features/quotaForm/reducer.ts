@@ -8,7 +8,7 @@ import { Quota } from '@app/models/Quota/Quota'
 import { Action } from 'redux'
 
 interface State extends FetchingState {
-  quota?: Quota,
+  quota?: Quota
 }
 
 interface Actions extends FetchingActions {
@@ -22,15 +22,12 @@ const initialState = createInitialState({
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
   (state: State, quota: Quota) => {
-    return ({
+    return {
       ...state,
       quota,
-    })
+    }
   },
   'quotaForm',
 )
 
-export {
-  State, reducer,
-  Actions, actions,
-}
+export { State, reducer, Actions, actions }

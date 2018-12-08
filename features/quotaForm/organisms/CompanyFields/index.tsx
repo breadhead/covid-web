@@ -8,28 +8,28 @@ import * as styles from './CompanyFields.css'
 
 const Company = () => {
   return (
- <React.Fragment>
+    <React.Fragment>
       <div className={styles.Switch}>
-      <Switch
-        name="publicCompany"
-        checkedChildren="Да"
-        unCheckedChildren="Нет"
-        label="Показывать жертвователя на сайте"
-        defaultChecked={false}
+        <Switch
+          name="publicCompany"
+          checkedChildren="Да"
+          unCheckedChildren="Нет"
+          label="Показывать жертвователя на сайте"
+          defaultChecked={false}
+        />
+      </div>
+      <Input
+        name="companyLink"
+        type="text"
+        placeholder="Ссылка на сайт жертвователя"
       />
-    </div>
-    <Input
-      name="companyLink"
-      type="text"
-      placeholder="Ссылка на сайт жертвователя"
-    />
-    <TextArea
-      name="logotype-comment"
-      placeholder="Публичное пояснение возле логотипа
+      <TextArea
+        name="logotype-comment"
+        placeholder="Публичное пояснение возле логотипа
       (Например, «Средства на консультацию предоставлены Фондом профилактики рака»)"
-      rows={3}
-    />
- </React.Fragment>
+        rows={3}
+      />
+    </React.Fragment>
   )
 }
 

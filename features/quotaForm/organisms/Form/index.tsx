@@ -25,7 +25,6 @@ interface Props {
 }
 
 class Form extends React.Component<Props> {
-
   public state = {
     isEditing: false,
   }

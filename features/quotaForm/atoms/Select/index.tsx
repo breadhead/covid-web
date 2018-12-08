@@ -6,10 +6,10 @@ const Select = () => (
     name="category"
     label="Категория типа квот"
     defaultValue="Common"
-    options={Object
-      .entries(QuotaType)
-      .map(([_, value]) => ({ name: value, value }))
-    }
+    options={Object.entries(QuotaType).map(([_, value]) => ({
+      name: value,
+      value,
+    }))}
   />
 )
 
