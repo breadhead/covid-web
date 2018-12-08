@@ -1,3 +1,3 @@
-import EditQuota from '@app/features/admin/editQuota'
+import EditQuota from '@app/features/admin/features/editQuota'
 
 export default EditQuota

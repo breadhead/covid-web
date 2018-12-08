@@ -1,10 +1,11 @@
+import { Action } from 'redux'
+
 import {
   createFetchingSymbiote,
   createInitialState,
   FetchingActions,
   FetchingState,
 } from '@app/lib/symbioteFactory'
-import { Action } from 'redux'
 
 interface State extends FetchingState {
   quotaId?: string
@@ -15,7 +16,7 @@ interface Actions extends FetchingActions {
 }
 
 const initialState = createInitialState({
-  error: false,
+  quotaId: undefined,
 })
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(

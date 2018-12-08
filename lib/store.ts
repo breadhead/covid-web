@@ -10,7 +10,7 @@ import {
 import {
   reducer as editQuotaReducer,
   State as EditQuotaState,
-} from '@app/features/admin/editQuota'
+} from '@app/features/admin/features/editQuota'
 
 import {
   reducer as quotasReducer,

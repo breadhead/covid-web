@@ -5,6 +5,7 @@ import HttpStatus from 'http-status-codes'
 
 import ApiClient, { UploadedFile, User } from './ApiClient'
 import { queryString } from './helper/queryString'
+import { QuotaCreateRequest, QuotaEditRequest } from './request/Quota'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 
@@ -46,9 +47,14 @@ export default class RealApiClient implements ApiClient {
       .post('/auth/login', { login, password })
       .then(response => response.data as User)
 
-  public createQuota = (credentials: any) =>
+  public createQuota = (quota: QuotaCreateRequest) =>
     this.axiosInstance
-      .post('/quotas/create', credentials)
+      .post('/quotas/create', quota)
+      .then(response => response.data as Quota)
+
+  public editQuota = (quota: QuotaEditRequest) =>
+    this.axiosInstance
+      .post(`/quotas/edit/${quota.id}`, quota)
       .then(response => response.data as Quota)
 
   public get token() {

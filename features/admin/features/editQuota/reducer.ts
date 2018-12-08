@@ -1,33 +1,31 @@
+import { Action } from 'redux'
+
 import {
   createFetchingSymbiote,
   createInitialState,
   FetchingActions,
   FetchingState,
 } from '@app/lib/symbioteFactory'
-import { Quota } from '@app/models/Quota/Quota'
-import { Action } from 'redux'
 
 interface State extends FetchingState {
-  quota?: Quota
+  quotaId?: string
 }
 
 interface Actions extends FetchingActions {
-  success(quota: Quota): Action
+  success(quotaId: string): Action
 }
 
 const initialState = createInitialState({
-  error: false,
+  quotaId: undefined,
 })
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  (state: State, quota: Quota) => {
-    return {
-      ...state,
-      quota,
-    }
-  },
-  'quotaForm',
+  (state: State, quotaId: string) => ({
+    ...state,
+    quotaId,
+  }),
+  'editQuota',
 )
 
 export { State, reducer, Actions, actions }
