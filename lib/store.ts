@@ -5,7 +5,7 @@ import thunk from 'redux-thunk'
 import {
   reducer as createQuotaReducer,
   State as createQuotaState,
-} from '@app/features/admin/createQuota'
+} from '@app/features/admin/features/createQuota'
 
 import {
   reducer as quotasReducer,
