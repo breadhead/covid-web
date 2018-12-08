@@ -1,4 +1,4 @@
-interface Quota {
+export interface Quota {
   name: string
   companyName: string
   companyLogoUrl: string
@@ -11,5 +11,9 @@ interface Quota {
 
 export interface QuotaCreateRequest {
   count: number
+  quota: Quota
+}
+
+export interface QuotaEditRequest {
   quota: Quota
 }

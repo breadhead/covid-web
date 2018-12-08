@@ -3,23 +3,12 @@ import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
 
 import SubmitButton from '../../atoms/SubmitButton'
+import QuotaFields from '../../QuotaFields'
 import CompanyFields from '../CompanyFields'
 import MainField from '../MainField'
 import * as styles from './Form.css'
 
-export interface QuotaFields {
-  name: string
-  category: string
-  companyName: string
-  comment: string
-  count: string
-  publicCompany: string
-  logo: string
-  companyLink: string
-  logotypeComment: string
-}
-
-interface Props {
+export interface Props {
   onFormSubmit: (quotaFields: QuotaFields) => Promise<any>
   error: boolean | string
 }
