@@ -1,5 +1,6 @@
 import React from 'react'
-import Form, { QuotaFields } from '../organisms/Form'
+
+import Form, { QuotaFields } from '@app/features/admin/features/quotaForm'
 export interface Props {
   onFormSubmit: (quotaFields: QuotaFields) => Promise<any>
   error: boolean | string
