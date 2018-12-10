@@ -1,26 +1,35 @@
 import * as React from 'react'
 import * as styles from './Menu.css'
 
-import { ButtonKind } from '@app/ui/atoms/Button'
-import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
-import Button from '@app/ui/molecules/FormButton'
+import BurgerButton from '../../atoms/BurgerButton'
+import Menu from './Menu'
 
-const Menu = () => (
-  <nav className={styles.menu}>
-    <NavLink type={NavLinkType.Nav} href="#" className={styles.link}>
-      Партнёры
-    </NavLink>
-    <NavLink type={NavLinkType.Nav} href="#" className={styles.link}>
-      Эксперты
-    </NavLink>
-    <NavLink type={NavLinkType.Nav} href="#" className={styles.link}>
-      Контакты
-    </NavLink>
-    <NavLink type={NavLinkType.Nav} href="#" className={styles.link}>
-      Помочь проекту
-    </NavLink>
-    <Button kind={ButtonKind.Secondary}>Войти</Button>
-  </nav>
-)
+export interface State {
+  isVisible: boolean
+}
 
-export default Menu
+class Container extends React.Component<{}, State> {
+  public state = {
+    isVisible: false,
+  }
+
+  public toggleVisibility = () => {
+    this.setState((state: { isVisible: boolean }) => ({
+      isVisible: !state.isVisible,
+    }))
+  }
+
+  public render() {
+    return (
+      <>
+        <BurgerButton
+          onClick={this.toggleVisibility}
+          isVisible={!this.state.isVisible}
+        />
+        <Menu isVisible={this.state.isVisible} />
+      </>
+    )
+  }
+}
+
+export default Container
