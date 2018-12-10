@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Menu = ({ isVisible = true }: Props) =>
-  !!isVisible ? (
+  isVisible ? (
     <nav className={styles.menu}>
       <NavLink type={NavLinkType.Nav} href="#" className={styles.link}>
         Партнёры

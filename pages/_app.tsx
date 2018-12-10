@@ -13,8 +13,8 @@ import { createSizeAction, listenResize } from 'redux-windowsize'
 
 import '@app/ui/config.css?CSSModulesDisable'
 
-import registerModals from '@app/lib/register-modals'
 import { canUseDOM } from '@app/lib/helpers/canUseDOM'
+import registerModals from '@app/lib/register-modals'
 
 interface Props {
   reduxStore: Store

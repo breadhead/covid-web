@@ -1,5 +1,4 @@
 import * as React from 'react'
-import * as styles from './Menu.css'
 
 import { WindowSize } from '@app/features/common/windowSize/selector'
 import withWindowSize from '@app/features/common/windowSize/withWindowSize'
@@ -18,19 +17,31 @@ class Container extends React.Component<Props, State> {
     isVisible: false,
   }
 
-  public toggleVisibility = () => {
-    this.setState((state: { isVisible: boolean }) => ({
-      isVisible: !state.isVisible,
-    }))
+  public componentDidMount() {
+    this.setState({ isVisible: !!(this.props.windowSize.width > 767) })
+  }
+
+  public componentDidUpdate(prevProps: Props) {
+    if (this.props.windowSize.width !== prevProps.windowSize.width) {
+      this.setState({ isVisible: !!(this.props.windowSize.width > 767) })
+    }
+  }
+
+  public show = () => {
+    this.setState({ isVisible: true })
+  }
+
+  public hide = () => {
+    this.setState({ isVisible: false })
   }
 
   public render() {
-    console.log('this.props', this.props.windowSize)
     return (
       <>
         <BurgerButton
-          onClick={this.toggleVisibility}
-          isVisible={!this.state.isVisible}
+          show={this.show}
+          hide={this.hide}
+          isMenuVisible={this.state.isVisible}
         />
         <Menu isVisible={this.state.isVisible} />
       </>

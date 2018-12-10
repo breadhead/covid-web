@@ -2,15 +2,20 @@ import * as React from 'react'
 import * as styles from './BurgerButton.css'
 
 export interface Props {
-  onClick: () => void
-  isVisible: boolean
+  show: () => void
+  hide: () => void
+  isMenuVisible: boolean
 }
 
-const BurgerButton = ({ isVisible = false, onClick }: Props) =>
-  isVisible ? (
-    <button className={styles.button} onClick={onClick}>
+const BurgerButton = ({ isMenuVisible, show, hide }: Props) =>
+  isMenuVisible ? (
+    <button className={styles.closeButton} onClick={hide}>
+      закрыть меню
+    </button>
+  ) : (
+    <button className={styles.openButton} onClick={show}>
       открыть меню
     </button>
-  ) : null
+  )
 
 export default BurgerButton

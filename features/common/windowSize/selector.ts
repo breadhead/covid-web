@@ -3,10 +3,8 @@ import { getHeightWidth, getWindowWidth } from 'redux-windowsize'
 import { createSelector } from 'reselect'
 
 interface WindowSize {
-  windowSize: {
-    width: number
-    height: number
-  }
+  width: number
+  height: number
 }
 
 // TODO: first any because State in JS and has no typings
