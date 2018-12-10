@@ -23,6 +23,7 @@ import {
   SIGN_UP_MODAL,
   SMS_CONFIRM_MODAL,
 } from '@app/features/login'
+import Layout from '../layout'
 
 const testBoolRadioButtons = [
   {
@@ -118,7 +119,7 @@ const testComboOptions = [
 ]
 
 const Test = ({ modal }: WithModalProps) => (
-  <main style={{ margin: '0 auto', maxWidth: '800px' }}>
+  <Layout>
     <h1>components preview page</h1>
 
     <Uploader />
@@ -268,7 +269,7 @@ const Test = ({ modal }: WithModalProps) => (
         </AntForm>
       )}
     />
-  </main>
+  </Layout>
 )
 
 export default withModal(Test)
