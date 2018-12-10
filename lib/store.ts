@@ -4,8 +4,13 @@ import thunk from 'redux-thunk'
 
 import {
   reducer as createQuotaReducer,
-  State as createQuotaState,
+  State as CreateQuotaState,
 } from '@app/features/admin/features/createQuota'
+
+import {
+  reducer as editQuotaReducer,
+  State as EditQuotaState,
+} from '@app/features/admin/features/editQuota'
 
 import {
   reducer as quotasReducer,
@@ -44,7 +49,8 @@ import ApiClientFactory from './api/ApiClientFactory'
 export interface State {
   login: LoginState
   quotas: QuotasState
-  createQuota: createQuotaState
+  createQuota: CreateQuotaState
+  editQuota: EditQuotaState
   quota: QuotaState
   transfer: TransferState
   history: HistoryState
@@ -55,6 +61,7 @@ const reducer = combineReducers({
   login: loginReducer,
   quotas: quotasReducer,
   createQuota: createQuotaReducer,
+  editQuota: editQuotaReducer,
   quota: quotaReducer,
   transfer: transferReducer,
   history: historyReducer,

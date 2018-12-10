@@ -11,14 +11,16 @@ import * as styles from './Form.css'
 export interface Props {
   onFormSubmit: (quotaFields: QuotaFields) => Promise<any>
   error: boolean | string
+  initial?: QuotaFields
 }
 
-const Form = ({ onFormSubmit, error }: Props) => {
+const Form = ({ onFormSubmit, error, initial }: Props) => {
   return (
     <FinalForm
       // TODO: fix this typing issue
       onSubmit={onFormSubmit as any}
-      render={(props: any) => (
+      initialValues={initial}
+      render={props => (
         <AntForm
           onSubmit={props.handleSubmit}
           className={styles.Form}

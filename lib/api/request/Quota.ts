@@ -15,5 +15,6 @@ export interface QuotaCreateRequest {
 }
 
 export interface QuotaEditRequest {
+  id: string
   quota: Quota
 }
