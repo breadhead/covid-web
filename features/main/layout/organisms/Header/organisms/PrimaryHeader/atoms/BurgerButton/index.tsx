@@ -3,16 +3,11 @@ import * as styles from './BurgerButton.css'
 
 export interface Props {
   show: () => void
-  hide: () => void
   isMenuVisible: boolean
 }
 
-const BurgerButton = ({ isMenuVisible, show, hide }: Props) =>
-  isMenuVisible ? (
-    <button className={styles.closeButton} onClick={hide}>
-      закрыть меню
-    </button>
-  ) : (
+const BurgerButton = ({ isMenuVisible, show }: Props) =>
+  isMenuVisible ? null : (
     <button className={styles.openButton} onClick={show}>
       открыть меню
     </button>

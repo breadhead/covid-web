@@ -38,12 +38,8 @@ class Container extends React.Component<Props, State> {
   public render() {
     return (
       <>
-        <BurgerButton
-          show={this.show}
-          hide={this.hide}
-          isMenuVisible={this.state.isVisible}
-        />
-        <Menu isVisible={this.state.isVisible} />
+        <BurgerButton show={this.show} isMenuVisible={this.state.isVisible} />
+        <Menu hide={this.hide} isVisible={this.state.isVisible} />
       </>
     )
   }

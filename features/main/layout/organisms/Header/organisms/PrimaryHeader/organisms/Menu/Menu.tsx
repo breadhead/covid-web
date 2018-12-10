@@ -7,11 +7,15 @@ import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 
 interface Props {
   isVisible: boolean
+  hide: () => void
 }
 
-const Menu = ({ isVisible = true }: Props) =>
+const Menu = ({ isVisible, hide }: Props) =>
   isVisible ? (
     <nav className={styles.menu}>
+      <button className={styles.closeButton} onClick={hide}>
+        закрыть меню
+      </button>
       <NavLink type={NavLinkType.Nav} href="#" className={styles.link}>
         Партнёры
       </NavLink>
