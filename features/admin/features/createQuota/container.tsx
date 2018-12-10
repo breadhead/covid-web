@@ -52,6 +52,7 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
           corporate: quotaFields.category === QuotaType.Corporate,
           publicCompany: !!quotaFields.publicCompany,
           comment: quotaFields.comment,
+          companyComment: quotaFields.companyComment,
         },
       }
 

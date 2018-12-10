@@ -59,7 +59,7 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
       publicCompany: quota.publicCompany.toString(),
       logo: quota.company.logo,
       companyLink: quota.company.site,
-      logotypeComment: '', // TODO: get real logotypeComment
+      companyComment: quota.company.comment,
     })
 
     private onFormSubmit = (quotaFields: QuotaFields) => {

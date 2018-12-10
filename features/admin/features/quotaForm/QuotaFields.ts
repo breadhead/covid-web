@@ -7,5 +7,5 @@ export default interface QuotaFields {
   publicCompany: string
   logo: string
   companyLink: string
-  logotypeComment: string
+  companyComment: string
 }

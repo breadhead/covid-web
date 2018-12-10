@@ -18,7 +18,7 @@ const Company = () => {
       </div>
       <Input name="companyLink" placeholder="Ссылка на сайт жертвователя" />
       <TextArea
-        name="logotype-comment"
+        name="companyComment"
         placeholder="Публичное пояснение возле логотипа
       (Например, «Средства на консультацию предоставлены Фондом профилактики рака»)"
         rows={3}
