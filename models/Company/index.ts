@@ -3,4 +3,5 @@ export interface Company {
   logo: string
   site: string
   donation: number
+  comment: string
 }

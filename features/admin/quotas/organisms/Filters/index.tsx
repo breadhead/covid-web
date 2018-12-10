@@ -1,4 +1,5 @@
 import { Radio } from 'antd'
+import { sortBy } from 'lodash'
 import * as React from 'react'
 
 import { QuotaType } from '@app/models/Quota/Quota'
@@ -8,14 +9,14 @@ export type Filter = QuotaType | 'All'
 
 export interface Props {
   totalCount: number
-  countByTypes: { [key in keyof QuotaType]: number }
+  countByTypes: { [key in keyof typeof QuotaType]: number }
   activeFilter: Filter
   onChange: (value: Filter) => void
   className?: string
 }
 
 const Filters = (props: Props) => {
-  const variants = propsToVariants(props)
+  const variants = sortBy(propsToVariants(props), ({ count }) => -count)
 
   return (
     <Radio.Group

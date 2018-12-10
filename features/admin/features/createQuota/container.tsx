@@ -26,6 +26,8 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
     public render() {
       return (
         <WrappedComponent
+          title="Новый тип квот"
+          submitButtonText="Создать"
           handleQuota={this.onFormSubmit}
           afterSuccess={this.afterSuccess}
           {...this.props}
@@ -41,17 +43,18 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
         constraints.push(QuotaType.Special)
       }
 
-      const postQuotaFields = {
+      const postQuotaFields: QuotaCreateRequest = {
         count: parseInt(quotaFields.count, 10),
         quota: {
           name: quotaFields.name,
           companyName: quotaFields.companyName,
           companyLink: quotaFields.companyLink,
-          companyLogoUrl: quotaFields.logo,
+          companyLogoUrl: quotaFields.companyLogo,
           constraints,
           corporate: quotaFields.category === QuotaType.Corporate,
           publicCompany: !!quotaFields.publicCompany,
           comment: quotaFields.comment,
+          companyComment: quotaFields.companyComment,
         },
       }
 

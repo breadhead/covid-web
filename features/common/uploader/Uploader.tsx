@@ -2,6 +2,7 @@ import { head } from 'lodash'
 import * as React from 'react'
 
 import ApiClientFactory from '@app/lib/api/ApiClientFactory'
+import Button, { ButtonType } from '@app/ui/atoms/Button'
 
 import * as styles from './Uploader.css'
 
@@ -28,7 +29,9 @@ class Uploader extends React.Component<Props, State> {
     return (
       <div className={styles.container}>
         <input type="file" ref={this.fileInput} />
-        <button onClick={this.onClick}>Загрузить</button>
+        <Button onClick={this.onClick} type={ButtonType.Button}>
+          Загрузить
+        </Button>
         {path && <p>{path}</p>}
       </div>
     )
