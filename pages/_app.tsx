@@ -45,7 +45,7 @@ class OncohelpWeb extends App<Props> {
 
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
-      Router.push('/admin/login')
+      Router.push('/')
     }
   }
 

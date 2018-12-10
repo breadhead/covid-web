@@ -62,7 +62,7 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
       pushNotification({
         message: 'Квота создана',
       })
-      Router.push(`/quota/${this.props.createdQuotaId}`)
+      Router.push(`/admin/quota/${this.props.createdQuotaId}`)
     }
   }
 }
