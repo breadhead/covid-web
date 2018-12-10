@@ -41,7 +41,7 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
         constraints.push(QuotaType.Special)
       }
 
-      const postQuotaFields = {
+      const postQuotaFields: QuotaCreateRequest = {
         count: parseInt(quotaFields.count, 10),
         quota: {
           name: quotaFields.name,

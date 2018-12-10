@@ -54,7 +54,7 @@ export default class RealApiClient implements ApiClient {
 
   public editQuota = (quota: QuotaEditRequest) =>
     this.axiosInstance
-      .post(`/quotas/edit/${quota.id}`, quota)
+      .post('/quotas/edit/', quota)
       .then(response => response.data as Quota)
 
   public get token() {

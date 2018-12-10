@@ -12,7 +12,7 @@ import { push as pushNotification } from '@app/features/admin/toast'
 import { QuotaEditRequest } from '@app/lib/api/request/Quota'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
-import { Quota } from '@app/models/Quota/Quota'
+import { Quota, QuotaType } from '@app/models/Quota/Quota'
 
 import { editQuota } from './actions'
 import { getEditedQuotaError, getEditedQuotaId } from './selectors'
@@ -21,7 +21,6 @@ interface Props {
   error: boolean | string
   editQuota: (request: QuotaEditRequest) => Promise<any>
   quota?: Quota
-  editedQuotaId?: string
 }
 
 interface Query {
@@ -31,7 +30,10 @@ interface Query {
 const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
   return class extends React.Component<Props> {
     public static async getInitialProps(context: AppContext<Query>) {
-      await context.reduxStore.dispatch(fetchQuota(context.query.id) as any)
+      const currentId = context.query.id
+
+      await context.reduxStore.dispatch(fetchQuota(currentId) as any)
+
       return {}
     }
 
@@ -63,8 +65,27 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
     })
 
     private onFormSubmit = (quotaFields: QuotaFields) => {
-      // TODO: create postQuotaFields from quotaFields
-      const postQuotaFields = quotaFields as any
+      const constraints = []
+      // TODO: Понять что квота специальная можно только по полю constraints.
+      // Так как сейчас мы не используем его, просто заполняем строкой. Будет исправлено в будущем.
+      if (quotaFields.category === QuotaType.Special) {
+        constraints.push(QuotaType.Special)
+      }
+
+      const postQuotaFields: QuotaEditRequest = {
+        id: this.props.quota!.id,
+        quota: {
+          name: quotaFields.name,
+          companyName: quotaFields.companyName,
+          companyLink: quotaFields.companyLink,
+          companyLogoUrl: quotaFields.logo,
+          constraints,
+          corporate: quotaFields.category === QuotaType.Corporate,
+          publicCompany: !!quotaFields.publicCompany,
+          comment: quotaFields.comment,
+          companyComment: quotaFields.companyComment,
+        },
+      }
 
       return this.props.editQuota(postQuotaFields)
     }
@@ -73,7 +94,7 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
       pushNotification({
         message: 'Квота сохранена',
       })
-      Router.push(`/quota/${this.props.editedQuotaId}`)
+      Router.push(`/admin/quota/${this.props.quota!.id}`)
     }
   }
 }
