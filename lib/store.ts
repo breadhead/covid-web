@@ -1,6 +1,7 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
+import windowSize, { REDUCER_KEY } from 'redux-windowsize'
 
 import {
   reducer as createQuotaReducer,
@@ -59,6 +60,7 @@ const reducer = combineReducers({
   transfer: transferReducer,
   history: historyReducer,
   modal: modalReducer,
+  [REDUCER_KEY]: windowSize,
 } as any)
 
 export interface ExtraArgs {

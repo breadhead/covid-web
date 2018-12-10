@@ -9,10 +9,12 @@ import App, { Container, NextAppContext } from 'next/app'
 import Router from 'next/router'
 import React, { Component as ReactComponent } from 'react'
 import { Provider } from 'react-redux'
+import { createSizeAction, listenResize } from 'redux-windowsize'
 
 import '@app/ui/config.css?CSSModulesDisable'
 
 import registerModals from '@app/lib/register-modals'
+import { canUseDOM } from '@app/lib/helpers/canUseDOM'
 
 interface Props {
   reduxStore: Store
@@ -58,6 +60,11 @@ class OncohelpWeb extends App<Props> {
     } = this.props
 
     const authViolate = getViolateState(reduxStore.getState())
+
+    if (canUseDOM) {
+      reduxStore.dispatch(createSizeAction(window))
+      listenResize(reduxStore, window, 100)
+    }
 
     return (
       !authViolate && (

@@ -1,14 +1,19 @@
 import * as React from 'react'
 import * as styles from './Menu.css'
 
+import { WindowSize } from '@app/features/common/windowSize/selector'
+import withWindowSize from '@app/features/common/windowSize/withWindowSize'
 import BurgerButton from '../../atoms/BurgerButton'
 import Menu from './Menu'
 
+interface Props {
+  windowSize: WindowSize
+}
 export interface State {
   isVisible: boolean
 }
 
-class Container extends React.Component<{}, State> {
+class Container extends React.Component<Props, State> {
   public state = {
     isVisible: false,
   }
@@ -20,6 +25,7 @@ class Container extends React.Component<{}, State> {
   }
 
   public render() {
+    console.log('this.props', this.props.windowSize)
     return (
       <>
         <BurgerButton
@@ -32,4 +38,4 @@ class Container extends React.Component<{}, State> {
   }
 }
 
-export default Container
+export default withWindowSize(Container)
