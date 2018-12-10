@@ -9,6 +9,8 @@ export interface Props {
   handleQuota: (fields: QuotaFields) => void
   afterSuccess: () => void
   initial?: QuotaFields
+  submitButtonText: string
+  title: string
 }
 
 const Container = (WrappedComponent: React.ComponentType<FormProps>) => {

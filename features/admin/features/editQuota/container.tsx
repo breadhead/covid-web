@@ -44,6 +44,8 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
 
       return (
         <WrappedComponent
+          title="Редактирование типа квоты"
+          submitButtonText="Сохранить"
           handleQuota={this.onFormSubmit}
           afterSuccess={this.afterSuccess}
           initial={initalFields}

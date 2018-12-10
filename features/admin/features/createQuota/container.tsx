@@ -26,6 +26,8 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
     public render() {
       return (
         <WrappedComponent
+          title="Новый тип квот"
+          submitButtonText="Создать"
           handleQuota={this.onFormSubmit}
           afterSuccess={this.afterSuccess}
           {...this.props}
