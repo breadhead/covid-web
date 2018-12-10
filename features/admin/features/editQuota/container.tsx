@@ -56,7 +56,7 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
       companyName: quota.company.name,
       comment: quota.comment,
       count: quota.count.toString(),
-      publicCompany: quota.publicCompany.toString(),
+      publicCompany: quota.publicCompany,
       logo: quota.company.logo,
       companyLink: quota.company.site,
       companyComment: quota.company.comment,

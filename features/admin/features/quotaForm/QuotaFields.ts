@@ -4,7 +4,7 @@ export default interface QuotaFields {
   companyName: string
   comment: string
   count: string
-  publicCompany: string
+  publicCompany: boolean
   logo: string
   companyLink: string
   companyComment: string
