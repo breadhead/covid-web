@@ -11,6 +11,6 @@ export const propsToVariants = ({ totalCount, countByTypes }: Props) => [
   ...Object.entries(countByTypes).map(([quotaType, count]) => ({
     quotaType,
     count,
-    label: quotaTypeToPlural(QuotaType[quotaType as any] as QuotaType),
+    label: quotaTypeToPlural(quotaType as QuotaType),
   })),
 ]
