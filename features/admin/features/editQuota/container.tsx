@@ -61,7 +61,7 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
       comment: quota.comment,
       count: quota.count.toString(),
       publicCompany: quota.publicCompany,
-      logo: quota.company.logo,
+      companyLogo: quota.company.logo,
       companyLink: quota.company.site,
       companyComment: quota.company.comment,
     })
@@ -80,7 +80,7 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
           name: quotaFields.name,
           companyName: quotaFields.companyName,
           companyLink: quotaFields.companyLink,
-          companyLogoUrl: quotaFields.logo,
+          companyLogoUrl: quotaFields.companyLogo,
           constraints,
           corporate: quotaFields.category === QuotaType.Corporate,
           publicCompany: !!quotaFields.publicCompany,
