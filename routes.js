@@ -9,9 +9,10 @@ module.exports = nextRoutes()
   .add('login', '/admin/login', 'admin-login')
   .add('quotas', '/admin/quotas', 'admin-quotas')
   // main routes
-  .add('home', '/', 'main-index')
   .add('claim', '/claim', 'main-claim')
   .add('test', '/test', 'main-test')
   .add('client', '/client', 'main-client')
   .add('manager', '/manager', 'main-manager')
   .add('doctor', '/doctor', 'main-doctor')
+  // landing
+  .add('landing-home', '/', 'landing/home')
