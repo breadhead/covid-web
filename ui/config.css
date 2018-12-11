@@ -48,5 +48,5 @@ body {
 }
 
 /* custom media queries */
-@custom-media --smallDown (max-width: 767px)
-
+@custom-media --smallDown (max-width: 767px);
+@custom-media --mediumDown (max-width: 959px);

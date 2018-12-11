@@ -18,12 +18,12 @@ class Container extends React.Component<Props, State> {
   }
 
   public componentDidMount() {
-    this.setState({ isVisible: !!(this.props.windowSize.width > 767) })
+    this.setState({ isVisible: !!(this.props.windowSize.width > 959) })
   }
 
   public componentDidUpdate(prevProps: Props) {
     if (this.props.windowSize.width !== prevProps.windowSize.width) {
-      this.setState({ isVisible: !!(this.props.windowSize.width > 767) })
+      this.setState({ isVisible: !!(this.props.windowSize.width > 959) })
     }
   }
 

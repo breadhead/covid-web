@@ -3,7 +3,7 @@
   display: flex; 
   align-items: center;
 
-  @media (max-width: 767px) {
+  @media (max-width: 959px) {
     position: fixed;
     top: 0;
     right: 0;
@@ -24,7 +24,7 @@
   margin-right: 32px;
   white-space: nowrap;
 
-  @media (max-width: 767px) {
+  @media (max-width: 959px) {
     position: relative;
     width: 100%;
     padding: 11px 0 12px 0;
@@ -73,7 +73,7 @@
   background-position: 0 -240px;
   border: none;
 
-  @media (max-width: 767px) {
+  @media (max-width: 959px) {
     display: block;
   }
 }
