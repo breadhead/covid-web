@@ -120,7 +120,7 @@ const testComboOptions = [
 
 const Test = ({ modal }: WithModalProps) => (
   <Layout>
-    <h1>components preview page</h1>
+    <h1 style={{ font: 'var(--title-extra)' }}>components preview page</h1>
 
     <Uploader />
 
