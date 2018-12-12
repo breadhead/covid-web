@@ -1,6 +1,18 @@
 declare module 'redux-windowsize' {
-  import { Store } from '@app/lib/with-redux-store'
-  import { AnyAction } from 'redux'
+  interface Action<T = any> {
+    type: T
+  }
+
+  interface AnyAction extends Action {
+    [extraProps: string]: any
+  }
+
+  interface Store<S = any, A extends Action = AnyAction> {
+    dispatch: Dispatch<A>
+    getState(): S
+    subscribe(listener: () => void): Unsubscribe
+    replaceReducer(nextReducer: Reducer<S, A>): void
+  }
 
   interface Measurements {
     width: string | number
@@ -18,7 +30,7 @@ declare module 'redux-windowsize' {
 
   // utility
   export function listenResize(
-    store: Store,
+    store: Store<any>,
     window: Window,
     waitMs: string | number,
     reducerPath?: string,
