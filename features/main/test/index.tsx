@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { withModal, WithModalProps } from '@app/features/common/modal'
-import { Form as AntForm, TimePicker } from 'antd'
+import { Form as AntForm } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
 import { ButtonKind, ButtonSize } from '@app/ui/atoms/Button'
@@ -24,6 +24,7 @@ import {
   SMS_CONFIRM_MODAL,
 } from '@app/features/login'
 import { InputType } from '@app/ui/atoms/Input'
+import TimePicker from '@app/ui/atoms/TimePicker'
 import Layout from '../layout'
 
 const testBoolRadioButtons = [
@@ -195,6 +196,7 @@ const Test = ({ modal }: WithModalProps) => (
             <NavLink type={NavLinkType.Nav} href="#">
               navlink
             </NavLink>{' '}
+            <br />
             <br />
             <TimePicker />
             <br />
