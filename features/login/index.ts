@@ -14,6 +14,8 @@ export {
   unauthorizedMiddleware,
   authViolateStatus,
   getViolateState,
+  withLoginModal,
+  WithLoginModal,
 } from './features/signIn'
 
 export { Actions, actions, State, reducer } from './reducer'

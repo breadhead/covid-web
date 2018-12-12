@@ -25,7 +25,7 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
     ...state,
     quotaId,
   }),
-  'createQuota',
+  'editQuota',
 )
 
 export { State, reducer, Actions, actions }

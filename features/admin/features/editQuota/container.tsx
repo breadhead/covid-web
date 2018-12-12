@@ -7,33 +7,64 @@ import {
   Props as FormProps,
   QuotaFields,
 } from '@app/features/admin/features/quotaForm'
+import { fetchQuota, getQuota } from '@app/features/admin/quota'
 import { push as pushNotification } from '@app/features/admin/toast'
-import { QuotaCreateRequest } from '@app/lib/api/request/Quota'
+import { QuotaEditRequest } from '@app/lib/api/request/Quota'
+import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
-import { QuotaType } from '@app/models/Quota/Quota'
+import { Quota, QuotaType } from '@app/models/Quota/Quota'
 
-import { createQuota } from './actions'
-import { getCreatedQuotaId, getCreateQuotaError } from './selectors'
+import { editQuota } from './actions'
+import { getEditedQuotaError, getEditedQuotaId } from './selectors'
 
 interface Props {
   error: boolean | string
-  createdQuotaId?: string
-  createQuota: (request: QuotaCreateRequest) => Promise<any>
+  editQuota: (request: QuotaEditRequest) => Promise<any>
+  quota?: Quota
+}
+
+interface Query {
+  id: string
 }
 
 const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
   return class extends React.Component<Props> {
+    public static async getInitialProps(context: AppContext<Query>) {
+      const currentId = context.query.id
+
+      await context.reduxStore.dispatch(fetchQuota(currentId) as any)
+
+      return {}
+    }
+
     public render() {
+      const { quota } = this.props
+
+      const initalFields = quota ? this.quotaToFields(quota) : undefined
+
       return (
         <WrappedComponent
-          title="Новый тип квот"
-          submitButtonText="Создать"
+          title="Редактирование типа квоты"
+          submitButtonText="Сохранить"
           handleQuota={this.onFormSubmit}
           afterSuccess={this.afterSuccess}
+          initial={initalFields}
           {...this.props}
         />
       )
     }
+
+    private quotaToFields = (quota: Quota): QuotaFields => ({
+      name: quota.name,
+      category: quota.type.toString(),
+      companyName: quota.company.name,
+      comment: quota.comment,
+      count: quota.count.toString(),
+      publicCompany: quota.publicCompany,
+      companyLogo: quota.company.logo,
+      companyLink: quota.company.site,
+      companyComment: quota.company.comment,
+    })
 
     private onFormSubmit = (quotaFields: QuotaFields) => {
       const constraints = []
@@ -43,8 +74,8 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
         constraints.push(QuotaType.Special)
       }
 
-      const postQuotaFields: QuotaCreateRequest = {
-        count: parseInt(quotaFields.count, 10),
+      const postQuotaFields: QuotaEditRequest = {
+        id: this.props.quota!.id,
         quota: {
           name: quotaFields.name,
           companyName: quotaFields.companyName,
@@ -58,26 +89,27 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
         },
       }
 
-      return this.props.createQuota(postQuotaFields)
+      return this.props.editQuota(postQuotaFields)
     }
 
     private afterSuccess = () => {
       pushNotification({
-        message: 'Квота создана',
+        message: 'Квота сохранена',
       })
-      Router.push(`/admin/quota/${this.props.createdQuotaId}`)
+      Router.push(`/admin/quota/${this.props.quota!.id}`)
     }
   }
 }
 
 const mapState = (state: State) => ({
-  error: getCreateQuotaError(state),
-  createdQuotaId: getCreatedQuotaId(state),
+  error: getEditedQuotaError(state),
+  editedQuotaId: getEditedQuotaId(state),
+  quota: getQuota(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
-  createQuota: (quotaFields: QuotaCreateRequest) =>
-    dispatch(createQuota(quotaFields) as any),
+  editQuota: (quotaFields: QuotaEditRequest) =>
+    dispatch(editQuota(quotaFields) as any),
 })
 
 export default compose(

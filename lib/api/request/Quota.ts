@@ -7,6 +7,7 @@ export interface Quota {
   corporate: boolean
   publicCompany: boolean
   comment: string
+  companyComment: string
 }
 
 export interface QuotaCreateRequest {
@@ -15,5 +16,6 @@ export interface QuotaCreateRequest {
 }
 
 export interface QuotaEditRequest {
+  id: string
   quota: Quota
 }

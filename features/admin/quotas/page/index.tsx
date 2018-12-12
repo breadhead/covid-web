@@ -11,7 +11,7 @@ import * as styles from './page.css'
 export interface Props {
   quotas: Quota[]
   totalCount: number
-  countByTypes: { [key in keyof QuotaType]: number }
+  countByTypes: { [key in keyof typeof QuotaType]: number }
 
   activeOrder: Order
   changeOrder: (order: Order) => void

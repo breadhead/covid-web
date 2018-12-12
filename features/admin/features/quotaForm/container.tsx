@@ -8,6 +8,9 @@ export interface Props {
   error: boolean | string
   handleQuota: (fields: QuotaFields) => void
   afterSuccess: () => void
+  initial?: QuotaFields
+  submitButtonText: string
+  title: string
 }
 
 const Container = (WrappedComponent: React.ComponentType<FormProps>) => {

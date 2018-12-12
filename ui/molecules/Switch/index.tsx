@@ -20,10 +20,10 @@ interface Props {
 
 const Switch = ({ name, label, defaultChecked, ...rest }: Props) => (
   <FinalField name={name} type="checkbox">
-    {fieldProps => (
+    {({ meta, input }) => (
       <FormItem
-        validateStatus={fieldProps.meta.submitError && 'error'}
-        help={fieldProps.meta.submitError}
+        validateStatus={meta.submitError && 'error'}
+        help={meta.submitError}
       >
         {label && <label htmlFor={name}>{label}</label>}
         <AntSwitch
@@ -31,6 +31,7 @@ const Switch = ({ name, label, defaultChecked, ...rest }: Props) => (
           unCheckedChildren="Нет"
           defaultChecked={defaultChecked}
           {...rest}
+          {...input}
         />
       </FormItem>
     )}
