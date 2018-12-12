@@ -2,13 +2,13 @@ import * as React from 'react'
 
 interface Props {
   name: string
-  className: string
+  className?: string
 }
 
-const Icon = ({ name, className }: Props) => (
-  <svg className={className}>
-    <use xlinkHref={name} />
+const IconCustom = ({ name, className }: Props) => (
+  <svg width="24" height="24" className={className}>
+    <use xlinkHref={`#${name}`} />
   </svg>
 )
 
-export default Icon
+export default IconCustom

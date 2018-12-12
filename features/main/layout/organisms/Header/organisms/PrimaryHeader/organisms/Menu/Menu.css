@@ -25,7 +25,8 @@
   white-space: nowrap;
 
   @media (max-width: 959px) {
-    position: relative;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     padding: 11px 0 12px 0;
     margin-right: 0;
@@ -36,42 +37,29 @@
       border-bottom: 1px solid rgba(21,24,51,0.08);
 
     }
-
-    &::after {
-      position: absolute;
-      top: calc(50% - 12px);
-      right: 0;
-      display: block;
-      width: 24px;
-      height: 24px;
-      content: '';
-      background-color: transparent;
-      background-image: url('/static/images/icons/sprite.svg');
-      background-repeat: no-repeat;
-      background-position: 0 -96px;
-    }
-
-      &:hover {
-        &::after {
-          background-position: 0 -72px;
-        }
-      }
   }
+}
+
+.NavIcon {
+  display: none;
+  fill: var(--text-color-secondary);
+    @media (max-width: 959px) {
+      display: inline-block;
+    }
+}
+
+.link:hover .NavIcon {
+  fill: var(--color-primary);
 }
 
 .closeButton {
   display: none;
   align-self: flex-end;
-  width: 24px;
-  height: 24px;
+  border: none;
+  background-color: transparent;
   margin-bottom: 24px;
   font-size: 0;
   cursor: pointer;
-  background-color: transparent;
-  background-image: url('/static/images/icons/sprite.svg');
-  background-repeat: no-repeat;
-  background-position: 0 -240px;
-  border: none;
 
   @media (max-width: 959px) {
     display: block;
