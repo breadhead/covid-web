@@ -18,12 +18,17 @@ class Container extends React.Component<Props, State> {
   }
 
   public componentDidMount() {
-    this.setState({ isVisible: !!(this.props.windowSize.width > 959) })
+    const { width } = this.props.windowSize
+    const isVisible = !!(width > 959)
+
+    this.setState({ isVisible })
   }
 
   public componentDidUpdate(prevProps: Props) {
-    if (this.props.windowSize.width !== prevProps.windowSize.width) {
-      this.setState({ isVisible: !!(this.props.windowSize.width > 959) })
+    const { width } = this.props.windowSize
+
+    if (width !== prevProps.windowSize.width) {
+      this.setState({ isVisible: !!(width > 959) })
     }
   }
 
@@ -36,10 +41,11 @@ class Container extends React.Component<Props, State> {
   }
 
   public render() {
+    const { isVisible } = this.state
     return (
       <>
-        <BurgerButton show={this.show} isMenuVisible={this.state.isVisible} />
-        <Menu hide={this.hide} isVisible={this.state.isVisible} />
+        <BurgerButton show={this.show} isMenuVisible={isVisible} />
+        <Menu hide={this.hide} isVisible={isVisible} />
       </>
     )
   }
