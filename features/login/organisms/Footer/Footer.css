@@ -1,0 +1,19 @@
+.footer {
+  position: relative;
+  padding: 24px 40px 0;
+  font: var(--text14-20);
+  
+  &::after {
+    position: absolute;
+    top: 0;
+    left: -16px;
+    width: 400px;
+    height: 1px;
+    content: '';
+    background-color: rgba(21,24,51,0.08);
+  }
+}
+
+.link.link {
+  font: var(--text14-20);
+}

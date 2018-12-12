@@ -1,6 +1,5 @@
 .popup {
   width: 100%;
-  max-width: 400px;
   height: 100%;
   padding: 0 24px;
   background-color: #fff;
@@ -37,12 +36,14 @@
   max-width: 100%;
   margin-top: 24px;
   margin-bottom: 16px;
+  height: 48px;
 }
 
 .socialButton.socialButton {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 56px;
+  margin-bottom: 32px;
+  height: 48px;
 }
 
 .footer {
