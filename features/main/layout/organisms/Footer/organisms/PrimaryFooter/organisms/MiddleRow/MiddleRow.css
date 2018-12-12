@@ -1,3 +1,8 @@
 .middle {
+  display: flex;
   margin-bottom: 32px;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 }

@@ -1,12 +1,8 @@
-.menu {
-  display: flex; 
-  align-items: center; 
-
-  @media (max-width: 767px) {
-    display: none;
-  }
+.animEntered {
+  transform: translateX(0);
 }
 
-.link {
-  margin-right: 32px;
+.animExiting, .animEntering {
+  transform: translateX(100%);
 }
+

@@ -4,14 +4,18 @@ import { authViolateStatus, getViolateState } from '@app/features/login'
 import ApiClientFactory from '@app/lib/api/ApiClientFactory'
 import withReduxStore, { Store } from '@app/lib/with-redux-store'
 import '@app/ui/antd-styles.less'
+
+import Sprite from '@app/ui/molecules/Sprite'
 import Cookie from 'js-cookie'
 import App, { Container, NextAppContext } from 'next/app'
 import Router from 'next/router'
 import React, { Component as ReactComponent } from 'react'
 import { Provider } from 'react-redux'
+import { createSizeAction, listenResize } from 'redux-windowsize'
 
 import '@app/ui/config.css?CSSModulesDisable'
 
+import { canUseDOM } from '@app/lib/helpers/canUseDOM'
 import registerModals from '@app/lib/register-modals'
 
 interface Props {
@@ -59,9 +63,15 @@ class OncohelpWeb extends App<Props> {
 
     const authViolate = getViolateState(reduxStore.getState())
 
+    if (canUseDOM) {
+      reduxStore.dispatch(createSizeAction(window))
+      listenResize(reduxStore, window, 100)
+    }
+
     return (
       !authViolate && (
         <Container>
+          <Sprite />
           <Provider store={reduxStore}>
             <div>
               {route.startsWith('/admin') ? (

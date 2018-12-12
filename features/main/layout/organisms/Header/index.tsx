@@ -5,7 +5,7 @@ import SecondaryHeader from './organisms/SecondaryHeader'
 
 export enum HeaderType {
   Primary = 'Primary',
-  Secondary = 'secondary',
+  Secondary = 'Secondary',
 }
 
 export enum HeaderTheme {
