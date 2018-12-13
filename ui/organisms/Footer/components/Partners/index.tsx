@@ -1,8 +1,13 @@
+import cx from 'classnames'
 import * as React from 'react'
 
-import Partner from '../../atoms/Partner'
-
 import { NON_BREAKING_SPACE } from '@app/lib/config'
+
+import styles from './Partners.css'
+
+interface Props {
+  className?: string
+}
 
 const partners = [
   {
@@ -22,12 +27,15 @@ const partners = [
   },
 ]
 
-const Partners = () => (
-  <>
+const Partners = ({ className }: Props) => (
+  <div className={cx(styles.middle, className)}>
     {partners.map(({ id, text, logo }) => (
-      <Partner key={id} text={text} logo={logo} />
+      <article key={id} className={styles.partner}>
+        <p className={styles.text}>{text}</p>
+        <img className={styles.logo} src={logo} alt={text} />
+      </article>
     ))}
-  </>
+  </div>
 )
 
 export default Partners

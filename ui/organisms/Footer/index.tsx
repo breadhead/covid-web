@@ -1,17 +1,12 @@
 import * as React from 'react'
 
-import PrimaryFooter from './organisms/PrimaryFooter'
-import SecondaryFooter from './organisms/SecondaryFooter'
+import PrimaryFooter from './PrimaryFooter'
+import SecondaryFooter from './SecondaryFooter'
 
-export enum FooterType {
-  Primary = 'Primary',
-  Secondary = 'Secondary',
-}
+import styles from './Footer.css'
+import FooterTheme from './FooterTheme'
+import FooterType from './FooterType'
 
-export enum FooterTheme {
-  Default = 'Default',
-  White = 'White',
-}
 interface Props {
   type?: FooterType
   theme?: FooterTheme
@@ -26,7 +21,9 @@ const Footer = ({
     Secondary: <SecondaryFooter theme={theme} />,
   }
 
-  return componentsMap[type]
+  return <section className={styles.footer}>{componentsMap[type]}</section>
 }
 
 export default Footer
+
+export { FooterTheme, FooterType }

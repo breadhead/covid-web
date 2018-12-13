@@ -1,14 +1,15 @@
 import cx from 'classnames'
 import * as React from 'react'
-import * as styles from './BottomRow.css'
 
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
+
+import * as styles from './Legal.css'
 
 interface Props {
   className?: string
 }
 
-const BottomRow = ({ className }: Props) => (
+const Legal = ({ className }: Props) => (
   <div className={cx(styles.bottom, className)}>
     <div className={styles.oncohelp}>
       <span className={styles.copyright}>© Просто спросить, 2018</span>
@@ -25,4 +26,4 @@ const BottomRow = ({ className }: Props) => (
   </div>
 )
 
-export default BottomRow
+export default Legal

@@ -10,3 +10,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+.top {
+  margin-bottom: 40px;
+}
+
+.logo {
+    @media (max-width: 767px) {
+    display: none;
+  }
+}
