@@ -1,7 +1,8 @@
 import * as React from 'react'
-import Layout from '../layout'
 
-import { FooterType } from '../layout/organisms/Footer'
+import { FooterType } from '@app/ui/organisms/Footer'
+
+import Layout from '../layout'
 import { HeaderType } from '../layout/organisms/Header'
 
 const ClientPage = () => (

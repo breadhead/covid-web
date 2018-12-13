@@ -1,6 +1,7 @@
 import * as React from 'react'
 
-import Footer, { FooterTheme, FooterType } from '../organisms/Footer'
+import Footer, { FooterTheme, FooterType } from '@app/ui/organisms/Footer'
+
 import Header, { HeaderTheme, HeaderType } from '../organisms/Header'
 
 interface Props {

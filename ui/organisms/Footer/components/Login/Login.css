@@ -1,0 +1,17 @@
+.buttons {
+  display: flex;
+
+  & .button {
+    align-self: flex-start;
+    margin-right: 12px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
