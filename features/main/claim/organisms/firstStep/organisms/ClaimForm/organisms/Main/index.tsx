@@ -3,20 +3,13 @@ import * as React from 'react'
 import * as styles from '../../ClaimForm.css'
 
 import NavLink from '@app/ui/atoms/NavLink'
-import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import Select from '@app/ui/molecules/Select'
-import Switch from '@app/ui/molecules/Switch'
 
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 import Combobox from '@app/ui/molecules/Combobox'
 import FormInput from '@app/ui/molecules/FormInput'
 import TextArea from '@app/ui/molecules/TextArea'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
-
-const statementRadioGroup = [
-  { id: '1', value: 'Да' },
-  { id: '2', value: 'Нет' },
-]
 
 const mockSelectOptions = [
   {
