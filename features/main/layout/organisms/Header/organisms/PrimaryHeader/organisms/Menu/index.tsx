@@ -1,26 +1,54 @@
 import * as React from 'react'
-import * as styles from './Menu.css'
 
-import { ButtonKind } from '@app/ui/atoms/Button'
-import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
-import Button from '@app/ui/molecules/FormButton'
+import { WindowSize } from '@app/features/common/windowSize/selector'
+import withWindowSize from '@app/features/common/windowSize/withWindowSize'
+import BurgerButton from '../../atoms/BurgerButton'
+import Menu from './Menu'
 
-const Menu = () => (
-  <nav className={styles.menu}>
-    <NavLink type={NavLinkType.Nav} href="#" className={styles.link}>
-      Партнёры
-    </NavLink>
-    <NavLink type={NavLinkType.Nav} href="#" className={styles.link}>
-      Эксперты
-    </NavLink>
-    <NavLink type={NavLinkType.Nav} href="#" className={styles.link}>
-      Контакты
-    </NavLink>
-    <NavLink type={NavLinkType.Nav} href="#" className={styles.link}>
-      Помочь проекту
-    </NavLink>
-    <Button kind={ButtonKind.Secondary}>Войти</Button>
-  </nav>
-)
+interface Props {
+  windowSize: WindowSize
+}
+export interface State {
+  isVisible: boolean
+}
 
-export default Menu
+class Container extends React.Component<Props, State> {
+  public state = {
+    isVisible: false,
+  }
+
+  public componentDidMount() {
+    const { width } = this.props.windowSize
+    const isVisible = !!(width > 959)
+
+    this.setState({ isVisible })
+  }
+
+  public componentDidUpdate(prevProps: Props) {
+    const { width } = this.props.windowSize
+
+    if (width !== prevProps.windowSize.width) {
+      this.setState({ isVisible: !!(width > 959) })
+    }
+  }
+
+  public show = () => {
+    this.setState({ isVisible: true })
+  }
+
+  public hide = () => {
+    this.setState({ isVisible: false })
+  }
+
+  public render() {
+    const { isVisible } = this.state
+    return (
+      <>
+        <BurgerButton show={this.show} isMenuVisible={isVisible} />
+        <Menu hide={this.hide} isVisible={isVisible} />
+      </>
+    )
+  }
+}
+
+export default withWindowSize(Container)

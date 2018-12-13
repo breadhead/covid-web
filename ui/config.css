@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600,700&subset=cyrillic');
 
+@font-face {
+  font-family: 'Muller Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/static/fonts/Muller-Regular/muller-regular-webfont.eot");
+  src: url("/static/fonts/Muller-Regular/muller-regular-webfont.eot?#iefix") format("embedded-opentype"),
+      url("/static/fonts/Muller-Regular/muller-regular-webfont.woff2") format("woff2"),
+      url("/static/fonts/Muller-Regular/muller-regular-webfont.woff") format("woff"),
+      url("/static/fonts/Muller-Regular/muller-regular-webfont.ttf") format("truetype"),
+      url("/static/fonts/Muller-Regular/muller-regular-webfont.svg#muller_regularregular") format("svg");
+}
+
 *, *::before , *::after {
   box-sizing: border-box;
 }
@@ -7,7 +19,7 @@
 body {
   /* fonts */
   --fontFamily: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  --fontFamily-title: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --fontFamily-title: Muller Regular, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
   --title-extra: 48px/56px var(--fontFamily-title);
   --title-regular: 40px/48px var(--fontFamily-title);
@@ -48,5 +60,5 @@ body {
 }
 
 /* custom media queries */
-@custom-media --smallDown (max-width: 767px)
-
+@custom-media --smallDown (max-width: 767px);
+@custom-media --mediumDown (max-width: 959px);

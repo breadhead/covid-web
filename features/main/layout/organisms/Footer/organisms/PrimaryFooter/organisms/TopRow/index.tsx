@@ -14,7 +14,7 @@ interface Props {
 
 const TopRow = ({ className }: Props) => (
   <div className={cx(styles.top, className)}>
-    <Logo />
+    <Logo className={styles.logo} />
     <Menu />
     <div className={styles.buttons}>
       <Button wrapperClassName={styles.button} kind={ButtonKind.Secondary}>

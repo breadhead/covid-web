@@ -8,17 +8,17 @@ const partners = [
   {
     id: '1',
     text: `Системные проекты, которые меняют медицину России к${NON_BREAKING_SPACE}лучшему`,
-    logo: 'http://placecorgi.com/136/96',
+    logo: '/static/images/layout/footer/foundation_logo.png',
   },
   {
     id: '2',
     text: `Просветительский портал о${NON_BREAKING_SPACE}профилактике и лечении онкологических и других заболеваний`,
-    logo: 'http://placecorgi.com/136/96',
+    logo: '/static/images/layout/footer/media_logo.png',
   },
   {
     id: '3',
     text: `Система определения показаний к${NON_BREAKING_SPACE}профилактике рака`,
-    logo: 'http://placecorgi.com/136/96',
+    logo: '/static/images/layout/footer/screen_logo.png',
   },
 ]
 

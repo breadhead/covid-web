@@ -12,4 +12,15 @@
       margin-right: 0;
     }
   }
+
+  @media (max-width: 767px) {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.logo {
+    @media (max-width: 767px) {
+    display: none;
+  }
 }
