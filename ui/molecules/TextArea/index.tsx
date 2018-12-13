@@ -9,7 +9,7 @@ const FormItem = AntForm.Item
 interface Props {
   name: string
   className?: string
-  label?: string
+  label?: string | React.ReactNode
   placeholder?: string
   required?: true
   rows?: number

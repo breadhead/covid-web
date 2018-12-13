@@ -57,7 +57,7 @@ class EmergingFormElement extends React.Component<Props> {
           )}
         </div>
         {isVisible && (
-          <div className={styles.EmergingFormElement} hidden={!isVisible}>
+          <div className={styles.EmergingContainer} hidden={!isVisible}>
             {children}
           </div>
         )}
