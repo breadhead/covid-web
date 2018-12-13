@@ -20,7 +20,7 @@ const RadioButton = ({ name, className, value, children, ...rest }: Props) => (
         validateStatus={meta.submitError && 'error'}
         help={meta.submitError}
       >
-        <Radio name={name} value={value} {...rest}>
+        <Radio className="radioButton" name={name} value={value} {...rest}>
           {children}
         </Radio>
       </FormItem>

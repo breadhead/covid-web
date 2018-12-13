@@ -2,6 +2,14 @@
   display: flex;
   align-items: center;
 
+ &.radioButton .ant-radio.ant-radio {
+   display: inline-block;
+ }
+
+  & .ant-radio-checked:after {
+    display: none;
+  }
+
   & span + span {
     font: var(--text16-24);
   }

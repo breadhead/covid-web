@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { withModal, WithModalProps } from '@app/features/common/modal'
-import { Form as AntForm, TimePicker } from 'antd'
+import { Form as AntForm } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
 import { ButtonKind, ButtonSize } from '@app/ui/atoms/Button'
@@ -23,6 +23,8 @@ import {
   SIGN_UP_MODAL,
   SMS_CONFIRM_MODAL,
 } from '@app/features/login'
+import { InputType } from '@app/ui/atoms/Input'
+import TimePicker from '@app/ui/atoms/TimePicker'
 import Layout from '../layout'
 
 const testBoolRadioButtons = [
@@ -123,152 +125,168 @@ const Test = ({ modal }: WithModalProps) => (
     <h1 style={{ font: 'var(--title-extra)' }}>components preview page</h1>
 
     <Uploader />
-
-    <FinalForm
-      onSubmit={() => undefined}
-      render={() => (
-        <AntForm>
-          <p>Модалка с подтверждением смс</p>
-          <button onClick={() => modal.open(SMS_CONFIRM_MODAL)}>
-            SMS popup
-          </button>
-          <button onClick={() => modal.open(SIGN_UP_MODAL)}>auth popup</button>
-          <button onClick={() => modal.open(SIGN_IN_MODAL)}>login popup</button>
-          <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
-          <Checkbox name="checkbox" defaultChecked>
-            Чекбокс с лейблом
-          </Checkbox>
-          <Checkbox name="checkbox" disabled>
-            Чекбокс с лейблом
-          </Checkbox>
-          <EmergingFormElement controlType="switch">
+    <div style={{ paddingLeft: '5%', textAlign: 'left' }}>
+      <FinalForm
+        onSubmit={() => undefined}
+        render={() => (
+          <AntForm>
+            <p>Модалка с подтверждением смс</p>
+            <button onClick={() => modal.open(SMS_CONFIRM_MODAL)}>
+              SMS popup
+            </button>
+            <button onClick={() => modal.open(SIGN_UP_MODAL)}>
+              auth popup
+            </button>
+            <button onClick={() => modal.open(SIGN_IN_MODAL)}>
+              login popup
+            </button>
             <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
-            <br />
-            <Checkbox name="checkbox1" disabled>
-              Чекбокс с очень длинным лейблом
+            <Checkbox name="checkbox" defaultChecked>
+              Чекбокс с лейблом
             </Checkbox>
-            <br />
-          </EmergingFormElement>
-          <EmergingFormElement controlType="radiogroup">
-            <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
-            <br />
-            <Checkbox name="checkbox1" disabled>
-              Чекбокс с очень длинным лейблом
+            <Checkbox name="checkbox" disabled>
+              Чекбокс с лейблом
             </Checkbox>
+            <EmergingFormElement controlType="switch">
+              <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
+              <br />
+              <Checkbox name="checkbox1" disabled>
+                Чекбокс с очень длинным лейблом
+              </Checkbox>
+              <br />
+            </EmergingFormElement>
+            <EmergingFormElement controlType="radiogroup">
+              <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
+              <br />
+              <Checkbox name="checkbox1" disabled>
+                Чекбокс с очень длинным лейблом
+              </Checkbox>
+              <br />
+            </EmergingFormElement>
+            <p>Комбобокс</p>
+            <Combobox
+              defaultValue="Выберите пункт"
+              options={testComboOptions}
+              name="combo2"
+            />
             <br />
-          </EmergingFormElement>
-          <p>Комбобокс</p>
-          <Combobox
-            defaultValue="Выберите пункт"
-            options={testComboOptions}
-            name="combo2"
-          />
-          <br />
-          <Combobox
-            defaultValue="Выберите пункт"
-            options={testComboOptions}
-            initialValue="Начните вводить название населенного пункта и
+            <Combobox
+              defaultValue="Выберите пункт"
+              options={testComboOptions}
+              initialValue="Начните вводить название населенного пункта и
               выберите подходящее значение из списка:"
-            currentValue="Продолжайте вводить название, если не видите свой город:"
-            name="combo"
-          />
-          <br />
-          <p>Селект</p>
-          <Select
-            options={testSelectOptions}
-            defaultValue="Выберите опцию"
-            name="select"
-          />
-          <br />
-          <Select disabled options={testSelectOptions} name="selectDis" />{' '}
-          <br />
-          <NavLink href="#">link</NavLink> <br />
-          <NavLink type={NavLinkType.Nav} href="#">
-            navlink
-          </NavLink>{' '}
-          <br />
-          <TimePicker />
-          <br />
-          <br />
-          <TextArea name="testTextArea" placeholder="текстарея" />
-          <br />
-          <Input name="input" placeholder="инпут" />
-          <br />
-          <Switch name="testSwitch" />
-          <br />
-          <RadioGroup
-            name="bool"
-            type={RadioGroupType.Bool}
-            buttons={testBoolRadioButtons}
-          />
-          <br />
-          <RadioGroup
-            name="controls"
-            type={RadioGroupType.Controls}
-            buttons={testControlsRadioButtons}
-            defaultValue={testControlsRadioButtons[1].value}
-          />
-          <br />
-          <RadioButton name="testRadioButton" value="memem">
-            радиокнопка
-          </RadioButton>
-          <br />
-          <RadioButton name="testRadioButton" value="memem1">
-            радиокнопка2
-          </RadioButton>
-          <br />
-          {/* buttons */}
-          <Button size={ButtonSize.ExtraLarge}>Огромная кнопка</Button>
-          <br />
-          <Button size={ButtonSize.Large}>Большая кнопка</Button>
-          <br />
-          <Button>Средняя кнопка</Button>
-          <br />
-          <Button size={ButtonSize.Small}>Маленькая кнопка</Button>
-          <br />
-          <Button disabled size={ButtonSize.Small}>
-            Маленькая кнопка
-          </Button>
-          <br />
-          <Button kind={ButtonKind.Secondary} size={ButtonSize.ExtraLarge}>
-            Огромная кнопка
-          </Button>
-          <br />
-          <Button kind={ButtonKind.Secondary} size={ButtonSize.Large}>
-            Большая кнопка
-          </Button>
-          <br />
-          <Button kind={ButtonKind.Secondary}>Средняя кнопка</Button>
-          <br />
-          <Button kind={ButtonKind.Secondary} size={ButtonSize.Small}>
-            Маленькая кнопка
-          </Button>
-          <br />
-          <Button kind={ButtonKind.Secondary} disabled size={ButtonSize.Small}>
-            Маленькая кнопка
-          </Button>
-          <br />
-          <Button kind={ButtonKind.Extra} size={ButtonSize.ExtraLarge}>
-            Огромная кнопка
-          </Button>
-          <br />
-          <Button kind={ButtonKind.Extra} size={ButtonSize.Large}>
-            Большая кнопка
-          </Button>
-          <br />
-          <Button kind={ButtonKind.Extra}>Средняя кнопка</Button>
-          <br />
-          <Button kind={ButtonKind.Extra} size={ButtonSize.Small}>
-            Маленькая кнопка
-          </Button>
-          <br />
-          <Button kind={ButtonKind.Extra} disabled size={ButtonSize.Small}>
-            Маленькая кнопка
-          </Button>
-          <br />
-        </AntForm>
-      )}
-    />
+              currentValue="Продолжайте вводить название, если не видите свой город:"
+              name="combo"
+            />
+            <br />
+            <p>Селект</p>
+            <Select
+              options={testSelectOptions}
+              defaultValue="Выберите опцию"
+              name="select"
+            />
+            <br />
+            <Select
+              disabled
+              options={testSelectOptions}
+              name="selectDis"
+            />{' '}
+            <br />
+            <NavLink href="#">link</NavLink> <br />
+            <NavLink type={NavLinkType.Nav} href="#">
+              navlink
+            </NavLink>{' '}
+            <br />
+            <br />
+            <TimePicker />
+            <br />
+            <br />
+            <TextArea name="testTextArea" placeholder="текстарея" />
+            <br />
+            <Input name="input" placeholder="инпут" />
+            <br />
+            <Input name="input2" type={InputType.Number} placeholder="инпут2" />
+            <br />
+            <Switch name="testSwitch" />
+            <br />
+            <RadioGroup
+              name="bool"
+              type={RadioGroupType.Bool}
+              buttons={testBoolRadioButtons}
+            />
+            <br />
+            <RadioGroup
+              name="controls"
+              type={RadioGroupType.Controls}
+              buttons={testControlsRadioButtons}
+              defaultValue={testControlsRadioButtons[1].value}
+            />
+            <br />
+            <RadioButton name="testRadioButton" value="memem">
+              радиокнопка
+            </RadioButton>
+            <br />
+            <RadioButton name="testRadioButton" value="memem1">
+              радиокнопка2
+            </RadioButton>
+            <br />
+            {/* buttons */}
+            <Button size={ButtonSize.ExtraLarge}>Огромная кнопка</Button>
+            <br />
+            <Button size={ButtonSize.Large}>Большая кнопка</Button>
+            <br />
+            <Button>Средняя кнопка</Button>
+            <br />
+            <Button size={ButtonSize.Small}>Маленькая кнопка</Button>
+            <br />
+            <Button disabled size={ButtonSize.Small}>
+              Маленькая кнопка
+            </Button>
+            <br />
+            <Button kind={ButtonKind.Secondary} size={ButtonSize.ExtraLarge}>
+              Огромная кнопка
+            </Button>
+            <br />
+            <Button kind={ButtonKind.Secondary} size={ButtonSize.Large}>
+              Большая кнопка
+            </Button>
+            <br />
+            <Button kind={ButtonKind.Secondary}>Средняя кнопка</Button>
+            <br />
+            <Button kind={ButtonKind.Secondary} size={ButtonSize.Small}>
+              Маленькая кнопка
+            </Button>
+            <br />
+            <Button
+              kind={ButtonKind.Secondary}
+              disabled
+              size={ButtonSize.Small}
+            >
+              Маленькая кнопка
+            </Button>
+            <br />
+            <Button kind={ButtonKind.Extra} size={ButtonSize.ExtraLarge}>
+              Огромная кнопка
+            </Button>
+            <br />
+            <Button kind={ButtonKind.Extra} size={ButtonSize.Large}>
+              Большая кнопка
+            </Button>
+            <br />
+            <Button kind={ButtonKind.Extra}>Средняя кнопка</Button>
+            <br />
+            <Button kind={ButtonKind.Extra} size={ButtonSize.Small}>
+              Маленькая кнопка
+            </Button>
+            <br />
+            <Button kind={ButtonKind.Extra} disabled size={ButtonSize.Small}>
+              Маленькая кнопка
+            </Button>
+            <br />
+          </AntForm>
+        )}
+      />
+    </div>
   </Layout>
 )
 

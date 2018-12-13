@@ -30,7 +30,7 @@ const Input = ({ name, type, label, wrapperClassName, ...rest }: Props) => (
         {label}
       </label>
     )}
-    <AntInput id={name} type={type} {...rest} />
+    <AntInput className={styles.input} id={name} type={type} {...rest} />
   </div>
 )
 

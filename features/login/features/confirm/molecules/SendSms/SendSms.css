@@ -3,11 +3,7 @@
   align-items: center;
 
   & > * {
-    margin-bottom: 24px;
-  }
-
-  & > *:first-child {
-    margin-right: 16px;
+    margin-bottom: 32px;
   }
 }
 
