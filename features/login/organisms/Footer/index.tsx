@@ -6,6 +6,11 @@ import NavLink from '@app/ui/atoms/NavLink'
 
 const Footer = () => (
   <footer className={styles.footer}>
+    <img
+      className={styles.logo}
+      src="/static/images/layout/popup/26x40_foundation_logo-mark.svg"
+      alt="nenaprasno.ru"
+    />
     <p className={styles.text}>
       Если у вас есть аккаунт на <b>nenaprasno.ru</b>, вы{NON_BREAKING_SPACE}
       можете{SPACE}

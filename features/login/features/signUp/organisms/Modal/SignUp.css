@@ -13,6 +13,10 @@
 .title {
   margin: 0 0 8px 0;
   font: var(--title-medium);
+
+  @media (max-width: 767px) {
+    font-size: 32px;
+  }
 }
 
 .secondaryText {
