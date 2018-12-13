@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { WindowSize } from '@app/features/common/windowSize/selector'
 import withWindowSize from '@app/features/common/windowSize/withWindowSize'
+import Overlay from '@app/ui/molecules/Overlay'
 import BurgerButton from '../../atoms/BurgerButton'
 import Menu from './Menu'
 
@@ -44,6 +45,7 @@ class Container extends React.Component<Props, State> {
     const { isVisible } = this.state
     return (
       <>
+        <Overlay isVisible={isVisible} onClick={this.hide} />
         <BurgerButton show={this.show} isMenuVisible={isVisible} />
         <Menu hide={this.hide} isVisible={isVisible} />
       </>
