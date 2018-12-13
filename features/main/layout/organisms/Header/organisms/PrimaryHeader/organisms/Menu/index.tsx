@@ -10,44 +10,59 @@ interface Props {
   windowSize: WindowSize
 }
 export interface State {
-  isVisible: boolean
+  isMenuVisible: boolean
+  isBurgerButtonVisible: boolean
+  isOverlayVisible: boolean
 }
+
+const MOBILE_BREAKPOINT = 959
 
 class Container extends React.Component<Props, State> {
   public state = {
-    isVisible: false,
+    isBurgerButtonVisible: false,
+    isMenuVisible: false,
+    isOverlayVisible: false,
   }
 
   public componentDidMount() {
-    const { width } = this.props.windowSize
-    const isVisible = !!(width > 959)
-
-    this.setState({ isVisible })
+    this.toggleVisibility()
   }
 
   public componentDidUpdate(prevProps: Props) {
-    const { width } = this.props.windowSize
-
-    if (width !== prevProps.windowSize.width) {
-      this.setState({ isVisible: !!(width > 959) })
+    if (this.props.windowSize.width !== prevProps.windowSize.width) {
+      this.toggleVisibility()
     }
   }
 
   public show = () => {
-    this.setState({ isVisible: true })
+    this.setState({ isMenuVisible: true, isOverlayVisible: true })
   }
 
   public hide = () => {
-    this.setState({ isVisible: false })
+    this.setState({ isMenuVisible: false, isOverlayVisible: false })
+  }
+
+  public toggleVisibility = () => {
+    const { width } = this.props.windowSize
+
+    const isMenuVisible = !!(width > MOBILE_BREAKPOINT)
+    const isBurgerButtonVisible = !!(width < MOBILE_BREAKPOINT)
+
+    this.setState({ isBurgerButtonVisible, isMenuVisible })
   }
 
   public render() {
-    const { isVisible } = this.state
+    const {
+      isMenuVisible,
+      isBurgerButtonVisible,
+      isOverlayVisible,
+    } = this.state
+
     return (
       <>
-        <Overlay isVisible={isVisible} onClick={this.hide} />
-        <BurgerButton show={this.show} isMenuVisible={isVisible} />
-        <Menu hide={this.hide} isVisible={isVisible} />
+        <Overlay isVisible={isOverlayVisible} onClick={this.hide} />
+        <BurgerButton show={this.show} isVisible={isBurgerButtonVisible} />
+        <Menu hide={this.hide} isVisible={isMenuVisible} />
       </>
     )
   }
