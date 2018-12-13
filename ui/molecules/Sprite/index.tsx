@@ -42,11 +42,11 @@ const Sprite = () => (
         <path
           d="M12.2 21.3c-.4.39-1.03.4-1.43 0a.97.97 0 0 1 0-1.4l7.37-7.16c2.37-2.3 2.44-5 .2-7.17-1.07-1.05-3.93-3.13-7.34.2l-5.84 5.67c-.8.79-1.19 1.58-1.13 2.34.06.84.64 1.57 1.12 2.03.66.65 1.31.98 1.94 1 .73.02 1.52-.37 2.35-1.19l6.04-5.86c.4-.4 1.04-.4 1.44-.01a.97.97 0 0 1-.01 1.4l-6.04 5.87c-1.24 1.21-2.53 1.8-3.84 1.76a4.96 4.96 0 0 1-3.31-1.57 5.21 5.21 0 0 1-1.7-3.28c-.11-1.37.47-2.67 1.71-3.88l5.84-5.68c3.16-3.09 7.17-3.16 10.2-.2 3.04 2.97 2.96 6.88-.2 9.96L12.2 21.3z"
           fill="--text-color-secondary"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         />
       </svg>
       <svg width="24" height="24" id="24x24_away-link">
-        <g fill="none" fill-rule="evenodd">
+        <g fill="none" fillRule="evenodd">
           <path d="M0 0h24v24H0z" />
           <path
             d="M18.59 4H16a1 1 0 0 1 0-2h5a1 1 0 0 1 1 1v5a1 1 0 0 1-2 0V5.41l-7.3 7.3a1 1 0 1 1-1.4-1.42L18.58 4zM6 3h4.96a1 1 0 0 1 1 1 1 1 0 0 1-1 1H6a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 1 1-1 1 1 0 0 1 1 1v5a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3z"
@@ -64,14 +64,14 @@ const Sprite = () => (
         <path
           d="M4.97 6.38a9 9 0 0 0 12.65 12.65L4.97 6.38zm1.41-1.41l12.65 12.65A9 9 0 0 0 6.38 4.97zM12 23a11 11 0 1 1 0-22 11 11 0 0 1 0 22z"
           fill="var(--text-color-secondary)"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         />
       </svg>
       <svg width="24" height="24" id="24x24_cancel-red">
         <path
           d="M4.97 6.38a9 9 0 0 0 12.65 12.65L4.97 6.38zm1.41-1.41l12.65 12.65A9 9 0 0 0 6.38 4.97zM12 23a11 11 0 1 1 0-22 11 11 0 0 1 0 22z"
           fill="#EB4343"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         />
       </svg>
       <svg width="24" height="24" id="24x24_close_light">
@@ -105,12 +105,12 @@ const Sprite = () => (
         />
       </svg>
       <svg width="24" height="24" id="24x24_loading_light">
-        <g fill="none" fill-rule="evenodd">
+        <g fill="none" fillRule="evenodd">
           <path d="M0 0h24v24H0z" />
           <path
             d="M12 21v-2a7 7 0 1 0-7-7H3a9 9 0 1 1 9 9z"
             fill="var(--color-default)"
-            fill-rule="nonzero"
+            fillRule="nonzero"
           />
         </g>
       </svg>
@@ -133,7 +133,7 @@ const Sprite = () => (
         />
       </svg>
       <svg width="24" height="24" id="24x24_new-message">
-        <g fill="none" fill-rule="evenodd">
+        <g fill="none" fillRule="evenodd">
           <path
             d="M20 10c-3.309 0-6-2.691-6-6 0-.702.127-1.373.35-2H8a6 6 0 0 0-6 6v12.586a1 1 0 0 0 1.707.707l2.122-2.121A4 4 0 0 1 8.657 18H16a6 6 0 0 0 6-6V9.65a5.95 5.95 0 0 1-2 .35"
             fill="#FFE9B6"
@@ -185,7 +185,7 @@ const Sprite = () => (
         <path
           d="M22.79 9.81a1 1 0 0 0-1.96.38A9 9 0 1 1 12 3c2.33.01 4.5.94 6.17 2.57l-7.25 8.94-3.18-3.2a1 1 0 1 0-1.42 1.4l3.97 4a1 1 0 0 0 1.49-.07l8.5-10.5c.02-.03.2-.3.2-.6 0-.43-.2-.66-.22-.68A10.87 10.87 0 0 0 12 1a11 11 0 1 0 10.79 8.81"
           fill="#19CD92"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         />
       </svg>
       <svg width="24" height="24" id="24x24_user">
@@ -201,7 +201,7 @@ const Sprite = () => (
         />
       </svg>
       <svg width="32" height="32" id="32x32_chat">
-        <g fill="none" fill-rule="evenodd">
+        <g fill="none" fillRule="evenodd">
           <path
             d="M9 3h14a7 7 0 0 1 7 7v9a7 7 0 0 1-7 7H9.48a6 6 0 0 0-4.24 1.76l-1.53 1.53A1 1 0 0 1 2 28.6V10a7 7 0 0 1 7-7"
             fill="var(--text-primary)"
@@ -213,7 +213,7 @@ const Sprite = () => (
         </g>
       </svg>
       <svg width="32" height="32" id="32x32_chat_new-message">
-        <g fill="none" fill-rule="evenodd">
+        <g fill="none" fillRule="evenodd">
           <path
             d="M28 10a6 6 0 0 1-5.91-7H9a7 7 0 0 0-7 7v18.59a1 1 0 0 0 1.7.7l1.54-1.53A6 6 0 0 1 9.48 26H23a7 7 0 0 0 7-7v-9l-.02-.34c-.62.21-1.29.34-1.98.34"
             fill="var(--text-primary)"
