@@ -12,6 +12,10 @@
     content: '';
     background-color: rgba(21,24,51,0.08);
   }
+
+  @media (max-width: 767px) {
+    padding: 24px 16px 32px;
+  }
 }
 
 .link.link {
