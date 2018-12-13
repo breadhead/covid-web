@@ -34,16 +34,16 @@
 .mainButton.mainButton {
   width: 100%;
   max-width: 100%;
+  height: 48px;
   margin-top: 24px;
   margin-bottom: 16px;
-  height: 48px;
 }
 
 .socialButton.socialButton {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 32px;
   height: 48px;
+  margin-bottom: 32px;
 }
 
 .footer {

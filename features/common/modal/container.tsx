@@ -7,6 +7,7 @@ import { Action, AnyAction, Dispatch } from 'redux'
 import { State } from '@app/lib/store'
 import withLockScroll from '@breadhead/with-scroll-lock'
 
+import CloseButton from './atoms/CloseButton'
 import { ModalDispatcher } from './helpers/ModalDispatcher'
 import { shouldOpenModal } from './helpers/shouldModalOpen'
 import styles from './index.css'
@@ -33,15 +34,18 @@ class Modal extends React.Component<Props> {
     const ModalComponent = this.getModalComponent(modal)
 
     return (
-      <ReactModal
-        shouldCloseOnOverlayClick
-        className={styles.Modal}
-        isOpen={shouldOpenModal(modal)}
-        onRequestClose={close}
-        ariaHideApp={false}
-      >
-        {ModalComponent && <ModalComponent />}
-      </ReactModal>
+      <>
+        <ReactModal
+          shouldCloseOnOverlayClick
+          className={styles.Modal}
+          isOpen={shouldOpenModal(modal)}
+          onRequestClose={close}
+          ariaHideApp={false}
+        >
+          <CloseButton onClick={close} />
+          {ModalComponent && <ModalComponent />}
+        </ReactModal>
+      </>
     )
   }
 

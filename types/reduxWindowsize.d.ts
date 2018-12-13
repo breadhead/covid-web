@@ -21,7 +21,7 @@ declare module 'redux-windowsize' {
 
   // actions
   export function setSize(height: number, width: number): void
-  export function setSizeArr(measurements: number[]): void
+  export function setSizeArr(measurements: [number, number]): void
   export function setHeight(height: number): void
   export function setWidth(width: number): void
   export function setRem(rem: string): void
