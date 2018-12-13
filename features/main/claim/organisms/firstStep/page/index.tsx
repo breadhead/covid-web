@@ -5,8 +5,8 @@ import ClaimForm from '../organisms/ClaimForm'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 
-import Footer, { FooterType } from '@app/features/main/layout/organisms/Footer'
 import Header, { HeaderType } from '@app/features/main/layout/organisms/Header'
+import Footer, { FooterType } from '@app/ui/organisms/Footer'
 
 const ClaimPage = () => {
   return (

@@ -7,7 +7,7 @@ interface Props {
 const Claims = ({ claims }: Props) => (
   <section className={styles.list}>
     {claims.map(claim => (
-      <article className={styles.card}>КЛАЙМ</article>
+      <article className={styles.card}>Клайм {claim}</article>
     ))}
   </section>
 )
