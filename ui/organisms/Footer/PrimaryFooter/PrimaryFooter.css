@@ -1,0 +1,22 @@
+.footer {
+  padding: 48px 48px 32px 48px;
+
+  @media (max-width: 767px) {
+    padding: 80px 16px 56px 16px;    
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top {
+  margin-bottom: 40px;
+}
+
+.logo {
+    @media (max-width: 767px) {
+    display: none;
+  }
+}

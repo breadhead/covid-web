@@ -17,3 +17,5 @@ module.exports = nextRoutes()
   .add('doctor', '/doctor', 'main-doctor')
   // landing
   .add('landing-home', '/', 'landing/home')
+  // client
+  .add('client-claims', '/client/claims', 'client/claims')

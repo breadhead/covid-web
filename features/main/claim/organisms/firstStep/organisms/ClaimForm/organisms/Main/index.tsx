@@ -1,17 +1,15 @@
+import cx from 'classnames'
 import * as React from 'react'
 import * as styles from '../../ClaimForm.css'
 
 import NavLink from '@app/ui/atoms/NavLink'
-import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import Select from '@app/ui/molecules/Select'
-import Switch from '@app/ui/molecules/Switch'
 
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
-
-const statementRadioGroup = [
-  { id: '1', value: 'Да' },
-  { id: '2', value: 'Нет' },
-]
+import Combobox from '@app/ui/molecules/Combobox'
+import FormInput from '@app/ui/molecules/FormInput'
+import TextArea from '@app/ui/molecules/TextArea'
+import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
 
 const mockSelectOptions = [
   {
@@ -42,12 +40,15 @@ const Main = () => (
     <p className={styles.label}>
       У вас есть установленный врачом онкологический диагноз?
     </p>
-    <RadioGroup
-      name="bool"
-      type={RadioGroupType.Bool}
-      buttons={statementRadioGroup}
-    />
-    <p className={styles.label}>
+    <EmergingFormElement controlType="radiogroup" name="diagnosis">
+      <p className={cx(styles.label, styles.emergingLabel)}>Локализация</p>
+      <Combobox
+        name="cancer_localization"
+        options={mockSelectOptions}
+        defaultValue="Выберите тему"
+      />
+    </EmergingFormElement>
+    <p className={styles.emergingLabel}>
       Вы консультируетесь по корпоративной программе от своего работодателя?
       {SPACE}
       <NavLink href="#">
@@ -55,7 +56,24 @@ const Main = () => (
         {NON_BREAKING_SPACE}программе
       </NavLink>
     </p>
-    <Switch name="corp" />
+    <EmergingFormElement controlType="switch" name="consulting">
+      <FormInput
+        name="company-employer_name"
+        label="Название компании-работадателя"
+      />
+      <TextArea
+        name="position_and_department"
+        label={
+          <p className={styles.label}>
+            Ваша должность и департамент компании.{SPACE}
+            <span className={styles.sectondaryText}>
+              Если у вас есть кодовое слово от работадателя, также укажите его
+              здесь.
+            </span>
+          </p>
+        }
+      />
+    </EmergingFormElement>
   </article>
 )
 
