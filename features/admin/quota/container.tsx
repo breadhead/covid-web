@@ -9,7 +9,7 @@ import { fetchQuota, income } from './actions'
 import { getQuota, getQuotaError } from './selectors'
 
 interface Props {
-  quota: Quota,
+  quota: Quota
   error: string | false
   income: (amount: number, quotaId: string) => Promise<Quota>
   pushNotification: (notification: Notification) => void
@@ -19,22 +19,16 @@ interface Query {
   query: { id: string }
 }
 const Container = (WrappedComponent: React.ComponentType<Props>) => {
-
   return class extends React.Component<Props> {
-
     public static async getInitialProps(context: AppContext & Query) {
-      await context.reduxStore
-        .dispatch(fetchQuota(context.query.id) as any)
+      await context.reduxStore.dispatch(fetchQuota(context.query.id) as any)
       return {}
     }
 
     public render() {
-      return (
-        <WrappedComponent pushNotification={push}  {...this.props} />
-      )
+      return <WrappedComponent pushNotification={push} {...this.props} />
     }
   }
-
 }
 
 const mapState = (state: State) => ({
@@ -43,10 +37,14 @@ const mapState = (state: State) => ({
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
-  income: (amount: number, quotaId: string) => dispatch(income(amount, quotaId) as any),
+  income: (amount: number, quotaId: string) =>
+    dispatch(income(amount, quotaId) as any),
 })
 
 export default compose(
-  connect(mapState, mapDispatch),
+  connect(
+    mapState,
+    mapDispatch,
+  ),
   Container,
 )

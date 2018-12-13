@@ -7,7 +7,12 @@ interface Props {
   className?: string
 }
 
-const Logo = ({ className }: Props) =>
-  <img className={cx(styles.logo, className)} src="http://placecorgi.com/238/48" alt="просто спросить" />
+const Logo = ({ className }: Props) => (
+  <img
+    className={cx(styles.logo, className)}
+    src="http://placecorgi.com/238/48"
+    alt="просто спросить"
+  />
+)
 
 export default Logo

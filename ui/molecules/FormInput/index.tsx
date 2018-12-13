@@ -12,7 +12,7 @@ const FormInput = ({
   className,
   onChange,
   ...rest
-}: InputProps) =>
+}: InputProps) => (
   <FinalField name={name} type={type}>
     {({ input, meta }) => (
       <AntForm.Item
@@ -20,14 +20,10 @@ const FormInput = ({
         validateStatus={meta.submitError && 'error'}
         help={meta.submitError && meta.submitError[name]}
       >
-        <Input
-          name={name}
-          type={type}
-          {...input}
-          {...rest}
-        />
+        <Input name={name} type={type} {...input} {...rest} />
       </AntForm.Item>
     )}
   </FinalField>
+)
 
 export default FormInput

@@ -17,7 +17,8 @@
     "strict": true,
     "target": "esnext",
     "paths": {
-      "@app/*": ["*"]
+      "@app/*": ["*"],
+      "redux-windowsize": ["src/types/reduxWindowsize.d.ts"]
     }
   }
 }

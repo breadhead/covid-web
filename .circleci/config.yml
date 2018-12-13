@@ -47,6 +47,28 @@ jobs:
           name: Unit Test
           command: yarn test
 
+  types:
+    docker:
+      - image: circleci/node:8.11.1
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - js-dependencies-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn
+      - save_cache:
+          key: js-dependencies-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Check Typings
+          command: yarn types
+
   push:
     docker:
       - image: docker:17.05.0-ce-git
@@ -92,6 +114,11 @@ workflows:
               ignore: 
                 - master
       - test:
+          filters:
+            branches:
+              ignore: 
+                - master
+      - types:
           filters:
             branches:
               ignore: 

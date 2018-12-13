@@ -13,22 +13,25 @@ export enum InputType {
   Password = 'password',
 }
 
-export type Props = {
-  name: string,
-  type?: InputType,
-  label?: string,
-  defaultValue?: string,
-  wrapperClassName?: string,
-} & InputProps
+interface OwnProps {
+  name: string
+  type?: InputType
+  label?: string
+  defaultValue?: string
+  wrapperClassName?: string
+}
 
-const Input = ({ name, type, label, wrapperClassName, ...rest }: Props) =>
+export type Props = OwnProps & InputProps
+
+const Input = ({ name, type, label, wrapperClassName, ...rest }: Props) => (
   <div className={wrapperClassName}>
-    {label && <label className={styles.label} htmlFor={name}>{label}</label>}
-    <AntInput
-      id={name}
-      type={type}
-      {...rest}
-    />
+    {label && (
+      <label className={styles.label} htmlFor={name}>
+        {label}
+      </label>
+    )}
+    <AntInput id={name} type={type} {...rest} />
   </div>
+)
 
 export default Input

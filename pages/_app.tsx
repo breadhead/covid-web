@@ -4,14 +4,18 @@ import { authViolateStatus, getViolateState } from '@app/features/login'
 import ApiClientFactory from '@app/lib/api/ApiClientFactory'
 import withReduxStore, { Store } from '@app/lib/with-redux-store'
 import '@app/ui/antd-styles.less'
+
+import Sprite from '@app/ui/molecules/Sprite'
 import Cookie from 'js-cookie'
 import App, { Container, NextAppContext } from 'next/app'
 import Router from 'next/router'
 import React, { Component as ReactComponent } from 'react'
 import { Provider } from 'react-redux'
+import { createSizeAction, listenResize } from 'redux-windowsize'
 
 import '@app/ui/config.css?CSSModulesDisable'
 
+import { canUseDOM } from '@app/lib/helpers/canUseDOM'
 import registerModals from '@app/lib/register-modals'
 
 interface Props {
@@ -41,37 +45,47 @@ class OncohelpWeb extends App<Props> {
       ApiClientFactory.getApiClient().token = token
     }
 
-    const authViolate = getViolateState(
-      this.props.reduxStore.getState(),
-    )
+    const authViolate = getViolateState(this.props.reduxStore.getState())
 
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
-      Router.push('/admin/login')
+      Router.push('/')
     }
   }
 
   public render() {
-    const { Component, pageProps, reduxStore, router: { route } } = this.props
+    const {
+      Component,
+      pageProps,
+      reduxStore,
+      router: { route },
+    } = this.props
 
-    const authViolate = getViolateState(
-      reduxStore.getState(),
-    )
+    const authViolate = getViolateState(reduxStore.getState())
 
-    return !authViolate && (
-      <Container>
-        <Provider store={reduxStore}>
-          <div>
-            {route.startsWith('/admin') ?
-              <AdminLayout {...pageProps}>
+    if (canUseDOM) {
+      reduxStore.dispatch(createSizeAction(window))
+      listenResize(reduxStore, window, 100)
+    }
+
+    return (
+      !authViolate && (
+        <Container>
+          <Sprite />
+          <Provider store={reduxStore}>
+            <div>
+              {route.startsWith('/admin') ? (
+                <AdminLayout {...pageProps}>
+                  <Component {...pageProps} />
+                </AdminLayout>
+              ) : (
                 <Component {...pageProps} />
-              </AdminLayout> :
-              <Component {...pageProps} />
-            }
-            <Modal />
-          </div>
-        </Provider>
-      </Container>
+              )}
+              <Modal />
+            </div>
+          </Provider>
+        </Container>
+      )
     )
   }
 }

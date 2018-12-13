@@ -2,6 +2,10 @@
   display: flex;
   flex-wrap: wrap;
   max-width: 350px;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 .link {

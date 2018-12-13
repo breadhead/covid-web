@@ -1,12 +1,14 @@
 import {
-  createFetchingSymbiote, createInitialState,
-  FetchingActions, FetchingState,
+  createFetchingSymbiote,
+  createInitialState,
+  FetchingActions,
+  FetchingState,
 } from '@app/lib/symbioteFactory'
 import { Quota } from '@app/models/Quota/Quota'
 import { Action } from 'redux'
 
 interface State extends FetchingState {
-  result: { source: Quota, target: Quota } | null,
+  result: { source: Quota; target: Quota } | null
 }
 
 const initialState = createInitialState({
@@ -14,7 +16,7 @@ const initialState = createInitialState({
 })
 
 interface Actions extends FetchingActions {
-  success(result: { source: Quota, target: Quota }): Action
+  success(result: { source: Quota; target: Quota }): Action
 }
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
@@ -28,7 +30,4 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   'transfer',
 )
 
-export {
-  State, reducer,
-  Actions, actions,
-}
+export { State, reducer, Actions, actions }

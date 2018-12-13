@@ -7,6 +7,8 @@ export const setAuthToken = (token: string, apiClient: ApiClient) => {
 
 const setCookie = (token: string) => {
   if (document) {
-    document.cookie = `token=${token}; path=/; expires=${new Date(Date.now() + 900000)};`
+    document.cookie = `token=${token}; path=/; expires=${new Date(
+      Date.now() + 900000,
+    )};`
   }
 }

@@ -15,10 +15,7 @@ const HistoryPage = ({ fetch, transactions, loading }: Props) => {
   return (
     <section className={styles.wrapper}>
       <Header onChangePeriod={fetch} />
-      {!loading
-        ? <TransactionList transations={transactions} />
-        : <Loader />
-      }
+      {!loading ? <TransactionList transations={transactions} /> : <Loader />}
     </section>
   )
 }

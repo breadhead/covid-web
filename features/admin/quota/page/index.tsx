@@ -11,17 +11,18 @@ interface Props {
   income: (amount: number, quotaId: string) => Promise<Quota>
 }
 
-const QuotaPage = ({ quota, error, income }: Props) =>
+const QuotaPage = ({ quota, error, income }: Props) => (
   <section className={styles.QuotaWrapper}>
     <a href="/admin/quotas">{'< '}Вернуться ко всем квотам</a>
-    {
-      error ?
-        <h1>Произошла ошибка</h1> :
-        <React.Fragment>
-          <QuotaDescription quota={quota} />
-          <QuotaControl income={income} quota={quota} />
-        </React.Fragment>
-    }
+    {error ? (
+      <h1>Произошла ошибка</h1>
+    ) : (
+      <React.Fragment>
+        <QuotaDescription quota={quota} />
+        <QuotaControl income={income} quota={quota} />
+      </React.Fragment>
+    )}
   </section>
+)
 
 export default QuotaPage

@@ -4,13 +4,12 @@ interface Props {
   publicCompany: boolean
 }
 
-const IsCompaniyPublic = ({ publicCompany }: Props) =>
+const IsCompaniyPublic = ({ publicCompany }: Props) => (
   <p>
-    {
-      publicCompany
-        ? 'Жертователь показывается на сайте'
-        : 'Жертователь не показывается на сайте'
-    }
+    {publicCompany
+      ? 'Жертователь показывается на сайте'
+      : 'Жертователь не показывается на сайте'}
   </p>
+)
 
 export default IsCompaniyPublic

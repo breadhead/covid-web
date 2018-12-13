@@ -5,7 +5,7 @@ import SecondaryHeader from './organisms/SecondaryHeader'
 
 export enum HeaderType {
   Primary = 'Primary',
-  Secondary = 'secondary',
+  Secondary = 'Secondary',
 }
 
 export enum HeaderTheme {
@@ -18,11 +18,13 @@ export interface Props {
   theme?: HeaderTheme
 }
 
-const Header = ({ type = HeaderType.Primary, theme = HeaderTheme.Default }: Props) => {
-
+const Header = ({
+  type = HeaderType.Primary,
+  theme = HeaderTheme.Default,
+}: Props) => {
   const componentsMap = {
-    primary: <PrimaryHeader />,
-    secondary: <SecondaryHeader theme={theme} />,
+    [HeaderType.Primary]: <PrimaryHeader />,
+    [HeaderType.Secondary]: <SecondaryHeader theme={theme} />,
   }
 
   return componentsMap[type]

@@ -27,10 +27,16 @@ export default interface ApiClient {
   history(from?: Date, to?: Date): Promise<Transaction[]>
   login(login: string, password: string): Promise<User>
   createQuota(quotaFields: any): Promise<Quota>
-  transfer(quotaTransferRequest: QuotaTransferRequest): Promise<QuotaTransferResponse>
+  editQuota(quotaFields: any): Promise<Quota>
+  transfer(
+    quotaTransferRequest: QuotaTransferRequest,
+  ): Promise<QuotaTransferResponse>
 
   sendSms(phone: string): Promise<void>
   verificateSms(code: string): Promise<boolean>
 
-  uploadFile(file: File, onProgress?: (precent: number) => void): Promise<UploadedFile>
+  uploadFile(
+    file: File,
+    onProgress?: (precent: number) => void,
+  ): Promise<UploadedFile>
 }

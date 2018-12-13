@@ -6,12 +6,12 @@ import { sumCount } from './helpers/sumCount'
 
 export const getQuotas = (state: State) => state.quotas.data
 
-export const getCount = createSelector(getQuotas, sumCount)
+export const getCount = createSelector(
+  getQuotas,
+  sumCount,
+)
 
 export const getCountByTypes = createSelector(
   getQuotas,
-  flow([
-    curryRight(groupBy)('type'),
-    curryRight(mapValues)(sumCount),
-  ]),
+  flow([curryRight(groupBy)('type'), curryRight(mapValues)(sumCount)]),
 )

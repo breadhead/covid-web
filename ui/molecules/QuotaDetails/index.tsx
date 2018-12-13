@@ -8,11 +8,12 @@ interface Props {
   comment: string
 }
 
-const QuotaDetails = ({ type, name, comment }: Props) =>
+const QuotaDetails = ({ type, name, comment }: Props) => (
   <p className={styles.QuotaDetails}>
     <strong>{type}</strong>
     <span>{name}</span>
     <span>({comment})</span>
   </p>
+)
 
 export default QuotaDetails

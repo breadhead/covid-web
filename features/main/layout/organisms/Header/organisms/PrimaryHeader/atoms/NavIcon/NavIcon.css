@@ -1,0 +1,7 @@
+.NavIcon {
+  display: none;
+  fill: var(--text-color-secondary);
+    @media (max-width: 959px) {
+      display: inline-block;
+    }
+}

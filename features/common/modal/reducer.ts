@@ -19,7 +19,4 @@ const { actions, reducer } = createSymbiote<State, Actions>(
   'modal',
 )
 
-export {
-  State, reducer,
-  Actions, actions,
-}
+export { State, reducer, Actions, actions }

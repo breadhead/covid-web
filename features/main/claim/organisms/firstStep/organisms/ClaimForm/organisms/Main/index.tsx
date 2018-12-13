@@ -29,14 +29,24 @@ const mockSelectOptions = [
   },
 ]
 
-const Main = () =>
+const Main = () => (
   <article className={styles.article}>
     <h2 className={styles.title}>Кратко о теме консультации</h2>
     <p className={styles.label}>Для кого эта консультация</p>
-    <Select options={mockSelectOptions} name="choose_user" defaultValue="Выберите консультируемого" />
+    <Select
+      options={mockSelectOptions}
+      name="choose_user"
+      defaultValue="Выберите консультируемого"
+    />
     <p className={styles.label}>Тема вашего вопроса</p>
-    <Select options={mockSelectOptions} name="choose_theme" defaultValue="Выберите тему" />
-    <p className={styles.label}>У вас есть установленный врачом онкологический диагноз?</p>
+    <Select
+      options={mockSelectOptions}
+      name="choose_theme"
+      defaultValue="Выберите тему"
+    />
+    <p className={styles.label}>
+      У вас есть установленный врачом онкологический диагноз?
+    </p>
     <EmergingFormElement controlType="radiogroup" name="diagnosis">
       <p className={cx(styles.label, styles.emergingLabel)}>Локализация</p>
       <Combobox
@@ -46,9 +56,11 @@ const Main = () =>
       />
     </EmergingFormElement>
     <p className={styles.emergingLabel}>
-      Вы консультируетесь по корпоративной программе от своего работодателя?{SPACE}
+      Вы консультируетесь по корпоративной программе от своего работодателя?
+      {SPACE}
       <NavLink href="#">
-        Узнать{NON_BREAKING_SPACE}больше{NON_BREAKING_SPACE}о{NON_BREAKING_SPACE}программе
+        Узнать{NON_BREAKING_SPACE}больше{NON_BREAKING_SPACE}о
+        {NON_BREAKING_SPACE}программе
       </NavLink>
     </p>
     <EmergingFormElement controlType="switch" name="consulting">
@@ -59,14 +71,17 @@ const Main = () =>
       <TextArea
         name="position_and_department"
         label={
-          <p className={styles.label}>Ваша должность и департамент компании.{SPACE}
+          <p className={styles.label}>
+            Ваша должность и департамент компании.{SPACE}
             <span className={styles.sectondaryText}>
-              Если у вас есть кодовое слово от работадателя, также укажите его здесь.
+              Если у вас есть кодовое слово от работадателя, также укажите его
+              здесь.
             </span>
           </p>
         }
       />
     </EmergingFormElement>
   </article>
+)
 
 export default Main

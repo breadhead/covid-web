@@ -8,11 +8,8 @@ export interface Props {
   defaultChecked?: boolean
 }
 
-const SwitchElement = ({ name = '', onChange, defaultChecked }: Props) =>
-  <Switch
-    name={name}
-    onChange={onChange}
-    defaultChecked={defaultChecked}
-  />
+const SwitchElement = ({ name = '', onChange, defaultChecked }: Props) => (
+  <Switch name={name} onChange={onChange} defaultChecked={defaultChecked} />
+)
 
 export default SwitchElement

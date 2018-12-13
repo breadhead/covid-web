@@ -1,1 +1,2 @@
-export { default as default } from './Uploader'
+export { default } from './Uploader'
+export { default as FormFileInput } from './FormFileInput'

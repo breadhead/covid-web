@@ -1,24 +1,26 @@
 import * as React from 'react'
 
+import ServerImage from '@app/ui/atoms/ServerImage'
 import ExternalLink from '@app/ui/molecules/ExternalLink'
+
 import styles from './CompanyLogo.css'
 
 interface Props {
-  logo: string,
-  site: string | null
+  logo: string
+  site?: string
 }
 
-const logoImg = (src: string) => (
-  <img src={src} className={styles.CompanyLogo} />
+const Logo = ({ src }: { src: string }) => (
+  <ServerImage src={src} className={styles.CompanyLogo} />
 )
 
 const CompanyLogo = ({ logo, site }: Props) => {
-  return !!site
-  ? logoImg(logo)
-  : (
-      <ExternalLink href={site}>
-        {logoImg(logo)}
-      </ExternalLink>
+  return !!site ? (
+    <Logo src={logo} />
+  ) : (
+    <ExternalLink href={site || ''}>
+      <Logo src={logo} />
+    </ExternalLink>
   )
 }
 

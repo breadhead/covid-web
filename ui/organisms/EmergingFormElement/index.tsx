@@ -20,7 +20,6 @@ interface Props {
 }
 
 class EmergingFormElement extends React.Component<Props> {
-
   public static defaultProps: Partial<Props> = {
     defaultVisible: false,
   }
@@ -42,25 +41,26 @@ class EmergingFormElement extends React.Component<Props> {
   }
 
   public render() {
-
     const { controlType, children, name } = this.props
     const { isVisible } = this.state
 
     return (
       <React.Fragment>
-        <div className={styles.EmergingFormControl} >
-          {controlType === controlTypes.switch
-            ? <SwitchElement name={name} onChange={this.switchChangeHandler} />
-            : <RadioGroupElement name={name} onChange={this.radioGroupChangeHandler} />}
+        <div className={styles.EmergingFormControl}>
+          {controlType === controlTypes.switch ? (
+            <SwitchElement name={name} onChange={this.switchChangeHandler} />
+          ) : (
+            <RadioGroupElement
+              name={name}
+              onChange={this.radioGroupChangeHandler}
+            />
+          )}
         </div>
-        {isVisible
-          && <div
-            className={styles.EmergingContainer}
-            hidden={!isVisible}
-          >
+        {isVisible && (
+          <div className={styles.EmergingContainer} hidden={!isVisible}>
             {children}
           </div>
-        }
+        )}
       </React.Fragment>
     )
   }

@@ -8,9 +8,10 @@ interface Props {
   className?: string
 }
 
-const MiddleRow = ({ className }: Props) =>
+const MiddleRow = ({ className }: Props) => (
   <div className={cx(styles.middle, className)}>
     <Partners />
   </div>
+)
 
 export default MiddleRow

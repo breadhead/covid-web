@@ -24,11 +24,9 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
   return class extends React.Component<
     Pick<ComponentProps, 'quotas' | 'totalCount' | 'countByTypes'>,
     ComponentState
-    > {
-
+  > {
     public static async getInitialProps(context: AppContext) {
-      await context.reduxStore
-        .dispatch(fetchQuotas() as any)
+      await context.reduxStore.dispatch(fetchQuotas() as any)
       return {}
     }
 
@@ -38,9 +36,7 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
     } as ComponentState
 
     public render() {
-      return (
-        <WrappedComponent {...this.getChildProps()} />
-      )
+      return <WrappedComponent {...this.getChildProps()} />
     }
 
     private getChildProps = () => {
@@ -61,9 +57,11 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
       } as ComponentProps
     }
 
-    private changeFilter = (activeFilter: Filter) => this.setState({ activeFilter })
+    private changeFilter = (activeFilter: Filter) =>
+      this.setState({ activeFilter })
     private changeOrder = (activeOrder: Order) => this.setState({ activeOrder })
-    private changeSearchQuery = (searchQuery: string) => this.setState({ searchQuery })
+    private changeSearchQuery = (searchQuery: string) =>
+      this.setState({ searchQuery })
   }
 }
 

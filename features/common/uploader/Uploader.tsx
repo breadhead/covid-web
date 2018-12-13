@@ -2,6 +2,7 @@ import { head } from 'lodash'
 import * as React from 'react'
 
 import ApiClientFactory from '@app/lib/api/ApiClientFactory'
+import Button, { ButtonType } from '@app/ui/atoms/Button'
 
 import * as styles from './Uploader.css'
 
@@ -16,7 +17,6 @@ interface State {
 const apiClient = ApiClientFactory.getApiClient()
 
 class Uploader extends React.Component<Props, State> {
-
   public state = {
     path: null,
   } as State
@@ -29,7 +29,9 @@ class Uploader extends React.Component<Props, State> {
     return (
       <div className={styles.container}>
         <input type="file" ref={this.fileInput} />
-        <button onClick={this.onClick}>Загрузить</button>
+        <Button onClick={this.onClick} type={ButtonType.Button}>
+          Загрузить
+        </Button>
         {path && <p>{path}</p>}
       </div>
     )
@@ -49,10 +51,7 @@ class Uploader extends React.Component<Props, State> {
     const { onUploaded } = this.props
     const { path } = await apiClient.uploadFile(file)
 
-    this.setState(
-      { path },
-      () => onUploaded && onUploaded(path),
-    )
+    this.setState({ path }, () => onUploaded && onUploaded(path))
   }
 }
 

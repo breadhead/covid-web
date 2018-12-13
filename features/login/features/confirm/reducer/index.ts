@@ -1,13 +1,17 @@
 import { combineReducers } from 'redux'
 
 import {
-  Actions as SendSmsActions, actions as sendSmsActions,
-  reducer as sendSmsReducer, State as SendSmsState,
+  Actions as SendSmsActions,
+  actions as sendSmsActions,
+  reducer as sendSmsReducer,
+  State as SendSmsState,
 } from './sendSms'
 
 import {
-  Actions as ValidateCodeActions, actions as validateCodeActions,
-  reducer as validateCodeReducer, State as ValidateCodeState,
+  Actions as ValidateCodeActions,
+  actions as validateCodeActions,
+  reducer as validateCodeReducer,
+  State as ValidateCodeState,
 } from './validateCode'
 
 export interface Actions {
@@ -16,8 +20,8 @@ export interface Actions {
 }
 
 export interface State {
-  sendSms: SendSmsState,
-  validateCode: ValidateCodeState,
+  sendSms: SendSmsState
+  validateCode: ValidateCodeState
 }
 
 export const reducer = combineReducers<State>({

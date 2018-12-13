@@ -24,11 +24,13 @@ const Sorting = ({ className, onChange, activeOrder }: Props) => {
       <Select
         className={styles.Select}
         defaultValue={activeOrder}
-        onSelect={(e) => onChange(e as Order)} /* due to typings of antd */
+        onSelect={e => onChange(e as Order)} /* due to typings of antd */
       >
-        {Object.values(Order).map((value) =>
-          <Select.Option key={value} value={value}>{orderToLabel(value)}</Select.Option>,
-        )}
+        {Object.values(Order).map(value => (
+          <Select.Option key={value} value={value}>
+            {orderToLabel(value)}
+          </Select.Option>
+        ))}
       </Select>
     </section>
   )

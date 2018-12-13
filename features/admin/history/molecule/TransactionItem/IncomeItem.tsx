@@ -5,14 +5,14 @@ import { numberToSignedString } from './helpers/numberToSignedString'
 import * as styles from './Item.css'
 
 interface Props {
-  from: string,
-  amount: number,
-  date: Date,
+  from: string
+  amount: number
+  date: Date
 }
 
 const IncomeItem = ({ from, amount, date }: Props) => {
   return (
-    <List.Item >
+    <List.Item>
       <Row gutter={16} className={styles.Row}>
         <Col span={4}>{date.toLocaleDateString('ru')}</Col>
         <Col span={3}>{date.toLocaleTimeString('ru')}</Col>
