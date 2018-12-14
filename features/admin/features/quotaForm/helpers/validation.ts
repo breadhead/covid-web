@@ -9,10 +9,10 @@ const schema = yup.object().shape({
     .number()
     .typeError('Количество квот должно быть числом')
     .required('Укажите количество квот'),
-  publicCompany: yup.string(),
-  logotype: yup.string(),
-  companyLink: yup.string(),
-  logotypeComment: yup.string(),
+  publicCompany: yup.boolean(),
+  companyLogo: yup.string().nullable(true),
+  companyLink: yup.string().nullable(true),
+  companyComment: yup.string().nullable(true),
 })
 
 export default schema
