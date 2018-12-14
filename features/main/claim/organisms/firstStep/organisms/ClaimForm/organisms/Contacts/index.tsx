@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as styles from '../../ClaimForm.css'
 
-import Input from '@app/features/common/form/Input'
+import Input from '@app/features/common/form/components/Input'
 import { InputType } from '@app/ui/atoms/Input'
 import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import Select from '@app/ui/molecules/Select'

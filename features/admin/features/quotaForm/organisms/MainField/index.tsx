@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { QuotaType } from '@app/models/Quota/Quota'
 
-import Input from '@app/features/common/form/Input'
+import Input from '@app/features/common/form/components/Input'
 import { InputType } from '@app/ui/atoms/Input'
 import Select from '@app/ui/molecules/Select'
 import TextArea from '@app/ui/molecules/TextArea'
