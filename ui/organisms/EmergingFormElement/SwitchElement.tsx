@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import Switch from '@app/ui/molecules/Switch'
+import Switch from '@app/ui/atoms/Switch'
 
 export interface Props {
   name?: string
