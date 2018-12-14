@@ -8,8 +8,8 @@ import Select from '@app/ui/molecules/Select'
 import TextArea from '@app/ui/molecules/TextArea'
 
 const selectOptions = Object.values(QuotaType).map(value => ({
-  id: value,
-  value,
+  key: value,
+  label: value,
 }))
 
 const MainField = () => (

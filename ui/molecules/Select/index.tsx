@@ -1,4 +1,5 @@
 import { Form as AntForm, Select as AntSelect } from 'antd'
+import { LabeledValue } from 'antd/lib/select'
 import * as React from 'react'
 import { Field as FinalField } from 'react-final-form'
 
@@ -7,15 +8,9 @@ import './Select.css?CSSModulesDisable'
 const FormItem = AntForm.Item
 const Option = AntSelect.Option
 
-interface OptionVariant {
-  id: string
-  value: string
-}
-
 interface Props {
   name: string
-  options: OptionVariant[]
-  defaultValue?: string
+  options: LabeledValue[]
   className?: string
   label?: string
   disabled?: boolean
@@ -38,8 +33,8 @@ const Select = ({
         {label && <label htmlFor={name}>{label}</label>}
         <AntSelect id={name} disabled={disabled} {...rest} {...input}>
           {options.map(option => (
-            <Option key={option.id} value={option.value}>
-              {option.value}
+            <Option key={option.key} value={option.key}>
+              {option.label}
             </Option>
           ))}
         </AntSelect>
