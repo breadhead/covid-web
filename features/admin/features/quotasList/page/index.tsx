@@ -43,6 +43,7 @@ const Page: React.SFC<Props> = ({
         activeOrder={activeOrder}
         className={styles.rowEnd}
       />
+
       <Filters
         onChange={changeFilter}
         activeFilter={activeFilter}

@@ -52,7 +52,7 @@ const Container = (WrappedComponent: React.ComponentType<Props>) =>
             message: 'Перевод успешно завершен',
           })
 
-          Router.push('/admin/quotas')
+          Router.push('/admin')
         })
       } catch (props) {
         return { [props.path]: props.message }

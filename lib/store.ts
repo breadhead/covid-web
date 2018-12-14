@@ -21,17 +21,17 @@ import {
 import {
   reducer as transferReducer,
   State as TransferState,
-} from '@app/features/admin/transfer'
+} from '@app/features/admin/features/transfer'
 
 import {
   reducer as historyReducer,
   State as HistoryState,
-} from '@app/features/admin/history'
+} from '@app/features/admin/features/history'
 
 import {
   reducer as quotaReducer,
   State as QuotaState,
-} from '@app/features/admin/quota'
+} from '@app/features/admin/features/quota'
 
 import {
   reducer as modalReducer,

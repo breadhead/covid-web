@@ -3,12 +3,12 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 
+import { fetchQuota, getQuota } from '@app/features/admin/features/quota'
 import {
   Props as FormProps,
   QuotaFields,
 } from '@app/features/admin/features/quotaForm'
-import { fetchQuota, getQuota } from '@app/features/admin/quota'
-import { push as pushNotification } from '@app/features/admin/toast'
+import { push as pushNotification } from '@app/features/admin/features/toast'
 import { QuotaEditRequest } from '@app/lib/api/request/Quota'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'

@@ -1,6 +1,7 @@
-import { Input } from 'antd'
 import { debounce } from 'lodash'
 import * as React from 'react'
+
+import Input from '@app/ui/atoms/Input'
 
 interface Props {
   value?: string
@@ -21,6 +22,7 @@ export default class Search extends React.Component<Props, State> {
 
     return (
       <Input
+        name="quota-search"
         value={currentValue}
         onChange={this.handleChange}
         placeholder="Поиск"

@@ -16,7 +16,7 @@ export const login = (username: string, password: string) => async (
     setAuthToken(token, api)
 
     if (roles.includes(Role.Admin)) {
-      Router.push('/admin/quotas')
+      Router.push('/admin')
     } else if (roles.includes(Role.Client)) {
       Router.push('/client')
     } else if (roles.includes(Role.CaseManager)) {

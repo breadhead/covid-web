@@ -1,4 +1,4 @@
-import { push } from '@app/features/admin/toast'
+import { push } from '@app/features/admin/features/toast'
 import { Quota } from '@app/models/Quota/Quota'
 import * as React from 'react'
 import * as yup from 'yup'

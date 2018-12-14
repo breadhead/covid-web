@@ -1,7 +1,6 @@
 import { Col, Row } from 'antd'
 import * as React from 'react'
 
-import BackButton from '../../molecule/BackButton'
 import RangePicker from '../../molecule/RangePicker'
 import Title from '../../molecule/Title'
 import * as styles from './Header.css'
@@ -12,7 +11,6 @@ interface Props {
 
 const Header = ({ onChangePeriod }: Props) => (
   <React.Fragment>
-    <BackButton />
     <Row className={styles.Main}>
       <Col span={15}>
         <Title />
