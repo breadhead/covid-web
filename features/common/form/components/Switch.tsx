@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Field } from 'react-final-form'
 
-import SimpleSwitch, { Props as SwitchProps } from '@app/ui/molecules/Switch'
+import SimpleSwitch, { Props as SwitchProps } from '@app/ui/atoms/Switch'
 
 const Switch = ({ name, ...rest }: SwitchProps) => (
   <Field name={name}>

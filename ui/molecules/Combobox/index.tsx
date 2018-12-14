@@ -1,94 +1,83 @@
-import { Form as AntForm, Select as AntSelect } from 'antd'
+import { Select as AntSelect } from 'antd'
+import { LabeledValue, OptionProps, SelectProps } from 'antd/lib/select'
 import * as React from 'react'
-import { Field as FinalField } from 'react-final-form'
 
 import './Combobox.css?CSSModulesDisable'
 
-const FormItem = AntForm.Item
 const { Option, OptGroup } = AntSelect
 
-interface OptionVariant {
-  id: string
-  value: string
+interface OwnProps {
+  name: string
+  hintForEmptyValue?: string
+  hint?: string
+  options: LabeledValue[]
+  value?: string
 }
 
-interface Props {
-  name: string
-  options: OptionVariant[]
-  defaultValue?: string
-  className?: string
-  initialValue?: string
-  currentValue?: string
-  disabled?: boolean
-}
+type Option = React.ReactElement<OptionProps>
+
+export type Props = OwnProps & SelectProps
 
 const NOT_FOUND_TEXT = 'К сожалению, ничего не найдено'
 
 class Combobox extends React.Component<Props> {
   public static defaultProps: Partial<Props> = {
-    initialValue: '',
-    currentValue: '',
+    hintForEmptyValue: '',
+    hint: '',
   }
 
   public state = {
-    label: this.props.initialValue,
-  }
-
-  public onChange = (evt: React.FormEvent<HTMLInputElement>) => {
-    const { value } = evt.target as HTMLInputElement
-    const { initialValue, currentValue } = this.props
-
-    if (initialValue && currentValue) {
-      const label = value.length > 0 ? currentValue : initialValue
-
-      this.setState({ label })
-    }
+    currentHint: this.props.hintForEmptyValue,
   }
 
   public render() {
-    const {
-      name,
-      className,
-      initialValue,
-      currentValue,
-      options,
-      defaultValue,
-      disabled,
-      ...rest
-    } = this.props
+    const { name, className, options, ...rest } = this.props
+
+    const { currentHint } = this.state
 
     return (
-      <FinalField className={className} name={name}>
-        {({ meta }) => (
-          <FormItem
-            validateStatus={meta.submitError && 'error'}
-            help={meta.submitError}
-          >
-            <AntSelect
-              id={name}
-              showSearch
-              defaultValue={defaultValue}
-              onInputKeyDown={this.onChange}
-              maxTagCount={6}
-              notFoundContent={
-                <div className="not-found">{NOT_FOUND_TEXT}</div>
-              }
-              disabled={disabled}
-              {...rest}
-            >
-              <OptGroup label={this.state.label}>
-                {options.map((option: { id: string; value: string }) => (
-                  <Option key={option.id} value={option.value}>
-                    {option.value}
-                  </Option>
-                ))}
-              </OptGroup>
-            </AntSelect>
-          </FormItem>
-        )}
-      </FinalField>
+      <AntSelect
+        id={name}
+        showSearch
+        onInputKeyDown={this.onInputKeyDown}
+        maxTagCount={6}
+        notFoundContent={<div className="not-found">{NOT_FOUND_TEXT}</div>}
+        filterOption={this.filterOptions}
+        {...rest}
+      >
+        <OptGroup label={currentHint}>
+          {options.map(option => (
+            <Option key={option.key} value={option.key}>
+              {option.label}
+            </Option>
+          ))}
+        </OptGroup>
+      </AntSelect>
     )
   }
+
+  private onInputKeyDown = (evt: React.FormEvent<HTMLInputElement>) => {
+    const { value } = evt.target as HTMLInputElement
+    const { hintForEmptyValue, hint } = this.props
+
+    if (hintForEmptyValue && hint) {
+      const currentHint = value.length > 0 ? hint : hintForEmptyValue
+
+      this.setState({ currentHint })
+    }
+  }
+
+  private filterOptions = (input: string, option: Option) =>
+    this.optionToString(option)
+      .toLowerCase()
+      .includes(input.toLowerCase())
+
+  // TODO: fix it
+  private optionToString = ({ props }: Option): string =>
+    (props.children &&
+      typeof props.children === 'string' &&
+      (props.children as string)) ||
+    ''
 }
 
 export default Combobox

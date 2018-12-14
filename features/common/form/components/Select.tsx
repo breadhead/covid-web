@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Field } from 'react-final-form'
 
-import SimpleSelect, { Props as SelectProps } from '@app/ui/molecules/Select'
+import SimpleSelect, { Props as SelectProps } from '@app/ui/atoms/Select'
 
 interface OwnProps {
   name: string

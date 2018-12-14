@@ -3,7 +3,7 @@ import * as React from 'react'
 import * as styles from '../../ClaimForm.css'
 
 import NavLink from '@app/ui/atoms/NavLink'
-import Select from '@app/ui/molecules/Select'
+import Select from '@app/ui/atoms/Select'
 
 import Input from '@app/features/common/form/components/Input'
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'

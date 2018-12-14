@@ -3,8 +3,8 @@ import * as styles from '../../ClaimForm.css'
 
 import Input from '@app/features/common/form/components/Input'
 import { InputType } from '@app/ui/atoms/Input'
+import Select from '@app/ui/atoms/Select'
 import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
-import Select from '@app/ui/molecules/Select'
 
 const genderRadioGroup = [
   { id: '1', value: 'Мужской' },
