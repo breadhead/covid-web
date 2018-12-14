@@ -6,10 +6,12 @@ import './Select.css?CSSModulesDisable'
 
 const Option = AntSelect.Option
 
-export type Props = {
+interface OwnProps {
   options: LabeledValue[]
   label?: string
-} & SelectProps
+}
+
+export type Props = OwnProps & SelectProps
 
 const Select = ({ label, options, ...rest }: Props) => (
   <>

@@ -4,10 +4,12 @@ import * as React from 'react'
 
 import './Switch.css?CSSModulesDisable'
 
-export type Props = {
+interface OwnProps {
   label?: string
   name: string
-} & SwitchProps
+}
+
+export type Props = OwnProps & SwitchProps
 
 const Switch = ({ label, name, ...rest }: Props) => (
   <>

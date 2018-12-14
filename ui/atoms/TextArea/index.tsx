@@ -5,10 +5,12 @@ import * as React from 'react'
 
 import './TextArea.css?CSSModulesDisable'
 
-export type Props = {
+interface OwnProps {
   label?: React.ReactNode
   name: string
-} & TextAreaProps
+}
+
+export type Props = OwnProps & TextAreaProps
 
 const TextArea = ({ className, name, label, ...rest }: Props) => (
   <>
