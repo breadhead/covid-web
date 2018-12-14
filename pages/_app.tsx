@@ -4,7 +4,7 @@ import ApiClientFactory from '@app/lib/api/ApiClientFactory'
 import withReduxStore, { Store } from '@app/lib/with-redux-store'
 import '@app/ui/antd-styles.less'
 
-import Sprite from '@app/ui/molecules/Sprite'
+import Sprite from '@app/ui/atoms/Sprite'
 import Cookie from 'js-cookie'
 import App, { Container, NextAppContext } from 'next/app'
 import Router from 'next/router'

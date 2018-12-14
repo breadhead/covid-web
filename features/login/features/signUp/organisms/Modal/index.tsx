@@ -1,8 +1,6 @@
 import * as React from 'react'
 import styles from './SignUp.css'
 
-import { Form as FinalForm } from 'react-final-form'
-
 import NavLink from '@app/ui/atoms/NavLink'
 
 import Button from '@app/features/common/form/components/Button'

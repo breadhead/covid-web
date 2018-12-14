@@ -28,13 +28,11 @@ const Main = () => (
     <p className={styles.label}>Для кого эта консультация</p>
     <Select
       options={mockSelectOptions}
-      name="choose_user"
       // defaultValue="Выберите консультируемого"
     />
     <p className={styles.label}>Тема вашего вопроса</p>
     <Select
       options={mockSelectOptions}
-      name="choose_theme"
       // defaultValue="Выберите тему"
     />
     <p className={styles.label}>

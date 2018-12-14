@@ -6,7 +6,7 @@ import * as React from 'react'
 import './TextArea.css?CSSModulesDisable'
 
 export type Props = {
-  label?: string
+  label?: React.ReactNode
   name: string
 } & TextAreaProps
 
