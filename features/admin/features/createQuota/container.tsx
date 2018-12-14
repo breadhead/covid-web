@@ -30,6 +30,7 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
           submitButtonText="Создать"
           handleQuota={this.onFormSubmit}
           afterSuccess={this.afterSuccess}
+          initial={{ category: QuotaType.Common }}
           {...this.props}
         />
       )

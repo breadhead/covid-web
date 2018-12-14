@@ -1,8 +1,9 @@
 import 'antd/lib/date-picker/style/index.css'
 import * as React from 'react'
 
-import { fetchQuotas } from '@app/features/admin/quotas/actions'
+import { fetchQuotas } from '@app/features/admin/features/quotasList'
 import { AppContext } from '@app/lib/server-types'
+import Layout from '../../organisms/Layout'
 import TransferForm from '../organisms/Form'
 import styles from './Page.css'
 
@@ -14,9 +15,11 @@ class Page extends React.Component {
 
   public render() {
     return (
-      <div className={styles.FormWrapper}>
-        <TransferForm />
-      </div>
+      <Layout>
+        <div className={styles.FormWrapper}>
+          <TransferForm />
+        </div>
+      </Layout>
     )
   }
 }

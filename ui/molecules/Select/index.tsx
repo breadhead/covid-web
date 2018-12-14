@@ -26,37 +26,26 @@ const Select = ({
   className,
   label,
   options,
-  defaultValue,
   disabled,
   ...rest
-}: Props) => {
-  const defaultSelectValue = defaultValue || options[0].value
-
-  return (
-    <FinalField className={className} name={name}>
-      {({ meta, input }) => (
-        <FormItem
-          validateStatus={meta.submitError && 'error'}
-          help={meta.submitError}
-        >
-          {label && <label htmlFor={name}>{label}</label>}
-          <AntSelect
-            id={name}
-            defaultValue={defaultSelectValue}
-            disabled={disabled}
-            {...rest}
-            {...input}
-          >
-            {options.map(option => (
-              <Option key={option.id} value={option.value}>
-                {option.value}
-              </Option>
-            ))}
-          </AntSelect>
-        </FormItem>
-      )}
-    </FinalField>
-  )
-}
+}: Props) => (
+  <FinalField className={className} name={name}>
+    {({ meta, input }) => (
+      <FormItem
+        validateStatus={meta.submitError && 'error'}
+        help={meta.submitError}
+      >
+        {label && <label htmlFor={name}>{label}</label>}
+        <AntSelect id={name} disabled={disabled} {...rest} {...input}>
+          {options.map(option => (
+            <Option key={option.id} value={option.value}>
+              {option.value}
+            </Option>
+          ))}
+        </AntSelect>
+      </FormItem>
+    )}
+  </FinalField>
+)
 
 export default Select

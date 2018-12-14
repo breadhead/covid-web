@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { Quota } from '@app/models/Quota/Quota'
+import Layout from '../../organisms/Layout'
 import QuotaControl from '../organisms/QuotaControl'
 import QuotaDescription from '../organisms/QuotaDescription'
 import styles from './Page.css'
@@ -12,17 +13,19 @@ interface Props {
 }
 
 const QuotaPage = ({ quota, error, income }: Props) => (
-  <section className={styles.QuotaWrapper}>
-    <a href="/admin/quotas">{'< '}Вернуться ко всем квотам</a>
-    {error ? (
-      <h1>Произошла ошибка</h1>
-    ) : (
-      <React.Fragment>
-        <QuotaDescription quota={quota} />
-        <QuotaControl income={income} quota={quota} />
-      </React.Fragment>
-    )}
-  </section>
+  <Layout>
+    <section className={styles.QuotaWrapper}>
+      <a href="/admin/quotas">{'< '}Вернуться ко всем квотам</a>
+      {error ? (
+        <h1>Произошла ошибка</h1>
+      ) : (
+        <React.Fragment>
+          <QuotaDescription quota={quota} />
+          <QuotaControl income={income} quota={quota} />
+        </React.Fragment>
+      )}
+    </section>
+  </Layout>
 )
 
 export default QuotaPage

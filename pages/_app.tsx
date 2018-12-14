@@ -1,4 +1,3 @@
-import AdminLayout from '@app/features/admin/layout'
 import Modal from '@app/features/common/modal'
 import { authViolateStatus, getViolateState } from '@app/features/login'
 import ApiClientFactory from '@app/lib/api/ApiClientFactory'
@@ -54,12 +53,7 @@ class OncohelpWeb extends App<Props> {
   }
 
   public render() {
-    const {
-      Component,
-      pageProps,
-      reduxStore,
-      router: { route },
-    } = this.props
+    const { Component, pageProps, reduxStore } = this.props
 
     const authViolate = getViolateState(reduxStore.getState())
 
@@ -73,16 +67,10 @@ class OncohelpWeb extends App<Props> {
         <Container>
           <Sprite />
           <Provider store={reduxStore}>
-            <div>
-              {route.startsWith('/admin') ? (
-                <AdminLayout {...pageProps}>
-                  <Component {...pageProps} />
-                </AdminLayout>
-              ) : (
-                <Component {...pageProps} />
-              )}
+            <>
+              <Component {...pageProps} />
               <Modal />
-            </div>
+            </>
           </Provider>
         </Container>
       )

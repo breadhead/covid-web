@@ -1,8 +1,9 @@
 import React from 'react'
 
+import Layout from '@app/features/admin/organisms/Layout'
 import { Quota, QuotaType } from '@app/models/Quota/Quota'
+
 import Filters, { Filter } from '../organisms/Filters'
-import Header from '../organisms/Header'
 import QuotasList from '../organisms/QuotasList'
 import Search from '../organisms/Search'
 import Sorting, { Order } from '../organisms/Sorting'
@@ -34,9 +35,7 @@ const Page: React.SFC<Props> = ({
   countByTypes,
   quotas,
 }) => (
-  <main>
-    <Header />
-
+  <Layout>
     <div className={styles.settings}>
       <Search onChange={changeSearchQuery} value={searchQuery} />
       <Sorting
@@ -54,7 +53,7 @@ const Page: React.SFC<Props> = ({
     </div>
 
     <QuotasList quotas={quotas} />
-  </main>
+  </Layout>
 )
 
 export default Page

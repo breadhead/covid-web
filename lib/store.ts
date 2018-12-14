@@ -16,7 +16,7 @@ import {
 import {
   reducer as quotasReducer,
   State as QuotasState,
-} from '@app/features/admin/quotas'
+} from '@app/features/admin/features/quotasList'
 
 import {
   reducer as transferReducer,
