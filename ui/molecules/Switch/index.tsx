@@ -1,41 +1,21 @@
-import { Form as AntForm, Switch as AntSwitch } from 'antd'
+import { Switch as AntSwitch } from 'antd'
+import { SwitchProps } from 'antd/lib/switch'
 import * as React from 'react'
-import { Field as FinalField } from 'react-final-form'
 
 import './Switch.css?CSSModulesDisable'
 
-const FormItem = AntForm.Item
-
-interface Props {
-  name: string
-  checkedChildren?: string
-  unCheckedChildren?: string
-  className?: string
+interface OwnProps {
   label?: string
-  placeholder?: string
-  required?: true
-  defaultChecked?: boolean
-  onChange?: () => void
+  name: string
 }
 
-const Switch = ({ name, label, defaultChecked, ...rest }: Props) => (
-  <FinalField name={name} type="checkbox">
-    {({ meta, input }) => (
-      <FormItem
-        validateStatus={meta.submitError && 'error'}
-        help={meta.submitError}
-      >
-        {label && <label htmlFor={name}>{label}</label>}
-        <AntSwitch
-          checkedChildren="Да"
-          unCheckedChildren="Нет"
-          defaultChecked={defaultChecked}
-          {...rest}
-          {...input}
-        />
-      </FormItem>
-    )}
-  </FinalField>
+export type Props = OwnProps & SwitchProps
+
+const Switch = ({ label, name, ...rest }: Props) => (
+  <>
+    {label && <label htmlFor={name}>{label}</label>}
+    <AntSwitch checkedChildren="Да" unCheckedChildren="Нет" {...rest} />
+  </>
 )
 
 export default Switch
