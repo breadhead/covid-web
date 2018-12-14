@@ -17,9 +17,7 @@ const QuotaControl = ({ quota, income }: Props) => (
       kind={AmountKind.Available}
       title="Доступно"
     />
-    <div className={styles.AddingInput}>
-      <IncomeForm income={income} quotaId={quota.id} />
-    </div>
+    <IncomeForm income={income} quotaId={quota.id} />
   </div>
 )
 

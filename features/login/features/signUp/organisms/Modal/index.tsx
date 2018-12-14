@@ -5,13 +5,13 @@ import { Form as FinalForm } from 'react-final-form'
 
 import NavLink from '@app/ui/atoms/NavLink'
 
+import Button from '@app/features/common/form/Button'
+import Input from '@app/features/common/form/Input'
 import Footer from '@app/features/login/organisms/Footer'
 import { SPACE } from '@app/lib/config'
 import { ButtonType } from '@app/ui/atoms/Button'
 import { InputType } from '@app/ui/atoms/Input'
 import Form from '@app/ui/molecules/Form'
-import FormButton from '@app/ui/molecules/FormButton'
-import FormInput from '@app/ui/molecules/FormInput'
 
 const SignUp = () => (
   <>
@@ -25,27 +25,27 @@ const SignUp = () => (
         onSubmit={() => undefined}
         render={props => (
           <Form {...props}>
-            <FormInput
+            <Input
               label="Логин (email)"
               className={styles.input}
               name="email"
               type={InputType.Email}
             />
-            <FormInput
+            <Input
               label="Пароль"
               className={styles.input}
               name="password"
               type={InputType.Password}
             />
-            <FormInput
+            <Input
               label="Повторите пароль"
               className={styles.input}
               name="repeat-password"
               type={InputType.Password}
             />
-            <FormButton type={ButtonType.Submit} className={styles.button}>
+            <Button type={ButtonType.Submit} className={styles.button}>
               Зарегистрироваться
-            </FormButton>
+            </Button>
           </Form>
         )}
       />

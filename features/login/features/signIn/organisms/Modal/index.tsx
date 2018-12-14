@@ -5,13 +5,13 @@ import { Form as FinalForm } from 'react-final-form'
 
 import NavLink from '@app/ui/atoms/NavLink'
 
+import Button from '@app/features/common/form/Button'
+import Input from '@app/features/common/form/Input'
 import Footer from '@app/features/login/organisms/Footer'
 import { SPACE } from '@app/lib/config'
 import { ButtonType } from '@app/ui/atoms/Button'
 import { InputType } from '@app/ui/atoms/Input'
 import Form from '@app/ui/molecules/Form'
-import FormButton from '@app/ui/molecules/FormButton'
-import FormInput from '@app/ui/molecules/FormInput'
 
 interface Props {
   onFormSubmit: () => Promise<any>
@@ -30,13 +30,13 @@ const SignIn = ({ onFormSubmit }: Props) => (
         onSubmit={onFormSubmit}
         render={props => (
           <Form {...props}>
-            <FormInput
+            <Input
               className={styles.input}
               name="login"
               label={'Логин (email)'}
               type={InputType.Email}
             />
-            <FormInput
+            <Input
               className={styles.input}
               name="password"
               label={'Пароль'}
@@ -45,12 +45,10 @@ const SignIn = ({ onFormSubmit }: Props) => (
 
             <NavLink className={styles.link}>Забыли пароль?</NavLink>
 
-            <FormButton type={ButtonType.Submit} className={styles.mainButton}>
+            <Button type={ButtonType.Submit} className={styles.mainButton}>
               Войти
-            </FormButton>
-            <FormButton className={styles.socialButton}>
-              Войти через соцсети
-            </FormButton>
+            </Button>
+            <Button className={styles.socialButton}>Войти через соцсети</Button>
           </Form>
         )}
       />

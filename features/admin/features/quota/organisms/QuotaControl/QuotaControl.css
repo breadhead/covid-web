@@ -1,11 +1,8 @@
 .QuotaControl {
   display: flex;
+  justify-content: space-between;
   padding: 24px;
   background-color: white;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.04), 0 0 4px 0 rgba(0, 0, 0, 0.13);
-}
-
-.AddingInput {
-  margin-left: auto;
 }
 

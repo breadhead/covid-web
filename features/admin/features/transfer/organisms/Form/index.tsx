@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { Form as FinalForm } from 'react-final-form'
 
+import Button from '@app/features/common/form/Button'
+import Input from '@app/features/common/form/Input'
+import { ButtonType } from '@app/ui/atoms/Button'
 import { InputType } from '@app/ui/atoms/Input'
 import Form from '@app/ui/molecules/Form'
-import FormButton from '@app/ui/molecules/FormButton'
-import Input from '@app/ui/molecules/FormInput'
 import Select from '@app/ui/molecules/Select'
 
 import Container, { StrippedQuota } from '../../container'
@@ -34,7 +35,7 @@ const TransferForm = ({ onFormSubmit, quotas }: Props) => (
         />
         <Input name="count" type={InputType.Number} label="Количество квот" />
 
-        <FormButton>Перевести</FormButton>
+        <Button type={ButtonType.Submit}>Перевести</Button>
       </Form>
     )}
   />

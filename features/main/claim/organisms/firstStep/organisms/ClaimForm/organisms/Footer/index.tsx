@@ -1,8 +1,8 @@
 import * as React from 'react'
 import * as styles from '../../ClaimForm.css'
 
+import Button from '@app/features/common/form/Button'
 import { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
-import Button from '@app/ui/molecules/FormButton'
 
 const Footer = () => (
   <article className={styles.article}>

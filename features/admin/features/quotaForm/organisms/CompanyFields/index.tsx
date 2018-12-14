@@ -1,7 +1,7 @@
 import * as React from 'react'
 
+import Input from '@app/features/common/form/Input'
 import FormFileInput from '@app/features/common/uploader/FormFileInput'
-import FormInput from '@app/ui/molecules/FormInput'
 import Switch from '@app/ui/molecules/Switch'
 import TextArea from '@app/ui/molecules/TextArea'
 
@@ -18,7 +18,7 @@ const Company = () => {
         />
       </div>
       <FormFileInput name="companyLogo" />
-      <FormInput name="companyLink" placeholder="Ссылка на сайт жертвователя" />
+      <Input name="companyLink" placeholder="Ссылка на сайт жертвователя" />
       <TextArea
         name="companyComment"
         placeholder="Публичное пояснение возле логотипа
