@@ -34,7 +34,7 @@ const Select = ({
 
   return (
     <FinalField className={className} name={name}>
-      {({ meta }) => (
+      {({ meta, input }) => (
         <FormItem
           validateStatus={meta.submitError && 'error'}
           help={meta.submitError}
@@ -45,6 +45,7 @@ const Select = ({
             defaultValue={defaultSelectValue}
             disabled={disabled}
             {...rest}
+            {...input}
           >
             {options.map(option => (
               <Option key={option.id} value={option.value}>
