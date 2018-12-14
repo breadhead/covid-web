@@ -10,7 +10,6 @@ import { ButtonKind, ButtonSize } from '@app/ui/atoms/Button'
 import Checkbox from '@app/ui/atoms/Checkbox'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 import RadioButton from '@app/ui/atoms/RadioButton'
-import Combobox from '@app/ui/molecules/Combobox'
 import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
@@ -164,27 +163,27 @@ const Test = ({ modal }: WithModalProps) => (
               <br />
             </EmergingFormElement>
             <p>Комбобокс</p>
-            <Combobox
+            {/* <Combobox
               defaultValue="Выберите пункт"
               options={testComboOptions}
               name="combo2"
-            />
+            /> */}
             <br />
-            <Combobox
+            {/* <Combobox
               defaultValue="Выберите пункт"
               options={testComboOptions}
               initialValue="Начните вводить название населенного пункта и
               выберите подходящее значение из списка:"
               currentValue="Продолжайте вводить название, если не видите свой город:"
               name="combo"
-            />
+            /> */}
             <br />
             <p>Селект</p>
-            <Select
+            {/* <Select
               options={testSelectOptions}
               defaultValue="Выберите опцию"
               name="select"
-            />
+            /> */}
             <br />
             <Select
               disabled
