@@ -7,18 +7,18 @@ import Select from '@app/ui/molecules/Select'
 
 import Input from '@app/features/common/form/Input'
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
-import Combobox from '@app/ui/molecules/Combobox'
+// import Combobox from '@app/ui/molecules/Combobox'
 import TextArea from '@app/ui/molecules/TextArea'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
 
 const mockSelectOptions = [
   {
-    id: '1',
-    value: 'first',
+    key: '1',
+    label: 'first',
   },
   {
-    id: '2',
-    value: 'second',
+    key: '2',
+    label: 'second',
   },
 ]
 
@@ -29,24 +29,24 @@ const Main = () => (
     <Select
       options={mockSelectOptions}
       name="choose_user"
-      defaultValue="Выберите консультируемого"
+      // defaultValue="Выберите консультируемого"
     />
     <p className={styles.label}>Тема вашего вопроса</p>
     <Select
       options={mockSelectOptions}
       name="choose_theme"
-      defaultValue="Выберите тему"
+      // defaultValue="Выберите тему"
     />
     <p className={styles.label}>
       У вас есть установленный врачом онкологический диагноз?
     </p>
     <EmergingFormElement controlType="radiogroup" name="diagnosis">
       <p className={cx(styles.label, styles.emergingLabel)}>Локализация</p>
-      <Combobox
+      {/* <Combobox
         name="cancer_localization"
         options={mockSelectOptions}
-        defaultValue="Выберите тему"
-      />
+        // defaultValue="Выберите тему"
+      /> */}
     </EmergingFormElement>
     <p className={styles.emergingLabel}>
       Вы консультируетесь по корпоративной программе от своего работодателя?
