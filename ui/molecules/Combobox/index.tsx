@@ -1,5 +1,5 @@
 import { Select as AntSelect } from 'antd'
-import { LabeledValue, SelectProps } from 'antd/lib/select'
+import { LabeledValue, OptionProps, SelectProps } from 'antd/lib/select'
 import * as React from 'react'
 
 import './Combobox.css?CSSModulesDisable'
@@ -11,7 +11,10 @@ interface OwnProps {
   hintForEmptyValue?: string
   hint?: string
   options: LabeledValue[]
+  value?: string
 }
+
+type Option = React.ReactElement<OptionProps>
 
 export type Props = OwnProps & SelectProps
 
@@ -36,7 +39,7 @@ class Combobox extends React.Component<Props> {
       <AntSelect
         id={name}
         showSearch
-        onInputKeyDown={this.onChange}
+        onInputKeyDown={this.onInputKeyDown}
         maxTagCount={6}
         notFoundContent={<div className="not-found">{NOT_FOUND_TEXT}</div>}
         filterOption={this.filterOptions}
@@ -53,7 +56,7 @@ class Combobox extends React.Component<Props> {
     )
   }
 
-  private onChange = (evt: React.FormEvent<HTMLInputElement>) => {
+  private onInputKeyDown = (evt: React.FormEvent<HTMLInputElement>) => {
     const { value } = evt.target as HTMLInputElement
     const { hintForEmptyValue, hint } = this.props
 
@@ -64,8 +67,17 @@ class Combobox extends React.Component<Props> {
     }
   }
 
-  private filterOptions = (input: string, { props }: any) =>
-    (props.children as any).toLowerCase().includes(input.toLowerCase())
+  private filterOptions = (input: string, option: Option) =>
+    this.optionToString(option)
+      .toLowerCase()
+      .includes(input.toLowerCase())
+
+  // TODO: fix it
+  private optionToString = ({ props }: Option): string =>
+    (props.children &&
+      typeof props.children === 'string' &&
+      (props.children as string)) ||
+    ''
 }
 
 export default Combobox
