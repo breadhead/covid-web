@@ -1,4 +1,4 @@
-import Container from '@app/ui/molecules/Container'
+import Container from '@app/ui/atoms/Container'
 import Footer, { FooterType } from '@app/ui/organisms/Footer'
 
 import Header from '../Header'

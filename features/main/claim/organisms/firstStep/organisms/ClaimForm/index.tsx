@@ -12,16 +12,9 @@ import Main from './organisms/Main'
 const ClaimForm = () => {
   return (
     <section className={styles.ClaimForm}>
-      <FinalForm
-        onSubmit={() => undefined}
-        render={() => (
-          <AntForm>
-            <Main />
-            <Contacts />
-            <Footer />
-          </AntForm>
-        )}
-      />
+      <Main />
+      <Contacts />
+      <Footer />
     </section>
   )
 }

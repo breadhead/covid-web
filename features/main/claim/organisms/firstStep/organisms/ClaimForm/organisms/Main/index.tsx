@@ -8,7 +8,7 @@ import Select from '@app/ui/molecules/Select'
 import Input from '@app/features/common/form/components/Input'
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 // import Combobox from '@app/ui/molecules/Combobox'
-import TextArea from '@app/ui/molecules/TextArea'
+import TextArea from '@app/ui/atoms/TextArea'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
 
 const mockSelectOptions = [

@@ -1,11 +1,8 @@
 import * as React from 'react'
 
-import Button from '@app/features/common/form/components/Button'
-import Form from '@app/features/common/form/components/Form'
-import Input from '@app/features/common/form/components/Input'
+import { Button, Form, Input, Select } from '@app/features/common/form'
 import { ButtonType } from '@app/ui/atoms/Button'
 import { InputType } from '@app/ui/atoms/Input'
-import Select from '@app/ui/molecules/Select'
 
 import Container, { StrippedQuota } from '../../container'
 import styles from './Form.css'
