@@ -7,7 +7,7 @@ import {
   Props as FormProps,
   QuotaFields,
 } from '@app/features/admin/features/quotaForm'
-import { push as pushNotification } from '@app/features/admin/toast'
+import { push as pushNotification } from '@app/features/admin/features/toast'
 import { QuotaCreateRequest } from '@app/lib/api/request/Quota'
 import { State } from '@app/lib/store'
 import { QuotaType } from '@app/models/Quota/Quota'
@@ -30,6 +30,7 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
           submitButtonText="Создать"
           handleQuota={this.onFormSubmit}
           afterSuccess={this.afterSuccess}
+          initial={{ category: QuotaType.Common }}
           {...this.props}
         />
       )

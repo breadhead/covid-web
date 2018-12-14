@@ -1,13 +1,13 @@
 import React from 'react'
 import { Form as FinalForm } from 'react-final-form'
 
+import Button from '@app/features/common/form/Button'
+import Input from '@app/features/common/form/Input'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import { ButtonType } from '@app/ui/atoms/Button'
 import Icon, { IconColor, IconType } from '@app/ui/atoms/Icon'
 import { InputType } from '@app/ui/atoms/Input'
 import Form from '@app/ui/molecules/Form'
-import Button from '@app/ui/molecules/FormButton'
-import Input from '@app/ui/molecules/FormInput'
 
 import * as styles from './SendSms.css'
 

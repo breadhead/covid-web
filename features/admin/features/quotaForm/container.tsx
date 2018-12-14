@@ -8,7 +8,7 @@ export interface Props {
   error: boolean | string
   handleQuota: (fields: QuotaFields) => void
   afterSuccess: () => void
-  initial?: QuotaFields
+  initial?: Partial<QuotaFields>
   submitButtonText: string
   title: string
 }

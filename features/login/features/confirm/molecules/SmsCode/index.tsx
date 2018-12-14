@@ -1,10 +1,10 @@
 import React from 'react'
 import { Form as FinalForm } from 'react-final-form'
 
+import Input from '@app/features/common/form/Input'
 import Icon, { IconColor, IconType } from '@app/ui/atoms/Icon'
 import { InputType } from '@app/ui/atoms/Input'
 import Form from '@app/ui/molecules/Form'
-import Input from '@app/ui/molecules/FormInput'
 
 interface Props {
   valid: boolean

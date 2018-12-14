@@ -4,13 +4,12 @@ import { withModal, WithModalProps } from '@app/features/common/modal'
 import { Form as AntForm } from 'antd'
 import { Form as FinalForm } from 'react-final-form'
 
+import Button from '@app/features/common/form/Button'
+import Input from '@app/features/common/form/Input'
 import { ButtonKind, ButtonSize } from '@app/ui/atoms/Button'
 import Checkbox from '@app/ui/atoms/Checkbox'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 import RadioButton from '@app/ui/atoms/RadioButton'
-import Combobox from '@app/ui/molecules/Combobox'
-import Button from '@app/ui/molecules/FormButton'
-import Input from '@app/ui/molecules/FormInput'
 import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import Select from '@app/ui/molecules/Select'
 import Switch from '@app/ui/molecules/Switch'
@@ -58,67 +57,67 @@ const testControlsRadioButtons = [
 
 const testSelectOptions = [
   {
-    id: '1',
-    value: 'Первый пункт',
+    key: '1',
+    label: 'Первый пункт',
   },
   {
-    id: '2',
-    value: 'Второй пункт',
+    key: '2',
+    label: 'Второй пункт',
   },
   {
-    id: '3',
-    value:
+    key: '3',
+    label:
       'Третий пункт такой длинный по ширине и количеству символов, что не помещается в одну строку',
   },
   {
-    id: '4',
-    value: 'Четверый пункт',
+    key: '4',
+    label: 'Четверый пункт',
   },
 ]
 
-const testComboOptions = [
-  {
-    id: '1',
-    value: 'Первый пункт',
-  },
-  {
-    id: '2',
-    value: 'Второй пункт',
-  },
-  {
-    id: '3',
-    value:
-      'Третий пункт такой длинный по ширине и количеству символов, что не помещается в одну строку',
-  },
-  {
-    id: '4',
-    value: 'Четверый пункт',
-  },
-  {
-    id: '5',
-    value: 'Пепятый пункт',
-  },
-  {
-    id: '6',
-    value: 'Шестой пункт',
-  },
-  {
-    id: '7',
-    value: 'Седьмо пункт',
-  },
-  {
-    id: '8',
-    value: 'Воседьмой',
-  },
-  {
-    id: '9',
-    value: 'Девятый',
-  },
-  {
-    id: '10',
-    value: 'Десятый',
-  },
-]
+// const testComboOptions = [
+//   {
+//     key: '1',
+//     label: 'Первый пункт',
+//   },
+//   {
+//     key: '2',
+//     label: 'Второй пункт',
+//   },
+//   {
+//     key: '3',
+//     label:
+//       'Третий пункт такой длинный по ширине и количеству символов, что не помещается в одну строку',
+//   },
+//   {
+//     key: '4',
+//     label: 'Четверый пункт',
+//   },
+//   {
+//     key: '5',
+//     label: 'Пепятый пункт',
+//   },
+//   {
+//     key: '6',
+//     label: 'Шестой пункт',
+//   },
+//   {
+//     key: '7',
+//     label: 'Седьмо пункт',
+//   },
+//   {
+//     key: '8',
+//     label: 'Воседьмой',
+//   },
+//   {
+//     key: '9',
+//     label: 'Девятый',
+//   },
+//   {
+//     key: '10',
+//     label: 'Десятый',
+//   },
+// ]
 
 const Test = ({ modal }: WithModalProps) => (
   <Layout>
@@ -164,27 +163,27 @@ const Test = ({ modal }: WithModalProps) => (
               <br />
             </EmergingFormElement>
             <p>Комбобокс</p>
-            <Combobox
+            {/* <Combobox
               defaultValue="Выберите пункт"
               options={testComboOptions}
               name="combo2"
-            />
+            /> */}
             <br />
-            <Combobox
+            {/* <Combobox
               defaultValue="Выберите пункт"
               options={testComboOptions}
               initialValue="Начните вводить название населенного пункта и
               выберите подходящее значение из списка:"
               currentValue="Продолжайте вводить название, если не видите свой город:"
               name="combo"
-            />
+            /> */}
             <br />
             <p>Селект</p>
-            <Select
+            {/* <Select
               options={testSelectOptions}
               defaultValue="Выберите опцию"
               name="select"
-            />
+            /> */}
             <br />
             <Select
               disabled

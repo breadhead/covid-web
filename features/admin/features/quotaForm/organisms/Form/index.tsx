@@ -8,10 +8,12 @@ import CompanyFields from '../CompanyFields'
 import MainField from '../MainField'
 import * as styles from './Form.css'
 
+import Layout from '@app/features/admin/organisms/Layout'
+
 export interface Props {
   onFormSubmit: (quotaFields: QuotaFields) => Promise<any>
   error: boolean | string
-  initial?: QuotaFields
+  initial?: Partial<QuotaFields>
   submitButtonText: string
   title: string
 }
@@ -22,8 +24,8 @@ const Form = ({
   initial,
   submitButtonText,
   title,
-}: Props) => {
-  return (
+}: Props) => (
+  <Layout>
     <FinalForm
       // TODO: fix this typing issue
       onSubmit={onFormSubmit as any}
@@ -45,7 +47,7 @@ const Form = ({
         </AntForm>
       )}
     />
-  )
-}
+  </Layout>
+)
 
 export default Form
