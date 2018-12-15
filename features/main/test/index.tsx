@@ -24,6 +24,8 @@ import {
 } from '@app/features/login'
 import { InputType } from '@app/ui/atoms/Input'
 import TimePicker from '@app/ui/atoms/TimePicker'
+import ProgressBar from '@app/ui/organisms/ProgressBar'
+import { StepPointerTypes } from '@app/ui/organisms/ProgressBar/organisms/StepPointer'
 import Layout from '../layout'
 
 const testBoolRadioButtons = [
@@ -119,10 +121,16 @@ const testSelectOptions = [
 //   },
 // ]
 
+const steps = [
+  { title: 'Заполните заявку', content: '1', type: StepPointerTypes.Empty },
+  { title: 'Опишите ситуацию', content: '2', type: StepPointerTypes.Empty },
+  { title: 'Задайте вопросы', content: '3', type: StepPointerTypes.Empty },
+]
+
 const Test = ({ modal }: WithModalProps) => (
   <Layout>
     <h1 style={{ font: 'var(--title-extra)' }}>components preview page</h1>
-
+    <ProgressBar steps={steps} />
     <Uploader />
     <div style={{ paddingLeft: '5%', textAlign: 'left' }}>
       <FinalForm

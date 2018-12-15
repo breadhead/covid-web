@@ -1,0 +1,13 @@
+.ProgressBar {
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ProgressBarItem {
+  display: flex;
+  flex-direction: column;    
+  align-items: center;
+  max-width: 150px;
+}

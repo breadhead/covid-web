@@ -3,7 +3,6 @@ import * as React from 'react'
 import PrimaryFooter from './PrimaryFooter'
 import SecondaryFooter from './SecondaryFooter'
 
-import styles from './Footer.css'
 import FooterTheme from './FooterTheme'
 import FooterType from './FooterType'
 
@@ -21,7 +20,7 @@ const Footer = ({
     Secondary: <SecondaryFooter theme={theme} />,
   }
 
-  return <section className={styles.footer}>{componentsMap[type]}</section>
+  return <footer>{componentsMap[type]}</footer>
 }
 
 export default Footer

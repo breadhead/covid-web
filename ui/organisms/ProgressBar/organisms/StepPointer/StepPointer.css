@@ -1,0 +1,30 @@
+.StepPointer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding-bottom: 3px;
+  border-radius: 50%;
+}
+
+.title {
+  font: var(--text14-20);
+}
+
+.empty {
+  background-color: #FFD46D;
+}
+
+.success {
+
+}
+
+.finished {
+
+}
+
+.disabled {
+  background-color: transparent;
+}
