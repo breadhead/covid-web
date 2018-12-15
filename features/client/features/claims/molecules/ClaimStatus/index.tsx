@@ -1,3 +1,5 @@
+import Router from 'next/router'
+
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
 
@@ -11,9 +13,10 @@ import isActive from './helpers/isActive'
 
 interface Props {
   status: ClaimStatus
+  id: string
 }
 
-const Status = ({ status }: Props) => {
+const Status = ({ status, id }: Props) => {
   const active = isActive(status)
 
   return (
@@ -27,6 +30,7 @@ const Status = ({ status }: Props) => {
       <Button
         kind={active ? ButtonKind.Primary : ButtonKind.Secondary}
         className={styles.action}
+        onClick={() => Router.push(`/client/cliam/${id}`)}
       >
         {getAction(status)}
       </Button>

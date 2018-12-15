@@ -11,7 +11,7 @@ interface Props {
 const ClaimCard = ({ claim }: Props) => (
   <article className={styles.card}>
     <Header newMessage={claim.newMessage} />
-    <Status status={claim.status} />
+    <Status status={claim.status} id={claim.id} />
   </article>
 )
 
