@@ -2,7 +2,7 @@
   padding: 48px 0 120px;
   font: var(--text16-24);
   text-align: center;
-  background-color: #FAF9F7;
+  background-color: var(--background-color);
   
 
   @media (max-width: 767px) {

@@ -17,7 +17,9 @@ const SignUp = () => (
       <h1 className={styles.title}>Регистрация</h1>
       <p className={styles.secondaryText}>
         Уже есть аккаунт?{SPACE}
-        <NavLink className={styles.link}>Войти</NavLink>
+        <NavLink href="#" className={styles.link}>
+          Войти
+        </NavLink>
       </p>
 
       <Form onSubmit={() => undefined}>

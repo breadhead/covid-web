@@ -4,11 +4,13 @@ import Layout from '../../../organisms/Layout'
 import Claims from '../organisms/Claims'
 import Title from '../organisms/Title'
 
-const LandingPage = () => (
+const ClaimsPage = () => (
   <Layout>
     <Title />
-    <Claims claims={['dsd', 'dsd']} />
+    <Claims
+      claims={['dsd', 'add', 'ds', 'ddsad', 'gfd', 'fdsf', 'fdsfsd', 'sdas']}
+    />
   </Layout>
 )
 
-export default LandingPage
+export default ClaimsPage

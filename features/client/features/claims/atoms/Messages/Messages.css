@@ -1,0 +1,15 @@
+.title {
+  margin-bottom: 4px;
+  font: var(--text16-24);
+  color: var(--text-color-primary);
+}
+
+.disable {
+  color: var(--text-color-secondary);
+}
+
+.subtitle {
+  margin: 0;
+  font: var(--text14-20);
+  color: var(--text-color-secondary);
+}
