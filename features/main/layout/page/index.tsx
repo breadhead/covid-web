@@ -32,7 +32,13 @@ class Layout extends React.Component<Props> {
     return (
       <React.Fragment>
         <Header type={headerType} theme={headerTheme} />
-        <main style={{ minHeight: '50vh', textAlign: 'center' }}>
+        <main
+          style={{
+            minHeight: '50vh',
+            textAlign: 'center',
+            backgroundColor: 'white',
+          }}
+        >
           {children}
         </main>
         <Footer type={footerType} theme={footerTheme} />
