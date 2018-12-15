@@ -1,8 +1,12 @@
+import styles from './Title.css'
+
+import NavLink from '@app/ui/atoms/NavLink'
+
 const Title = () => (
-  <>
-    <h1>Мои консультации</h1>
-    <p>Начать новую консультацию</p>
-  </>
+  <header className={styles.container}>
+    <h1 className={styles.title}>Мои консультации</h1>
+    <NavLink>Начать новую консультацию</NavLink>
+  </header>
 )
 
 export default Title
