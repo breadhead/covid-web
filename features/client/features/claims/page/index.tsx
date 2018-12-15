@@ -7,7 +7,7 @@ import Title from '../organisms/Title'
 const LandingPage = () => (
   <Layout>
     <Title />
-    <Claims claims={['dsd', 'dsd']} />
+    <Claims claims={['dsd', 'add']} />
   </Layout>
 )
 

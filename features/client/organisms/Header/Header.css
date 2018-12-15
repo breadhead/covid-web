@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: #FAF9F7;
+  border-bottom: 1px solid #EDEDEF;
+}
+
+.logo {
+  width: 200px;
+  height: 38px;
+}
+
+.menuItem {
+  margin-right: 40px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.icon {
+  margin-right: 8px;
+}
