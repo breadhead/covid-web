@@ -4,6 +4,7 @@ import Container from '@app/ui/atoms/Container'
 import Footer, { FooterType } from '@app/ui/organisms/Footer'
 
 import Header from '../Header'
+import styles from './Layout.css'
 
 interface Props {
   children: React.ReactNode
@@ -14,7 +15,7 @@ const Layout = ({ children, className }: Props) => (
   <>
     <Header />
 
-    <Container>
+    <Container pageClassName={styles.page}>
       {(containerClassName: string) => (
         <main className={cx(className, containerClassName)}>{children}</main>
       )}

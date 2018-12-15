@@ -4,11 +4,10 @@ import Layout from '../../../organisms/Layout'
 import Claims from '../organisms/Claims'
 import Title from '../organisms/Title'
 
-import styles from './Page.css'
-
 const ClaimsPage = () => (
-  <Layout className={styles.page}>
+  <Layout>
     <Title />
+    {/* <Claims claims={['dsd', 'add', 'ds', 'ddsad', 'gfd', 'fdsf', 'fdsfsd', 'sdas']} /> */}
     <Claims claims={['dsd', 'add']} />
   </Layout>
 )

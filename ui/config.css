@@ -50,6 +50,8 @@ body {
 
   --text-color-primary: #151833;
   --text-color-secondary: #616681;
+
+  --background-color: #faf9f7;
   
   --color-link: #2D47EA;
   --color-link-underline: rgba(45, 71, 234, 0.5);
