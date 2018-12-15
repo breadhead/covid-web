@@ -1,0 +1,27 @@
+.container {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 16px auto;
+  margin: 16px 0;
+  column-gap: 8px;
+}
+
+.point {
+  margin: 4px 0;
+}
+
+.title {
+  margin: 0;
+  font: var(--text16-24);
+  color: var(--text-color-primary);
+}
+
+.disable {
+  color: var(--text-color-secondary);
+}
+
+.subtitle {
+  margin: 0;
+  font: var(--text14-20);
+  color: var(--text-color-secondary);
+}
