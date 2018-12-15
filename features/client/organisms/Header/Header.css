@@ -12,14 +12,6 @@
   height: 38px;
 }
 
-.menuItem {
-  margin-right: 40px;
-
-  &:last-of-type {
-    margin-right: 0;
-  }
-}
-
 .icon {
   margin-right: 8px;
 }
