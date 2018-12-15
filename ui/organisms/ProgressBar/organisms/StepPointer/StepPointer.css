@@ -1,30 +1,56 @@
 .StepPointer {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 56px;
   height: 56px;
-  padding-bottom: 3px;
+  cursor: pointer;
+  background-color: inherit;
   border-radius: 50%;
 }
 
 .title {
   font: var(--text14-20);
+  white-space: nowrap;
 }
 
 .empty {
-  background-color: #FFD46D;
+  background-color: var(--color-highlight);
 }
 
 .success {
+  border: 1px solid var(--color-success);
+  fill: var(--color-success);
 
+  &:hover {
+    border-color: var(--color-primary);
+    fill: var(--color-primary);
+  }
 }
 
-.finished {
+.full {
+  color: #151833;
+  border: 1px solid #151833;
 
+  &:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
 }
 
 .disabled {
-  background-color: transparent;
+  color: #9F9FA8;
+  background-color: inherit;
+  border: 1px solid #9F9FA8;
+  fill: #9F9FA8;
+
+  &:hover {
+    color: #9F9FA8;
+    cursor: auto;
+    border: 1px solid #9F9FA8;
+    fill: #9F9FA8;
+  }
 }

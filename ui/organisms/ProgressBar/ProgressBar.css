@@ -1,13 +1,48 @@
 .ProgressBar {
+  position: relative;
   display: flex;
   justify-content: space-between;
   max-width: 800px;
   margin: 0 auto;
+  background-color: inherit;
+  background-image: linear-gradient(to top, transparent 28px, #9F9FA8 1px, transparent 29px);
+  background-position: top;
 }
 
 .ProgressBarItem {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;    
   align-items: center;
   max-width: 150px;
+  background-color: inherit;
+  background-image: inherit;
+  background-position: inherit;
+
+  &:first-of-type {
+    
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: calc(50% - 28px);
+      height: 50%;
+      content: '';
+      background-color: inherit;
+    }
+  }
+
+  &:last-of-type {
+
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: calc(50% - 28px);
+      height: 50%;
+      content: '';
+      background-color: inherit;
+    }
+  }
 }

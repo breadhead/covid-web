@@ -122,9 +122,10 @@ const testSelectOptions = [
 // ]
 
 const steps = [
-  { title: 'Заполните заявку', content: '1', type: StepPointerTypes.Empty },
-  { title: 'Опишите ситуацию', content: '2', type: StepPointerTypes.Empty },
-  { title: 'Задайте вопросы', content: '3', type: StepPointerTypes.Empty },
+  { title: 'Заполните заявку', type: StepPointerTypes.Empty },
+  { title: 'Опишите ситуацию', disabled: true },
+  { title: 'Задайте вопросы', type: StepPointerTypes.Full },
+  { title: 'Не задавайте вопросов', type: StepPointerTypes.Success },
 ]
 
 const Test = ({ modal }: WithModalProps) => (

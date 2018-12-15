@@ -9,13 +9,14 @@ export interface Props {
 
 const Container = ({ steps }: Props) => (
   <div className={styles.ProgressBar}>
-    {steps.map(step => (
+    {steps.map((step, i) => (
       <StepPointer
-        className={styles.ProgressBarItem}
+        index={i}
         key={step.title}
+        className={styles.ProgressBarItem}
         title={step.title}
-        content={step.content}
         type={step.type}
+        disabled={step.disabled}
       />
     ))}
   </div>
