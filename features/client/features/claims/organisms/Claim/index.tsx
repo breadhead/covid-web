@@ -6,7 +6,6 @@ const ClaimCard = () => (
   <article className={styles.card}>
     <Header />
     <Status />
-    Клайм
   </article>
 )
 
