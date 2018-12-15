@@ -1,3 +1,3 @@
-const Actions = () => <div>...</div>
+const Actions = () => <div />
 
 export default Actions

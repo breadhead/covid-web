@@ -2,4 +2,8 @@
   padding-top: 40px;
   padding-bottom: 120px;
   background-color: var(--background-color);
+
+  @media (--mediumDown) {
+    padding-bottom: 80px;
+  }
 }

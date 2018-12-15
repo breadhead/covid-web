@@ -3,4 +3,12 @@
   font: var(--text14-20);
   background-color: #FFEAB7;
   border-radius: 12px;
+
+  @media (--mediumDown) {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+
+    color: rgba(0, 0, 0, 0);
+  }
 }
