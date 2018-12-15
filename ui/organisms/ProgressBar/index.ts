@@ -1,2 +1,2 @@
 export { default } from './container'
-export { StepPointerProps } from './organisms/StepPointer'
+export { StepPointerModel } from './organisms/StepPointer'

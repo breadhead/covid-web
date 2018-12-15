@@ -11,23 +11,28 @@ export enum StepPointerTypes {
   Success = 'success',
 }
 
-export interface StepPointerProps {
+export interface StepPointerModel {
   title: string
-  index: number
   disabled?: boolean
   type?: StepPointerTypes
   className?: string
   onClick?: () => void
 }
 
-const StepPointer = ({
-  title,
-  index,
-  className,
-  disabled,
-  onClick,
-  type = StepPointerTypes.Empty,
-}: StepPointerProps) => {
+interface Props {
+  index: number
+  step: StepPointerModel
+}
+
+const StepPointer = ({ step, index }: Props) => {
+  const {
+    type = StepPointerTypes.Empty,
+    title,
+    disabled,
+    className,
+    onClick,
+  } = step
+
   const currentContent =
     type === StepPointerTypes.Success ? (
       <IconCustom name="input-valid" />

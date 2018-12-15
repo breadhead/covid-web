@@ -1,23 +1,16 @@
 import * as React from 'react'
 import * as styles from './ProgressBar.css'
 
-import StepPointer, { StepPointerProps } from './organisms/StepPointer'
+import StepPointer, { StepPointerModel } from './organisms/StepPointer'
 
 export interface Props {
-  steps: StepPointerProps[]
+  steps: StepPointerModel[]
 }
 
 const Container = ({ steps }: Props) => (
   <div className={styles.ProgressBar}>
     {steps.map((step, i) => (
-      <StepPointer
-        index={i}
-        key={step.title}
-        className={styles.ProgressBarItem}
-        title={step.title}
-        type={step.type}
-        disabled={step.disabled}
-      />
+      <StepPointer index={i} step={step} />
     ))}
   </div>
 )
