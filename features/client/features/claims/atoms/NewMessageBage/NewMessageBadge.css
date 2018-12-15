@@ -3,6 +3,7 @@
   font: var(--text14-20);
   background-color: #FFEAB7;
   border-radius: 12px;
+  color: var(--text-color-primary);
 
   @media (--mediumDown) {
     width: 20px;
