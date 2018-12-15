@@ -1,14 +1,16 @@
+import ShortClaim from '@app/models/Claim/ShortClaim'
+
 import ClaimCard from '../Claim'
 import styles from './Claims.css'
 
 interface Props {
-  claims: any[] // TODO: fix
+  claims: ShortClaim[]
 }
 
 const Claims = ({ claims }: Props) => (
   <section className={styles.list}>
     {claims.map(claim => (
-      <ClaimCard key={claim} />
+      <ClaimCard key={claim.id} claim={claim} />
     ))}
   </section>
 )
