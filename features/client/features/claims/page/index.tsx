@@ -7,8 +7,9 @@ import Title from '../organisms/Title'
 const ClaimsPage = () => (
   <Layout>
     <Title />
-    {/* <Claims claims={['dsd', 'add', 'ds', 'ddsad', 'gfd', 'fdsf', 'fdsfsd', 'sdas']} /> */}
-    <Claims claims={['dsd', 'add']} />
+    <Claims
+      claims={['dsd', 'add', 'ds', 'ddsad', 'gfd', 'fdsf', 'fdsfsd', 'sdas']}
+    />
   </Layout>
 )
 

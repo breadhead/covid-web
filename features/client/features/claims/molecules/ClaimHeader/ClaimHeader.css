@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.mainInfo {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto;
+  column-gap: 24px;
+  row-gap: 4px;
+  align-items: center;
+}
+
+.title {
+  margin: 0px;
+  font: var(--title-small);
+}
+
+.for {
+  font: var(--text14-20);
+  color: var(--text-color-secondary);
+}
