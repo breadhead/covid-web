@@ -11,7 +11,7 @@ interface Props {
   children: React.ReactNode | string
   type?: NavLinkType
   className?: string
-  href?: string
+  href: string
 }
 
 const NavLink = ({

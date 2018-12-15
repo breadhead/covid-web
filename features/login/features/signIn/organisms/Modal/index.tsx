@@ -22,7 +22,9 @@ const SignIn = ({ onFormSubmit }: Props) => (
       <h1 className={styles.title}>Войти</h1>
       <p className={styles.secondaryText}>
         Ещё нет аккаунта?{SPACE}
-        <NavLink className={styles.link}>Зарегистрироваться</NavLink>
+        <NavLink href="#" className={styles.link}>
+          Зарегистрироваться
+        </NavLink>
       </p>
 
       <Form onSubmit={onFormSubmit}>
@@ -39,7 +41,9 @@ const SignIn = ({ onFormSubmit }: Props) => (
           type={InputType.Password}
         />
 
-        <NavLink className={styles.link}>Забыли пароль?</NavLink>
+        <NavLink href="#" className={styles.link}>
+          Забыли пароль?
+        </NavLink>
 
         <Button type={ButtonType.Submit} className={styles.mainButton}>
           Войти

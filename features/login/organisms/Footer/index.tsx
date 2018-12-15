@@ -14,7 +14,10 @@ const Footer = () => (
     <p className={styles.text}>
       Если у вас есть аккаунт на <b>nenaprasno.ru</b>, вы{NON_BREAKING_SPACE}
       можете{SPACE}
-      <NavLink className={styles.link}>войти</NavLink>, используя те же данные
+      <NavLink href="#" className={styles.link}>
+        войти
+      </NavLink>
+      , используя те же данные
     </p>
   </footer>
 )
