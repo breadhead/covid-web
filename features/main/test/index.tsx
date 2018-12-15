@@ -123,7 +123,7 @@ const testSelectOptions = [
 
 const steps = [
   { title: 'Заполните заявку', type: StepPointerTypes.Empty },
-  { title: 'Опишите ситуацию', disabled: true },
+  { title: 'Опишите ситуацию', type: StepPointerTypes.Empty, disabled: true },
   { title: 'Задайте вопросы', type: StepPointerTypes.Full },
   { title: 'Не задавайте вопросов', type: StepPointerTypes.Success },
 ]

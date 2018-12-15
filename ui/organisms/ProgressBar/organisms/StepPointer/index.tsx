@@ -13,8 +13,8 @@ export enum StepPointerTypes {
 
 export interface StepPointerModel {
   title: string
+  type: StepPointerTypes
   disabled?: boolean
-  type?: StepPointerTypes
   className?: string
   onClick?: () => void
 }
@@ -22,16 +22,11 @@ export interface StepPointerModel {
 interface Props {
   index: number
   step: StepPointerModel
+  className?: string
 }
 
-const StepPointer = ({ step, index }: Props) => {
-  const {
-    type = StepPointerTypes.Empty,
-    title,
-    disabled,
-    className,
-    onClick,
-  } = step
+const StepPointer = ({ step, index, className }: Props) => {
+  const { type, title, disabled, onClick } = step
 
   const currentContent =
     type === StepPointerTypes.Success ? (

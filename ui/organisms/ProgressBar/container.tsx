@@ -10,7 +10,7 @@ export interface Props {
 const Container = ({ steps }: Props) => (
   <div className={styles.ProgressBar}>
     {steps.map((step, i) => (
-      <StepPointer index={i} step={step} />
+      <StepPointer index={i} step={step} className={styles.ProgressBarItem} />
     ))}
   </div>
 )
