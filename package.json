@@ -80,6 +80,7 @@
     "jest-enzyme": "^7.0.0",
     "lint-staged": "^8.1.0",
     "postcss": "^7.0.5",
+    "postcss-custom-media": "^7.0.7",
     "postcss-nesting": "^7.0.0",
     "postcss-normalize": "^7.0.1",
     "postcss-preset-env": "^6.3.0",

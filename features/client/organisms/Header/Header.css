@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.logo {
+  width: 200px;
+  height: 38px;
+}
+
+.icon {
+  margin-right: 8px;
+}

@@ -1,10 +1,9 @@
+import { RadioChangeEvent } from 'antd/lib/radio'
 import * as React from 'react'
 
 import * as styles from './EmergingFormElement.css'
-
-import { RadioChangeEvent } from 'antd/lib/radio'
-import RadioGroupElement, { radioButtons } from './organisms/RadioGroupElement'
-import SwitchElement from './organisms/SwitchElement'
+import RadioGroupElement, { radioButtons } from './RadioGroupElement'
+import SwitchElement from './SwitchElement'
 
 enum controlTypes {
   switch = 'switch',

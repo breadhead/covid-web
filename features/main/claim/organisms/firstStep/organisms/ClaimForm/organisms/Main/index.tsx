@@ -3,12 +3,12 @@ import * as React from 'react'
 import * as styles from '../../ClaimForm.css'
 
 import NavLink from '@app/ui/atoms/NavLink'
-import Select from '@app/ui/molecules/Select'
+import Select from '@app/ui/atoms/Select'
 
-import Input from '@app/features/common/form/Input'
+import Input from '@app/features/common/form/components/Input'
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 // import Combobox from '@app/ui/molecules/Combobox'
-import TextArea from '@app/ui/molecules/TextArea'
+import TextArea from '@app/ui/atoms/TextArea'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
 
 const mockSelectOptions = [
@@ -28,13 +28,11 @@ const Main = () => (
     <p className={styles.label}>Для кого эта консультация</p>
     <Select
       options={mockSelectOptions}
-      name="choose_user"
       // defaultValue="Выберите консультируемого"
     />
     <p className={styles.label}>Тема вашего вопроса</p>
     <Select
       options={mockSelectOptions}
-      name="choose_theme"
       // defaultValue="Выберите тему"
     />
     <p className={styles.label}>

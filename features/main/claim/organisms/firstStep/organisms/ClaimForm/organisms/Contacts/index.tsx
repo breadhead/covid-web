@@ -1,10 +1,10 @@
 import * as React from 'react'
 import * as styles from '../../ClaimForm.css'
 
-import Input from '@app/features/common/form/Input'
+import Input from '@app/features/common/form/components/Input'
 import { InputType } from '@app/ui/atoms/Input'
+import Select from '@app/ui/atoms/Select'
 import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
-import Select from '@app/ui/molecules/Select'
 
 const genderRadioGroup = [
   { id: '1', value: 'Мужской' },
@@ -34,11 +34,7 @@ const Contacts = () => (
     </p>
     <Input name="name" />
     <p className={styles.label}>Регион вашего проживания</p>
-    <Select
-      options={mockSelectOptions}
-      name="choose_region"
-      // defaultValue="Выберите регион"
-    />
+    <Select options={mockSelectOptions} placeholder="Выберите регион" />
     <p className={styles.label}>Возраст (полных лет)</p>
     <Input name="age" type={InputType.Number} />
     <p className={styles.label}>Пол</p>

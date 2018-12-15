@@ -1,0 +1,14 @@
+.point {
+  width: 16px;
+  height: 16px;
+  
+  border-radius: 8px;
+}
+
+.active {
+  background-color: #FFD46D;
+}
+
+.inactive {
+  background-color: #B3B4C8;
+}

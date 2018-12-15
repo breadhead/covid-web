@@ -1,14 +1,10 @@
-import { Form as AntForm } from 'antd'
 import { RadioChangeEvent } from 'antd/lib/radio'
 import * as React from 'react'
-import { Field as FinalField } from 'react-final-form'
 
 import Bool from './Bool'
 import Button from './ButtonVariant'
 import Controls from './Controls'
 import './RadioGroup.css?CSSModulesDisable'
-
-const FormItem = AntForm.Item
 
 export enum RadioGroupType {
   Bool = 'Bool',
@@ -27,34 +23,16 @@ interface Props {
 const RadioGroup = (props: Props) => {
   const { name, type, buttons, defaultValue, className, onChange } = props
 
-  const radioGroup =
-    type === RadioGroupType.Controls ? (
-      <Controls
-        name={name}
-        buttons={buttons}
-        defaultValue={defaultValue}
-        onChange={onChange}
-      />
-    ) : (
-      <Bool
-        name={name}
-        buttons={buttons}
-        defaultValue={defaultValue}
-        onChange={onChange}
-      />
-    )
+  const SpecificRadioGroup = type === RadioGroupType.Controls ? Controls : Bool
 
   return (
-    <FinalField className={className} name={name}>
-      {({ meta }) => (
-        <FormItem
-          validateStatus={meta.submitError && 'error'}
-          help={meta.submitError}
-        >
-          {radioGroup}
-        </FormItem>
-      )}
-    </FinalField>
+    <SpecificRadioGroup
+      className={className}
+      name={name}
+      buttons={buttons}
+      defaultValue={defaultValue}
+      onChange={onChange}
+    />
   )
 }
 

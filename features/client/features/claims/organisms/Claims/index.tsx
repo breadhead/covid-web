@@ -1,3 +1,4 @@
+import ClaimCard from '../Claim'
 import styles from './Claims.css'
 
 interface Props {
@@ -7,7 +8,7 @@ interface Props {
 const Claims = ({ claims }: Props) => (
   <section className={styles.list}>
     {claims.map(claim => (
-      <article className={styles.card}>Клайм {claim}</article>
+      <ClaimCard key={claim} />
     ))}
   </section>
 )

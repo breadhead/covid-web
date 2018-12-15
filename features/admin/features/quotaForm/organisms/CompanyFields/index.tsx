@@ -1,9 +1,7 @@
 import * as React from 'react'
 
-import Input from '@app/features/common/form/Input'
+import { Input, Switch, TextArea } from '@app/features/common/form'
 import FormFileInput from '@app/features/common/uploader/FormFileInput'
-import Switch from '@app/ui/molecules/Switch'
-import TextArea from '@app/ui/molecules/TextArea'
 
 import * as styles from './CompanyFields.css'
 
@@ -11,11 +9,7 @@ const Company = () => {
   return (
     <React.Fragment>
       <div className={styles.Switch}>
-        <Switch
-          name="publicCompany"
-          label="Показывать жертвователя на сайте"
-          defaultChecked={false}
-        />
+        <Switch name="publicCompany" label="Показывать жертвователя на сайте" />
       </div>
       <FormFileInput name="companyLogo" />
       <Input name="companyLink" placeholder="Ссылка на сайт жертвователя" />

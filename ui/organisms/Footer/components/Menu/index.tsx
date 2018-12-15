@@ -30,7 +30,7 @@ const Menu = ({ long }: Props) => {
     <nav className={styles.menu}>
       {links.map(({ title, href }) => (
         <NavLink
-          key={href}
+          key={title}
           type={NavLinkType.Nav}
           href={href}
           className={styles.link}
