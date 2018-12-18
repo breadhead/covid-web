@@ -9,7 +9,7 @@ const Menu = () => (
     <span className={styles.menuItem}>
       <NavLink type={NavLinkType.Nav} href="#">
         <IconCustom className={styles.icon} name="24x24_my-consultation" />
-        Моя консультаrhrhrция
+        Моя консультация
       </NavLink>
     </span>
     <span className={styles.menuItem}>

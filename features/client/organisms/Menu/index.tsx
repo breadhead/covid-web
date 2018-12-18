@@ -7,7 +7,7 @@ import * as styles from './Menu.css'
 const Menu = () => (
   <nav className={styles.menu}>
     <NavLink className={styles.menuItem} type={NavLinkType.Nav} href="#">
-      <IconCustom name="24x24_my-consultation" />
+      <IconCustom className={styles.icon} name="24x24_my-consultation" />
       Моя консультация
     </NavLink>
     <NavLink className={styles.menuItem} type={NavLinkType.Nav} href="#">

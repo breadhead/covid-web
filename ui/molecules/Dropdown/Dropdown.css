@@ -14,12 +14,13 @@
 
   &::before {
     position: absolute;
-    right: 0;
-    bottom: -20px;
-    width: 200%;
-    height: 40px;
+    bottom: -16px;
+    left: 50%;
+    width: 300%;
+    height: 24px;
     content: '';
     background-color: transparent;
+    transform: translate(-50%);
   }
 }
 
@@ -49,4 +50,16 @@
 
 .link:hover {
   border-bottom: 1px solid var(--color-link-underline);
+}
+
+.left {
+  right: 0;
+}
+
+.right {
+  right: -962%;
+}
+
+.center {
+  right: -473%;
 }
