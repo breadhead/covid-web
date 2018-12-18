@@ -6,11 +6,11 @@ import Menu from '../Menu'
 
 import * as styles from './Header.css'
 
-const SecondaryHeader = () => (
+const Header = () => (
   <header className={styles.header}>
     <Logo className={styles.logo} />
     <Menu />
   </header>
 )
 
-export default SecondaryHeader
+export default Header

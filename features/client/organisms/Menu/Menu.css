@@ -1,5 +1,14 @@
+.menu {
+  display: flex;
+}
+
 .menuItem {
+  display: flex;
   margin-right: 40px;
+
+  &:hover .icon {
+    fill: var(--color-primary);
+  }
 
   &:last-of-type {
     margin-right: 0;

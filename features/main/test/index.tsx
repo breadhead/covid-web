@@ -12,6 +12,7 @@ import TextArea from '@app/ui/atoms/TextArea'
 import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
 
+import Layout from '@app/features/client/organisms/Layout'
 import Uploader from '@app/features/common/uploader'
 import {
   SIGN_IN_MODAL,
@@ -127,7 +128,7 @@ const steps = [
 ]
 
 const Test = ({ modal }: WithModalProps) => (
-  <>
+  <Layout>
     <h1 style={{ font: 'var(--title-extra)' }}>components preview page</h1>
     <ProgressBar steps={steps} />
     <Uploader />
@@ -271,7 +272,7 @@ const Test = ({ modal }: WithModalProps) => (
       </Button>
       <br />
     </div>
-  </>
+  </Layout>
 )
 
 export default withModal(Test)
