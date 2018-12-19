@@ -1,7 +1,9 @@
 import ClaimStatus from './ClaimStatus'
 
-export default interface ShortClaim {
+export interface ShortClaim {
   id: string
+  createdAt: Date
+  expireAt?: Date
   status: ClaimStatus
   newMessage: boolean
 }

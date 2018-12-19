@@ -1,4 +1,4 @@
-import ShortClaim from '@app/models/Claim/ShortClaim'
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
 
 import Header from '../../molecules/ClaimHeader'
 import Status from '../../molecules/ClaimStatus'
@@ -10,7 +10,7 @@ interface Props {
 
 const ClaimCard = ({ claim }: Props) => (
   <article className={styles.card}>
-    <Header newMessage={claim.newMessage} />
+    <Header createdAt={claim.createdAt} newMessage={claim.newMessage} />
     <Status status={claim.status} id={claim.id} />
   </article>
 )

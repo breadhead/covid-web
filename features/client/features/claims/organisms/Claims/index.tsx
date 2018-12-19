@@ -1,4 +1,4 @@
-import ShortClaim from '@app/models/Claim/ShortClaim'
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
 
 import ClaimCard from '../Claim'
 import styles from './Claims.css'

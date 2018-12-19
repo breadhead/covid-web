@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 
-import formatDate from './formatDate'
+import formatDate from '../../../helpers/formatDate'
 
 type SubtitlesMap = Partial<
   { [key in ClaimStatus]: (expire: Date) => ReactNode }

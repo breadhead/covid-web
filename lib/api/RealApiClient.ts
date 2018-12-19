@@ -1,10 +1,13 @@
-import { Quota } from '@app/models/Quota/Quota'
-import { Transaction } from '@app/models/Quota/Transaction'
 import axios, { AxiosError, AxiosInstance } from 'axios'
 import HttpStatus from 'http-status-codes'
 
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { Quota } from '@app/models/Quota/Quota'
+import { Transaction } from '@app/models/Quota/Transaction'
+
 import ApiClient, { UploadedFile, User } from './ApiClient'
 import { queryString } from './helper/queryString'
+import { tapDate } from './helper/tapDate'
 import { QuotaCreateRequest, QuotaEditRequest } from './request/Quota'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
@@ -18,6 +21,12 @@ export default class RealApiClient implements ApiClient {
       baseURL: baseUrl,
     })
   }
+
+  public claimsForClient = () =>
+    this.axiosInstance
+      .get('/claims')
+      .then(response => response.data as ShortClaim[])
+      .then(claims => claims.map(tapDate))
 
   public transfer = (quotaTransferRequest: QuotaTransferRequest) =>
     this.axiosInstance
