@@ -1,5 +1,7 @@
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
+
 import { QuotaTransferRequest } from './request/QuotaTransfer'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 export interface User {
@@ -20,6 +22,8 @@ export interface UploadedFile {
 
 export default interface ApiClient {
   token: string
+
+  claimsForClient(): Promise<ShortClaim[]>
 
   quota(id: string): Promise<Quota>
   income(amount: number, quotaId: string): Promise<Quota>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Store as ReduxStore } from 'redux'
 
+import actualizeStore from './helpers/actualizeStore'
 import { AppContext } from './server-types'
 import { initializeStore, State } from './store'
 
@@ -10,15 +11,17 @@ const __NEXT_REDUX_STORE__ = '__NEXT_REDUX_STORE__'
 export type Store = ReduxStore<State>
 
 const getOrCreateStore = (initialState?: State) => {
+  const state = actualizeStore(initialState)
+
   // Always make a new store if server, otherwise state is shared between requests
   if (isServer) {
-    return initializeStore(initialState)
+    return initializeStore(state)
   }
 
   // Create store if unavailable on the client and set it on the window object
   // prettier-ignore
   if (!(window as any)[__NEXT_REDUX_STORE__]) {
-    (window as any)[__NEXT_REDUX_STORE__] = initializeStore(initialState)
+    (window as any)[__NEXT_REDUX_STORE__] = initializeStore(state)
   }
   return (window as any)[__NEXT_REDUX_STORE__]
 }

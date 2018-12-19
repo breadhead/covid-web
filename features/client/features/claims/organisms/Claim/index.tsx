@@ -1,11 +1,17 @@
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
+
 import Header from '../../molecules/ClaimHeader'
 import Status from '../../molecules/ClaimStatus'
 import styles from './Claim.css'
 
-const ClaimCard = () => (
+interface Props {
+  claim: ShortClaim
+}
+
+const ClaimCard = ({ claim }: Props) => (
   <article className={styles.card}>
-    <Header />
-    <Status />
+    <Header {...claim} />
+    <Status {...claim} />
   </article>
 )
 
