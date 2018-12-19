@@ -8,7 +8,11 @@ interface Props {
 }
 
 const IconCustom = ({ name, className }: Props) => (
-  <svg width="24" height="24" className={cx(styles.iconCustom, className)}>
+  <svg
+    width="24"
+    height="24"
+    className={cx(styles.iconCustom, styles[name], className)}
+  >
     <use xlinkHref={`#${name}`} />
   </svg>
 )
