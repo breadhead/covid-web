@@ -14,9 +14,9 @@ const Menu = () => (
       <IconCustom className={styles.icon} name="24x24_my-consultation" />
       <span className={styles.menuItemText}>Моя консультация</span>
     </NavLink>
-    <NavLink className={styles.menuItem} type={NavLinkType.Nav} href="#">
+    <div className={styles.menuItem}>
       <Dropdown />
-    </NavLink>
+    </div>
   </nav>
 )
 
