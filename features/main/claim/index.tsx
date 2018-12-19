@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import ClaimPage from './organisms/firstStep/page'
+import ClaimPage from './organisms/secondStep/page'
 
 const Claim = () => <ClaimPage />
 

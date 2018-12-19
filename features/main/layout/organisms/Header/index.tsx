@@ -1,7 +1,7 @@
 import * as React from 'react'
 
+import SecondaryHeader from '@app/features/client/organisms/Header'
 import PrimaryHeader from './organisms/PrimaryHeader'
-import SecondaryHeader from './organisms/SecondaryHeader'
 
 export enum HeaderType {
   Primary = 'Primary',
@@ -24,7 +24,7 @@ const Header = ({
 }: Props) => {
   const componentsMap = {
     [HeaderType.Primary]: <PrimaryHeader />,
-    [HeaderType.Secondary]: <SecondaryHeader theme={theme} />,
+    [HeaderType.Secondary]: <SecondaryHeader />,
   }
 
   return componentsMap[type]
