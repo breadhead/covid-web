@@ -1,5 +1,5 @@
 .title {
-  margin-bottom: 4px;
+  margin: 0;
   font: var(--text16-24);
   color: var(--text-color-primary);
 }
@@ -10,6 +10,7 @@
 
 .subtitle {
   margin: 0;
+  margin-top: 4px;
   font: var(--text14-20);
   color: var(--text-color-secondary);
 }

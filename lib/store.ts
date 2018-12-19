@@ -4,6 +4,11 @@ import thunk from 'redux-thunk'
 import windowSize, { REDUCER_KEY } from 'redux-windowsize'
 
 import {
+  reducer as clientReducer,
+  State as ClientState,
+} from '@app/features/client'
+
+import {
   reducer as createQuotaReducer,
   State as CreateQuotaState,
 } from '@app/features/admin/features/createQuota'
@@ -56,6 +61,8 @@ export interface State {
   transfer: TransferState
   history: HistoryState
   modal: ModalState
+
+  client: ClientState
 }
 
 const reducer = combineReducers({
@@ -68,6 +75,8 @@ const reducer = combineReducers({
   history: historyReducer,
   modal: modalReducer,
   [REDUCER_KEY]: windowSize,
+
+  client: clientReducer,
 } as any)
 
 export interface ExtraArgs {

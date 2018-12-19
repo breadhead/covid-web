@@ -15,3 +15,7 @@
   margin: 4px 0;
 }
 
+.action {
+  justify-self: flex-start;
+}
+
