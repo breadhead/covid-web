@@ -12,6 +12,7 @@ import TextArea from '@app/ui/atoms/TextArea'
 import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
 
+import Layout from '@app/features/client/organisms/Layout'
 import Uploader from '@app/features/common/uploader'
 import {
   SIGN_IN_MODAL,
@@ -23,6 +24,9 @@ import { InputType } from '@app/ui/atoms/Input'
 import Input from '@app/ui/atoms/Input'
 import TimePicker from '@app/ui/atoms/TimePicker'
 import Combobox from '@app/ui/molecules/Combobox'
+import HintInput from '@app/ui/molecules/HintInput'
+import ProgressBar from '@app/ui/organisms/ProgressBar'
+import { StepPointerTypes } from '@app/ui/organisms/ProgressBar/organisms/StepPointer'
 
 const testBoolRadioButtons = [
   {
@@ -117,16 +121,25 @@ const testComboOptions = [
   },
 ]
 
-const Test = ({ modal }: WithModalProps) => (
-  <>
-    <h1 style={{ font: 'var(--title-extra)' }}>components preview page</h1>
+const steps = [
+  { title: 'Заполните заявку', type: StepPointerTypes.Empty },
+  { title: 'Опишите ситуацию', type: StepPointerTypes.Empty, disabled: true },
+  { title: 'Задайте вопросы', type: StepPointerTypes.Full },
+  { title: 'Не задавайте вопросов', type: StepPointerTypes.Success },
+]
 
-    <Uploader />
+const Test = ({ modal }: WithModalProps) => (
+  <Layout>
+    <h1 style={{ font: 'var(--title-extra)' }}>components preview page</h1>
+    <ProgressBar steps={steps} />
     <div style={{ paddingLeft: '5%', textAlign: 'left' }}>
+      <Uploader />
       <p>Модалка с подтверждением смс</p>
       <button onClick={() => modal.open(SMS_CONFIRM_MODAL)}>SMS popup</button>
       <button onClick={() => modal.open(SIGN_UP_MODAL)}>auth popup</button>
       <button onClick={() => modal.open(SIGN_IN_MODAL)}>login popup</button>
+      <p>поле с динамическими подсказками</p>
+      <HintInput name="hintinput" options={testComboOptions} /> <br /> <br />
       <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
       <Checkbox name="checkbox" defaultChecked>
         Чекбокс с лейблом
@@ -262,7 +275,7 @@ const Test = ({ modal }: WithModalProps) => (
       </Button>
       <br />
     </div>
-  </>
+  </Layout>
 )
 
 export default withModal(Test)

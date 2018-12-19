@@ -2,14 +2,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 16px;
+  padding: 16px 32px;  
   background-color: var(--background-color);
   border-bottom: 1px solid var(--divider-color);
+
+  @media (max-width: 767px) {
+    padding: 8px 16px;
+  }
 }
 
 .logo {
+  flex-shrink: 0;
   width: 200px;
   height: 38px;
+
+  @media (max-width: 767px) {
+    width: 162px;
+    height: 32px;
+  }
 }
 
 .icon {

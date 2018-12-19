@@ -2,9 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 16px;
+  padding: 16px 32px;
   background-color: var(--background-color);
   border-bottom: 1px solid #EDEDEF;
+
+  @media (max-width: 767px) {
+    /* padding: 8px 16px; */
+    background-color: red !important;
+  }
 }
 
 .logo {
