@@ -29,7 +29,7 @@ const Status = ({ status, id, expireAt, email }: Props) => {
         <Button
           kind={active ? ButtonKind.Primary : ButtonKind.Secondary}
           className={styles.action}
-          onClick={() => Router.push(`/client/cliam/${id}`)}
+          onClick={() => Router.push(`/client/claim/${id}`)}
         >
           {action}
         </Button>

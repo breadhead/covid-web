@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import * as React from 'react'
-import * as styles from '../../ClaimForm.css'
+import * as styles from './../ClaimForm/ClaimForm.css'
 
 import NavLink from '@app/ui/atoms/NavLink'
 import Select from '@app/ui/atoms/Select'

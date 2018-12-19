@@ -1,5 +1,4 @@
 import * as React from 'react'
-import * as styles from '../../ClaimForm.css'
 
 import Input from '@app/features/common/form/components/Input'
 import { InputType } from '@app/ui/atoms/Input'
@@ -21,6 +20,8 @@ const mockSelectOptions = [
     label: 'fourth',
   },
 ]
+
+import * as styles from './../ClaimForm/ClaimForm.css'
 
 const Contacts = () => (
   <article className={styles.article}>

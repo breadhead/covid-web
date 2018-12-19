@@ -6,6 +6,8 @@ import {
   State as ClaimsState,
 } from './features/claims'
 
+export { default as NewClaim } from './features/newClaim'
+
 export interface State {
   claims: ClaimsState
 }
