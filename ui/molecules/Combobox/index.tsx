@@ -8,10 +8,13 @@ const { Option, OptGroup } = AntSelect
 
 interface OwnProps {
   name: string
+  options: LabeledValue[]
   hintForEmptyValue?: string
   hint?: string
-  options: LabeledValue[]
   value?: string
+  label?: string
+  wrapperClassName?: string
+  selectClassName?: string
 }
 
 type Option = React.ReactElement<OptionProps>
@@ -31,28 +34,43 @@ class Combobox extends React.Component<Props> {
   }
 
   public render() {
-    const { name, className, options, ...rest } = this.props
+    const {
+      name,
+      wrapperClassName,
+      selectClassName,
+      options,
+      label,
+      ...rest
+    } = this.props
 
     const { currentHint } = this.state
 
     return (
-      <AntSelect
-        id={name}
-        showSearch
-        onInputKeyDown={this.onInputKeyDown}
-        maxTagCount={6}
-        notFoundContent={<div className="not-found">{NOT_FOUND_TEXT}</div>}
-        filterOption={this.filterOptions}
-        {...rest}
-      >
-        <OptGroup label={currentHint}>
-          {options.map(option => (
-            <Option key={option.key} value={option.key}>
-              {option.label}
-            </Option>
-          ))}
-        </OptGroup>
-      </AntSelect>
+      <div className={wrapperClassName}>
+        {label && (
+          <label className="label" htmlFor={name}>
+            {label}
+          </label>
+        )}
+        <AntSelect
+          className={selectClassName}
+          id={name}
+          showSearch
+          onInputKeyDown={this.onInputKeyDown}
+          maxTagCount={6}
+          notFoundContent={<div className="not-found">{NOT_FOUND_TEXT}</div>}
+          filterOption={this.filterOptions}
+          {...rest}
+        >
+          <OptGroup label={currentHint}>
+            {options.map(option => (
+              <Option key={option.key} value={option.key}>
+                {option.label}
+              </Option>
+            ))}
+          </OptGroup>
+        </AntSelect>
+      </div>
     )
   }
 

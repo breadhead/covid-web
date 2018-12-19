@@ -59,6 +59,7 @@
 }
 
 .label {
+  z-index: 1;
   display: block;
   margin: 24px 0 8px 0;
   line-height: 1.5;
@@ -72,4 +73,30 @@
 
 .sectondaryText {
   color: #82839B;
+}
+
+.historyComboContainer {
+  display: flex;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.historyComboWrapper {
+  margin-right: 16px;
+}
+
+.historyCombo {
+  width: 232px;
+}
+
+.historyComboSingle {
+  width: 100%;
+}
+
+.historyButton {
+  width: 100%;
+  max-width: none;
+  margin-top: 40px;
 }

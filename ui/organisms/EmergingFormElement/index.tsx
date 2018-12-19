@@ -5,7 +5,7 @@ import * as styles from './EmergingFormElement.css'
 import RadioGroupElement, { radioButtons } from './RadioGroupElement'
 import SwitchElement from './SwitchElement'
 
-enum controlTypes {
+export enum controlTypes {
   switch = 'switch',
   radiogroup = 'radiogroup',
 }
