@@ -23,6 +23,7 @@ import { InputType } from '@app/ui/atoms/Input'
 import Input from '@app/ui/atoms/Input'
 import TimePicker from '@app/ui/atoms/TimePicker'
 import Combobox from '@app/ui/molecules/Combobox'
+import HintInput from '@app/ui/molecules/HintInput'
 import ProgressBar from '@app/ui/organisms/ProgressBar'
 import { StepPointerTypes } from '@app/ui/organisms/ProgressBar/organisms/StepPointer'
 
@@ -130,12 +131,14 @@ const Test = ({ modal }: WithModalProps) => (
   <>
     <h1 style={{ font: 'var(--title-extra)' }}>components preview page</h1>
     <ProgressBar steps={steps} />
-    <Uploader />
     <div style={{ paddingLeft: '5%', textAlign: 'left' }}>
+      <Uploader />
       <p>Модалка с подтверждением смс</p>
       <button onClick={() => modal.open(SMS_CONFIRM_MODAL)}>SMS popup</button>
       <button onClick={() => modal.open(SIGN_UP_MODAL)}>auth popup</button>
       <button onClick={() => modal.open(SIGN_IN_MODAL)}>login popup</button>
+      <p>поле с динамическими подсказками</p>
+      <HintInput options={testComboOptions} /> <br /> <br />
       <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
       <Checkbox name="checkbox" defaultChecked>
         Чекбокс с лейблом
