@@ -4,10 +4,12 @@ import ClaimStatus from '@app/models/Claim/ClaimStatus'
 
 import formatDate from '../../../helpers/formatDate'
 
-type Params = Partial<{
+interface FullParams {
   expireAt: Date
   email: string
-}>
+}
+
+type Params = Partial<FullParams>
 
 type SubtitlesMap = Partial<
   { [key in ClaimStatus]: (params: Params) => ReactNode }
