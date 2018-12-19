@@ -5,7 +5,7 @@ import cx from 'classnames'
 
 import IconCustom from '@app/ui/atoms/IconCustom'
 
-export enum StepPointerTypes {
+export enum StepPointerType {
   Empty = 'empty',
   Full = 'full',
   Success = 'success',
@@ -13,9 +13,8 @@ export enum StepPointerTypes {
 
 export interface StepPointerModel {
   title: string
-  type: StepPointerTypes
+  type: StepPointerType
   disabled?: boolean
-  className?: string
   onClick?: () => void
 }
 
@@ -29,7 +28,7 @@ const StepPointer = ({ step, index, className }: Props) => {
   const { type, title, disabled, onClick } = step
 
   const currentContent =
-    type === StepPointerTypes.Success ? (
+    type === StepPointerType.Success ? (
       <IconCustom name="input-valid" />
     ) : (
       index + 1
