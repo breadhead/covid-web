@@ -4,22 +4,46 @@ import ClaimStatus from '@app/models/Claim/ClaimStatus'
 
 import formatDate from '../../../helpers/formatDate'
 
+type Params = Partial<{
+  expireAt: Date
+  email: string
+}>
+
 type SubtitlesMap = Partial<
-  { [key in ClaimStatus]: (expire: Date) => ReactNode }
+  { [key in ClaimStatus]: (params: Params) => ReactNode }
 >
 
 const getSubtitlesMap: SubtitlesMap = {
-  [ClaimStatus.QuestionnaireWaiting]: date => (
+  [ClaimStatus.QuestionnaireWaiting]: ({ expireAt }) => (
     <>
-      Пожалуйста, постарайтесь дозаполнить заявку до <b>{formatDate(date)}</b>
+      Пожалуйста, постарайтесь дозаполнить заявку до{' '}
+      <b>{expireAt && formatDate(expireAt)}</b>
+    </>
+  ),
+  [ClaimStatus.QuotaAllocation]: ({ email }) => (
+    <>
+      Мы получили вашу заявку. Как только у нас появятся средства на
+      консультацию, вы сможете продолжить заполнение анкеты. Мы сообщим вам об
+      этом в письме на адрес <b>{email}</b>.
+    </>
+  ),
+  [ClaimStatus.QuestionnaireValidation]: ({ email }) => (
+    <>
+      Мы будем сообщать вам о ходе консультации по электронной почте{' '}
+      <b>{email}</b>. Вы можете закрыть эту страницу и дождаться нашего письма.
+      В среднем срок консультации — 3 рабочих дня.
+    </>
+  ),
+  [ClaimStatus.DeliveredToCustomer]: () => (
+    <>
+      Если вы хотите что-то уточнить или оставить отзыв, напишите в чат в правой
+      части страницы.
     </>
   ),
 }
 
-export default (status: ClaimStatus, expire: Date): ReactNode => {
+export default (status: ClaimStatus, params: Params): ReactNode => {
   const getSubtitle = getSubtitlesMap[status]
 
-  if (getSubtitle) {
-    return getSubtitle(expire)
-  }
+  return getSubtitle && getSubtitle(params)
 }

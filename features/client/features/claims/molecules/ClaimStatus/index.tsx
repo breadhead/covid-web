@@ -1,6 +1,6 @@
 import Router from 'next/router'
 
-import ClaimStatus from '@app/models/Claim/ClaimStatus'
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
 
 import Messages from '../../atoms/Messages'
@@ -11,13 +11,11 @@ import getSubtitle from './helpers/getSubtitle'
 import getTitle from './helpers/getTitle'
 import isActive from './helpers/isActive'
 
-interface Props {
-  status: ClaimStatus
-  id: string
-}
+type Props = Pick<ShortClaim, 'status' | 'id' | 'expireAt' | 'email'>
 
-const Status = ({ status, id }: Props) => {
+const Status = ({ status, id, expireAt, email }: Props) => {
   const active = isActive(status)
+  const action = getAction(status)
 
   return (
     <div className={styles.container}>
@@ -25,15 +23,17 @@ const Status = ({ status, id }: Props) => {
       <Messages
         active={active}
         title={getTitle(status)}
-        subtitle={getSubtitle(status, new Date())}
+        subtitle={getSubtitle(status, { expireAt, email })}
       />
-      <Button
-        kind={active ? ButtonKind.Primary : ButtonKind.Secondary}
-        className={styles.action}
-        onClick={() => Router.push(`/client/cliam/${id}`)}
-      >
-        {getAction(status)}
-      </Button>
+      {action && (
+        <Button
+          kind={active ? ButtonKind.Primary : ButtonKind.Secondary}
+          className={styles.action}
+          onClick={() => Router.push(`/client/cliam/${id}`)}
+        >
+          {action}
+        </Button>
+      )}
     </div>
   )
 }

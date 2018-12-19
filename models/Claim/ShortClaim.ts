@@ -6,4 +6,6 @@ export interface ShortClaim {
   expireAt?: Date
   status: ClaimStatus
   newMessage: boolean
+  email?: string
+  personal: boolean
 }

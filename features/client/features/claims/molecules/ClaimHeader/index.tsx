@@ -1,19 +1,20 @@
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
+
 import Actions from '../../atoms/Actions'
 import NewMessageBage from '../../atoms/NewMessageBage'
 import formatDate from '../../helpers/formatDate'
 import styles from './ClaimHeader.css'
 
-interface Props {
-  createdAt: Date
-  newMessage: boolean
-}
+type Props = Pick<ShortClaim, 'createdAt' | 'newMessage' | 'personal'>
 
-const Header = ({ createdAt, newMessage }: Props) => (
+const Header = ({ createdAt, newMessage, personal }: Props) => (
   <header className={styles.container}>
     <div className={styles.mainInfo}>
       <h2 className={styles.title}>{formatDate(createdAt)} № 32842</h2>
       <NewMessageBage available={newMessage} />
-      <small className={styles.for}>Для себя</small>
+      <small className={styles.for}>
+        {personal ? 'Для себя' : 'Для другого человека'}
+      </small>
     </div>
 
     <Actions />
