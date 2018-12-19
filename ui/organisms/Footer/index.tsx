@@ -6,6 +6,8 @@ import SecondaryFooter from './SecondaryFooter'
 import FooterTheme from './FooterTheme'
 import FooterType from './FooterType'
 
+import styles from './index.css'
+
 interface Props {
   type?: FooterType
   theme?: FooterTheme
@@ -20,7 +22,7 @@ const Footer = ({
     Secondary: <SecondaryFooter theme={theme} />,
   }
 
-  return <footer>{componentsMap[type]}</footer>
+  return <footer className={styles.footer}>{componentsMap[type]}</footer>
 }
 
 export default Footer
