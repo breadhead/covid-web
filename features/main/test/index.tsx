@@ -139,7 +139,7 @@ const Test = ({ modal }: WithModalProps) => (
       <button onClick={() => modal.open(SIGN_UP_MODAL)}>auth popup</button>
       <button onClick={() => modal.open(SIGN_IN_MODAL)}>login popup</button>
       <p>поле с динамическими подсказками</p>
-      <HintInput options={testComboOptions} /> <br /> <br />
+      <HintInput name="hintinput" options={testComboOptions} /> <br /> <br />
       <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
       <Checkbox name="checkbox" defaultChecked>
         Чекбокс с лейблом
