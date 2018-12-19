@@ -1,6 +1,5 @@
-import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
-
 import IconCustom from '@app/ui/atoms/IconCustom'
+import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 import Dropdown from '@app/ui/molecules/Dropdown'
 import * as styles from './Menu.css'
 

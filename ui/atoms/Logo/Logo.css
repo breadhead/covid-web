@@ -1,9 +1,18 @@
-.logo {
+.logoFull {
+  display: block;
   width: 238;
   height: 48px;
+  @media (min-width: 768px) {
+    display: none;
+  }
+  
+}
 
+.logoShort {
+  display: block;
+  width: 200px;
+  height: 38px;
   @media (max-width: 767px) {
-    width: 170px;
-    height: 32px;
+    display: none;
   }
 }
