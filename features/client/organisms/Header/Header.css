@@ -11,16 +11,6 @@
   }
 }
 
-.logo {
-  flex-shrink: 0;
-  width: 200px;
-  height: 38px;
-
-  @media (max-width: 767px) {
-    width: 162px;
-    height: 32px;
-  }
-}
 
 .icon {
   margin-right: 8px;
