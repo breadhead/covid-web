@@ -57,7 +57,7 @@
 
 .ant-select-selection-selected-value {
   position: relative;
-  max-width: 98%;
+  width: 98%;
   text-overflow: clip;
 
   &::after {
