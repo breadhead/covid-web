@@ -124,10 +124,7 @@ const Sprite = () => (
         />
       </svg>
       <svg width="24" height="24" id="24x24_my-consultation">
-        <path
-          d="M14 4H6v16h12V8h-4V4zm-5 9a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2H9zm0 4a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2H9zM6 2h9a1 1 0 0 1 .7.3l4 4a1 1 0 0 1 .3.7v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2z"
-          fill="var(--text-color-secondary)"
-        />
+        <path d="M14 4H6v16h12V8h-4V4zm-5 9a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2H9zm0 4a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2H9zM6 2h9a1 1 0 0 1 .7.3l4 4a1 1 0 0 1 .3.7v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2z" />
       </svg>
       <svg width="24" height="24" id="24x24_new-message">
         <g fill="none" fillRule="evenodd">
@@ -186,10 +183,7 @@ const Sprite = () => (
         />
       </svg>
       <svg width="24" height="24" id="24x24_user">
-        <path
-          d="M21 21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1a7 7 0 0 1 7-7h4a7 7 0 0 1 7 7v1zm-7-6h-4a5 5 0 0 0-5 5h14a5 5 0 0 0-5-5zm-2-3a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
-          fill="var(--text-color-secondary)"
-        />
+        <path d="M21 21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1a7 7 0 0 1 7-7h4a7 7 0 0 1 7 7v1zm-7-6h-4a5 5 0 0 0-5 5h14a5 5 0 0 0-5-5zm-2-3a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
       </svg>
       <svg width="24" height="24" id="24x24_view">
         <path

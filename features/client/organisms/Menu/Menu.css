@@ -1,7 +1,20 @@
+.menu {
+  display: flex;
+}
+
 .menuItem {
+  display: flex;
   margin-right: 40px;
+
+  &:hover svg {
+    fill: var(--color-primary);
+  }
 
   &:last-of-type {
     margin-right: 0;
   }
+}
+
+.icon {
+  margin-right: 8px;
 }
