@@ -27,6 +27,9 @@ export interface ShortClaimFields {
 
 const defaultInitial: Partial<ShortClaimFields> = {
   corporate: false,
+  target: 'Выберите для кого консультация',
+  theme: 'Выберите тему',
+  region: 'Выберите регион',
 }
 
 interface Props {

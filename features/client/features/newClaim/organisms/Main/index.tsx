@@ -49,7 +49,7 @@ const Main = () => (
     <h2 className={styles.title}>Кратко о теме консультации</h2>
     <p className={styles.label}>Для кого эта консультация</p>
     <Select
-      name="personal"
+      name="target"
       options={Object.entries(forWhos).map(mapEnum)}
       placeholder="Выберите консультируемого"
     />
