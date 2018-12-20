@@ -79,19 +79,18 @@ const Main = () => (
       </NavLink>
     </p>
     <EmergingFormElement controlType="switch" name="corporate">
+      <p className={cx(styles.label, styles.emergingLabel)}>
+        Название компании-работадателя
+      </p>
       <Input name="companyName" label="Название компании-работадателя" />
-      <TextArea
-        name="companyPosition"
-        label={
-          <p className={styles.label}>
-            Ваша должность и департамент компании.{SPACE}
-            <span className={styles.sectondaryText}>
-              Если у вас есть кодовое слово от работадателя, также укажите его
-              здесь.
-            </span>
-          </p>
-        }
-      />
+      <p className={cx(styles.label, styles.emergingLabel)}>
+        Ваша должность и департамент компании.{SPACE}
+        <span className={styles.sectondaryText}>
+          Если у вас есть кодовое слово от работадателя, также укажите его
+          здесь.
+        </span>
+      </p>
+      <TextArea name="companyPosition" />
     </EmergingFormElement>
   </article>
 )

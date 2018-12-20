@@ -63,6 +63,7 @@ const Contacts = () => (
     <p className={styles.label}>
       Контактный телефон.
       <span className={styles.sectondaryText}>
+        {' '}
         Необязательно, но так нам будет проще и быстрее связаться с вами.
       </span>
     </p>
