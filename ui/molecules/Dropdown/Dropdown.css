@@ -9,6 +9,7 @@
 .dropdown {
   position: relative;
   &:hover .menu {
+    z-index: 2;
     display: flex;
   }
 

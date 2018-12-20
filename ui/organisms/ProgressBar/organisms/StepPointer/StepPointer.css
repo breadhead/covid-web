@@ -10,11 +10,20 @@
   cursor: pointer;
   background-color: inherit;
   border-radius: 50%;
+
+  @media (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .title {
   font: var(--text14-20);
   white-space: nowrap;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 .empty {
