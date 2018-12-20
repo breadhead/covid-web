@@ -1,13 +1,14 @@
 import * as React from 'react'
 
 import { Input, RadioGroup, Select } from '@app/features/common/form'
+import Gender from '@app/models/Gender'
 import { InputType } from '@app/ui/atoms/Input'
 import { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 
-const genderRadioGroup = [
-  { id: '1', value: 'Мужской' },
-  { id: '2', value: 'Женский' },
-]
+const genderRadioGroup = Object.entries(Gender).map(([id, value]) => ({
+  id,
+  value,
+}))
 
 const mockSelectOptions = [
   {

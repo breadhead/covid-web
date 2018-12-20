@@ -2,6 +2,8 @@ import axios, { AxiosError, AxiosInstance } from 'axios'
 import HttpStatus from 'http-status-codes'
 
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import Gender from '@app/models/Gender'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 
@@ -10,6 +12,7 @@ import { queryString } from './helper/queryString'
 import { tapDate } from './helper/tapDate'
 import { QuotaCreateRequest, QuotaEditRequest } from './request/Quota'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
+import ShortClaimRequest from './request/ShortClaimRequest'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 
 export default class RealApiClient implements ApiClient {
@@ -27,6 +30,11 @@ export default class RealApiClient implements ApiClient {
       .get('/claims')
       .then(response => response.data as ListedClaim[])
       .then(claims => claims.map(tapDate))
+
+  public createShortClaim = (shortClaimRequest: ShortClaimRequest) =>
+    this.axiosInstance
+      .post('/claims/short', shortClaimRequest)
+      .then(response => response.data as ShortClaim)
 
   public transfer = (quotaTransferRequest: QuotaTransferRequest) =>
     this.axiosInstance

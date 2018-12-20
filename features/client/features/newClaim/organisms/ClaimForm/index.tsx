@@ -1,16 +1,16 @@
 import * as React from 'react'
 
 import { Form } from '@app/features/common/form'
-
-import './ClaimForm.css'
-import * as styles from './ClaimForm.css'
+import Gender from '@app/models/Gender'
 
 import Contacts from './../Contacts'
 import Footer from './../Footer'
 import Main from './../Main'
+import './ClaimForm.css'
+import * as styles from './ClaimForm.css'
 
 export interface ShortClaimFields {
-  personal: string
+  target: string
   theme: string
   diagnosis: boolean
   localization?: string
@@ -20,7 +20,7 @@ export interface ShortClaimFields {
   name: string
   region: string
   age: number
-  gender: string
+  gender: Gender
   email: string
   phone: string
 }

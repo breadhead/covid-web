@@ -27,3 +27,5 @@ const Select = ({ label, options, ...rest }: Props) => (
 )
 
 export default Select
+
+export * from './mappers'

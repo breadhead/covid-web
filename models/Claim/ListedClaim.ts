@@ -1,4 +1,5 @@
 import ClaimStatus from './ClaimStatus'
+import ClaimTarget from './ClaimTarget'
 
 export interface ListedClaim {
   id: string
@@ -7,5 +8,5 @@ export interface ListedClaim {
   status: ClaimStatus
   newMessage: boolean
   email?: string
-  personal: boolean
+  target: ClaimTarget
 }

@@ -10,18 +10,38 @@ import {
 } from '@app/features/common/form'
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 import NavLink from '@app/ui/atoms/NavLink'
+import { mapEnum, mapString } from '@app/ui/atoms/Select'
 
 import * as styles from './../ClaimForm/ClaimForm.css'
 
-const mockSelectOptions = [
-  {
-    key: 'self',
-    label: 'Для себя',
-  },
-  {
-    key: 'other',
-    label: 'Для другого человека',
-  },
+// ENUM!!
+const forWhos = {
+  1: 'Для себя',
+  2: 'Для близкого человека',
+  3: 'Для подопечного Фонда',
+}
+
+const themes = [
+  'Профилактика / наследственность',
+  'Диагностика / подтверждение диагноза / подозрение на рак',
+  'Лечение / осложнения / впервые установленный диагноз',
+  'Паллиативная помощь / улучшение качества жизни / обезболивание',
+  'Реабилитация',
+  'Другое',
+]
+
+const localizations = [
+  'Опухоли головы и шеи',
+  'Опухоли лёгкого, средостения',
+  'Опухоли желудочно-кишечного тракта',
+  'Опухоли молочной железы',
+  'Опухоли женской половой системы',
+  'Опухоли мочевыводящей системы',
+  'Опухоли мужской половой системы',
+  'Опухоли головного, спинного мозга',
+  'Опухоли кожи, костей и мягких тканей',
+  'Заболевания крови, лимфомы',
+  'Метастазы рака неизвестной локализации',
 ]
 
 const Main = () => (
@@ -30,13 +50,13 @@ const Main = () => (
     <p className={styles.label}>Для кого эта консультация</p>
     <Select
       name="personal"
-      options={mockSelectOptions}
+      options={Object.entries(forWhos).map(mapEnum)}
       placeholder="Выберите консультируемого"
     />
     <p className={styles.label}>Тема вашего вопроса</p>
     <Select
       name="theme"
-      options={mockSelectOptions}
+      options={themes.map(mapString)}
       placeholder="Выберите тему"
     />
     <p className={styles.label}>
@@ -46,7 +66,7 @@ const Main = () => (
       <p className={cx(styles.label, styles.emergingLabel)}>Локализация</p>
       <ComboBox
         name="localization"
-        options={mockSelectOptions}
+        options={localizations.map(mapString)}
         placeholder="Выберите локализацию"
       />
     </EmergingFormElement>

@@ -1,20 +1,70 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
+import { AnyAction, compose, Dispatch } from 'redux'
 
+import ShortClaimRequest from '@app/lib/api/request/ShortClaimRequest'
+import { State } from '@app/lib/store'
+import ClaimTarget from '@app/models/Claim/ClaimTarget'
+
+import { createClaim } from './actions'
 import { ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
+import { getCreatedId } from './selectors'
+
+interface Props {
+  createdId?: string
+  createClaim: (request: ShortClaimRequest) => Promise<void>
+}
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
-  return class extends React.Component<{}> {
+  return class extends React.Component<Props> {
     public render() {
       return <WrappedComponent onFormSubmit={this.onFormSubmit} />
     }
 
-    private onFormSubmit = (claimFields: ShortClaimFields) => {
-      // tslint:disable-next-line:no-console
-      console.log(claimFields)
-      return Promise.resolve()
+    private onFormSubmit = async (claimFields: ShortClaimFields) => {
+      const request: ShortClaimRequest = {
+        target: claimFields.target as ClaimTarget,
+        personalData: {
+          name: claimFields.name,
+          region: claimFields.region,
+          age: claimFields.age,
+          gender: claimFields.gender,
+          email: claimFields.email,
+          phone: claimFields.phone,
+        },
+        diagnosis: claimFields.diagnosis ? claimFields.localization : undefined,
+        theme: claimFields.theme,
+        company: this.createCompanyRequest(claimFields),
+      }
+
+      await this.props.createClaim(request)
+    }
+
+    private createCompanyRequest = (fields: ShortClaimFields) => {
+      if (fields.corporate) {
+        return {
+          name: fields.companyName || '',
+          position: fields.companyPosition || '',
+        }
+      }
     }
   }
 }
 
-export default Container
+const mapState = (state: State) => ({
+  createdId: getCreatedId(state),
+})
+
+const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
+  createClaim: (claimRequest: ShortClaimRequest) =>
+    dispatch(createClaim(claimRequest) as any),
+})
+
+export default compose(
+  connect(
+    mapState,
+    mapDipatch,
+  ),
+  Container,
+)
