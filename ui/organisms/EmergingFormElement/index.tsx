@@ -1,6 +1,6 @@
 import { RadioChangeEvent } from 'antd/lib/radio'
-import * as React from 'react'
 import cx from 'classnames'
+import * as React from 'react'
 
 import * as styles from './EmergingFormElement.css'
 

@@ -6,26 +6,20 @@ import TextArea from '@app/ui/atoms/TextArea'
 
 import { WindowSize } from '@app/features/common/windowSize/selector'
 import withWindowSize from '@app/features/common/windowSize/withWindowSize'
-import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
+import { MOBILE_WIDTH, NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
 import IconCustom from '@app/ui/atoms/IconCustom'
 import Input from '@app/ui/atoms/Input'
 import Combobox from '@app/ui/molecules/Combobox'
+import SelectMonths from '@app/ui/organisms/CustomElements/SelectMonths'
 import EmergingFormElement, {
   controlTypes,
 } from '@app/ui/organisms/EmergingFormElement'
-import {
-  OPTIONS_CITIES,
-  OPTIONS_CLINICS,
-  OPTIONS_MONTHS,
-  OPTIONS_YEARS,
-} from './helpers'
+import { OPTIONS_CITIES, OPTIONS_CLINICS, OPTIONS_YEARS } from './helpers'
 
 interface Props {
   windowSize: WindowSize
 }
-
-const MOBILE_WIDTH = 767
 
 const History = ({ windowSize }: Props) => {
   const { width } = windowSize
@@ -36,12 +30,9 @@ const History = ({ windowSize }: Props) => {
         Когда было диагностировано онкологическое заболевание?
       </p>
       <div className={styles.historyComboContainer}>
-        <Combobox
-          placeholder={width < MOBILE_WIDTH ? 'Месяц' : 'Выберите месяц'}
-          options={OPTIONS_MONTHS}
-          name="month"
-          wrapperClassName={styles.historyComboWrapper}
-          selectClassName={styles.historyCombo}
+        <SelectMonths
+          width={width}
+          selectClassName={cx(styles.historyCombo, styles.historyComboWrapper)}
         />
         <Combobox
           placeholder={width < MOBILE_WIDTH ? 'Год' : 'Выберите год'}
@@ -116,7 +107,7 @@ const History = ({ windowSize }: Props) => {
         <div className={styles.historyComboContainer}>
           <Combobox
             placeholder="Начало"
-            options={OPTIONS_MONTHS}
+            options={OPTIONS_CITIES}
             name="begin"
             wrapperClassName={styles.historyComboWrapper}
             selectClassName={styles.historyCombo}
