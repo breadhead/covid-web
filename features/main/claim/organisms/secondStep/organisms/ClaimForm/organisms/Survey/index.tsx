@@ -4,6 +4,7 @@ import * as styles from '../../ClaimForm.css'
 import Uploader from '@app/features/common/uploader'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
+import IconCustom from '@app/ui/atoms/IconCustom'
 import Input from '@app/ui/atoms/Input'
 
 const Survey = () => (
@@ -43,7 +44,8 @@ const Survey = () => (
       Ссылка на файл
     </label>
     <Uploader id="study-file" />
-    <Button className={styles.historyButton} kind={ButtonKind.Extra}>
+    <Button className={styles.addButton} kind={ButtonKind.Extra}>
+      <IconCustom className={styles.icon} name="24x24_plus" />
       Добавить другие файлы
     </Button>
   </article>

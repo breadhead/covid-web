@@ -5,6 +5,7 @@ import TextArea from '@app/ui/atoms/TextArea'
 
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
+import IconCustom from '@app/ui/atoms/IconCustom'
 import Input from '@app/ui/atoms/Input'
 import Combobox from '@app/ui/molecules/Combobox'
 import EmergingFormElement, {
@@ -109,7 +110,8 @@ const History = () => (
         </span>
       </label>
       <TextArea name="another-procedures" id="procedures" />
-      <Button className={styles.historyButton} kind={ButtonKind.Extra}>
+      <Button className={styles.addButton} kind={ButtonKind.Extra}>
+        <IconCustom className={styles.icon} name="24x24_plus" />
         Добавить ещё одно место лечения
       </Button>
     </EmergingFormElement>
