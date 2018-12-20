@@ -6,6 +6,7 @@ import Common from './organisms/Common'
 import Footer from './organisms/Footer'
 import Health from './organisms/Health'
 import History from './organisms/History'
+import Survey from './organisms/Survey'
 
 const ClaimForm = () => {
   return (
@@ -13,6 +14,7 @@ const ClaimForm = () => {
       <Common />
       <Health />
       <History />
+      <Survey />
       <Footer />
     </section>
   )

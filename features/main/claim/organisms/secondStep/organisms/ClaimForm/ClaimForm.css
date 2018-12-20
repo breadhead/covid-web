@@ -17,6 +17,11 @@
   font: var(--title-medium);
 }
 
+.subtitle {
+  margin: 40px 0 8px 0;
+  font: var(--title-small);
+}
+
 .article {
   position: relative;
   padding: 48px 160px 56px 160px;
@@ -66,12 +71,18 @@
   color: #151833;
 }
 
+.labelSmall {
+  display: block;
+  margin: 16px 0 8px 0;
+}
+
 .emergingLabel {
   z-index: 1;
   margin-top: 0;
 }
 
 .sectondaryText {
+  margin: 0;
   color: #82839B;
 }
 
@@ -99,4 +110,8 @@
   width: 100%;
   max-width: none;
   margin-top: 40px;
+}
+
+.text {
+  margin: 0;
 }
