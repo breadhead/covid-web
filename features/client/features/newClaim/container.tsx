@@ -14,11 +14,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       console.log(claimFields)
       return Promise.resolve()
     }
-
-    private afterSuccess = () => {
-      // tslint:disable-next-line:no-console
-      console.log('success')
-    }
   }
 }
 

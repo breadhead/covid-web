@@ -1,4 +1,4 @@
-import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 
@@ -23,7 +23,7 @@ export interface UploadedFile {
 export default interface ApiClient {
   token: string
 
-  claimsForClient(): Promise<ShortClaim[]>
+  claimsForClient(): Promise<ListedClaim[]>
 
   quota(id: string): Promise<Quota>
   income(amount: number, quotaId: string): Promise<Quota>

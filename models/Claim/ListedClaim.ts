@@ -1,6 +1,6 @@
 import ClaimStatus from './ClaimStatus'
 
-export interface ShortClaim {
+export interface ListedClaim {
   id: string
   createdAt: Date
   expireAt?: Date

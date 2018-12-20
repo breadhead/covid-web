@@ -4,14 +4,14 @@ import { compose } from 'redux'
 
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
-import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 
 import { fetchClaims } from './actions'
 import { Props as PageProps } from './page'
 import { getClaims, getLoaded } from './selectors'
 
 interface Props {
-  claims: ShortClaim[]
+  claims: ListedClaim[]
   loaded: boolean
 }
 

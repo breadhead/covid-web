@@ -1,6 +1,6 @@
 import Router from 'next/router'
 
-import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
 
 import Messages from '../../atoms/Messages'
@@ -11,7 +11,7 @@ import getSubtitle from './helpers/getSubtitle'
 import getTitle from './helpers/getTitle'
 import isActive from './helpers/isActive'
 
-type Props = Pick<ShortClaim, 'status' | 'id' | 'expireAt' | 'email'>
+type Props = Pick<ListedClaim, 'status' | 'id' | 'expireAt' | 'email'>
 
 const Status = ({ status, id, expireAt, email }: Props) => {
   const active = isActive(status)

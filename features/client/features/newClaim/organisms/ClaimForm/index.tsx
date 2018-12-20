@@ -25,20 +25,21 @@ export interface ShortClaimFields {
   phone: string
 }
 
-const initalFields: Partial<ShortClaimFields> = {
+const defaultInitial: Partial<ShortClaimFields> = {
   corporate: false,
 }
 
 interface Props {
   onSubmit: (claimFields: ShortClaimFields) => Promise<void>
+  initial?: Partial<ShortClaimFields>
 }
 
-const ClaimForm = ({ onSubmit }: Props) => {
+const ClaimForm = ({ onSubmit, initial }: Props) => {
   return (
     <Form
       onSubmit={onSubmit as any}
       className={styles.ClaimForm}
-      initialValues={initalFields}
+      initialValues={initial || defaultInitial}
     >
       <Main />
       <Contacts />

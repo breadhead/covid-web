@@ -1,11 +1,11 @@
-import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 
 import Actions from '../../atoms/Actions'
 import NewMessageBage from '../../atoms/NewMessageBage'
 import formatDate from '../../helpers/formatDate'
 import styles from './ClaimHeader.css'
 
-type Props = Pick<ShortClaim, 'createdAt' | 'newMessage' | 'personal'>
+type Props = Pick<ListedClaim, 'createdAt' | 'newMessage' | 'personal'>
 
 const Header = ({ createdAt, newMessage, personal }: Props) => (
   <header className={styles.container}>

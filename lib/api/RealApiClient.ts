@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosInstance } from 'axios'
 import HttpStatus from 'http-status-codes'
 
-import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 
@@ -25,7 +25,7 @@ export default class RealApiClient implements ApiClient {
   public claimsForClient = () =>
     this.axiosInstance
       .get('/claims')
-      .then(response => response.data as ShortClaim[])
+      .then(response => response.data as ListedClaim[])
       .then(claims => claims.map(tapDate))
 
   public transfer = (quotaTransferRequest: QuotaTransferRequest) =>
