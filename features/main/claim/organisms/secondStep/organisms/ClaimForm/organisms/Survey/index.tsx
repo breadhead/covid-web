@@ -3,9 +3,8 @@ import * as styles from '../../ClaimForm.css'
 
 import Uploader from '@app/features/common/uploader'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import Button, { ButtonKind } from '@app/ui/atoms/Button'
-import IconCustom from '@app/ui/atoms/IconCustom'
 import Input from '@app/ui/atoms/Input'
+import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
 
 const Survey = () => (
   <article className={styles.article}>
@@ -35,19 +34,20 @@ const Survey = () => (
       Ссылка на файл
     </label>
     <Uploader id="blood-file" />
-    <h3 className={styles.subtitle}>Дополнительный файл</h3>
-    <label htmlFor="study" className={styles.labelSmall}>
-      Название исследования
-    </label>
-    <Input name="study" />
-    <label htmlFor="study-file" className={styles.label}>
-      Ссылка на файл
-    </label>
-    <Uploader id="study-file" />
-    <Button className={styles.addButton} kind={ButtonKind.Extra}>
-      <IconCustom className={styles.icon} name="24x24_plus" />
-      Добавить другие файлы
-    </Button>
+    <AddFieldContainer
+      buttonClassName={styles.addButton}
+      buttonText="Добавить другие файлы"
+    >
+      <h3 className={styles.subtitle}>Дополнительный файл</h3>
+      <label htmlFor="study" className={styles.labelSmall}>
+        Название исследования
+      </label>
+      <Input name="study" />
+      <label htmlFor="study-file" className={styles.label}>
+        Ссылка на файл
+      </label>
+      <Uploader id="study-file" />
+    </AddFieldContainer>
   </article>
 )
 
