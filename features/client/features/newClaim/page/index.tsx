@@ -3,12 +3,16 @@ import * as React from 'react'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 
 import Layout from '../../../organisms/Layout'
-import ClaimForm from '../organisms/ClaimForm'
+import ClaimForm, { ShortClaimFields } from '../organisms/ClaimForm'
 import * as styles from './Claim.css'
 
 import ProgressBar from '../../progressBar'
 
-const ClaimPage = () => {
+export interface Props {
+  onFormSubmit: (claimFields: ShortClaimFields) => Promise<void>
+}
+
+const ClaimPage: React.StatelessComponent<Props> = ({ onFormSubmit }) => {
   return (
     <Layout>
       <main className={styles.claimPage}>
@@ -18,7 +22,7 @@ const ClaimPage = () => {
           Личные данные будут использованы только для{NON_BREAKING_SPACE}
           консультации.
         </p>
-        <ClaimForm />
+        <ClaimForm onSubmit={onFormSubmit} />
       </main>
     </Layout>
   )

@@ -1,24 +1,26 @@
 import cx from 'classnames'
 import * as React from 'react'
-import * as styles from './../ClaimForm/ClaimForm.css'
 
-import NavLink from '@app/ui/atoms/NavLink'
-import Select from '@app/ui/atoms/Select'
-
-import Input from '@app/features/common/form/components/Input'
+import {
+  ComboBox,
+  EmergingFormElement,
+  Input,
+  Select,
+  TextArea,
+} from '@app/features/common/form'
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
-// import Combobox from '@app/ui/molecules/Combobox'
-import TextArea from '@app/ui/atoms/TextArea'
-import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
+import NavLink from '@app/ui/atoms/NavLink'
+
+import * as styles from './../ClaimForm/ClaimForm.css'
 
 const mockSelectOptions = [
   {
-    key: '1',
-    label: 'first',
+    key: 'self',
+    label: 'Для себя',
   },
   {
-    key: '2',
-    label: 'second',
+    key: 'other',
+    label: 'Для другого человека',
   },
 ]
 
@@ -27,24 +29,26 @@ const Main = () => (
     <h2 className={styles.title}>Кратко о теме консультации</h2>
     <p className={styles.label}>Для кого эта консультация</p>
     <Select
+      name="personal"
       options={mockSelectOptions}
-      // defaultValue="Выберите консультируемого"
+      placeholder="Выберите консультируемого"
     />
     <p className={styles.label}>Тема вашего вопроса</p>
     <Select
+      name="theme"
       options={mockSelectOptions}
-      // defaultValue="Выберите тему"
+      placeholder="Выберите тему"
     />
     <p className={styles.label}>
       У вас есть установленный врачом онкологический диагноз?
     </p>
     <EmergingFormElement controlType="radiogroup" name="diagnosis">
       <p className={cx(styles.label, styles.emergingLabel)}>Локализация</p>
-      {/* <Combobox
-        name="cancer_localization"
+      <ComboBox
+        name="localization"
         options={mockSelectOptions}
-        // defaultValue="Выберите тему"
-      /> */}
+        placeholder="Выберите локализацию"
+      />
     </EmergingFormElement>
     <p className={styles.emergingLabel}>
       Вы консультируетесь по корпоративной программе от своего работодателя?
@@ -54,13 +58,10 @@ const Main = () => (
         {NON_BREAKING_SPACE}программе
       </NavLink>
     </p>
-    <EmergingFormElement controlType="switch" name="consulting">
-      <Input
-        name="company-employer_name"
-        label="Название компании-работадателя"
-      />
+    <EmergingFormElement controlType="switch" name="corporate">
+      <Input name="companyName" label="Название компании-работадателя" />
       <TextArea
-        name="position_and_department"
+        name="companyPosition"
         label={
           <p className={styles.label}>
             Ваша должность и департамент компании.{SPACE}

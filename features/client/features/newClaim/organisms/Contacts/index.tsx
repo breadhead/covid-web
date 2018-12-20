@@ -1,9 +1,8 @@
 import * as React from 'react'
 
-import Input from '@app/features/common/form/components/Input'
+import { Input, RadioGroup, Select } from '@app/features/common/form'
 import { InputType } from '@app/ui/atoms/Input'
-import Select from '@app/ui/atoms/Select'
-import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
+import { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 
 const genderRadioGroup = [
   { id: '1', value: 'Мужской' },
@@ -35,12 +34,16 @@ const Contacts = () => (
     </p>
     <Input name="name" />
     <p className={styles.label}>Регион вашего проживания</p>
-    <Select options={mockSelectOptions} placeholder="Выберите регион" />
+    <Select
+      name="region"
+      options={mockSelectOptions}
+      placeholder="Выберите регион"
+    />
     <p className={styles.label}>Возраст (полных лет)</p>
     <Input name="age" type={InputType.Number} />
     <p className={styles.label}>Пол</p>
     <RadioGroup
-      name="bool"
+      name="gender"
       type={RadioGroupType.Bool}
       buttons={genderRadioGroup}
     />
@@ -62,7 +65,7 @@ const Contacts = () => (
         Необязательно, но так нам будет проще и быстрее связаться с вами.
       </span>
     </p>
-    <Input name="tel" type={InputType.Phone} placeholder="+7" />
+    <Input name="phone" type={InputType.Phone} placeholder="+7" />
   </article>
 )
 
