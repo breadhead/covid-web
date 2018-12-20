@@ -12,10 +12,11 @@ import IconCustom from '@app/ui/atoms/IconCustom'
 import Input from '@app/ui/atoms/Input'
 import Combobox from '@app/ui/molecules/Combobox'
 import SelectMonths from '@app/ui/organisms/CustomElements/SelectMonths'
+import SelectYears from '@app/ui/organisms/CustomElements/SelectYears'
 import EmergingFormElement, {
   controlTypes,
 } from '@app/ui/organisms/EmergingFormElement'
-import { OPTIONS_CITIES, OPTIONS_CLINICS, OPTIONS_YEARS } from './helpers'
+import { OPTIONS_CITIES, OPTIONS_CLINICS } from './helpers'
 
 interface Props {
   windowSize: WindowSize
@@ -31,12 +32,19 @@ const History = ({ windowSize }: Props) => {
       </p>
       <div className={styles.historyComboContainer}>
         <SelectMonths
+          name="diagnos-month"
           width={width}
-          selectClassName={cx(styles.historyCombo, styles.historyComboWrapper)}
+          className={cx(styles.historyCombo, styles.historyComboWrapper)}
+        />
+
+        <SelectYears
+          name="diagnos-year"
+          width={width}
+          className={cx(styles.historyCombo, styles.historyComboWrapper)}
         />
         <Combobox
           placeholder={width < MOBILE_WIDTH ? 'Год' : 'Выберите год'}
-          options={OPTIONS_YEARS}
+          options={OPTIONS_CITIES}
           name="year"
           wrapperClassName={styles.historyComboWrapper}
           selectClassName={styles.historyCombo}
@@ -114,7 +122,7 @@ const History = ({ windowSize }: Props) => {
           />
           <Combobox
             placeholder="Окончание"
-            options={OPTIONS_YEARS}
+            options={OPTIONS_CITIES}
             name="end"
             wrapperClassName={styles.historyComboWrapper}
             selectClassName={styles.historyCombo}

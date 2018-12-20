@@ -1,18 +1,3 @@
-export const OPTIONS_YEARS = [
-  {
-    key: '1',
-    label: '2018',
-  },
-  {
-    key: '2',
-    label: '2017',
-  },
-  {
-    key: '3',
-    label: '2016',
-  },
-]
-
 export const OPTIONS_CITIES = [
   {
     key: '1',

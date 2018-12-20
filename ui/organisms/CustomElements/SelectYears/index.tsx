@@ -2,7 +2,8 @@ import * as React from 'react'
 
 import { MOBILE_WIDTH } from '@app/lib/config'
 import Select from '@app/ui/atoms/Select'
-import { OPTIONS_MONTHS } from './helpers'
+
+import { OPTIONS_YEARS } from './helpers'
 
 interface Props {
   name: string
@@ -10,13 +11,13 @@ interface Props {
   className?: string
 }
 
-const SelectMonths = ({ name, width = 320, className }: Props) => (
+const SelectYears = ({ width = 320, className, name }: Props) => (
   <Select
-    placeholder={width < MOBILE_WIDTH ? 'Месяц' : 'Выберите месяц'}
-    options={OPTIONS_MONTHS}
+    placeholder={width < MOBILE_WIDTH ? 'Год' : 'Выберите год'}
+    options={OPTIONS_YEARS}
     name={name}
     className={className}
   />
 )
 
-export default SelectMonths
+export default SelectYears
