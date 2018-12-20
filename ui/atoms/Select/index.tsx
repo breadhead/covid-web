@@ -28,4 +28,4 @@ const Select = ({ label, options, ...rest }: Props) => (
 
 export default Select
 
-export * from './mappers'
+export { mapEnum, mapString } from './mappers'
