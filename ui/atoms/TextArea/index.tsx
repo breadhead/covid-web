@@ -20,6 +20,8 @@ const TextArea = ({ className, name, label, ...rest }: Props) => (
       </label>
     )}
     <AntInput.TextArea
+      name={name}
+      id={name}
       className={cx('textarea', className)}
       autosize
       {...rest}

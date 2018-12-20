@@ -1,8 +1,12 @@
-.menuItem {
+.menuItem.menuItem {
   margin-right: 40px;
 
   &:last-of-type {
     margin-right: 0;
+  }
+
+  @media (max-width: 767px) {
+    font: var(--text-0);
   }
 }
 

@@ -1,7 +1,9 @@
 import { RadioChangeEvent } from 'antd/lib/radio'
 import * as React from 'react'
+import cx from 'classnames'
 
 import * as styles from './EmergingFormElement.css'
+
 import RadioGroupElement, { radioButtons } from './RadioGroupElement'
 import SwitchElement from './SwitchElement'
 
@@ -40,12 +42,12 @@ class EmergingFormElement extends React.Component<Props> {
   }
 
   public render() {
-    const { controlType, children, name } = this.props
+    const { controlType, children, name, className } = this.props
     const { isVisible } = this.state
 
     return (
       <React.Fragment>
-        <div className={styles.EmergingFormControl}>
+        <div className={cx(styles.EmergingFormControl, className)}>
           {controlType === controlTypes.switch ? (
             <SwitchElement name={name} onChange={this.switchChangeHandler} />
           ) : (
@@ -56,7 +58,10 @@ class EmergingFormElement extends React.Component<Props> {
           )}
         </div>
         {isVisible && (
-          <div className={styles.EmergingContainer} hidden={!isVisible}>
+          <div
+            className={cx(styles.EmergingContainer, className)}
+            hidden={!isVisible}
+          >
             {children}
           </div>
         )}

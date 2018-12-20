@@ -2,9 +2,13 @@
   display: flex;
 }
 
-.menuItem {
+.menuItem.menuItem {
   display: flex;
   margin-right: 40px;
+
+  @media (max-width: 767px) {
+    font: var(--text-0);
+  }
 
   &:hover svg {
     fill: var(--color-primary);
