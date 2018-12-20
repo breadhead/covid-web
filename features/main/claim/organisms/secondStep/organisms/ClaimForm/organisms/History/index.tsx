@@ -11,6 +11,7 @@ import Button, { ButtonKind } from '@app/ui/atoms/Button'
 import IconCustom from '@app/ui/atoms/IconCustom'
 import Input from '@app/ui/atoms/Input'
 import Combobox from '@app/ui/molecules/Combobox'
+import ComboCity from '@app/ui/organisms/CustomElements/ComboCity'
 import SelectMonths from '@app/ui/organisms/CustomElements/SelectMonths'
 import SelectYears from '@app/ui/organisms/CustomElements/SelectYears'
 import EmergingFormElement, {
@@ -42,23 +43,11 @@ const History = ({ windowSize }: Props) => {
           width={width}
           className={cx(styles.historyCombo, styles.historyComboWrapper)}
         />
-        <Combobox
-          placeholder={width < MOBILE_WIDTH ? 'Год' : 'Выберите год'}
-          options={OPTIONS_CITIES}
-          name="year"
-          wrapperClassName={styles.historyComboWrapper}
-          selectClassName={styles.historyCombo}
-        />
       </div>
       <label htmlFor="city" className={styles.label}>
         В каком городе?
       </label>
-      <Combobox
-        placeholder="Выберите город"
-        options={OPTIONS_CITIES}
-        name="city"
-        selectClassName={styles.historyComboSingle}
-      />
+      <ComboCity className={styles.historyComboSingle} name="city" />
       <label htmlFor="clinic" className={styles.label}>
         Название клиники
       </label>

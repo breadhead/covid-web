@@ -56,7 +56,7 @@ class Combobox extends React.Component<Props> {
           className={selectClassName}
           id={name}
           showSearch
-          onInputKeyDown={this.onInputKeyDown}
+          onSearch={this.onInputKeyDown}
           maxTagCount={6}
           notFoundContent={<div className="not-found">{NOT_FOUND_TEXT}</div>}
           filterOption={this.filterOptions}
@@ -74,8 +74,7 @@ class Combobox extends React.Component<Props> {
     )
   }
 
-  private onInputKeyDown = (evt: React.FormEvent<HTMLInputElement>) => {
-    const { value } = evt.target as HTMLInputElement
+  private onInputKeyDown = (value: string) => {
     const { hintForEmptyValue, hint } = this.props
 
     if (hintForEmptyValue && hint) {

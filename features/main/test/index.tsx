@@ -177,13 +177,13 @@ const Test = ({ modal }: WithModalProps) => (
       />
       <br />
       <p>Селект</p>
-      {/* <Select
-              options={testSelectOptions}
-              defaultValue="Выберите опцию"
-              name="select"
-            /> */}
+      <Select
+        options={testSelectOptions}
+        defaultValue="Выберите опцию"
+        name="select"
+      />
       <br />
-      <Select disabled options={testSelectOptions} /> <br />
+      <Select name="dis-select" disabled options={testSelectOptions} /> <br />
       <NavLink href="#">link</NavLink> <br />
       <NavLink type={NavLinkType.Nav} href="#">
         navlink
