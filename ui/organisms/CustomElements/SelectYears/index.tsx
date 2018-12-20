@@ -9,15 +9,24 @@ interface Props {
   name: string
   width?: number
   className?: string
+  placeholder?: string
 }
 
-const SelectYears = ({ width = 320, className, name }: Props) => (
-  <Select
-    placeholder={width < MOBILE_WIDTH ? 'Год' : 'Выберите год'}
-    options={OPTIONS_YEARS}
-    name={name}
-    className={className}
-  />
-)
+const SelectYears = ({ width = 320, className, name, placeholder }: Props) => {
+  const selectPlaceholder = placeholder
+    ? placeholder
+    : width < MOBILE_WIDTH
+    ? 'Год'
+    : 'Выберите год'
+
+  return (
+    <Select
+      placeholder={selectPlaceholder}
+      options={OPTIONS_YEARS}
+      name={name}
+      className={className}
+    />
+  )
+}
 
 export default SelectYears

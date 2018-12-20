@@ -37,7 +37,6 @@ const History = ({ windowSize }: Props) => {
           width={width}
           className={cx(styles.historyCombo, styles.historyComboWrapper)}
         />
-
         <SelectYears
           name="diagnos-year"
           width={width}
@@ -81,12 +80,7 @@ const History = ({ windowSize }: Props) => {
         <label htmlFor="choose-city" className={styles.label}>
           В каком городе?
         </label>
-        <Combobox
-          placeholder="Выберите город"
-          options={OPTIONS_CITIES}
-          name="choose-city"
-          selectClassName={styles.historyComboSingle}
-        />
+        <ComboCity className={styles.historyComboSingle} name="choose-city" />
         <label htmlFor="choose-clinic" className={styles.label}>
           Название клиники
         </label>
@@ -102,19 +96,15 @@ const History = ({ windowSize }: Props) => {
         <Input name="choose-doctor" />
         <p className={styles.label}>Период лечения</p>
         <div className={styles.historyComboContainer}>
-          <Combobox
-            placeholder="Начало"
-            options={OPTIONS_CITIES}
+          <SelectYears
             name="begin"
-            wrapperClassName={styles.historyComboWrapper}
-            selectClassName={styles.historyCombo}
+            placeholder="Начало"
+            className={cx(styles.historyCombo, styles.historyComboWrapper)}
           />
-          <Combobox
-            placeholder="Окончание"
-            options={OPTIONS_CITIES}
+          <SelectYears
             name="end"
-            wrapperClassName={styles.historyComboWrapper}
-            selectClassName={styles.historyCombo}
+            placeholder="Окончание"
+            className={cx(styles.historyCombo, styles.historyComboWrapper)}
           />
         </div>
         <label htmlFor="choose-procedures" className={styles.label}>
