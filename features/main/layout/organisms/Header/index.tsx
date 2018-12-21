@@ -18,10 +18,7 @@ export interface Props {
   theme?: HeaderTheme
 }
 
-const Header = ({
-  type = HeaderType.Primary,
-  theme = HeaderTheme.Default,
-}: Props) => {
+const Header = ({ type = HeaderType.Primary }: Props) => {
   const componentsMap = {
     [HeaderType.Primary]: <PrimaryHeader />,
     [HeaderType.Secondary]: <SecondaryHeader />,

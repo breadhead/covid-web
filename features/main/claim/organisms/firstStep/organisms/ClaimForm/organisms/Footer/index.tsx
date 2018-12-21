@@ -5,7 +5,7 @@ import { Button } from '@app/features/common/form'
 import { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
 
 const Footer = () => (
-  <article className={styles.article}>
+  <footer className={styles.article}>
     <Button
       size={ButtonSize.Large}
       type={ButtonType.Submit}
@@ -13,7 +13,7 @@ const Footer = () => (
     >
       Продолжить
     </Button>
-  </article>
+  </footer>
 )
 
 export default Footer

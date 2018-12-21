@@ -34,7 +34,11 @@ const Contacts = () => (
     </p>
     <Input name="name" />
     <p className={styles.label}>Регион вашего проживания</p>
-    <Select options={mockSelectOptions} placeholder="Выберите регион" />
+    <Select
+      name="region-select"
+      options={mockSelectOptions}
+      placeholder="Выберите регион"
+    />
     <p className={styles.label}>Возраст (полных лет)</p>
     <Input name="age" type={InputType.Number} />
     <p className={styles.label}>Пол</p>
