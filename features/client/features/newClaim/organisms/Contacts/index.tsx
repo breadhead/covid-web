@@ -2,6 +2,7 @@ import cx from 'classnames'
 import * as React from 'react'
 
 import { Input, RadioGroup, Select } from '@app/features/common/form'
+import { StylesType } from '@app/lib/config'
 import Gender from '@app/models/Gender'
 import { InputType } from '@app/ui/atoms/Input'
 import { mapString } from '@app/ui/atoms/Select'
@@ -21,7 +22,7 @@ const countries = ['Украина', 'Болгария']
 interface Props {
   clientInRussia: boolean
   onChangeInRussia: (value: boolean) => void
-  styles: any
+  styles: StylesType
 }
 
 const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (

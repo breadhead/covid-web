@@ -2,10 +2,10 @@ import * as React from 'react'
 
 import TextArea from '@app/ui/atoms/TextArea'
 
-import { SPACE } from '@app/lib/config'
+import { SPACE, StylesType } from '@app/lib/config'
 
 interface Props {
-  styles: any
+  styles: StylesType
 }
 
 const Health = ({ styles }: Props) => (

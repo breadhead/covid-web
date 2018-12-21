@@ -1,12 +1,13 @@
 import * as React from 'react'
 
+import { StylesType } from '@app/lib/config'
 import TextArea from '@app/ui/atoms/TextArea'
 import EmergingFormElement, {
   ControlTypes,
 } from '@app/ui/organisms/EmergingFormElement'
 
 interface Props {
-  styles: any
+  styles: StylesType
 }
 
 const Common = ({ styles }: Props) => (

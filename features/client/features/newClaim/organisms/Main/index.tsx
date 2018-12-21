@@ -8,7 +8,7 @@ import {
   Select,
   TextArea,
 } from '@app/features/common/form'
-import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
+import { NON_BREAKING_SPACE, SPACE, StylesType } from '@app/lib/config'
 import ClaimTarget from '@app/models/Claim/ClaimTarget'
 import NavLink from '@app/ui/atoms/NavLink'
 import { mapEnum, mapString } from '@app/ui/atoms/Select'
@@ -16,7 +16,7 @@ import { mapEnum, mapString } from '@app/ui/atoms/Select'
 import { localizations, themes } from '../../../../values'
 
 interface Props {
-  styles: any
+  styles: StylesType
 }
 
 const Main = ({ styles }: Props) => (

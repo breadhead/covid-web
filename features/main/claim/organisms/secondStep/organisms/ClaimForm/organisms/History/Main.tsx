@@ -1,7 +1,12 @@
 import cx from 'classnames'
 import * as React from 'react'
 
-import { MOBILE_WIDTH, NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
+import {
+  MOBILE_WIDTH,
+  NON_BREAKING_SPACE,
+  SPACE,
+  StylesType,
+} from '@app/lib/config'
 import Input from '@app/ui/atoms/Input'
 import TextArea from '@app/ui/atoms/TextArea'
 import ComboCity from '@app/ui/organisms/CustomElements/ComboCity'
@@ -11,7 +16,7 @@ import SelectYears from '@app/ui/organisms/CustomElements/SelectYears'
 
 interface Props {
   width: number
-  styles: any
+  styles: StylesType
 }
 
 const Main = ({ width, styles }: Props) => (

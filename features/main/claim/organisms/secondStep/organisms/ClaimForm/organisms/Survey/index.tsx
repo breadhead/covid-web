@@ -1,12 +1,12 @@
 import * as React from 'react'
 
 import Uploader from '@app/features/common/uploader'
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
 import Input from '@app/ui/atoms/Input'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
 
 interface Props {
-  styles: any
+  styles: StylesType
 }
 
 const Survey = ({ styles }: Props) => (
