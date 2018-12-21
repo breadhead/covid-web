@@ -9,10 +9,10 @@
   height: auto;
   padding: 14px 16px;
   font: var(--text16-24);
-  border: none;
+  border: none !important;
 
   &:hover {
-    border: none;
+    border: none !important;
     box-shadow: 0 0 0 1px var(--color-primary);
   }
 
@@ -21,9 +21,14 @@
   }
 }
 
+.ant-select-selection--single {
+  height: auto !important;
+}
+
 .ant-select-selection__rendered {
   margin: 0;
   line-height: initial;
+  line-height: 20px !important;
 }
 
 .ant-select-open .ant-select-selection {
@@ -37,7 +42,7 @@
 }
 
 .ant-select-dropdown-menu-item {
-  padding: 8px 16px;
+  padding: 8px 16px !important;
   font: var(--text16-24);
   white-space: initial;
 
