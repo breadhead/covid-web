@@ -18,7 +18,13 @@
 }
 
 .empty {
-  background-color: var(--color-highlight);
+  color: #151833;
+  border: 1px solid #151833;
+
+  &:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  } 
 }
 
 .success {
@@ -32,13 +38,7 @@
 }
 
 .full {
-  color: #151833;
-  border: 1px solid #151833;
-
-  &:hover {
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-  }
+  background-color: var(--color-highlight);
 }
 
 .disabled {

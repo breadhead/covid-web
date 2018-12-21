@@ -1,7 +1,6 @@
-import * as React from 'react'
 import * as styles from './ProgressBar.css'
 
-import StepPointer, { StepPointerModel } from './organisms/StepPointer'
+import StepPointer, { StepPointerModel } from './../../molecule/StepPointer'
 
 export interface Props {
   steps: StepPointerModel[]

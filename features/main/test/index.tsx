@@ -25,8 +25,6 @@ import Input from '@app/ui/atoms/Input'
 import TimePicker from '@app/ui/atoms/TimePicker'
 import Combobox from '@app/ui/molecules/Combobox'
 import HintInput from '@app/ui/molecules/HintInput'
-import ProgressBar from '@app/ui/organisms/ProgressBar'
-import { StepPointerTypes } from '@app/ui/organisms/ProgressBar/organisms/StepPointer'
 
 const testBoolRadioButtons = [
   {
@@ -121,17 +119,9 @@ const testComboOptions = [
   },
 ]
 
-const steps = [
-  { title: 'Заполните заявку', type: StepPointerTypes.Empty },
-  { title: 'Опишите ситуацию', type: StepPointerTypes.Empty, disabled: true },
-  { title: 'Задайте вопросы', type: StepPointerTypes.Full },
-  { title: 'Не задавайте вопросов', type: StepPointerTypes.Success },
-]
-
 const Test = ({ modal }: WithModalProps) => (
   <Layout>
     <h1 style={{ font: 'var(--title-extra)' }}>components preview page</h1>
-    <ProgressBar steps={steps} />
     <div style={{ paddingLeft: '5%', textAlign: 'left' }}>
       <Uploader />
       <p>Модалка с подтверждением смс</p>

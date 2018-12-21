@@ -1,11 +1,11 @@
-import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 
 import Header from '../../molecules/ClaimHeader'
 import Status from '../../molecules/ClaimStatus'
 import styles from './Claim.css'
 
 interface Props {
-  claim: ShortClaim
+  claim: ListedClaim
 }
 
 const ClaimCard = ({ claim }: Props) => (
