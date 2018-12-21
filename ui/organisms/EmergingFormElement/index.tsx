@@ -12,44 +12,67 @@ export enum controlTypes {
   radiogroup = 'radiogroup',
 }
 
-interface Props {
+export interface Props {
   controlType: string
   name: string
   defaultVisible?: boolean
   className?: string
   children?: React.ReactNode
+  value?: boolean
+  onChange?: (value: boolean) => void
 }
 
-class EmergingFormElement extends React.Component<Props> {
+interface State {
+  isVisible: boolean
+}
+
+class EmergingFormElement extends React.Component<Props, State> {
   public static defaultProps: Partial<Props> = {
     defaultVisible: false,
   }
 
   public state = {
     isVisible: this.props.defaultVisible,
-  }
+  } as State
 
   public switchChangeHandler = () => {
-    this.setState((state: { isVisible: boolean }) => ({
-      isVisible: !state.isVisible,
-    }))
+    const { onChange } = this.props
+
+    this.setState(
+      state => ({ isVisible: !state.isVisible }),
+      () => onChange && onChange(this.state.isVisible),
+    )
   }
 
   public radioGroupChangeHandler = (evt: RadioChangeEvent) => {
+    const { onChange } = this.props
     const { value } = evt.target
     const isVisible = value === radioButtons[0].value
-    this.setState({ isVisible })
+    this.setState(
+      { isVisible },
+      () => onChange && onChange(this.state.isVisible),
+    )
   }
 
   public render() {
-    const { controlType, children, name, className } = this.props
+    const {
+      controlType,
+      children,
+      name,
+      className,
+      defaultVisible,
+    } = this.props
     const { isVisible } = this.state
 
     return (
       <React.Fragment>
         <div className={cx(styles.EmergingFormControl, className)}>
           {controlType === controlTypes.switch ? (
-            <SwitchElement name={name} onChange={this.switchChangeHandler} />
+            <SwitchElement
+              name={name}
+              onChange={this.switchChangeHandler}
+              defaultChecked={defaultVisible}
+            />
           ) : (
             <RadioGroupElement
               name={name}

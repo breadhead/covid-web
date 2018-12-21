@@ -6,30 +6,26 @@ import {
   FetchingActions,
   FetchingState,
 } from '@app/lib/symbioteFactory'
-import { ListedClaim } from '@app/models/Claim/ListedClaim'
 
 interface State extends FetchingState {
-  claims: ListedClaim[]
-  loaded: boolean
+  createdId?: string
 }
 
 interface Actions extends FetchingActions {
-  success(claims: ListedClaim[]): Action
+  success(createdId: string): Action
 }
 
 const initialState = createInitialState({
-  claims: [],
-  loaded: false,
+  createdId: undefined,
 })
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  (state: State, claims: ListedClaim[]) => ({
+  (state: State, createdId: string) => ({
     ...state,
-    claims,
-    loaded: true,
+    createdId,
   }),
-  'client/claims',
+  'client/new-claim',
 )
 
 export { State, reducer, Actions, actions }

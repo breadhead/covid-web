@@ -9,10 +9,10 @@ const Menu = () => (
     <NavLink
       className={cx(styles.menuItem, styles.consultation)}
       type={NavLinkType.Nav}
-      href="#"
+      href="/client"
     >
       <IconCustom className={styles.icon} name="24x24_my-consultation" />
-      <span className={styles.menuItemText}>Моя консультация</span>
+      <span className={styles.menuItemText}>Мои консультации</span>
     </NavLink>
     <div className={styles.menuItem}>
       <Dropdown />

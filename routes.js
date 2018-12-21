@@ -2,7 +2,6 @@ const nextRoutes = require('next-routes')
 
 module.exports = nextRoutes()
   // main routes
-  .add('claim', '/claim', 'main-claim')
   .add('test', '/test', 'main-test')
   .add('manager', '/manager', 'main-manager')
   .add('doctor', '/doctor', 'main-doctor')
@@ -10,6 +9,7 @@ module.exports = nextRoutes()
   .add('landing-home', '/', 'landing/home')
   // client
   .add('client-claims', '/client', 'client/claims')
+  .add('client-claim', '/client/new-claim', 'client/new-claim')
   // admin
   .add('admin-home', '/admin', 'admin/quotas')
   .add('admin-transfer', '/admin/transfer', 'admin/transfer')

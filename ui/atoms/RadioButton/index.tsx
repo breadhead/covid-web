@@ -2,7 +2,7 @@ import { Radio } from 'antd'
 import * as React from 'react'
 
 import './RadioButton.css?CSSModulesDisable'
-interface Props {
+export interface Props {
   name: string
   value: string
   className?: string

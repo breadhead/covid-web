@@ -1,9 +1,12 @@
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 
 import { QuotaTransferRequest } from './request/QuotaTransfer'
+import ShortClaimRequest from './request/ShortClaimRequest'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
+
 export interface User {
   token: string
   roles: string[]
@@ -23,7 +26,8 @@ export interface UploadedFile {
 export default interface ApiClient {
   token: string
 
-  claimsForClient(): Promise<ShortClaim[]>
+  claimsForClient(): Promise<ListedClaim[]>
+  createShortClaim(request: ShortClaimRequest): Promise<ShortClaim>
 
   quota(id: string): Promise<Quota>
   income(amount: number, quotaId: string): Promise<Quota>
