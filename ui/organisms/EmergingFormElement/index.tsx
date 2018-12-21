@@ -16,6 +16,7 @@ export interface Props {
   controlType: string
   name: string
   defaultVisible?: boolean
+  defaultValue?: string
   className?: string
   children?: React.ReactNode
   value?: boolean
@@ -61,6 +62,7 @@ class EmergingFormElement extends React.Component<Props, State> {
       name,
       className,
       defaultVisible,
+      defaultValue,
     } = this.props
     const { isVisible } = this.state
 
@@ -77,6 +79,7 @@ class EmergingFormElement extends React.Component<Props, State> {
             <RadioGroupElement
               name={name}
               onChange={this.radioGroupChangeHandler}
+              defaultValue={defaultValue}
             />
           )}
         </div>

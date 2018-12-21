@@ -1,11 +1,14 @@
 import * as React from 'react'
-import * as styles from '../../ClaimForm.css'
 
 import TextArea from '@app/ui/atoms/TextArea'
 
-import { SPACE } from '@app/lib/config'
+import { SPACE, StylesType } from '@app/lib/config'
 
-const Health = () => (
+interface Props {
+  styles: StylesType
+}
+
+const Health = ({ styles }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Ваше самочувствие</h2>
     <label htmlFor="common" className={styles.label}>

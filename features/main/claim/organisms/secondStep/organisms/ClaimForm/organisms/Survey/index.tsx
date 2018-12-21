@@ -1,12 +1,15 @@
 import * as React from 'react'
-import * as styles from '../../ClaimForm.css'
 
 import Uploader from '@app/features/common/uploader'
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
 import Input from '@app/ui/atoms/Input'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
 
-const Survey = () => (
+interface Props {
+  styles: StylesType
+}
+
+const Survey = ({ styles }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Обследования</h2>
 
