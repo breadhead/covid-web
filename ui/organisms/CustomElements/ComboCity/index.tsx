@@ -2,11 +2,10 @@ import * as React from 'react'
 
 import Combobox from '@app/ui/molecules/Combobox'
 
-import { OPTIONS_CITIES } from '@app/features/main/claim/organisms/secondStep/organisms/ClaimForm/organisms/History/helpers'
+import { OPTIONS_CITIES } from './config'
 
 interface Props {
   name: string
-  width?: number
   className?: string
 }
 

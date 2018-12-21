@@ -26,17 +26,9 @@ const Main = () => (
   <article className={styles.article}>
     <h2 className={styles.title}>Кратко о теме консультации</h2>
     <p className={styles.label}>Для кого эта консультация</p>
-    <Select
-      name="first"
-      options={mockSelectOptions}
-      // defaultValue="Выберите консультируемого"
-    />
+    <Select name="first" options={mockSelectOptions} />
     <p className={styles.label}>Тема вашего вопроса</p>
-    <Select
-      name="second"
-      options={mockSelectOptions}
-      // defaultValue="Выберите тему"
-    />
+    <Select name="second" options={mockSelectOptions} />
     <p className={styles.label}>
       У вас есть установленный врачом онкологический диагноз?
     </p>

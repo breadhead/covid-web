@@ -164,9 +164,7 @@
     margin-top: 0;
   }
 
-  @media (max-width: 767px) {
-    &:last-of-type {
-      margin: 0;
-    }
+  &:last-of-type {
+    margin: 0;
   }
 }

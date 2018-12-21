@@ -34,7 +34,6 @@ class Layout extends React.Component<Props> {
         <Header type={headerType} theme={headerTheme} />
         <main
           style={{
-            minHeight: '50vh',
             textAlign: 'center',
             backgroundColor: 'white',
           }}

@@ -7,7 +7,7 @@ import IconCustom from '@app/ui/atoms/IconCustom'
 import NavLink from '@app/ui/atoms/NavLink'
 
 const Footer = () => (
-  <article className={styles.article}>
+  <footer className={styles.article}>
     <Button
       size={ButtonSize.Large}
       type={ButtonType.Submit}
@@ -19,7 +19,7 @@ const Footer = () => (
       <IconCustom className={styles.iconBack} name="24x24_arrow-small_right" />
       <NavLink href="#">Вернуться назад</NavLink>
     </div>
-  </article>
+  </footer>
 )
 
 export default Footer

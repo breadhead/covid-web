@@ -1,21 +1,20 @@
 import * as React from 'react'
 
-import { MOBILE_WIDTH } from '@app/lib/config'
 import Select from '@app/ui/atoms/Select'
 
-import { OPTIONS_YEARS } from './helpers'
+import { OPTIONS_YEARS } from './config'
 
 interface Props {
   name: string
-  width?: number
+  isMobile?: boolean
   className?: string
   placeholder?: string
 }
 
-const SelectYears = ({ width = 320, className, name, placeholder }: Props) => {
+const SelectYears = ({ isMobile, className, name, placeholder }: Props) => {
   const selectPlaceholder = placeholder
     ? placeholder
-    : width < MOBILE_WIDTH
+    : isMobile
     ? 'Год'
     : 'Выберите год'
 
