@@ -1,12 +1,15 @@
 import * as React from 'react'
-import * as styles from '../../ClaimForm.css'
 
 import TextArea from '@app/ui/atoms/TextArea'
 import EmergingFormElement, {
   ControlTypes,
 } from '@app/ui/organisms/EmergingFormElement'
 
-const Common = () => (
+interface Props {
+  styles: any
+}
+
+const Common = ({ styles }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Общая информация</h2>
     <p className={styles.label}>Есть ли у вас хронические заболевания?</p>

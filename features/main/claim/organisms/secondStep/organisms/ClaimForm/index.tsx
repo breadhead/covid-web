@@ -10,11 +10,11 @@ import Survey from './organisms/Survey'
 const ClaimForm = () => {
   return (
     <section className={styles.ClaimForm}>
-      <Common />
-      <Health />
-      <History />
-      <Survey />
-      <Footer />
+      <Common styles={styles} />
+      <Health styles={styles} />
+      <History styles={styles} />
+      <Survey styles={styles} />
+      <Footer styles={styles} />
     </section>
   )
 }

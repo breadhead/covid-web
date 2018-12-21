@@ -6,7 +6,7 @@ import Gender from '@app/models/Gender'
 import Contacts from './../Contacts'
 import Footer from './../Footer'
 import Main from './../Main'
-import './ClaimForm.css'
+
 import * as styles from './ClaimForm.css'
 
 export interface ShortClaimFields {
@@ -55,12 +55,13 @@ const ClaimForm = ({
       className={styles.ClaimForm}
       initialValues={initial || getDefaultInitial(clientInRussia)}
     >
-      <Main />
+      <Main styles={styles} />
       <Contacts
         clientInRussia={clientInRussia}
         onChangeInRussia={onChangeInRussia}
+        styles={styles}
       />
-      <Footer />
+      <Footer styles={styles} />
     </Form>
   )
 }

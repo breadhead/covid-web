@@ -1,10 +1,13 @@
 import * as React from 'react'
-import * as styles from './../ClaimForm/ClaimForm.css'
 
 import { Button } from '@app/features/common/form'
 import { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
 
-const Footer = () => (
+interface Props {
+  styles: any
+}
+
+const Footer = ({ styles }: Props) => (
   <footer className={styles.article}>
     <Button
       size={ButtonSize.Large}

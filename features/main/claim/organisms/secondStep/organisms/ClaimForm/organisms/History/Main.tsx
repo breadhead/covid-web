@@ -1,6 +1,5 @@
 import cx from 'classnames'
 import * as React from 'react'
-import * as styles from '../../ClaimForm.css'
 
 import { MOBILE_WIDTH, NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 import Input from '@app/ui/atoms/Input'
@@ -12,9 +11,10 @@ import SelectYears from '@app/ui/organisms/CustomElements/SelectYears'
 
 interface Props {
   width: number
+  styles: any
 }
 
-const Main = ({ width }: Props) => (
+const Main = ({ width, styles }: Props) => (
   <>
     <h2 className={styles.title}>История болезни</h2>
     <p className={styles.label}>
