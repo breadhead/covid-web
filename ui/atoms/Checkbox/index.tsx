@@ -1,11 +1,15 @@
 import { Checkbox as AntCheckbox } from 'antd'
-import { CheckboxProps } from 'antd/lib/checkbox'
 import * as React from 'react'
 
 import './Checkbox.css?CSSModulesDisable'
 
-const Checkbox = ({ children, ...rest }: CheckboxProps) => (
-  <AntCheckbox {...rest}>{children}</AntCheckbox>
+interface Props {
+  name: string
+  className: string
+}
+
+const Checkbox = ({ name, className, ...rest }: Props) => (
+  <AntCheckbox name={name} className={className} {...rest} />
 )
 
 export default Checkbox

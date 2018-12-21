@@ -168,3 +168,7 @@
     margin: 0;
   }
 }
+
+.checkbox.checkbox  {
+  margin-right: 14px;
+}
