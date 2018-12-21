@@ -1,6 +1,9 @@
+import * as React from 'react'
+
 import { Select as AntSelect } from 'antd'
 import { LabeledValue, OptionProps, SelectProps } from 'antd/lib/select'
-import * as React from 'react'
+
+import { toString } from 'lodash'
 
 import './Combobox.css?CSSModulesDisable'
 
@@ -85,16 +88,9 @@ class Combobox extends React.Component<Props> {
   }
 
   private filterOptions = (input: string, option: Option) =>
-    this.optionToString(option)
+    toString(option.props.children)
       .toLowerCase()
       .includes(input.toLowerCase())
-
-  // TODO: fix it
-  private optionToString = ({ props }: Option): string =>
-    (props.children &&
-      typeof props.children === 'string' &&
-      (props.children as string)) ||
-    ''
 }
 
 export default Combobox

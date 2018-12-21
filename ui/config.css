@@ -68,5 +68,10 @@ body {
 @custom-media --mediumDown (max-width: 959px);
 
 #__next {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
   overflow-x: hidden;
+
 }
