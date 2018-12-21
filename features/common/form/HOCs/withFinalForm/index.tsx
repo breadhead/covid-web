@@ -32,13 +32,7 @@ const withFinalForm = <T extends WrappedProps>(
       {(
         { input, meta }: any, // TODO: remove any and fix type incompatibility
       ) => {
-        const { touched, pristine, active, submitFailed } = meta
-        const shouldValidate = getShouldValidate({
-          active,
-          submitFailed,
-          touched,
-          pristine,
-        })
+        const shouldValidate = getShouldValidate(meta)
         const error = shouldValidate
           ? meta.submitError || meta.error
           : undefined

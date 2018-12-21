@@ -1,16 +1,12 @@
-interface Context {
-  active: boolean
-  submitFailed: boolean
-  touched: boolean
-  pristine: boolean
-}
+import { FieldRenderProps } from 'react-final-form'
 
+type Meta = Pick<FieldRenderProps, 'meta'>['meta']
 export const getShouldValidate = ({
   active,
   submitFailed,
   touched,
   pristine,
-}: Context) => {
+}: Meta) => {
   if (submitFailed) {
     return true
   } else if (active) {
