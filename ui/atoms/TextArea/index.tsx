@@ -14,8 +14,14 @@ export type Props = OwnProps & TextAreaProps
 
 const TextArea = ({ className, name, label, ...rest }: Props) => (
   <>
-    {label && <label htmlFor={name}>{label}</label>}
+    {label && (
+      <label className="textareaLabel" htmlFor={name}>
+        {label}
+      </label>
+    )}
     <AntInput.TextArea
+      name={name}
+      id={name}
       className={cx('textarea', className)}
       autosize
       {...rest}

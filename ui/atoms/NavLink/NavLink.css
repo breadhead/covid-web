@@ -10,6 +10,7 @@
 
 .Link.Link {
   color: var(--color-link);
+  border-bottom: 1px solid transparent;
 
   &:hover {
     color: var(--color-link);
