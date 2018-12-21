@@ -8,6 +8,7 @@ import { mapString } from '@app/ui/atoms/Select'
 import Switch from '@app/ui/atoms/Switch'
 import { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
+import { RadioButtonsValue } from '@app/ui/organisms/EmergingFormElement/RadioGroupElement'
 
 const genderRadioGroup = Object.entries(Gender).map(([id, value]) => ({
   id,
@@ -94,7 +95,11 @@ const Contacts = ({ clientInRussia, onChangeInRussia }: Props) => (
         необходимости и предоставить более полный ответ.
       </span>
     </p>
-    <EmergingFormElement controlType="radiogroup" defaultVisible={true}>
+    <EmergingFormElement
+      controlType="radiogroup"
+      defaultVisible={true}
+      defaultValue={RadioButtonsValue.Yes}
+    >
       <p className={cx(styles.label, styles.emergingLabel)}>
         Мобильный телефон
       </p>

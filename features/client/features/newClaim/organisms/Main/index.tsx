@@ -52,9 +52,9 @@ const Main = () => (
     </p>
     <EmergingFormElement controlType="switch" name="corporate">
       <p className={cx(styles.label, styles.emergingLabel)}>
-        Название компании-работадателя
+        Название компании-работодателя
       </p>
-      <Input name="companyName" label="Название компании-работадателя" />
+      <Input name="companyName" />
       <p className={cx(styles.label, styles.emergingLabel)}>
         Ваша должность и департамент компании.{SPACE}
         <span className={styles.sectondaryText}>
