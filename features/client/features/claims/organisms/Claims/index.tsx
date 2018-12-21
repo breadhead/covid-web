@@ -1,10 +1,10 @@
-import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 
 import ClaimCard from '../Claim'
 import styles from './Claims.css'
 
 interface Props {
-  claims: ShortClaim[]
+  claims: ListedClaim[]
 }
 
 const Claims = ({ claims }: Props) => (

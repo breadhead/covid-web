@@ -10,7 +10,7 @@ export enum RadioGroupType {
   Bool = 'Bool',
   Controls = 'Controls',
 }
-interface Props {
+export interface Props {
   name: string
   type: RadioGroupType
   buttons: Button[]

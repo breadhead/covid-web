@@ -1,11 +1,25 @@
-import ClaimStatus from './ClaimStatus'
+import Gender from '../Gender'
+import ClaimTarget from './ClaimTarget'
+
+interface PersonalData {
+  name: string
+  region: string
+  age: number
+  gender: Gender
+  email?: string
+  phone?: string
+}
+
+interface CompanyData {
+  name: string
+  position: string
+}
 
 export interface ShortClaim {
   id: string
-  createdAt: Date
-  expireAt?: Date
-  status: ClaimStatus
-  newMessage: boolean
-  email?: string
-  personal: boolean
+  personalData: PersonalData
+  diagnosis?: string
+  theme: string
+  company?: CompanyData
+  target: ClaimTarget
 }
