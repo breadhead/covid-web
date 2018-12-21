@@ -21,7 +21,6 @@ interface OwnProps {
   label?: string
   defaultValue?: string
   wrapperClassName?: string
-  onChange: <T>(event: React.ChangeEvent<T> | any) => void
 }
 
 export type Props = OwnProps & InputProps

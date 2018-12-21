@@ -3,7 +3,13 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import * as styles from './index.css'
 import * as transitionStyles from './transitionStyles.css'
 
-const withTooltip = (WrappedComponent: React.ComponentType) => (props: any) => {
+interface OwnProps {
+  error?: string
+}
+
+const withTooltip = <T extends {}>(
+  WrappedComponent: React.ComponentType<T>,
+) => (props: T & OwnProps) => {
   return (
     <div className={styles.wrapper}>
       <WrappedComponent {...props} />
