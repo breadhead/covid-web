@@ -1,5 +1,6 @@
 import { Input as AntInput } from 'antd'
 import { InputProps } from 'antd/lib/input'
+import cx from 'classnames'
 import * as React from 'react'
 
 import './AntInput.css?CSSModulesDisable'
@@ -14,6 +15,7 @@ export enum InputType {
 }
 
 interface OwnProps {
+  error?: string
   name: string
   type?: InputType
   label?: string
@@ -23,14 +25,26 @@ interface OwnProps {
 
 export type Props = OwnProps & InputProps
 
-const Input = ({ name, type, label, wrapperClassName, ...rest }: Props) => (
+const Input = ({
+  name,
+  type,
+  label,
+  error,
+  wrapperClassName,
+  ...rest
+}: Props) => (
   <div className={wrapperClassName}>
     {label && (
       <label className={styles.label} htmlFor={name}>
         {label}
       </label>
     )}
-    <AntInput className={styles.input} id={name} type={type} {...rest} />
+    <AntInput
+      className={cx(styles.input, error && styles.error)}
+      id={name}
+      type={type}
+      {...rest}
+    />
   </div>
 )
 

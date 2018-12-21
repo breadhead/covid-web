@@ -1,14 +1,11 @@
-import * as React from 'react'
-import { Field } from 'react-final-form'
+import { compose } from 'recompose'
 
-import SimpleInput, { Props as InputProps } from '@app/ui/atoms/Input'
+import withFinalForm from '../HOCs/withFinalForm'
+import withTooltip from '../HOCs/withTooltip'
 
-const Input = ({ name, type, ...rest }: InputProps) => (
-  <Field name={name} type={type}>
-    {({ input }) => (
-      <SimpleInput name={name} type={type} {...input} {...rest} />
-    )}
-  </Field>
-)
+import SimpleInput, { Props } from '@app/ui/atoms/Input'
 
-export default Input
+export default compose<Props, any>( // TODO: replace any with real props
+  withFinalForm,
+  withTooltip,
+)(SimpleInput)

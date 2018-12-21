@@ -1,0 +1,11 @@
+.wrapper {
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  font: var(--text14-20);
+  color: var(--color-danger);
+}

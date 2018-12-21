@@ -25,6 +25,7 @@ import Input from '@app/ui/atoms/Input'
 import TimePicker from '@app/ui/atoms/TimePicker'
 import Combobox from '@app/ui/molecules/Combobox'
 import HintInput from '@app/ui/molecules/HintInput'
+import FormTest from './FormTest'
 
 const testBoolRadioButtons = [
   {
@@ -119,10 +120,12 @@ const testComboOptions = [
   },
 ]
 
+
 const Test = ({ modal }: WithModalProps) => (
   <Layout>
     <h1 style={{ font: 'var(--title-extra)' }}>components preview page</h1>
     <div style={{ paddingLeft: '5%', textAlign: 'left' }}>
+      <FormTest />
       <Uploader />
       <p>Модалка с подтверждением смс</p>
       <button onClick={() => modal.open(SMS_CONFIRM_MODAL)}>SMS popup</button>

@@ -1,12 +1,16 @@
 .input::-webkit-outer-spin-button,
 .input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 .input[type='number'] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 .label {
   display: block;
   margin-bottom: 8px;
+}
+
+.error.error.error {
+  box-shadow: 0 0 0 1px var(--color-danger);
 }

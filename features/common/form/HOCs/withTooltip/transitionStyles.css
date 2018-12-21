@@ -1,0 +1,41 @@
+.enter,
+.appear {
+  opacity: 0;
+  animation-duration: 0.3s;
+  animation-play-state: paused;
+  animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  animation-fill-mode: both;
+}
+.exit {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+  animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.enter.enterActive,
+.appear.appearActive {
+  animation-name: keyframeIn;
+  animation-play-state: running;
+}
+.exit.exitActive {
+  pointer-events: none;
+  animation-name: keyframeOut;
+  animation-play-state: running;
+}
+
+@keyframes keyframeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes keyframeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
