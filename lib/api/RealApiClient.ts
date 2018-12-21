@@ -3,7 +3,6 @@ import HttpStatus from 'http-status-codes'
 
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
-import Gender from '@app/models/Gender'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 
