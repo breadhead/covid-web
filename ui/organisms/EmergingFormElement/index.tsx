@@ -7,9 +7,9 @@ import * as styles from './EmergingFormElement.css'
 import RadioGroupElement, { radioButtons } from './RadioGroupElement'
 import SwitchElement from './SwitchElement'
 
-export enum controlTypes {
-  switch = 'switch',
-  radiogroup = 'radiogroup',
+export enum ControlTypes {
+  Switch = 'Switch',
+  Radiogroup = 'Radiogroup',
 }
 
 export interface Props {
@@ -67,7 +67,7 @@ class EmergingFormElement extends React.Component<Props, State> {
     return (
       <React.Fragment>
         <div className={cx(styles.EmergingFormControl, className)}>
-          {controlType === controlTypes.switch ? (
+          {controlType === ControlTypes.Switch ? (
             <SwitchElement
               name={name}
               onChange={this.switchChangeHandler}

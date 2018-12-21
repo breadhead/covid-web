@@ -4,13 +4,12 @@ import * as styles from './Claim.css'
 import ClaimForm from '../organisms/ClaimForm'
 
 import Layout from '@app/features/main/layout'
-import { HeaderType } from '@app/features/main/layout/organisms/Header'
 import { FooterType } from '@app/ui/organisms/Footer'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 
 const ClaimPage = () => (
-  <Layout headerType={HeaderType.Secondary} footerType={FooterType.Secondary}>
+  <Layout footerType={FooterType.Secondary}>
     <main className={styles.claimPage}>
       <h1 className={styles.title}>Опишите ситуацию</h1>
       <p className={styles.infoText}>

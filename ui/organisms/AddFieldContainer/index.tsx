@@ -50,7 +50,7 @@ class AddFieldContainer extends React.Component<Props, State> {
   }
 
   private onClick = () => {
-    this.setState((state: { clickCount: number; components: Component[] }) => {
+    this.setState((state: State) => {
       const clickCount = state.clickCount + 1
       return {
         clickCount,

@@ -3,7 +3,7 @@ import * as styles from '../../ClaimForm.css'
 
 import TextArea from '@app/ui/atoms/TextArea'
 import EmergingFormElement, {
-  controlTypes,
+  ControlTypes,
 } from '@app/ui/organisms/EmergingFormElement'
 
 const Common = () => (
@@ -12,7 +12,7 @@ const Common = () => (
     <p className={styles.label}>Есть ли у вас хронические заболевания?</p>
     <EmergingFormElement
       className={styles.emergeField}
-      controlType={controlTypes.radiogroup}
+      controlType={ControlTypes.Radiogroup}
     >
       <TextArea label="Какие у вас хронические заболевания?" name="disease" />
     </EmergingFormElement>
@@ -21,7 +21,7 @@ const Common = () => (
     </p>
     <EmergingFormElement
       className={styles.emergeField}
-      controlType={controlTypes.radiogroup}
+      controlType={ControlTypes.Radiogroup}
     >
       <TextArea
         label="Какие лекарства вы принимаете в данный момент?"
@@ -33,7 +33,7 @@ const Common = () => (
     </p>
     <EmergingFormElement
       className={styles.emergeField}
-      controlType={controlTypes.radiogroup}
+      controlType={ControlTypes.Radiogroup}
     >
       <TextArea
         label="Расскажите кем вам приходится этот родственник и какие у него онкологическое заболевание"

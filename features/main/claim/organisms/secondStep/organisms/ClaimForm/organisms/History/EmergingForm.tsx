@@ -10,7 +10,7 @@ import ComboCity from '@app/ui/organisms/CustomElements/ComboCity'
 import ComboClinic from '@app/ui/organisms/CustomElements/ComboClinic'
 import SelectYears from '@app/ui/organisms/CustomElements/SelectYears'
 import EmergingFormElement, {
-  controlTypes,
+  ControlTypes,
 } from '@app/ui/organisms/EmergingFormElement'
 
 interface Props {
@@ -20,7 +20,7 @@ interface Props {
 const EmergingForm = ({ width }: Props) => (
   <EmergingFormElement
     className={styles.emergeField}
-    controlType={controlTypes.switch}
+    controlType={ControlTypes.Switch}
   >
     <AddFieldContainer
       buttonClassName={styles.addButton}

@@ -1,30 +1,16 @@
 import * as React from 'react'
+import * as styles from './Header.css'
 
-import SecondaryHeader from '@app/features/client/organisms/Header'
-import PrimaryHeader from './organisms/PrimaryHeader'
+import Logo from '@app/ui/atoms/Logo'
+import Menu from './organisms/Menu'
 
-export enum HeaderType {
-  Primary = 'Primary',
-  Secondary = 'Secondary',
-}
-
-export enum HeaderTheme {
-  Default = 'Default',
-  White = 'White',
-}
-
-export interface Props {
-  type?: HeaderType
-  theme?: HeaderTheme
-}
-
-const Header = ({ type = HeaderType.Primary }: Props) => {
-  const componentsMap = {
-    [HeaderType.Primary]: <PrimaryHeader />,
-    [HeaderType.Secondary]: <SecondaryHeader />,
-  }
-
-  return componentsMap[type]
+const Header = () => {
+  return (
+    <header className={styles.header}>
+      <Logo />
+      <Menu />
+    </header>
+  )
 }
 
 export default Header
