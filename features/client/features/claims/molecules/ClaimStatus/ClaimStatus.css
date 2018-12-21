@@ -6,7 +6,7 @@
   row-gap: 16px;
   margin-top: 16px;
 
-  & *:last-child {
+  & *:nth-child(3) {
     grid-column: 1 / 3;
   }
 }
