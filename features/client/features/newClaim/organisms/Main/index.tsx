@@ -9,40 +9,12 @@ import {
   TextArea,
 } from '@app/features/common/form'
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
+import ClaimTarget from '@app/models/Claim/ClaimTarget'
 import NavLink from '@app/ui/atoms/NavLink'
 import { mapEnum, mapString } from '@app/ui/atoms/Select'
 
+import { localizations, themes } from '../../../../values'
 import * as styles from './../ClaimForm/ClaimForm.css'
-
-// ENUM!!
-const forWhos = {
-  1: 'Для себя',
-  2: 'Для близкого человека',
-  3: 'Для подопечного Фонда',
-}
-
-const themes = [
-  'Профилактика / наследственность',
-  'Диагностика / подтверждение диагноза / подозрение на рак',
-  'Лечение / осложнения / впервые установленный диагноз',
-  'Паллиативная помощь / улучшение качества жизни / обезболивание',
-  'Реабилитация',
-  'Другое',
-]
-
-const localizations = [
-  'Опухоли головы и шеи',
-  'Опухоли лёгкого, средостения',
-  'Опухоли желудочно-кишечного тракта',
-  'Опухоли молочной железы',
-  'Опухоли женской половой системы',
-  'Опухоли мочевыводящей системы',
-  'Опухоли мужской половой системы',
-  'Опухоли головного, спинного мозга',
-  'Опухоли кожи, костей и мягких тканей',
-  'Заболевания крови, лимфомы',
-  'Метастазы рака неизвестной локализации',
-]
 
 const Main = () => (
   <article className={styles.article}>
@@ -50,7 +22,7 @@ const Main = () => (
     <p className={styles.label}>Для кого эта консультация</p>
     <Select
       name="target"
-      options={Object.entries(forWhos).map(mapEnum)}
+      options={Object.entries(ClaimTarget).map(mapEnum)}
       placeholder="Выберите консультируемого"
     />
     <p className={styles.label}>Тема вашего вопроса</p>

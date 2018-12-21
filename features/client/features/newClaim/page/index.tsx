@@ -10,9 +10,15 @@ import ProgressBar from '../../progressBar'
 
 export interface Props {
   onFormSubmit: (claimFields: ShortClaimFields) => Promise<void>
+  clientInRussia: boolean
+  onChangeInRussia: (value: boolean) => void
 }
 
-const ClaimPage: React.StatelessComponent<Props> = ({ onFormSubmit }) => {
+const ClaimPage: React.StatelessComponent<Props> = ({
+  onFormSubmit,
+  clientInRussia,
+  onChangeInRussia,
+}) => {
   return (
     <Layout>
       <main className={styles.claimPage}>
@@ -22,7 +28,11 @@ const ClaimPage: React.StatelessComponent<Props> = ({ onFormSubmit }) => {
           Личные данные будут использованы только для{NON_BREAKING_SPACE}
           консультации.
         </p>
-        <ClaimForm onSubmit={onFormSubmit} />
+        <ClaimForm
+          onSubmit={onFormSubmit}
+          clientInRussia={clientInRussia}
+          onChangeInRussia={onChangeInRussia}
+        />
       </main>
     </Layout>
   )

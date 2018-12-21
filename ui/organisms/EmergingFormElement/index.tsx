@@ -53,14 +53,18 @@ class EmergingFormElement extends React.Component<Props, State> {
   }
 
   public render() {
-    const { controlType, children, name } = this.props
+    const { controlType, children, name, defaultVisible } = this.props
     const { isVisible } = this.state
 
     return (
       <React.Fragment>
         <div className={styles.EmergingFormControl}>
           {controlType === controlTypes.switch ? (
-            <SwitchElement name={name} onChange={this.switchChangeHandler} />
+            <SwitchElement
+              name={name}
+              onChange={this.switchChangeHandler}
+              defaultChecked={defaultVisible}
+            />
           ) : (
             <RadioGroupElement
               name={name}

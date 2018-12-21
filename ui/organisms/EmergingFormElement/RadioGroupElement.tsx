@@ -18,9 +18,10 @@ export interface Props {
   name?: string
   onChange?: (evt: RadioChangeEvent) => void
   defaultChecked?: boolean
+  value?: boolean
 }
 
-const SwitchElement = ({ name = '', onChange }: Props) => (
+const SwitchElement = ({ name = '', onChange, value }: Props) => (
   <RadioGroup
     name={name}
     type={RadioGroupType.Bool}

@@ -16,11 +16,28 @@ interface Props {
   createClaim: (request: ShortClaimRequest) => Promise<void>
 }
 
+interface LocalState {
+  clientInRussia: boolean
+}
+
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
-  return class extends React.Component<Props> {
+  return class extends React.Component<Props, LocalState> {
+    public state = {
+      clientInRussia: true,
+    } as LocalState
+
     public render() {
-      return <WrappedComponent onFormSubmit={this.onFormSubmit} />
+      return (
+        <WrappedComponent
+          onFormSubmit={this.onFormSubmit}
+          clientInRussia={this.state.clientInRussia}
+          onChangeInRussia={this.onChangeInRussia}
+        />
+      )
     }
+
+    private onChangeInRussia = (value: boolean) =>
+      this.setState({ clientInRussia: value })
 
     private onFormSubmit = async (claimFields: ShortClaimFields) => {
       const request: ShortClaimRequest = {
