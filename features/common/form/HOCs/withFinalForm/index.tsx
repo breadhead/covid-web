@@ -1,18 +1,58 @@
 import * as React from 'react'
-import { Field } from 'react-final-form'
+import { Field, FieldRenderProps } from 'react-final-form'
+import { Omit } from 'utility-types'
+import { getShouldValidate } from './helpers/getShouldValidate'
+interface OwnProps {
+  name: string
+  type?: string
+  validate?: (value: any, allValues: object) => any
+  validateOnBlur?: boolean
+}
 
-import { Props as InputProps } from '@app/ui/atoms/Input'
+type InputProps = Pick<FieldRenderProps, 'input'>['input']
 
-const withFinalForm = (WrappedComponent: React.ComponentType<InputProps>) => ({
+type WrappedProps = OwnProps & InputProps
+
+const withFinalForm = <T extends WrappedProps>(
+  WrappedComponent: React.ComponentType<T>,
+) => ({
   name,
   type,
+  validate,
+  validateOnBlur,
   ...rest
-}: InputProps) => {
+}: Omit<T, keyof InputProps> & OwnProps) => {
   return (
-    <Field name={name} type={type}>
-      {({ input }) => (
-        <WrappedComponent name={name} type={type} {...input} {...rest} />
-      )}
+    <Field
+      validateOnBlur={validateOnBlur}
+      validate={validate}
+      name={name}
+      type={type}
+    >
+      {(
+        { input, meta }: any, // TODO: remove any and fix type incompatibility
+      ) => {
+        const { touched, pristine, active, submitFailed } = meta
+        const shouldValidate = getShouldValidate({
+          active,
+          submitFailed,
+          touched,
+          pristine,
+        })
+        const error = shouldValidate
+          ? meta.submitError || meta.error
+          : undefined
+
+        return (
+          <WrappedComponent
+            error={error}
+            name={name}
+            type={type}
+            {...input}
+            {...rest}
+          />
+        )
+      }}
     </Field>
   )
 }

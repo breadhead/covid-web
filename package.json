@@ -5,7 +5,7 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "pm2 restart pm2.json",
-    "lint": "yarn lint:code && yarn lint:style",
+    "lint": "yarn lint:code && yarn lint:style && yarn types",
     "lint:code": "tslint -p tsconfig.json -c tslint.json",
     "lint:style": "stylelint './**/*.css' --fix",
     "types": "tsc",
@@ -48,6 +48,7 @@
     "redux-windowsize": "^1.3.1",
     "reselect": "^4.0.0",
     "tsoption": "^0.7.0",
+    "utility-types": "^2.1.0",
     "yup": "^0.26.6"
   },
   "devDependencies": {
