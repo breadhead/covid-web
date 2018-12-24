@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Field } from 'react-final-form'
 
 import SimpleButton, { ButtonType, Props } from '@app/ui/atoms/Button'
 
