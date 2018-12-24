@@ -1,14 +1,4 @@
-import * as React from 'react'
-import { Field } from 'react-final-form'
+import withEnchancers from '@app/features/common/formHOCs/withEnchancers'
+import SimpleRadioGroup, { Props } from '@app/ui/molecules/RadioGroup'
 
-import SimpleRadioGroup, {
-  Props as RadioProps,
-} from '@app/ui/molecules/RadioGroup'
-
-const RadioGroup = ({ name, ...rest }: RadioProps) => (
-  <Field type="radio" name={name}>
-    {({ input }) => <SimpleRadioGroup name={name} {...input} {...rest} />}
-  </Field>
-)
-
-export default RadioGroup
+export default withEnchancers<Props, any>()(SimpleRadioGroup)
