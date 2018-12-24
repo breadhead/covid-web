@@ -5,11 +5,21 @@ import './Checkbox.css?CSSModulesDisable'
 
 interface Props {
   name: string
-  className: string
+  children?: React.ReactNode
+  className?: string
+  labelClassName?: string
 }
 
-const Checkbox = ({ name, className, ...rest }: Props) => (
-  <AntCheckbox name={name} className={className} {...rest} />
+const Checkbox = ({
+  name,
+  className,
+  labelClassName,
+  children,
+  ...rest
+}: Props) => (
+  <AntCheckbox name={name} className={className} {...rest}>
+    {children}
+  </AntCheckbox>
 )
 
 export default Checkbox

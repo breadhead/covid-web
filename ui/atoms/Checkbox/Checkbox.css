@@ -45,3 +45,15 @@
 .ant-checkbox-wrapper.ant-checkbox-wrapper.ant-checkbox-wrapper:hover .ant-checkbox-disabled span.ant-checkbox-inner {
   box-shadow: none;
 }
+
+.ant-checkbox.ant-checkbox + span {
+  padding: 0;
+}
+
+.ant-checkbox.ant-checkbox {
+  margin: 4px 14px 0 0;
+}
+
+.ant-checkbox-wrapper.ant-checkbox-wrapper + .ant-checkbox-wrapper.ant-checkbox-wrapper {
+  margin-left: 0;
+}

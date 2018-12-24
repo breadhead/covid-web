@@ -11,30 +11,34 @@ interface Props {
 const After = ({ styles }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>После лечения</h2>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="diet" />
-      Необходима ли особая диета после лечения?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="restrictions" />
-      Какие существуют ограничения в обыденной жизни?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="symptoms" />
-      На какие симптомы стоит обращать внимание?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="sequence" />
-      Какая последовательность обследований после лечения?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="relapse" />
-      Как мы узнаем о рецидиве болезни? За чем я должен следить?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="tactics" />
-      Какова тактика при рецидиве?
-    </label>
+    <Checkbox className={styles.checkbox} name="after-diet">
+      <span className={styles.checkboxLabel}>
+        Необходима ли особая диета после лечения?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="after-restrictions">
+      <span className={styles.checkboxLabel}>
+        Какие существуют ограничения в обыденной жизни?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="after-symptoms">
+      <span className={styles.checkboxLabel}>
+        На какие симптомы стоит обращать внимание?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="after-sequence">
+      <span className={styles.checkboxLabel}>
+        Какая последовательность обследований после лечения?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="after-relapse">
+      <span className={styles.checkboxLabel}>
+        Как мы узнаем о рецидиве болезни? За чем я должен следить?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="after-tactics">
+      <span className={styles.checkboxLabel}>Какова тактика при рецидиве?</span>
+    </Checkbox>
   </article>
 )
 

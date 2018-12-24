@@ -11,57 +11,67 @@ interface Props {
 const Before = ({ styles }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Перед лечением</h2>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="target" />
-      Какая цель данного лечения?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="ready" />
-      Что необходимо сделать, чтобы быть готовым к лечению?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="period" />
-      Как долго будет проходить лечение?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="sideeffects" />
-      Какие риски и побочные эффекты данного лечения? <br />
-      Есть ли возможность их снизить?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="everydaylife" />
-      Как данное лечение может отразиться на повседневной жизни?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="chance" />
-      Каковы шансы, что опухоль может вернуться (рецидив) при данном типе
-      лечения?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="noeffect" />
-      Что делать, если лечение не даст эффекта или возникнет рецидив?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="children" />
-      Смогу ли я иметь детей после данного лечения? <br />
-      Смогу ли я заниматься сексом после этого лечения?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="futurechildren" />
-      Что необходимо сделать, если я хочу иметь детей в будущем?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="symptoms" />О каких симптомах
-      или побочных эффектах мне нужно знать прямо сейчас?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="restrictions" />
-      Какие существуют ограничения в обыденной жизни?
-    </label>
-    <label className={styles.label}>
-      <Checkbox className={styles.checkbox} name="diet" />
-      Необходимо ли изменить свой рацион питания?
-    </label>
+    <Checkbox className={styles.checkbox} name="before-target">
+      <span className={styles.checkboxLabel}>Какая цель данного лечения?</span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="before-ready">
+      <span className={styles.checkboxLabel}>
+        Что необходимо сделать, чтобы быть готовым к лечению?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="before-period">
+      <span className={styles.checkboxLabel}>
+        Как долго будет проходить лечение?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="before-sideeffects">
+      <span className={styles.checkboxLabel}>
+        Какие риски и побочные эффекты данного лечения? <br />
+        Есть ли возможность их снизить?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="before-everydaylife">
+      <span className={styles.checkboxLabel}>
+        Как данное лечение может отразиться на повседневной жизни?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="before-chance">
+      <span className={styles.checkboxLabel}>
+        Каковы шансы, что опухоль может вернуться (рецидив) при данном типе
+        лечения?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="before-noeffect">
+      <span className={styles.checkboxLabel}>
+        Что делать, если лечение не даст эффекта или возникнет рецидив?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="before-children">
+      <span className={styles.checkboxLabel}>
+        Смогу ли я иметь детей после данного лечения? <br />
+        Смогу ли я заниматься сексом после этого лечения?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="before-futurechildren">
+      <span className={styles.checkboxLabel}>
+        Что необходимо сделать, если я хочу иметь детей в будущем?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="before-symptoms">
+      <span className={styles.checkboxLabel}>
+        О каких симптомах или побочных эффектах мне нужно знать прямо сейчас?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="before-restrictions">
+      <span className={styles.checkboxLabel}>
+        Какие существуют ограничения в обыденной жизни?
+      </span>
+    </Checkbox>
+    <Checkbox className={styles.checkbox} name="before-diet">
+      <span className={styles.checkboxLabel}>
+        Необходимо ли изменить свой рацион питания?
+      </span>
+    </Checkbox>
   </article>
 )
 
