@@ -8,6 +8,7 @@ import * as styles from './Uploader.css'
 
 interface Props {
   onUploaded?: (url: string) => void
+  id?: string
 }
 
 interface State {
@@ -24,11 +25,12 @@ class Uploader extends React.Component<Props, State> {
   private fileInput: React.RefObject<HTMLInputElement> = React.createRef()
 
   public render() {
+    const { id } = this.props
     const { path } = this.state
 
     return (
       <div className={styles.container}>
-        <input type="file" ref={this.fileInput} />
+        <input type="file" ref={this.fileInput} id={id} />
         <Button onClick={this.onClick} type={ButtonType.Button}>
           Загрузить
         </Button>

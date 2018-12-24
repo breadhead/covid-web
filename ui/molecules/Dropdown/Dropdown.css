@@ -8,8 +8,10 @@
 
 .dropdown {
   position: relative;
+
   &:hover .menu,
   &:focus .menu {
+    z-index: 2;
     display: flex;
   }
 

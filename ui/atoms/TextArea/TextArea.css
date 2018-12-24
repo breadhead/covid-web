@@ -1,6 +1,5 @@
 .textarea.textarea {
   box-sizing: border-box;
-  max-width: 480px;
   min-height: 60px;
   font: var(--text16-24);
   color: #151833;
@@ -14,4 +13,9 @@
   &:focus {
     box-shadow: 0 0 0 2px var(--color-primary);
   }
+}
+
+.textareaLabel {
+  z-index: 1;
+  margin-bottom: 8px;
 }

@@ -1,5 +1,4 @@
 .ant-select {
-  min-width: 240px;
   border-radius: 4px;
   box-shadow: 0 0 0 1px #d9d9d9;
 }
@@ -97,4 +96,9 @@
 .not-found {
   font: var(--text14-20);
   color: #82839B;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
 }
