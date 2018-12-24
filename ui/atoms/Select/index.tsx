@@ -1,8 +1,6 @@
 import { Select as AntSelect } from 'antd'
 import { LabeledValue, SelectProps } from 'antd/lib/select'
-import cx from 'classnames'
 import * as React from 'react'
-import * as styles from './Select.css'
 
 import './Select.css?CSSModulesDisable'
 

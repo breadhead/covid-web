@@ -2,6 +2,7 @@ import cx from 'classnames'
 import * as React from 'react'
 
 import { Input, RadioGroup, Select } from '@app/features/common/form'
+import { Validator } from '@app/features/common/formHOCs/withFinalForm/helpers/validator'
 import { StylesType } from '@app/lib/config'
 import Gender from '@app/models/Gender'
 import { InputType } from '@app/ui/atoms/Input'
@@ -23,6 +24,7 @@ interface Props {
   clientInRussia: boolean
   onChangeInRussia: (value: boolean) => void
   styles: StylesType
+  validator: Validator
 }
 
 const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
