@@ -4,11 +4,14 @@ import * as styles from './WaitingAnswer.css'
 import Layout from '@app/features/main/layout'
 import { FooterType } from '@app/ui/organisms/Footer'
 
+import ProgressBar from '@app/features/client/features/progressBar/organisms/ProgressBar'
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
+import { progressBarSteps } from './config'
 
 const WaitingAnswer = () => (
   <Layout footerType={FooterType.Secondary}>
     <section className={styles.waitingAnswer}>
+      <ProgressBar className={styles.progressBar} steps={progressBarSteps} />
       <img
         className={styles.logo}
         src="http://placecorgi.com/160/176"
