@@ -4,6 +4,7 @@ import * as styles from './Consultation.css'
 
 import IconCustom from '@app/ui/atoms/IconCustom'
 import Layout from '../../organisms/Layout'
+import AnswerNotification from './organisms/AnswerNotification'
 import Company from './organisms/Company'
 
 const Consultation = () => (
@@ -18,6 +19,7 @@ const Consultation = () => (
         </div>
       </header>
       <Company />
+      <AnswerNotification />
     </section>
   </Layout>
 )
