@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
-
 import Layout from '../Layout'
 import * as styles from './Layout.css'
 
