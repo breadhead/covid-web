@@ -75,7 +75,7 @@ const Main = ({ styles }: Props) => (
         className={cx(styles.label, styles.emergingLabel)}
       >
         Ваша должность и департамент компании.{SPACE}
-        <span className={styles.sectondaryText}>
+        <span className={styles.secondaryText}>
           Если у вас есть кодовое слово от работодателя, также укажите его
           здесь.
         </span>

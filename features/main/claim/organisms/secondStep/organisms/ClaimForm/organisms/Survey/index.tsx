@@ -20,7 +20,7 @@ const Survey = ({ styles }: Props) => (
       ссылки на них.
     </p>
     <h3 className={styles.subtitle}>Актуальные анализы крови</h3>
-    <p className={styles.sectondaryText}>
+    <p className={styles.secondaryText}>
       Не более чем 10-дневной давности, скан или фото, если есть
     </p>
     <label htmlFor="blood" className={styles.labelSmall}>
@@ -29,7 +29,7 @@ const Survey = ({ styles }: Props) => (
     <Uploader id="blood" />
 
     <h3 className={styles.subtitle}>КТ или МРТ исследования</h3>
-    <p className={styles.sectondaryText}>
+    <p className={styles.secondaryText}>
       Прикрепите архивом папку DICOM с компакт-диска с исследованием. Если
       исследований было несколько, то пришлите крайнее.
     </p>
