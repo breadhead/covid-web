@@ -22,7 +22,7 @@
 .secondaryText {
   margin: 0 0 24px 0;
   font: var(--text14-20);
-  color: #82839B;
+  color: #82839b;
 }
 
 .link.link {
@@ -36,7 +36,7 @@
 }
 
 .input {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .mainButton.mainButton {

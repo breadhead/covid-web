@@ -1,15 +1,16 @@
 import * as React from 'react'
 import * as styles from './SignIn.css'
 
-import NavLink from '@app/ui/atoms/NavLink'
-
 import Button from '@app/features/common/form/components/Button'
 import Form from '@app/features/common/form/components/Form'
 import Input from '@app/features/common/form/components/Input'
+import { validator } from '@app/features/common/formHOCs/withFinalForm'
 import Footer from '@app/features/login/organisms/Footer'
 import { SPACE } from '@app/lib/config'
 import { ButtonType } from '@app/ui/atoms/Button'
 import { InputType } from '@app/ui/atoms/Input'
+import NavLink from '@app/ui/atoms/NavLink'
+import { schema } from '../../container'
 
 interface Props {
   onFormSubmit: () => Promise<any>
@@ -32,13 +33,15 @@ const SignIn = ({ onFormSubmit }: Props) => (
           className={styles.input}
           name="login"
           label={'Логин (email)'}
-          type={InputType.Email}
+          type={InputType.Text}
+          validate={(value: any) => validator(value, schema.login)}
         />
         <Input
           className={styles.input}
           name="password"
           label={'Пароль'}
           type={InputType.Password}
+          validate={(value: any) => validator(value, schema.password)}
         />
 
         <NavLink href="#" className={styles.link}>

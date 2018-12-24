@@ -1,13 +1,12 @@
-import { Form, Input as EnchancedInput } from '@app/features/common/form/index'
+import { Form, Input as EnchancedInput } from '@app/features/common/form'
+import { validator } from '@app/features/common/formHOCs/withFinalForm'
 import * as React from 'react'
 import * as yup from 'yup'
 
-const schema = yup.object().shape({
-  firstName: yup
-    .string()
-    .min(2, 'Минимум 2 символа')
-    .required('Обязательное поле'),
-})
+const testSchema = yup
+  .string()
+  .min(2, 'Минимум 2 символа')
+  .required('Обязательное поле')
 
 class FormTest extends React.Component {
   public render() {
@@ -19,15 +18,13 @@ class FormTest extends React.Component {
       >
         <button type="submit">click</button>
         <EnchancedInput
-          validateOnBlur
-          validate={(value: string) => {
-            try {
-              schema.validateSync({ firstName: value })
-            } catch (error) {
-              return error.message
-            }
-          }}
-          name="firstName"
+          validate={(value: string) => validator(value, testSchema)}
+          name="firstsName"
+          type="text"
+        />
+        <EnchancedInput
+          validate={(value: string) => validator(value, testSchema)}
+          name="second"
           type="text"
         />
       </Form>

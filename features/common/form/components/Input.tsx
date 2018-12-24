@@ -1,7 +1,7 @@
 import { compose } from 'recompose'
 
-import withFinalForm from '../HOCs/withFinalForm'
-import withTooltip from '../HOCs/withTooltip'
+import withFinalForm from '@app/features/common/formHOCs/withFinalForm'
+import withTooltip from '@app/features/common/formHOCs/withTooltip'
 
 import SimpleInput, { Props } from '@app/ui/atoms/Input'
 

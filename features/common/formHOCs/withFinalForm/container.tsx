@@ -19,7 +19,7 @@ const withFinalForm = <T extends WrappedProps>(
   name,
   type,
   validate,
-  validateOnBlur,
+  validateOnBlur = true,
   ...rest
 }: Omit<T, keyof InputProps> & OwnProps) => {
   return (
