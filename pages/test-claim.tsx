@@ -1,10 +1,10 @@
 import React from 'react'
 
-import ClaimPage from '@app/features/main/claim/organisms/thirdStep/page'
+import WaitingAnswer from '@app/features/main/claim/organisms/waitingAnswer'
 
 class TestClaim extends React.Component {
   public render() {
-    return <ClaimPage />
+    return <WaitingAnswer />
   }
 }
 
