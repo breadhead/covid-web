@@ -1,10 +1,10 @@
 import React from 'react'
 
-import WaitingAnswer from '@app/features/main/claim/organisms/waitingAnswer'
+import Consultation from '@app/features/client/features/consultation'
 
 class TestClaim extends React.Component {
   public render() {
-    return <WaitingAnswer />
+    return <Consultation />
   }
 }
 

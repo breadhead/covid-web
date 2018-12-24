@@ -1,0 +1,13 @@
+.company {
+  display: flex;
+}
+
+.logo {
+  margin-right: 16px;
+}
+
+.text {
+  max-width: 250px;
+  font: var(--text14-20);
+  color: var( --text-color-secondary);
+}

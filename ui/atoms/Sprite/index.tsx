@@ -157,12 +157,7 @@ const Sprite = () => (
           fill="var(--text-primary)"
         />
       </symbol>
-      <symbol
-        width="24"
-        height="24"
-        id="24x24_download_light"
-        viewBox="0 0 24 24"
-      >
+      <symbol width="24" height="24" id="download_light" viewBox="0 0 24 24">
         <g fill="var(--color-default)">
           <path d="M2 13a1 1 0 0 1 2 0v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6a1 1 0 0 1 2 0v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-6z" />
           <path d="M11 14.59V3a1 1 0 0 1 2 0v11.59l2.3-2.3a1 1 0 0 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.42l2.3 2.3z" />
@@ -242,7 +237,7 @@ const Sprite = () => (
           fill="var(--text-color-secondary)"
         />
       </symbol>
-      <symbol width="24" height="24" id="24x24_print_light" viewBox="0 0 24 24">
+      <symbol width="24" height="24" id="print_light" viewBox="0 0 24 24">
         <path
           d="M19 18v3a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-3H2a1 1 0 0 1-1-1v-7a3 3 0 0 1 3-3h1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v4h1a3 3 0 0 1 3 3v7a1 1 0 0 1-1 1h-3zm0-2h2v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6h2v-2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v2zM7 7h10V4H7v3zm0 8v5h10v-5H7z"
           fill="var(--color-default)"

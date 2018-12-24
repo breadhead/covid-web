@@ -1,0 +1,26 @@
+.title {
+  margin: 0 16px 0 0;
+  font: var(--title-regular);
+}
+
+.number {
+  font: var(--title-bold);
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.icons {
+  margin-left: auto;
+}
+
+.icon {
+  margin-right: 32px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
