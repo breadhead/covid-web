@@ -20,29 +20,22 @@ interface OwnProps {
   type?: InputType
   label?: string
   defaultValue?: string
-  wrapperClassName?: string
+  className?: string
 }
 
 export type Props = OwnProps & InputProps
 
-const Input = ({
-  name,
-  type,
-  label,
-  error,
-  wrapperClassName,
-  ...rest
-}: Props) => (
-  <div className={wrapperClassName}>
+const Input = ({ name, type, label, error, className, ...rest }: Props) => (
+  <div className={className}>
     {label && (
       <label className={styles.label} htmlFor={name}>
         {label}
       </label>
     )}
     <AntInput
-      className={cx(styles.input, error && styles.error)}
       id={name}
       type={type}
+      className={cx(styles.input, error && styles.error)}
       {...rest}
     />
   </div>
