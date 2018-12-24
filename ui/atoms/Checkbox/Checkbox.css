@@ -1,11 +1,16 @@
-/* Checked */
+.ant-checkbox-inner.ant-checkbox-inner {
+  width: 21px;
+  height: 21px;
+  transition: border-color 0.2s ease; 
+}
+
 .ant-checkbox-checked.ant-checkbox-checked .ant-checkbox-inner {
   background-color: var(--color-primary) !important;
-  border-width: 1px;
+  border-width: 2px;
 }
 
 .ant-checkbox-wrapper:hover .ant-checkbox-inner {
-  box-shadow: inner 0px 0px 0px 2px var(--color-primary);
+  border-width: 2px;
 }
 
 .ant-checkbox-checked:after {
@@ -37,8 +42,7 @@
 .ant-checkbox-wrapper.ant-checkbox-wrapper:hover .ant-checkbox-inner,
 .ant-checkbox.ant-checkbox:hover .ant-checkbox-inner,
 .ant-checkbox-input.ant-checkbox-input:focus + .ant-checkbox-inner {
-  border-width: 1px;
-  box-shadow: 0px 0px 0px 1px var(--color-primary);
+  border-width: 2px;
 }
 
 
@@ -56,4 +60,8 @@
 
 .ant-checkbox-wrapper.ant-checkbox-wrapper + .ant-checkbox-wrapper.ant-checkbox-wrapper {
   margin-left: 0;
+}
+
+.ant-checkbox-input.ant-checkbox-input:focus + .ant-checkbox-inner {
+  border-width: 2px;
 }

@@ -7,17 +7,25 @@ interface Props {
   name: string
   children?: React.ReactNode
   className?: string
-  labelClassName?: string
+  defaultChecked?: boolean
+  disabled?: boolean
 }
 
 const Checkbox = ({
   name,
   className,
-  labelClassName,
   children,
+  defaultChecked,
+  disabled,
   ...rest
 }: Props) => (
-  <AntCheckbox name={name} className={className} {...rest}>
+  <AntCheckbox
+    name={name}
+    className={className}
+    defaultChecked={defaultChecked}
+    disabled={disabled}
+    {...rest}
+  >
     {children}
   </AntCheckbox>
 )
