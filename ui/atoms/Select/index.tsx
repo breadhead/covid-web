@@ -7,16 +7,17 @@ import './Select.css?CSSModulesDisable'
 const Option = AntSelect.Option
 
 interface OwnProps {
+  name: string
   options: LabeledValue[]
   label?: string
 }
 
 export type Props = OwnProps & SelectProps
 
-const Select = ({ label, options, ...rest }: Props) => (
+const Select = ({ name, options, label, ...rest }: Props) => (
   <>
     {label && <label htmlFor={name}>{label}</label>}
-    <AntSelect {...rest}>
+    <AntSelect id={name} {...rest}>
       {options.map(option => (
         <Option key={option.key} value={option.key}>
           {option.label}

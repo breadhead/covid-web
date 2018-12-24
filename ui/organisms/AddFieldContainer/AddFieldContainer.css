@@ -1,0 +1,5 @@
+.icon {
+  display: inline-block;
+  margin-right: 8px;
+  fill: var(--color-primary);
+}
