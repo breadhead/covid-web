@@ -13,7 +13,9 @@ import ClaimTarget from '@app/models/Claim/ClaimTarget'
 import NavLink from '@app/ui/atoms/NavLink'
 import { mapEnum, mapString } from '@app/ui/atoms/Select'
 
+import { validator } from '@app/features/common/formHOCs/withFinalForm'
 import { localizations, themes } from '../../../../values'
+import { schema } from './schema'
 
 interface Props {
   styles: StylesType
@@ -26,6 +28,7 @@ const Main = ({ styles }: Props) => (
       Для кого эта консультация
     </label>
     <Select
+      validate={(value: string) => validator(value, schema.target)}
       name="target"
       options={Object.entries(ClaimTarget).map(mapEnum)}
       placeholder="Выберите консультируемого"
@@ -34,6 +37,7 @@ const Main = ({ styles }: Props) => (
       Тема вашего вопроса
     </label>
     <Select
+      validate={(value: string) => validator(value, schema.theme)}
       name="theme"
       options={themes.map(mapString)}
       placeholder="Выберите тему"
@@ -41,7 +45,11 @@ const Main = ({ styles }: Props) => (
     <label htmlFor="diagnosis" className={styles.label}>
       У вас есть установленный врачом онкологический диагноз?
     </label>
-    <EmergingFormElement controlType="radiogroup" name="diagnosis">
+    <EmergingFormElement
+      validate={(value: string) => validator(value, schema.diagnosis)}
+      controlType="radiogroup"
+      name="diagnosis"
+    >
       <label
         htmlFor="localization"
         className={cx(styles.label, styles.emergingLabel)}

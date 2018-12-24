@@ -7,7 +7,6 @@ import ClaimForm, { ShortClaimFields } from '../organisms/ClaimForm'
 import * as styles from './Claim.css'
 
 import ProgressBar from '../../progressBar'
-
 export interface Props {
   onFormSubmit: (claimFields: ShortClaimFields) => Promise<void>
   clientInRussia: boolean

@@ -1,16 +1,7 @@
-import * as React from 'react'
-import { Field } from 'react-final-form'
+import withEnchancers from '@app/features/common/formHOCs/withEnchancers'
 
 import SimpleEmergingFormElement, {
-  Props as EmergingProps,
+  Props,
 } from '@app/ui/organisms/EmergingFormElement'
 
-const EmergingFormElement = ({ name, ...rest }: EmergingProps) => (
-  <Field name={name}>
-    {({ input }) => (
-      <SimpleEmergingFormElement name={name} {...input} {...rest} />
-    )}
-  </Field>
-)
-
-export default EmergingFormElement
+export default withEnchancers<Props, any>()(SimpleEmergingFormElement)
