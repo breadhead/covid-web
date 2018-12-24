@@ -20,7 +20,7 @@ const SendSms = ({ success, send }: Props) => (
       type={InputType.Number}
       label="Номер вашего телефона"
       defaultValue="+7"
-      wrapperClassName={styles.inputWrapper}
+      className={styles.inputWrapper}
       required
     />
     <div className={styles.blockGettingCode}>

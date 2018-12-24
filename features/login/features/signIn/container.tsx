@@ -6,7 +6,7 @@ import { login } from './actions'
 
 import { isModal } from '@app/features/common/modal'
 import * as yup from 'yup'
-import { getLoginError } from './selectors'
+import { getViolateState } from './selectors'
 
 export const MODAL_KEY = 'sign-in'
 
@@ -18,18 +18,19 @@ export interface Credentials {
 interface Props {
   login: (credentials: Credentials) => any
   onFormSubmit: () => Promise<any>
+  violateState?: boolean
 }
 
-const schema = yup.object().shape({
+export const schema = {
+  login: yup
+    .string()
+    .email('Введите email')
+    .required('Обязательное поле'),
   password: yup
     .string()
     .min(3, 'Пароль должен быть длиннее 2 символов')
     .required('Пароль должен быть длиннее 2 символов'),
-  login: yup
-    .string()
-    .min(3, 'Логин должен быть длиннее 2 символов')
-    .required('Логин должен быть длиннее 2 символов'),
-})
+}
 
 const Container = (WrappedComponent: React.ComponentType<Props>) => {
   return class extends React.Component<Props> {
@@ -39,19 +40,21 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
       )
     }
 
-    private onFormSubmit = (credentials: Credentials) => {
-      try {
-        schema.validateSync(credentials)
-        return this.props.login(credentials)
-      } catch (props) {
-        return { [props.path]: props.message }
+    private onFormSubmit = async (credentials: Credentials) => {
+      await this.props.login(credentials)
+      const { violateState } = this.props
+      if (violateState) {
+        return {
+          login: 'Неверный логин или пароль',
+          password: 'Неверный логин или пароль',
+        }
       }
     }
   }
 }
 
 const mapState = (state: State) => ({
-  error: getLoginError(state),
+  violateState: getViolateState(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
