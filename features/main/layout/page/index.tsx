@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import * as styles from './Page.css'
+
 import Footer, { FooterTheme, FooterType } from '@app/ui/organisms/Footer'
 
 import Header from '../organisms/Header'
@@ -22,14 +24,7 @@ class Layout extends React.Component<Props> {
     return (
       <React.Fragment>
         <Header />
-        <main
-          style={{
-            textAlign: 'center',
-            backgroundColor: 'white',
-          }}
-        >
-          {children}
-        </main>
+        <main className={styles.Main}>{children}</main>
         <Footer type={footerType} theme={footerTheme} />
       </React.Fragment>
     )

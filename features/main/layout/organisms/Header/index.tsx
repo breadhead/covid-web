@@ -6,10 +6,12 @@ import Menu from './organisms/Menu'
 
 const Header = () => {
   return (
-    <header className={styles.header}>
-      <Logo />
-      <Menu />
-    </header>
+    <div className={styles.headerWrapper}>
+      <header className={styles.header}>
+        <Logo />
+        <Menu />
+      </header>
+    </div>
   )
 }
 

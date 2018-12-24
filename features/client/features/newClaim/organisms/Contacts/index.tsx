@@ -35,7 +35,7 @@ const Contacts = ({
     <h2 className={styles.title}>Контактные данные</h2>
     <label htmlFor="name" className={styles.label}>
       Как к вам обращаться?
-      <span className={styles.sectondaryText}>
+      <span className={styles.secondaryText}>
         {' '}
         Вы можете не указывать свою фамилию, если не хотите
       </span>
@@ -101,7 +101,7 @@ const Contacts = ({
     />
     <label htmlFor="email" className={styles.label}>
       Электронная почта.
-      <span className={styles.sectondaryText}>
+      <span className={styles.secondaryText}>
         {' '}
         Будем присылать вам уведомления о ходе консультации.
       </span>
@@ -115,7 +115,7 @@ const Contacts = ({
 
     <p className={styles.label}>
       Можем ли мы позвонить вам по телефону в случае необходимости?
-      <span className={styles.sectondaryText}>
+      <span className={styles.secondaryText}>
         {' '}
         Так эксперту будет быстрее и проще уточнить у вас информацию при
         необходимости и предоставить более полный ответ.

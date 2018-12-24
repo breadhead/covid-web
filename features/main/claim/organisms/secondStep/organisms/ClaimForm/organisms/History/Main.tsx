@@ -49,7 +49,7 @@ const Main = ({ width, styles }: Props) => (
     <Input name="doctor" />
     <label htmlFor="procedures" className={styles.label}>
       Как вас лечил врач в этой клинике?
-      <span className={styles.sectondaryText}>
+      <span className={styles.secondaryText}>
         {SPACE}Уточните все лекарства и{NON_BREAKING_SPACE}процедуры
       </span>
     </label>
@@ -57,7 +57,7 @@ const Main = ({ width, styles }: Props) => (
 
     <p className={styles.label}>
       Вы лечились ещё где-нибудь?
-      <span className={styles.sectondaryText}>
+      <span className={styles.secondaryText}>
         {SPACE}В том числе нетрадиционные методы лечения
       </span>
     </p>

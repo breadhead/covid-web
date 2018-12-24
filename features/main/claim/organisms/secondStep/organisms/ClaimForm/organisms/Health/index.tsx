@@ -13,7 +13,7 @@ const Health = ({ styles }: Props) => (
     <h2 className={styles.title}>Ваше самочувствие</h2>
     <label htmlFor="common" className={styles.label}>
       Общее самочувствие.
-      <span className={styles.sectondaryText}>
+      <span className={styles.secondaryText}>
         {SPACE}Можете ли ходить, самостоятельно питаться, обслуживать себя?
       </span>
     </label>
@@ -26,7 +26,7 @@ const Health = ({ styles }: Props) => (
 
     <label htmlFor="common" className={styles.label}>
       Жалобы.
-      <span className={styles.sectondaryText}>
+      <span className={styles.secondaryText}>
         {SPACE}Если есть боли, недомогания, то какие? Когда начались, как долго
         длятся, с чем они по-вашему связаны?
         <br />

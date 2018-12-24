@@ -44,7 +44,9 @@ const StepPointer = ({ step, index, className }: Props) => {
 
   return (
     <div className={className}>
-      <p className={styles.title}>{title}</p>
+      <p className={cx(styles.title, disabled && styles.titleDisabled)}>
+        {title}
+      </p>
       <div className={currentClassName} onClick={clickHandler}>
         {currentContent}
       </div>

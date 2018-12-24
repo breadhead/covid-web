@@ -62,7 +62,7 @@ const EmergingForm = ({ width, styles }: Props) => (
       </div>
       <label htmlFor="choose-procedures" className={styles.label}>
         Как вас лечил врач в этой клинике?
-        <span className={styles.sectondaryText}>
+        <span className={styles.secondaryText}>
           {SPACE}Уточните все лекарства и{NON_BREAKING_SPACE}процедуры
         </span>
       </label>
