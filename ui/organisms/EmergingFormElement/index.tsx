@@ -21,7 +21,6 @@ export interface Props {
   children?: React.ReactNode
   value?: boolean
   onChange?: (value: boolean) => void
-  tooltip: React.ReactNode
 }
 
 interface State {
@@ -64,7 +63,6 @@ class EmergingFormElement extends React.Component<Props, State> {
       className,
       defaultVisible,
       defaultValue,
-      tooltip,
     } = this.props
     const { isVisible } = this.state
 
