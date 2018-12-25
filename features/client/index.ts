@@ -12,6 +12,11 @@ import {
   State as NewClaimState,
 } from './features/newClaim'
 
+export {
+  Step2Page as ClaimStep2,
+  Step3Page as ClaimStep3,
+} from './features/editClaim'
+
 export interface State {
   claims: ClaimsState
   newClaim: NewClaimState
