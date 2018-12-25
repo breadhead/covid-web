@@ -14,17 +14,15 @@ import ClaimTarget from '@app/models/Claim/ClaimTarget'
 import NavLink from '@app/ui/atoms/NavLink'
 import { mapEnum, mapString } from '@app/ui/atoms/Select'
 
-import { Validator } from '@app/features/common/formHOCs/withFinalForm'
 import { RadioButtonsValue } from '@app/ui/organisms/EmergingFormElement/RadioGroupElement'
 import { localizations, themes } from '../../../../values'
 import { schema } from './schema'
 
 interface Props {
   styles: StylesType
-  validator: Validator
 }
 
-const Main = ({ styles, validator }: Props) => (
+const Main = ({ styles }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Кратко о теме консультации</h2>
     <label htmlFor="target" className={styles.label}>
@@ -32,7 +30,7 @@ const Main = ({ styles, validator }: Props) => (
     </label>
     <Select
       className={styles.field}
-      validate={(value: string) => validator(value, schema.target)}
+      validate={schema.target}
       name="target"
       options={Object.entries(ClaimTarget).map(mapEnum)}
       placeholder="Выберите консультируемого"
@@ -42,7 +40,7 @@ const Main = ({ styles, validator }: Props) => (
     </label>
     <Select
       className={styles.field}
-      validate={(value: string) => validator(value, schema.theme)}
+      validate={schema.theme}
       name="theme"
       options={themes.map(mapString)}
       placeholder="Выберите тему"
@@ -52,7 +50,7 @@ const Main = ({ styles, validator }: Props) => (
     </label>
     <EmergingFormElement
       className={styles.field}
-      validate={(value: string) => validator(value, schema.diagnosis)}
+      validate={schema.diagnosis}
       controlType={EmergingControlTypes.Radiogroup}
       name="diagnosis"
     >
@@ -63,7 +61,7 @@ const Main = ({ styles, validator }: Props) => (
         Локализация
       </label>
       <ComboBox
-        validate={(value: string) => validator(value, schema.localization)}
+        validate={schema.localization}
         name="localization"
         options={localizations.map(mapString)}
         placeholder="Выберите локализацию"
@@ -79,7 +77,7 @@ const Main = ({ styles, validator }: Props) => (
     </p>
     <EmergingFormElement
       defaultValue={RadioButtonsValue.No}
-      validate={(value: string) => validator(value, schema.corporate)}
+      validate={schema.corporate}
       controlType={EmergingControlTypes.Switch}
       name="corporate"
     >
@@ -91,7 +89,7 @@ const Main = ({ styles, validator }: Props) => (
       </label>
       <Input
         className={styles.field}
-        validate={(value: string) => validator(value, schema.companyName)}
+        validate={schema.companyName}
         name="companyName"
       />
       <label
@@ -104,10 +102,7 @@ const Main = ({ styles, validator }: Props) => (
           здесь.
         </span>
       </label>
-      <TextArea
-        validate={(value: string) => validator(value, schema.companyPosition)}
-        name="companyPosition"
-      />
+      <TextArea validate={schema.companyPosition} name="companyPosition" />
     </EmergingFormElement>
   </article>
 )

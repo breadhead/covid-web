@@ -2,7 +2,7 @@ import cx from 'classnames'
 import * as React from 'react'
 
 import { Input, RadioGroup, Select } from '@app/features/common/form'
-import { Validator } from '@app/features/common/formHOCs/withFinalForm'
+
 import { StylesType } from '@app/lib/config'
 import Gender from '@app/models/Gender'
 import { InputType } from '@app/ui/atoms/Input'
@@ -23,14 +23,8 @@ interface Props {
   clientInRussia: boolean
   onChangeInRussia: (value: boolean) => void
   styles: StylesType
-  validator: Validator
 }
-const Contacts = ({
-  clientInRussia,
-  onChangeInRussia,
-  styles,
-  validator,
-}: Props) => (
+const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Контактные данные</h2>
     <label htmlFor="name" className={styles.label}>
@@ -40,11 +34,7 @@ const Contacts = ({
         Вы можете не указывать свою фамилию, если не хотите
       </span>
     </label>
-    <Input
-      className={styles.field}
-      validate={(value: string) => validator(value, schema.name)}
-      name="name"
-    />
+    <Input className={styles.field} validate={schema.name} name="name" />
 
     <label htmlFor="russia" className={styles.label}>
       Вы живете в России?
@@ -63,7 +53,7 @@ const Contacts = ({
         </label>
         <Select
           className={styles.field}
-          validate={(value: string) => validator(value, schema.regions)}
+          validate={schema.regions}
           name="region"
           options={regions.map(mapString)}
           placeholder="Выберите регион"
@@ -78,7 +68,7 @@ const Contacts = ({
         </label>
         <Select
           className={styles.field}
-          validate={(value: string) => validator(value, schema.countries)}
+          validate={schema.countries}
           name="region"
           options={countries.map(mapString)}
           placeholder="Выберите страну"
@@ -91,7 +81,7 @@ const Contacts = ({
     </label>
     <Input
       className={styles.field}
-      validate={(value: string) => validator(value, schema.age)}
+      validate={schema.age}
       name="age"
       type={InputType.Number}
     />
@@ -100,7 +90,7 @@ const Contacts = ({
     </label>
     <RadioGroup
       className={styles.field}
-      validate={(value: boolean) => validator(value, schema.gender)}
+      validate={schema.gender}
       name="gender"
       type={RadioGroupType.Bool}
       buttons={genderRadioGroup}
@@ -114,7 +104,7 @@ const Contacts = ({
     </label>
     <Input
       className={styles.field}
-      validate={(value: string) => validator(value, schema.email)}
+      validate={schema.email}
       name="email"
       type={InputType.Email}
       placeholder="konstantinopolsky@gmail.com"

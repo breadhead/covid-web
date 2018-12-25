@@ -4,7 +4,6 @@ import * as styles from './SignIn.css'
 import Button from '@app/features/common/form/components/Button'
 import Form from '@app/features/common/form/components/Form'
 import Input from '@app/features/common/form/components/Input'
-import { validator } from '@app/features/common/formHOCs/withFinalForm'
 import Footer from '@app/features/login/organisms/Footer'
 import { SPACE } from '@app/lib/config'
 import { ButtonType } from '@app/ui/atoms/Button'
@@ -34,14 +33,14 @@ const SignIn = ({ onFormSubmit }: Props) => (
           name="login"
           label={'Логин (email)'}
           type={InputType.Text}
-          validate={(value: any) => validator(value, schema.login)}
+          validate={schema.login}
         />
         <Input
           className={styles.input}
           name="password"
           label={'Пароль'}
           type={InputType.Password}
-          validate={(value: any) => validator(value, schema.password)}
+          validate={schema.password}
         />
 
         <NavLink href="#" className={styles.link}>

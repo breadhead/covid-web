@@ -6,7 +6,6 @@ import ShortClaimRequest from '@app/lib/api/request/ShortClaimRequest'
 import { State } from '@app/lib/store'
 import ClaimTarget from '@app/models/Claim/ClaimTarget'
 
-import { validator } from '@app/features/common/formHOCs/withFinalForm'
 import { createClaim } from './actions'
 import { ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
@@ -29,7 +28,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     public render() {
       return (
         <WrappedComponent
-          validator={validator}
           onFormSubmit={this.onFormSubmit}
           clientInRussia={this.state.clientInRussia}
           onChangeInRussia={this.onChangeInRussia}
