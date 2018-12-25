@@ -1,6 +1,7 @@
 .answerNotification {
   display: flex;
   padding: 28px;
+  margin: 0 auto 24px auto;
   background-color: #fff;
   border-top: 3px solid var(--color-highlight);
   box-shadow: 0 0 4px 0 rgba(63,63,68,0.04), 0 0 16px 0 rgba(63,63,68,0.12);
@@ -10,8 +11,10 @@
   font: var(--title-small);
 }
 
-.text {
-  color: var(--text-color-secondary); 
+.text { 
+  margin: 0;
+  margin-bottom: 20px;
+  color: var(--text-color-secondary);
 }
 
 .logo {

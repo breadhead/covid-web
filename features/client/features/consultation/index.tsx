@@ -6,6 +6,7 @@ import IconCustom from '@app/ui/atoms/IconCustom'
 import Layout from '../../organisms/Layout'
 import AnswerNotification from './organisms/AnswerNotification'
 import Company from './organisms/Company'
+import Theme from './organisms/Theme'
 
 const Consultation = () => (
   <Layout>
@@ -20,6 +21,7 @@ const Consultation = () => (
       </header>
       <Company />
       <AnswerNotification />
+      <Theme />
     </section>
   </Layout>
 )
