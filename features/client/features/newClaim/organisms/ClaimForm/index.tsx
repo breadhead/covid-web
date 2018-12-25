@@ -7,7 +7,7 @@ import Contacts from './../Contacts'
 import Footer from './../Footer'
 import Main from './../Main'
 
-import { Validator } from '@app/features/common/formHOCs/withFinalForm/helpers/validator'
+import { Validator } from '@app/features/common/formHOCs/withFinalForm'
 import * as styles from './ClaimForm.css'
 
 export interface ShortClaimFields {
