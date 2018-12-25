@@ -1,4 +1,7 @@
 import * as React from 'react'
+import * as customStyles from './Digest.css'
+
+import cx from 'classnames'
 
 import { StylesType } from '@app/lib/config'
 
@@ -7,7 +10,7 @@ interface Props {
 }
 
 const Digest = ({ styles }: Props) => (
-  <article className={styles.article}>
+  <article className={cx(styles.article, customStyles.digest)}>
     <h2 className={styles.title}>Кратко о теме консультации</h2>
     <div className={styles.content}>
       <div className={styles.common}>

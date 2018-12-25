@@ -13,25 +13,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 48px 0;
-
-  &:first-of-type {
-    padding-top: 0;
-  }
-
-  &::after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    box-sizing: content-box;
-    display: block;
-    width: 100%;
-    height: 1px;
-    padding: 0 120px;
-    margin: 0 -120px;
-    content: '';
-    background-color: rgba(21,24,51,0.12);
-  }
+  padding-bottom: 48px;
 }
 
 .content {
@@ -41,6 +23,10 @@
 
 .infoBlock {
   margin: 0 0 24px 0;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 .subtitle {
