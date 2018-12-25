@@ -12,10 +12,10 @@ const ClaimForm = () => {
   return (
     <Form onSubmit={() => ({})} className={styles.ClaimForm}>
       <Common validator={validator} styles={styles} />
-      {/* <Health validator={validator} styles={styles} />
+      <Health validator={validator} styles={styles} />
       <History validator={validator} styles={styles} />
       <Survey validator={validator} styles={styles} />
-      <Footer validator={validator} styles={styles} /> */}
+      <Footer validator={validator} styles={styles} />
       <button type="submit">submit</button>
     </Form>
   )
