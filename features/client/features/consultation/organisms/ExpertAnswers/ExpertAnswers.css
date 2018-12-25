@@ -1,5 +1,6 @@
 .expertAnswers {
   padding: 48px 120px 64px;
+  margin-bottom: 64px;
   background-color: #fff;
   border-top: 3px solid var(--color-highlight);
 }

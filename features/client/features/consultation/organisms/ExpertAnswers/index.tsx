@@ -22,10 +22,10 @@ const ExpertAnswers = ({ answers }: Props) => (
     <section className={styles.expertAnswers}>
       {answers.map(answer => {
         const articles = answer.articles.map(article => (
-          <>
+          <div key={article.question}>
             <p className={styles.question}>{article.question}</p>
             <p className={styles.answer}>{article.answer}</p>
-          </>
+          </div>
         ))
         return (
           <article key={answer.title} className={styles.article}>
