@@ -1,0 +1,180 @@
+.ClaimForm {
+  position: relative;
+  max-width: 800px;
+  padding: 0 0 40px 0;
+  margin: 0 auto;
+  text-align: left;
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(21,24,51,0.2);
+
+  @media (max-width: 767px) {
+    padding: 0 0 32px 0;    
+  }
+}
+
+.title {
+  margin: 0 0 24px 0;
+  font: var(--title-medium);
+
+  @media (max-width: 767px) {
+    margin: 0 0 8px 0;    
+  }
+}
+
+.subtitle {
+  margin: 40px 0 8px 0;
+  font: var(--title-small);
+
+  @media (max-width: 767px) {
+    margin: 32px 0 8px 0;    
+  }
+}
+
+.article {
+  position: relative;
+  padding: 48px 160px 56px 160px;
+  font: var(--text16-24);
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    content: '';
+    background-color: rgba(21,24,51,0.12);
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  & .button.button {
+    width: 480px;
+    max-width: 480px;
+    margin: 0 auto;
+    margin-bottom: 104px;
+    font: var(--text18-28);
+
+  @media (max-width: 767px) {
+    width: 100%;
+    max-width: 328px;
+    margin-bottom: 96px;
+  }
+}
+
+  @media (max-width: 767px) {
+    padding: 32px 16px 40px 16px;
+  }
+
+}
+
+.label {
+  z-index: 1;
+  display: block;
+  margin: 24px 0 8px 0;
+  line-height: 1.5;
+  color: #151833;
+}
+
+.labelSmall {
+  display: block;
+  margin: 16px 0 8px 0;
+}
+
+.checkboxLabel {
+  margin: 24px 0 8px 0;
+  color: #151833;
+}
+
+.emergingLabel {
+  z-index: 1;
+  margin-top: 0;
+}
+
+.secondaryText {
+  margin: 0;
+  color: #82839B;
+}
+
+.historyComboContainer {
+  display: flex;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.historyComboWrapper.historyComboWrapper {
+  margin-right: 16px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  @media (max-width: 767px) {
+    flex-basis: 50%;
+  }
+}
+
+.historyCombo {
+  width: 232px;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.historyComboSingle {
+  width: 100%;
+}
+
+.addButton.addButton.addButton {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  max-width: none;
+  padding: 8px 16px;
+  margin-top: 40px;
+}
+
+.text {
+  margin: 0;
+}
+
+.icon {
+  display: inline-block;
+  margin-right: 8px;
+  fill: var(--color-primary);
+}
+
+.iconBack {
+  margin-right: 4px;
+  fill: var(--color-primary);
+  transform: rotate(180deg);
+}
+
+.footerBack {
+  display: flex;
+  align-items: center;
+}
+
+.emergeField {
+
+  & .label:first-child {
+    margin-top: 0;
+  }
+
+  &:last-of-type {
+    margin: 0;
+  }
+}
+
+.checkbox.checkbox {
+  display: flex;
+  margin: 24px 0 8px 0;
+}
