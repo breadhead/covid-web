@@ -41,6 +41,7 @@ const Contacts = ({
       </span>
     </label>
     <Input
+      className={styles.field}
       validate={(value: string) => validator(value, schema.name)}
       name="name"
     />
@@ -49,6 +50,7 @@ const Contacts = ({
       Вы живете в России?
     </label>
     <Switch
+      className={styles.field}
       name="russia"
       onChange={onChangeInRussia}
       checked={clientInRussia}
@@ -60,6 +62,7 @@ const Contacts = ({
           Регион проживания
         </label>
         <Select
+          className={styles.field}
           validate={(value: string) => validator(value, schema.regions)}
           name="region"
           options={regions.map(mapString)}
@@ -74,6 +77,7 @@ const Contacts = ({
           Страна проживания
         </label>
         <Select
+          className={styles.field}
           validate={(value: string) => validator(value, schema.countries)}
           name="region"
           options={countries.map(mapString)}
@@ -86,6 +90,7 @@ const Contacts = ({
       Возраст (полных лет)
     </label>
     <Input
+      className={styles.field}
       validate={(value: string) => validator(value, schema.age)}
       name="age"
       type={InputType.Number}
@@ -94,6 +99,7 @@ const Contacts = ({
       Пол
     </label>
     <RadioGroup
+      className={styles.field}
       validate={(value: boolean) => validator(value, schema.gender)}
       name="gender"
       type={RadioGroupType.Bool}
@@ -107,6 +113,7 @@ const Contacts = ({
       </span>
     </label>
     <Input
+      className={styles.field}
       validate={(value: string) => validator(value, schema.email)}
       name="email"
       type={InputType.Email}
@@ -122,6 +129,7 @@ const Contacts = ({
       </span>
     </p>
     <EmergingFormElement
+      className={styles.field}
       controlType="radiogroup"
       defaultVisible={true}
       defaultValue={RadioButtonsValue.Yes}
