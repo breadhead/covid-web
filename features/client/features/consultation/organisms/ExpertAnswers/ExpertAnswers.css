@@ -1,0 +1,38 @@
+.expertAnswers {
+  padding: 48px 120px 64px;
+  background-color: #fff;
+  border-top: 3px solid var(--color-highlight);
+}
+
+.answer {
+  padding: 12px 16px;
+  margin: 0 0 24px 0;
+  background-color: #F7F6F2;
+  border-radius: 16px;
+}
+
+.article {
+  margin-bottom: 48px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+    & .answer:last-of-type {
+        margin: 0;
+      }
+  }
+}
+
+.mainTitle {
+  margin: 0 0 24px 0;
+  font: var(--title-regular);
+}
+
+.title {
+  margin: 0 0 24px 0;
+  font: var(--title-medium);
+}
+
+.question {
+  margin: 0 0 8px 0;
+  font: var(--title-bold);
+}
