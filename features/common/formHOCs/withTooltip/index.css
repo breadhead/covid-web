@@ -1,8 +1,3 @@
-.wrapper {
-  position: relative;
-  transition: height 0.3s ease;
-}
-
 .error {
   margin-top: 4px;
   font: var(--text14-20);

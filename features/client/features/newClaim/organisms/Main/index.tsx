@@ -30,6 +30,7 @@ const Main = ({ styles, validator }: Props) => (
       Для кого эта консультация
     </label>
     <Select
+      className={styles.field}
       validate={(value: string) => validator(value, schema.target)}
       name="target"
       options={Object.entries(ClaimTarget).map(mapEnum)}
@@ -39,6 +40,7 @@ const Main = ({ styles, validator }: Props) => (
       Тема вашего вопроса
     </label>
     <Select
+      className={styles.field}
       validate={(value: string) => validator(value, schema.theme)}
       name="theme"
       options={themes.map(mapString)}
@@ -48,6 +50,7 @@ const Main = ({ styles, validator }: Props) => (
       У вас есть установленный врачом онкологический диагноз?
     </label>
     <EmergingFormElement
+      className={styles.field}
       validate={(value: string) => validator(value, schema.diagnosis)}
       controlType="radiogroup"
       name="diagnosis"
@@ -86,6 +89,7 @@ const Main = ({ styles, validator }: Props) => (
         Название компании-работодателя
       </label>
       <Input
+        className={styles.field}
         validate={(value: string) => validator(value, schema.companyName)}
         name="companyName"
       />

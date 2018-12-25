@@ -2,7 +2,7 @@ import { Select as AntSelect } from 'antd'
 import { LabeledValue, SelectProps } from 'antd/lib/select'
 import * as React from 'react'
 
-import './Select.css?CSSModulesDisable'
+import './SelectGlobal.css?CSSModulesDisable'
 
 const Option = AntSelect.Option
 
@@ -11,12 +11,13 @@ interface OwnProps {
   options: LabeledValue[]
   label?: string
   error?: string
+  className?: string
 }
 
 export type Props = OwnProps & SelectProps
 
-const Select = ({ name, options, label, error, ...rest }: Props) => (
-  <div>
+const Select = ({ name, options, label, error, className, ...rest }: Props) => (
+  <div className={className}>
     {label && <label htmlFor={name}>{label}</label>}
     <AntSelect id={name} {...rest} className={error && 'error'}>
       {options.map(option => (
