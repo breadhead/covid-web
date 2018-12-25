@@ -4,16 +4,14 @@ import * as styles from './Theme.css'
 
 import Digest from './components/Digest'
 import Footer from './components/Footer'
-import Health from './components/Health'
-import History from './components/History'
-import MedInfo from './components/MedInfo'
+import Info from './components/Info'
+
+import { Data } from './components/Info/config'
 
 const Theme = () => (
   <section className={styles.theme}>
     <Digest styles={styles} />
-    <MedInfo styles={styles} />
-    <Health styles={styles} />
-    <History styles={styles} />
+    <Info data={Data} styles={styles} />
     <Footer />
   </section>
 )

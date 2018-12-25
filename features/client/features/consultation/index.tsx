@@ -7,6 +7,7 @@ import Layout from '../../organisms/Layout'
 import AnswerNotification from './organisms/AnswerNotification'
 import Company from './organisms/Company'
 import ExpertAnswers from './organisms/ExpertAnswers'
+import { Answers } from './organisms/ExpertAnswers/config'
 import Theme from './organisms/Theme'
 
 const Consultation = () => (
@@ -23,7 +24,7 @@ const Consultation = () => (
       <Company />
       <AnswerNotification />
       <Theme />
-      <ExpertAnswers />
+      <ExpertAnswers answers={Answers} />
     </section>
   </Layout>
 )
