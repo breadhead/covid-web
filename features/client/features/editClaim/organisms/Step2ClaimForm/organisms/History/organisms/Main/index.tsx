@@ -4,8 +4,6 @@ import * as React from 'react'
 import {
   ComboCity,
   ComboClinic,
-  EmergingControlTypes,
-  EmergingFormElement,
   Input,
   SelectMonths,
   SelectYears,

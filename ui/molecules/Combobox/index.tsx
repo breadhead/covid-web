@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { Select as AntSelect } from 'antd'
 import { LabeledValue, OptionProps, SelectProps } from 'antd/lib/select'
+import cx from 'classnames'
 
 import { toString } from 'lodash'
 
@@ -18,6 +19,7 @@ interface OwnProps {
   label?: string
   wrapperClassName?: string
   selectClassName?: string
+  error?: string
 }
 
 type Option = React.ReactElement<OptionProps>
@@ -43,6 +45,7 @@ class Combobox extends React.Component<Props> {
       selectClassName,
       options,
       label,
+      error,
       ...rest
     } = this.props
 
@@ -56,7 +59,6 @@ class Combobox extends React.Component<Props> {
           </label>
         )}
         <AntSelect
-          className={selectClassName}
           id={name}
           showSearch
           onSearch={this.onInputKeyDown}
@@ -64,6 +66,7 @@ class Combobox extends React.Component<Props> {
           notFoundContent={<div className="not-found">{NOT_FOUND_TEXT}</div>}
           filterOption={this.filterOptions}
           {...rest}
+          className={error && 'error'}
         >
           <OptGroup label={currentHint}>
             {options.map(option => (

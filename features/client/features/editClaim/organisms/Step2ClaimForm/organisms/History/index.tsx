@@ -5,7 +5,7 @@ import withWindowSize from '@app/features/common/windowSize/withWindowSize'
 
 import { Validator } from '@app/features/common/formHOCs/withFinalForm'
 import { StylesType } from '@app/lib/config'
-import EmergingForm from './EmergingForm'
+import EmergingForm from './organisms/EmergingForm'
 import Main from './organisms/Main'
 
 interface Props {
