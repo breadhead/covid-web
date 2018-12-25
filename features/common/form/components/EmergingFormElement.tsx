@@ -5,3 +5,5 @@ import SimpleEmergingFormElement, {
 } from '@app/ui/organisms/EmergingFormElement'
 
 export default withEnchancers<Props, any>()(SimpleEmergingFormElement)
+
+export { ControlTypes } from '@app/ui/organisms/EmergingFormElement'

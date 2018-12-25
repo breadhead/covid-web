@@ -2,24 +2,29 @@ import cx from 'classnames'
 import * as React from 'react'
 
 import {
+  ComboCity,
+  ComboClinic,
+  Input,
+  SelectMonths,
+  SelectYears,
+  TextArea,
+} from '@app/features/common/form'
+import { Validator } from '@app/features/common/formHOCs/withFinalForm'
+import {
   MOBILE_WIDTH,
   NON_BREAKING_SPACE,
   SPACE,
   StylesType,
 } from '@app/lib/config'
-import Input from '@app/ui/atoms/Input'
-import TextArea from '@app/ui/atoms/TextArea'
-import ComboCity from '@app/ui/organisms/CustomElements/ComboCity'
-import ComboClinic from '@app/ui/organisms/CustomElements/ComboClinic'
-import SelectMonths from '@app/ui/organisms/CustomElements/SelectMonths'
-import SelectYears from '@app/ui/organisms/CustomElements/SelectYears'
+import { schema } from './schema'
 
 interface Props {
   width: number
   styles: StylesType
+  validator: Validator
 }
 
-const Main = ({ width, styles }: Props) => (
+const Main = ({ width, styles, validator }: Props) => (
   <>
     <h2 className={styles.title}>История болезни</h2>
     <p className={styles.label}>
@@ -27,11 +32,13 @@ const Main = ({ width, styles }: Props) => (
     </p>
     <div className={styles.historyComboContainer}>
       <SelectMonths
+        validate={(value: string) => validator(value, schema['diagnos-month'])}
         name="diagnos-month"
         isMobile={width < MOBILE_WIDTH}
         className={cx(styles.historyCombo, styles.historyComboWrapper)}
       />
       <SelectYears
+        validate={(value: string) => validator(value, schema['diagnos-year'])}
         name="diagnos-year"
         isMobile={width < MOBILE_WIDTH}
         className={cx(styles.historyCombo, styles.historyComboWrapper)}

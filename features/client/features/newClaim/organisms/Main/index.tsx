@@ -3,6 +3,7 @@ import * as React from 'react'
 
 import {
   ComboBox,
+  EmergingControlTypes,
   EmergingFormElement,
   Input,
   Select,
@@ -13,7 +14,7 @@ import ClaimTarget from '@app/models/Claim/ClaimTarget'
 import NavLink from '@app/ui/atoms/NavLink'
 import { mapEnum, mapString } from '@app/ui/atoms/Select'
 
-import { Validator } from '@app/features/common/formHOCs/withFinalForm/helpers/validator'
+import { Validator } from '@app/features/common/formHOCs/withFinalForm'
 import { RadioButtonsValue } from '@app/ui/organisms/EmergingFormElement/RadioGroupElement'
 import { localizations, themes } from '../../../../values'
 import { schema } from './schema'
@@ -52,7 +53,7 @@ const Main = ({ styles, validator }: Props) => (
     <EmergingFormElement
       className={styles.field}
       validate={(value: string) => validator(value, schema.diagnosis)}
-      controlType="radiogroup"
+      controlType={EmergingControlTypes.Radiogroup}
       name="diagnosis"
     >
       <label
@@ -79,7 +80,7 @@ const Main = ({ styles, validator }: Props) => (
     <EmergingFormElement
       defaultValue={RadioButtonsValue.No}
       validate={(value: string) => validator(value, schema.corporate)}
-      controlType="switch"
+      controlType={EmergingControlTypes.Switch}
       name="corporate"
     >
       <label

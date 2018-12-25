@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import { Validator } from '@app/features/common/formHOCs/withFinalForm'
 import Uploader from '@app/features/common/uploader'
 import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
 import Input from '@app/ui/atoms/Input'
@@ -7,6 +8,7 @@ import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
 
 interface Props {
   styles: StylesType
+  validator: Validator
 }
 
 const Survey = ({ styles }: Props) => (

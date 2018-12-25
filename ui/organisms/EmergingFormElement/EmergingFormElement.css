@@ -5,7 +5,7 @@
   justify-content: center;
   width: 100%;
   padding: 24px 0 32px 0;
-  margin-top: 24px;
+  margin-top: 24px !important;
   margin-bottom: 24px;
   background-color: #f7f7f9;
 

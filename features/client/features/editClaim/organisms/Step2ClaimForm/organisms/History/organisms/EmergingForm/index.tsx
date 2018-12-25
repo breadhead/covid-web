@@ -2,30 +2,35 @@ import cx from 'classnames'
 import * as React from 'react'
 
 import {
+  ComboCity,
+  ComboClinic,
+  EmergingControlTypes,
+  EmergingFormElement,
+  Input,
+  SelectYears,
+  TextArea,
+} from '@app/features/common/form'
+import { Validator } from '@app/features/common/formHOCs/withFinalForm'
+import {
   MOBILE_WIDTH,
   NON_BREAKING_SPACE,
   SPACE,
   StylesType,
 } from '@app/lib/config'
-import Input from '@app/ui/atoms/Input'
-import TextArea from '@app/ui/atoms/TextArea'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
-import ComboCity from '@app/ui/organisms/CustomElements/ComboCity'
-import ComboClinic from '@app/ui/organisms/CustomElements/ComboClinic'
-import SelectYears from '@app/ui/organisms/CustomElements/SelectYears'
-import EmergingFormElement, {
-  ControlTypes,
-} from '@app/ui/organisms/EmergingFormElement'
+import { schema } from './schema'
 
 interface Props {
   width: number
   styles: StylesType
+  validator: Validator
 }
 
-const EmergingForm = ({ width, styles }: Props) => (
+const EmergingForm = ({ width, styles, validator }: Props) => (
   <EmergingFormElement
+    name="emergingForm"
     className={styles.emergeField}
-    controlType={ControlTypes.Switch}
+    controlType={EmergingControlTypes.Switch}
   >
     <AddFieldContainer
       buttonClassName={styles.addButton}
@@ -38,7 +43,11 @@ const EmergingForm = ({ width, styles }: Props) => (
       <label htmlFor="choose-city" className={styles.label}>
         В каком городе?
       </label>
-      <ComboCity className={styles.historyComboSingle} name="choose-city" />
+      <ComboCity
+        validate={(value: string) => validator(value, schema['choose-city'])}
+        className={styles.historyComboSingle}
+        name="choose-city"
+      />
       <label htmlFor="choose-clinic" className={styles.label}>
         Название клиники
       </label>
@@ -66,7 +75,12 @@ const EmergingForm = ({ width, styles }: Props) => (
           {SPACE}Уточните все лекарства и{NON_BREAKING_SPACE}процедуры
         </span>
       </label>
-      <TextArea name="choose-procedures" />
+      <TextArea
+        validate={(value: string) =>
+          validator(value, schema['choose-procedures'])
+        }
+        name="choose-procedures"
+      />
     </AddFieldContainer>
   </EmergingFormElement>
 )
