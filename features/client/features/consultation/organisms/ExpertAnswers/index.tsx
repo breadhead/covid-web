@@ -4,6 +4,8 @@ import * as styles from './ExpertAnswers.css'
 
 import { Answers } from './config'
 
+import Footer from './components/Footer'
+
 interface Answer {
   title: string
   articles: Array<{
@@ -34,6 +36,7 @@ const ExpertAnswers = ({ answers }: Props) => (
           </article>
         )
       })}
+      <Footer />
     </section>
   </>
 )
