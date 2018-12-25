@@ -27,7 +27,6 @@ const Health = ({ styles }: Props) => (
           Иногда болит спина.
         </p>
       </div>
-
       <div className={styles.infoBlock}>
         <h3 className={styles.subtitle}>Жалобы</h3>
         <p className={styles.text}>
