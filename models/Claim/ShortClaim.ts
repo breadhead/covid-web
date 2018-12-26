@@ -22,4 +22,5 @@ export interface ShortClaim {
   theme: string
   company?: CompanyData
   target: ClaimTarget
+  quotaAllocated: boolean
 }

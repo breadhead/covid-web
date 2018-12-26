@@ -1,18 +1,17 @@
+import Router from 'next/router'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 
 import ShortClaimRequest from '@app/lib/api/request/ShortClaimRequest'
-import { State } from '@app/lib/store'
 import ClaimTarget from '@app/models/Claim/ClaimTarget'
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
 
 import { createClaim } from './actions'
 import { ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
-import { getCreatedId } from './selectors'
 interface Props {
-  createdId?: string
-  createClaim: (request: ShortClaimRequest) => Promise<void>
+  createClaim: (request: ShortClaimRequest) => Promise<ShortClaim>
 }
 
 interface LocalState {
@@ -54,7 +53,16 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
         company: this.createCompanyRequest(claimFields),
       }
 
-      await this.props.createClaim(request)
+      const { id, quotaAllocated, personalData } = await this.props.createClaim(
+        request,
+      )
+      const { email } = personalData
+
+      if (quotaAllocated) {
+        Router.push(`/client/claim/${id}/situation`)
+      } else if (email) {
+        Router.push(`/client/claim/wait/${encodeURIComponent(email)}`)
+      }
     }
 
     private createCompanyRequest = (fields: ShortClaimFields) => {
@@ -68,10 +76,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
   }
 }
 
-const mapState = (state: State) => ({
-  createdId: getCreatedId(state),
-})
-
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
   createClaim: (claimRequest: ShortClaimRequest) =>
     dispatch(createClaim(claimRequest) as any),
@@ -79,7 +83,7 @@ const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
 
 export default compose(
   connect(
-    mapState,
+    null,
     mapDipatch,
   ),
   Container,
