@@ -1,3 +1,4 @@
+import Router from 'next/router'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
@@ -10,9 +11,11 @@ import { validator } from '@app/features/common/formHOCs/withFinalForm'
 import { createClaim } from './actions'
 import { ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
-import { getCreatedId } from './selectors'
+import { getCreatedId, getQuotaAllocated } from './selectors'
 interface Props {
   createdId?: string
+  quotaAllocated: boolean
+  email?: string
   createClaim: (request: ShortClaimRequest) => Promise<void>
 }
 
@@ -41,6 +44,8 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       this.setState({ clientInRussia: value })
 
     private onFormSubmit = async (claimFields: ShortClaimFields) => {
+      const { createdId, quotaAllocated } = this.props
+
       const request: ShortClaimRequest = {
         target: claimFields.target as ClaimTarget,
         personalData: {
@@ -57,6 +62,14 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       }
 
       await this.props.createClaim(request)
+
+      if (quotaAllocated && createdId) {
+        Router.push(`/client/claim/${createdId}/situation`)
+      } else if (claimFields.email) {
+        Router.push(
+          `/client/claim/wait/${encodeURIComponent(claimFields.email)}`,
+        )
+      }
     }
 
     private createCompanyRequest = (fields: ShortClaimFields) => {
@@ -72,6 +85,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
 
 const mapState = (state: State) => ({
   createdId: getCreatedId(state),
+  quotaAllocated: getQuotaAllocated(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
