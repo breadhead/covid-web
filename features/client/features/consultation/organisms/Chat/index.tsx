@@ -18,7 +18,7 @@ const Chat = ({ messages }: Prop) => (
     <div className={styles.messageWrapper}>
       <div className={styles.chatWrapper}>
         {messages.map(message => (
-          <Message key={message.text.length} message={message} />
+          <Message key={message.id} message={message} />
         ))}
       </div>
     </div>
