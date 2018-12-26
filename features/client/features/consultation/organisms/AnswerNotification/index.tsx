@@ -9,7 +9,7 @@ const AnswerNotification = () => (
   <article className={styles.answerNotification}>
     <img
       className={styles.logo}
-      src="http://placecorgi.com/72/64"
+      src="http://placecorgi.com/72/72"
       alt="экспертка"
     />
     <div>
