@@ -5,7 +5,7 @@
     font: var(--text14-20);
   }
 
-  @media (max-width: 767px) {    
+  @media (--smallDown) {    
     flex-direction: column;
     font: var(--text12-16);
 
@@ -17,19 +17,19 @@
 
 .copyright {
   padding-right: 24px;
-  color: #616681;
+  color: var(--text-color-secondary);
 
-  @media (max-width: 767px) { 
+  @media (--smallDown) { 
     padding-right: 12px;
   }
 }
 
 .secondaryText {
-  color: #616681;
+  color: var(--text-color-secondary);
 }
 
 .oncohelp {
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     margin-bottom: 12px;
   }
 }

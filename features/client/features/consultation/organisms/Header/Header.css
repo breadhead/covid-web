@@ -3,7 +3,7 @@
   align-items: baseline;
   margin-bottom: 16px;
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     padding: 0 16px 16px;
     margin: 0;
   }
@@ -31,7 +31,7 @@
 }
 
 .printButton {
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     display: none;
   }
 }

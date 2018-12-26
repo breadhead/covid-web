@@ -17,7 +17,7 @@
   height: 100%;
   padding: 16px;
   overflow-y: auto;
-  background-color: #FAF9F7;
+  background-color: var(--background-color);
 }
 
 .input {

@@ -15,12 +15,12 @@
     content: '';
     background-color: rgba(21,24,51,0.12);
 
-    @media (max-width: 767px) {
+    @media (--smallDown) {
       bottom: 32px;
     }
   }
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     padding-bottom: 64px;
   }
 }

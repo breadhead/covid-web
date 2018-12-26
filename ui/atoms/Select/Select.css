@@ -77,7 +77,7 @@
 }
 
 .ant-select-disabled .ant-select-selection {
-  color: #B3B4C8;
+  color: var(--color-default);
   background-color: #EFEFF4;
 }
 

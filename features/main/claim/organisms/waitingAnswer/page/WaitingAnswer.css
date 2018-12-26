@@ -2,7 +2,7 @@
   padding: 48px 0 120px 0;
   background-color: #fff;
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     padding: 24px 16px 80px 16px;
   }
 }
@@ -15,7 +15,7 @@
   margin-bottom: 28px;
   font: var(--title-medium);
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     margin-bottom: 16px;
   }
 }
@@ -28,7 +28,7 @@
 .progressBar.progressBar {
   margin-bottom: 36px;
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     width: 272px;
   }
 }
