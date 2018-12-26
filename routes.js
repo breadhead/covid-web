@@ -3,7 +3,6 @@ const nextRoutes = require('next-routes')
 module.exports = nextRoutes()
   // main routes
   .add('test', '/test', 'main-test')
-  .add('test-claim', '/test-claim', 'test-claim')
   .add('manager', '/manager', 'main-manager')
   .add('doctor', '/doctor', 'main-doctor')
   // landing
