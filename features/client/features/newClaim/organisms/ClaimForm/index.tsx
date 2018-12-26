@@ -7,7 +7,6 @@ import Contacts from './../Contacts'
 import Footer from './../Footer'
 import Main from './../Main'
 
-import { Validator } from '@app/features/common/formHOCs/withFinalForm'
 import * as styles from './ClaimForm.css'
 
 export interface ShortClaimFields {
@@ -42,7 +41,6 @@ interface Props {
   initial?: Partial<ShortClaimFields>
   clientInRussia: boolean
   onChangeInRussia: (value: boolean) => void
-  validator: Validator
 }
 
 const ClaimForm = ({
@@ -50,7 +48,6 @@ const ClaimForm = ({
   initial,
   clientInRussia,
   onChangeInRussia,
-  validator,
 }: Props) => {
   return (
     <Form
@@ -58,9 +55,8 @@ const ClaimForm = ({
       className={styles.ClaimForm}
       initialValues={initial || getDefaultInitial(clientInRussia)}
     >
-      <Main validator={validator} styles={styles} />
+      <Main styles={styles} />
       <Contacts
-        validator={validator}
         clientInRussia={clientInRussia}
         onChangeInRussia={onChangeInRussia}
         styles={styles}
