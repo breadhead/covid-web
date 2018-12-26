@@ -21,6 +21,7 @@ module.exports = nextRoutes()
     '/client/claim/:id/questions',
     'client/edit-claim-step-3',
   )
+  .add('client-quota-waiting', '/client/claim/wait', 'client/quota-waiting')
   // admin
   .add('admin-home', '/admin', 'admin/quotas')
   .add('admin-transfer', '/admin/transfer', 'admin/transfer')
