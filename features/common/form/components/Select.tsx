@@ -1,18 +1,5 @@
-import * as React from 'react'
-import { Field } from 'react-final-form'
+import withEnchancers from '@app/features/common/formHOCs/withEnchancers'
+import SimpleSelect, { Props } from '@app/ui/atoms/Select'
 
-import SimpleSelect, { Props as SelectProps } from '@app/ui/atoms/Select'
-
-interface OwnProps {
-  name: string
-}
-
-type Props = OwnProps & SelectProps
-
-const Select = ({ name, ...rest }: Props) => (
-  <Field name={name}>
-    {({ input }) => <SimpleSelect {...input} {...rest} />}
-  </Field>
-)
-
-export default Select
+export default withEnchancers<Props, any>()(SimpleSelect)
+// TODO: replace any with real props

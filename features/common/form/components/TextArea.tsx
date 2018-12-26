@@ -1,12 +1,5 @@
-import * as React from 'react'
-import { Field } from 'react-final-form'
+import withEnchancers from '@app/features/common/formHOCs/withEnchancers'
 
-import SimpleTextArea, { Props as AreaProps } from '@app/ui/atoms/TextArea'
+import SimpleTextArea, { Props } from '@app/ui/atoms/TextArea'
 
-const TextArea = ({ name, ...rest }: AreaProps) => (
-  <Field name={name} type="textarea">
-    {({ input }) => <SimpleTextArea name={name} {...input} {...rest} />}
-  </Field>
-)
-
-export default TextArea
+export default withEnchancers<Props, any>()(SimpleTextArea)

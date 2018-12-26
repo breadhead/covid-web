@@ -1,5 +1,4 @@
 import { Form, Input as EnchancedInput } from '@app/features/common/form'
-import { validator } from '@app/features/common/formHOCs/withFinalForm'
 import * as React from 'react'
 import * as yup from 'yup'
 
@@ -17,16 +16,8 @@ class FormTest extends React.Component {
         }}
       >
         <button type="submit">click</button>
-        <EnchancedInput
-          validate={(value: string) => validator(value, testSchema)}
-          name="firstsName"
-          type="text"
-        />
-        <EnchancedInput
-          validate={(value: string) => validator(value, testSchema)}
-          name="second"
-          type="text"
-        />
+        <EnchancedInput validate={testSchema} name="firstsName" type="text" />
+        <EnchancedInput validate={testSchema} name="second" type="text" />
       </Form>
     )
   }

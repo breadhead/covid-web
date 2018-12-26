@@ -2,6 +2,7 @@ import cx from 'classnames'
 import * as React from 'react'
 
 import { Input, RadioGroup, Select } from '@app/features/common/form'
+
 import { StylesType } from '@app/lib/config'
 import Gender from '@app/models/Gender'
 import { InputType } from '@app/ui/atoms/Input'
@@ -10,21 +11,19 @@ import Switch from '@app/ui/atoms/Switch'
 import { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
 import { RadioButtonsValue } from '@app/ui/organisms/EmergingFormElement/RadioGroupElement'
+import { countries, regions } from './config'
+import { schema } from './schema'
 
 const genderRadioGroup = Object.entries(Gender).map(([id, value]) => ({
   id,
   value,
 }))
 
-const regions = ['Москва', 'Томск']
-const countries = ['Украина', 'Болгария']
-
 interface Props {
   clientInRussia: boolean
   onChangeInRussia: (value: boolean) => void
   styles: StylesType
 }
-
 const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Контактные данные</h2>
@@ -35,12 +34,13 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
         Вы можете не указывать свою фамилию, если не хотите
       </span>
     </label>
-    <Input name="name" />
+    <Input className={styles.field} validate={schema.name} name="name" />
 
     <label htmlFor="russia" className={styles.label}>
       Вы живете в России?
     </label>
     <Switch
+      className={styles.field}
       name="russia"
       onChange={onChangeInRussia}
       checked={clientInRussia}
@@ -52,6 +52,8 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
           Регион проживания
         </label>
         <Select
+          className={styles.field}
+          validate={schema.regions}
           name="region"
           options={regions.map(mapString)}
           placeholder="Выберите регион"
@@ -65,6 +67,8 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
           Страна проживания
         </label>
         <Select
+          className={styles.field}
+          validate={schema.countries}
           name="region"
           options={countries.map(mapString)}
           placeholder="Выберите страну"
@@ -75,11 +79,18 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
     <label htmlFor="age" className={styles.label}>
       Возраст (полных лет)
     </label>
-    <Input name="age" type={InputType.Number} />
+    <Input
+      className={styles.field}
+      validate={schema.age}
+      name="age"
+      type={InputType.Number}
+    />
     <label htmlFor="gender" className={styles.label}>
       Пол
     </label>
     <RadioGroup
+      className={styles.field}
+      validate={schema.gender}
       name="gender"
       type={RadioGroupType.Bool}
       buttons={genderRadioGroup}
@@ -92,6 +103,8 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
       </span>
     </label>
     <Input
+      className={styles.field}
+      validate={schema.email}
       name="email"
       type={InputType.Email}
       placeholder="konstantinopolsky@gmail.com"
@@ -106,6 +119,7 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
       </span>
     </p>
     <EmergingFormElement
+      className={styles.field}
       controlType="radiogroup"
       defaultVisible={true}
       defaultValue={RadioButtonsValue.Yes}
