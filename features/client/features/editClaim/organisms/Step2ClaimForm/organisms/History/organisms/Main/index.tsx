@@ -9,7 +9,7 @@ import {
   SelectYears,
   TextArea,
 } from '@app/features/common/form'
-import { Validator } from '@app/features/common/formHOCs/withFinalForm'
+
 import {
   MOBILE_WIDTH,
   NON_BREAKING_SPACE,
@@ -21,10 +21,9 @@ import { schema } from './schema'
 interface Props {
   width: number
   styles: StylesType
-  validator: Validator
 }
 
-const Main = ({ width, styles, validator }: Props) => (
+const Main = ({ width, styles }: Props) => (
   <>
     <h2 className={styles.title}>История болезни</h2>
     <p className={styles.label}>
@@ -32,13 +31,13 @@ const Main = ({ width, styles, validator }: Props) => (
     </p>
     <div className={styles.historyComboContainer}>
       <SelectMonths
-        validate={(value: string) => validator(value, schema['diagnos-month'])}
+        validate={schema['diagnos-month']}
         name="diagnos-month"
         isMobile={width < MOBILE_WIDTH}
         className={cx(styles.historyCombo, styles.historyComboWrapper)}
       />
       <SelectYears
-        validate={(value: string) => validator(value, schema['diagnos-year'])}
+        validate={schema['diagnos-year']}
         name="diagnos-year"
         isMobile={width < MOBILE_WIDTH}
         className={cx(styles.historyCombo, styles.historyComboWrapper)}

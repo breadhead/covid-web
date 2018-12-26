@@ -1,7 +1,6 @@
 import * as React from 'react'
 
 import { Button } from '@app/features/common/form'
-import { Validator } from '@app/features/common/formHOCs/withFinalForm'
 import { StylesType } from '@app/lib/config'
 import { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
 import IconCustom from '@app/ui/atoms/IconCustom'
@@ -9,7 +8,6 @@ import NavLink from '@app/ui/atoms/NavLink'
 
 interface Props {
   styles: StylesType
-  validator: Validator
 }
 
 const Footer = ({ styles }: Props) => (
