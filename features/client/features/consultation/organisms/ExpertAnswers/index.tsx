@@ -5,11 +5,13 @@ import * as styles from './ExpertAnswers.css'
 import Footer from './components/Footer'
 
 interface Answer {
+  question: string
+  answer: string
+}
+
+interface Answer {
   title: string
-  articles: Array<{
-    question: string
-    answer: string
-  }>
+  articles: Answer[]
 }
 
 interface Props {

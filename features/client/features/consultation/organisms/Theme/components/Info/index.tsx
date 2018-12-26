@@ -2,12 +2,14 @@ import * as React from 'react'
 
 import { StylesType } from '@app/lib/config'
 
+interface Article {
+  subtitle: string
+  text: string
+}
+
 interface InfoBlock {
   title: string
-  articles: Array<{
-    subtitle: string
-    text: string
-  }>
+  articles: Article[]
 }
 
 interface Props {

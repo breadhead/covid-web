@@ -1,5 +1,6 @@
 .answerNotification {
-  display: flex;
+  display: grid;
+  grid-template-columns: 92px auto;
   padding: 28px;
   margin: 0 auto 24px auto;
   background-color: #fff;
@@ -23,6 +24,17 @@
 }
 
 .logo {
-  align-self: flex-start;
   margin-right: 20px;
+}
+
+.button.button.button.button {
+  grid-column-start: 2;
+  grid-column-end: 2;
+
+  @media (--smallDown) { 
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 100%;
+    max-width: none;
+  }
 }
