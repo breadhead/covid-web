@@ -40,9 +40,12 @@
     }
   }
 
+  @media (--smallDown) {
+    padding: 32px 16px 48px;
+  }
+
   & .button.button {
     width: 480px;
-    max-width: 480px;
     margin: 0 auto;
     font: var(--text18-28);
 
@@ -50,10 +53,7 @@
     width: 100%;
     max-width: 328px;
   }
-
-  @media (--smallDown) {
-    padding: 32px 16px 24px 16px;
-  }
+}
 }
 
 .label {

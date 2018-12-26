@@ -9,6 +9,7 @@
   background-position: top;
 
   @media (--smallDown) {
+    max-width: 272px;
     background-image: linear-gradient(to top, transparent 45%, #9F9FA8 1px, transparent calc(45% + 1px));
   }
 }
