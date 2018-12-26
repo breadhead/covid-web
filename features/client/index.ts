@@ -1,5 +1,11 @@
 import { combineReducers } from 'redux'
 
+export { ClaimStep2, ClaimStep3 } from './features/editClaim'
+import {
+  reducer as editClaimReducer,
+  State as EditClaimState,
+} from './features/editClaim'
+
 export { default as Claims } from './features/claims'
 import {
   reducer as claimReducer,
@@ -12,19 +18,16 @@ import {
   State as NewClaimState,
 } from './features/newClaim'
 
-export {
-  Step2Page as ClaimStep2,
-  Step3Page as ClaimStep3,
-} from './features/editClaim'
-
 export { default as WaitingPage } from './features/waitingAnswer'
 
 export interface State {
   claims: ClaimsState
   newClaim: NewClaimState
+  editClaim: EditClaimState
 }
 
 export const reducer = combineReducers({
   claims: claimReducer,
   newClaim: newClaimReducer,
+  editClaim: editClaimReducer,
 } as any)

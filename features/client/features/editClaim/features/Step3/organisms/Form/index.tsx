@@ -1,12 +1,12 @@
 import * as React from 'react'
 import * as styles from './ClaimForm.css'
 
-import After from './organisms/After'
-import Before from './organisms/Before'
-import Common from './organisms/Common'
-import During from './organisms/During'
-import Footer from './organisms/Footer'
-import Questions from './organisms/Questions'
+import After from '../After'
+import Before from '../Before'
+import Common from '../Common'
+import During from '../During'
+import Footer from '../Footer'
+import Questions from '../Questions'
 
 const ClaimForm = () => {
   return (

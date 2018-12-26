@@ -57,7 +57,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
         request,
       )
       const { email } = personalData
-
       if (quotaAllocated) {
         Router.push(`/client/claim/${id}/situation`)
       } else if (email) {

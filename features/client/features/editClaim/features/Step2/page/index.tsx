@@ -2,10 +2,14 @@ import * as React from 'react'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 
-import Layout from '../../../../organisms/ClaimFormLayout'
-import ClaimForm from '../../organisms/Step2ClaimForm'
+import Layout from '../../../../../organisms/ClaimFormLayout'
+import ClaimForm from '../organisms/Form'
 
-const Step2Page = () => {
+export interface Props {
+  onFormSubmit: (id: string) => void
+}
+
+const Step2Page = ({ onFormSubmit }: Props) => {
   return (
     <Layout
       step={2}
@@ -20,10 +24,15 @@ const Step2Page = () => {
   )
 }
 
-Step2Page.getInitialProps = async ({ req }) => {
-  const res = await fetch('https://api.github.com/repos/zeit/next.js')
-  const json = await res.json()
-  return { stars: json.stargazers_count }
+Step2Page.getInitialProps = async context => {
+  const { id } = context.query
+  try {
+    // const apiClient = ApiClientFactory.getApiClient()
+    // const result = await apiClient.shortClaim(id)
+  } catch (error) {
+    debugger
+  }
+  return { stars: 2 }
 }
 
 export default Step2Page
