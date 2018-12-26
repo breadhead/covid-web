@@ -10,7 +10,7 @@ import {
   SelectYears,
   TextArea,
 } from '@app/features/common/form'
-import { Validator } from '@app/features/common/formHOCs/withFinalForm'
+
 import {
   MOBILE_WIDTH,
   NON_BREAKING_SPACE,
@@ -23,10 +23,9 @@ import { schema } from './schema'
 interface Props {
   width: number
   styles: StylesType
-  validator: Validator
 }
 
-const EmergingForm = ({ width, styles, validator }: Props) => (
+const EmergingForm = ({ width, styles }: Props) => (
   <EmergingFormElement
     name="emergingForm"
     className={styles.emergeField}
@@ -44,7 +43,7 @@ const EmergingForm = ({ width, styles, validator }: Props) => (
         В каком городе?
       </label>
       <ComboCity
-        validate={(value: string) => validator(value, schema['choose-city'])}
+        validate={schema['choose-city']}
         className={styles.historyComboSingle}
         name="choose-city"
       />
@@ -76,9 +75,7 @@ const EmergingForm = ({ width, styles, validator }: Props) => (
         </span>
       </label>
       <TextArea
-        validate={(value: string) =>
-          validator(value, schema['choose-procedures'])
-        }
+        validate={schema['choose-procedures']}
         name="choose-procedures"
       />
     </AddFieldContainer>

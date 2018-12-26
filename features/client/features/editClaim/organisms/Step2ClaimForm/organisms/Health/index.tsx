@@ -1,16 +1,15 @@
 import * as React from 'react'
 
 import { TextArea } from '@app/features/common/form'
-import { Validator } from '@app/features/common/formHOCs/withFinalForm'
+
 import { SPACE, StylesType } from '@app/lib/config'
 import { schema } from './schema'
 
 interface Props {
   styles: StylesType
-  validator: Validator
 }
 
-const Health = ({ styles, validator }: Props) => (
+const Health = ({ styles }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Ваше самочувствие</h2>
     <label htmlFor="selfCare" className={styles.label}>
@@ -19,11 +18,7 @@ const Health = ({ styles, validator }: Props) => (
         {SPACE}Можете ли ходить, самостоятельно питаться, обслуживать себя?
       </span>
     </label>
-    <TextArea
-      validate={(value: string) => validator(value, schema.selfCare)}
-      name="selfCare"
-      id="selfCare"
-    />
+    <TextArea validate={schema.selfCare} name="selfCare" id="selfCare" />
 
     <label htmlFor="main" className={styles.label}>
       Что беспокоит больше всего?
