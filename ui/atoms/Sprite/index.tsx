@@ -292,14 +292,15 @@ const Sprite = () => (
           fill="var(--text-primary)"
         />
       </symbol>
-      <symbol width="32" height="32" id="32x32_chat" viewBox="0 0 32 32">
+
+      <symbol id="32x32_chat" viewBox="0 0 30 30">
         <g fill="none" fillRule="evenodd">
           <path
             d="M9 3h14a7 7 0 0 1 7 7v9a7 7 0 0 1-7 7H9.48a6 6 0 0 0-4.24 1.76l-1.53 1.53A1 1 0 0 1 2 28.6V10a7 7 0 0 1 7-7"
-            fill="var(--text-primary)"
+            fill="#3C54EE"
           />
           <path
-            d="M16 13.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3m6 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3m-12 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3"
+            d="M16 13.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3M22 13.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3M10 13.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3"
             fill="#FFF"
           />
         </g>

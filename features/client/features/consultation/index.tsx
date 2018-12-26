@@ -2,6 +2,8 @@ import * as React from 'react'
 
 import Layout from '../../organisms/Layout'
 import AnswerNotification from './organisms/AnswerNotification'
+import Chat from './organisms/Chat'
+import { MockMessages } from './organisms/Chat/components/config'
 import Company from './organisms/Company'
 import ExpertAnswers from './organisms/ExpertAnswers'
 import { Answers } from './organisms/ExpertAnswers/config'
@@ -17,6 +19,7 @@ const Consultation = () => (
     <Theme />
     <ExpertAnswers answers={Answers} />
     <QuestionNotification />
+    <Chat messages={MockMessages} />
   </Layout>
 )
 

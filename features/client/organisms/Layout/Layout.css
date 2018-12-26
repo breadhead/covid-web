@@ -1,5 +1,5 @@
 .page {
-  flex-grow: 1;
+  position: relative;
   padding-top: 40px;
   padding-bottom: 120px;
   background-color: var(--background-color);

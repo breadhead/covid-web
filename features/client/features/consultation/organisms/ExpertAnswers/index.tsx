@@ -4,14 +4,14 @@ import * as styles from './ExpertAnswers.css'
 
 import Footer from './components/Footer'
 
-interface Answer {
+interface Article {
   question: string
   answer: string
 }
 
 interface Answer {
   title: string
-  articles: Answer[]
+  articles: Article[]
 }
 
 interface Props {
