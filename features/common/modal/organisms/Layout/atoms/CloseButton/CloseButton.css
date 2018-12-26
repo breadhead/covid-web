@@ -17,7 +17,7 @@
     width: 2px;
     height: 21px;
     content: '';
-    background-color: #B3B4C8;
+    background-color: var(--color-default);
     transform: rotate(45deg);
   }
 
@@ -29,7 +29,7 @@
   width: 2px;
   height: 21px;
   content: '';
-  background-color: #B3B4C8;
+  background-color: var(--color-default);
   transform: rotate(-45deg);
   }
 }

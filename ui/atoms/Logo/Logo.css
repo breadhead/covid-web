@@ -3,7 +3,7 @@
   width: 200px;
   height: 38px;
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     width: 162px;
     height: 32px;
   }

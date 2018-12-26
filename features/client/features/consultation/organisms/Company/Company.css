@@ -1,0 +1,19 @@
+.company {
+  display: flex;
+  margin-bottom: 24px;
+
+  @media (--smallDown) {
+    margin-bottom: 16px;
+  }
+}
+
+.logo {
+  margin-right: 16px;
+}
+
+.text {
+  max-width: 250px;
+  margin: 0;
+  font: var(--text14-20);
+  color: var( --text-color-secondary);
+}

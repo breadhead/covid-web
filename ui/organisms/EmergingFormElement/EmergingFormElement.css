@@ -39,7 +39,7 @@
     content: '';
     background-color: #f7f7f9;
 
-    @media (max-width: 767px) {
+    @media (--smallDown) {
       padding: 0 16px;
       margin: 0 -16px;
     }

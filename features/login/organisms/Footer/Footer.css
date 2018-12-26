@@ -14,7 +14,7 @@
     background-color: var(--divider-color);
   }
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     padding: 24px 16px 32px;
   }
 }

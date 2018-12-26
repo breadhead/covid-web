@@ -1,7 +1,7 @@
 .modal {
   padding: 0 24px 40px;
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     padding: 0 16px 32px;
   }
 }

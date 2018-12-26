@@ -5,7 +5,7 @@
   background-color: var(--background-color);
   
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     padding: 24px 16px 80px;
     font: var(--text14-20);
   }
