@@ -5,6 +5,7 @@
   background-color: var(--background-color);
 
   @media (--mediumDown) {
+    padding-top: 0;
     padding-bottom: 80px;
   }
 

@@ -1,16 +1,22 @@
-.title {
-  margin: 0 16px 0 0;
-  font: var(--title-regular);
+.header {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 16px;
+
+
+  @media (max-width: 767px) {
+    padding: 24px 16px 16px;
+    margin: 0;
+  }
 }
 
 .number {
   font: var(--title-bold);
 }
 
-.header {
-  display: flex;
-  align-items: baseline;
-  margin-bottom: 16px;
+.title {
+  margin: 0 16px 0 0;
+  font: var(--title-regular);
 }
 
 .icons {
@@ -23,4 +29,15 @@
   &:last-of-type {
     margin-right: 0;
   }
+}
+
+.printButton {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.button {
+  background-color: transparent;
+  border: none;
 }

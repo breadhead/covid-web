@@ -5,6 +5,11 @@
   background-color: #fff;
   border-top: 3px solid var(--color-highlight);
   box-shadow: 0 0 4px 0 rgba(63,63,68,0.04), 0 0 16px 0 rgba(63,63,68,0.12);
+
+  @media (max-width: 767px) {
+    padding: 20px 16px 24px;
+    margin-bottom: 16px;
+  }
 }
 
 .title {

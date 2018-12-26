@@ -1,6 +1,11 @@
 .company {
   display: flex;
+  padding: 0 16px;
   margin-bottom: 24px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 16px;
+  }
 }
 
 .logo {
@@ -9,6 +14,7 @@
 
 .text {
   max-width: 250px;
+  margin: 0;
   font: var(--text14-20);
   color: var( --text-color-secondary);
 }
