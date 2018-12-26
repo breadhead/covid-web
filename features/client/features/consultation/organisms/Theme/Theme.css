@@ -33,6 +33,11 @@
 .content {
   display: flex;
   justify-content: space-between;
+
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 }
 
 .text {
@@ -44,6 +49,10 @@
 
   &:last-of-type {
     margin-bottom: 0;
+
+    @media (max-width: 767px) {
+      margin-bottom: 24px;
+    }
 
     & .text {
       margin-bottom: 0;
