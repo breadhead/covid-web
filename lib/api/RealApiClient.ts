@@ -35,6 +35,11 @@ export default class RealApiClient implements ApiClient {
       .post('/claims/short', shortClaimRequest)
       .then(response => response.data as ShortClaim)
 
+  public shortClaim = (id: string) =>
+    this.axiosInstance
+      .get(`/claims/${id}/short`)
+      .then(response => response.data as ShortClaim)
+
   public transfer = (quotaTransferRequest: QuotaTransferRequest) =>
     this.axiosInstance
       .post('/quotas/transfer', quotaTransferRequest)

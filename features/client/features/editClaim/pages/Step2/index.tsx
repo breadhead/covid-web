@@ -5,7 +5,7 @@ import { NON_BREAKING_SPACE } from '@app/lib/config'
 import Layout from '../../../../organisms/ClaimFormLayout'
 import ClaimForm from '../../organisms/Step2ClaimForm'
 
-const Step2Page: React.StatelessComponent<{}> = () => {
+const Step2Page = () => {
   return (
     <Layout
       step={2}
@@ -18,6 +18,12 @@ const Step2Page: React.StatelessComponent<{}> = () => {
       <ClaimForm />
     </Layout>
   )
+}
+
+Step2Page.getInitialProps = async ({ req }) => {
+  const res = await fetch('https://api.github.com/repos/zeit/next.js')
+  const json = await res.json()
+  return { stars: json.stargazers_count }
 }
 
 export default Step2Page
