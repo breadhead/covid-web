@@ -6860,10 +6860,10 @@ next-compose-plugins@^2.1.1:
   resolved "https://registry.yarnpkg.com/next-compose-plugins/-/next-compose-plugins-2.1.1.tgz#7da0a3ce0c8ce267b5cb4164d2fb6e4aaf61bf86"
   integrity sha512-4yLtmGjnBlzuYdL66+c/zi8ljl24sK9jtP31UsTG1ZAAHj+ybWfEG/S+HMwK+pD2fNmJ4xQyr4xOubzExcS+Lg==
 
-next-css-unpluggable@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/next-css-unpluggable/-/next-css-unpluggable-2.0.0.tgz#e2c8282d6e8b91e5fac511d4cffcff507242235c"
-  integrity sha512-sNZHCZb8Ehip2GQh2r9dZ27d+XIwTk1b8DCwZ6XBu4sbm0kUi2LR9Us+YQXtnrE9cVLKs8xK3HfZGjL3WrIPUg==
+next-css-unpluggable@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/next-css-unpluggable/-/next-css-unpluggable-2.1.0.tgz#96175e6b21a6ea2a46fc02b6dacbb49fd8e4bd19"
+  integrity sha512-n84bXqhVm5In63WZY1ln/eIbAC8Rc3+4m6gqsmEdeDg124l1+dJp404hCSIS/oR2dznScd2BQ3/e/dMPjf0lMg==
   dependencies:
     css-loader "1.0.0"
     extract-css-chunks-webpack-plugin "^3.2.1"

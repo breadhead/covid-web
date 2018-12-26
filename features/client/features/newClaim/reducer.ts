@@ -7,23 +7,20 @@ import {
   FetchingState,
 } from '@app/lib/symbioteFactory'
 
-interface State extends FetchingState {
-  createdId?: string
-}
+type State = FetchingState
 
 interface Actions extends FetchingActions {
-  success(createdId: string): Action
+  success(): Action
 }
 
-const initialState = createInitialState({
-  createdId: undefined,
-})
+const initialState = createInitialState({})
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  (state: State, createdId: string) => ({
+  (state: State) => ({
     ...state,
-    createdId,
+    error: false,
+    fetching: false,
   }),
   'client/new-claim',
 )

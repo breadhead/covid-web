@@ -8,9 +8,10 @@ interface OwnProps {
   error?: string
   className?: string
 }
+type WrappedComponentProps = Pick<OwnProps, 'error'>
 
 const withTooltip = <T extends {}>(
-  WrappedComponent: React.ComponentType<{ error?: string }>,
+  WrappedComponent: React.ComponentType<WrappedComponentProps>,
 ) => ({ className, error, ...rest }: T & OwnProps) => {
   return (
     <div className={cx(styles.wrapper, className)}>

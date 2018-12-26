@@ -5,7 +5,7 @@
   margin: 0 auto;
   text-align: left;
   background-color: #fff;
-  box-shadow: 0 1px 3px 0 rgba(21,24,51,0.2);
+  box-shadow: 0 1px 3px 0 rgba(21, 24, 51, 0.2);
 
   @media (--smallDown) {
     padding: 0 0 32px 0;    
@@ -29,7 +29,7 @@
     width: 100%;
     height: 1px;
     content: '';
-    background-color: rgba(21,24,51,0.12);
+    background-color: rgba(21, 24, 51, 0.12);
   }
 
   &:last-of-type {
@@ -38,6 +38,10 @@
     &::after {
       display: none;
     }
+  }
+
+  @media (--smallDown) {
+    padding: 32px 16px 48px;
   }
 
   & .button.button {
@@ -51,15 +55,11 @@
     max-width: 328px;
   }
 }
-
-  @media (--smallDown) {
-    padding: 32px 16px 24px 16px;
-  }
-
 }
 
 .label {
-  margin: 24px 0 8px 0;
+  display: block;
+  margin: 0 0 8px 0;
   line-height: 1.5;
   color: var(--text-color-primary);
 }
@@ -67,8 +67,13 @@
 .emergingLabel {
   z-index: 1;
   margin-top: 0;
+  margin-bottom: 8px;
 }
 
 .secondaryText {
-  color: #82839B;
+  color: #82839b;
+}
+
+.field {
+  margin-bottom: 24px;
 }

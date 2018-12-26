@@ -4,12 +4,12 @@ import Combobox from '@app/ui/molecules/Combobox'
 
 import { OPTIONS_CITIES } from './config'
 
-interface Props {
+export interface Props {
   name: string
   className?: string
 }
 
-const ComboCity = ({ className, name }: Props) => (
+const ComboCity = ({ className, name, ...rest }: Props) => (
   <Combobox
     placeholder="Выберите город"
     options={OPTIONS_CITIES}
@@ -17,6 +17,7 @@ const ComboCity = ({ className, name }: Props) => (
     выберите подходящее значение из списка:"
     hint="Продолжайте вводить название, если не видите свой город:"
     name={name}
+    {...rest}
     className={className}
   />
 )

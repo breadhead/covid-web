@@ -51,6 +51,7 @@ module.exports = withPlugins(
           'State',
           'WithLoginModal',
           'WithModalProps',
+          'Validator',
         ]),
       )
 

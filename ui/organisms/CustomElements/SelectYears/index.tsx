@@ -4,14 +4,20 @@ import Select from '@app/ui/atoms/Select'
 
 import { OPTIONS_YEARS } from './config'
 
-interface Props {
+export interface Props {
   name: string
   isMobile?: boolean
   className?: string
   placeholder?: string
 }
 
-const SelectYears = ({ isMobile, className, name, placeholder }: Props) => {
+const SelectYears = ({
+  isMobile,
+  className,
+  name,
+  placeholder,
+  ...rest
+}: Props) => {
   const selectPlaceholder = placeholder
     ? placeholder
     : isMobile
@@ -23,6 +29,7 @@ const SelectYears = ({ isMobile, className, name, placeholder }: Props) => {
       placeholder={selectPlaceholder}
       options={OPTIONS_YEARS}
       name={name}
+      {...rest}
       className={className}
     />
   )

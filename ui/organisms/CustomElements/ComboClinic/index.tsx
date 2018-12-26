@@ -4,7 +4,7 @@ import Combobox from '@app/ui/molecules/Combobox'
 
 import { OPTIONS_CLINICS } from './config'
 
-interface Props {
+export interface Props {
   name: string
   className?: string
 }
