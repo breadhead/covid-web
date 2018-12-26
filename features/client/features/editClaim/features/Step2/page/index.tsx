@@ -2,11 +2,13 @@ import * as React from 'react'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import Layout from '../../../../../organisms/ClaimFormLayout'
 import ClaimForm from '../organisms/Form'
 
 export interface Props {
   onFormSubmit: (id: string) => void
+  shortClaim: ShortClaim
 }
 
 const Step2Page = ({ onFormSubmit }: Props) => {
@@ -22,17 +24,6 @@ const Step2Page = ({ onFormSubmit }: Props) => {
       <ClaimForm />
     </Layout>
   )
-}
-
-Step2Page.getInitialProps = async context => {
-  const { id } = context.query
-  try {
-    // const apiClient = ApiClientFactory.getApiClient()
-    // const result = await apiClient.shortClaim(id)
-  } catch (error) {
-    debugger
-  }
-  return { stars: 2 }
 }
 
 export default Step2Page
