@@ -10,10 +10,11 @@ export const createClaim = (claimRequest: ShortClaimRequest) => async (
   _: () => State,
   { api }: ExtraArgs,
 ) => {
+  dispatch(actions.request())
   try {
-    dispatch(actions.request())
     const claim = await api.createShortClaim(claimRequest)
-    return dispatch(actions.success(claim.id, claim.quotaAllocated))
+    dispatch(actions.success())
+    return claim
   } catch (error) {
     return dispatch(actions.error(error.message))
   }

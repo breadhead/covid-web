@@ -7,27 +7,20 @@ import {
   FetchingState,
 } from '@app/lib/symbioteFactory'
 
-interface State extends FetchingState {
-  createdId?: string
-  quotaAllocated: boolean
-}
+type State = FetchingState
 
 interface Actions extends FetchingActions {
-  success(createdId: string, quotaAllocated: boolean): Action
+  success(): Action
 }
 
-const initialState = createInitialState({
-  createdId: undefined,
-  quotaAllocated: false,
-  email: undefined,
-})
+const initialState = createInitialState({})
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  (state: State, createdId: string, quotaAllocated: boolean) => ({
+  (state: State) => ({
     ...state,
-    quotaAllocated,
-    createdId,
+    error: false,
+    fetching: false,
   }),
   'client/new-claim',
 )
