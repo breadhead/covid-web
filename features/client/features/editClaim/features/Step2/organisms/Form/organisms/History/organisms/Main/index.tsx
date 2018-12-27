@@ -1,21 +1,9 @@
 import cx from 'classnames'
 import * as React from 'react'
 
-import {
-  ComboCity,
-  ComboClinic,
-  Input,
-  SelectMonths,
-  SelectYears,
-  TextArea,
-} from '@app/features/common/form'
+import { SelectMonths, SelectYears } from '@app/features/common/form'
 
-import {
-  MOBILE_WIDTH,
-  NON_BREAKING_SPACE,
-  SPACE,
-  StylesType,
-} from '@app/lib/config'
+import { MOBILE_WIDTH, SPACE, StylesType } from '@app/lib/config'
 import { ClaimData } from '../../../../types'
 import { schema } from './schema'
 

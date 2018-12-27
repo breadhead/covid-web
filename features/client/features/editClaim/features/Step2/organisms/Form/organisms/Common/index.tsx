@@ -48,7 +48,7 @@ const Common = ({ styles, claimData }: Props) => (
         <Input name="stage" />
       </>
     )}
-    <label htmlFor="stage" className={styles.label}>
+    <label htmlFor="otherDisease" className={styles.label}>
       Укажите другие заболевания, о которых, как вы считаете, нам надо знать
       (если они есть).
       <span className={styles.secondaryText}>

@@ -22,7 +22,7 @@ const History = ({ windowSize, styles, claimData }: Props) => {
     <article className={styles.article}>
       <Main claimData={claimData} width={width} styles={styles} />
       <Surgery width={width} styles={styles} />
-      <Medicals width={width} styles={styles} />
+      <Medicals styles={styles} />
       <Rays width={width} styles={styles} />
     </article>
   )
