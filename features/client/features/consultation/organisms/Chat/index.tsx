@@ -9,43 +9,29 @@ import Message, { MessageType } from './components/Message'
 interface Props {
   messages: MessageType[]
   isVisible: boolean
+  close: () => void
 }
 
-interface State {
-  isVisible: boolean
-}
-
-class Chat extends React.Component<Props, State> {
-  public state = {
-    isVisible: this.props.isVisible,
-  }
-
-  public onCloseButtonClick = () => this.setState({ isVisible: false })
-
-  public render() {
-    const { isVisible } = this.state
-    const { messages } = this.props
-
-    return isVisible ? (
-      <section className={styles.chat}>
-        <div>
-          <Header onCloseButtonClick={this.onCloseButtonClick} />
+const Chat = ({ messages, close, isVisible }: Props) => {
+  return isVisible ? (
+    <section className={styles.chat}>
+      <div>
+        <Header onCloseButtonClick={close} />
+      </div>
+      <div className={styles.messageWrapper}>
+        <div className={styles.chatWrapper}>
+          {messages.map(message => (
+            <Message key={message.id} message={message} />
+          ))}
         </div>
-        <div className={styles.messageWrapper}>
-          <div className={styles.chatWrapper}>
-            {messages.map(message => (
-              <Message key={message.id} message={message} />
-            ))}
-          </div>
-        </div>
-        <Input
-          className={styles.input}
-          name="message"
-          placeholder="Ваше сообщение..."
-        />
-      </section>
-    ) : null
-  }
+      </div>
+      <Input
+        className={styles.input}
+        name="message"
+        placeholder="Ваше сообщение..."
+      />
+    </section>
+  ) : null
 }
 
 export default Chat

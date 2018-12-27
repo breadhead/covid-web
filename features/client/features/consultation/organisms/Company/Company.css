@@ -2,6 +2,7 @@
   display: flex;
   margin-bottom: 24px;
 
+
   @media (--smallDown) {
     margin-bottom: 16px;
   }
@@ -9,6 +10,7 @@
 
 .logo {
   margin-right: 16px;
+  border-radius: 8px;
 }
 
 .text {
