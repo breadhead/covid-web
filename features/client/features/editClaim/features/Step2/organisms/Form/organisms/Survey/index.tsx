@@ -4,12 +4,14 @@ import Uploader from '@app/features/common/uploader'
 import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
 import Input from '@app/ui/atoms/Input'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
+import { ClaimData } from '../../types'
 
 interface Props {
   styles: StylesType
+  claimData: ClaimData
 }
 
-const Survey = ({ styles }: Props) => (
+const Survey = ({ styles, claimData }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Обследования</h2>
 
@@ -19,14 +21,18 @@ const Survey = ({ styles }: Props) => (
       Яндекс.Диск, Google Диск или Dropbox, открыть доступы к файлам и указать
       ссылки на них.
     </p>
-    <h3 className={styles.subtitle}>Гистология</h3>
-    <p className={styles.secondaryText}>
-      Последняя по дате. Укажите ссылку на скан или фотографию
-    </p>
-    <label htmlFor="histology" className={styles.labelSmall}>
-      Ссылка на файл
-    </label>
-    <Uploader id="histology" />
+    {!!claimData.diagnosis && (
+      <>
+        <h3 className={styles.subtitle}>Гистология</h3>
+        <p className={styles.secondaryText}>
+          Последняя по дате. Укажите ссылку на скан или фотографию
+        </p>
+        <label htmlFor="histology" className={styles.labelSmall}>
+          Ссылка на файл
+        </label>
+        <Uploader id="histology" />
+      </>
+    )}
 
     <h3 className={styles.subtitle}>Заключения и выписки</h3>
     <p className={styles.secondaryText}>

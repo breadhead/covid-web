@@ -4,14 +4,15 @@ import { TextArea } from '@app/features/common/form'
 
 import RadioButton from '@app/features/common/form/components/RadioButton'
 import { SPACE, StylesType } from '@app/lib/config'
-import { InputType } from '@app/ui/atoms/Input'
+import { ClaimData } from '../..//types'
 import { feelings } from './config'
 import { schema } from './schema'
 interface Props {
   styles: StylesType
+  claimData: ClaimData
 }
 
-const Health = ({ styles }: Props) => (
+const Health = ({ styles, claimData }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Общее самочувствие</h2>
     {feelings.map(feeling => (
@@ -42,14 +43,18 @@ const Health = ({ styles }: Props) => (
       </span>
     </label>
     <TextArea name="complaint" id="complaint" />
-    <label htmlFor="nowTreatment" className={styles.label}>
-      Проводится ли противоопухолевое лечение в данный момент? Какое?
-      <span className={styles.secondaryText}>
-        {SPACE}Опишите своими словами, если есть
-      </span>
-    </label>
+    {!!claimData.diagnosis && (
+      <>
+        <label htmlFor="nowTreatment" className={styles.label}>
+          Проводится ли противоопухолевое лечение в данный момент? Какое?
+          <span className={styles.secondaryText}>
+            {SPACE}Опишите своими словами, если есть
+          </span>
+        </label>
 
-    <TextArea name="nowTreatment" id="nowTreatment" />
+        <TextArea name="nowTreatment" id="nowTreatment" />
+      </>
+    )}
   </article>
 )
 
