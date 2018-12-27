@@ -11,7 +11,11 @@
   box-shadow: 0 0 8px 0 rgba(63,63,68,0.04), 0 0 20px 0 rgba(63,63,68,0.12);
 
   @media (--mediumDown) {
-    display: none;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    max-width: none;
   }
 }
 
