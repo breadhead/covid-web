@@ -2,9 +2,9 @@ import * as React from 'react'
 
 import { TextArea } from '@app/features/common/form'
 
+import RadioButton from '@app/features/common/form/components/RadioButton'
 import { SPACE, StylesType } from '@app/lib/config'
 import { InputType } from '@app/ui/atoms/Input'
-import RadioButton from '@app/ui/atoms/RadioButton'
 import { feelings } from './config'
 import { schema } from './schema'
 interface Props {
@@ -16,6 +16,7 @@ const Health = ({ styles }: Props) => (
     <h2 className={styles.title}>Общее самочувствие</h2>
     {feelings.map(feeling => (
       <RadioButton
+        validate={schema.feeling}
         className={styles.field}
         name="feeling"
         value={feeling}

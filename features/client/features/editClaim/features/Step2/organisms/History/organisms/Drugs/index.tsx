@@ -7,6 +7,7 @@ import {
   EmergingControlTypes,
   EmergingFormElement,
   Input,
+  SelectMonths,
   SelectYears,
   TextArea,
 } from '@app/features/common/form'
@@ -38,19 +39,19 @@ const EmergingForm = ({ width, styles }: Props) => (
         buttonClassName={styles.addButton}
         buttonText="Добавить лекарственное лечение"
       >
-        <label htmlFor="choose-city" className={styles.label}>
+        <label htmlFor="region" className={styles.label}>
           Регион, где проходили лечение
         </label>
         <ComboCity
-          validate={schema['choose-city']}
+          validate={schema.region}
           className={styles.historyComboSingle}
-          name="choose-city"
+          name="region"
         />
         <p className={styles.label}>Когда начали это лечение (месяц и год)</p>
         <div className={styles.historyComboContainer}>
-          <SelectYears
-            name="begin"
-            placeholder="Начало"
+          <SelectMonths
+            name="month"
+            placeholder="Месяц"
             className={cx(styles.historyCombo, styles.historyComboWrapper)}
           />
           <SelectYears
@@ -63,43 +64,37 @@ const EmergingForm = ({ width, styles }: Props) => (
           Когда закончили это лечение? (месяц и год)
         </p>
         <div className={styles.historyComboContainer}>
-          <SelectYears
-            name="begin"
-            placeholder="Начало"
+          <SelectMonths
+            name="month"
+            placeholder="Месяц"
             className={cx(styles.historyCombo, styles.historyComboWrapper)}
           />
           <SelectYears
-            name="end"
-            placeholder="Окончание"
+            name="year"
+            placeholder="Год"
             className={cx(styles.historyCombo, styles.historyComboWrapper)}
           />
         </div>
-        <label htmlFor="choose-clinic" className={styles.label}>
+        <label htmlFor="clinic" className={styles.label}>
           В какой клинике?
         </label>
-        <ComboClinic
-          className={styles.historyComboSingle}
-          name="choose-clinic"
-        />
-        <label htmlFor="choose-doctor" className={styles.label}>
+        <ComboClinic className={styles.historyComboSingle} name="clinic" />
+        <label htmlFor="doctor" className={styles.label}>
           ФИО врача
         </label>
-        <Input name="choose-doctor" />
+        <Input name="doctor" />
         <label htmlFor="cyclesCount" className={styles.label}>
           Количество циклов
         </label>
         <Input type={InputType.Number} name="cyclesCount" />
 
-        <label htmlFor="choose-procedures" className={styles.label}>
+        <label htmlFor="schema" className={styles.label}>
           Схема лечения.
           <span className={styles.secondaryText}>
             {SPACE}Опишите своими словами
           </span>
         </label>
-        <TextArea
-          validate={schema['choose-procedures']}
-          name="choose-procedures"
-        />
+        <TextArea name="schema" />
       </AddFieldContainer>
     </EmergingFormElement>
   </>

@@ -47,7 +47,7 @@ const Common = ({ styles }: Props) => (
         тяжёлые заболевания
       </span>
     </label>
-    <TextArea name="otherDiseases" />
+    <TextArea name="otherDisease" />
     <label className={styles.label}>
       Болел ли кто-то из кровных родственников онкологическими заболеваниями?
     </label>
@@ -64,7 +64,7 @@ const Common = ({ styles }: Props) => (
         <label className={styles.label}>Кто из родственников</label>
         <Select
           className={styles.field}
-          name="relativesDiseases"
+          name="relative"
           validate={schema.relativesDiseases}
           options={relatives.map(mapString)}
         />

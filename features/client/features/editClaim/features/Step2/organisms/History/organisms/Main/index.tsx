@@ -34,43 +34,18 @@ const Main = ({ width, styles }: Props) => (
     </p>
     <div className={styles.historyComboContainer}>
       <SelectMonths
-        validate={schema['diagnos-month']}
-        name="diagnos-month"
+        validate={schema.diagnosisDate.month}
+        name="diagnosisDate.month"
         isMobile={width < MOBILE_WIDTH}
         className={cx(styles.historyCombo, styles.historyComboWrapper)}
       />
       <SelectYears
-        validate={schema['diagnos-year']}
-        name="diagnos-year"
+        validate={schema.diagnosisDate.year}
+        name="diagnosisDate.year"
         isMobile={width < MOBILE_WIDTH}
         className={cx(styles.historyCombo, styles.historyComboWrapper)}
       />
     </div>
-
-    {/* <label htmlFor="city" className={styles.label}>
-      В каком городе?
-    </label>
-    <ComboCity className={styles.historyComboSingle} name="city" />
-    <label htmlFor="clinic" className={styles.label}>
-      Название клиники
-    </label>
-    <ComboClinic className={styles.historyComboSingle} name="clinic" />
-    <p className={styles.label}>ФИО врача</p>
-    <Input name="doctor" />
-    <label htmlFor="procedures" className={styles.label}>
-      Как вас лечил врач в этой клинике?
-      <span className={styles.secondaryText}>
-        {SPACE}Уточните все лекарства и{NON_BREAKING_SPACE}процедуры
-      </span>
-    </label>
-    <TextArea name="procedures" id="procedures" />
-
-    <p className={styles.label}>
-      Вы лечились ещё где-нибудь?
-      <span className={styles.secondaryText}>
-        {SPACE}В том числе нетрадиционные методы лечения
-      </span>
-    </p> */}
   </>
 )
 

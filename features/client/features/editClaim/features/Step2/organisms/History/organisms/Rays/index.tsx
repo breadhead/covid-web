@@ -37,25 +37,22 @@ const EmergingForm = ({ width, styles }: Props) => (
         buttonClassName={styles.addButton}
         buttonText="Добавить лучевую терапию"
       >
-        <label htmlFor="choose-city" className={styles.label}>
+        <label htmlFor="region" className={styles.label}>
           В каком городе?
         </label>
         <ComboCity
-          validate={schema['choose-city']}
+          validate={schema.region}
           className={styles.historyComboSingle}
-          name="choose-city"
+          name="region"
         />
-        <label htmlFor="choose-clinic" className={styles.label}>
+        <label htmlFor="clinic" className={styles.label}>
           Название клиники
         </label>
-        <ComboClinic
-          className={styles.historyComboSingle}
-          name="choose-clinic"
-        />
-        <label htmlFor="choose-doctor" className={styles.label}>
+        <ComboClinic className={styles.historyComboSingle} name="clinic" />
+        <label htmlFor="doctor" className={styles.label}>
           ФИО врача
         </label>
-        <Input name="choose-doctor" />
+        <Input name="doctor" />
         <p className={styles.label}>Период лечения</p>
         <div className={styles.historyComboContainer}>
           <SelectYears
@@ -69,16 +66,13 @@ const EmergingForm = ({ width, styles }: Props) => (
             className={cx(styles.historyCombo, styles.historyComboWrapper)}
           />
         </div>
-        <label htmlFor="choose-procedures" className={styles.label}>
-          Как вас лечил врач в этой клинике?
+        <label htmlFor="schema" className={styles.label}>
+          Схема лечения.
           <span className={styles.secondaryText}>
-            {SPACE}Уточните все лекарства и{NON_BREAKING_SPACE}процедуры
+            {SPACE}Опишите своими словами
           </span>
         </label>
-        <TextArea
-          validate={schema['choose-procedures']}
-          name="choose-procedures"
-        />
+        <TextArea validate={schema.schema} name="schema" />
       </AddFieldContainer>
     </EmergingFormElement>
   </>
