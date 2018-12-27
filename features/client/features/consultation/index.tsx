@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import * as styles from './Consultation.css'
+
 import Layout from '../../organisms/Layout'
 import AnswerNotification from './organisms/AnswerNotification'
 import Chat from './organisms/Chat'
@@ -12,15 +14,19 @@ import QuestionNotification from './organisms/QuestionNotification'
 import Theme from './organisms/Theme'
 
 const Consultation = () => (
-  <Layout>
-    <Header />
-    <Company />
-    <AnswerNotification />
-    <Theme />
-    <ExpertAnswers answers={Answers} />
-    <QuestionNotification />
+  <div className={styles.wrapper}>
+    <div className={styles.layoutWrapper}>
+      <Layout>
+        <Header />
+        <Company />
+        <AnswerNotification />
+        <Theme />
+        <ExpertAnswers answers={Answers} />
+        <QuestionNotification />
+      </Layout>
+    </div>
     <Chat messages={MockMessages} />
-  </Layout>
+  </div>
 )
 
 export default Consultation
