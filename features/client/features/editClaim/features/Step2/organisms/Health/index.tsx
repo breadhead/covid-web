@@ -3,29 +3,35 @@ import * as React from 'react'
 import { TextArea } from '@app/features/common/form'
 
 import { SPACE, StylesType } from '@app/lib/config'
+import { InputType } from '@app/ui/atoms/Input'
+import RadioButton from '@app/ui/atoms/RadioButton'
+import { feelings } from './config'
 import { schema } from './schema'
-
 interface Props {
   styles: StylesType
 }
 
 const Health = ({ styles }: Props) => (
   <article className={styles.article}>
-    <h2 className={styles.title}>Ваше самочувствие</h2>
-    <label htmlFor="selfCare" className={styles.label}>
-      Общее самочувствие.
-      <span className={styles.secondaryText}>
-        {SPACE}Можете ли ходить, самостоятельно питаться, обслуживать себя?
-      </span>
-    </label>
-    <TextArea validate={schema.selfCare} name="selfCare" id="selfCare" />
+    <h2 className={styles.title}>Общее самочувствие</h2>
+    {feelings.map(feeling => (
+      <RadioButton
+        className={styles.field}
+        name="feeling"
+        value={feeling}
+        key={feeling}
+      >
+        {feeling}
+      </RadioButton>
+    ))}
 
-    <label htmlFor="main" className={styles.label}>
+    <label htmlFor="worst" className={styles.label}>
       Что беспокоит больше всего?
+      <span className={styles.secondaryText}>{SPACE}Если такое имеется</span>
     </label>
-    <TextArea name="main" id="main" />
+    <TextArea name="worst" id="worst" />
 
-    <label htmlFor="common" className={styles.label}>
+    <label htmlFor="complaint" className={styles.label}>
       Жалобы.
       <span className={styles.secondaryText}>
         {SPACE}Если есть боли, недомогания, то какие? Когда начались, как долго
@@ -34,7 +40,15 @@ const Health = ({ styles }: Props) => (
         Возникали ли эти жалобы ранее?
       </span>
     </label>
-    <TextArea name="common" id="common" />
+    <TextArea name="complaint" id="complaint" />
+    <label htmlFor="nowTreatment" className={styles.label}>
+      Проводится ли противоопухолевое лечение в данный момент? Какое?
+      <span className={styles.secondaryText}>
+        {SPACE}Опишите своими словами, если есть
+      </span>
+    </label>
+
+    <TextArea name="nowTreatment" id="nowTreatment" />
   </article>
 )
 

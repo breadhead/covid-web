@@ -25,9 +25,12 @@ interface Props {
 
 const Main = ({ width, styles }: Props) => (
   <>
-    <h2 className={styles.title}>История болезни</h2>
+    <h2 className={styles.title}>Лечение</h2>
     <p className={styles.label}>
       Когда было диагностировано онкологическое заболевание?
+      <span className={styles.secondaryText}>
+        {SPACE}Когда вы получили гистологическое заключение
+      </span>
     </p>
     <div className={styles.historyComboContainer}>
       <SelectMonths
@@ -43,7 +46,8 @@ const Main = ({ width, styles }: Props) => (
         className={cx(styles.historyCombo, styles.historyComboWrapper)}
       />
     </div>
-    <label htmlFor="city" className={styles.label}>
+
+    {/* <label htmlFor="city" className={styles.label}>
       В каком городе?
     </label>
     <ComboCity className={styles.historyComboSingle} name="city" />
@@ -66,7 +70,7 @@ const Main = ({ width, styles }: Props) => (
       <span className={styles.secondaryText}>
         {SPACE}В том числе нетрадиционные методы лечения
       </span>
-    </p>
+    </p> */}
   </>
 )
 

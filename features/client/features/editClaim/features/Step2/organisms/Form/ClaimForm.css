@@ -5,10 +5,10 @@
   margin: 0 auto;
   text-align: left;
   background-color: #fff;
-  box-shadow: 0 1px 3px 0 rgba(21,24,51,0.2);
+  box-shadow: 0 1px 3px 0 rgba(21, 24, 51, 0.2);
 
   @media (max-width: 767px) {
-    padding: 0 0 32px 0;    
+    padding: 0 0 32px 0;
   }
 }
 
@@ -17,7 +17,7 @@
   font: var(--title-medium);
 
   @media (max-width: 767px) {
-    margin: 0 0 8px 0;    
+    margin: 0 0 8px 0;
   }
 }
 
@@ -26,7 +26,7 @@
   font: var(--title-small);
 
   @media (max-width: 767px) {
-    margin: 32px 0 8px 0;    
+    margin: 32px 0 8px 0;
   }
 }
 
@@ -42,7 +42,7 @@
     width: 100%;
     height: 1px;
     content: '';
-    background-color: rgba(21,24,51,0.12);
+    background-color: rgba(21, 24, 51, 0.12);
   }
 
   &:last-of-type {
@@ -60,17 +60,16 @@
     margin-bottom: 104px;
     font: var(--text18-28);
 
-  @media (max-width: 767px) {
-    width: 100%;
-    max-width: 328px;
-    margin-bottom: 96px;
+    @media (max-width: 767px) {
+      width: 100%;
+      max-width: 328px;
+      margin-bottom: 96px;
+    }
   }
-}
 
   @media (max-width: 767px) {
     padding: 32px 16px 40px 16px;
   }
-
 }
 
 .label {
@@ -93,7 +92,7 @@
 
 .secondaryText {
   margin: 0;
-  color: #82839B;
+  color: #82839b;
 }
 
 .historyComboContainer {
@@ -159,7 +158,6 @@
 }
 
 .emergeField {
-
   & .label:first-child {
     margin-top: 0;
   }
@@ -167,4 +165,8 @@
   &:last-of-type {
     margin: 0;
   }
+}
+
+.field {
+  margin-bottom: 24px;
 }

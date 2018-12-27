@@ -4,8 +4,10 @@ import { WindowSize } from '@app/features/common/windowSize/selector'
 import withWindowSize from '@app/features/common/windowSize/withWindowSize'
 
 import { StylesType } from '@app/lib/config'
-import EmergingForm from './organisms/EmergingForm'
+import Drugs from './organisms/Drugs'
 import Main from './organisms/Main'
+import Rays from './organisms/Rays'
+import Surgery from './organisms/Surgery'
 
 interface Props {
   windowSize: WindowSize
@@ -17,7 +19,9 @@ const History = ({ windowSize, styles }: Props) => {
   return (
     <article className={styles.article}>
       <Main width={width} styles={styles} />
-      <EmergingForm width={width} styles={styles} />
+      <Surgery width={width} styles={styles} />
+      <Drugs width={width} styles={styles} />
+      <Rays width={width} styles={styles} />
     </article>
   )
 }

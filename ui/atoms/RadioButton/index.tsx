@@ -1,4 +1,5 @@
 import { Radio } from 'antd'
+import cx from 'classnames'
 import * as React from 'react'
 
 import './RadioButton.css?CSSModulesDisable'
@@ -10,7 +11,12 @@ export interface Props {
 }
 
 const RadioButton = ({ name, className, value, children, ...rest }: Props) => (
-  <Radio className="radioButton" name={name} value={value} {...rest}>
+  <Radio
+    className={cx('radioButton', className)}
+    name={name}
+    value={value}
+    {...rest}
+  >
     {children}
   </Radio>
 )

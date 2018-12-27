@@ -19,19 +19,18 @@ const Survey = ({ styles }: Props) => (
       Яндекс.Диск, Google Диск или Dropbox, открыть доступы к файлам и указать
       ссылки на них.
     </p>
-    <h3 className={styles.subtitle}>Актуальные анализы крови</h3>
+    <h3 className={styles.subtitle}>Гистология</h3>
     <p className={styles.secondaryText}>
-      Не более чем 10-дневной давности, скан или фото, если есть
+      Последняя по дате. Укажите ссылку на скан или фотографию
     </p>
     <label htmlFor="blood" className={styles.labelSmall}>
       Ссылка на файл
     </label>
     <Uploader id="blood" />
 
-    <h3 className={styles.subtitle}>КТ или МРТ исследования</h3>
+    <h3 className={styles.subtitle}>Заключения и выписки</h3>
     <p className={styles.secondaryText}>
-      Прикрепите архивом папку DICOM с компакт-диска с исследованием. Если
-      исследований было несколько, то пришлите крайнее.
+      Последние по дате. Укажите ссылку на сканы или фотографии
     </p>
     <label htmlFor="blood-file" className={styles.labelSmall}>
       Ссылка на файл
