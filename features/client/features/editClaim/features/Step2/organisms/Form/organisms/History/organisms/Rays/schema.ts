@@ -1,4 +1,3 @@
-import { strict } from 'assert'
 import * as yup from 'yup'
 
 const REQUIRED = 'Обязательное поле'

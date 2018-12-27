@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-import { TextArea } from '@app/features/common/form'
+import { RadioGroup, TextArea } from '@app/features/common/form'
 
-import RadioButton from '@app/features/common/form/components/RadioButton'
 import { SPACE, StylesType } from '@app/lib/config'
+import { RadioButtonStyles, RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import { ClaimData } from '../..//types'
 import { feelings } from './config'
 import { schema } from './schema'
@@ -11,21 +11,18 @@ interface Props {
   styles: StylesType
   claimData: ClaimData
 }
-
 const Health = ({ styles, claimData }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Общее самочувствие</h2>
-    {feelings.map(feeling => (
-      <RadioButton
-        validate={schema.feeling}
-        className={styles.field}
-        name="feeling"
-        value={feeling}
-        key={feeling}
-      >
-        {feeling}
-      </RadioButton>
-    ))}
+
+    <RadioGroup
+      radioStyle={RadioButtonStyles.Radio}
+      name="feeling"
+      type={RadioGroupType.Controls}
+      buttons={feelings}
+      defaultValue={null}
+      validate={schema.feeling}
+    />
 
     <label htmlFor="worst" className={styles.label}>
       Что беспокоит больше всего?

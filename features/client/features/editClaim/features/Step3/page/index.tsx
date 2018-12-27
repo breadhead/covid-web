@@ -10,7 +10,7 @@ export interface Props {
   onFormSubmit: (id: string) => void
 }
 
-const ClaimPage = ({ onFormSubmit }: Props) => (
+const ClaimPage = () => (
   <Layout footerType={FooterType.Secondary}>
     <main className={styles.claimPage}>
       <h1 className={styles.title}>
