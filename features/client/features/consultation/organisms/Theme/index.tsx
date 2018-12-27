@@ -8,9 +8,13 @@ import Info from './components/Info'
 
 import { Data } from './components/Info/config'
 
-const Theme = () => (
+interface Props {
+  onChatButtonClick: () => void
+}
+
+const Theme = ({ onChatButtonClick }: Props) => (
   <section className={styles.theme}>
-    <Digest styles={styles} />
+    <Digest onChatButtonClick={onChatButtonClick} styles={styles} />
     <Info data={Data} styles={styles} />
     <Footer />
   </section>
