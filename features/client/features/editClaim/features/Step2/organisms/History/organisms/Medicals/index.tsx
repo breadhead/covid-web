@@ -27,23 +27,23 @@ interface Props {
   styles: StylesType
 }
 
-const EmergingForm = ({ styles }: Props) => (
+const EmergingForm = ({ width, styles }: Props) => (
   <>
-    <h3 className={styles.subtitle}>Хирургическое лечение</h3>
+    <h3 className={styles.subtitle}>Лекарственное лечение</h3>
     <EmergingFormElement
-      name="surgicalTreatmentContainer"
+      name="emergingForm"
       className={styles.emergeField}
       controlType={EmergingControlTypes.Switch}
     >
       <AddFieldContainer
         buttonClassName={styles.addButton}
-        buttonText="Добавить хирургическое лечение"
+        buttonText="Добавить лекарственное лечение"
       >
         {count =>
           count.map(key => (
             <React.Fragment key={key}>
               <label
-                htmlFor={`surgicalTreatments.${key}.region`}
+                htmlFor={`medicalsTreatments.${key}.region`}
                 className={styles.label}
               >
                 Регион, где проходили лечение
@@ -51,17 +51,17 @@ const EmergingForm = ({ styles }: Props) => (
               <ComboCity
                 validate={schema.region}
                 className={styles.historyComboSingle}
-                name={`surgicalTreatments.${key}.region`}
+                name={`medicalsTreatments.${key}.region`}
               />
               <label
-                htmlFor={`surgicalTreatments.${key}.when.month`}
+                htmlFor={`medicalsTreatments.${key}.when.month`}
                 className={styles.label}
               >
-                Когда проходили это лечение (месяц и год)
+                Когда начали это лечение (месяц и год)
               </label>
               <div className={styles.historyComboContainer}>
                 <SelectMonths
-                  name={`surgicalTreatments.${key}.when.month`}
+                  name={`medicalsTreatments.${key}.when.month`}
                   placeholder="Месяц"
                   className={cx(
                     styles.historyCombo,
@@ -69,7 +69,31 @@ const EmergingForm = ({ styles }: Props) => (
                   )}
                 />
                 <SelectYears
-                  name={`surgicalTreatments.${key}.when.year`}
+                  name={`medicalsTreatments.${key}.when.year`}
+                  placeholder="Окончание"
+                  className={cx(
+                    styles.historyCombo,
+                    styles.historyComboWrapper,
+                  )}
+                />
+              </div>
+              <label
+                htmlFor={`medicalsTreatments.${key}.end.month`}
+                className={styles.label}
+              >
+                Когда закончили это лечение? (месяц и год)
+              </label>
+              <div className={styles.historyComboContainer}>
+                <SelectMonths
+                  name={`medicalsTreatments.${key}.end.month`}
+                  placeholder="Месяц"
+                  className={cx(
+                    styles.historyCombo,
+                    styles.historyComboWrapper,
+                  )}
+                />
+                <SelectYears
+                  name={`medicalsTreatments.${key}.end.year`}
                   placeholder="Год"
                   className={cx(
                     styles.historyCombo,
@@ -78,36 +102,43 @@ const EmergingForm = ({ styles }: Props) => (
                 />
               </div>
               <label
-                htmlFor={`surgicalTreatments.${key}.clinic`}
+                htmlFor={`medicalsTreatments.${key}.clinic`}
                 className={styles.label}
               >
                 В какой клинике?
               </label>
               <ComboClinic
                 className={styles.historyComboSingle}
-                name={`surgicalTreatments.${key}.clinic`}
+                name={`medicalsTreatments.${key}.clinic`}
               />
               <label
-                htmlFor={`surgicalTreatments.${key}.doctor`}
+                htmlFor={`medicalsTreatments.${key}.doctor`}
                 className={styles.label}
               >
                 ФИО врача
               </label>
-              <Input name={`surgicalTreatments.${key}.doctor`} />
-
+              <Input name={`medicalsTreatments.${key}.doctor`} />
               <label
-                htmlFor={`surgicalTreatments.${key}.surgery`}
+                htmlFor={`medicalsTreatments.${key}.cyclesCount`}
                 className={styles.label}
               >
-                Суть операции.
+                Количество циклов
+              </label>
+              <Input
+                type={InputType.Number}
+                name={`medicalsTreatments.${key}.cyclesCount`}
+              />
+
+              <label
+                htmlFor={`medicalsTreatments.${key}.schema`}
+                className={styles.label}
+              >
+                Схема лечения.
                 <span className={styles.secondaryText}>
                   {SPACE}Опишите своими словами
                 </span>
               </label>
-              <TextArea
-                validate={schema.surgery}
-                name={`surgicalTreatments.${key}.surgery`}
-              />
+              <TextArea name={`medicalsTreatments.${key}.schema`} />
             </React.Fragment>
           ))
         }

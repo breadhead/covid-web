@@ -1,10 +1,19 @@
+import { SituationClaimRequest } from '@app/lib/api/request/SituationClaim'
 import { AppContext } from '@app/lib/server-types'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import * as React from 'react'
-import { shortClaim as shortClaimAction } from './actions'
+import { connect } from 'react-redux'
+import { AnyAction, compose, Dispatch } from 'redux'
+import {
+  createSituationClaim as createSituationClaimAction,
+  shortClaim as shortClaimAction,
+} from './actions'
+import { SituationClaimFields } from './organisms/Form/types'
 import { Props as PageProps } from './page'
+
 interface Props {
   shortClaim: ShortClaim
+  createSituationClaim: (fields: SituationClaimRequest) => void
 }
 
 interface Query {
@@ -33,8 +42,31 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       )
     }
 
-    private onFormSubmit = () => true
+    private onFormSubmit = async (fields: SituationClaimFields) => {
+      const { createSituationClaim, shortClaim } = this.props
+      const request = {
+        ...fields,
+        id: shortClaim.id,
+        relativesDiseases: fields.relativesDiseases || [],
+        surgicalTreatments: fields.surgicalTreatments || [],
+        medicalsTreatments: fields.medicalsTreatments || [],
+        radiationTreatments: fields.radiationTreatments || [],
+        otherFiles: fields.otherFiles || [],
+      }
+      await createSituationClaim(request)
+    }
   }
 }
 
-export default Container
+const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
+  createSituationClaim: (situationClaim: SituationClaimRequest) =>
+    dispatch(createSituationClaimAction(situationClaim) as any),
+})
+
+export default compose(
+  connect(
+    null,
+    mapDispatch,
+  ),
+  Container,
+)

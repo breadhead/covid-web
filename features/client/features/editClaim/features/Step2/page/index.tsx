@@ -5,9 +5,10 @@ import { NON_BREAKING_SPACE } from '@app/lib/config'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import Layout from '../../../../../organisms/ClaimFormLayout'
 import ClaimForm from '../organisms/Form'
+import { SituationClaimFields } from '../organisms/Form/types'
 
 export interface Props {
-  onFormSubmit: (id: string) => void
+  onFormSubmit: (fields: SituationClaimFields) => Promise<void>
   shortClaim: ShortClaim
 }
 
@@ -21,7 +22,7 @@ const Step2Page = ({ onFormSubmit }: Props) => {
     словами. Сотрудники Фонда свяжутся с${NON_BREAKING_SPACE}вами, если будут
     необходимы дополнительные данные.`}
     >
-      <ClaimForm />
+      <ClaimForm onFormSubmit={onFormSubmit} />
     </Layout>
   )
 }

@@ -23,32 +23,41 @@ const Survey = ({ styles }: Props) => (
     <p className={styles.secondaryText}>
       Последняя по дате. Укажите ссылку на скан или фотографию
     </p>
-    <label htmlFor="blood" className={styles.labelSmall}>
+    <label htmlFor="histology" className={styles.labelSmall}>
       Ссылка на файл
     </label>
-    <Uploader id="blood" />
+    <Uploader id="histology" />
 
     <h3 className={styles.subtitle}>Заключения и выписки</h3>
     <p className={styles.secondaryText}>
       Последние по дате. Укажите ссылку на сканы или фотографии
     </p>
-    <label htmlFor="blood-file" className={styles.labelSmall}>
+    <label htmlFor="discharge" className={styles.labelSmall}>
       Ссылка на файл
     </label>
-    <Uploader id="blood-file" />
+    <Uploader id="discharge" />
     <AddFieldContainer
       buttonClassName={styles.addButton}
       buttonText="Добавить другие файлы"
     >
-      <h3 className={styles.subtitle}>Дополнительный файл</h3>
-      <label htmlFor="study" className={styles.labelSmall}>
-        Название исследования
-      </label>
-      <Input name="study" />
-      <label htmlFor="study-file" className={styles.label}>
-        Ссылка на файл
-      </label>
-      <Uploader id="study-file" />
+      {count =>
+        count.map(key => (
+          <React.Fragment key={key}>
+            <h3 className={styles.subtitle}>Дополнительный файл</h3>
+            <label
+              htmlFor={`otherFiles.${key}.title`}
+              className={styles.labelSmall}
+            >
+              Название исследования
+            </label>
+            <Input name={`otherFiles.${key}.title`} />
+            <label htmlFor={`otherFiles.${key}.url`} className={styles.label}>
+              Ссылка на файл
+            </label>
+            <Uploader id={`otherFiles.${key}.url`} />
+          </React.Fragment>
+        ))
+      }
     </AddFieldContainer>
   </article>
 )

@@ -61,29 +61,35 @@ const Common = ({ styles }: Props) => (
         buttonClassName={styles.addButton}
         buttonText="Добавить другого родственника"
       >
-        <label className={styles.label}>Кто из родственников</label>
-        <Select
-          className={styles.field}
-          name="relative"
-          validate={schema.relativesDiseases}
-          options={relatives.map(mapString)}
-        />
-        <label className={styles.label}>Локализация опухоли</label>
-        <Select
-          className={styles.field}
-          name="localization"
-          validate={schema.localization}
-          options={localizations.map(mapString)}
-        />
+        {count =>
+          count.map(key => (
+            <React.Fragment key={key}>
+              <label className={styles.label}>Кто из родственников</label>
+              <Select
+                className={styles.field}
+                name={`relativeDiseases.${key}.relative`}
+                validate={schema.relativesDiseases}
+                options={relatives.map(mapString)}
+              />
+              <label className={styles.label}>Локализация опухоли</label>
+              <Select
+                className={styles.field}
+                name={`relativeDiseases.${key}.localization`}
+                validate={schema.localization}
+                options={localizations.map(mapString)}
+              />
 
-        <label className={styles.label}>
-          Возраст, в котором был установлен диагноз
-        </label>
-        <Input
-          validate={schema.diagnosisAge}
-          type={InputType.Number}
-          name="diagnosisAge"
-        />
+              <label className={styles.label}>
+                Возраст, в котором был установлен диагноз
+              </label>
+              <Input
+                validate={schema.diagnosisAge}
+                type={InputType.Number}
+                name={`relativeDiseases.${key}.diagnosisAge`}
+              />
+            </React.Fragment>
+          ))
+        }
       </AddFieldContainer>
     </EmergingFormElement>
   </article>

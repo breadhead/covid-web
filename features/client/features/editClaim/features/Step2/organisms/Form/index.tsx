@@ -7,9 +7,14 @@ import Footer from '../Footer'
 import Health from '../Health'
 import History from '../History'
 import Survey from '../Survey'
-const ClaimForm = () => {
+import { SituationClaimFields } from './types'
+interface Props {
+  onFormSubmit: (fields: SituationClaimFields) => Promise<void>
+}
+
+const ClaimForm = ({ onFormSubmit }: Props) => {
   return (
-    <Form onSubmit={() => ({})} className={styles.ClaimForm}>
+    <Form onSubmit={onFormSubmit as any} className={styles.ClaimForm}>
       <Common styles={styles} />
       <Health styles={styles} />
       <History styles={styles} />
