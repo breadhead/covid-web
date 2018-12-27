@@ -37,13 +37,13 @@ class Consultation extends React.Component<{}, State> {
             <Header />
             <Company />
             <AnswerNotification />
-            <Theme />
+            <Theme onChatButtonClick={this.openChat} />
             <ExpertAnswers answers={Answers} />
             <QuestionNotification />
           </Layout>
         </div>
         <Chat
-          close={this.CloseChat}
+          close={this.closeChat}
           isOpen={isChatOpen}
           messages={MockMessages}
         />
@@ -51,7 +51,9 @@ class Consultation extends React.Component<{}, State> {
     )
   }
 
-  private CloseChat = () => this.setState({ isChatOpen: false })
+  private closeChat = () => this.setState({ isChatOpen: false })
+
+  private openChat = () => this.setState({ isChatOpen: true })
 }
 
 export default Consultation
