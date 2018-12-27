@@ -56,7 +56,7 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
           validate={schema.regions}
           name="region"
           options={regions.map(mapString)}
-          placeholder="Выберите регион"
+          placeholder={clientInRussia ? 'Выберите регион' : 'Выберите страну'}
         />
       </>
     )}

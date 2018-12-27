@@ -45,6 +45,7 @@ class Combobox extends React.Component<Props> {
       options,
       label,
       error,
+      value,
       ...rest
     } = this.props
 

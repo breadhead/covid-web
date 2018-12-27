@@ -33,7 +33,7 @@ const Main = ({ styles }: Props) => (
       validate={schema.target}
       name="target"
       options={Object.entries(ClaimTarget).map(mapEnum)}
-      placeholder="Выберите консультируемого"
+      placeholder="Выберите для кого консультация"
     />
     <label htmlFor="theme" className={styles.label}>
       Тема вашего вопроса

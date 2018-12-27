@@ -30,9 +30,6 @@ const getDefaultInitial = (
   clientInRussia: boolean,
 ): Partial<ShortClaimFields> => ({
   corporate: false,
-  target: 'Выберите для кого консультация',
-  theme: 'Выберите тему',
-  region: clientInRussia ? 'Выберите регион' : 'Выберите страну',
   phoneAvailable: true,
 })
 
