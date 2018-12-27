@@ -1,1 +1,1 @@
-export { default } from '@app/features/client/features/formFinish'
+export { FormFinish } from '@app/features/client'
