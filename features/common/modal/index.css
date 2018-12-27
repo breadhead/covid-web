@@ -10,7 +10,7 @@
   box-shadow: 0 0 8px 0 rgba(63,63,68,0.04), 0 0 20px 0 rgba(63,63,68,0.12);
   transform: translate(-50%, -50%);
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     padding: 16px 0 0;
   }
 }

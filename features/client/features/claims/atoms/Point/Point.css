@@ -6,9 +6,9 @@
 }
 
 .active {
-  background-color: #FFD46D;
+  background-color: var(--color-highlight);
 }
 
 .inactive {
-  background-color: #B3B4C8;
+  background-color: var(--color-default);
 }

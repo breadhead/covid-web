@@ -13,7 +13,7 @@
 
 .logo {
 
-    @media (max-width: 767px) {
+    @media (--smallDown) {
       display: none;
       justify-content: space-between;
       width: 100%;

@@ -10,11 +10,11 @@
   margin-right: 40px;
   line-height: 0;
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     margin-right: 30px;
   }
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     font: var(--text-0);
   }
 
@@ -28,7 +28,7 @@
 }
 
 .menuItemText {
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     display: none;
   }
 }

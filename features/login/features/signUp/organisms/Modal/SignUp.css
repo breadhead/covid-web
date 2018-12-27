@@ -5,7 +5,7 @@
   background-color: #fff;
   border: none;
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     padding: 0 16px;
   }
 }
@@ -14,7 +14,7 @@
   margin: 0 0 8px 0;
   font: var(--title-medium);
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     font-size: 32px;
   }
 }

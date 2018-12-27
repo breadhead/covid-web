@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 16px;
+
+  @media (--smallDown) {
+    padding: 0 16px 16px;
+    margin: 0;
+  }
+}
+
+.number {
+  font: var(--title-bold);
+}
+
+.title {
+  margin: 0 16px 0 0;
+  font: var(--title-regular);
+}
+
+.icons {
+  margin-left: auto;
+}
+
+.icon {
+  margin-right: 32px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.printButton {
+  @media (--smallDown) {
+    display: none;
+  }
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+}

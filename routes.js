@@ -10,6 +10,7 @@ module.exports = nextRoutes()
   // client
   .add('client-claims', '/client', 'client/claims')
   .add('client-new-claim', '/client/new-claim', 'client/new-claim')
+  .add('client-consultation', '/client/consultation', 'client/consultation')
   .add(
     'client-claim-step-2',
     '/client/claim/:id/situation',
@@ -24,6 +25,11 @@ module.exports = nextRoutes()
     'client-quota-waiting',
     '/client/claim/wait/:email',
     'client/quota-waiting',
+  )
+  .add(
+    'client-form-finish',
+    '/client/claim/form-finish/:email',
+    'client/form-finish',
   )
   // admin
   .add('admin-home', '/admin', 'admin/quotas')

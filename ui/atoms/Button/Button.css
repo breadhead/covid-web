@@ -27,7 +27,7 @@
 
   &:active {
     color: #ffffff;
-    background-color: #354AD4;
+    background-color: var(--color-hover);
   }
 
 
@@ -45,7 +45,7 @@
 
   &:hover, &:focus {
     color: var(--color-link);
-    border-color: #3C54EE;
+    border-color: var(--color-primary);
   }
 
   &:active {

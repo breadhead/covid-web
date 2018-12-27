@@ -11,7 +11,7 @@
   background-color: inherit;
   border-radius: 50%;
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     width: 32px;
     height: 32px;
   }
@@ -23,14 +23,14 @@
   font: var(--text14-20);
   white-space: nowrap;
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     display: none;
   }
 }
 
 .empty {
-  color: #151833;
-  border: 1px solid #151833;
+  color: var(--text-color-primary);
+  border: 1px solid var(--text-color-primary);
 
   &:hover {
     color: var(--color-primary);

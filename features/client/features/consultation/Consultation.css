@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  padding-right: 0;
+
+  @media (--mediumDown) {
+    padding-right: 0;
+  }
+}
+
+.layoutWrapper {
+  flex-grow: 1;
+}
+
+.openChat {
+  padding-right: 400px;
+
+  @media (--mediumDown) {
+    padding-right: 0;
+  }
+}

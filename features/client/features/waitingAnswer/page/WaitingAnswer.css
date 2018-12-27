@@ -1,3 +1,12 @@
+.waitingAnswer {
+  padding: 48px 0 120px 0;
+  background-color: #fff;
+
+  @media (--smallDown) {
+    padding: 24px 16px 80px 16px;
+  }
+}
+
 .logo {
   display: flex;
   justify-content: center;
@@ -9,7 +18,8 @@
   font: var(--title-medium);
   text-align: center;
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
+    padding: 0 16px;
     margin-bottom: 16px;
   }
 }
@@ -18,12 +28,16 @@
   max-width: 560px;
   margin: auto;
   text-align: center;
+
+  @media (--smallDown) {
+    padding: 0 16px;
+  }
 }
 
 .progressBar.progressBar {
   margin-bottom: 36px;
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     width: 272px;
   }
 }

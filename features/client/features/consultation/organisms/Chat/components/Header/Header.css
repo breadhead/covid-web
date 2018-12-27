@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 14px;
+  background-color: #fff;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.title {
+  margin: 0;
+  font: var(--text16-24);
+}
+
+.button {
+  display: flex;
+  padding: 0;
+  margin-right: 14px;
+  background-color: transparent;
+  border: none;
+}
+
+.closeButton {
+  display: none;
+  margin-left: auto;
+  cursor: pointer;
+
+  @media (--mediumDown) {
+    display: flex;
+  }
+}
+
+.buttonChat {
+  margin-right: 14px;
+}
+
+.iconChat {
+  fill: lightgreen;
+}

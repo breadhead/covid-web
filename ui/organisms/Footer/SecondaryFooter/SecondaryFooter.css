@@ -1,9 +1,9 @@
 .footer {
   padding: 24px 48px 32px 48px;
   background-color: var(--background-color);
-  border-top: 1px solid rgba(21,24,51,0.08);
+  border-top: 1px solid var(--divider-color);
 
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     padding: 16px 16px 20px 16px;
   }
 }
@@ -23,13 +23,13 @@
   justify-content: space-between;
   margin-bottom: 32px;
    
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     flex-direction: column;
   }
 }
 
 .logo {
-  @media (max-width: 767px) {
+  @media (--smallDown) {
     align-self: flex-start;
     height: 40px;
     margin-bottom: 16px;

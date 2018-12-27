@@ -1,0 +1,32 @@
+.message {
+  max-width: 328px;
+  min-height: 0px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  font: var(--text14-20);
+  background-color: #fff;
+  border-radius: 16px 16px 16px 0;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,0.06);
+}
+
+.messageSent {
+  margin-left: auto;
+  background-color: #FFEAB7;
+  border-radius: 16px 16px 0 16px;
+}
+
+.author {
+  margin: 8px 0 4px;
+  font-weight: bold;
+}
+
+.content {
+  margin: 0 0 4px;
+}
+
+.sendingTime {
+  margin: 0;
+  font: var(--text12-16);
+  color: var(--text-color-secondary);
+  text-align: right;
+}
