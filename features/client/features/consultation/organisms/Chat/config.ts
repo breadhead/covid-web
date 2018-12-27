@@ -1,4 +1,8 @@
-export const MockMessages = [
+import { NON_BREAKING_SPACE } from '@app/lib/config'
+
+export const MockMessages = []
+
+export const MockMessagesOld = [
   {
     id: '1',
     author: 'Куратор',
@@ -30,3 +34,6 @@ export const MockMessages = [
     date: '12:16',
   },
 ]
+
+export const EmptyWindowText = `Здесь появятся сообщения, если куратору вашей заявки или специалисту потребуется
+${NON_BREAKING_SPACE}задать вам вопрос`

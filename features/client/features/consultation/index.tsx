@@ -16,20 +16,20 @@ import QuestionNotification from './organisms/QuestionNotification'
 import Theme from './organisms/Theme'
 
 interface State {
-  isChatVisible: boolean
+  isChatOpen: boolean
 }
 
 class Consultation extends React.Component<{}, State> {
   public state = {
-    isChatVisible: true,
+    isChatOpen: true,
   }
 
   public render() {
-    const { isChatVisible } = this.state
+    const { isChatOpen } = this.state
     return (
       <div
         className={
-          isChatVisible ? cx(styles.wrapper, styles.openChat) : styles.wrapper
+          isChatOpen ? cx(styles.wrapper, styles.openChat) : styles.wrapper
         }
       >
         <div className={styles.layoutWrapper}>
@@ -44,14 +44,14 @@ class Consultation extends React.Component<{}, State> {
         </div>
         <Chat
           close={this.CloseChat}
-          isVisible={isChatVisible}
+          isOpen={isChatOpen}
           messages={MockMessages}
         />
       </div>
     )
   }
 
-  private CloseChat = () => this.setState({ isChatVisible: false })
+  private CloseChat = () => this.setState({ isChatOpen: false })
 }
 
 export default Consultation
