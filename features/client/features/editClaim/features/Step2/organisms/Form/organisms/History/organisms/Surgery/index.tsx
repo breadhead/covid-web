@@ -12,13 +12,7 @@ import {
   TextArea,
 } from '@app/features/common/form'
 
-import {
-  MOBILE_WIDTH,
-  NON_BREAKING_SPACE,
-  SPACE,
-  StylesType,
-} from '@app/lib/config'
-import { InputType } from '@app/ui/atoms/Input'
+import { SPACE, StylesType } from '@app/lib/config'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
 import { schema } from './schema'
 

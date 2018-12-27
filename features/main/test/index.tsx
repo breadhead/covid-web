@@ -27,17 +27,6 @@ import Combobox from '@app/ui/molecules/Combobox'
 import HintInput from '@app/ui/molecules/HintInput'
 import FormTest from './FormTest'
 
-const testBoolRadioButtons = [
-  {
-    id: '1',
-    value: 'Котейки',
-  },
-  {
-    id: '2',
-    value: 'Собакены',
-  },
-]
-
 const testControlsRadioButtons = [
   {
     id: '1',
@@ -196,11 +185,6 @@ const Test = ({ modal }: WithModalProps) => (
       <br />
       <Switch name="fd" />
       <br />
-      <RadioGroup
-        name="bool"
-        type={RadioGroupType.Bool}
-        buttons={testBoolRadioButtons}
-      />
       <br />
       <RadioGroup
         name="controls"
