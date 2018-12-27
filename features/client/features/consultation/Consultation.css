@@ -1,6 +1,10 @@
 .wrapper {
   display: flex;
   padding-right: 400px;
+
+  @media (--mediumDown) {
+    padding-right: 0;
+  }
 }
 
 .layoutWrapper {

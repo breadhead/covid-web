@@ -25,7 +25,7 @@ const Consultation = () => (
         <QuestionNotification />
       </Layout>
     </div>
-    <Chat messages={MockMessages} />
+    <Chat isVisible messages={MockMessages} />
   </div>
 )
 
