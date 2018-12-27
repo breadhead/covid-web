@@ -1,0 +1,5 @@
+.chatWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+/* stylelint-disable-next-line  хак чтобы оверфлоу-хидден работал с флексом  */

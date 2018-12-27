@@ -8,7 +8,7 @@ export interface MessageType {
   id: string
   author?: string
   content: string
-  date: string
+  date: Date
 }
 
 interface Props {
@@ -18,20 +18,19 @@ interface Props {
 const Message = ({ message }: Props) => {
   const { author, content, date } = message
 
-  const component = !!author ? (
-    <article className={styles.message}>
-      <p className={styles.author}>{author}</p>
+  return (
+    <article
+      className={
+        !!author ? styles.message : cx(styles.message, styles.messageSent)
+      }
+    >
+      {!!author && <p className={styles.author}>{author}</p>}
       <p className={styles.content}>{content}</p>
-      <p className={styles.sendingTime}>{date}</p>
-    </article>
-  ) : (
-    <article className={cx(styles.message, styles.messageSent)}>
-      <p className={styles.content}>{content}</p>
-      <p className={styles.sendingTime}>{date}</p>
+      <p className={styles.sendingTime}>
+        {date.getHours()}:{date.getMinutes()}
+      </p>
     </article>
   )
-
-  return component
 }
 
 export default Message

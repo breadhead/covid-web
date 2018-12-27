@@ -30,14 +30,14 @@
   background-color: var(--background-color);
 }
 
-.input.input.input.input {
-  margin-top: auto;
-  resize: none;
-  border: none;
-  border-top: 1px solid var(--divider-color);
-  border-left: none;
-  border-radius: 0;
-  box-shadow: none;
+.input {
+  margin-top: auto !important;
+  resize: none !important;
+  border: none !important;
+  border-top: 1px solid var(--divider-color) !important;
+  border-left: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .inputWrapper {
@@ -63,9 +63,3 @@
     display: flex;
   }
 }
-
-.chatWrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-/* stylelint-disable-next-line  хак чтобы оверфлоу-хидден работал с флексом  */

@@ -4,10 +4,9 @@ import * as styles from './Chat.css'
 
 import IconCustom from '@app/ui/atoms/IconCustom'
 import TextArea from '@app/ui/atoms/TextArea'
-import EmptyWindow from './components/EmptyWindow'
+import ChatWrapper from './components/ChatWrapper'
 import Header from './components/Header'
-import Message, { MessageType } from './components/Message'
-import { EmptyWindowText } from './config'
+import { MessageType } from './components/Message'
 
 interface Props {
   isOpen: boolean
@@ -17,23 +16,14 @@ interface Props {
 }
 
 const Chat = ({ isOpen, messages, closeChat, sendMessage }: Props) => {
-  const chatBody =
-    messages.length === 0 ? (
-      <EmptyWindow text={EmptyWindowText} />
-    ) : (
-      <div className={styles.chatWrapper}>
-        {messages.map(message => (
-          <Message key={message.id} message={message} />
-        ))}
-      </div>
-    )
-
   return isOpen ? (
     <section className={styles.chat}>
       <div>
         <Header onCloseButtonClick={closeChat} />
       </div>
-      <div className={styles.messageWrapper}>{chatBody}</div>
+      <div className={styles.messageWrapper}>
+        <ChatWrapper messages={messages} />
+      </div>
       <div className={styles.inputWrapper}>
         <TextArea
           autosize={{ minRows: 1, maxRows: 4 }}
