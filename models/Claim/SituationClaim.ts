@@ -24,6 +24,7 @@ export interface SituationClaim {
   relativesDiseases: Array<{
     relative: string
     localization: string
+    // tslint:disable-next-line:trailing-comma
     diagnosisAge: string
   }>
   feeling: string

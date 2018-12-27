@@ -1,3 +1,5 @@
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
+
 interface FileData {
   title: string
   url: string
@@ -41,3 +43,5 @@ export interface SituationClaimFields {
   otherFiles: FileData[]
   diagnosisDate: Date
 }
+
+export type ClaimData = Pick<ShortClaim, 'diagnosis' | 'theme'>
