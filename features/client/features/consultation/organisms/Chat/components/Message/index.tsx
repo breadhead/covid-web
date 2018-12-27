@@ -18,7 +18,7 @@ interface Props {
 const Message = ({ message }: Props) => {
   const { author, content, date } = message
 
-  const component = author!! ? (
+  const component = !!author ? (
     <article className={styles.message}>
       <p className={styles.author}>{author}</p>
       <p className={styles.content}>{content}</p>
