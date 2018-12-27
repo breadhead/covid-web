@@ -2,19 +2,21 @@ import * as React from 'react'
 
 import * as styles from './Chat.css'
 
-import Input from '@app/ui/atoms/Input'
+import IconCustom from '@app/ui/atoms/IconCustom'
+import TextArea from '@app/ui/atoms/TextArea'
 import EmptyWindow from './components/EmptyWindow'
 import Header from './components/Header'
 import Message, { MessageType } from './components/Message'
 import { EmptyWindowText } from './config'
 
 interface Props {
-  messages: MessageType[]
   isOpen: boolean
-  close: () => void
+  messages: MessageType[]
+  closeChat: () => void
+  sendMessage: () => void
 }
 
-const Chat = ({ messages, close, isOpen }: Props) => {
+const Chat = ({ isOpen, messages, closeChat, sendMessage }: Props) => {
   const chatBody =
     messages.length === 0 ? (
       <EmptyWindow text={EmptyWindowText} />
@@ -29,14 +31,20 @@ const Chat = ({ messages, close, isOpen }: Props) => {
   return isOpen ? (
     <section className={styles.chat}>
       <div>
-        <Header onCloseButtonClick={close} />
+        <Header onCloseButtonClick={closeChat} />
       </div>
       <div className={styles.messageWrapper}>{chatBody}</div>
-      <Input
-        className={styles.input}
-        name="message"
-        placeholder="Ваше сообщение..."
-      />
+      <div className={styles.inputWrapper}>
+        <TextArea
+          autosize={{ minRows: 1, maxRows: 4 }}
+          className={styles.input}
+          name="message"
+          placeholder="Ваше сообщение..."
+        />
+        <button onClick={sendMessage} className={styles.sendButton}>
+          <IconCustom className={styles.inputIcon} name="24x24_send-message" />
+        </button>
+      </div>
     </section>
   ) : null
 }

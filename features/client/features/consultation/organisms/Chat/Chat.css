@@ -8,6 +8,7 @@
   width: 400px;
   max-width: 400px;
   height: 100vh;
+  background-color: #fff;
   box-shadow: 0 0 8px 0 rgba(63,63,68,0.04), 0 0 20px 0 rgba(63,63,68,0.12);
 
   @media (--mediumDown) {
@@ -29,15 +30,38 @@
   background-color: var(--background-color);
 }
 
-.input {
+.input.input.input.input {
   margin-top: auto;
-}
-
-.input input[type="text"] {
+  resize: none;
   border: none;
   border-top: 1px solid var(--divider-color);
+  border-left: none;
   border-radius: 0;
   box-shadow: none;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.inputIcon {
+  fill: var(--color-primary);
+}
+
+.sendButton {
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+  display: inline-block;
+  display: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+
+  @media (--mediumDown) {
+    display: flex;
+  }
 }
 
 .chatWrapper {

@@ -311,7 +311,7 @@ const Sprite = () => (
         id="32x32_chat_new-message"
         viewBox="0 0 32 32"
       >
-        <g fill="none" fill-rule="evenodd">
+        <g fill="none" fillRule="evenodd">
           <path
             d="M28 10a6 6 0 0 1-5.91-7H9a7 7 0 0 0-7 7v18.59a1 1 0 0 0 1.7.7l1.54-1.53A6 6 0 0 1 9.48 26H23a7 7 0 0 0 7-7v-9l-.02-.34c-.62.21-1.29.34-1.98.34"
             fill="#3C54EE"

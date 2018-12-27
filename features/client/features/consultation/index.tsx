@@ -43,7 +43,9 @@ class Consultation extends React.Component<{}, State> {
           </Layout>
         </div>
         <Chat
-          close={this.closeChat}
+          closeChat={this.closeChat}
+          // tslint:disable-next-line
+          sendMessage={() => console.log('message is sent')}
           isOpen={isChatOpen}
           messages={MockMessages}
         />
