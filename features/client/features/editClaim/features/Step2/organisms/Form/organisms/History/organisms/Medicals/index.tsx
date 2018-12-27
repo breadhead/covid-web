@@ -70,7 +70,7 @@ const EmergingForm = ({ width, styles }: Props) => (
                 />
                 <SelectYears
                   name={`medicalsTreatments.${key}.when.year`}
-                  placeholder="Окончание"
+                  placeholder="Год"
                   className={cx(
                     styles.historyCombo,
                     styles.historyComboWrapper,
