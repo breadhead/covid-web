@@ -1,6 +1,4 @@
-// import Router from '@app/routes'
-// import Router from 'next/router'
-
+import { State } from '@app/lib/store'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
@@ -14,10 +12,12 @@ import { ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
 
 import routes from '@app/routes'
+import { getNewClaimError } from './selectors'
 const Router = routes.Router
 
 interface Props {
   createClaim: (request: ShortClaimRequest) => Promise<ShortClaim>
+  error: boolean
 }
 
 interface LocalState {
@@ -66,11 +66,9 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       )
       const { email } = personalData
 
-      if (quotaAllocated) {
-        Router.pushRoute(`/client/claim/${id}/situation`)
-      } else if (email) {
-        Router.pushRoute(`/client/claim/wait/${encodeURIComponent(email)}`)
-      }
+      const { error } = this.props
+
+      this.redirectIfNeeded(error, quotaAllocated, id, email)
     }
 
     private createCompanyRequest = (fields: ShortClaimFields) => {
@@ -81,8 +79,27 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
         }
       }
     }
+
+    private redirectIfNeeded(
+      error: boolean,
+      quotaAllocated: boolean,
+      id: string,
+      email: string | undefined,
+    ) {
+      if (!error) {
+        if (quotaAllocated) {
+          Router.pushRoute(`/client/claim/${id}/situation`)
+        } else if (email) {
+          Router.pushRoute(`/client/claim/wait/${encodeURIComponent(email)}`)
+        }
+      }
+    }
   }
 }
+
+const mapState = (state: State) => ({
+  error: getNewClaimError(state),
+})
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
   createClaim: (claimRequest: ShortClaimRequest) =>
@@ -91,7 +108,7 @@ const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
 
 export default compose(
   connect(
-    null,
+    mapState,
     mapDipatch,
   ),
   Container,

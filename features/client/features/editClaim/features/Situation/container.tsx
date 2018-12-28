@@ -1,6 +1,9 @@
 import { SituationClaimRequest } from '@app/lib/api/request/SituationClaim'
 import { AppContext } from '@app/lib/server-types'
+import { State } from '@app/lib/store'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { SituationClaim } from '@app/models/Claim/SituationClaim'
+import routes from '@app/routes'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
@@ -9,11 +12,13 @@ import {
   shortClaim as shortClaimAction,
 } from './actions'
 import { Props as PageProps } from './page'
+import { getSituationError } from './selectors'
 import { SituationClaimFields } from './types'
-
+const Router = routes.Router
 interface Props {
   shortClaim: ShortClaim
-  createSituationClaim: (fields: SituationClaimRequest) => void
+  createSituationClaim: (fields: SituationClaimRequest) => SituationClaim
+  error: boolean
 }
 
 interface Query {
@@ -55,10 +60,24 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
         radiationTreatments: fields.radiationTreatments || [],
         otherFiles: fields.otherFiles || [],
       }
-      await createSituationClaim(request)
+      const { id } = await createSituationClaim(request)
+
+      const { error } = this.props
+
+      this.redirectIfNeeded(id, error)
+    }
+
+    private redirectIfNeeded(id: string, error: boolean) {
+      if (!error) {
+        Router.pushRoute(`/client/claim/${id}/questions`)
+      }
     }
   }
 }
+
+const mapState = (state: State) => ({
+  error: getSituationError(state),
+})
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   createSituationClaim: (situationClaim: SituationClaimRequest) =>
@@ -67,7 +86,7 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
 
 export default compose(
   connect(
-    null,
+    mapState,
     mapDispatch,
   ),
   Container,

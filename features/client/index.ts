@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-export { Situation, ClaimStep3 } from './features/editClaim'
+export { Situation, Questions } from './features/editClaim'
 import {
   reducer as editClaimReducer,
   State as EditClaimState,

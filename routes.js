@@ -11,12 +11,8 @@ module.exports = nextRoutes()
   .add('client-claims', '/client', 'client/claims')
   .add('client-new-claim', '/client/new-claim', 'client/new-claim')
   .add('client-consultation', '/client/consultation', 'client/consultation')
-  .add('client-claim-step-2', '/client/claim/:id/situation', 'client/situation')
-  .add(
-    'client-claim-step-3',
-    '/client/claim/:id/questions',
-    'client/edit-claim-step-3',
-  )
+  .add('client-situation', '/client/claim/:id/situation', 'client/situation')
+  .add('client-questions', '/client/claim/:id/questions', 'client/questions')
   .add(
     'client-quota-waiting',
     '/client/claim/wait/:email',

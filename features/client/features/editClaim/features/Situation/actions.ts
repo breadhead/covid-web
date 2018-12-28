@@ -2,6 +2,7 @@ import { Dispatch } from 'redux'
 
 import { ExtraArgs, State } from '@app/lib/store'
 
+import { actions as newClaimActions } from '@app/features/client/features/newClaim'
 import { SituationClaimRequest } from '@app/lib/api/request/SituationClaim'
 import { actions } from './reducer'
 
@@ -10,13 +11,13 @@ export const shortClaim = (id: string) => async (
   _: () => State,
   { api }: ExtraArgs,
 ) => {
-  dispatch(actions.request())
+  dispatch(newClaimActions.request())
   try {
     const claim = await api.shortClaim(id)
-    dispatch(actions.success())
+    dispatch(newClaimActions.success(claim))
     return claim
   } catch (error) {
-    return dispatch(actions.error(error.message))
+    return dispatch(newClaimActions.error(error.message))
   }
 }
 
@@ -26,7 +27,7 @@ export const createSituationClaim = (
   dispatch(actions.request())
   try {
     const claim = await api.createSituationClaim(claimRequest)
-    dispatch(actions.success())
+    dispatch(actions.success(claim))
     return claim
   } catch (error) {
     return dispatch(actions.error(error.message))

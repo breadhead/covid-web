@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
 export { default as Situation } from './features/Situation'
-export { default as ClaimStep3 } from './features/Step3'
+export { default as Questions } from './features/Questions'
 import {
   reducer as situationReducer,
   State as SituationState,
