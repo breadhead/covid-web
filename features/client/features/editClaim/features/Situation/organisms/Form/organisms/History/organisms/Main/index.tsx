@@ -16,7 +16,7 @@ interface Props {
 const Main = ({ width, styles, claimData }: Props) => (
   <>
     <h2 className={styles.title}>Лечение</h2>
-    {!!claimData.diagnosis && (
+    {!!claimData.localization && (
       <>
         <label htmlFor="diagnosisDate.month" className={styles.label}>
           Когда было диагностировано онкологическое заболевание?

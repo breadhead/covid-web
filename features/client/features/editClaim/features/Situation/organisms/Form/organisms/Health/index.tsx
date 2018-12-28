@@ -40,7 +40,7 @@ const Health = ({ styles, claimData }: Props) => (
       </span>
     </label>
     <TextArea name="complaint" id="complaint" />
-    {!!claimData.diagnosis && (
+    {!!claimData.localization && (
       <>
         <label htmlFor="nowTreatment" className={styles.label}>
           Проводится ли противоопухолевое лечение в данный момент? Какое?

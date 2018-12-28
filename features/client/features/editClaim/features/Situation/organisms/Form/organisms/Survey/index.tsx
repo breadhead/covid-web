@@ -21,7 +21,7 @@ const Survey = ({ styles, claimData }: Props) => (
       Яндекс.Диск, Google Диск или Dropbox, открыть доступы к файлам и указать
       ссылки на них.
     </p>
-    {!!claimData.diagnosis && (
+    {!!claimData.localization && (
       <>
         <h3 className={styles.subtitle}>Гистология</h3>
         <p className={styles.secondaryText}>

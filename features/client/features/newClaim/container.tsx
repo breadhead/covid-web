@@ -48,7 +48,9 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
           email: claimFields.email,
           phone: claimFields.phone,
         },
-        diagnosis: claimFields.diagnosis ? claimFields.localization : undefined,
+        localization: claimFields.diagnosis
+          ? claimFields.localization
+          : undefined,
         theme: claimFields.theme,
         company: this.createCompanyRequest(claimFields),
       }

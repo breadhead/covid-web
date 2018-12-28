@@ -44,4 +44,4 @@ export interface SituationClaimFields {
   diagnosisDate: Date
 }
 
-export type ClaimData = Pick<ShortClaim, 'diagnosis' | 'theme'>
+export type ClaimData = Pick<ShortClaim, 'localization' | 'theme'>

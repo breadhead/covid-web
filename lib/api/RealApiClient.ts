@@ -15,7 +15,6 @@ import { QuotaTransferRequest } from './request/QuotaTransfer'
 import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
-
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
   private _token: string = ''

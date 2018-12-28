@@ -29,7 +29,7 @@ const Common = ({ styles, claimData }: Props) => (
       </span>
     </label>
     <TextArea validate={schema.description} name="description" />
-    {!!claimData.diagnosis && (
+    {!!claimData.localization && (
       <>
         <label htmlFor="diagnosis" className={styles.label}>
           Диагноз.

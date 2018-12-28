@@ -18,7 +18,7 @@ interface CompanyData {
 export interface ShortClaim {
   id: string
   personalData: PersonalData
-  diagnosis?: string
+  localization?: string
   theme: string
   company?: CompanyData
   target: ClaimTarget

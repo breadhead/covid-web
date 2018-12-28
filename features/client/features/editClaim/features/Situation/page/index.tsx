@@ -11,7 +11,7 @@ export interface Props {
   claimData: ClaimData
 }
 
-const Step2Page = ({ onFormSubmit, claimData }: Props) => {
+const SituationPage = ({ onFormSubmit, claimData }: Props) => {
   return (
     <Layout
       step={2}
@@ -26,4 +26,4 @@ const Step2Page = ({ onFormSubmit, claimData }: Props) => {
   )
 }
 
-export default Step2Page
+export default SituationPage

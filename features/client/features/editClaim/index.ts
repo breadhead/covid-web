@@ -1,15 +1,18 @@
 import { combineReducers } from 'redux'
 
-export { default as ClaimStep2 } from './features/Step2'
+export { default as Situation } from './features/Situation'
 export { default as ClaimStep3 } from './features/Step3'
-import { reducer as step2Reducer, State as Step2State } from './features/Step2'
+import {
+  reducer as situationReducer,
+  State as SituationState,
+} from './features/Situation'
 
 export interface State {
-  step2: Step2State
-  step3: Step2State
+  situation: SituationState
+  questions: SituationState
 }
 
 export const reducer = combineReducers({
-  step2: step2Reducer,
-  step3: step2Reducer,
+  situation: situationReducer,
+  questions: situationReducer,
 } as any)
