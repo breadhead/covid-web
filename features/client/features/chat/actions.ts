@@ -15,7 +15,8 @@ export const send = (claimId: string, message: ChatMessage) => async (
     const sentMessage = await api.sendChatMessage(claimId, message)
     return dispatch(actions.sent(sentMessage))
   } catch (error) {
-    return dispatch(actions.error(error.message))
+    dispatch(actions.error(error.message))
+    throw error
   }
 }
 
@@ -29,6 +30,7 @@ export const fetch = (claimId: string) => async (
     const messages = await api.messages(claimId)
     return dispatch(actions.success(messages))
   } catch (error) {
-    return dispatch(actions.error(error.message))
+    dispatch(actions.error(error.message))
+    throw error
   }
 }
