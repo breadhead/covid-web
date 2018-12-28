@@ -12,8 +12,8 @@ export const send = (claimId: string, message: ChatMessage) => async (
 ) => {
   dispatch(actions.request())
   try {
-    const sendedMessage = await api.sendChatMessage(claimId, message)
-    return dispatch(actions.sended(sendedMessage))
+    const sentMessage = await api.sendChatMessage(claimId, message)
+    return dispatch(actions.sent(sentMessage))
   } catch (error) {
     return dispatch(actions.error(error.message))
   }

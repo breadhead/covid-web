@@ -15,7 +15,7 @@ interface State extends FetchingState {
 
 interface Actions extends FetchingActions {
   success(messages: ChatMessage[]): Action
-  sended(message: ChatMessage): Action
+  sent(message: ChatMessage): Action
 }
 
 const initialState = createInitialState({
@@ -32,7 +32,7 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   }),
   'client/new-claim',
   {
-    sended: (state: State, message: ChatMessage) => ({
+    sent: (state: State, message: ChatMessage) => ({
       ...state,
       messages: [
         ...state.messages.filter(({ id }) => id !== message.id),
