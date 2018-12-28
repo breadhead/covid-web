@@ -8,6 +8,10 @@ interface OwnProps {
 }
 
 type Props = OwnProps & FormProps
+
+type SubmitEvent = React.FormEvent<HTMLFormElement>
+type SubmitResult = Promise<object | undefined> | undefined
+
 class Form extends Component<Props> {
   private formRef = createRef<HTMLFormElement>()
 
@@ -21,14 +25,7 @@ class Form extends Component<Props> {
             <form
               onKeyDown={this.onEnterPress}
               ref={this.formRef}
-              onSubmit={event =>
-                Promise.resolve(handleSubmit(event)).then(data => {
-                  if (resetAfterSubmit) {
-                    form.reset()
-                  }
-                  return data
-                })
-              }
+              onSubmit={this.onSubmit(form.reset, handleSubmit)}
             >
               {children}
             </form>
@@ -37,6 +34,27 @@ class Form extends Component<Props> {
         />
       </section>
     )
+  }
+
+  private onSubmit = (
+    reset: () => void,
+    handleSubmit: (event: SubmitEvent) => SubmitResult,
+  ) => (event: SubmitEvent) => {
+    const { resetAfterSubmit } = this.props
+
+    let promise: Promise<any>
+    try {
+      promise = Promise.resolve(handleSubmit(event))
+    } catch (e) {
+      promise = Promise.reject(e)
+    }
+
+    return promise.then(data => {
+      if (resetAfterSubmit) {
+        reset()
+      }
+      return data
+    })
   }
 
   private onEnterPress = (e: React.KeyboardEvent) => {
