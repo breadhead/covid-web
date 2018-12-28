@@ -34,11 +34,13 @@ const Chat = ({ isOpen, messages, closeChat, onSubmit }: Props) => {
         onSubmit={onSubmit as any}
         className={styles.inputWrapper}
         resetAfterSubmit
+        forceSubmitOnEnter
       >
         <TextArea
           autosize={{ minRows: 1, maxRows: 4 }}
           className={styles.input}
           name="message"
+          disableResizeOnEnter
           placeholder="Ваше сообщение..."
         />
         <button type={ButtonType.Submit} className={styles.sendButton}>

@@ -17,9 +17,16 @@ interface OwnProps {
   name: string
   error?: string
   autosize?: boolean | RowsNum
+  disableResizeOnEnter?: boolean
 }
 
 export type Props = OwnProps & TextAreaProps
+
+const onEnterPress = (disableResizeOnEnter: boolean) => (e: any) => {
+  if (e.keyCode === 13 && e.shiftKey === false && disableResizeOnEnter) {
+    e.preventDefault()
+  }
+}
 
 const TextArea = ({
   className,
@@ -27,6 +34,7 @@ const TextArea = ({
   label,
   error,
   autosize,
+  disableResizeOnEnter,
   ...rest
 }: Props) => (
   <>
@@ -40,6 +48,7 @@ const TextArea = ({
       id={name}
       className={cx('textarea', className, error && styles.error)}
       autosize={autosize}
+      onKeyDown={onEnterPress(disableResizeOnEnter || false)}
       {...rest}
     />
   </>
