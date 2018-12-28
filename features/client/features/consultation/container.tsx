@@ -28,7 +28,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
         query.id,
       ) as any)
 
-      return {}
+      return { shortClaim }
     }
 
     public render() {

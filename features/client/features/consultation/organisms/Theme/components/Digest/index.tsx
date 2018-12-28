@@ -12,7 +12,14 @@ interface OwnProps {
 
 type Props = OwnProps & ShortClaim
 
-const Digest = ({ styles, target, theme }: Props) => (
+const Digest = ({
+  styles,
+  target,
+  theme,
+  personalData,
+  localization,
+  company,
+}: Props) => (
   <article className={cx(styles.article, customStyles.digest)}>
     <h2 className={styles.title}>Кратко о теме консультации</h2>
     <div className={styles.content}>
@@ -25,30 +32,38 @@ const Digest = ({ styles, target, theme }: Props) => (
           <h3 className={styles.subtitle}>Тема вопроса</h3>
           <p className={styles.text}>{theme}</p>
         </div>
-        <div className={styles.infoBlock}>
-          <h3 className={styles.subtitle}>Локализация опухоли</h3>
-          <p className={styles.text}>Рак легких</p>
-        </div>
-        <div className={styles.infoBlock}>
-          <h3 className={styles.subtitle}>Корпоративная программа</h3>
-          <p className={styles.text}>Сбербанк</p>
-        </div>
-        <div className={styles.infoBlock}>
-          <h3 className={styles.subtitle}>Должность и департамент</h3>
-          <p className={styles.text}>
-            Департамент маркетинга.
-            <br /> Маркетолог
-          </p>
-        </div>
+        {localization && (
+          <div className={styles.infoBlock}>
+            <h3 className={styles.subtitle}>Локализация опухоли</h3>
+            <p className={styles.text}>{localization}</p>
+          </div>
+        )}
+        {company && (
+          <>
+            <div className={styles.infoBlock}>
+              <h3 className={styles.subtitle}>Корпоративная программа</h3>
+              <p className={styles.text}>{company.name}</p>
+            </div>
+            <div className={styles.infoBlock}>
+              <h3 className={styles.subtitle}>Должность и департамент</h3>
+              <p className={styles.text}>{company.position}</p>
+            </div>
+          </>
+        )}
       </div>
       <div>
         <h3 className={styles.subtitle}>Заказчик</h3>
-        <p className={styles.text}>Александр Васильевич</p>
-        <p className={styles.text}>Мужчина</p>
-        <p className={styles.text}>55 лет</p>
-        <p className={styles.text}>г. Санкт-Петербург</p>
-        <p className={styles.text}>konstantinopolsky@gmail.com</p>
-        <p className={styles.text}>+7 960 749 18 96</p>
+        <p className={styles.text}>{personalData.name}</p>
+        <p className={styles.text}>{personalData.gender}</p>
+        <p className={styles.text}>{personalData.age} лет</p>
+        {/* 23 лет ВАААТ? */}
+        <p className={styles.text}>{personalData.region}</p>
+        {personalData.email && (
+          <p className={styles.text}>{personalData.email}</p>
+        )}
+        {personalData.phone && (
+          <p className={styles.text}>{personalData.phone}</p>
+        )}
       </div>
     </div>
   </article>
