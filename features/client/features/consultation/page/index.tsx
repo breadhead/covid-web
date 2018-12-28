@@ -1,26 +1,31 @@
+import cx from 'classnames'
 import * as React from 'react'
 
-import cx from 'classnames'
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
 
 import * as styles from './Consultation.css'
 
-import Chat from '../../features/chat'
-import Layout from '../../organisms/Layout'
-import OpenChatButton from './atoms/OpenChatButton'
-import AnswerNotification from './organisms/AnswerNotification'
-import Company from './organisms/Company'
-import ExpertAnswers from './organisms/ExpertAnswers'
-import { Answers } from './organisms/ExpertAnswers/config'
-import Header from './organisms/Header'
-import QuestionNotification from './organisms/QuestionNotification'
-import Theme from './organisms/Theme'
+import Layout from '../../../organisms/Layout'
+import Chat from '../../chat'
+import OpenChatButton from '../atoms/OpenChatButton'
+import AnswerNotification from '../organisms/AnswerNotification'
+import Company from '../organisms/Company'
+import ExpertAnswers from '../organisms/ExpertAnswers'
+import { Answers } from '../organisms/ExpertAnswers/config'
+import Header from '../organisms/Header'
+import QuestionNotification from '../organisms/QuestionNotification'
+import Theme from '../organisms/Theme'
 
 interface State {
   isChatOpen: boolean
   haveNewMessage: boolean
 }
 
-class Consultation extends React.Component<{}, State> {
+export interface Props {
+  shortClaim: ShortClaim
+}
+
+class Consultation extends React.Component<Props, State> {
   public state = {
     isChatOpen: true,
     haveNewMessage: false,
@@ -28,6 +33,8 @@ class Consultation extends React.Component<{}, State> {
 
   public render() {
     const { isChatOpen, haveNewMessage } = this.state
+    const { shortClaim } = this.props
+
     return (
       <div
         className={
@@ -43,7 +50,7 @@ class Consultation extends React.Component<{}, State> {
             <Header />
             <Company />
             <AnswerNotification />
-            <Theme />
+            <Theme shortClaim={shortClaim} />
             <ExpertAnswers answers={Answers} />
             <QuestionNotification />
           </Layout>

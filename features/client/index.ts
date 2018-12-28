@@ -23,6 +23,7 @@ import {
 export { default as WaitingPage } from './features/waitingAnswer'
 
 export { default as BeforeConsultation } from './features/beforeConsultation'
+export { default as Consultation } from './features/consultation'
 
 export { default as FormFinish } from './features/formFinish'
 
