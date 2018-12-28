@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
+
 import * as styles from './Theme.css'
 
 import Digest from './components/Digest'
@@ -8,9 +10,13 @@ import Info from './components/Info'
 
 import { Data } from './components/Info/config'
 
-const Theme = () => (
+interface Props {
+  shortClaim: ShortClaim
+}
+
+const Theme = ({ shortClaim }: Props) => (
   <section className={styles.theme}>
-    <Digest styles={styles} />
+    <Digest styles={styles} {...shortClaim} />
     <Info data={Data} styles={styles} />
     <Footer />
   </section>
