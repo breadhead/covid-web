@@ -4,9 +4,10 @@ import * as styles from './Chat.css'
 
 import IconCustom from '@app/ui/atoms/IconCustom'
 import TextArea from '@app/ui/atoms/TextArea'
-import ChatWrapper from './components/ChatWrapper'
-import Header from './components/Header'
-import { MessageType } from './components/Message'
+
+import ChatWrapper from '../organisms/ChatWrapper'
+import Header from '../organisms/Header'
+import { MessageType } from '../organisms/Message'
 
 interface Props {
   isOpen: boolean

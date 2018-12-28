@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import * as styles from './ChatWrapper.css'
 
-import { EmptyWindowText } from '../../config'
+import { EmptyWindowText } from '../../page/config'
 import EmptyWindow from '../EmptyWindow'
 import Message, { MessageType } from '../Message'
 

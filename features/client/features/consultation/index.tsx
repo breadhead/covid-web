@@ -4,10 +4,9 @@ import cx from 'classnames'
 
 import * as styles from './Consultation.css'
 
+import Chat, { MockMessages } from '../../features/chat'
 import Layout from '../../organisms/Layout'
 import AnswerNotification from './organisms/AnswerNotification'
-import Chat from './organisms/Chat'
-import { MockMessages } from './organisms/Chat/config'
 import Company from './organisms/Company'
 import ExpertAnswers from './organisms/ExpertAnswers'
 import { Answers } from './organisms/ExpertAnswers/config'

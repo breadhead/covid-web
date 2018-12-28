@@ -10,7 +10,7 @@ module.exports = nextRoutes()
   // client
   .add('client-claims', '/client', 'client/claims')
   .add('client-new-claim', '/client/new-claim', 'client/new-claim')
-  .add('client-consultation', '/client/consultation', 'client/consultation')
+  .add('client-consultation', '/client/consultation/:id', 'client/consultation')
   .add(
     'client-claim-step-2',
     '/client/claim/:id/situation',
