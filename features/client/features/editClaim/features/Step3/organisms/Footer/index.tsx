@@ -1,8 +1,7 @@
 import * as React from 'react'
 
-import { Button } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
-import { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
+import Button, { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
 import IconCustom from '@app/ui/atoms/IconCustom'
 import NavLink from '@app/ui/atoms/NavLink'
 

@@ -1,4 +1,3 @@
-export { default as Button } from './components/Button'
 export { default as ComboBox } from './components/ComboBox'
 export {
   default as EmergingFormElement,

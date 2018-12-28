@@ -1,12 +1,11 @@
 import * as React from 'react'
 import * as styles from './SignIn.css'
 
-import Button from '@app/features/common/form/components/Button'
 import Form from '@app/features/common/form/components/Form'
 import Input from '@app/features/common/form/components/Input'
 import Footer from '@app/features/login/organisms/Footer'
 import { SPACE } from '@app/lib/config'
-import { ButtonType } from '@app/ui/atoms/Button'
+import Button, { ButtonType } from '@app/ui/atoms/Button'
 import { InputType } from '@app/ui/atoms/Input'
 import NavLink from '@app/ui/atoms/NavLink'
 import { schema } from '../../container'

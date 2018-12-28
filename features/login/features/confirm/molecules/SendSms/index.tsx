@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Button, Form, Input } from '@app/features/common/form'
+import { Form, Input } from '@app/features/common/form'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import { ButtonType } from '@app/ui/atoms/Button'
+import Button, { ButtonType } from '@app/ui/atoms/Button'
 import Icon, { IconColor, IconType } from '@app/ui/atoms/Icon'
 import { InputType } from '@app/ui/atoms/Input'
 
