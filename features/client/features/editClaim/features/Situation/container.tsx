@@ -18,7 +18,7 @@ const Router = routes.Router
 interface Props {
   shortClaim: ShortClaim
   createSituationClaim: (fields: SituationClaimRequest) => SituationClaim
-  error: boolean
+  error: false | string
 }
 
 interface Query {
@@ -40,9 +40,11 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     public render() {
       const {
         shortClaim: { localization, theme },
+        error,
       } = this.props
       return (
         <WrappedComponent
+          error={error}
           claimData={{ localization, theme }}
           onFormSubmit={this.onFormSubmit}
         />
@@ -67,7 +69,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       this.redirectIfNeeded(id, error)
     }
 
-    private redirectIfNeeded(id: string, error: boolean) {
+    private redirectIfNeeded(id: string, error: false | string) {
       if (!error) {
         Router.pushRoute(`/client/claim/${id}/questions`)
       }

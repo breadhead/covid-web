@@ -9,10 +9,10 @@ import { StylesType } from '@app/lib/config'
 
 interface Props {
   styles: StylesType
-  error?: false | string
+  error: false | string
 }
 
-const ERROR_MESSAGE = 'Произошла ошибка, попробуйте позже'
+const ERROR_MESSAGE = 'Произошла ошибка, попробуйте еще раз'
 
 const Footer = ({ styles, error }: Props) => {
   const errorMessage = error ? ERROR_MESSAGE : undefined

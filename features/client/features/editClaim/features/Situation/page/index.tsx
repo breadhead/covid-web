@@ -9,9 +9,10 @@ import { ClaimData, SituationClaimFields } from '../types'
 export interface Props {
   onFormSubmit: (fields: SituationClaimFields) => Promise<void>
   claimData: ClaimData
+  error: false | string
 }
 
-const SituationPage = ({ onFormSubmit, claimData }: Props) => {
+const SituationPage = ({ onFormSubmit, claimData, error }: Props) => {
   return (
     <Layout
       step={2}
@@ -21,7 +22,11 @@ const SituationPage = ({ onFormSubmit, claimData }: Props) => {
     словами. Сотрудники Фонда свяжутся с${NON_BREAKING_SPACE}вами, если будут
     необходимы дополнительные данные.`}
     >
-      <ClaimForm claimData={claimData} onFormSubmit={onFormSubmit} />
+      <ClaimForm
+        error={error}
+        claimData={claimData}
+        onFormSubmit={onFormSubmit}
+      />
     </Layout>
   )
 }
