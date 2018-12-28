@@ -5,6 +5,7 @@ import { compose } from 'recompose'
 import { AnyAction, Dispatch } from 'redux'
 import { Omit } from 'utility-types'
 
+import { getQuery } from '@app/features/common/browserQuery'
 import { State } from '@app/lib/store'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
 
@@ -12,9 +13,14 @@ import { send } from './actions'
 import { FormFileds, Props as PageProps } from './page'
 import { getMessages } from './selectors'
 
+interface Query {
+  id: string
+}
+
 interface OwnProps {
   sendMessage: (claimId: string, message: ChatMessage) => Promise<void>
   messages: ChatMessage[]
+  query: Query
 }
 
 type ResultPageProps = Omit<PageProps, 'messages' | 'onSubmit'>
@@ -27,13 +33,15 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     }
 
     private send = ({ message }: FormFileds) => {
-      const existingContents = this.props.messages.map(({ content }) => content)
+      const { messages, query, sendMessage } = this.props
+
+      const existingContents = messages.map(({ content }) => content)
 
       if (existingContents.includes(message)) {
         return Promise.resolve()
       }
 
-      return this.props.sendMessage('NCUJd646WumNn2', {
+      return sendMessage(query.id, {
         id: nanoid(),
         content: message,
         date: new Date(),
@@ -44,6 +52,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
 
 const mapState = (state: State) => ({
   messages: getMessages(state),
+  query: getQuery<Query>(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({

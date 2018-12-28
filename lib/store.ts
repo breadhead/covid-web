@@ -44,6 +44,11 @@ import {
 } from '@app/features/common/modal'
 
 import {
+  reducer as browserQueryReducer,
+  State as BrowserQueryState,
+} from '@app/features/common/browserQuery'
+
+import {
   reducer as loginReducer,
   State as LoginState,
   unauthorizedMiddleware,
@@ -61,8 +66,8 @@ export interface State {
   transfer: TransferState
   history: HistoryState
   modal: ModalState
-
   client: ClientState
+  browserQuery: BrowserQueryState
 }
 
 const reducer = combineReducers({
@@ -75,8 +80,8 @@ const reducer = combineReducers({
   history: historyReducer,
   modal: modalReducer,
   [REDUCER_KEY]: windowSize,
-
   client: clientReducer,
+  browserQuery: browserQueryReducer,
 } as any)
 
 export interface ExtraArgs {
