@@ -2,9 +2,9 @@ import * as React from 'react'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 
-import Layout from '../../../../../organisms/ClaimFormLayout'
+import Layout from '@app/features/client/organisms/ClaimFormLayout'
 import ClaimForm from '../organisms/Form'
-import { ClaimData, SituationClaimFields } from '../organisms/Form/types'
+import { ClaimData, SituationClaimFields } from '../types'
 
 export interface Props {
   onFormSubmit: (fields: SituationClaimFields) => Promise<void>

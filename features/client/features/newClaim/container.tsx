@@ -1,4 +1,6 @@
-import Router from 'next/router'
+// import Router from '@app/routes'
+// import Router from 'next/router'
+
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
@@ -10,6 +12,10 @@ import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { createClaim } from './actions'
 import { ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
+
+import routes from '@app/routes'
+const Router = routes.Router
+
 interface Props {
   createClaim: (request: ShortClaimRequest) => Promise<ShortClaim>
 }
@@ -59,10 +65,11 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
         request,
       )
       const { email } = personalData
+
       if (quotaAllocated) {
-        Router.push(`/client/claim/${id}/situation`)
+        Router.pushRoute(`/client/claim/${id}/situation`)
       } else if (email) {
-        Router.push(`/client/claim/wait/${encodeURIComponent(email)}`)
+        Router.pushRoute(`/client/claim/wait/${encodeURIComponent(email)}`)
       }
     }
 

@@ -13,7 +13,7 @@ export const createClaim = (claimRequest: ShortClaimRequest) => async (
   dispatch(actions.request())
   try {
     const claim = await api.createShortClaim(claimRequest)
-    dispatch(actions.success())
+    dispatch(actions.success(claim))
     return claim
   } catch (error) {
     return dispatch(actions.error(error.message))

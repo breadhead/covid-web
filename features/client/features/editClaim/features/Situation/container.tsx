@@ -8,8 +8,8 @@ import {
   createSituationClaim as createSituationClaimAction,
   shortClaim as shortClaimAction,
 } from './actions'
-import { SituationClaimFields } from './organisms/Form/types'
 import { Props as PageProps } from './page'
+import { SituationClaimFields } from './types'
 
 interface Props {
   shortClaim: ShortClaim

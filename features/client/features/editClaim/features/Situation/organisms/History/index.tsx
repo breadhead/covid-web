@@ -5,10 +5,10 @@ import withWindowSize from '@app/features/common/windowSize/withWindowSize'
 
 import { StylesType } from '@app/lib/config'
 import { ClaimData } from '../..//types'
-import Main from './organisms/Main'
-import Medicals from './organisms/Medicals'
-import Rays from './organisms/Rays'
-import Surgery from './organisms/Surgery'
+import Main from './Main'
+import Medicals from './Medicals'
+import Rays from './Rays'
+import Surgery from './Surgery'
 
 interface Props {
   windowSize: WindowSize
