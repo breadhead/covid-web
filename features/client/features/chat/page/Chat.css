@@ -31,13 +31,15 @@
 }
 
 .input {
-  margin-top: auto !important;
-  resize: none !important;
-  border: none !important;
-  border-top: 1px solid var(--divider-color) !important;
-  border-left: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
+  & > * {
+    margin-top: auto !important;
+    resize: none !important;
+    border: none !important;
+    border-top: 1px solid var(--divider-color) !important;
+    border-left: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
 }
 
 .inputWrapper {

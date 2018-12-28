@@ -12,6 +12,8 @@ import {
   State as ClaimsState,
 } from './features/claims'
 
+import { reducer as chatReducer, State as ChatState } from './features/chat'
+
 export { default as NewClaim } from './features/newClaim'
 import {
   reducer as newClaimReducer,
@@ -28,10 +30,12 @@ export interface State {
   claims: ClaimsState
   newClaim: NewClaimState
   editClaim: EditClaimState
+  chat: ChatState
 }
 
 export const reducer = combineReducers({
   claims: claimReducer,
   newClaim: newClaimReducer,
+  chat: chatReducer,
   editClaim: editClaimReducer,
 } as any)

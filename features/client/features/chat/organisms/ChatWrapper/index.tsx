@@ -1,13 +1,15 @@
 import * as React from 'react'
 
+import { ChatMessage } from '@app/models/Claim/ChatMessage'
+
 import * as styles from './ChatWrapper.css'
 
-import { EmptyWindowText } from '../../config'
+import { EmptyWindowText } from '../../page/config'
 import EmptyWindow from '../EmptyWindow'
-import Message, { MessageType } from '../Message'
+import Message from '../Message'
 
 interface Props {
-  messages: MessageType[]
+  messages: ChatMessage[]
 }
 
 const ChatWrapper = ({ messages }: Props) =>

@@ -15,7 +15,7 @@ module.exports = nextRoutes()
     'client/before-consultation',
   )
   .add('client-new-claim', '/client/new-claim', 'client/new-claim')
-  .add('client-consultation', '/client/consultation', 'client/consultation')
+  .add('client-consultation', '/client/consultation/:id', 'client/consultation')
   .add('client-situation', '/client/claim/:id/situation', 'client/situation')
   .add('client-questions', '/client/claim/:id/questions', 'client/questions')
   .add(
