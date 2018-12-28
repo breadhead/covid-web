@@ -19,7 +19,9 @@ export {
 
 export { default as WaitingPage } from './features/waitingAnswer'
 
-export { default as FormFinish } from '@app/features/client'
+export { default as BeforeConsultation } from './features/beforeConsultation'
+
+export { default as FormFinish } from './features/formFinish'
 
 export interface State {
   claims: ClaimsState

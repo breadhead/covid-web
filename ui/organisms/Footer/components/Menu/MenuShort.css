@@ -9,6 +9,10 @@
 .link {
   margin-right: 32px;
 
+  &:focus {
+    border-bottom: 1px solid #EDEDEF;
+  }
+
   &:last-of-type {
     margin-right: 0;
   }

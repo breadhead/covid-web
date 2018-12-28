@@ -1,0 +1,19 @@
+.button.button {
+  width: 100%;
+  padding: 16px 36px;
+  margin-top: 48px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @media (--smallDown) {
+    align-items: flex-start;
+  }
+}
