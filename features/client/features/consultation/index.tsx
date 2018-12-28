@@ -4,7 +4,7 @@ import cx from 'classnames'
 
 import * as styles from './Consultation.css'
 
-import Chat, { MockMessages } from '../../features/chat'
+import Chat from '../../features/chat'
 import Layout from '../../organisms/Layout'
 import AnswerNotification from './organisms/AnswerNotification'
 import Company from './organisms/Company'
@@ -41,13 +41,7 @@ class Consultation extends React.Component<{}, State> {
             <QuestionNotification />
           </Layout>
         </div>
-        <Chat
-          closeChat={this.closeChat}
-          // tslint:disable-next-line
-          sendMessage={() => console.log('message is sent')}
-          isOpen={isChatOpen}
-          messages={MockMessages}
-        />
+        <Chat closeChat={this.closeChat} isOpen={isChatOpen} />
       </div>
     )
   }

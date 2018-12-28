@@ -2,21 +2,26 @@ import * as React from 'react'
 
 import * as styles from './Chat.css'
 
+import { Form, TextArea } from '@app/features/common/form'
+import { ChatMessage } from '@app/models/Claim/ChatMessage'
+import { ButtonType } from '@app/ui/atoms/Button'
 import IconCustom from '@app/ui/atoms/IconCustom'
-import TextArea from '@app/ui/atoms/TextArea'
 
 import ChatWrapper from '../organisms/ChatWrapper'
 import Header from '../organisms/Header'
-import { MessageType } from '../organisms/Message'
 
-interface Props {
-  isOpen: boolean
-  messages: MessageType[]
-  closeChat: () => void
-  sendMessage: () => void
+export interface FormFileds {
+  message: string
 }
 
-const Chat = ({ isOpen, messages, closeChat, sendMessage }: Props) => {
+export interface Props {
+  isOpen: boolean
+  messages: ChatMessage[]
+  closeChat: () => void
+  onSubmit: (values: FormFileds) => Promise<void>
+}
+
+const Chat = ({ isOpen, messages, closeChat, onSubmit }: Props) => {
   return isOpen ? (
     <section className={styles.chat}>
       <div>
@@ -25,17 +30,21 @@ const Chat = ({ isOpen, messages, closeChat, sendMessage }: Props) => {
       <div className={styles.messageWrapper}>
         <ChatWrapper messages={messages} />
       </div>
-      <div className={styles.inputWrapper}>
+      <Form
+        onSubmit={onSubmit as any}
+        className={styles.inputWrapper}
+        resetAfterSubmit
+      >
         <TextArea
           autosize={{ minRows: 1, maxRows: 4 }}
           className={styles.input}
           name="message"
           placeholder="Ваше сообщение..."
         />
-        <button onClick={sendMessage} className={styles.sendButton}>
+        <button type={ButtonType.Submit} className={styles.sendButton}>
           <IconCustom className={styles.inputIcon} name="24x24_send-message" />
         </button>
-      </div>
+      </Form>
     </section>
   ) : null
 }

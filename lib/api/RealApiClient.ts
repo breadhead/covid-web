@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosInstance } from 'axios'
 import HttpStatus from 'http-status-codes'
 
+import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { Quota } from '@app/models/Quota/Quota'
@@ -116,4 +117,9 @@ export default class RealApiClient implements ApiClient {
 
     return response.data as UploadedFile
   }
+
+  public sendChatMessage = (claimId: string, message: ChatMessage) =>
+    this.axiosInstance
+      .post(`/chat/${claimId}`, message)
+      .then(response => tapDate(response.data) as ChatMessage)
 }

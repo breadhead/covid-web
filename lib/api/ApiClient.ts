@@ -1,3 +1,4 @@
+import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { Quota } from '@app/models/Quota/Quota'
@@ -47,4 +48,6 @@ export default interface ApiClient {
     file: File,
     onProgress?: (precent: number) => void,
   ): Promise<UploadedFile>
+
+  sendChatMessage(claimId: string, message: ChatMessage): Promise<ChatMessage>
 }
