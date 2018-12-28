@@ -3,8 +3,10 @@ import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 
+import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
-import ShortClaimRequest from './request/ShortClaimRequest'
+import ShortClaimRequest from './request/ShortClaim'
+import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 
 export interface User {
@@ -28,7 +30,8 @@ export default interface ApiClient {
 
   claimsForClient(): Promise<ListedClaim[]>
   createShortClaim(request: ShortClaimRequest): Promise<ShortClaim>
-
+  shortClaim(id: string): Promise<ShortClaim>
+  createSituationClaim(request: SituationClaimRequest): Promise<SituationClaim>
   quota(id: string): Promise<Quota>
   income(amount: number, quotaId: string): Promise<Quota>
   quotas(): Promise<Quota[]>

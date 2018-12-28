@@ -9,12 +9,14 @@ export interface Props {
   onFormSubmit: (claimFields: ShortClaimFields) => Promise<void>
   clientInRussia: boolean
   onChangeInRussia: (value: boolean) => void
+  error: false | string
 }
 
 const ClaimPage: React.StatelessComponent<Props> = ({
   onFormSubmit,
   clientInRussia,
   onChangeInRussia,
+  error,
 }) => {
   return (
     <Layout
@@ -23,6 +25,7 @@ const ClaimPage: React.StatelessComponent<Props> = ({
       info={`Личные данные будут использованы только для${NON_BREAKING_SPACE} консультации.`}
     >
       <ClaimForm
+        error={error}
         onSubmit={onFormSubmit}
         clientInRussia={clientInRussia}
         onChangeInRussia={onChangeInRussia}

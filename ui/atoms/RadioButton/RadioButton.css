@@ -2,9 +2,11 @@
   display: flex;
   align-items: center;
 
- &.radioButton .ant-radio.ant-radio {
-   display: inline-block;
- }
+  white-space: normal;
+
+  &.radioButton .ant-radio.ant-radio {
+    display: inline-block;
+  }
 
   & .ant-radio-checked:after {
     display: none;
@@ -15,38 +17,38 @@
   }
 
   & span span {
-      width: 24px;
-      height: 24px;
-      border-color: #BEBFD0;
-    }
+    width: 24px;
+    height: 24px;
+    border-color: #bebfd0;
+  }
 
   &:hover span span {
     border-color: var(--color-primary) !important;
     border-width: 2px;
   }
 
-  & input[type="radio"] + span::after {
-      display: none;
+  & input[type='radio'] + span::after {
+    display: none;
   }
 
-  & input[type="radio"]:checked + span {
+  & input[type='radio']:checked + span {
     border-color: var(--color-primary) !important;
     border-width: 7px;
   }
 
-  & input[type="radio"][disabled] + span {
-    border-color: #BEBFD0;
-    border-width: 1px;    
+  & input[type='radio'][disabled] + span {
+    border-color: #bebfd0;
+    border-width: 1px;
   }
 
-  &:hover input[type="radio"][disabled] + span {
-    border-color: #BEBFD0 !important;
-    border-width: 1px;    
+  &:hover input[type='radio'][disabled] + span {
+    border-color: #bebfd0 !important;
+    border-width: 1px;
   }
 
-   & input[type="radio"][disabled]:checked + span {
+  & input[type='radio'][disabled]:checked + span {
     border-color: var(--color-primary) !important;
     border-width: 7px;
     opacity: 0.4;
-   }
+  }
 }

@@ -3,9 +3,9 @@ import * as React from 'react'
 
 import { Input, RadioGroup, Select } from '@app/features/common/form'
 
+import { InputType } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
 import Gender from '@app/models/Gender'
-import { InputType } from '@app/ui/atoms/Input'
 import { mapString } from '@app/ui/atoms/Select'
 import Switch from '@app/ui/atoms/Switch'
 import { RadioGroupType } from '@app/ui/molecules/RadioGroup'
@@ -56,7 +56,7 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
           validate={schema.regions}
           name="region"
           options={regions.map(mapString)}
-          placeholder="Выберите регион"
+          placeholder={clientInRussia ? 'Выберите регион' : 'Выберите страну'}
         />
       </>
     )}
