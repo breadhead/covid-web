@@ -9,6 +9,11 @@ module.exports = nextRoutes()
   .add('landing-home', '/', 'landing/home')
   // client
   .add('client-claims', '/client', 'client/claims')
+  .add(
+    'client-before-consultation',
+    '/client/before-consultation',
+    'client/before-consultation',
+  )
   .add('client-new-claim', '/client/new-claim', 'client/new-claim')
   .add('client-consultation', '/client/consultation', 'client/consultation')
   .add('client-situation', '/client/claim/:id/situation', 'client/situation')

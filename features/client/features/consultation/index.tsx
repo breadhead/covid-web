@@ -5,6 +5,7 @@ import cx from 'classnames'
 import * as styles from './Consultation.css'
 
 import Layout from '../../organisms/Layout'
+import OpenChatButton from './atoms/OpenChatButton'
 import AnswerNotification from './organisms/AnswerNotification'
 import Chat from './organisms/Chat'
 import { MockMessages } from './organisms/Chat/config'
@@ -17,15 +18,17 @@ import Theme from './organisms/Theme'
 
 interface State {
   isChatOpen: boolean
+  haveNewMessage: boolean
 }
 
 class Consultation extends React.Component<{}, State> {
   public state = {
     isChatOpen: true,
+    haveNewMessage: false,
   }
 
   public render() {
-    const { isChatOpen } = this.state
+    const { isChatOpen, haveNewMessage } = this.state
     return (
       <div
         className={
@@ -34,10 +37,14 @@ class Consultation extends React.Component<{}, State> {
       >
         <div className={styles.layoutWrapper}>
           <Layout>
+            <OpenChatButton
+              haveNewMessage={haveNewMessage}
+              onClick={this.openChat}
+            />
             <Header />
             <Company />
             <AnswerNotification />
-            <Theme onChatButtonClick={this.openChat} />
+            <Theme />
             <ExpertAnswers answers={Answers} />
             <QuestionNotification />
           </Layout>
