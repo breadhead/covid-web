@@ -54,14 +54,9 @@
   position: absolute;
   right: 16px;
   bottom: 12px;
-  display: inline-block;
-  display: none;
+  display: flex;
   padding: 0;
   cursor: pointer;
   background-color: transparent;
   border: 0;
-
-  @media (--mediumDown) {
-    display: flex;
-  }
 }

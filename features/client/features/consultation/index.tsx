@@ -6,6 +6,7 @@ import * as styles from './Consultation.css'
 
 import Chat from '../../features/chat'
 import Layout from '../../organisms/Layout'
+import OpenChatButton from './atoms/OpenChatButton'
 import AnswerNotification from './organisms/AnswerNotification'
 import Company from './organisms/Company'
 import ExpertAnswers from './organisms/ExpertAnswers'
@@ -16,15 +17,17 @@ import Theme from './organisms/Theme'
 
 interface State {
   isChatOpen: boolean
+  haveNewMessage: boolean
 }
 
 class Consultation extends React.Component<{}, State> {
   public state = {
     isChatOpen: true,
+    haveNewMessage: false,
   }
 
   public render() {
-    const { isChatOpen } = this.state
+    const { isChatOpen, haveNewMessage } = this.state
     return (
       <div
         className={
@@ -33,10 +36,14 @@ class Consultation extends React.Component<{}, State> {
       >
         <div className={styles.layoutWrapper}>
           <Layout>
+            <OpenChatButton
+              haveNewMessage={haveNewMessage}
+              onClick={this.openChat}
+            />
             <Header />
             <Company />
             <AnswerNotification />
-            <Theme onChatButtonClick={this.openChat} />
+            <Theme />
             <ExpertAnswers answers={Answers} />
             <QuestionNotification />
           </Layout>

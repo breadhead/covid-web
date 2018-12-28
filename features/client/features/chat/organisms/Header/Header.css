@@ -15,7 +15,6 @@
 .button {
   display: flex;
   padding: 0;
-  margin-right: 14px;
   background-color: transparent;
   border: none;
 }
