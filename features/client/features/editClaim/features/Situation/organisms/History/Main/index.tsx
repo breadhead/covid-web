@@ -4,7 +4,7 @@ import * as React from 'react'
 import { SelectMonths, SelectYears } from '@app/features/common/form'
 
 import { MOBILE_WIDTH, SPACE, StylesType } from '@app/lib/config'
-import { ClaimData } from '../../../../types'
+import { ClaimData } from '../../../types'
 import { schema } from './schema'
 
 interface Props {

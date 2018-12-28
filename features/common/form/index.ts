@@ -13,3 +13,8 @@ export { default as ComboCity } from './components/ComboCity'
 export { default as ComboClinic } from './components/ComboClinic'
 export { default as SelectMonths } from './components/SelectMonths'
 export { default as SelectYears } from './components/SelectYears'
+export {
+  default as ButtonWithTooltip,
+  ButtonSize,
+  ButtonType,
+} from './components/ButtonWithTooltip'

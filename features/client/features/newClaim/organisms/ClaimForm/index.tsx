@@ -35,9 +35,15 @@ interface Props {
   onSubmit: (claimFields: ShortClaimFields) => Promise<void>
   clientInRussia: boolean
   onChangeInRussia: (value: boolean) => void
+  error: false | string
 }
 
-const ClaimForm = ({ onSubmit, clientInRussia, onChangeInRussia }: Props) => {
+const ClaimForm = ({
+  onSubmit,
+  clientInRussia,
+  onChangeInRussia,
+  error,
+}: Props) => {
   return (
     <Form
       onSubmit={onSubmit as any}
@@ -50,7 +56,7 @@ const ClaimForm = ({ onSubmit, clientInRussia, onChangeInRussia }: Props) => {
         onChangeInRussia={onChangeInRussia}
         styles={styles}
       />
-      <Footer styles={styles} />
+      <Footer error={error} styles={styles} />
     </Form>
   )
 }

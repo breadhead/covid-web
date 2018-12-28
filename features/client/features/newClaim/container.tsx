@@ -17,7 +17,7 @@ const Router = routes.Router
 
 interface Props {
   createClaim: (request: ShortClaimRequest) => Promise<ShortClaim>
-  error: boolean
+  error: false | string
 }
 
 interface LocalState {
@@ -31,8 +31,10 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     } as LocalState
 
     public render() {
+      const { error } = this.props
       return (
         <WrappedComponent
+          error={error}
           onFormSubmit={this.onFormSubmit}
           clientInRussia={this.state.clientInRussia}
           onChangeInRussia={this.onChangeInRussia}
@@ -81,7 +83,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     }
 
     private redirectIfNeeded(
-      error: boolean,
+      error: false | string,
       quotaAllocated: boolean,
       id: string,
       email: string | undefined,
