@@ -1,10 +1,10 @@
 import React from 'react'
 
 import { Form, Input } from '@app/features/common/form'
+import { InputType } from '@app/features/common/form'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import Button, { ButtonType } from '@app/ui/atoms/Button'
 import Icon, { IconColor, IconType } from '@app/ui/atoms/Icon'
-import { InputType } from '@app/ui/atoms/Input'
 
 import * as styles from './SendSms.css'
 

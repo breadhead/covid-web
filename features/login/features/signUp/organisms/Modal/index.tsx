@@ -3,12 +3,12 @@ import styles from './SignUp.css'
 
 import NavLink from '@app/ui/atoms/NavLink'
 
+import { InputType } from '@app/features/common/form'
 import Form from '@app/features/common/form/components/Form'
 import Input from '@app/features/common/form/components/Input'
 import Footer from '@app/features/login/organisms/Footer'
 import { SPACE } from '@app/lib/config'
 import Button, { ButtonType } from '@app/ui/atoms/Button'
-import { InputType } from '@app/ui/atoms/Input'
 
 const SignUp = () => (
   <>

@@ -7,8 +7,8 @@ import {
   Select,
   TextArea,
 } from '@app/features/common/form'
+import { InputType } from '@app/features/common/form'
 import { SPACE, StylesType } from '@app/lib/config'
-import { InputType } from '@app/ui/atoms/Input'
 import { mapString } from '@app/ui/atoms/Select'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
 import { CONDITIONAL_THEME } from '../../config'

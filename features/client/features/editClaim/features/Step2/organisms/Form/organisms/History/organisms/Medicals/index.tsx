@@ -12,8 +12,8 @@ import {
   TextArea,
 } from '@app/features/common/form'
 
+import { InputType } from '@app/features/common/form'
 import { SPACE, StylesType } from '@app/lib/config'
-import { InputType } from '@app/ui/atoms/Input'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
 import { schema } from './schema'
 

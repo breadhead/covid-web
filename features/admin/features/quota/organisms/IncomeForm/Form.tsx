@@ -1,8 +1,7 @@
 import * as React from 'react'
 
-import { Form, Input } from '@app/features/common/form'
+import { Form, Input, InputType } from '@app/features/common/form'
 import Button, { ButtonType } from '@app/ui/atoms/Button'
-import { InputType } from '@app/ui/atoms/Input'
 
 import { SubmitValues } from './container'
 import styles from './Form.css'

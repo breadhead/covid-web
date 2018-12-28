@@ -13,6 +13,7 @@ import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
 import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
 
 import Layout from '@app/features/client/organisms/Layout'
+import { InputType } from '@app/features/common/form'
 import Uploader from '@app/features/common/uploader'
 import {
   SIGN_IN_MODAL,
@@ -20,7 +21,6 @@ import {
   SMS_CONFIRM_MODAL,
 } from '@app/features/login'
 import Button from '@app/ui/atoms/Button'
-import { InputType } from '@app/ui/atoms/Input'
 import Input from '@app/ui/atoms/Input'
 import TimePicker from '@app/ui/atoms/TimePicker'
 import Combobox from '@app/ui/molecules/Combobox'
