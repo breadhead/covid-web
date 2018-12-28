@@ -17,16 +17,18 @@ interface Treatment {
   doctor: string
 }
 
+interface RelativesDisease {
+  relative: string
+  localization: string
+  diagnosisAge: string
+}
+
 export interface SituationClaimFields {
   description: string
   diagnosis: string
   stage: string
   otherDisease: string
-  relativesDiseases: Array<{
-    relative: string
-    localization: string
-    diagnosisAge: string
-  }>
+  relativesDiseases: RelativesDisease[]
   feeling: string
   worst: string
   complaint: string
