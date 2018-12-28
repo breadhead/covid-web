@@ -1,8 +1,7 @@
 import * as React from 'react'
 
-import Uploader from '@app/features/common/uploader'
+import { Input } from '@app/features/common/form'
 import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
-import Input from '@app/ui/atoms/Input'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
 import { ClaimData } from '../../types'
 
@@ -30,7 +29,7 @@ const Survey = ({ styles, claimData }: Props) => (
         <label htmlFor="histology" className={styles.labelSmall}>
           Ссылка на файл
         </label>
-        <Uploader id="histology" />
+        <Input name="histology" />
       </>
     )}
 
@@ -41,7 +40,7 @@ const Survey = ({ styles, claimData }: Props) => (
     <label htmlFor="discharge" className={styles.labelSmall}>
       Ссылка на файл
     </label>
-    <Uploader id="discharge" />
+    <Input name="discharge" />
     <AddFieldContainer
       buttonClassName={styles.addButton}
       buttonText="Добавить другие файлы"
@@ -60,7 +59,7 @@ const Survey = ({ styles, claimData }: Props) => (
             <label htmlFor={`otherFiles.${key}.url`} className={styles.label}>
               Ссылка на файл
             </label>
-            <Uploader id={`otherFiles.${key}.url`} />
+            <Input name={`otherFiles.${key}.url`} />
           </React.Fragment>
         ))
       }
