@@ -1,7 +1,8 @@
-import * as React from 'react'
-import * as customStyles from './Digest.css'
-
 import cx from 'classnames'
+import plural from 'plural-ru'
+import * as React from 'react'
+
+import * as customStyles from './Digest.css'
 
 import { StylesType } from '@app/lib/config'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
@@ -11,6 +12,9 @@ interface OwnProps {
 }
 
 type Props = OwnProps & ShortClaim
+
+const pluralizeAge = (age: number) =>
+  `${age} ${plural(age, 'год', 'года', 'лет')}`
 
 const Digest = ({
   styles,
@@ -55,8 +59,7 @@ const Digest = ({
         <h3 className={styles.subtitle}>Заказчик</h3>
         <p className={styles.text}>{personalData.name}</p>
         <p className={styles.text}>{personalData.gender}</p>
-        <p className={styles.text}>{personalData.age} лет</p>
-        {/* 23 лет ВАААТ? */}
+        <p className={styles.text}>{pluralizeAge(personalData.age)}</p>
         <p className={styles.text}>{personalData.region}</p>
         {personalData.email && (
           <p className={styles.text}>{personalData.email}</p>
