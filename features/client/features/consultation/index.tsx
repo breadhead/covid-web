@@ -4,6 +4,9 @@ import cx from 'classnames'
 
 import * as styles from './Consultation.css'
 
+import { WindowSize } from '@app/features/common/windowSize/selector'
+import withWindowSize from '@app/features/common/windowSize/withWindowSize'
+
 import Layout from '../../organisms/Layout'
 import OpenChatButton from './atoms/OpenChatButton'
 import AnswerNotification from './organisms/AnswerNotification'
@@ -16,15 +19,35 @@ import Header from './organisms/Header'
 import QuestionNotification from './organisms/QuestionNotification'
 import Theme from './organisms/Theme'
 
+import { CHAT_DEFAULT_OPEN_WIDTH } from '@app/lib/config'
+
 interface State {
   isChatOpen: boolean
   haveNewMessage: boolean
 }
 
-class Consultation extends React.Component<{}, State> {
+interface Props {
+  windowSize: WindowSize
+}
+
+class Consultation extends React.Component<Props, State> {
   public state = {
-    isChatOpen: true,
+    isChatOpen: false,
     haveNewMessage: false,
+  }
+
+  public componentDidMount() {
+    const { width } = this.props.windowSize
+
+    this.toggleChatOpening(width)
+  }
+
+  public componentDidUpdate(prevProps: Props) {
+    const { width } = this.props.windowSize
+
+    if (width !== prevProps.windowSize.width) {
+      this.toggleChatOpening(width)
+    }
   }
 
   public render() {
@@ -63,6 +86,9 @@ class Consultation extends React.Component<{}, State> {
   private closeChat = () => this.setState({ isChatOpen: false })
 
   private openChat = () => this.setState({ isChatOpen: true })
+
+  private toggleChatOpening = (width: number) =>
+    width > CHAT_DEFAULT_OPEN_WIDTH ? this.openChat() : this.closeChat()
 }
 
-export default Consultation
+export default withWindowSize(Consultation)
