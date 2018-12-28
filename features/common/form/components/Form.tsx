@@ -63,9 +63,11 @@ class Form extends Component<Props> {
     const buttonFits = e.keyCode === 13 && e.shiftKey === false
     const element = this.formRef.current
 
-    if (buttonFits && forceSubmitOnEnter && element) {
+    const shouldSubmit = buttonFits && forceSubmitOnEnter && element
+
+    if (shouldSubmit) {
       e.preventDefault()
-      element.dispatchEvent(new Event('submit', { cancelable: true }))
+      element!.dispatchEvent(new Event('submit', { cancelable: true }))
     }
   }
 }
