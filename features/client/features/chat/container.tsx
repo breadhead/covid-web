@@ -43,13 +43,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     }
 
     private send = ({ message }: FormFileds) => {
-      const { messages, query, sendMessage } = this.props
-
-      const existingContents = messages.map(({ content }) => content)
-
-      if (existingContents.includes(message)) {
-        return Promise.resolve()
-      }
+      const { query, sendMessage } = this.props
 
       return sendMessage(query.id, {
         id: nanoid(),
