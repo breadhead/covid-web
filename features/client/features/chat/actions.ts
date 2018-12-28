@@ -18,3 +18,17 @@ export const send = (claimId: string, message: ChatMessage) => async (
     return dispatch(actions.error(error.message))
   }
 }
+
+export const fetch = (claimId: string) => async (
+  dispatch: Dispatch<any>,
+  _: () => State,
+  { api }: ExtraArgs,
+) => {
+  dispatch(actions.request())
+  try {
+    const messages = await api.messages(claimId)
+    return dispatch(actions.success(messages))
+  } catch (error) {
+    return dispatch(actions.error(error.message))
+  }
+}

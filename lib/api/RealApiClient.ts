@@ -122,4 +122,10 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post(`/chat/${claimId}`, message)
       .then(response => tapDate(response.data) as ChatMessage)
+
+  public messages = (claimId: string) =>
+    this.axiosInstance
+      .get(`/chat/${claimId}`)
+      .then(response => response.data as ChatMessage[])
+      .then(messages => messages.map(tapDate))
 }

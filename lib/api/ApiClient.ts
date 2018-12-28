@@ -50,4 +50,5 @@ export default interface ApiClient {
   ): Promise<UploadedFile>
 
   sendChatMessage(claimId: string, message: ChatMessage): Promise<ChatMessage>
+  messages(claimId: string): Promise<ChatMessage[]>
 }
