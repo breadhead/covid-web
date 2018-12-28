@@ -2,10 +2,6 @@
   width: 21px;
   height: 21px;
   transition: border-color 0.2s ease; 
-
-  &::after {
-    border: 2px solid #fff;
-  }
 }
 
 .ant-checkbox-checked.ant-checkbox-checked .ant-checkbox-inner {

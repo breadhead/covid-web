@@ -2,8 +2,8 @@
   display: flex;
   margin-bottom: 24px;
 
-
   @media (--smallDown) {
+    padding: 0 16px;
     margin-bottom: 16px;
   }
 }
