@@ -5,11 +5,16 @@ import IconCustom from '@app/ui/atoms/IconCustom'
 
 interface Props {
   onClick: () => void
+  haveNewMessage: boolean
 }
 
-const OpenChatButton = ({ onClick }: Props) => (
+const OpenChatButton = ({ onClick, haveNewMessage }: Props) => (
   <button onClick={onClick} className={styles.openChatButton}>
-    <IconCustom name="32x32_chat_new-message" />
+    {haveNewMessage ? (
+      <IconCustom name="32x32_chat_new-message" />
+    ) : (
+      <IconCustom name="32x32_chat" />
+    )}
   </button>
 )
 

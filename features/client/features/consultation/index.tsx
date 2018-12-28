@@ -18,15 +18,17 @@ import Theme from './organisms/Theme'
 
 interface State {
   isChatOpen: boolean
+  haveNewMessage: boolean
 }
 
 class Consultation extends React.Component<{}, State> {
   public state = {
     isChatOpen: true,
+    haveNewMessage: false,
   }
 
   public render() {
-    const { isChatOpen } = this.state
+    const { isChatOpen, haveNewMessage } = this.state
     return (
       <div
         className={
@@ -35,7 +37,10 @@ class Consultation extends React.Component<{}, State> {
       >
         <div className={styles.layoutWrapper}>
           <Layout>
-            <OpenChatButton onClick={this.openChat} />
+            <OpenChatButton
+              haveNewMessage={haveNewMessage}
+              onClick={this.openChat}
+            />
             <Header />
             <Company />
             <AnswerNotification />
