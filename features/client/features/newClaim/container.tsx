@@ -3,7 +3,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 
-import ShortClaimRequest from '@app/lib/api/request/ShortClaimRequest'
+import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import ClaimTarget from '@app/models/Claim/ClaimTarget'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 

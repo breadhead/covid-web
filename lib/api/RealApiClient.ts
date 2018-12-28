@@ -12,7 +12,7 @@ import { queryString } from './helper/queryString'
 import { tapDate } from './helper/tapDate'
 import { QuotaCreateRequest, QuotaEditRequest } from './request/Quota'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
-import ShortClaimRequest from './request/ShortClaimRequest'
+import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 

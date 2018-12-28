@@ -5,7 +5,7 @@ import { Transaction } from '@app/models/Quota/Transaction'
 
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
-import ShortClaimRequest from './request/ShortClaimRequest'
+import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 

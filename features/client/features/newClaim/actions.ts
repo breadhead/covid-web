@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux'
 
-import ShortClaimRequest from '@app/lib/api/request/ShortClaimRequest'
+import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import { ExtraArgs, State } from '@app/lib/store'
 
 import { actions } from './reducer'
