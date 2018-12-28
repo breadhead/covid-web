@@ -16,7 +16,15 @@ interface OwnProps {
 
 export type Props = OwnProps & SelectProps
 
-const Select = ({ name, options, label, error, className, ...rest }: Props) => (
+const Select = ({
+  name,
+  options,
+  label,
+  error,
+  className,
+  value,
+  ...rest
+}: Props) => (
   <div className={className}>
     {label && <label htmlFor={name}>{label}</label>}
     <AntSelect id={name} {...rest} className={error && 'error'}>

@@ -1,3 +1,4 @@
+import { range } from 'lodash'
 import * as React from 'react'
 import * as styles from './AddFieldContainer.css'
 
@@ -5,38 +6,26 @@ import Button, { ButtonKind } from '@app/ui/atoms/Button'
 import IconCustom from '@app/ui/atoms/IconCustom'
 
 interface Props {
-  children: React.ReactNode
+  children: (count: number[]) => React.ReactNode
   buttonClassName?: string
   buttonText?: string
 }
 
-interface Component {
-  id: number
-  content: React.ReactNode
-}
-
 interface State {
-  clickCount: number
-  components: Component[]
+  count: number[]
 }
 
 class AddFieldContainer extends React.Component<Props, State> {
   public state = {
-    clickCount: 0,
-    components: [{ id: 0, content: this.props.children }],
+    count: range(1),
   }
 
   public render() {
-    const { buttonClassName, buttonText } = this.props
-    const { components } = this.state
-
+    const { buttonClassName, buttonText, children } = this.props
+    const { count } = this.state
     return (
       <>
-        {components.map(component => (
-          <React.Fragment key={component.id}>
-            {component.content}
-          </React.Fragment>
-        ))}
+        {children(count)}
         <Button
           onClick={this.onClick}
           className={buttonClassName}
@@ -50,16 +39,9 @@ class AddFieldContainer extends React.Component<Props, State> {
   }
 
   private onClick = () => {
-    this.setState((state: State) => {
-      const clickCount = state.clickCount + 1
-      return {
-        clickCount,
-        components: state.components.concat({
-          id: clickCount,
-          content: this.props.children,
-        }),
-      }
-    })
+    this.setState((state: State) => ({
+      count: range(state.count.length + 1),
+    }))
   }
 }
 

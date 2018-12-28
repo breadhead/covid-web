@@ -26,34 +26,29 @@ export interface ShortClaimFields {
   phoneAvailable: boolean
 }
 
-const getDefaultInitial = (
-  clientInRussia: boolean,
-): Partial<ShortClaimFields> => ({
+const initialValues = {
   corporate: false,
-  target: 'Выберите для кого консультация',
-  theme: 'Выберите тему',
-  region: clientInRussia ? 'Выберите регион' : 'Выберите страну',
   phoneAvailable: true,
-})
+}
 
 interface Props {
   onSubmit: (claimFields: ShortClaimFields) => Promise<void>
-  initial?: Partial<ShortClaimFields>
   clientInRussia: boolean
   onChangeInRussia: (value: boolean) => void
+  error: false | string
 }
 
 const ClaimForm = ({
   onSubmit,
-  initial,
   clientInRussia,
   onChangeInRussia,
+  error,
 }: Props) => {
   return (
     <Form
       onSubmit={onSubmit as any}
       className={styles.ClaimForm}
-      initialValues={initial || getDefaultInitial(clientInRussia)}
+      initialValues={initialValues}
     >
       <Main styles={styles} />
       <Contacts
@@ -61,7 +56,7 @@ const ClaimForm = ({
         onChangeInRussia={onChangeInRussia}
         styles={styles}
       />
-      <Footer styles={styles} />
+      <Footer error={error} styles={styles} />
     </Form>
   )
 }

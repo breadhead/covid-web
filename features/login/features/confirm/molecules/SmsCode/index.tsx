@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { Form, Input } from '@app/features/common/form'
+import { InputType } from '@app/features/common/form'
 import Icon, { IconColor, IconType } from '@app/ui/atoms/Icon'
-import { InputType } from '@app/ui/atoms/Input'
 
 interface Props {
   valid: boolean

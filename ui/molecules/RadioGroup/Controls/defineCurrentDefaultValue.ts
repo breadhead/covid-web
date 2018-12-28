@@ -3,9 +3,13 @@ import Button from '../ButtonVariant'
 
 const defineCurrentDefaultValue = (
   buttons: Button[],
-  defaultValue?: string,
-): string => {
+  defaultValue?: string | null,
+) => {
   if (!!defaultValue) {
+    return defaultValue
+  }
+
+  if (defaultValue === null) {
     return defaultValue
   }
 

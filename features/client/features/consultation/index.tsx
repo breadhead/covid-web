@@ -7,11 +7,10 @@ import * as styles from './Consultation.css'
 import { WindowSize } from '@app/features/common/windowSize/selector'
 import withWindowSize from '@app/features/common/windowSize/withWindowSize'
 
+import Chat from '../../features/chat'
 import Layout from '../../organisms/Layout'
 import OpenChatButton from './atoms/OpenChatButton'
 import AnswerNotification from './organisms/AnswerNotification'
-import Chat from './organisms/Chat'
-import { MockMessages } from './organisms/Chat/config'
 import Company from './organisms/Company'
 import ExpertAnswers from './organisms/ExpertAnswers'
 import { Answers } from './organisms/ExpertAnswers/config'
@@ -72,13 +71,7 @@ class Consultation extends React.Component<Props, State> {
             <QuestionNotification />
           </Layout>
         </div>
-        <Chat
-          closeChat={this.closeChat}
-          // tslint:disable-next-line
-          sendMessage={() => console.log('message is sent')}
-          isOpen={isChatOpen}
-          messages={MockMessages}
-        />
+        <Chat closeChat={this.closeChat} isOpen={isChatOpen} />
       </div>
     )
   }

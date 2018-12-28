@@ -1,19 +1,21 @@
 import axios, { AxiosError, AxiosInstance } from 'axios'
 import HttpStatus from 'http-status-codes'
 
+import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 
+import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import ApiClient, { UploadedFile, User } from './ApiClient'
 import { queryString } from './helper/queryString'
 import { tapDate } from './helper/tapDate'
 import { QuotaCreateRequest, QuotaEditRequest } from './request/Quota'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
-import ShortClaimRequest from './request/ShortClaimRequest'
+import ShortClaimRequest from './request/ShortClaim'
+import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
-
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
   private _token: string = ''
@@ -34,6 +36,18 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post('/claims/short', shortClaimRequest)
       .then(response => response.data as ShortClaim)
+
+  public shortClaim = (id: string) =>
+    this.axiosInstance
+      .get(`/claims/${id}/short`)
+      .then(response => response.data as ShortClaim)
+
+  public createSituationClaim = (
+    situationClaimRequest: SituationClaimRequest,
+  ) =>
+    this.axiosInstance
+      .post(`/claims/situation`, situationClaimRequest)
+      .then(response => response.data as SituationClaim)
 
   public transfer = (quotaTransferRequest: QuotaTransferRequest) =>
     this.axiosInstance
@@ -116,4 +130,15 @@ export default class RealApiClient implements ApiClient {
 
     return response.data as UploadedFile
   }
+
+  public sendChatMessage = (claimId: string, message: ChatMessage) =>
+    this.axiosInstance
+      .post(`/chat/${claimId}`, message)
+      .then(response => tapDate(response.data) as ChatMessage)
+
+  public messages = (claimId: string) =>
+    this.axiosInstance
+      .get(`/chat/${claimId}`)
+      .then(response => response.data as ChatMessage[])
+      .then(messages => messages.map(tapDate))
 }
