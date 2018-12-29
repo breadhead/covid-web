@@ -65,9 +65,11 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       return claim
     }
 
-    private redirectIfNeeded(email: string | undefined, error: false | string) {
+    private redirectIfNeeded(email: string = '', error: false | string) {
       if (!error) {
-        Router.pushRoute(`/client/claim/form-finish/${email}`)
+        Router.pushRoute(
+          `/client/claim/form-finish/${encodeURIComponent(email)}`,
+        )
       }
     }
   }
