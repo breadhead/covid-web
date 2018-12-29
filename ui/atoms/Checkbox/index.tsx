@@ -3,7 +3,7 @@ import * as React from 'react'
 
 import './Checkbox.css?CSSModulesDisable'
 
-interface Props {
+export interface Props {
   name: string
   children?: React.ReactNode
   className?: string

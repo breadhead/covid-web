@@ -3,10 +3,9 @@
   font: var(--text16-24);
   text-align: center;
   background-color: var(--background-color);
-  
 
   @media (--smallDown) {
-    padding: 24px 16px 80px;
+    padding: 0;
     font: var(--text14-20);
   }
 }
@@ -17,9 +16,8 @@
   font: var(--title-regular);
 }
 
-
 .infoText {
   max-width: 800px;
   margin: 0 auto 32px;
-  color: #82839B;
+  color: #82839b;
 }
