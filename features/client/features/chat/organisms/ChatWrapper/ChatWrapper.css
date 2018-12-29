@@ -1,5 +1,7 @@
 .chatWrapper {
   display: grid;
   grid-template-columns: 1fr;
+  grid-gap: 8px;
+  overflow-y: scroll;
 }
 /* stylelint-disable-next-line  хак чтобы оверфлоу-хидден работал с флексом  */

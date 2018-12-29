@@ -2,14 +2,16 @@
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   width: 400px;
   max-width: 400px;
   height: 100vh;
+  overflow: -moz-scrollbars-none;
   background-color: #fff;
   box-shadow: 0 0 8px 0 rgba(63,63,68,0.04), 0 0 20px 0 rgba(63,63,68,0.12);
+  -ms-overflow-style: none;
 
   @media (--mediumDown) {
     top: 0;
@@ -18,6 +20,16 @@
     width: 100%;
     max-width: none;
   }
+}
+
+.hide {
+  @media (--mediumDown) {
+    display: none;
+  }
+}
+
+.chat::-webkit-scrollbar { 
+  width: 0; 
 }
 
 .messageWrapper {

@@ -1,6 +1,7 @@
 import * as React from 'react'
-
 import * as styles from './Chat.css'
+
+import cx from 'classnames'
 
 import { Form, TextArea } from '@app/features/common/form'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
@@ -17,13 +18,15 @@ export interface FormFileds {
 export interface Props {
   isOpen: boolean
   messages: ChatMessage[]
+  opensOnce: boolean
   closeChat: () => void
   onSubmit: (values: FormFileds) => Promise<void>
 }
 
-const Chat = ({ isOpen, messages, closeChat, onSubmit }: Props) => {
-  return isOpen ? (
-    <section className={styles.chat}>
+const Chat = ({ isOpen, messages, closeChat, onSubmit, opensOnce }: Props) => {
+  const shouldHide = !opensOnce || !isOpen
+  return (
+    <section className={cx(styles.chat, shouldHide && styles.hide)}>
       <div>
         <Header onCloseButtonClick={closeChat} />
       </div>
@@ -48,7 +51,6 @@ const Chat = ({ isOpen, messages, closeChat, onSubmit }: Props) => {
         </button>
       </Form>
     </section>
-  ) : null
+  )
 }
-
 export default Chat

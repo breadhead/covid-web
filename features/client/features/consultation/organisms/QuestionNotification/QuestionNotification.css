@@ -24,8 +24,13 @@
 }
 
 .button.button.button {
-  display: inline-block;
+  display: block;
   padding: 20px 36px;
+  margin: 0 auto;
   margin-bottom: 24px;
   white-space: nowrap;
+
+  @media (max-width: 360px) {
+    padding: 20px 24px;
+  }
 }
