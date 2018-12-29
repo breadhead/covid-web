@@ -23,7 +23,12 @@ import {
 export { default as WaitingPage } from './features/waitingAnswer'
 
 export { default as BeforeConsultation } from './features/beforeConsultation'
+
 export { default as Consultation } from './features/consultation'
+import {
+  reducer as consultationReducer,
+  State as ConsultationState,
+} from './features/consultation'
 
 export { default as FormFinish } from './features/formFinish'
 
@@ -32,6 +37,7 @@ export interface State {
   newClaim: NewClaimState
   editClaim: EditClaimState
   chat: ChatState
+  consultation: ConsultationState
 }
 
 export const reducer = combineReducers({
@@ -39,4 +45,5 @@ export const reducer = combineReducers({
   newClaim: newClaimReducer,
   chat: chatReducer,
   editClaim: editClaimReducer,
+  consultation: consultationReducer,
 } as any)

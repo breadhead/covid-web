@@ -1,10 +1,11 @@
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 
-import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
 import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
@@ -33,6 +34,7 @@ export default interface ApiClient {
   createShortClaim(request: ShortClaimRequest): Promise<ShortClaim>
   shortClaim(id: string): Promise<ShortClaim>
   situationClaim(id: string): Promise<SituationClaim>
+  quotaClaim(id: string): Promise<QuotaClaim>
   createSituationClaim(request: SituationClaimRequest): Promise<SituationClaim>
   quota(id: string): Promise<Quota>
   income(amount: number, quotaId: string): Promise<Quota>

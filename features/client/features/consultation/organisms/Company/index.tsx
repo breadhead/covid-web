@@ -1,18 +1,23 @@
 import * as React from 'react'
 
+import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
+import CompanyLogo from '@app/ui/molecules/CompanyLogo'
+
 import * as styles from './Company.css'
 
-const Company = () => (
-  <article className={styles.company}>
-    <img
-      className={styles.logo}
-      src="http://placecorgi.com/176/72"
-      alt="AVON"
-    />
-    <p className={styles.text}>
-      Средства на консультацию предоставлены компанией AVON
-    </p>
-  </article>
-)
+interface Props {
+  quotaClaim: QuotaClaim
+}
+
+const Company = ({ quotaClaim: { name, comment, site, logo } }: Props) =>
+  !!name ? (
+    <article className={styles.company}>
+      {!!logo && <CompanyLogo logo={logo} site={site} name={name} />}
+      <p className={styles.text}>
+        {!comment && `Средства на консультацию предоставлены компанией ${name}`}
+        {!!comment && comment}
+      </p>
+    </article>
+  ) : null
 
 export default Company

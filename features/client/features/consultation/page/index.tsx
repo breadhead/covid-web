@@ -1,6 +1,7 @@
 import cx from 'classnames'
 import * as React from 'react'
 
+import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
 
@@ -11,8 +12,6 @@ import Chat from '../../chat'
 import OpenChatButton from '../atoms/OpenChatButton'
 import AnswerNotification from '../organisms/AnswerNotification'
 import Company from '../organisms/Company'
-import ExpertAnswers from '../organisms/ExpertAnswers'
-import { Answers } from '../organisms/ExpertAnswers/config'
 import Header from '../organisms/Header'
 import QuestionNotification from '../organisms/QuestionNotification'
 import Theme from '../organisms/Theme'
@@ -25,6 +24,7 @@ interface State {
 export interface Props {
   shortClaim: ShortClaim
   situationClaim: SituationClaim
+  quotaClaim: QuotaClaim
 }
 
 class Consultation extends React.Component<Props, State> {
@@ -35,7 +35,7 @@ class Consultation extends React.Component<Props, State> {
 
   public render() {
     const { isChatOpen, haveNewMessage } = this.state
-    const { shortClaim, situationClaim } = this.props
+    const { shortClaim, situationClaim, quotaClaim } = this.props
 
     return (
       <div
@@ -50,7 +50,7 @@ class Consultation extends React.Component<Props, State> {
               onClick={this.openChat}
             />
             <Header />
-            <Company />
+            <Company quotaClaim={quotaClaim} />
             <AnswerNotification />
             <Theme shortClaim={shortClaim} situationClaim={situationClaim} />
             {/* <ExpertAnswers answers={Answers} /> */}{' '}
