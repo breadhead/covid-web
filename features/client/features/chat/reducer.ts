@@ -30,7 +30,7 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
     messages,
     loaded: true,
   }),
-  'client/new-claim',
+  'client/chat',
   {
     sent: (state: State, message: ChatMessage) => ({
       ...state,
