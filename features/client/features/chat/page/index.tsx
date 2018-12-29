@@ -53,4 +53,5 @@ const Chat = ({ isOpen, messages, closeChat, onSubmit, opensOnce }: Props) => {
     </section>
   )
 }
+
 export default Chat
