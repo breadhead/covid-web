@@ -1,7 +1,9 @@
 import axios, { AxiosError, AxiosInstance } from 'axios'
 import HttpStatus from 'http-status-codes'
 
+import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
@@ -41,6 +43,16 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .get(`/claims/${id}/short`)
       .then(response => response.data as ShortClaim)
+
+  public situationClaim = (id: string) =>
+    this.axiosInstance
+      .get(`/claims/${id}/situation`)
+      .then(response => response.data as SituationClaim)
+
+  public quotaClaim = (id: string) =>
+    this.axiosInstance
+      .get(`/claims/${id}/quota`)
+      .then(response => response.data as QuotaClaim)
 
   public createSituationClaim = (
     situationClaimRequest: SituationClaimRequest,
@@ -135,4 +147,15 @@ export default class RealApiClient implements ApiClient {
 
     return response.data as UploadedFile
   }
+
+  public sendChatMessage = (claimId: string, message: ChatMessage) =>
+    this.axiosInstance
+      .post(`/chat/${claimId}`, message)
+      .then(response => tapDate(response.data) as ChatMessage)
+
+  public messages = (claimId: string) =>
+    this.axiosInstance
+      .get(`/chat/${claimId}`)
+      .then(response => response.data as ChatMessage[])
+      .then(messages => messages.map(tapDate))
 }

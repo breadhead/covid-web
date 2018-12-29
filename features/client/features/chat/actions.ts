@@ -1,37 +1,36 @@
 import { Dispatch } from 'redux'
 
-import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import { ExtraArgs, State } from '@app/lib/store'
+import { ChatMessage } from '@app/models/Claim/ChatMessage'
 
 import { actions } from './reducer'
 
-export const fetchShortClaim = (id: string) => async (
+export const send = (claimId: string, message: ChatMessage) => async (
   dispatch: Dispatch<any>,
   _: () => State,
   { api }: ExtraArgs,
 ) => {
   dispatch(actions.request())
   try {
-    const claim = await api.shortClaim(id)
-    dispatch(actions.success(claim))
-    return claim
+    const sentMessage = await api.sendChatMessage(claimId, message)
+    return dispatch(actions.sent(sentMessage))
   } catch (error) {
     dispatch(actions.error(error.message))
     throw error
   }
 }
 
-export const createClaim = (claimRequest: ShortClaimRequest) => async (
+export const fetch = (claimId: string) => async (
   dispatch: Dispatch<any>,
   _: () => State,
   { api }: ExtraArgs,
 ) => {
   dispatch(actions.request())
   try {
-    const claim = await api.createShortClaim(claimRequest)
-    dispatch(actions.success(claim))
-    return claim
+    const messages = await api.messages(claimId)
+    return dispatch(actions.success(messages))
   } catch (error) {
-    return dispatch(actions.error(error.message))
+    dispatch(actions.error(error.message))
+    throw error
   }
 }

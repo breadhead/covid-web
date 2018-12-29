@@ -15,6 +15,7 @@ import { createSizeAction, listenResize } from 'redux-windowsize'
 
 import '@app/ui/config.css?CSSModulesDisable'
 
+import { set } from '@app/features/common/browserQuery'
 import { canUseDOM } from '@app/lib/helpers/canUseDOM'
 import registerModals from '@app/lib/register-modals'
 
@@ -51,6 +52,8 @@ class OncohelpWeb extends App<Props> {
       this.props.reduxStore.dispatch(authViolateStatus(false))
       Router.push('/')
     }
+
+    this.props.reduxStore.dispatch(set(this.props.router.query || {}))
   }
 
   public render() {

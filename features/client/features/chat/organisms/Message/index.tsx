@@ -1,18 +1,12 @@
+import cx from 'classnames'
 import * as React from 'react'
 
-import cx from 'classnames'
+import { ChatMessage } from '@app/models/Claim/ChatMessage'
 
 import * as styles from './Message.css'
 
-export interface MessageType {
-  id: string
-  author?: string
-  content: string
-  date: Date
-}
-
 interface Props {
-  message: MessageType
+  message: ChatMessage
 }
 
 const Message = ({ message }: Props) => {
