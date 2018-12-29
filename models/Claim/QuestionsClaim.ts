@@ -3,3 +3,8 @@ export interface QuestionsClaim {
   defaultQuestions: string[]
   additionalQuestions: string[]
 }
+
+export interface Question {
+  label: string
+  list: string[]
+}

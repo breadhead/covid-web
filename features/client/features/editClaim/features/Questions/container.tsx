@@ -37,34 +37,39 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     }
     public render() {
       const {
-        shortClaim: { localization, theme },
+        shortClaim: { target, theme },
         error,
       } = this.props
       return (
         <WrappedComponent
           error={error}
-          claimData={{ localization, theme }}
+          claimData={{ target, theme }}
           onFormSubmit={this.onFormSubmit}
         />
       )
     }
 
-    private onFormSubmit = async (fields: QuestionsClaim) => {
+    private onFormSubmit = async ({
+      defaultQuestions,
+      ...rest
+    }: QuestionsClaim) => {
       const { createQuestionsClaim, shortClaim } = this.props
+
       const request = {
-        ...fields,
+        ...rest,
+        defaultQuestions: Object.keys(defaultQuestions),
         id: shortClaim.id,
       }
-      const { id } = await createQuestionsClaim(request)
+      const claim = await createQuestionsClaim(request)
 
       const { error } = this.props
-
-      this.redirectIfNeeded(id, error)
+      this.redirectIfNeeded(error)
+      return claim
     }
 
-    private redirectIfNeeded(id: string, error: false | string) {
+    private redirectIfNeeded(error: false | string) {
       if (!error) {
-        Router.pushRoute(`/client/claim/${id}/questions`)
+        Router.pushRoute(`/client/form-finish`)
       }
     }
   }

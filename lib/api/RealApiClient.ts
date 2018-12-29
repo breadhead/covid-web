@@ -51,7 +51,7 @@ export default class RealApiClient implements ApiClient {
 
   public createQuestionsClaim = (questionClaimRequest: QuestionsClaim) =>
     this.axiosInstance
-      .post(`/claims/questions---`, questionClaimRequest)
+      .post(`/claims/questions`, questionClaimRequest)
       .then(response => response.data as QuestionsClaim)
 
   public transfer = (quotaTransferRequest: QuotaTransferRequest) =>

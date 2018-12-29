@@ -3,14 +3,10 @@ import * as styles from './ClaimForm.css'
 
 import { Form } from '@app/features/common/form'
 import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
-import { ClaimData } from '../../../Situation/types'
-import After from '../After'
-import Before from '../Before'
-import Common from '../Common'
-import During from '../During'
+import { ClaimData, QuestionsCategories } from '../../types'
+import AdditionalQuestions from '../AdditionalQuestions'
 import Footer from '../Footer'
 import Questions from '../Questions'
-
 interface Props {
   onFormSubmit: (fields: QuestionsClaim) => Promise<QuestionsClaim>
   claimData: ClaimData
@@ -20,11 +16,17 @@ interface Props {
 const ClaimForm = ({ onFormSubmit, claimData, error }: Props) => {
   return (
     <Form onSubmit={onFormSubmit as any} className={styles.ClaimForm}>
-      <Common styles={styles} />
-      <Before styles={styles} />
-      <During styles={styles} />
-      <After styles={styles} />
-      <Questions styles={styles} />
+      <Questions
+        styles={styles}
+        category={QuestionsCategories.theme}
+        criterion={claimData.theme}
+      />
+      <Questions
+        styles={styles}
+        category={QuestionsCategories.target}
+        criterion={claimData.target}
+      />
+      <AdditionalQuestions styles={styles} />
       <Footer error={error} styles={styles} />
     </Form>
   )

@@ -35,3 +35,5 @@ export const reducer = combineReducers({
   newClaim: newClaimReducer,
   editClaim: editClaimReducer,
 } as any)
+
+export { themes } from './values'

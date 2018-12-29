@@ -34,7 +34,7 @@ const Footer = ({ styles, error }: Props) => {
           className={styles.iconBack}
           name="24x24_arrow-small_right"
         />
-        <NavLink href="#">Вернуться назад</NavLink>
+        <NavLink href="/client/new-claim">Вернуться назад</NavLink>
       </div>
     </footer>
   )

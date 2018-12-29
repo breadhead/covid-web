@@ -3,9 +3,8 @@ import * as styles from './index.css'
 
 import ClaimForm from '../organisms/Form'
 
-import Layout from '@app/features/main/layout'
+import Layout from '@app/features/client/organisms/ClaimFormLayout'
 import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
-import { FooterType } from '@app/ui/organisms/Footer'
 import { ClaimData } from '../types'
 
 export interface Props {
@@ -15,11 +14,8 @@ export interface Props {
 }
 
 const ClaimPage = ({ error, onFormSubmit, claimData }: Props) => (
-  <Layout footerType={FooterType.Secondary}>
+  <Layout step={3} title="Отметьте вопросы, которые хотите задать эксперту">
     <main className={styles.claimPage}>
-      <h1 className={styles.title}>
-        Отметьте вопросы, которые хотите задать эксперту
-      </h1>
       <ClaimForm
         claimData={claimData}
         error={error}
