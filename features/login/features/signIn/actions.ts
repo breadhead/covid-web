@@ -2,18 +2,22 @@ import { Role } from '@app/lib/api/ApiClient'
 import { ExtraArgs, State } from '@app/lib/store'
 import Router from 'next/router'
 import { Dispatch } from 'redux'
-import { setAuthToken } from './helpers/setAuthToken'
+import { actions as tokenActions } from '../token/'
+import { setCookie } from './helpers/setAuthToken'
 import { actions } from './reducer'
 
 export const login = (username: string, password: string) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   try {
     dispatch(actions.request())
     const { token, roles } = await api.login(username, password)
-    setAuthToken(token, api)
+
+    setCookie(token)
+    dispatch(tokenActions.set(token))
 
     if (roles.includes(Role.Admin)) {
       Router.push('/admin')

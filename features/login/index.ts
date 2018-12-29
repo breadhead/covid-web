@@ -8,6 +8,8 @@ export {
   MODAL_KEY as SIGN_UP_MODAL,
 } from './features/signUp'
 
+export { getToken } from './features/token'
+
 export {
   default as SignInModal,
   MODAL_KEY as SIGN_IN_MODAL,
@@ -18,4 +20,10 @@ export {
   WithLoginModal,
 } from './features/signIn'
 
-export { Actions, actions, State, reducer } from './reducer'
+export { State, reducer } from './reducer'
+
+import { actions } from './features/token'
+
+const setToken = actions.set
+
+export { setToken }

@@ -7,9 +7,10 @@ import { actions } from './reducer'
 
 export const createQuestionsClaim = (claimRequest: QuestionsClaim) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   dispatch(actions.request())
   try {
     const claim = await api.createQuestionsClaim(claimRequest)

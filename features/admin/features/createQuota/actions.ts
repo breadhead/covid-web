@@ -5,9 +5,10 @@ import { actions } from './reducer'
 
 export const createQuota = (quotaFields: QuotaCreateRequest) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   try {
     dispatch(actions.request())
     const quota = await api.createQuota(quotaFields)

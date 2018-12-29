@@ -22,9 +22,12 @@ export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
   private _token: string = ''
 
-  public constructor(baseUrl: string) {
+  public constructor(baseUrl: string, token?: string) {
     this.axiosInstance = axios.create({
       baseURL: baseUrl,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     })
   }
 
@@ -109,7 +112,7 @@ export default class RealApiClient implements ApiClient {
   }
 
   public set token(newToken: string) {
-    axios.defaults.headers.common.Authorization = `Bearer ${newToken}`
+    // axios.defaults.headers.common.Authorization = `Bearer ${newToken}`
     this._token = newToken
   }
 

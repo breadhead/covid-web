@@ -7,7 +7,12 @@ import { actions } from './reducer'
 
 export const createSituationClaim = (
   claimRequest: SituationClaimRequest,
-) => async (dispatch: Dispatch<any>, _: () => State, { api }: ExtraArgs) => {
+) => async (
+  dispatch: Dispatch<any>,
+  getState: () => State,
+  { getApi }: ExtraArgs,
+) => {
+  const api = getApi(getState)
   dispatch(actions.request())
   try {
     const claim = await api.createSituationClaim(claimRequest)
@@ -20,9 +25,10 @@ export const createSituationClaim = (
 
 export const fetchSituationClaim = (id: string) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   dispatch(actions.request())
   try {
     const claim = await api.situationClaim(id)

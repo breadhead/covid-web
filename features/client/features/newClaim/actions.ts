@@ -7,9 +7,10 @@ import { actions } from './reducer'
 
 export const fetchShortClaim = (id: string) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   dispatch(actions.request())
   try {
     const claim = await api.shortClaim(id)
@@ -23,9 +24,10 @@ export const fetchShortClaim = (id: string) => async (
 
 export const createClaim = (claimRequest: ShortClaimRequest) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   dispatch(actions.request())
   try {
     const claim = await api.createShortClaim(claimRequest)

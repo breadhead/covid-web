@@ -5,7 +5,7 @@ export const setAuthToken = (token: string, apiClient: ApiClient) => {
   apiClient.token = token
 }
 
-const setCookie = (token: string) => {
+export const setCookie = (token: string) => {
   if (document) {
     document.cookie = `token=${token}; path=/; expires=${new Date(
       Date.now() + 900000,
