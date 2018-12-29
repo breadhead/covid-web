@@ -47,6 +47,7 @@
 }
 
 .infoBlock {
+  max-width: 240px;
   margin: 0 0 24px 0;
 
   &:last-of-type {

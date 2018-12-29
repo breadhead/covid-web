@@ -15,7 +15,8 @@ const AnswerNotification = () => (
     <div>
       <h3 className={styles.title}>Эксперт ответил на ваши вопросы</h3>
       <p className={styles.text}>
-        Если вы хотите что-то уточнить или оставить отзыв, напишите в чат
+        Если вы хотите что-то уточнить или оставить отзыв, напишите в
+        {NON_BREAKING_SPACE}чат
         {NON_BREAKING_SPACE}в правой части страницы.
       </p>
     </div>
