@@ -5,9 +5,10 @@ import { actions } from './reducer'
 
 export const fetchHistory = (from?: Date, to?: Date) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   try {
     dispatch(actions.request())
     const transactions = await api.history(from, to)

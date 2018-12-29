@@ -7,9 +7,10 @@ import { actions } from './reducer'
 
 export const send = (claimId: string, message: ChatMessage) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   dispatch(actions.request())
   try {
     const sentMessage = await api.sendChatMessage(claimId, message)
@@ -22,9 +23,10 @@ export const send = (claimId: string, message: ChatMessage) => async (
 
 export const fetch = (claimId: string) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   dispatch(actions.request())
   try {
     const messages = await api.messages(claimId)

@@ -49,6 +49,7 @@ import {
 } from '@app/features/common/browserQuery'
 
 import {
+  getToken,
   reducer as loginReducer,
   State as LoginState,
   unauthorizedMiddleware,
@@ -56,6 +57,7 @@ import {
 
 import ApiClient from './api/ApiClient'
 import ApiClientFactory from './api/ApiClientFactory'
+import factory from './api/apiFactory'
 
 export interface State {
   login: LoginState
@@ -86,6 +88,7 @@ const reducer = combineReducers({
 
 export interface ExtraArgs {
   api: ApiClient
+  getApi: (getState: () => State) => ApiClient
 }
 
 export const initializeStore = (initialState?: State) =>
@@ -97,6 +100,7 @@ export const initializeStore = (initialState?: State) =>
         unauthorizedMiddleware,
         thunk.withExtraArgument({
           api: ApiClientFactory.getApiClient(),
+          getApi: getState => factory(getToken(getState())),
         } as ExtraArgs),
       ),
     ),

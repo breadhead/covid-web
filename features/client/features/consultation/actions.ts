@@ -6,9 +6,10 @@ import { actions } from './reducer'
 
 export const fetchQuotaClaim = (id: string) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   dispatch(actions.request())
   try {
     const claim = await api.quotaClaim(id)

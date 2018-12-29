@@ -5,9 +5,10 @@ import { actions } from './reducer'
 
 export const transfer = (quotaTransferRequest: QuotaTransferRequest) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   try {
     dispatch(actions.request())
     const result = await api.transfer(quotaTransferRequest)

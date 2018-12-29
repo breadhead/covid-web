@@ -15,9 +15,11 @@ import { createSizeAction, listenResize } from 'redux-windowsize'
 
 import '@app/ui/config.css?CSSModulesDisable'
 
-import { set } from '@app/features/common/browserQuery'
+import { set as setQuery } from '@app/features/common/browserQuery'
+import { setToken } from '@app/features/login'
 import { canUseDOM } from '@app/lib/helpers/canUseDOM'
 import registerModals from '@app/lib/register-modals'
+import { AppContext } from '@app/lib/server-types'
 
 interface Props {
   reduxStore: Store
@@ -31,10 +33,12 @@ Router.events.on('routeChangeComplete', () => {
 
 class OncohelpWeb extends App<Props> {
   public static getInitialProps(context: NextAppContext) {
-    if (context.ctx.req) {
-      const token: string = (context.ctx.req as any).cookies.token
+    const ctx: AppContext = context.ctx as any
+    if (ctx.req) {
+      const token: string = (ctx.req as any).cookies.token
       if (token) {
         ApiClientFactory.getApiClient().token = token
+        ctx.reduxStore.dispatch(setToken(token))
       }
     }
 
@@ -57,7 +61,7 @@ class OncohelpWeb extends App<Props> {
       Router.push('/')
     }
 
-    this.props.reduxStore.dispatch(set(this.props.router.query || {}))
+    this.props.reduxStore.dispatch(setQuery(this.props.router.query || {}))
   }
 
   public render() {

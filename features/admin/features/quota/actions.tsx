@@ -4,9 +4,10 @@ import { actions } from './reducer'
 
 export const fetchQuota = (id: string) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   try {
     dispatch(actions.request())
     const quota = await api.quota(id)
@@ -19,9 +20,10 @@ export const fetchQuota = (id: string) => async (
 
 export const income = (amount: number, quotaId: string) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   try {
     dispatch(actions.request())
     const quota = await api.income(amount, quotaId)

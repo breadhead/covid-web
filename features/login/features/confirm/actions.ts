@@ -5,9 +5,10 @@ import { actions } from './reducer'
 
 export const sendSms = (phone: string) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   dispatch(actions.sendSms.request())
 
   try {
@@ -21,9 +22,10 @@ export const sendSms = (phone: string) => async (
 
 export const validateCode = (code: string) => async (
   dispatch: Dispatch<any>,
-  _: () => State,
-  { api }: ExtraArgs,
+  getState: () => State,
+  { getApi }: ExtraArgs,
 ) => {
+  const api = getApi(getState)
   dispatch(actions.validateCode.request())
 
   try {
