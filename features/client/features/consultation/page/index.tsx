@@ -53,7 +53,8 @@ class Consultation extends React.Component<Props, State> {
             <Company />
             <AnswerNotification />
             <Theme shortClaim={shortClaim} situationClaim={situationClaim} />
-            <ExpertAnswers answers={Answers} />
+            {/* <ExpertAnswers answers={Answers} /> */}{' '}
+            {/* TODO: вернуть когда будет готов третий шаг */}
             <QuestionNotification />
           </Layout>
         </div>
