@@ -1,17 +1,25 @@
-import cx from 'classnames'
 import * as React from 'react'
+
+import cx from 'classnames'
+
+import * as styles from './Consultation.css'
+
+import { WindowSize } from '@app/features/common/windowSize/selector'
+import withWindowSize from '@app/features/common/windowSize/withWindowSize'
 
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
 
-import * as styles from './Consultation.css'
+import { CHAT_DEFAULT_OPEN_WIDTH } from '@app/lib/config'
 
-import Layout from '../../../organisms/Layout'
+import Layout from '@app/features/client/organisms/Layout'
 import Chat from '../../chat'
 import OpenChatButton from '../atoms/OpenChatButton'
 import AnswerNotification from '../organisms/AnswerNotification'
 import Company from '../organisms/Company'
+import ExpertAnswers from '../organisms/ExpertAnswers'
+import { Answers } from '../organisms/ExpertAnswers/config'
 import Header from '../organisms/Header'
 import QuestionNotification from '../organisms/QuestionNotification'
 import Theme from '../organisms/Theme'
@@ -19,9 +27,11 @@ import Theme from '../organisms/Theme'
 interface State {
   isChatOpen: boolean
   haveNewMessage: boolean
+  chatOpensOnce: boolean
 }
 
 export interface Props {
+  windowSize: WindowSize
   shortClaim: ShortClaim
   situationClaim: SituationClaim
   quotaClaim: QuotaClaim
@@ -30,11 +40,26 @@ export interface Props {
 class Consultation extends React.Component<Props, State> {
   public state = {
     isChatOpen: true,
+    chatOpensOnce: false,
     haveNewMessage: false,
   }
 
+  public componentDidMount() {
+    const { width } = this.props.windowSize
+
+    this.toggleChatOpening(width)
+  }
+
+  public componentDidUpdate(prevProps: Props) {
+    const { width } = this.props.windowSize
+
+    if (width !== prevProps.windowSize.width) {
+      this.toggleChatOpening(width)
+    }
+  }
+
   public render() {
-    const { isChatOpen, haveNewMessage } = this.state
+    const { isChatOpen, haveNewMessage, chatOpensOnce } = this.state
     const { shortClaim, situationClaim, quotaClaim } = this.props
 
     return (
@@ -53,19 +78,34 @@ class Consultation extends React.Component<Props, State> {
             <Company quotaClaim={quotaClaim} />
             <AnswerNotification />
             <Theme shortClaim={shortClaim} situationClaim={situationClaim} />
-            {/* <ExpertAnswers answers={Answers} /> */}{' '}
+            <ExpertAnswers answers={Answers} />{' '}
             {/* TODO: вернуть когда будет готов третий шаг */}
             <QuestionNotification />
           </Layout>
         </div>
-        <Chat closeChat={this.closeChat} isOpen={isChatOpen} />
+        <Chat
+          closeChat={this.closeChat}
+          isOpen={isChatOpen}
+          opensOnce={chatOpensOnce}
+        />
       </div>
     )
   }
 
   private closeChat = () => this.setState({ isChatOpen: false })
 
-  private openChat = () => this.setState({ isChatOpen: true })
+  private openChat = () =>
+    this.setState({ isChatOpen: true, chatOpensOnce: true })
+
+  private toggleChatOpening = (width: number) => {
+    const needOpen = width > CHAT_DEFAULT_OPEN_WIDTH
+
+    if (needOpen) {
+      this.openChat()
+    } else {
+      this.closeChat()
+    }
+  }
 }
 
-export default Consultation
+export default withWindowSize(Consultation)
