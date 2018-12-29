@@ -47,3 +47,5 @@ export const reducer = combineReducers({
   editClaim: editClaimReducer,
   consultation: consultationReducer,
 } as any)
+
+export { themes } from './values'

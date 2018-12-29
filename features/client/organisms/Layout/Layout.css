@@ -1,5 +1,6 @@
 .page {
   position: relative;
+  flex-grow: 1;
   padding-top: 40px;
   padding-bottom: 120px;
   background-color: var(--background-color);
@@ -8,5 +9,4 @@
     padding-top: 24px;
     padding-bottom: 80px;
   }
-
 }

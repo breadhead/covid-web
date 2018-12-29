@@ -8,6 +8,7 @@ import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 
+import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import ApiClient, { UploadedFile, User } from './ApiClient'
 import { queryString } from './helper/queryString'
@@ -59,6 +60,11 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post(`/claims/situation`, situationClaimRequest)
       .then(response => response.data as SituationClaim)
+
+  public createQuestionsClaim = (questionClaimRequest: QuestionsClaim) =>
+    this.axiosInstance
+      .post(`/claims/questions`, questionClaimRequest)
+      .then(response => response.data as QuestionsClaim)
 
   public transfer = (quotaTransferRequest: QuotaTransferRequest) =>
     this.axiosInstance
