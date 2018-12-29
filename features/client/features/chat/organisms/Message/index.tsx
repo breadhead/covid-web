@@ -12,6 +12,13 @@ interface Props {
 const Message = ({ message }: Props) => {
   const { author, content, date } = message
 
+  const getFormattedDate = (currentDate: Date) => {
+    const currentMinutes = currentDate.getMinutes()
+    const minutes =
+      `${currentMinutes}`.length < 2 ? `0${currentMinutes}` : currentMinutes
+    return `${currentDate.getHours()}:${minutes}`
+  }
+
   return (
     <article
       className={
@@ -20,9 +27,7 @@ const Message = ({ message }: Props) => {
     >
       {!!author && <p className={styles.author}>{author}</p>}
       <p className={styles.content}>{content}</p>
-      <p className={styles.sendingTime}>
-        {date.getHours()}:{date.getMinutes()}
-      </p>
+      <p className={styles.sendingTime}>{getFormattedDate(date)}</p>
     </article>
   )
 }
