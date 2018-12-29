@@ -4,23 +4,33 @@
   font-family: 'Muller Regular';
   font-style: normal;
   font-weight: 400;
-  src: url("/static/fonts/Muller-Regular/muller-regular-webfont.eot");
-  src: url("/static/fonts/Muller-Regular/muller-regular-webfont.eot?#iefix") format("embedded-opentype"),
-      url("/static/fonts/Muller-Regular/muller-regular-webfont.woff2") format("woff2"),
-      url("/static/fonts/Muller-Regular/muller-regular-webfont.woff") format("woff"),
-      url("/static/fonts/Muller-Regular/muller-regular-webfont.ttf") format("truetype"),
-      url("/static/fonts/Muller-Regular/muller-regular-webfont.svg#muller_regularregular") format("svg");
+  src: url('/static/fonts/Muller-Regular/muller-regular-webfont.eot');
+  src: url('/static/fonts/Muller-Regular/muller-regular-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('/static/fonts/Muller-Regular/muller-regular-webfont.woff2')
+      format('woff2'),
+    url('/static/fonts/Muller-Regular/muller-regular-webfont.woff')
+      format('woff'),
+    url('/static/fonts/Muller-Regular/muller-regular-webfont.ttf')
+      format('truetype'),
+    url('/static/fonts/Muller-Regular/muller-regular-webfont.svg#muller_regularregular')
+      format('svg');
 }
 
-*, *::before , *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
   -webkit-overflow-scrolling: touch;
   /* fonts */
-  --fontFamily: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  --fontFamily-title: 'Muller Regular', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --fontFamily: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --fontFamily-title: 'Muller Regular', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue',
+    sans-serif;
 
   --title-extra: 48px/56px var(--fontFamily-title);
   --title-regular: 40px/48px var(--fontFamily-title);
@@ -43,20 +53,20 @@ body {
   }
 
   /* colors */
-  --color-primary: #3C54EE;
-  --color-hover:  #354AD4;
-  --color-success: #19CD92;
-  --color-danger: #F11635;
-  --color-highlight: #FFD46D;
-  --color-default: #B3B4C8;
+  --color-primary: #3c54ee;
+  --color-hover: #354ad4;
+  --color-success: #19cd92;
+  --color-danger: #f11635;
+  --color-highlight: #ffd46d;
+  --color-default: #b3b4c8;
 
   --text-color-primary: #151833;
   --text-color-secondary: #616681;
 
   --background-color: #faf9f7;
-  --divider-color: 	rgba(21,24,51,0.08);
-  
-  --color-link: #2D47EA;
+  --divider-color: rgba(21, 24, 51, 0.08);
+
+  --color-link: #2d47ea;
   --color-link-underline: rgba(45, 71, 234, 0.5);
 
   /* styles */
@@ -72,7 +82,6 @@ body {
   display: flex;
   flex-direction: column;
 
-  height: 100%;
+  min-height: 100%;
   overflow-x: hidden;
-
 }

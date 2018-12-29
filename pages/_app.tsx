@@ -25,6 +25,10 @@ interface Props {
   Component: ReactComponent
 }
 
+Router.events.on('routeChangeComplete', () => {
+  window.scrollTo(0, 0)
+})
+
 class OncohelpWeb extends App<Props> {
   public static getInitialProps(context: NextAppContext) {
     if (context.ctx.req) {
