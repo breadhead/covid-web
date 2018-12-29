@@ -7,10 +7,9 @@ import routes from '@app/routes'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
-import {
-  createSituationClaim as createSituationClaimAction,
-  shortClaim as shortClaimAction,
-} from './actions'
+
+import { fetchShortClaim } from '../../../newClaim'
+import { createSituationClaim as createSituationClaimAction } from './actions'
 import { Props as PageProps } from './page'
 import { getSituationError } from './selectors'
 import { SituationClaimFields } from './types'
@@ -27,12 +26,14 @@ interface Query {
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
   return class extends React.Component<Props> {
-    public static async getInitialProps(context: AppContext<Query>) {
-      const { id } = context.query
-
-      const shortClaim = await context.reduxStore.dispatch(shortClaimAction(
-        id,
+    public static async getInitialProps({
+      reduxStore,
+      query,
+    }: AppContext<Query>) {
+      const shortClaim = await reduxStore.dispatch(fetchShortClaim(
+        query.id,
       ) as any)
+
       return {
         shortClaim,
       }

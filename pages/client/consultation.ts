@@ -1,1 +1,1 @@
-export { default } from '@app/features/client/features/consultation'
+export { Consultation as default } from '@app/features/client'
