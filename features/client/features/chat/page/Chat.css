@@ -1,6 +1,4 @@
 .chat {
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
   position: fixed;
   top: 0;
   right: 0;
@@ -10,8 +8,10 @@
   width: 400px;
   max-width: 400px;
   height: 100vh;
+  overflow: -moz-scrollbars-none;
   background-color: #fff;
   box-shadow: 0 0 8px 0 rgba(63,63,68,0.04), 0 0 20px 0 rgba(63,63,68,0.12);
+  -ms-overflow-style: none;
 
   @media (--mediumDown) {
     top: 0;

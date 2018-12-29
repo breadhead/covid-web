@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { animateScroll as scroll } from 'react-scroll'
 
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
 
@@ -16,9 +17,11 @@ class ChatWrapper extends React.Component<Props> {
   private myRef = React.createRef<HTMLDivElement>()
 
   public scrollToBottom = () => {
-    if (this.myRef.current) {
-      this.myRef.current.scrollIntoView({ behavior: 'smooth' })
-    }
+    scroll.scrollToBottom({
+      container: this.myRef.current,
+      duration: 300,
+      smooth: 'easeInOutQuint',
+    })
   }
 
   public componentDidMount() {
@@ -35,7 +38,7 @@ class ChatWrapper extends React.Component<Props> {
     return messages.length === 0 ? (
       <EmptyWindow text={EmptyWindowText} />
     ) : (
-      <div className={styles.chatWrapper} ref={this.myRef}>
+      <div id="chatWrapper" className={styles.chatWrapper} ref={this.myRef}>
         {messages.map(message => (
           <Message key={message.id} message={message} />
         ))}
