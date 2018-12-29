@@ -42,6 +42,11 @@ export default class RealApiClient implements ApiClient {
       .get(`/claims/${id}/short`)
       .then(response => response.data as ShortClaim)
 
+  public situationClaim = (id: string) =>
+    this.axiosInstance
+      .get(`/claims/${id}/situation`)
+      .then(response => response.data as SituationClaim)
+
   public createSituationClaim = (
     situationClaimRequest: SituationClaimRequest,
   ) =>

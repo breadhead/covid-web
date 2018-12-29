@@ -2,6 +2,7 @@ import cx from 'classnames'
 import * as React from 'react'
 
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { SituationClaim } from '@app/models/Claim/SituationClaim'
 
 import * as styles from './Consultation.css'
 
@@ -23,6 +24,7 @@ interface State {
 
 export interface Props {
   shortClaim: ShortClaim
+  situationClaim: SituationClaim
 }
 
 class Consultation extends React.Component<Props, State> {
@@ -33,7 +35,7 @@ class Consultation extends React.Component<Props, State> {
 
   public render() {
     const { isChatOpen, haveNewMessage } = this.state
-    const { shortClaim } = this.props
+    const { shortClaim, situationClaim } = this.props
 
     return (
       <div
@@ -50,7 +52,7 @@ class Consultation extends React.Component<Props, State> {
             <Header />
             <Company />
             <AnswerNotification />
-            <Theme shortClaim={shortClaim} />
+            <Theme shortClaim={shortClaim} situationClaim={situationClaim} />
             <ExpertAnswers answers={Answers} />
             <QuestionNotification />
           </Layout>

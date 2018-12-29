@@ -6,6 +6,7 @@ import { AnyAction, Dispatch } from 'redux'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 
+import { fetchSituationClaim } from '../editClaim'
 import { fetchShortClaim } from '../newClaim'
 import { Props as PageProps } from './page'
 
@@ -24,17 +25,18 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       reduxStore,
       query,
     }: AppContext<Query>) {
-      const shortClaim = await reduxStore.dispatch(fetchShortClaim(
-        query.id,
-      ) as any)
+      const { id } = query
 
-      return { shortClaim }
+      const [shortClaim, situationClaim] = await Promise.all([
+        reduxStore.dispatch(fetchShortClaim(id) as any),
+        reduxStore.dispatch(fetchSituationClaim(id) as any),
+      ])
+
+      return { shortClaim, situationClaim }
     }
 
     public render() {
-      const { shortClaim } = this.props
-
-      return <WrappedComponent shortClaim={shortClaim} />
+      return <WrappedComponent {...this.props} />
     }
   }
 }

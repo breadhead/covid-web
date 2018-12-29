@@ -17,3 +17,19 @@ export const createSituationClaim = (
     return dispatch(actions.error(error.message))
   }
 }
+
+export const fetchSituationClaim = (id: string) => async (
+  dispatch: Dispatch<any>,
+  _: () => State,
+  { api }: ExtraArgs,
+) => {
+  dispatch(actions.request())
+  try {
+    const claim = await api.situationClaim(id)
+    dispatch(actions.success(claim))
+    return claim
+  } catch (error) {
+    dispatch(actions.error(error.message))
+    throw error
+  }
+}
