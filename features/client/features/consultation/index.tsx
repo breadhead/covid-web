@@ -23,6 +23,7 @@ import { CHAT_DEFAULT_OPEN_WIDTH } from '@app/lib/config'
 interface State {
   isChatOpen: boolean
   haveNewMessage: boolean
+  chatOpensOnce: boolean
 }
 
 interface Props {
@@ -31,7 +32,8 @@ interface Props {
 
 class Consultation extends React.Component<Props, State> {
   public state = {
-    isChatOpen: false,
+    isChatOpen: true,
+    chatOpensOnce: false,
     haveNewMessage: false,
   }
 
@@ -50,7 +52,7 @@ class Consultation extends React.Component<Props, State> {
   }
 
   public render() {
-    const { isChatOpen, haveNewMessage } = this.state
+    const { isChatOpen, haveNewMessage, chatOpensOnce } = this.state
     return (
       <div
         className={
@@ -71,17 +73,29 @@ class Consultation extends React.Component<Props, State> {
             <QuestionNotification />
           </Layout>
         </div>
-        <Chat closeChat={this.closeChat} isOpen={isChatOpen} />
+        <Chat
+          closeChat={this.closeChat}
+          isOpen={isChatOpen}
+          opensOnce={chatOpensOnce}
+        />
       </div>
     )
   }
 
   private closeChat = () => this.setState({ isChatOpen: false })
 
-  private openChat = () => this.setState({ isChatOpen: true })
+  private openChat = () =>
+    this.setState({ isChatOpen: true, chatOpensOnce: true })
 
-  private toggleChatOpening = (width: number) =>
-    width > CHAT_DEFAULT_OPEN_WIDTH ? this.openChat() : this.closeChat()
+  private toggleChatOpening = (width: number) => {
+    const needOpen = width > CHAT_DEFAULT_OPEN_WIDTH
+
+    if (needOpen) {
+      this.openChat()
+    } else {
+      this.closeChat()
+    }
+  }
 }
 
 export default withWindowSize(Consultation)

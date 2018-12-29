@@ -1,6 +1,7 @@
 import * as React from 'react'
-
 import * as styles from './Chat.css'
+
+import cx from 'classnames'
 
 import { Form, TextArea } from '@app/features/common/form'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
@@ -17,38 +18,37 @@ export interface FormFileds {
 export interface Props {
   isOpen: boolean
   messages: ChatMessage[]
+  opensOnce: boolean
   closeChat: () => void
   onSubmit: (values: FormFileds) => Promise<void>
 }
 
-const Chat = ({ isOpen, messages, closeChat, onSubmit }: Props) => {
-  return isOpen ? (
-    <section className={styles.chat}>
-      <div>
-        <Header onCloseButtonClick={closeChat} />
-      </div>
-      <div className={styles.messageWrapper}>
-        <ChatWrapper messages={messages} />
-      </div>
-      <Form
-        onSubmit={onSubmit as any}
-        className={styles.inputWrapper}
-        resetAfterSubmit
-        forceSubmitOnEnter
-      >
-        <TextArea
-          autosize={{ minRows: 1, maxRows: 4 }}
-          className={styles.input}
-          name="message"
-          disableResizeOnEnter
-          placeholder="Ваше сообщение..."
-        />
-        <button type={ButtonType.Submit} className={styles.sendButton}>
-          <IconCustom className={styles.inputIcon} name="24x24_send-message" />
-        </button>
-      </Form>
-    </section>
-  ) : null
-}
+const Chat = ({ isOpen, messages, closeChat, onSubmit, opensOnce }: Props) => (
+  <section className={cx(styles.chat, (!opensOnce || !isOpen) && styles.hide)}>
+    <div>
+      <Header onCloseButtonClick={closeChat} />
+    </div>
+    <div className={styles.messageWrapper}>
+      <ChatWrapper messages={messages} />
+    </div>
+    <Form
+      onSubmit={onSubmit as any}
+      className={styles.inputWrapper}
+      resetAfterSubmit
+      forceSubmitOnEnter
+    >
+      <TextArea
+        autosize={{ minRows: 1, maxRows: 4 }}
+        className={styles.input}
+        name="message"
+        disableResizeOnEnter
+        placeholder="Ваше сообщение..."
+      />
+      <button type={ButtonType.Submit} className={styles.sendButton}>
+        <IconCustom className={styles.inputIcon} name="24x24_send-message" />
+      </button>
+    </Form>
+  </section>
+)
 
 export default Chat

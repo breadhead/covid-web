@@ -22,6 +22,12 @@
   }
 }
 
+.hide {
+  @media (--mediumDown) {
+    display: none;
+  }
+}
+
 .chat::-webkit-scrollbar { 
   width: 0; 
 }
