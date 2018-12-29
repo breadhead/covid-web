@@ -1,10 +1,6 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { compose } from 'recompose'
-import { AnyAction, Dispatch } from 'redux'
 
 import { AppContext } from '@app/lib/server-types'
-import { State } from '@app/lib/store'
 
 import { fetchSituationClaim } from '../editClaim'
 import { fetchShortClaim } from '../newClaim'
@@ -43,14 +39,4 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
   }
 }
 
-const mapState = (state: State) => ({})
-
-const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({})
-
-export default compose<PageProps, {}>(
-  connect(
-    mapState,
-    mapDispatch,
-  ),
-  Container,
-)
+export default Container
