@@ -23,32 +23,34 @@ export interface Props {
   onSubmit: (values: FormFileds) => Promise<void>
 }
 
-const Chat = ({ isOpen, messages, closeChat, onSubmit, opensOnce }: Props) => (
-  <section className={cx(styles.chat, (!opensOnce || !isOpen) && styles.hide)}>
-    <div>
-      <Header onCloseButtonClick={closeChat} />
-    </div>
-    <div className={styles.messageWrapper}>
-      <ChatWrapper messages={messages} />
-    </div>
-    <Form
-      onSubmit={onSubmit as any}
-      className={styles.inputWrapper}
-      resetAfterSubmit
-      forceSubmitOnEnter
-    >
-      <TextArea
-        autosize={{ minRows: 1, maxRows: 4 }}
-        className={styles.input}
-        name="message"
-        disableResizeOnEnter
-        placeholder="Ваше сообщение..."
-      />
-      <button type={ButtonType.Submit} className={styles.sendButton}>
-        <IconCustom className={styles.inputIcon} name="24x24_send-message" />
-      </button>
-    </Form>
-  </section>
-)
-
+const Chat = ({ isOpen, messages, closeChat, onSubmit, opensOnce }: Props) => {
+  const shouldHide = !opensOnce || !isOpen
+  return (
+    <section className={cx(styles.chat, shouldHide && styles.hide)}>
+      <div>
+        <Header onCloseButtonClick={closeChat} />
+      </div>
+      <div className={styles.messageWrapper}>
+        <ChatWrapper messages={messages} />
+      </div>
+      <Form
+        onSubmit={onSubmit as any}
+        className={styles.inputWrapper}
+        resetAfterSubmit
+        forceSubmitOnEnter
+      >
+        <TextArea
+          autosize={{ minRows: 1, maxRows: 4 }}
+          className={styles.input}
+          name="message"
+          disableResizeOnEnter
+          placeholder="Ваше сообщение..."
+        />
+        <button type={ButtonType.Submit} className={styles.sendButton}>
+          <IconCustom className={styles.inputIcon} name="24x24_send-message" />
+        </button>
+      </Form>
+    </section>
+  )
+}
 export default Chat
