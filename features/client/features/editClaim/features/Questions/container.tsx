@@ -63,13 +63,13 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       const claim = await createQuestionsClaim(request)
 
       const { error } = this.props
-      this.redirectIfNeeded(error)
+      this.redirectIfNeeded(shortClaim.personalData.email, error)
       return claim
     }
 
-    private redirectIfNeeded(error: false | string) {
+    private redirectIfNeeded(email: string | undefined, error: false | string) {
       if (!error) {
-        Router.pushRoute(`/client/form-finish`)
+        Router.pushRoute(`/client/claim/form-finish/${email}`)
       }
     }
   }
