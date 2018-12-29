@@ -19,8 +19,9 @@ const NavLink = ({
   className,
   href,
   type = NavLinkType.Link,
+  ...rest
 }: Props) => (
-  <NextLink href={href}>
+  <NextLink href={href} {...rest}>
     <a className={cx(styles[type], styles.NavLink, className)}>{children}</a>
   </NextLink>
 )
