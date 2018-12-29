@@ -1,5 +1,4 @@
 import * as React from 'react'
-import * as styles from './index.css'
 
 import ClaimForm from '../organisms/Form'
 
@@ -15,13 +14,11 @@ export interface Props {
 
 const ClaimPage = ({ error, onFormSubmit, claimData }: Props) => (
   <Layout step={3} title="Отметьте вопросы, которые хотите задать эксперту">
-    <main className={styles.claimPage}>
-      <ClaimForm
-        claimData={claimData}
-        error={error}
-        onFormSubmit={onFormSubmit}
-      />
-    </main>
+    <ClaimForm
+      claimData={claimData}
+      error={error}
+      onFormSubmit={onFormSubmit}
+    />
   </Layout>
 )
 

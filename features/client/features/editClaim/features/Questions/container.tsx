@@ -1,3 +1,4 @@
+import { fetchShortClaim } from '@app/features/client/features/newClaim'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
@@ -6,10 +7,7 @@ import routes from '@app/routes'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
-import {
-  createQuestionsClaim as createQuestionsClaimAction,
-  shortClaim as shortClaimAction,
-} from './actions'
+import { createQuestionsClaim as createQuestionsClaimAction } from './actions'
 import { Props as PageProps } from './page'
 import { getQuestionsError } from './selectors'
 const Router = routes.Router
@@ -28,7 +26,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     public static async getInitialProps(context: AppContext<Query>) {
       const { id } = context.query
 
-      const shortClaim = await context.reduxStore.dispatch(shortClaimAction(
+      const shortClaim = await context.reduxStore.dispatch(fetchShortClaim(
         id,
       ) as any)
       return {
