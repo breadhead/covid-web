@@ -5,6 +5,8 @@
 + `npm i -g commitizen`
 + `yarn`
 + `yarn dev`
+if you want to use real api
++ `BACK_URL=http://api.oncohelp.breadhead.ru yarn dev`
 
 ```js
 http://localhost:3001
