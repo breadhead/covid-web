@@ -6,6 +6,8 @@ export {
 export {
   default as SignUpModal,
   MODAL_KEY as SIGN_UP_MODAL,
+  withSignUpModal,
+  WithSignUpModal,
 } from './features/signUp'
 
 export { getToken } from './features/token'
