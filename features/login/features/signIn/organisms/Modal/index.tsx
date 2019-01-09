@@ -8,11 +8,13 @@ import Footer from '@app/features/login/organisms/Footer'
 import { SPACE } from '@app/lib/config'
 import Button, { ButtonType } from '@app/ui/atoms/Button'
 import NavLink from '@app/ui/atoms/NavLink'
+import OpenSignUpModalButton from '../../atoms/OpenSignUpModalButton'
 import { schema } from '../../container'
 
 interface Props {
   onFormSubmit: () => Promise<any>
   error: boolean | string
+  openSignUp: () => void
 }
 
 const SignIn = ({ onFormSubmit }: Props) => (
@@ -21,9 +23,7 @@ const SignIn = ({ onFormSubmit }: Props) => (
       <h1 className={styles.title}>Войти</h1>
       <p className={styles.secondaryText}>
         Ещё нет аккаунта?{SPACE}
-        <NavLink href="#" className={styles.link}>
-          Зарегистрироваться
-        </NavLink>
+        <OpenSignUpModalButton />
       </p>
 
       <Form onSubmit={onFormSubmit}>
@@ -41,11 +41,9 @@ const SignIn = ({ onFormSubmit }: Props) => (
           type={InputType.Password}
           validate={schema.password}
         />
-
         <NavLink href="#" className={styles.link}>
           Забыли пароль?
         </NavLink>
-
         <Button type={ButtonType.Submit} className={styles.mainButton}>
           Войти
         </Button>

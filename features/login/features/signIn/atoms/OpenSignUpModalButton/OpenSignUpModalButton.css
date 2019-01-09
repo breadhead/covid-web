@@ -1,0 +1,9 @@
+.link.link {
+  font: var(--text14-20);
+}
+
+.openSignUpButton {
+  display: inline;
+  background-color: transparent;
+  border: none;
+}
