@@ -9,7 +9,7 @@ import { steps } from './config'
 const Steps = () => (
   <section className={styles.steps}>
     {steps.map(step => (
-      <Step step={step} />
+      <Step key={step.index} step={step} />
     ))}
   </section>
 )
