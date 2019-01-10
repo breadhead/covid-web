@@ -1,11 +1,7 @@
 import * as React from 'react'
 
-import Header from '../../../organisms/Header'
+import Layout from '@app/features/main/layout'
 
-const LandingPage = () => (
-  <main>
-    <Header />
-  </main>
-)
+const LandingPage = () => <Layout>memee</Layout>
 
 export default LandingPage

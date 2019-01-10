@@ -3,10 +3,9 @@ import * as styles from './Navigation.css'
 
 import cx from 'classnames'
 
-import { ButtonKind } from '@app/ui/atoms/Button'
-import Button from '@app/ui/atoms/Button'
 import IconCustom from '@app/ui/atoms/IconCustom'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
+import LoginButton from '../../atoms/LoginButton'
 import NavIcon from '../../atoms/NavIcon'
 
 interface Props {
@@ -36,7 +35,7 @@ const Navigation = ({ className, hide }: Props) => (
       Помочь проекту
       <NavIcon />
     </NavLink>
-    <Button kind={ButtonKind.Secondary}>Войти</Button>
+    <LoginButton>Войти</LoginButton>
   </nav>
 )
 
