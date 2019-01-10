@@ -1,7 +1,6 @@
-import { Role } from '@app/lib/api/ApiClient'
 import { ExtraArgs, State } from '@app/lib/store'
-import Router from 'next/router'
 import { Dispatch } from 'redux'
+import redirectUser from '../redirect'
 import { actions as tokenActions } from '../token/'
 import { setCookie } from './helpers/setAuthToken'
 import { actions } from './reducer'
@@ -19,15 +18,7 @@ export const login = (username: string, password: string) => async (
     setCookie(token)
     dispatch(tokenActions.set(token))
 
-    if (roles.includes(Role.Admin)) {
-      Router.push('/admin')
-    } else if (roles.includes(Role.Client)) {
-      Router.push('/client')
-    } else if (roles.includes(Role.CaseManager)) {
-      Router.push('/manager')
-    } else if (roles.includes(Role.Doctor)) {
-      Router.push('/doctor')
-    }
+    redirectUser(roles)
 
     return dispatch(actions.success(token))
   } catch (error) {
