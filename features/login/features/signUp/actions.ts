@@ -1,7 +1,7 @@
 import { setCookie } from '@app/features/login/features/signIn/helpers/setAuthToken'
 import { actions } from '@app/features/login/features/signIn/reducer'
-import { ExtraArgs, State } from '@app/lib/store'
 import { actions as tokenActions } from '@app/features/login/features/token'
+import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
 import redirectUser from '../redirect'
 
