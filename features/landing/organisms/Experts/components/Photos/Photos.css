@@ -1,0 +1,11 @@
+.photos {
+  display: grid;
+  flex-basis: 50%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 32px;
+  justify-items: center;
+}
+
+.photo {
+  border-radius: 50%;
+}
