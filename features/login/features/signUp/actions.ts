@@ -1,9 +1,9 @@
-import { actions } from '@app/features/login/features/signIn/reducer'
 import { setCookie } from '@app/features/login/features/signIn/helpers/setAuthToken'
+import { actions } from '@app/features/login/features/signIn/reducer'
 import { ExtraArgs, State } from '@app/lib/store'
+import { actions as tokenActions } from '@app/features/login/features/token'
 import { Dispatch } from 'redux'
 import redirectUser from '../redirect'
-import { actions as tokenActions } from '@app/features/login/features/token'
 
 export const signUp = (
   login: string,
