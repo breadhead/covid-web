@@ -1,0 +1,36 @@
+.title {
+  margin-bottom: 32px;
+  font: var(--title-extra);
+}
+
+.logos {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.logo {
+  margin-right: 16px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.buttons {
+  margin-bottom: 120px;
+  text-align: center;
+
+  & .button.button.button {
+    padding: 16px 36px;
+    font: var(--text18-28);
+  }
+}
+
+.buttonsItem.buttonsItem {
+  display: inline-block;
+  margin-right: 16px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}

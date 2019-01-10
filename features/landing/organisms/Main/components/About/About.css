@@ -1,0 +1,31 @@
+.about {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 120px;
+}
+
+.topic {
+  flex-basis: 50%;
+  text-align: left;
+}
+
+.title {
+  margin-bottom: 16px;
+  font: var(--title-regular);
+}
+
+.reasons {
+  flex-basis: 50%;
+}
+
+.reason {
+  padding: 12px 20px;
+  margin: 0 0 12px 0;
+  text-align: left;
+  background-color: #F7F6F2;
+  border-radius: 16px 16px 16px 0;
+
+  &:last-of-type {
+    margin-bottom: 24px;
+  }
+}

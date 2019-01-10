@@ -1,0 +1,7 @@
+.steps {
+  display: flex;
+  justify-content: space-between;
+  max-width: 880px;
+  margin: 0 auto;
+  margin-bottom: 120px;
+}
