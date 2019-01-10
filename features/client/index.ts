@@ -14,6 +14,8 @@ import {
 
 import { reducer as chatReducer, State as ChatState } from './features/chat'
 
+export { default as Chat } from './features/chat'
+
 export { default as NewClaim } from './features/newClaim'
 import {
   reducer as newClaimReducer,
