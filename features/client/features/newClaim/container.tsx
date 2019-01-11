@@ -4,10 +4,11 @@ import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 
 import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
+import { AppContext } from '@app/lib/server-types'
 import ClaimTarget from '@app/models/Claim/ClaimTarget'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 
-import { createClaim } from './actions'
+import { createClaim, fetchShortClaim } from './actions'
 import { ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
 
@@ -18,23 +19,49 @@ const Router = routes.Router
 interface Props {
   createClaim: (request: ShortClaimRequest) => Promise<ShortClaim>
   error: false | string
+  shortClaim?: ShortClaim
 }
 
 interface LocalState {
   clientInRussia: boolean
 }
 
+interface Query {
+  id?: string
+}
+
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
   return class extends React.Component<Props, LocalState> {
+    public static async getInitialProps({
+      query,
+      reduxStore,
+    }: AppContext<Query>) {
+      const { id } = query
+
+      if (id) {
+        const shortClaim = await reduxStore.dispatch(fetchShortClaim(id) as any)
+
+        return {
+          shortClaim,
+        }
+      }
+
+      return {}
+    }
+
     public state = {
       clientInRussia: true,
     } as LocalState
 
     public render() {
-      const { error } = this.props
+      const { error, shortClaim } = this.props
+
+      const initialFields = !!shortClaim ? this.claimToFields(shortClaim) : {}
+
       return (
         <WrappedComponent
           error={error}
+          initialFields={initialFields}
           onFormSubmit={this.onFormSubmit}
           clientInRussia={this.state.clientInRussia}
           onChangeInRussia={this.onChangeInRussia}
@@ -44,6 +71,23 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
 
     private onChangeInRussia = (value: boolean) =>
       this.setState({ clientInRussia: value })
+
+    private claimToFields = (claim: ShortClaim): ShortClaimFields => ({
+      target: claim.target,
+      theme: claim.theme,
+      diagnosis: !!claim.localization,
+      localization: claim.localization,
+      corporate: !!claim.company,
+      companyName: claim.company && claim.company.name,
+      companyPosition: claim.company && claim.company.position,
+      name: claim.personalData.name,
+      region: claim.personalData.region,
+      age: claim.personalData.age,
+      gender: claim.personalData.gender,
+      email: claim.personalData.email,
+      phone: claim.personalData.phone,
+      phoneAvailable: !!claim.personalData.phone,
+    })
 
     private onFormSubmit = async (claimFields: ShortClaimFields) => {
       const request: ShortClaimRequest = {

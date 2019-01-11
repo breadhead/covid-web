@@ -1,19 +1,22 @@
+import { setCookie } from '@app/features/login/features/signIn/helpers/setAuthToken'
+import { actions } from '@app/features/login/features/signIn/reducer'
+import { actions as tokenActions } from '@app/features/login/features/token'
 import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
 import redirectUser from '../redirect'
-import { actions as tokenActions } from '../token/'
-import { setCookie } from './helpers/setAuthToken'
-import { actions } from './reducer'
 
-export const login = (username: string, password: string) => async (
+export const signUp = (
+  login: string,
+  password: string,
+  confirm: string,
+) => async (
   dispatch: Dispatch<any>,
   getState: () => State,
   { getApi }: ExtraArgs,
 ) => {
   const api = getApi(getState)
   try {
-    dispatch(actions.request())
-    const { token, roles } = await api.login(username, password)
+    const { token, roles } = await api.signUp(login, password, confirm)
 
     setCookie(token)
     dispatch(tokenActions.set(token))

@@ -27,7 +27,12 @@ const Select = ({
 }: Props) => (
   <div className={className}>
     {label && <label htmlFor={name}>{label}</label>}
-    <AntSelect id={name} {...rest} className={error && 'error'}>
+    <AntSelect
+      value={value || undefined}
+      id={name}
+      {...rest}
+      className={error && 'error'}
+    >
       {options.map(option => (
         <Option key={option.key} value={option.key}>
           {option.label}

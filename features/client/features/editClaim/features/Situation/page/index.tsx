@@ -10,9 +10,10 @@ export interface Props {
   onFormSubmit: (fields: SituationClaimFields) => Promise<void>
   claimData: ClaimData
   error: false | string
+  id: string
 }
 
-const SituationPage = ({ onFormSubmit, claimData, error }: Props) => {
+const SituationPage = ({ onFormSubmit, claimData, error, id }: Props) => {
   return (
     <Layout
       step={2}
@@ -23,6 +24,7 @@ const SituationPage = ({ onFormSubmit, claimData, error }: Props) => {
     необходимы дополнительные данные.`}
     >
       <ClaimForm
+        id={id}
         error={error}
         claimData={claimData}
         onFormSubmit={onFormSubmit}
