@@ -98,6 +98,11 @@ export default class RealApiClient implements ApiClient {
       .post('/auth/login', { login, password })
       .then(response => response.data as User)
 
+  public signUp = (login: string, password: string, confirm: string) =>
+    this.axiosInstance
+      .post('/auth/register', { email: login, password, confirm })
+      .then(response => response.data as User)
+
   public createQuota = (quota: QuotaCreateRequest) =>
     this.axiosInstance
       .post('/quotas/create', quota)

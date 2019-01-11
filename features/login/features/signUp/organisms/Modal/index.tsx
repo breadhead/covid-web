@@ -9,8 +9,14 @@ import Input from '@app/features/common/form/components/Input'
 import Footer from '@app/features/login/organisms/Footer'
 import { SPACE } from '@app/lib/config'
 import Button, { ButtonType } from '@app/ui/atoms/Button'
+import { schema } from '../../container'
 
-const SignUp = () => (
+interface Props {
+  onFormSubmit: () => Promise<any>
+  error: boolean | string
+}
+
+const SignUp = ({ onFormSubmit }: Props) => (
   <article className={styles.popup}>
     <h1 className={styles.title}>Регистрация</h1>
     <p className={styles.secondaryText}>
@@ -20,24 +26,27 @@ const SignUp = () => (
       </NavLink>
     </p>
 
-    <Form onSubmit={() => undefined}>
+    <Form onSubmit={onFormSubmit}>
       <Input
         label="Логин (email)"
         className={styles.input}
-        name="email"
+        name="login"
         type={InputType.Email}
+        validate={schema.login}
       />
       <Input
         label="Пароль"
         className={styles.input}
         name="password"
         type={InputType.Password}
+        validate={schema.password}
       />
       <Input
         label="Повторите пароль"
         className={styles.input}
-        name="repeat-password"
+        name="confirm"
         type={InputType.Password}
+        validate={schema.confirm}
       />
       <Button type={ButtonType.Submit} className={styles.button}>
         Зарегистрироваться
