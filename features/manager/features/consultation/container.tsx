@@ -2,9 +2,7 @@ import * as React from 'react'
 
 import { AppContext } from '@app/lib/server-types'
 
-import { fetchSituationClaim } from '@app/features/client/features/editClaim'
-import { fetchShortClaim } from '@app/features/client/features/newClaim'
-import { fetchQuotaClaim } from './actions'
+import { fetchClaim } from './actions'
 import { Props as PageProps } from './page'
 
 // tslint:disable-next-line:no-empty-interface
@@ -24,13 +22,9 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     }: AppContext<Query>) {
       const { id } = query
 
-      const [shortClaim, situationClaim, quotaClaim] = await Promise.all([
-        reduxStore.dispatch(fetchShortClaim(id) as any),
-        reduxStore.dispatch(fetchSituationClaim(id) as any),
-        reduxStore.dispatch(fetchQuotaClaim(id) as any),
-      ])
+      const claim = await reduxStore.dispatch(fetchClaim(id) as any)
 
-      return { shortClaim, situationClaim, quotaClaim }
+      return { ...claim }
     }
 
     public render() {

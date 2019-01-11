@@ -6,33 +6,23 @@ import {
   FetchingActions,
   FetchingState,
 } from '@app/lib/symbioteFactory'
-import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 
-interface State extends FetchingState {
-  claim: any
-}
+type State = FetchingState
 
 interface Actions extends FetchingActions {
-  success(claim: any): Action
+  success(): Action
 }
 
-const initialState = createInitialState({
-  claim: {
-    shortClaim: {},
-    situationClaim: {},
-    quotaClaim: {},
-  },
-})
+const initialState = createInitialState({})
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  (state: State, claim: QuotaClaim) => ({
+  (state: State) => ({
     ...state,
-    claim,
     error: false,
     fetching: false,
   }),
-  'manager/consultation',
+  'manager/bind-quota',
 )
 
 export { State, reducer, Actions, actions }

@@ -1,29 +1,21 @@
 import { Content as QuotasListContent } from '@app/features/admin/features/quotasList'
-import { getQuotas } from '@app/features/admin/features/quotasList/selectors'
-import { Select } from '@app/features/common/form'
 import Form from '@app/features/common/form/components/Form'
-import { State } from '@app/lib/store'
+import { BindQuotaRequest } from '@app/lib/api/request/BindQuotaRequest'
 import Button, { ButtonType } from '@app/ui/atoms/Button'
-import hash from 'object-hash'
 import * as React from 'react'
-import { connect } from 'react-redux'
 import styles from './QuotaType.css'
+import SelectQuotaType from './SelectQuotaType'
 
-// TODO: fix types
-const SelectQuotaType = ({ quotas = [{}], ...rest }: any) => {
-  const mappedQuotas = quotas.map((quota: any) => ({
-    key: quota.id,
-    label: quota.name,
-  }))
-  return <Select key={hash(quotas)} {...rest} options={mappedQuotas} />
+interface Props {
+  onFormSubmit: (data: BindQuotaRequest) => void
 }
 
-const QuotaType = () => {
+const QuotaType = ({ onFormSubmit }: Props) => {
   return (
     <section className={styles.popup}>
       <h1 className={styles.title}>Выберите тип квоты</h1>
 
-      <Form onSubmit={() => undefined}>
+      <Form onSubmit={onFormSubmit as any}>
         <QuotasListContent
           search={false}
           sorting={false}
@@ -31,7 +23,7 @@ const QuotaType = () => {
             component: SelectQuotaType,
             props: {
               className: styles.field,
-              name: 'target',
+              name: 'quotaId',
             },
           }}
         />
@@ -44,8 +36,4 @@ const QuotaType = () => {
   )
 }
 
-const mapState = (state: State) => ({
-  quotas: getQuotas(state),
-})
-
-export default connect(mapState)(QuotaType)
+export default QuotaType

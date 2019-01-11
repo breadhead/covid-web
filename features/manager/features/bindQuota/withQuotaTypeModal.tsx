@@ -1,8 +1,8 @@
 import { withModal, WithModalProps } from '@app/features/common/modal'
 import { MODAL_KEY } from './container'
 
-export interface WithQuotaTypeModal {
-  openQuotaType: () => void
+export interface WithBindQuotaModal {
+  openBindQuota: () => void
 }
 
 const Container = (Component: React.ComponentType<any>) =>

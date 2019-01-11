@@ -1,6 +1,5 @@
 import * as React from 'react'
 
-import Badge from '../Badge'
 import * as styles from './Header.css'
 
 const Header = () => (

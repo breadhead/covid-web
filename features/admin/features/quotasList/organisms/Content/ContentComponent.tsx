@@ -1,5 +1,4 @@
 import { isUndefined } from 'lodash'
-import * as react from 'react'
 
 // TODO: fix types
 const ContentComponent = ({ PassedValue, Component, ...rest }: any) => {
