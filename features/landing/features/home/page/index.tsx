@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import * as styles from './Landing.css'
+import * as styles from './Home.css'
 
 import Layout from '@app/features/main/layout'
 import Corporate from '../organisms/Corporate'
