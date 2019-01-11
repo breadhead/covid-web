@@ -7,7 +7,7 @@ import styles from './BindQuota.css'
 import SelectQuotaType from './SelectQuotaType'
 
 interface Props {
-  onFormSubmit: (data: BindQuotaRequest) => void
+  onFormSubmit: (data: BindQuotaRequest) => Promise<void>
 }
 
 const QuotaType = ({ onFormSubmit }: Props) => {
