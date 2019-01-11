@@ -1,7 +1,7 @@
-import Container from './container'
-import Page from './page'
+import createConsultationPage from '@app/features/common/consultation'
 
-export default Container(Page as any) // TODO: fix it
+import Layout from '../../organisms/Layout'
 
-export { getClaimId } from './selectors'
-export { State, reducer } from './reducer'
+const ClientConsultation = createConsultationPage({}, Layout as any)
+
+export default ClientConsultation

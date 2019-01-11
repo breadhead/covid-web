@@ -5,16 +5,16 @@ import { AppContext } from '@app/lib/server-types'
 import { fetchClaim } from './actions'
 import { Props as PageProps } from './page'
 
-// tslint:disable-next-line:no-empty-interface
-interface OwnProps {}
-
 interface Query {
   id: string
 }
 
-type Props = OwnProps & PageProps
+type Props = PageProps
 
-const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
+const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
+  additionalProps: Partial<PageProps>,
+  layout: React.ComponentType,
+) => {
   return class extends React.Component<Props> {
     public static async getInitialProps({
       reduxStore,
@@ -22,13 +22,17 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     }: AppContext<Query>) {
       const { id } = query
 
-      const claim = await reduxStore.dispatch(fetchClaim(id) as any)
-
-      return { ...claim }
+      return await reduxStore.dispatch(fetchClaim(id) as any)
     }
 
     public render() {
-      return <WrappedComponent {...this.props} />
+      return (
+        <WrappedComponent
+          {...this.props}
+          {...additionalProps}
+          layout={layout}
+        />
+      )
     }
   }
 }

@@ -25,10 +25,8 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   (state: State, claim: QuotaClaim) => ({
     ...state,
     claim,
-    error: false,
-    fetching: false,
   }),
-  'client/consultation',
+  'common/consultation',
 )
 
 export { State, reducer, Actions, actions }
