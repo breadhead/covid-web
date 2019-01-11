@@ -5,7 +5,7 @@ import Layout from '../../organisms/Layout'
 import Control from '../quotaControl'
 
 const renderControls = ({ quota, mainInfo: { status } }: Claim) => (
-  <Control status={status} allocationAvailable={!!quota.name} />
+  <Control status={status} allocationAvailable={!!quota.empty} />
 )
 
 const ClientConsultation = createConsultationPage(

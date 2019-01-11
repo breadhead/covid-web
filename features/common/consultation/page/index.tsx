@@ -6,12 +6,7 @@ import * as styles from './Consultation.css'
 
 import { WindowSize } from '@app/features/common/windowSize/selector'
 import withWindowSize from '@app/features/common/windowSize/withWindowSize'
-
 import Claim from '@app/models/Claim/Claim'
-import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
-import { ShortClaim } from '@app/models/Claim/ShortClaim'
-import { SituationClaim } from '@app/models/Claim/SituationClaim'
 
 import { CHAT_DEFAULT_OPEN_WIDTH } from '@app/lib/config'
 
@@ -31,10 +26,7 @@ interface State {
 
 export interface Props {
   windowSize: WindowSize
-  shortClaim: ShortClaim
-  situationClaim: SituationClaim
-  quotaClaim: QuotaClaim
-  mainInfo: ListedClaim
+  claim: Claim
   renderSubHeader?: (claim: Claim) => React.ReactNode
   renderFooter?: (claim: Claim) => React.ReactNode
   layout: React.ComponentType
@@ -63,22 +55,7 @@ class Consultation extends React.Component<Props, State> {
 
   public render() {
     const { isChatOpen, haveNewMessage, chatOpensOnce } = this.state
-    const {
-      shortClaim,
-      situationClaim,
-      quotaClaim,
-      renderSubHeader,
-      renderFooter,
-      layout,
-      mainInfo,
-    } = this.props
-
-    const claim = {
-      short: shortClaim,
-      quota: quotaClaim,
-      situation: situationClaim,
-      mainInfo,
-    }
+    const { renderSubHeader, renderFooter, layout, claim } = this.props
 
     const showAnswers = false // TODO: add logic
 
@@ -98,7 +75,7 @@ class Consultation extends React.Component<Props, State> {
             />
             <Header />
             {renderSubHeader && renderSubHeader(claim)}
-            <Theme shortClaim={shortClaim} situationClaim={situationClaim} />
+            <Theme shortClaim={claim.short} situationClaim={claim.situation} />
             {showAnswers && <ExpertAnswers answers={Answers} />}
             {renderFooter && renderFooter(claim)}
           </Layout>
