@@ -1,5 +1,11 @@
 import * as styles from './Status.css'
 
-const Status = () => <div className={styles.status}>Распределение квоты</div>
+interface Props {
+  children: string
+}
+
+const Status = ({ children }: Props) => (
+  <div className={styles.status}>{children}</div>
+)
 
 export default Status

@@ -14,9 +14,12 @@ export const fetchQuotaClaim = (id: string) => async (
   const api = getApi(getState)
   dispatch(actions.request())
   try {
-    const claim = await api.quotaClaim(id)
-    dispatch(actions.success(claim))
-    return claim
+    const [quotaClaim, mainInfo] = await Promise.all([
+      api.quotaClaim(id),
+      api.mainInfoClaim(id),
+    ])
+    dispatch(actions.success(quotaClaim, mainInfo))
+    return { quotaClaim, mainInfo }
   } catch (error) {
     dispatch(actions.error(error.message))
     throw error
@@ -24,7 +27,11 @@ export const fetchQuotaClaim = (id: string) => async (
 }
 
 export const fetchClaim = (id: string) => async (dispatch: Dispatch<any>) => {
-  const [shortClaim, situationClaim, quotaClaim] = await Promise.all([
+  const [
+    shortClaim,
+    situationClaim,
+    { quotaClaim, mainInfo },
+  ] = await Promise.all([
     dispatch(fetchShortClaim(id) as any),
     dispatch(fetchSituationClaim(id) as any),
     dispatch(fetchQuotaClaim(id) as any),
@@ -32,6 +39,7 @@ export const fetchClaim = (id: string) => async (dispatch: Dispatch<any>) => {
 
   return {
     shortClaim,
+    mainInfo,
     situationClaim,
     quotaClaim,
   }

@@ -7,6 +7,8 @@ import * as styles from './Consultation.css'
 import { WindowSize } from '@app/features/common/windowSize/selector'
 import withWindowSize from '@app/features/common/windowSize/withWindowSize'
 
+import Claim from '@app/models/Claim/Claim'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
@@ -16,6 +18,8 @@ import { CHAT_DEFAULT_OPEN_WIDTH } from '@app/lib/config'
 import Chat from '@app/features/common/chat'
 
 import OpenChatButton from '../atoms/OpenChatButton'
+import ExpertAnswers from '../organisms/ExpertAnswers'
+import { Answers } from '../organisms/ExpertAnswers/config'
 import Header from '../organisms/Header'
 import Theme from '../organisms/Theme'
 
@@ -30,9 +34,9 @@ export interface Props {
   shortClaim: ShortClaim
   situationClaim: SituationClaim
   quotaClaim: QuotaClaim
-  renderSubHeader?: (quotaClaim: QuotaClaim) => React.ReactNode
-  renderFooter?: () => React.ReactNode
-  renderAdditionalPlates?: () => React.ReactNode
+  mainInfo: ListedClaim
+  renderSubHeader?: (claim: Claim) => React.ReactNode
+  renderFooter?: (claim: Claim) => React.ReactNode
   layout: React.ComponentType
 }
 
@@ -65,9 +69,18 @@ class Consultation extends React.Component<Props, State> {
       quotaClaim,
       renderSubHeader,
       renderFooter,
-      renderAdditionalPlates,
       layout,
+      mainInfo,
     } = this.props
+
+    const claim = {
+      short: shortClaim,
+      quota: quotaClaim,
+      situation: situationClaim,
+      mainInfo,
+    }
+
+    const showAnswers = false // TODO: add logic
 
     const Layout = layout
 
@@ -84,10 +97,10 @@ class Consultation extends React.Component<Props, State> {
               onClick={this.openChat}
             />
             <Header />
-            {renderSubHeader && renderSubHeader(quotaClaim)}
+            {renderSubHeader && renderSubHeader(claim)}
             <Theme shortClaim={shortClaim} situationClaim={situationClaim} />
-            {renderAdditionalPlates && renderAdditionalPlates()}
-            {renderFooter && renderFooter()}
+            {showAnswers && <ExpertAnswers answers={Answers} />}
+            {renderFooter && renderFooter(claim)}
           </Layout>
         </div>
         <Chat

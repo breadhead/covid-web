@@ -38,6 +38,11 @@ export default class RealApiClient implements ApiClient {
       .then(response => response.data as ListedClaim[])
       .then(claims => claims.map(tapDate))
 
+  public mainInfoClaim = (id: string) =>
+    this.axiosInstance
+      .get(`/claims/${id}/main`)
+      .then(response => response.data as ListedClaim)
+
   public createShortClaim = (shortClaimRequest: ShortClaimRequest) =>
     this.axiosInstance
       .post('/claims/short', shortClaimRequest)

@@ -1,14 +1,23 @@
+import ClaimStatus from '@app/models/Claim/ClaimStatus'
+
 import { WithQuotaTypeModal } from '../../../bindQuota'
 import Buttons from '../../molecules/Buttons'
 import Corporate from '../../molecules/Corporate'
 
 import * as styles from './Controls.css'
 
-type Props = WithQuotaTypeModal
+interface Props extends WithQuotaTypeModal {
+  allocationAvailable: boolean
+  status: ClaimStatus
+}
 
-const Controls = ({ openBindQuota }: Props) => (
+const Controls = ({ openBindQuota, allocationAvailable, status }: Props) => (
   <div className={styles.plate}>
-    <Buttons openBindQuota={openBindQuota} />
+    <Buttons
+      status={status}
+      showBindQuota={allocationAvailable}
+      openBindQuota={openBindQuota}
+    />
     <Corporate />
   </div>
 )

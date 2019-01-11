@@ -32,6 +32,7 @@ export default interface ApiClient {
   token: string
 
   claimsForClient(): Promise<ListedClaim[]>
+  mainInfoClaim(id: string): Promise<ListedClaim>
   createShortClaim(request: ShortClaimRequest): Promise<ShortClaim>
   shortClaim(id: string): Promise<ShortClaim>
   situationClaim(id: string): Promise<SituationClaim>
