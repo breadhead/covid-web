@@ -12,6 +12,15 @@
   max-width: 960px;
   padding: 64px 0;
   margin: 0 auto;
+
+  @media (--mediumDown) {
+    padding: 32px 16px;
+  }
+
+  @media (--smallDown) {
+    flex-direction: column;
+    padding: 32px 16px;
+  }
 }
 
 .textWrapper {
@@ -20,6 +29,10 @@
   flex-direction: column;
   justify-content: center;
   text-align: left;
+
+  @media (--smallDown) {
+    margin-bottom: 24px;
+  }
 }
 
 .title {

@@ -5,7 +5,7 @@ import Button, { ButtonKind } from '@app/ui/atoms/Button'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 
 const Intro = () => (
-  <>
+  <section className={styles.intro}>
     <h1 className={styles.title}>
       Справочная служба для онкологических пациентов и их близких
     </h1>
@@ -41,7 +41,7 @@ const Intro = () => (
         </Button>
       </NavLink>
     </div>
-  </>
+  </section>
 )
 
 export default Intro

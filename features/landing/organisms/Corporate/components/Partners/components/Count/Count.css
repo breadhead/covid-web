@@ -7,6 +7,10 @@
   background-color: #F7F6F2;
   border: 1px solid #F1EFED;
   border-radius: 20px;
+
+  @media (--smallDown) {
+    width: 100%;
+  }
 }
 
 .label {

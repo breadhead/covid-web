@@ -2,11 +2,21 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 120px;
+
+  @media (--smallDown) {
+    flex-direction: column;
+    padding: 0 16px;
+    margin-bottom: 40px;
+  }
 }
 
 .topic {
   flex-basis: 50%;
   text-align: left;
+
+  @media (--smallDown) {
+    margin-bottom: 24px;
+  }
 }
 
 .title {

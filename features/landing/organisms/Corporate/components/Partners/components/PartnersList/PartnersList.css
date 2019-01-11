@@ -3,6 +3,12 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 68px;
+
+  @media (--smallDown) {
+    max-width: 90vw;
+    margin-bottom: 40px;
+    overflow: scroll;
+  }
 }
 
 .addPartnerButton {

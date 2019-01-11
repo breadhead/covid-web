@@ -1,5 +1,9 @@
 .card {
   padding-top: 16px;
+
+  @media (--smallDown) {
+    margin-right: 16px;
+  }
 }
 
 .logo {
