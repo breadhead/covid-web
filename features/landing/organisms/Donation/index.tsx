@@ -4,7 +4,7 @@ import * as styles from './Donation.css'
 
 const Donation = () => (
   <>
-    <div className={styles.donationWrapper}>
+    <div id="#donationContainer" className={styles.donationWrapper}>
       <h2 className={styles.title}>Помочь проекту</h2>
       <div className={styles.content}>
         <div className={styles.iframe}>iframe</div>
