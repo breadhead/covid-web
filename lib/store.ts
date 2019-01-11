@@ -8,7 +8,7 @@ import {
   State as ChatState,
 } from '@app/features/common/chat'
 
-import consultation, {
+import {
   reducer as consultationReducer,
   State as ConsultationState,
 } from '@app/features/common/consultation'

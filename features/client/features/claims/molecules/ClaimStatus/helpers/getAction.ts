@@ -7,6 +7,7 @@ const actionsMap: ActionsMap = {
   [ClaimStatus.Draft]: 'Продолжить заполнение',
   [ClaimStatus.Closed]: 'Посмотреть ответы эксперта',
   [ClaimStatus.DeliveredToCustomer]: 'Посмотреть ответы эксперта',
+  [ClaimStatus.AnswerWaiting]: undefined,
   [ClaimStatus.QuotaAllocation]: undefined,
   [ClaimStatus.QuestionnaireValidation]: undefined,
 }
