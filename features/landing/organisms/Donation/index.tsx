@@ -2,6 +2,8 @@ import * as React from 'react'
 
 import * as styles from './Donation.css'
 
+import { NON_BREAKING_SPACE } from '@app/lib/config'
+
 const Donation = () => (
   <>
     <div id="#donationContainer" className={styles.donationWrapper}>
@@ -12,13 +14,15 @@ const Donation = () => (
         </div>
         <article className={styles.quote}>
           <p className={styles.message}>
-            Все собранные средства идут на&nbsp;оплату экспертов,
-            задействованных в&nbsp; консультациях и&nbsp;на&nbsp;поддержание
+            Все собранные средства идут на{NON_BREAKING_SPACE} оплату экспертов,
+            задействованных в{NON_BREAKING_SPACE} консультациях и
+            {NON_BREAKING_SPACE} на{NON_BREAKING_SPACE} поддержание
             работоспособности сервиса. Поддерживая системные проекты:
             образование талантливых врачей, просвещение населения РФ, внедрение
-            технологий скрининга рака, можно спасти сотни и&nbsp;тысячи
-            неизвестных вам людей. И&nbsp;Бог знает, кто будут эти люди –
-            возможно они будут дороги и&nbsp;лично вам.
+            технологий скрининга рака, можно спасти сотни и{NON_BREAKING_SPACE}{' '}
+            тысячи неизвестных вам людей. И{NON_BREAKING_SPACE} Бог знает, кто
+            будут эти люди – возможно они будут дороги и{NON_BREAKING_SPACE}{' '}
+            лично вам.
           </p>
           <div className={styles.author}>
             <img

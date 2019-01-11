@@ -4,11 +4,14 @@ import * as styles from './About.css'
 
 import Button from '@app/ui/atoms/Button'
 
+import { NON_BREAKING_SPACE } from '@app/lib/config'
+
 const About = () => (
   <section className={styles.about}>
     <div className={styles.topic}>
       <h2 className={styles.title}>
-        Помогаем разобраться в&nbsp;ситуации и&nbsp;найти хорошего онколога
+        Помогаем разобраться в{NON_BREAKING_SPACE} ситуации и
+        {NON_BREAKING_SPACE} найти хорошего онколога
       </h2>
       <img
         className={styles.logo}
@@ -18,15 +21,16 @@ const About = () => (
     </div>
     <div className={styles.reasons}>
       <p className={styles.reason}>
-        Сервис бесплатный. Он работает на&nbsp;благотворительные пожертвования.
+        Сервис бесплатный. Он работает на{NON_BREAKING_SPACE} благотворительные
+        пожертвования.
       </p>
       <p className={styles.reason}>
-        Мы не&nbsp;финансируемся клиниками и&nbsp;работаем только
-        в&nbsp;интересах пациента.
+        Мы не{NON_BREAKING_SPACE} финансируемся клиниками и{NON_BREAKING_SPACE}{' '}
+        работаем только в{NON_BREAKING_SPACE} интересах пациента.
       </p>
       <p className={styles.reason}>
-        Мы обладаем экспертизой и&nbsp;постоянно исследуем качество лечения рака
-        в&nbsp;России.
+        Мы обладаем экспертизой и{NON_BREAKING_SPACE} постоянно исследуем
+        качество лечения рака в{NON_BREAKING_SPACE} России.
       </p>
       <Button className={styles.button}>Просто спросить</Button>
     </div>
