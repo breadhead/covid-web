@@ -6,6 +6,7 @@ import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
+import { BindQuotaRequest } from './request/BindQuotaRequest'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
 import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
@@ -44,6 +45,7 @@ export default interface ApiClient {
   login(login: string, password: string): Promise<User>
   createQuota(quotaFields: any): Promise<Quota>
   editQuota(quotaFields: any): Promise<Quota>
+  bindQuota(request: BindQuotaRequest): Promise<any>
   transfer(
     quotaTransferRequest: QuotaTransferRequest,
   ): Promise<QuotaTransferResponse>

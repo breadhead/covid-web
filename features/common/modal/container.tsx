@@ -1,3 +1,4 @@
+import cx from 'classnames'
 import * as React from 'react'
 import ReactModal from 'react-modal'
 import { connect } from 'react-redux'
@@ -18,6 +19,7 @@ interface Props {
   modal: string
   close: () => Action
   bodyScrolling: { lock: () => void; unlock: () => void }
+  className?: string
 }
 
 class Modal extends React.Component<Props> {
@@ -29,7 +31,7 @@ class Modal extends React.Component<Props> {
   }
 
   public render() {
-    const { modal, close } = this.props
+    const { modal, close, className } = this.props
 
     const ModalComponent = this.getModalComponent(modal)
 
@@ -37,7 +39,7 @@ class Modal extends React.Component<Props> {
       <>
         <ReactModal
           shouldCloseOnOverlayClick
-          className={styles.Modal}
+          className={cx(styles.Modal, className)}
           isOpen={shouldOpenModal(modal)}
           onRequestClose={close}
           ariaHideApp={false}

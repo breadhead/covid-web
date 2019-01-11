@@ -1,16 +1,13 @@
-import React from 'react'
-
 import Layout from '@app/features/admin/organisms/Layout'
 import { Quota, QuotaType } from '@app/models/Quota/Quota'
-
-import Filters, { Filter } from '../organisms/Filters'
-import QuotasList from '../organisms/QuotasList'
-import Search from '../organisms/Search'
-import Sorting, { Order } from '../organisms/Sorting'
-import * as styles from './page.css'
+import React from 'react'
+import Content from '../organisms/Content'
+import { Filter } from '../organisms/Filters'
+import { Order } from '../organisms/Sorting'
 
 export interface Props {
   quotas: Quota[]
+  fetchQuotas: any
   totalCount: number
   countByTypes: { [key in keyof typeof QuotaType]: number }
 
@@ -22,38 +19,17 @@ export interface Props {
 
   searchQuery?: string
   changeSearchQuery: (value: string) => void
+
+  // TODO: fix types
+  search?: any
+  sorting?: any
+  filters?: any
+  list?: any
 }
 
-const Page: React.SFC<Props> = ({
-  changeSearchQuery,
-  searchQuery,
-  changeOrder,
-  activeOrder,
-  changeFilter,
-  activeFilter,
-  totalCount,
-  countByTypes,
-  quotas,
-}) => (
+const Page: React.SFC<Props> = props => (
   <Layout>
-    <div className={styles.settings}>
-      <Search onChange={changeSearchQuery} value={searchQuery} />
-      <Sorting
-        onChange={changeOrder}
-        activeOrder={activeOrder}
-        className={styles.rowEnd}
-      />
-
-      <Filters
-        onChange={changeFilter}
-        activeFilter={activeFilter}
-        totalCount={totalCount}
-        countByTypes={countByTypes}
-        className={styles.allRow}
-      />
-    </div>
-
-    <QuotasList quotas={quotas} />
+    <Content {...props} />
   </Layout>
 )
 
