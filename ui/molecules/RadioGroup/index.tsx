@@ -42,11 +42,11 @@ const RadioGroup = ({
   return (
     <div className={`radioButtonStyle__${radioStyle}`}>
       <SpecificRadioGroup
-        className={className}
         name={name}
         buttons={buttons}
         defaultValue={defaultValue}
         onChange={onChange}
+        className={className}
       />
     </div>
   )

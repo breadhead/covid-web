@@ -1,43 +1,44 @@
-import * as React from 'react'
-
 import { Form } from '@app/features/common/form'
 import Gender from '@app/models/Gender'
-
+import * as React from 'react'
 import Contacts from './../Contacts'
 import Footer from './../Footer'
 import Main from './../Main'
-
-import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import * as styles from './ClaimForm.css'
 
-export interface ShortClaimFields {
-  target: string
-  theme: string
-  diagnosis: boolean
-  localization?: string
-  corporate: boolean
-  companyName?: string
-  companyPosition?: string
+interface Company {
+  name: string
+  position: string
+}
+
+interface PersonalData {
   name: string
   region: string
   age: number
   gender: Gender
   email?: string
   phone?: string
-  phoneAvailable: boolean
 }
 
-const initialValues = {
-  corporate: false,
-  phoneAvailable: true,
+export interface ShortClaimFields {
+  id?: string
+  target: string
+  theme: string
+  diagnosis: boolean
+  localization?: string
+  company?: Company
+  personalData: PersonalData
+  phonePresence: boolean
+  companyPresence?: boolean
+  localizationPresence?: boolean
 }
 
 interface Props {
-  onSubmit: (claimFields: ShortClaimRequest) => Promise<void>
+  onSubmit: (claimFields: ShortClaimFields) => Promise<void>
   clientInRussia: boolean
   onChangeInRussia: (value: boolean) => void
   error: false | string
-  initial: Partial<ShortClaimRequest>
+  initial: Partial<ShortClaimFields>
 }
 
 const ClaimForm = ({
@@ -52,11 +53,10 @@ const ClaimForm = ({
       onSubmit={onSubmit as any}
       className={styles.ClaimForm}
       initialValues={{
-        ...initialValues,
         ...initial,
       }}
     >
-      <Main styles={styles} />
+      <Main initial={initial} styles={styles} />
       <Contacts
         clientInRussia={clientInRussia}
         onChangeInRussia={onChangeInRussia}

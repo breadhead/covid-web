@@ -1,7 +1,12 @@
 import cx from 'classnames'
 import * as React from 'react'
 
-import { Input, RadioGroup, Select } from '@app/features/common/form'
+import {
+  EmergingFormElement,
+  Input,
+  RadioGroup,
+  Select,
+} from '@app/features/common/form'
 
 import { InputType } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
@@ -9,7 +14,7 @@ import Gender from '@app/models/Gender'
 import { mapString } from '@app/ui/atoms/Select'
 import Switch from '@app/ui/atoms/Switch'
 import { RadioGroupType } from '@app/ui/molecules/RadioGroup'
-import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
+import { ControlTypes } from '@app/ui/organisms/EmergingFormElement'
 import { RadioButtonsValue } from '@app/ui/organisms/EmergingFormElement/RadioGroupElement'
 import { countries, regions } from './config'
 import { schema } from './schema'
@@ -124,8 +129,9 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
     </p>
     <EmergingFormElement
       className={styles.field}
-      controlType="radiogroup"
-      defaultVisible={true}
+      controlType={ControlTypes.Radiogroup}
+      defaultVisible
+      name="phonePresence"
       defaultValue={RadioButtonsValue.Yes}
     >
       <label

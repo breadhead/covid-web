@@ -1,25 +1,24 @@
+import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
+import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import routes from '@app/routes'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
-
-import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
-import { AppContext } from '@app/lib/server-types'
-import ClaimTarget from '@app/models/Claim/ClaimTarget'
-import { ShortClaim } from '@app/models/Claim/ShortClaim'
-
 import { createClaim, fetchShortClaim } from './actions'
 import { ShortClaimFields } from './organisms/ClaimForm'
+import { regions } from './organisms/Contacts/config'
 import { Props as PageProps } from './page'
-
-import routes from '@app/routes'
 import { getNewClaimError } from './selectors'
+
 const Router = routes.Router
 
 interface Props {
   createClaim: (request: ShortClaimRequest) => Promise<ShortClaim>
   error: false | string
   shortClaim?: ShortClaim
+  id: string
 }
 
 interface LocalState {
@@ -43,20 +42,19 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
 
         return {
           shortClaim,
+          id,
         }
       }
 
-      return {}
+      return { id }
     }
 
-    public state = {
-      clientInRussia: true,
-    } as LocalState
+    public state = this.getInitialState() as LocalState
 
     public render() {
       const { error, shortClaim } = this.props
 
-      const initialFields = !!shortClaim ? shortClaim : {}
+      const initialFields = this.getInitialFields(shortClaim)
 
       return (
         <WrappedComponent
@@ -69,18 +67,61 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       )
     }
 
+    private getInitialState(): LocalState {
+      return {
+        clientInRussia: this.props.id
+          ? regions.includes(this.props.shortClaim!.personalData.region)
+          : true,
+      }
+    }
+
+    private getInitialFields = (claim?: ShortClaim) => {
+      if (!!claim) {
+        return {
+          ...claim,
+          localizationPresence: !!claim.localization,
+          companyPresence: !!claim.company,
+          phonePresence: !!claim.personalData.phone,
+        }
+      }
+      return {}
+    }
+
     private onChangeInRussia = (value: boolean) =>
       this.setState({ clientInRussia: value })
 
-    private onFormSubmit = async (claimFields: ShortClaimRequest) => {
+    private onFormSubmit = async (claimFields: ShortClaimFields) => {
+      const request = this.createRequest(claimFields)
       const { id, quotaAllocated, personalData } = await this.props.createClaim(
-        claimFields,
+        request as ShortClaimRequest,
       )
+
       const { email } = personalData
 
       const { error } = this.props
 
       this.redirectIfNeeded(error, quotaAllocated, id, email)
+    }
+
+    private createRequest = (claimFields: ShortClaimFields) => {
+      const { id } = this.props
+      const fields = claimFields
+
+      if (!claimFields.localizationPresence) {
+        delete fields.localization
+      }
+      if (!claimFields.companyPresence) {
+        delete fields.company
+      }
+      if (!claimFields.phonePresence) {
+        delete fields.personalData.phone
+      }
+
+      if (id) {
+        fields.id = id
+      }
+
+      return fields
     }
 
     private redirectIfNeeded(

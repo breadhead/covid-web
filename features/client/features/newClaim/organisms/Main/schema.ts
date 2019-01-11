@@ -1,5 +1,3 @@
-import { localizations, themes } from '@app/features/client/values'
-import ClaimTarget from '@app/models/Claim/ClaimTarget'
 import * as yup from 'yup'
 
 const REQUIRED = 'Обязательное поле'
@@ -9,7 +7,7 @@ export const schema = {
   theme: yup.string().required(REQUIRED),
   localizationPresence: yup.bool().required(REQUIRED),
   localization: yup.string().required(REQUIRED),
-  corporate: yup.bool().required(REQUIRED),
+  companyPresence: yup.bool().required(REQUIRED),
   companyName: yup
     .string()
     .min(1, REQUIRED)
