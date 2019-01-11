@@ -4,9 +4,12 @@ import * as styles from './Partners.css'
 
 import Layout from '@app/features/main/layout'
 
+import Notification from '../molecules/Notification'
+
 const PartnersPage = () => (
   <Layout className={styles.main}>
-    PartnersPagePartnersPagePartnersPagePartnersPagePartnersPage
+    <h1 className={styles.title}>Партнёры</h1>
+    <Notification />
   </Layout>
 )
 

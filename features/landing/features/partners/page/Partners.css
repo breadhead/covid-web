@@ -1,3 +1,22 @@
-.partners {
+.main.main {
+  width: 100%;
+  max-width: 960px;
   padding: 64px 0 120px;
+
+  @media (--mediumDown) {
+    padding: 16px 0;
+  }
+
+  @media (--smallDown) {
+    padding: 32px 16px 80px 16px;
+  }
+}
+
+.title {
+  margin: 0 0 40px 0;
+  font: var(--title-extra);
+
+  @media (--smallDown) {
+    margin: 0 0 24px 0;
+  }
 }
