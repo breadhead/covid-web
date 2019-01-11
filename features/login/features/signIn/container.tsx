@@ -57,7 +57,7 @@ const mapState = (state: State) => ({
   violateState: getViolateState(state),
 })
 
-const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
+const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   login: (credentials: Credentials) =>
     dispatch(login(credentials.login, credentials.password) as any),
 })
@@ -66,7 +66,7 @@ export default compose(
   isModal(MODAL_KEY),
   connect(
     mapState,
-    mapDipatch,
+    mapDispatch,
   ),
   Container,
 )
