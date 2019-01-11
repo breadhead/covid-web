@@ -12,10 +12,9 @@
 }
 
 .logo {
-
-    @media (--smallDown) {
-      display: none;
-      justify-content: space-between;
-      width: 100%;
+  @media (--smallDown) {
+    display: none;
+    justify-content: space-between;
+    width: 100%;
   }
 }
