@@ -4,6 +4,16 @@ import thunk from 'redux-thunk'
 import windowSize, { REDUCER_KEY } from 'redux-windowsize'
 
 import {
+  reducer as chatReducer,
+  State as ChatState,
+} from '@app/features/common/chat'
+
+import consultation, {
+  reducer as consultationReducer,
+  State as ConsultationState,
+} from '@app/features/common/consultation'
+
+import {
   reducer as managerReducer,
   State as ManagerState,
 } from '@app/features/manager'
@@ -76,6 +86,8 @@ export interface State {
   client: ClientState
   browserQuery: BrowserQueryState
   manager: ManagerState
+  chat: ChatState
+  consultation: ConsultationState
 }
 
 const reducer = combineReducers({
@@ -91,6 +103,8 @@ const reducer = combineReducers({
   client: clientReducer,
   browserQuery: browserQueryReducer,
   manager: managerReducer,
+  chat: chatReducer,
+  consultation: consultationReducer,
 } as any)
 
 export interface ExtraArgs {
