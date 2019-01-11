@@ -1,7 +1,7 @@
 import { flow } from 'lodash'
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { compose } from 'redux'
+import { AnyAction, compose, Dispatch } from 'redux'
 
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
@@ -18,11 +18,18 @@ interface ComponentState {
   activeFilter: Filter
   activeOrder: Order
   searchQuery?: string
+  search?: false | React.ComponentType
+  sorting?: false | React.ComponentType
+  filters?: false | React.ComponentType
+  list?: false | React.ComponentType
 }
 
 const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
   return class extends React.Component<
-    Pick<ComponentProps, 'quotas' | 'totalCount' | 'countByTypes'>,
+    Pick<
+      ComponentProps,
+      'quotas' | 'totalCount' | 'countByTypes' | 'fetchQuotas'
+    >,
     ComponentState
   > {
     public static async getInitialProps(context: AppContext) {
@@ -34,6 +41,12 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
       activeFilter: 'All',
       activeOrder: Order.Count,
     } as ComponentState
+
+    public componentDidMount() {
+      if (this.props.quotas.length === 0) {
+        this.props.fetchQuotas()
+      }
+    }
 
     public render() {
       return <WrappedComponent {...this.getChildProps()} />
@@ -71,7 +84,14 @@ const mapState = (state: State) => ({
   countByTypes: getCountByTypes(state),
 })
 
+const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
+  fetchQuotas: () => dispatch(fetchQuotas() as any),
+})
+
 export default compose(
-  connect(mapState),
+  connect(
+    mapState,
+    mapDispatch,
+  ),
   Container,
 )

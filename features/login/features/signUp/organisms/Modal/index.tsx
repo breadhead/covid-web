@@ -17,45 +17,43 @@ interface Props {
 }
 
 const SignUp = ({ onFormSubmit }: Props) => (
-  <>
-    <article className={styles.popup}>
-      <h1 className={styles.title}>Регистрация</h1>
-      <p className={styles.secondaryText}>
-        Уже есть аккаунт?{SPACE}
-        <NavLink href="#" className={styles.link}>
-          Войти
-        </NavLink>
-      </p>
+  <article className={styles.popup}>
+    <h1 className={styles.title}>Регистрация</h1>
+    <p className={styles.secondaryText}>
+      Уже есть аккаунт?{SPACE}
+      <NavLink href="#" className={styles.link}>
+        Войти
+      </NavLink>
+    </p>
 
-      <Form onSubmit={onFormSubmit}>
-        <Input
-          label="Логин (email)"
-          className={styles.input}
-          name="login"
-          type={InputType.Email}
-          validate={schema.login}
-        />
-        <Input
-          label="Пароль"
-          className={styles.input}
-          name="password"
-          type={InputType.Password}
-          validate={schema.password}
-        />
-        <Input
-          label="Повторите пароль"
-          className={styles.input}
-          name="confirm"
-          type={InputType.Password}
-          validate={schema.confirm}
-        />
-        <Button type={ButtonType.Submit} className={styles.button}>
-          Зарегистрироваться
-        </Button>
-      </Form>
-    </article>
+    <Form onSubmit={onFormSubmit}>
+      <Input
+        label="Логин (email)"
+        className={styles.input}
+        name="login"
+        type={InputType.Email}
+        validate={schema.login}
+      />
+      <Input
+        label="Пароль"
+        className={styles.input}
+        name="password"
+        type={InputType.Password}
+        validate={schema.password}
+      />
+      <Input
+        label="Повторите пароль"
+        className={styles.input}
+        name="confirm"
+        type={InputType.Password}
+        validate={schema.confirm}
+      />
+      <Button type={ButtonType.Submit} className={styles.button}>
+        Зарегистрироваться
+      </Button>
+    </Form>
     <Footer />
-  </>
+  </article>
 )
 
 export default SignUp

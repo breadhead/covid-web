@@ -7,21 +7,20 @@ import * as styles from './Consultation.css'
 import { WindowSize } from '@app/features/common/windowSize/selector'
 import withWindowSize from '@app/features/common/windowSize/withWindowSize'
 
+import Claim from '@app/models/Claim/Claim'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
 
 import { CHAT_DEFAULT_OPEN_WIDTH } from '@app/lib/config'
 
-import Layout from '@app/features/client/organisms/Layout'
-import Chat from '../../chat'
+import Chat from '@app/features/common/chat'
+
 import OpenChatButton from '../atoms/OpenChatButton'
-import AnswerNotification from '../organisms/AnswerNotification'
-import Company from '../organisms/Company'
 import ExpertAnswers from '../organisms/ExpertAnswers'
 import { Answers } from '../organisms/ExpertAnswers/config'
 import Header from '../organisms/Header'
-import QuestionNotification from '../organisms/QuestionNotification'
 import Theme from '../organisms/Theme'
 
 interface State {
@@ -35,6 +34,10 @@ export interface Props {
   shortClaim: ShortClaim
   situationClaim: SituationClaim
   quotaClaim: QuotaClaim
+  mainInfo: ListedClaim
+  renderSubHeader?: (claim: Claim) => React.ReactNode
+  renderFooter?: (claim: Claim) => React.ReactNode
+  layout: React.ComponentType
 }
 
 class Consultation extends React.Component<Props, State> {
@@ -60,7 +63,26 @@ class Consultation extends React.Component<Props, State> {
 
   public render() {
     const { isChatOpen, haveNewMessage, chatOpensOnce } = this.state
-    const { shortClaim, situationClaim, quotaClaim } = this.props
+    const {
+      shortClaim,
+      situationClaim,
+      quotaClaim,
+      renderSubHeader,
+      renderFooter,
+      layout,
+      mainInfo,
+    } = this.props
+
+    const claim = {
+      short: shortClaim,
+      quota: quotaClaim,
+      situation: situationClaim,
+      mainInfo,
+    }
+
+    const showAnswers = false // TODO: add logic
+
+    const Layout = layout
 
     return (
       <div
@@ -75,12 +97,10 @@ class Consultation extends React.Component<Props, State> {
               onClick={this.openChat}
             />
             <Header />
-            <Company quotaClaim={quotaClaim} />
-            <AnswerNotification />
+            {renderSubHeader && renderSubHeader(claim)}
             <Theme shortClaim={shortClaim} situationClaim={situationClaim} />
-            <ExpertAnswers answers={Answers} />{' '}
-            {/* TODO: вернуть когда будет готов третий шаг */}
-            <QuestionNotification />
+            {showAnswers && <ExpertAnswers answers={Answers} />}
+            {renderFooter && renderFooter(claim)}
           </Layout>
         </div>
         <Chat

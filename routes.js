@@ -35,3 +35,9 @@ module.exports = nextRoutes()
   .add('admin-create-quota', '/admin/create-quota', 'admin/create-quota')
   .add('admin-edit-quota', '/admin/quota/edit/:id', 'admin/edit-quota')
   .add('admin-history', '/admin/history', 'admin/history')
+  // manager
+  .add(
+    'manager-consultation',
+    '/manager/consultation/:id',
+    '/manager/consultation',
+  )

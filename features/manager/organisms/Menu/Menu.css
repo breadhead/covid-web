@@ -1,0 +1,40 @@
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menuItem.menuItem {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  margin-right: 40px;
+  line-height: 0;
+
+  @media (--smallDown) {
+    margin-right: 30px;
+  }
+
+  @media (--smallDown) {
+    font: var(--text-0);
+  }
+
+  &:hover svg {
+    fill: var(--color-primary);
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.menuItemText {
+  @media (--smallDown) {
+    display: none;
+  }
+}
+
+.consultation {
+  & .menuItemText {
+    margin-left: 8px;
+  }
+}

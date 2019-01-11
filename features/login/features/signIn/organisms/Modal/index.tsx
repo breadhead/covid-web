@@ -18,40 +18,38 @@ interface Props {
 }
 
 const SignIn = ({ onFormSubmit }: Props) => (
-  <>
-    <article className={styles.popup}>
-      <h1 className={styles.title}>Войти</h1>
-      <p className={styles.secondaryText}>
-        Ещё нет аккаунта?{SPACE}
-        <OpenSignUpModalButton />
-      </p>
+  <article className={styles.popup}>
+    <h1 className={styles.title}>Войти</h1>
+    <p className={styles.secondaryText}>
+      Ещё нет аккаунта?{SPACE}
+      <OpenSignUpModalButton />
+    </p>
 
-      <Form onSubmit={onFormSubmit}>
-        <Input
-          className={styles.input}
-          name="login"
-          label={'Логин (email)'}
-          type={InputType.Text}
-          validate={schema.login}
-        />
-        <Input
-          className={styles.input}
-          name="password"
-          label={'Пароль'}
-          type={InputType.Password}
-          validate={schema.password}
-        />
-        <NavLink href="#" className={styles.link}>
-          Забыли пароль?
-        </NavLink>
-        <Button type={ButtonType.Submit} className={styles.mainButton}>
-          Войти
-        </Button>
-        <Button className={styles.socialButton}>Войти через соцсети</Button>
-      </Form>
-    </article>
+    <Form onSubmit={onFormSubmit}>
+      <Input
+        className={styles.input}
+        name="login"
+        label={'Логин (email)'}
+        type={InputType.Text}
+        validate={schema.login}
+      />
+      <Input
+        className={styles.input}
+        name="password"
+        label={'Пароль'}
+        type={InputType.Password}
+        validate={schema.password}
+      />
+      <NavLink href="#" className={styles.link}>
+        Забыли пароль?
+      </NavLink>
+      <Button type={ButtonType.Submit} className={styles.mainButton}>
+        Войти
+      </Button>
+      <Button className={styles.socialButton}>Войти через соцсети</Button>
+    </Form>
     <Footer />
-  </>
+  </article>
 )
 
 export default SignIn
