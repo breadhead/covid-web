@@ -8,6 +8,7 @@
 
   @media (--smallDown) {
     padding: 32px 16px;
+    margin-bottom: -56px;
   }
 }
 
@@ -26,6 +27,18 @@
 
 .iframe {
   flex-basis: 70%;
+  width: 672px;
+  height: 817px;
+  overflow: hidden;
+
+  & iframe {
+    margin: -4324px 0 0 -246px;
+    border: none;
+  }
+
+  @media (--smallDown) {
+    margin-bottom: 24px;
+  }
 }
 
 .message {
@@ -37,7 +50,10 @@
   text-align: left;
   background-color: #FFEAB7;
   border-radius: 20px;
+}
 
+.quote {
+  align-self: flex-end;
 }
 
 .author {

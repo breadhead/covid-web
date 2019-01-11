@@ -7,7 +7,9 @@ const Donation = () => (
     <div id="#donationContainer" className={styles.donationWrapper}>
       <h2 className={styles.title}>Помочь проекту</h2>
       <div className={styles.content}>
-        <div className={styles.iframe}>iframe</div>
+        <div className={styles.iframe}>
+          <iframe src="https://nenaprasno.ru" width="672" height="5800" />
+        </div>
         <article className={styles.quote}>
           <p className={styles.message}>
             Все собранные средства идут на&nbsp;оплату экспертов,
