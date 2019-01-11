@@ -2,6 +2,7 @@
   width: 100%;
   max-width: 960px;
   padding: 64px 0 120px;
+  text-align: left;
 
   @media (--mediumDown) {
     padding: 16px 0;
@@ -15,6 +16,7 @@
 .title {
   margin: 0 0 40px 0;
   font: var(--title-extra);
+  text-align: center;
 
   @media (--smallDown) {
     margin: 0 0 24px 0;
