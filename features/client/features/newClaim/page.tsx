@@ -10,9 +10,11 @@ export interface Props {
   clientInRussia: boolean
   onChangeInRussia: (value: boolean) => void
   error: false | string
+  initialFields: Partial<ShortClaimFields>
 }
 
 const ClaimPage: React.StatelessComponent<Props> = ({
+  initialFields,
   onFormSubmit,
   clientInRussia,
   onChangeInRussia,
@@ -25,6 +27,7 @@ const ClaimPage: React.StatelessComponent<Props> = ({
       info={`Личные данные будут использованы только для${NON_BREAKING_SPACE} консультации.`}
     >
       <ClaimForm
+        initial={initialFields}
         error={error}
         onSubmit={onFormSubmit}
         clientInRussia={clientInRussia}
