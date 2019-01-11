@@ -56,7 +56,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     public render() {
       const { error, shortClaim } = this.props
 
-      const initialFields = !!shortClaim ? this.claimToFields(shortClaim) : {}
+      const initialFields = !!shortClaim ? shortClaim : {}
 
       return (
         <WrappedComponent
@@ -72,58 +72,15 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     private onChangeInRussia = (value: boolean) =>
       this.setState({ clientInRussia: value })
 
-    private claimToFields = (claim: ShortClaim): ShortClaimFields => ({
-      target: claim.target,
-      theme: claim.theme,
-      diagnosis: !!claim.localization,
-      localization: claim.localization,
-      corporate: !!claim.company,
-      companyName: claim.company && claim.company.name,
-      companyPosition: claim.company && claim.company.position,
-      name: claim.personalData.name,
-      region: claim.personalData.region,
-      age: claim.personalData.age,
-      gender: claim.personalData.gender,
-      email: claim.personalData.email,
-      phone: claim.personalData.phone,
-      phoneAvailable: !!claim.personalData.phone,
-    })
-
-    private onFormSubmit = async (claimFields: ShortClaimFields) => {
-      const request: ShortClaimRequest = {
-        target: claimFields.target as ClaimTarget,
-        personalData: {
-          name: claimFields.name,
-          region: claimFields.region,
-          age: claimFields.age,
-          gender: claimFields.gender,
-          email: claimFields.email,
-          phone: claimFields.phone,
-        },
-        localization: claimFields.diagnosis
-          ? claimFields.localization
-          : undefined,
-        theme: claimFields.theme,
-        company: this.createCompanyRequest(claimFields),
-      }
-
+    private onFormSubmit = async (claimFields: ShortClaimRequest) => {
       const { id, quotaAllocated, personalData } = await this.props.createClaim(
-        request,
+        claimFields,
       )
       const { email } = personalData
 
       const { error } = this.props
 
       this.redirectIfNeeded(error, quotaAllocated, id, email)
-    }
-
-    private createCompanyRequest = (fields: ShortClaimFields) => {
-      if (fields.corporate) {
-        return {
-          name: fields.companyName || '',
-          position: fields.companyPosition || '',
-        }
-      }
     }
 
     private redirectIfNeeded(

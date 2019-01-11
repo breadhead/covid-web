@@ -7,6 +7,7 @@ import Contacts from './../Contacts'
 import Footer from './../Footer'
 import Main from './../Main'
 
+import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import * as styles from './ClaimForm.css'
 
 export interface ShortClaimFields {
@@ -32,11 +33,11 @@ const initialValues = {
 }
 
 interface Props {
-  onSubmit: (claimFields: ShortClaimFields) => Promise<void>
+  onSubmit: (claimFields: ShortClaimRequest) => Promise<void>
   clientInRussia: boolean
   onChangeInRussia: (value: boolean) => void
   error: false | string
-  initial: Partial<ShortClaimFields>
+  initial: Partial<ShortClaimRequest>
 }
 
 const ClaimForm = ({

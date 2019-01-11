@@ -1,16 +1,15 @@
-import * as React from 'react'
-
+import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-
+import * as React from 'react'
 import Layout from '../../organisms/ClaimFormLayout'
-import ClaimForm, { ShortClaimFields } from './organisms/ClaimForm'
+import ClaimForm from './organisms/ClaimForm'
 
 export interface Props {
-  onFormSubmit: (claimFields: ShortClaimFields) => Promise<void>
+  onFormSubmit: (claimFields: ShortClaimRequest) => Promise<void>
   clientInRussia: boolean
   onChangeInRussia: (value: boolean) => void
   error: false | string
-  initialFields: Partial<ShortClaimFields>
+  initialFields: Partial<ShortClaimRequest>
 }
 
 const ClaimPage: React.StatelessComponent<Props> = ({

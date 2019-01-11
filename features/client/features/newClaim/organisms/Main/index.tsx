@@ -50,9 +50,9 @@ const Main = ({ styles }: Props) => (
     </label>
     <EmergingFormElement
       className={styles.field}
-      validate={schema.diagnosis}
+      validate={schema.localizationPresence}
       controlType={EmergingControlTypes.Radiogroup}
-      name="diagnosis"
+      name="localizationPresence"
     >
       <label
         htmlFor="localization"
@@ -82,7 +82,7 @@ const Main = ({ styles }: Props) => (
       name="corporate"
     >
       <label
-        htmlFor="companyName"
+        htmlFor="company.name"
         className={cx(styles.label, styles.emergingLabel)}
       >
         Название компании-работодателя
@@ -90,10 +90,10 @@ const Main = ({ styles }: Props) => (
       <Input
         className={styles.field}
         validate={schema.companyName}
-        name="companyName"
+        name="company.name"
       />
       <label
-        htmlFor="companyPosition"
+        htmlFor="company.position"
         className={cx(styles.label, styles.emergingLabel)}
       >
         Ваша должность и департамент компании.{SPACE}
@@ -102,7 +102,7 @@ const Main = ({ styles }: Props) => (
           здесь.
         </span>
       </label>
-      <TextArea validate={schema.companyPosition} name="companyPosition" />
+      <TextArea validate={schema.companyPosition} name="company.position" />
     </EmergingFormElement>
   </article>
 )

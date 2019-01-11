@@ -5,19 +5,10 @@ import * as yup from 'yup'
 const REQUIRED = 'Обязательное поле'
 
 export const schema = {
-  target: yup
-    .mixed()
-    .oneOf(Object.keys(ClaimTarget), REQUIRED)
-    .required(REQUIRED),
-  theme: yup
-    .mixed()
-    .oneOf(themes, REQUIRED)
-    .required(REQUIRED),
-  diagnosis: yup.bool().required(REQUIRED),
-  localization: yup
-    .mixed()
-    .oneOf(localizations, REQUIRED)
-    .required(REQUIRED),
+  target: yup.string().required(REQUIRED),
+  theme: yup.string().required(REQUIRED),
+  localizationPresence: yup.bool().required(REQUIRED),
+  localization: yup.string().required(REQUIRED),
   corporate: yup.bool().required(REQUIRED),
   companyName: yup
     .string()
