@@ -1,1 +1,4 @@
-export { default } from './organisms/Controls'
+import { withBindQuotaModal } from '../bindQuota'
+import Controls from './organisms/Controls'
+
+export default withBindQuotaModal(Controls)

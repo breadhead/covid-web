@@ -13,7 +13,7 @@ module.exports = class IgnoreNotFoundExportPlugin {
     const exportsPattern =
       '(' + this.exportsToIgnore.map(escapeStringForRegExp).join('|') + ')'
 
-    return new RegExp(`export '${exportsPattern}' was not found in (.+)`)
+    return new RegExp(`export '${exportsPattern}'(.+?)was not found in (.+)`)
   }
 
   apply(compiler) {

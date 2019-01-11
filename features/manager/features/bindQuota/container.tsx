@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 import { bindQuota as bindQuotaAction } from './actions'
 
+import { getClaimId } from '@app/features/common/consultation'
 import { isModal } from '@app/features/common/modal'
 import { BindQuotaRequest } from '@app/lib/api/request/BindQuotaRequest'
-import { getClaimId } from '../consultation'
 
 export const MODAL_KEY = 'bind-quota'
 

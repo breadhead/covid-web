@@ -8,7 +8,9 @@ import {
 } from '@app/lib/symbioteFactory'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 
-type State = FetchingState
+interface State extends FetchingState {
+  claim?: ShortClaim
+}
 
 interface Actions extends FetchingActions {
   success(claim: ShortClaim): Action

@@ -7,7 +7,7 @@ export interface WithBindQuotaModal {
 
 const Container = (Component: React.ComponentType<any>) =>
   withModal(({ modal }: WithModalProps) => (
-    <Component openQuotaType={() => modal.open(MODAL_KEY)} />
+    <Component openBindQuota={() => modal.open(MODAL_KEY)} />
   ))
 
 export default Container
