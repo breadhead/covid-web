@@ -1,0 +1,30 @@
+.program {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 96px;
+
+  @media (--smallDown) {
+    flex-direction: column;
+    margin-bottom: 32px;
+  }
+}
+
+.topic {
+  flex-basis: 50%;
+  text-align: left;
+
+  @media (--smallDown) {
+    margin-bottom: 16px;
+  }
+}
+
+.title {
+  margin-bottom: 16px;
+  font: var(--title-regular);
+}
+
+.text {
+  flex-basis: 50%;
+  font: var(--text18-28);
+  text-align: left;
+}

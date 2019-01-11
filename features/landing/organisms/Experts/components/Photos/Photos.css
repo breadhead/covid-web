@@ -1,0 +1,36 @@
+.photos {
+  display: grid;
+  flex-basis: 50%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 32px;
+  justify-items: center;
+
+  @media (--mediumDown) {
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 16px;
+  }
+
+  @media (--smallDown) {
+    grid-template-columns: repeat(3, 80px);
+    grid-gap: 16px;
+  }
+}
+
+.photo {
+  width: 100%;
+  max-width: 128px;
+  min-height: 128px;
+  border-radius: 50%;
+
+  @media (--mediumDown) {
+    grid-gap: 16px;
+    align-self: baseline;
+    min-height: 100px;
+  }
+
+  @media (--smallDown) {
+    grid-gap: 16px;
+    align-self: baseline;
+    min-height: 80px;
+  }
+}

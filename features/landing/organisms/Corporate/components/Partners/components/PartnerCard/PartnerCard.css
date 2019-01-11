@@ -1,0 +1,21 @@
+.card {
+  padding-top: 16px;
+
+  @media (--smallDown) {
+    margin-right: 16px;
+  }
+}
+
+.logo {
+  margin-bottom: 24px;
+}
+
+.label {
+  margin: 0 0 4px 0;
+  font: var(--text14-20);
+}
+
+.sum {
+  margin: 0;
+  font: var(--text14-20);
+}

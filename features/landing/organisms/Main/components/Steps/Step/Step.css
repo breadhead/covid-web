@@ -1,0 +1,17 @@
+.step {
+  @media (--smallDown) {
+    margin-bottom: 16px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.text {
+  white-space: pre-line;
+}
+
+.img {
+  margin-bottom: 20px;
+}

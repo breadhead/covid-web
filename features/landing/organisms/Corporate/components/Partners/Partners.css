@@ -1,0 +1,19 @@
+.title {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  font: var(--title-regular);
+}
+
+.subtitle {
+  margin-bottom: 32px;
+}
+
+.button {
+  padding: 16px 36px;
+  margin: 40px auto 0 auto;
+
+  @media (--smallDown) {
+    margin: 24px auto 0 auto;
+  }
+}

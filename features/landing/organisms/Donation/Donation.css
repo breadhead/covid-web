@@ -1,0 +1,82 @@
+.donationWrapper {
+  width: 100vw;
+  min-width: 100%;
+  padding: 66px 0 120px;
+  margin-left: 50%;
+  background-color: #FAF9F7;
+  transform: translateX(-50%);
+
+  @media (--smallDown) {
+    padding: 32px 16px;
+    margin-bottom: -56px;
+  }
+}
+
+.title {
+  margin-bottom: 48px;
+  font: var(--title-regular);
+}
+
+.content {
+  display: flex;
+
+  @media (--smallDown) {
+    flex-direction: column;
+  }
+}
+
+.iframe {
+  flex-basis: 70%;
+  width: 672px;
+  height: 817px;
+  overflow: hidden;
+
+  & iframe {
+    margin: -4324px 0 0 -246px;
+    border: none;
+  }
+
+  @media (--smallDown) {
+    margin-bottom: 24px;
+  }
+}
+
+.message {
+  position: relative;
+  max-width: 280px;
+  padding: 16px;
+  margin: 0 0 36px 0;
+  font: var(--text14-20);
+  text-align: left;
+  background-color: #FFEAB7;
+  border-radius: 20px;
+}
+
+.quote {
+  align-self: flex-end;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+}
+
+.authorPhoto {
+  align-self: flex-start;
+  margin-right: 16px;
+  border-radius: 50%;
+}
+
+.textWrapper {
+  text-align: left;
+}
+
+.authorName {
+  margin: 0 0 4px 0;
+  font-weight: 500;
+}
+
+.authorPosition {
+  margin: 0;
+  font: var(--text12-16);
+}
