@@ -3,9 +3,7 @@ import { connect } from 'react-redux'
 import { AnyAction, Dispatch } from 'redux'
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
-  signOut: () => {
-    dispatch(signOut() as any)
-  },
+  signOut: () => dispatch(signOut() as any),
 })
 
 export default connect(
