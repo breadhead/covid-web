@@ -4,7 +4,11 @@ import Dropdown from '@app/ui/molecules/Dropdown'
 import cx from 'classnames'
 import * as styles from './Menu.css'
 
-const Menu = () => (
+interface Props {
+  signOut: () => void
+}
+
+const Menu = ({ signOut }: Props) => (
   <nav className={styles.menu}>
     <NavLink
       className={cx(styles.menuItem, styles.consultation)}
@@ -15,7 +19,7 @@ const Menu = () => (
       <span className={styles.menuItemText}>Мои консультации</span>
     </NavLink>
     <div className={styles.menuItem}>
-      <Dropdown />
+      <Dropdown signOut={signOut} />
     </div>
   </nav>
 )
