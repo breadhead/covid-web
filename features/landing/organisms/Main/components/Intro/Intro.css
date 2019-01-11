@@ -1,0 +1,64 @@
+.intro {
+  @media (--smallDown) {
+    padding: 0 16px;
+  }
+}
+
+.title {
+  margin-bottom: 32px;
+  font: var(--title-extra);
+}
+
+.logos {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  @media (--smallDown) {
+    margin-bottom: 24px;
+  }
+}
+
+.logo {
+  margin-right: 16px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 120px;
+  text-align: center;
+
+  & .button.button.button {
+    padding: 16px 36px;
+    font: var(--text18-28);
+  }
+
+  @media (--smallDown) {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+}
+
+.buttonsItem.buttonsItem {
+  display: inline-block;
+  margin-right: 16px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  @media (--smallDown) {
+    margin-right: 0;
+    margin-bottom: 16px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

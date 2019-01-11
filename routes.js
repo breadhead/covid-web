@@ -6,7 +6,7 @@ module.exports = nextRoutes()
   .add('manager', '/manager', 'main-manager')
   .add('doctor', '/doctor', 'main-doctor')
   // landing
-  .add('landing-home', '/', 'landing/home')
+  .add('landing', '/', 'landing')
   // client
   .add('client-claims', '/client', 'client/claims')
   .add(
