@@ -32,14 +32,15 @@ const Buttons = ({
         <Button kind={ButtonKind.Extra}>Trello</Button> {/* TODO: action */}
       </div>
       <div className={styles.right}>
-        {showBindQuota && (
+        {!closed && showBindQuota && (
           <>
             <Button onClick={openBindQuota}>Выбрать квоту</Button>
             <Button kind={ButtonKind.Extra}>В очередь</Button>
             {/* TODO: action */}
           </>
         )}
-        {nextAction && <Button>{nextAction}</Button>} {/* TODO: action */}
+        {!closed && nextAction && <Button>{nextAction}</Button>}{' '}
+        {/* TODO: action */}
         {!closed && (
           <Button onClick={openCloseClaim} kind={ButtonKind.Extra}>
             Закрыть

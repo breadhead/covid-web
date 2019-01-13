@@ -37,6 +37,7 @@ const deallocateQuotaTypes = [
 ]
 
 const initial = {
+  type: CloseType.Successful,
   deallocateQuota: false,
 }
 
@@ -54,6 +55,8 @@ const QuotaType = ({ onFormSubmit }: Props) => (
         radioStyle={RadioButtonStyles.Radio}
         buttons={closeTypes}
         name="type"
+        type="radio"
+        defaultValue={initial.type}
       />
       <RadioGroup
         className={styles.radioBlock}
@@ -61,7 +64,7 @@ const QuotaType = ({ onFormSubmit }: Props) => (
         buttons={deallocateQuotaTypes}
         name="deallocateQuota"
         type="radio"
-        defaultValue={false}
+        defaultValue={initial.deallocateQuota}
       />
 
       <Button
