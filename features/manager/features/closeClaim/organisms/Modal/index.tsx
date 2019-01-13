@@ -3,10 +3,11 @@ import * as React from 'react'
 import { RadioGroup } from '@app/features/common/form'
 import Form from '@app/features/common/form/components/Form'
 import { CloseType } from '@app/lib/api/request/CloseClaimRequest'
-import Button, { ButtonType } from '@app/ui/atoms/Button'
+import Button, { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
 import { RadioButtonStyles } from '@app/ui/molecules/RadioGroup'
 
 import closeTypeTitle from './closeTypeTitle'
+import styles from './Modal.css'
 
 interface CloseClaimFields {
   a: number
@@ -39,28 +40,39 @@ const initial = {
   deallocateQuota: false,
 }
 
-const QuotaType = ({ onFormSubmit }: Props) => {
-  return (
-    <section>
-      <h1>Закрыть консультацию</h1>
-      <Form onSubmit={onFormSubmit as any} initialValues={initial}>
-        <RadioGroup
-          radioStyle={RadioButtonStyles.Radio}
-          buttons={closeTypes}
-          name="type"
-        />
-        <RadioGroup
-          radioStyle={RadioButtonStyles.Radio}
-          buttons={deallocateQuotaTypes}
-          name="deallocateQuota"
-          type="radio"
-          defaultValue={false}
-        />
+const QuotaType = ({ onFormSubmit }: Props) => (
+  <Form
+    onSubmit={onFormSubmit as any}
+    initialValues={initial}
+    className={styles.form}
+  >
+    <div className={styles.container}>
+      <h1 className={styles.title}>Закрыть консультацию</h1>
 
-        <Button type={ButtonType.Submit}>Применить</Button>
-      </Form>
-    </section>
-  )
-}
+      <RadioGroup
+        className={styles.radioBlock}
+        radioStyle={RadioButtonStyles.Radio}
+        buttons={closeTypes}
+        name="type"
+      />
+      <RadioGroup
+        className={styles.radioBlock}
+        radioStyle={RadioButtonStyles.Radio}
+        buttons={deallocateQuotaTypes}
+        name="deallocateQuota"
+        type="radio"
+        defaultValue={false}
+      />
+
+      <Button
+        className={styles.submit}
+        size={ButtonSize.Large}
+        type={ButtonType.Submit}
+      >
+        Применить
+      </Button>
+    </div>
+  </Form>
+)
 
 export default QuotaType
