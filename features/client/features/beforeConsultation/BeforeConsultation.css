@@ -67,7 +67,7 @@
     padding: 0 160px;
     margin: 0 -160px;
     content: '';
-    background-color: rgba(21,24,51,0.12);
+    background-color: var(--divider-color);
   }
 
   &:last-of-type {

@@ -3,7 +3,7 @@ export const partners = [
     id: '1',
     type: 'donor',
     img: 'http://placecorgi.com/120/40',
-    label: 'BIOCAD',
+    label: 'DONOR',
     sum: '2 000 000',
   },
   {
@@ -94,7 +94,7 @@ export const partners = [
     id: '14',
     type: 'corp',
     img: 'http://placecorgi.com/120/40',
-    label: 'BIOCAD',
+    label: 'CORP',
     sum: '2 000 000',
   },
   {
@@ -186,7 +186,7 @@ export const partners = [
     id: '27',
     type: 'infoPartner',
     img: 'http://placecorgi.com/120/40',
-    label: 'BIOCAD',
+    label: 'INFO PARTNER',
     sum: '2 000 000',
   },
   {
@@ -278,7 +278,7 @@ export const partners = [
     id: '40',
     type: 'infrastructurePartner',
     img: 'http://placecorgi.com/120/40',
-    label: 'BIOCAD',
+    label: 'INFRASRUCTURE PARNTER',
     sum: '2 000 000',
   },
   {

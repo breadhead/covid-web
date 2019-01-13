@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import * as styles from './PartnersGroupSelect.css'
+import './PartnersGroupSelect.css?CSSModulesDisable'
 
 import { Select as AntSelect } from 'antd'
 import { SelectValue } from 'antd/lib/select'
