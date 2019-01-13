@@ -7,4 +7,4 @@ import Controls from './organisms/Controls'
 export default compose(
   withBindQuotaModal,
   withCloseClaimModal,
-)(Controls as any)
+)(Controls as any) as any
