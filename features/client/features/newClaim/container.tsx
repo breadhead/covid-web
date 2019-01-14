@@ -3,6 +3,7 @@ import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import routes from '@app/routes'
+import { RadioButtonsValue } from '@app/ui/organisms/EmergingFormElement/RadioGroupElement'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
@@ -84,7 +85,10 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
           phonePresence: !!claim.personalData.phone,
         }
       }
-      return {}
+      return {
+        phonePresence: true,
+        corporate: false,
+      }
     }
 
     private onChangeInRussia = (value: boolean) =>

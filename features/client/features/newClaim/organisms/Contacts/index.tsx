@@ -32,7 +32,7 @@ interface Props {
 const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Контактные данные</h2>
-    <label htmlFor="personalData.name" className={styles.label}>
+    {/* <label htmlFor="personalData.name" className={styles.label}>
       Как к вам обращаться?
       <span className={styles.secondaryText}>
         {' '}
@@ -93,7 +93,7 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
       validate={schema.age}
       name="personalData.age"
       type={InputType.Number}
-    />
+    /> */}
     <label htmlFor="personalData.gender" className={styles.label}>
       Пол
     </label>
@@ -101,10 +101,18 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
       className={styles.field}
       validate={schema.gender}
       name="personalData.gender"
-      type={RadioGroupType.Bool}
       buttons={genderRadioGroup}
     />
-    <label htmlFor="personalData.email" className={styles.label}>
+    <label htmlFor="personalData.gender" className={styles.label}>
+      Controls
+    </label>
+    <RadioGroup
+      className={styles.field}
+      validate={schema.gender}
+      name="personalData.controls"
+      buttons={genderRadioGroup}
+    />
+    {/* <label htmlFor="personalData.email" className={styles.label}>
       Электронная почта.
       <span className={styles.secondaryText}>
         {' '}
@@ -145,7 +153,7 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
         type={InputType.Phone}
         placeholder="+7"
       />
-    </EmergingFormElement>
+    </EmergingFormElement> */}
   </article>
 )
 

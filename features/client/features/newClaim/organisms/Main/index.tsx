@@ -25,7 +25,7 @@ interface Props {
 const Main = ({ styles, initial }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Кратко о теме консультации</h2>
-    <label htmlFor="target" className={styles.label}>
+    {/* <label htmlFor="target" className={styles.label}>
       Для кого эта консультация
     </label>
     <Select
@@ -44,7 +44,8 @@ const Main = ({ styles, initial }: Props) => (
       name="theme"
       options={themes.map(mapString)}
       placeholder="Выберите тему"
-    />
+    /> */}
+
     <label htmlFor="diagnosis" className={styles.label}>
       У вас есть установленный врачом онкологический диагноз?
     </label>
@@ -68,7 +69,7 @@ const Main = ({ styles, initial }: Props) => (
         placeholder="Выберите локализацию"
       />
     </EmergingFormElement>
-    <p className={styles.emergingLabel}>
+    {/* <p className={styles.emergingLabel}>
       Вы консультируетесь по корпоративной программе от своего работодателя?
       {SPACE}
       <NavLink href="#">
@@ -105,7 +106,7 @@ const Main = ({ styles, initial }: Props) => (
         </span>
       </label>
       <TextArea validate={schema.companyPosition} name="company.position" />
-    </EmergingFormElement>
+    </EmergingFormElement> */}
   </article>
 )
 

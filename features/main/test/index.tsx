@@ -188,7 +188,7 @@ const Test = ({ modal }: WithModalProps) => (
       <br />
       <RadioGroup
         name="controls"
-        type={RadioGroupType.Controls}
+        type={RadioGroupType.Bool}
         buttons={testControlsRadioButtons}
         defaultValue={testControlsRadioButtons[1].value}
       />
