@@ -17,7 +17,8 @@ const partners = [
   },
   {
     id: '2',
-    text: `Просветительский портал о${NON_BREAKING_SPACE}профилактике и лечении онкологических и других заболеваний`,
+    text: `Просветительский портал о${NON_BREAKING_SPACE}профилактике и лечении онкологических и${NON_BREAKING_SPACE}
+    других заболеваний`,
     logo: '/static/images/layout/footer/media_logo.png',
   },
   {
