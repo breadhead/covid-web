@@ -14,7 +14,6 @@ import Chat from '@app/features/common/chat'
 
 import OpenChatButton from '../atoms/OpenChatButton'
 import ExpertAnswers from '../organisms/ExpertAnswers'
-import { Answers } from '../organisms/ExpertAnswers/config'
 import Header from '../organisms/Header'
 import Theme from '../organisms/Theme'
 
@@ -57,8 +56,6 @@ class Consultation extends React.Component<Props, State> {
     const { isChatOpen, haveNewMessage, chatOpensOnce } = this.state
     const { renderSubHeader, renderFooter, layout, claim } = this.props
 
-    const showAnswers = false // TODO: add logic
-
     const Layout = layout
 
     return (
@@ -76,7 +73,7 @@ class Consultation extends React.Component<Props, State> {
             <Header />
             {renderSubHeader && renderSubHeader(claim)}
             <Theme shortClaim={claim.short} situationClaim={claim.situation} />
-            {showAnswers && <ExpertAnswers answers={Answers} />}
+            <ExpertAnswers claim={claim.questions} />
             {renderFooter && renderFooter(claim)}
           </Layout>
         </div>

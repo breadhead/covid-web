@@ -6,21 +6,21 @@ import {
   FetchingActions,
   FetchingState,
 } from '@app/lib/symbioteFactory'
+import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 
 interface State extends FetchingState {
   claim?: QuotaClaim
   mainInfo?: ListedClaim
-  questions?: QuestionsClaim
+  questions?: AnswerClaim
 }
 
 interface Actions extends FetchingActions {
   success(
     claim: QuotaClaim,
     mainInfo: ListedClaim,
-    questions: QuestionsClaim,
+    questions: AnswerClaim,
   ): Action
 }
 
@@ -35,7 +35,7 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
     state: State,
     claim: QuotaClaim,
     mainInfo: ListedClaim,
-    questions: QuestionsClaim,
+    questions: AnswerClaim,
   ) => ({
     ...state,
     claim,

@@ -1,44 +1,45 @@
 import * as React from 'react'
 
+import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
+
 import * as styles from './ExpertAnswers.css'
 
+import answered from './answered'
 import Footer from './components/Footer'
-
-interface Article {
-  question: string
-  answer: string
-}
-
-interface Answer {
-  title: string
-  articles: Article[]
-}
+import groupQuestion from './groupQuestions'
 
 interface Props {
-  answers: Answer[]
+  claim: AnswerClaim
 }
 
-const ExpertAnswers = ({ answers }: Props) => (
-  <>
-    <h2 className={styles.mainTitle}>Ответ эксперта</h2>
-    <section className={styles.expertAnswers}>
-      {answers.map(answer => {
-        const articles = answer.articles.map(article => (
-          <div key={article.question} className={styles.articleWrapper}>
-            <p className={styles.question}>{article.question}</p>
-            <p className={styles.answer}>{article.answer}</p>
-          </div>
-        ))
-        return (
-          <article key={answer.title} className={styles.article}>
-            <h2 className={styles.title}>{answer.title}</h2>
-            {articles}
+const ExpertAnswers = ({ claim }: Props) => {
+  const answeredClaim = answered(claim)
+
+  const groups = groupQuestion(claim.defaultQuestions)
+
+  return (
+    <>
+      <h2 className={styles.mainTitle}>
+        {answeredClaim ? 'Ответ эксперта' : 'Вопросы эксперту'}
+      </h2>
+      <section className={styles.expertAnswers}>
+        {Object.entries(groups).map(([theme, questions]) => (
+          <article key={theme} className={styles.article}>
+            <h2 className={styles.title}>{theme}</h2>
+            {questions.map(({ question, answer }) => (
+              <div key={question} className={styles.articleWrapper}>
+                <p className={styles.question}>{question}</p>
+                {answeredClaim && answer && (
+                  <p className={styles.answer}>{answer}</p>
+                )}
+              </div>
+            ))}
           </article>
-        )
-      })}
-      <Footer />
-    </section>
-  </>
-)
+        ))}
+        <Footer />
+      </section>
+    </>
+  )
+}
 
 export default ExpertAnswers
