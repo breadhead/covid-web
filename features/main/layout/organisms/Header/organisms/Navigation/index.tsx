@@ -19,7 +19,11 @@ const Navigation = ({ className, hide }: Props) => (
       закрыть меню
       <IconCustom className={styles.NavIcon} name="24x24_close_light" />
     </button>
-    <NavLink type={NavLinkType.Nav} href="#" className={styles.link}>
+    <NavLink
+      type={NavLinkType.Nav}
+      href="/landing/partners"
+      className={styles.link}
+    >
       Партнёры
       <NavIcon />
     </NavLink>

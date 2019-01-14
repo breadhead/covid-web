@@ -10,7 +10,7 @@ const linksShort = [
 ]
 
 const linksLong = [
-  { title: 'Партнёры', href: '#' },
+  { title: 'Партнёры', href: '/landing/partners' },
   { title: 'Контакты', href: '#' },
   { title: 'Помочь проекту', href: '#' },
   { title: 'Обратная связь', href: '#' },
