@@ -18,4 +18,5 @@ export {
   default as ButtonWithTooltip,
   ButtonSize,
   ButtonType,
+  ButtonKind,
 } from './components/ButtonWithTooltip'

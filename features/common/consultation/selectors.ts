@@ -12,18 +12,22 @@ export const getMainInfo = (state: State) => state.consultation.mainInfo
 export const getClaimId = (state: State) =>
   state.client.newClaim.claim && state.client.newClaim.claim.id
 
+const getQuestionClaim = (state: State) => state.consultation.questions
+
 export const getClaim = createSelector(
   getQuotaClaim,
   getMainInfo,
   getSituationClaim,
   getShortClaim,
-  (quota, mainInfo, situation, short) => {
-    if (quota && mainInfo && situation && short) {
+  getQuestionClaim,
+  (quota, mainInfo, situation, short, questions) => {
+    if (quota && mainInfo && situation && short && questions) {
       const claim: Claim = {
         quota,
         mainInfo,
         situation,
         short,
+        questions,
       }
 
       return claim

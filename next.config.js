@@ -56,6 +56,7 @@ module.exports = withPlugins(
           'WithSignUpModal',
           'Validator',
           'FormFinish',
+          'WithCloseClaimModal',
         ]),
       )
 
