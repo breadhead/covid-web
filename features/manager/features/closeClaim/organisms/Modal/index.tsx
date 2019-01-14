@@ -1,20 +1,20 @@
 import * as React from 'react'
+import { Omit } from 'utility-types'
 
 import { RadioGroup } from '@app/features/common/form'
 import Form from '@app/features/common/form/components/Form'
-import { CloseType } from '@app/lib/api/request/CloseClaimRequest'
+import {
+  CloseClaimRequest,
+  CloseType,
+} from '@app/lib/api/request/CloseClaimRequest'
 import Button, { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
 import { RadioButtonStyles } from '@app/ui/molecules/RadioGroup'
 
 import closeTypeTitle from './closeTypeTitle'
 import styles from './Modal.css'
 
-interface CloseClaimFields {
-  a: number
-}
-
 interface Props {
-  onFormSubmit: (data: CloseClaimFields) => Promise<void>
+  onFormSubmit: (data: Omit<CloseClaimRequest, 'id'>) => Promise<void>
 }
 
 const closeTypes = Object.values(CloseType).map(closeType => ({
