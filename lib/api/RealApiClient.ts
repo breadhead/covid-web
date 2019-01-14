@@ -58,6 +58,11 @@ export default class RealApiClient implements ApiClient {
       .get(`/claims/${id}/situation`)
       .then(response => response.data as SituationClaim)
 
+  public questionsClaim = (id: string) =>
+    this.axiosInstance
+      .get(`/claims/${id}/questions`)
+      .then(response => response.data as QuestionsClaim)
+
   public quotaClaim = (id: string) =>
     this.axiosInstance
       .get(`/claims/${id}/quota`)

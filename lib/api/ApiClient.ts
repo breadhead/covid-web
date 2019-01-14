@@ -37,6 +37,7 @@ export default interface ApiClient {
   shortClaim(id: string): Promise<ShortClaim>
   situationClaim(id: string): Promise<SituationClaim>
   quotaClaim(id: string): Promise<QuotaClaim>
+  questionsClaim(id: string): Promise<QuestionsClaim>
   createSituationClaim(request: SituationClaimRequest): Promise<SituationClaim>
   createQuestionsClaim(request: QuestionsClaim): Promise<QuestionsClaim>
   quota(id: string): Promise<Quota>
