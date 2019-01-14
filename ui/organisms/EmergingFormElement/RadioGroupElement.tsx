@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
+import RadioGroup from '@app/ui/molecules/RadioGroup'
 import { RadioChangeEvent } from 'antd/lib/radio'
 
 export enum RadioButtonsValue {
@@ -19,19 +19,35 @@ export const radioButtons = [
   },
 ]
 
+const EMPTY_VALUE = ''
+
+const getValue = (value: string | undefined) =>
+  value === EMPTY_VALUE
+    ? undefined
+    : value
+    ? RadioButtonsValue.Yes
+    : RadioButtonsValue.No
+
 export interface Props {
   name?: string
   onChange?: (evt: RadioChangeEvent) => void
-  defaultValue?: string
+  defaultChecked?: boolean
+  value?: string
 }
 
-const RadioGroupElement = ({ name = '', onChange, defaultValue }: Props) => (
+const RadioGroupElement = ({
+  name = '',
+  onChange,
+  defaultChecked,
+  value,
+  ...rest
+}: Props) => (
   <RadioGroup
     name={name}
-    type={RadioGroupType.Bool}
     buttons={radioButtons}
     onChange={onChange}
-    defaultValue={defaultValue}
+    value={getValue(value)}
+    {...rest}
   />
 )
 

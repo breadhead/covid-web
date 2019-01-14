@@ -65,6 +65,7 @@ class Combobox extends React.Component<Props> {
           maxTagCount={6}
           notFoundContent={<div className="not-found">{NOT_FOUND_TEXT}</div>}
           filterOption={this.filterOptions}
+          value={value || undefined}
           {...rest}
           className={error && 'error'}
         >

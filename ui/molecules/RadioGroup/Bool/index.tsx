@@ -12,11 +12,24 @@ interface Props {
   buttons: Button[]
   defaultValue?: string
   className?: string
+  value?: string
   onChange?: (evt: RadioChangeEvent) => void
 }
 
-const Bool = ({ name, buttons, defaultValue, onChange, ...rest }: Props) => (
-  <AntRadioGroup name={name} onChange={onChange} defaultValue={defaultValue}>
+const Bool = ({
+  name,
+  buttons,
+  defaultValue,
+  onChange,
+  value,
+  ...rest
+}: Props) => (
+  <AntRadioGroup
+    name={name}
+    onChange={onChange}
+    defaultValue={defaultValue}
+    value={value}
+  >
     {buttons.map(button => (
       <Radio key={button.id} value={button.value} {...rest}>
         {button.text || button.value}

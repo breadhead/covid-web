@@ -1,6 +1,4 @@
-import Gender from '@app/models/Gender'
 import * as yup from 'yup'
-import { countries, regions } from './config'
 
 const REQUIRED = 'Обязательное поле'
 
@@ -9,22 +7,13 @@ export const schema = {
     .string()
     .min(1, REQUIRED)
     .required(REQUIRED),
-  regions: yup
-    .mixed()
-    .oneOf(regions, REQUIRED)
-    .required(REQUIRED),
-  countries: yup
-    .mixed()
-    .oneOf(countries, REQUIRED)
-    .required(REQUIRED),
+  regions: yup.string().required(REQUIRED),
+  countries: yup.string().required(REQUIRED),
   age: yup
     .number()
     .positive('Введите положительное число')
     .required(REQUIRED),
-  gender: yup
-    .mixed()
-    .oneOf(Object.values(Gender))
-    .required(REQUIRED),
+  gender: yup.string().required(REQUIRED),
   email: yup
     .string()
     .email('Введите email')
