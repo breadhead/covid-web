@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   max-width: 960px;
-  padding: 64px 0 88px;
+  padding: 64px 0 120px;
   text-align: left;
 
   &::after {

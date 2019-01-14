@@ -1,8 +1,10 @@
 .map {
   width: 100%;
+  margin-bottom: 80px;
 
   @media (--smallDown) {
     height: 450px;
+    margin-bottom: 48px;
   }
 }
 

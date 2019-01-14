@@ -17,6 +17,7 @@
 
 .textareaLabel {
   z-index: 1;
+  display: block;
   margin-bottom: 8px;
 }
 .error {

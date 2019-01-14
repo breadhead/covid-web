@@ -20,8 +20,8 @@ class YandexMap extends React.Component {
               className={styles.mapContainer}
               defaultState={{ center: [LAT, LON], zoom: 16 }}
               defaultOptions={{ behaviors: [{ scrollZoom: false }] }}
-              // tslint:disable-next-line:no-unused-expression
               instanceRef={(ref: any) => {
+                // tslint:disable-next-line:no-unused-expression
                 ref && ref.behaviors.disable('scrollZoom')
               }}
             >
