@@ -29,6 +29,7 @@ export interface Props {
   renderSubHeader?: (claim: Claim) => React.ReactNode
   renderFooter?: (claim: Claim) => React.ReactNode
   layout: React.ComponentType
+  hideAnswers?: boolean
 }
 
 class Consultation extends React.Component<Props, State> {
@@ -54,7 +55,13 @@ class Consultation extends React.Component<Props, State> {
 
   public render() {
     const { isChatOpen, haveNewMessage, chatOpensOnce } = this.state
-    const { renderSubHeader, renderFooter, layout, claim } = this.props
+    const {
+      renderSubHeader,
+      renderFooter,
+      layout,
+      claim,
+      hideAnswers,
+    } = this.props
 
     const Layout = layout
 
@@ -73,7 +80,7 @@ class Consultation extends React.Component<Props, State> {
             <Header />
             {renderSubHeader && renderSubHeader(claim)}
             <Theme shortClaim={claim.short} situationClaim={claim.situation} />
-            <ExpertAnswers claim={claim.questions} />
+            {!hideAnswers && <ExpertAnswers claim={claim.questions} />}
             {renderFooter && renderFooter(claim)}
           </Layout>
         </div>

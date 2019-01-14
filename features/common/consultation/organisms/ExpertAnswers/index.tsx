@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
+import { AnswerClaim, Question } from '@app/models/Claim/AnswerClaim'
 
 import * as styles from './ExpertAnswers.css'
 
@@ -10,9 +10,11 @@ import groupQuestion from './groupQuestions'
 
 interface Props {
   claim: AnswerClaim
+  renderCustomAnswer?: (theme: string, question: Question) => React.ReactNode
+  title?: string
 }
 
-const ExpertAnswers = ({ claim }: Props) => {
+const ExpertAnswers = ({ claim, renderCustomAnswer, title }: Props) => {
   const answeredClaim = answered(claim)
 
   const groups = groupQuestion(claim.defaultQuestions)
@@ -20,7 +22,8 @@ const ExpertAnswers = ({ claim }: Props) => {
   return (
     <>
       <h2 className={styles.mainTitle}>
-        {answeredClaim ? 'Ответ эксперта' : 'Вопросы эксперту'}
+        {!!title && title}
+        {!title && (answeredClaim ? 'Ответ эксперта' : 'Вопросы эксперту')}
       </h2>
       <section className={styles.expertAnswers}>
         {Object.entries(groups).map(([theme, questions]) => (
@@ -29,7 +32,9 @@ const ExpertAnswers = ({ claim }: Props) => {
             {questions.map(({ question, answer }) => (
               <div key={question} className={styles.articleWrapper}>
                 <p className={styles.question}>{question}</p>
-                {answeredClaim && answer && (
+                {!!renderCustomAnswer &&
+                  renderCustomAnswer(theme, { question, answer })}
+                {!renderCustomAnswer && answeredClaim && answer && (
                   <p className={styles.answer}>{answer}</p>
                 )}
               </div>
