@@ -14,9 +14,10 @@ export enum DropdownPositions {
 }
 interface Props {
   position?: DropdownPositions
+  signOut: () => void
 }
 
-const Dropdown = ({ position = DropdownPositions.Left }: Props) => (
+const Dropdown = ({ signOut, position = DropdownPositions.Left }: Props) => (
   <div className={styles.dropdown}>
     <IconCustom name="24x24_user" />
     <div className={cx(styles.menu, styles[position])}>
@@ -25,7 +26,7 @@ const Dropdown = ({ position = DropdownPositions.Left }: Props) => (
         <span className={styles.link}>nenaprasno.ru</span>
       </NavLink>
       <NavLink href="#" className={styles.menuItem}>
-        Выйти
+        <div onClick={signOut}>Выйти</div>
       </NavLink>
     </div>
   </div>

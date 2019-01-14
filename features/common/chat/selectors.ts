@@ -4,7 +4,7 @@ import { createSelector } from 'reselect'
 import { State } from '@app/lib/store'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
 
-const getUnsortedMessages = (state: State) => state.client.chat.messages
+const getUnsortedMessages = (state: State) => state.chat.messages
 
 export const getMessages = createSelector(
   getUnsortedMessages,
@@ -12,4 +12,4 @@ export const getMessages = createSelector(
     sortBy(messages, (message: ChatMessage) => message.date.valueOf()),
 )
 
-export const getLoaded = (state: State) => state.client.chat.loaded
+export const getLoaded = (state: State) => state.chat.loaded

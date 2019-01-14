@@ -13,6 +13,7 @@ import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import ApiClient, { UploadedFile, User } from './ApiClient'
 import { queryString } from './helper/queryString'
 import { tapDate } from './helper/tapDate'
+import { BindQuotaRequest } from './request/BindQuotaRequest'
 import { QuotaCreateRequest, QuotaEditRequest } from './request/Quota'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
 import ShortClaimRequest from './request/ShortClaim'
@@ -36,6 +37,11 @@ export default class RealApiClient implements ApiClient {
       .get('/claims')
       .then(response => response.data as ListedClaim[])
       .then(claims => claims.map(tapDate))
+
+  public mainInfoClaim = (id: string) =>
+    this.axiosInstance
+      .get(`/claims/${id}/main`)
+      .then(response => response.data as ListedClaim)
 
   public createShortClaim = (shortClaimRequest: ShortClaimRequest) =>
     this.axiosInstance
@@ -111,6 +117,11 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post('/quotas/edit/', quota)
       .then(response => response.data as Quota)
+
+  public bindQuota = (bindQuotaRequest: BindQuotaRequest) =>
+    this.axiosInstance
+      .post('/claims/bind-quota/', bindQuotaRequest)
+      .then(response => response.data as any)
 
   public get token() {
     return this._token

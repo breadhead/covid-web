@@ -1,5 +1,6 @@
 .popup {
   width: 100%;
+  max-width: 400px;
   height: 100%;
   padding: 0 24px;
   background-color: #fff;
@@ -22,7 +23,7 @@
 .secondaryText {
   margin: 0 0 24px 0;
   font: var(--text14-20);
-  color: #82839B;
+  color: #82839b;
 }
 
 .link.link {

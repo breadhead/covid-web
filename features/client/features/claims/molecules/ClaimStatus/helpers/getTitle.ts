@@ -9,6 +9,7 @@ const titlesMap: TitlesMap = {
   [ClaimStatus.Closed]: 'Консультация завершена',
   [ClaimStatus.QuotaAllocation]: 'Дождитесь ответа нашего сотрудника',
   [ClaimStatus.QuestionnaireValidation]: 'Ваша анкета принята на консультацию',
+  [ClaimStatus.AnswerWaiting]: 'Ваша анкета принята на консультацию',
   [ClaimStatus.DeliveredToCustomer]: 'Эксперт ответил на ваши вопросы',
 }
 

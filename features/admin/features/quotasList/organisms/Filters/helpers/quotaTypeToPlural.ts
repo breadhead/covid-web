@@ -4,5 +4,5 @@ export const quotaTypeToPlural = (quotaType: QuotaType) =>
   (({
     [QuotaType.Common]: 'Общие',
     [QuotaType.Special]: 'Специальные',
-    [QuotaType.Corporate]: 'Корпаративные',
+    [QuotaType.Corporate]: 'Корпоративные',
   } as any)[quotaType])
