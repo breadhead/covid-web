@@ -23,7 +23,6 @@ const DoctorConsultation = createConsultationPage(
   {
     renderSubHeader: renderControls,
     renderFooter: renderControlsWithAnswer,
-    hideAnswers: true,
   },
   Layout as any,
 )

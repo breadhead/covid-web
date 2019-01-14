@@ -1,3 +1,4 @@
+import Router from 'next/router'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'recompose'
@@ -24,18 +25,21 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
 
     private onFormSubmit = async ({ answers }: Fields) => {
       const { claim, sendAnswers } = this.props
+      const { id } = claim
 
       // validate
 
       const completeData = {
-        claimId: claim.id,
+        claimId: id,
         answers: Object.entries(answers).map(([question, answer]) => ({
-          question,
+          question: question.replace('Дополнительные вопросы: ', ''),
           answer,
         })),
       }
 
       await sendAnswers(completeData)
+
+      Router.push(`/doctor/consultation/${id}`)
     }
   }
 }
