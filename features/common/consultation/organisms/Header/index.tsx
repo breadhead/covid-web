@@ -2,10 +2,14 @@ import * as React from 'react'
 
 import * as styles from './Header.css'
 
-const Header = () => (
+interface Props {
+  claimNumber: number
+}
+
+const Header = ({ claimNumber }: Props) => (
   <header className={styles.header}>
     <h1 className={styles.title}>Консультация</h1>
-    <span className={styles.number}>32942</span>
+    <span className={styles.number}>{claimNumber}</span>
   </header>
 )
 
