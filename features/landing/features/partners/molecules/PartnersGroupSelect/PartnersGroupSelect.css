@@ -1,0 +1,11 @@
+.select.select.select {
+  max-width: 328px;
+
+  @media (--smallDown) {
+    min-width: 220px;
+    }
+  }
+
+.ant-select-selection-selected-value::after {
+    display: none !important;
+}
