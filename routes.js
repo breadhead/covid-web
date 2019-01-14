@@ -41,3 +41,5 @@ module.exports = nextRoutes()
     '/manager/consultation/:id',
     '/manager/consultation',
   )
+  // doctor
+  .add('doctor-consultation', '/doctor/consultation/:id', 'doctor/consultation')
