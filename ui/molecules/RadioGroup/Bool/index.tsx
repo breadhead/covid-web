@@ -19,7 +19,7 @@ const Bool = ({ name, buttons, defaultValue, onChange, ...rest }: Props) => (
   <AntRadioGroup name={name} onChange={onChange} defaultValue={defaultValue}>
     {buttons.map(button => (
       <Radio key={button.id} value={button.value} {...rest}>
-        {button.text}
+        {button.text || button.value}
       </Radio>
     ))}
   </AntRadioGroup>
