@@ -10,6 +10,7 @@ import * as styles from './Controls.css'
 interface Props extends WithQuotaTypeModal, WithCloseClaimModal {
   allocationAvailable: boolean
   status: ClaimStatus
+  allowEditing?: boolean
 }
 
 const Controls = ({
@@ -17,6 +18,7 @@ const Controls = ({
   openCloseClaim,
   allocationAvailable,
   status,
+  allowEditing = true,
 }: Props) => (
   <div className={styles.plate}>
     <Buttons
@@ -24,8 +26,9 @@ const Controls = ({
       showBindQuota={allocationAvailable}
       openBindQuota={openBindQuota}
       openCloseClaim={openCloseClaim}
+      allowEditing={allowEditing}
     />
-    <Corporate />
+    {allowEditing && <Corporate />}
   </div>
 )
 
