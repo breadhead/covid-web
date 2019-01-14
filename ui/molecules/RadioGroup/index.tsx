@@ -28,6 +28,7 @@ const RadioGroup = ({
   className,
   onChange,
   radioStyle = RadioButtonStyles.Button,
+  ...rest
 }: Props) => {
   return (
     <div className={`radioButtonStyle__${radioStyle}`}>
@@ -37,6 +38,7 @@ const RadioGroup = ({
         buttons={buttons}
         defaultValue={defaultValue}
         onChange={onChange}
+        {...rest}
       />
     </div>
   )
