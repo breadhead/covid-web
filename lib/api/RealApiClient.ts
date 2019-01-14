@@ -14,6 +14,7 @@ import { Transaction } from '@app/models/Quota/Transaction'
 import ApiClient, { UploadedFile, User } from './ApiClient'
 import { queryString } from './helper/queryString'
 import { tapDate } from './helper/tapDate'
+import { AnswerRequest } from './request/AnswerRequest'
 import { BindQuotaRequest } from './request/BindQuotaRequest'
 import { QuotaCreateRequest, QuotaEditRequest } from './request/Quota'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
@@ -85,6 +86,11 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post('/quotas/transfer', quotaTransferRequest)
       .then(response => response.data as QuotaTransferResponse)
+
+  public answerQuestions = (request: AnswerRequest) =>
+    this.axiosInstance
+      .post('/claims/answer', request)
+      .then(response => response.data)
 
   public quota = (id: string) =>
     this.axiosInstance

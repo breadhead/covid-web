@@ -2,6 +2,7 @@ import createConsultationPage from '@app/features/common/consultation'
 import { Controls, Layout } from '@app/features/manager'
 import Claim from '@app/models/Claim/Claim'
 
+import Container from './container'
 import Answers from './organisms/Answers'
 
 const renderControls = ({ quota, mainInfo: { status } }: Claim) => (
@@ -12,9 +13,11 @@ const renderControls = ({ quota, mainInfo: { status } }: Claim) => (
   />
 )
 
+const AnswersForm = Container(Answers)
+
 const renderFooter = (claim: Claim) => (
   <>
-    <Answers claim={claim.questions} />
+    <AnswersForm claim={claim.questions} />
     {renderControls(claim)}
   </>
 )
@@ -29,3 +32,5 @@ const DoctorAnswers = createConsultationPage(
 )
 
 export default DoctorAnswers
+
+export { reducer, State } from './reducer'

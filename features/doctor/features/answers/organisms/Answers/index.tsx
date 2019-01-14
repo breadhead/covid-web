@@ -7,12 +7,20 @@ import Button, { ButtonKind, ButtonType } from '@app/ui/atoms/Button'
 
 import * as styles from './Answers.css'
 
-interface Props {
-  claim: AnswerClaim
+interface Answers {
+  [key: string]: string
+}
+export interface Fields {
+  answers: Answers
 }
 
-const Answers = ({ claim }: Props) => (
-  <Form onSubmit={console.log as any}>
+export interface Props {
+  claim: AnswerClaim
+  onSubmit: (fields: Fields) => Promise<void>
+}
+
+const Answers = ({ claim, onSubmit }: Props) => (
+  <Form onSubmit={onSubmit as any}>
     <ExpertAnswers
       claim={claim}
       title="Вопросы эксперту"
