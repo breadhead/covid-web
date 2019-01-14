@@ -16,6 +16,7 @@ import { queryString } from './helper/queryString'
 import { tapDate } from './helper/tapDate'
 import { AnswerRequest } from './request/AnswerRequest'
 import { BindQuotaRequest } from './request/BindQuotaRequest'
+import { CloseClaimRequest } from './request/CloseClaimRequest'
 import { QuotaCreateRequest, QuotaEditRequest } from './request/Quota'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
 import ShortClaimRequest from './request/ShortClaim'
@@ -44,6 +45,9 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .get(`/claims/${id}/main`)
       .then(response => response.data as ListedClaim)
+
+  public closeClaim = (request: CloseClaimRequest) =>
+    this.axiosInstance.post('/claims/close', request)
 
   public createShortClaim = (shortClaimRequest: ShortClaimRequest) =>
     this.axiosInstance

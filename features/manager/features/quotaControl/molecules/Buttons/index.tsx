@@ -6,6 +6,7 @@ import * as styles from './Buttons.css'
 interface Props {
   openBindQuota: () => void
   showBindQuota: boolean
+  openCloseClaim: () => void
   status: ClaimStatus
   allowEditing?: boolean
 }
@@ -19,6 +20,7 @@ const defineNextStatusAction = (status: ClaimStatus) =>
 const Buttons = ({
   openBindQuota,
   showBindQuota,
+  openCloseClaim,
   status,
   allowEditing = true,
 }: Props) => {
@@ -36,13 +38,16 @@ const Buttons = ({
           {showBindQuota && (
             <>
               <Button onClick={openBindQuota}>Выбрать квоту</Button>
-              <Button kind={ButtonKind.Extra}>В очередь</Button>{' '}
+              <Button kind={ButtonKind.Extra}>В очередь</Button>
               {/* TODO: action */}
             </>
           )}
           {nextAction && <Button>{nextAction}</Button>} {/* TODO: action */}
-          {!closed && <Button kind={ButtonKind.Extra}>Закрыть</Button>}{' '}
-          {/* TODO: action */}
+          {!closed && (
+            <Button onClick={openCloseClaim} kind={ButtonKind.Extra}>
+              Закрыть
+            </Button>
+          )}
         </div>
       )}
     </div>
