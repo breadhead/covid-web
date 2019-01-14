@@ -1,44 +1,56 @@
 import * as React from 'react'
 
+import { AnswerClaim, Question } from '@app/models/Claim/AnswerClaim'
+
 import * as styles from './ExpertAnswers.css'
 
+import answered from './answered'
 import Footer from './components/Footer'
-
-interface Article {
-  question: string
-  answer: string
-}
-
-interface Answer {
-  title: string
-  articles: Article[]
-}
+import groupQuestion from './groupQuestions'
 
 interface Props {
-  answers: Answer[]
+  claim: AnswerClaim
+  renderCustomAnswer?: (theme: string, question: Question) => React.ReactNode
+  title?: string
 }
 
-const ExpertAnswers = ({ answers }: Props) => (
-  <>
-    <h2 className={styles.mainTitle}>Ответ эксперта</h2>
-    <section className={styles.expertAnswers}>
-      {answers.map(answer => {
-        const articles = answer.articles.map(article => (
-          <div key={article.question} className={styles.articleWrapper}>
-            <p className={styles.question}>{article.question}</p>
-            <p className={styles.answer}>{article.answer}</p>
-          </div>
-        ))
-        return (
-          <article key={answer.title} className={styles.article}>
-            <h2 className={styles.title}>{answer.title}</h2>
-            {articles}
+const ExpertAnswers = ({ claim, renderCustomAnswer, title }: Props) => {
+  const answeredClaim = answered(claim)
+
+  const groups = groupQuestion([
+    ...claim.defaultQuestions,
+    ...claim.additionalQuestions.map(({ question, answer }) => ({
+      question: `Дополнительные вопросы: ${question}`,
+      answer,
+    })),
+  ])
+
+  return (
+    <>
+      <h2 className={styles.mainTitle}>
+        {!!title && title}
+        {!title && (answeredClaim ? 'Ответ эксперта' : 'Вопросы эксперту')}
+      </h2>
+      <section className={styles.expertAnswers}>
+        {Object.entries(groups).map(([theme, questions]) => (
+          <article key={theme} className={styles.article}>
+            <h2 className={styles.title}>{theme}</h2>
+            {questions.map(({ question, answer }) => (
+              <div key={question} className={styles.articleWrapper}>
+                <p className={styles.question}>{question}</p>
+                {!!renderCustomAnswer &&
+                  renderCustomAnswer(theme, { question, answer })}
+                {!renderCustomAnswer && answeredClaim && answer && (
+                  <p className={styles.answer}>{answer}</p>
+                )}
+              </div>
+            ))}
           </article>
-        )
-      })}
-      <Footer />
-    </section>
-  </>
-)
+        ))}
+        <Footer />
+      </section>
+    </>
+  )
+}
 
 export default ExpertAnswers
