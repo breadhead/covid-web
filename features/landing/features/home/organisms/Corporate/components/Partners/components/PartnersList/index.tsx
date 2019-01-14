@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import * as styles from './PartnersList.css'
 
-import PartnerCard from '../PartnerCard'
+import PartnerCard from '@app/features/landing/organisms/PartnerCard'
 
 import { partners } from './config'
 
