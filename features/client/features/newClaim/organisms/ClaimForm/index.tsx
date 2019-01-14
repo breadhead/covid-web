@@ -58,6 +58,7 @@ const ClaimForm = ({
     >
       <Main initial={initial} styles={styles} />
       <Contacts
+        initial={initial}
         clientInRussia={clientInRussia}
         onChangeInRussia={onChangeInRussia}
         styles={styles}

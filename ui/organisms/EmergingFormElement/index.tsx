@@ -28,10 +28,6 @@ interface State {
 }
 
 class EmergingFormElement extends React.Component<Props, State> {
-  public static defaultProps: Partial<Props> = {
-    defaultVisible: false,
-  }
-
   public state = {
     isVisible: this.props.defaultVisible,
   } as State
@@ -62,7 +58,7 @@ class EmergingFormElement extends React.Component<Props, State> {
       name,
       className,
       defaultVisible,
-      defaultValue,
+      ...rest
     } = this.props
     const { isVisible } = this.state
 
@@ -71,15 +67,17 @@ class EmergingFormElement extends React.Component<Props, State> {
         <div className={cx(styles.EmergingFormControl, className)}>
           {controlType === ControlTypes.Switch ? (
             <SwitchElement
+              {...rest}
               name={name}
               onChange={this.switchChangeHandler}
               defaultChecked={defaultVisible}
             />
           ) : (
             <RadioGroupElement
+              {...rest}
               name={name}
               onChange={this.radioGroupChangeHandler}
-              defaultValue={defaultValue}
+              defaultChecked={defaultVisible}
             />
           )}
         </div>

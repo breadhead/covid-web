@@ -4,6 +4,7 @@ import { State } from '@app/lib/store'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import routes from '@app/routes'
 import { RadioButtonsValue } from '@app/ui/organisms/EmergingFormElement/RadioGroupElement'
+import { isUndefined } from 'lodash'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
@@ -112,13 +113,13 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       const fields = claimFields
 
       if (!claimFields.localizationPresence) {
-        delete fields.localization
+        fields.localization = null
       }
       if (!claimFields.companyPresence) {
-        delete fields.company
+        fields.company = null
       }
       if (!claimFields.phonePresence) {
-        delete fields.personalData.phone
+        fields.personalData.phone = null
       }
 
       if (id) {

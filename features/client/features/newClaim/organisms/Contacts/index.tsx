@@ -28,10 +28,15 @@ interface Props {
   onChangeInRussia: (value: boolean) => void
   styles: StylesType
 }
-const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
+const Contacts = ({
+  clientInRussia,
+  onChangeInRussia,
+  styles,
+  initial,
+}: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Контактные данные</h2>
-    {/* <label htmlFor="personalData.name" className={styles.label}>
+    <label htmlFor="personalData.name" className={styles.label}>
       Как к вам обращаться?
       <span className={styles.secondaryText}>
         {' '}
@@ -92,7 +97,7 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
       validate={schema.age}
       name="personalData.age"
       type={InputType.Number}
-    /> */}
+    />
     <label htmlFor="personalData.gender" className={styles.label}>
       Пол
     </label>
@@ -102,16 +107,7 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
       name="personalData.gender"
       buttons={genderRadioGroup}
     />
-    <label htmlFor="personalData.gender" className={styles.label}>
-      Controls
-    </label>
-    <RadioGroup
-      className={styles.field}
-      validate={schema.gender}
-      name="personalData.controls"
-      buttons={genderRadioGroup}
-    />
-    {/* <label htmlFor="personalData.email" className={styles.label}>
+    <label htmlFor="personalData.email" className={styles.label}>
       Электронная почта.
       <span className={styles.secondaryText}>
         {' '}
@@ -137,9 +133,8 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
     <EmergingFormElement
       className={styles.field}
       controlType={ControlTypes.Radiogroup}
-      defaultVisible
+      defaultVisible={initial.phonePresence}
       name="phonePresence"
-      defaultValue={RadioButtonsValue.Yes}
     >
       <label
         htmlFor="personalData.phone"
@@ -152,7 +147,7 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
         type={InputType.Phone}
         placeholder="+7"
       />
-    </EmergingFormElement> */}
+    </EmergingFormElement>
   </article>
 )
 
