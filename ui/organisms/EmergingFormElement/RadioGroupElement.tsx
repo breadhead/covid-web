@@ -19,8 +19,10 @@ export const radioButtons = [
   },
 ]
 
+const EMPTY_VALUE = ''
+
 const getValue = (value: string | undefined) =>
-  value === ''
+  value === EMPTY_VALUE
     ? undefined
     : value
     ? RadioButtonsValue.Yes
