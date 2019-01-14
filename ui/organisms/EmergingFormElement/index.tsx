@@ -19,7 +19,7 @@ export interface Props {
   defaultValue?: string
   className?: string
   children?: React.ReactNode
-  value?: boolean
+  value?: string
   onChange?: (value: boolean) => void
 }
 

@@ -17,7 +17,7 @@ interface PersonalData {
   age: number
   gender: Gender
   email?: string
-  phone?: string
+  phone?: string | null
 }
 
 export interface ShortClaimFields {
@@ -25,8 +25,8 @@ export interface ShortClaimFields {
   target: string
   theme: string
   diagnosis: boolean
-  localization?: string
-  company?: Company
+  localization?: string | null
+  company?: Company | null
   personalData: PersonalData
   phonePresence: boolean
   companyPresence?: boolean

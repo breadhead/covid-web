@@ -1,7 +1,5 @@
-import { isUndefined } from 'lodash'
 import * as React from 'react'
 
-// import RadioGroup from '@app/ui/molecules/RadioGroup'
 import { RadioGroup } from '@app/features/common/form'
 import { RadioChangeEvent } from 'antd/lib/radio'
 
@@ -21,6 +19,13 @@ export const radioButtons = [
   },
 ]
 
+const getValue = (value: string | undefined) =>
+  value === ''
+    ? undefined
+    : value
+    ? RadioButtonsValue.Yes
+    : RadioButtonsValue.No
+
 export interface Props {
   name?: string
   onChange?: (evt: RadioChangeEvent) => void
@@ -39,13 +44,7 @@ const RadioGroupElement = ({
     name={name}
     buttons={radioButtons}
     onChange={onChange}
-    value={
-      value === ''
-        ? undefined
-        : value
-        ? RadioButtonsValue.Yes
-        : RadioButtonsValue.No
-    }
+    value={getValue(value)}
     {...rest}
   />
 )
