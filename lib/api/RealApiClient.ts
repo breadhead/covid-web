@@ -123,6 +123,11 @@ export default class RealApiClient implements ApiClient {
       .post('/claims/bind-quota/', bindQuotaRequest)
       .then(response => response.data as any)
 
+  public sendFeedback = (feedback: any) =>
+    this.axiosInstance
+      .post('/feedback/send', feedback)
+      .then(response => response.data as any)
+
   public get token() {
     return this._token
   }

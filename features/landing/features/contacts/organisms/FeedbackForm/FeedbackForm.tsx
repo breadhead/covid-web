@@ -8,17 +8,24 @@ import * as yup from 'yup'
 
 const REQUIRED = 'Обязательное поле'
 
-const schema = {
+export const schema = {
   name: yup.string().required(REQUIRED),
-  email: yup.string().required(REQUIRED),
+  email: yup
+    .string()
+    .email('Введите email')
+    .required(REQUIRED),
   theme: yup.string(),
-  message: yup.string().required(REQUIRED),
+  content: yup.string().required(REQUIRED),
 }
 
-const FeedbackForm = () => (
+interface Props {
+  onFormSubmit: (params: any) => any
+}
+
+const FeedbackForm = ({ onFormSubmit }: Props) => (
   <article className={styles.FeedbackFormWrapper}>
     <h2 className={styles.title}>Обратная связь</h2>
-    <Form onSubmit={params => console.log('params', params)}>
+    <Form onSubmit={onFormSubmit}>
       <Input
         className={styles.formItem}
         label="Как к вам обратиться?"
@@ -42,8 +49,8 @@ const FeedbackForm = () => (
       />
       <TextArea
         label="Ваше сообщение"
-        name="message"
-        validate={schema.message}
+        name="content"
+        validate={schema.content}
         rows={3}
       />
       <Button className={styles.button} type={ButtonType.Submit}>
