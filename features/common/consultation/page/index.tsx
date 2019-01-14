@@ -14,7 +14,6 @@ import Chat from '@app/features/common/chat'
 
 import OpenChatButton from '../atoms/OpenChatButton'
 import ExpertAnswers from '../organisms/ExpertAnswers'
-import { Answers } from '../organisms/ExpertAnswers/config'
 import Header from '../organisms/Header'
 import Theme from '../organisms/Theme'
 
@@ -30,6 +29,7 @@ export interface Props {
   renderSubHeader?: (claim: Claim) => React.ReactNode
   renderFooter?: (claim: Claim) => React.ReactNode
   layout: React.ComponentType
+  hideAnswers?: boolean
 }
 
 class Consultation extends React.Component<Props, State> {
@@ -55,9 +55,13 @@ class Consultation extends React.Component<Props, State> {
 
   public render() {
     const { isChatOpen, haveNewMessage, chatOpensOnce } = this.state
-    const { renderSubHeader, renderFooter, layout, claim } = this.props
-
-    const showAnswers = false // TODO: add logic
+    const {
+      renderSubHeader,
+      renderFooter,
+      layout,
+      claim,
+      hideAnswers,
+    } = this.props
 
     const Layout = layout
 
@@ -76,7 +80,7 @@ class Consultation extends React.Component<Props, State> {
             <Header claimNumber={claim.mainInfo.number} />
             {renderSubHeader && renderSubHeader(claim)}
             <Theme shortClaim={claim.short} situationClaim={claim.situation} />
-            {showAnswers && <ExpertAnswers answers={Answers} />}
+            {!hideAnswers && <ExpertAnswers claim={claim.questions} />}
             {renderFooter && renderFooter(claim)}
           </Layout>
         </div>

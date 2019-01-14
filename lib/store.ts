@@ -19,6 +19,11 @@ import {
 } from '@app/features/manager'
 
 import {
+  reducer as doctorReducer,
+  State as DoctorState,
+} from '@app/features/doctor'
+
+import {
   reducer as clientReducer,
   State as ClientState,
 } from '@app/features/client'
@@ -88,6 +93,7 @@ export interface State {
   manager: ManagerState
   chat: ChatState
   consultation: ConsultationState
+  doctor: DoctorState
 }
 
 const reducer = combineReducers({
@@ -105,6 +111,7 @@ const reducer = combineReducers({
   manager: managerReducer,
   chat: chatReducer,
   consultation: consultationReducer,
+  doctor: doctorReducer,
 } as any)
 
 export interface ExtraArgs {

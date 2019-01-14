@@ -1,3 +1,4 @@
+import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
@@ -6,7 +7,9 @@ import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
+import { AnswerRequest } from './request/AnswerRequest'
 import { BindQuotaRequest } from './request/BindQuotaRequest'
+import { CloseClaimRequest } from './request/CloseClaimRequest'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
 import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
@@ -37,8 +40,10 @@ export default interface ApiClient {
   shortClaim(id: string): Promise<ShortClaim>
   situationClaim(id: string): Promise<SituationClaim>
   quotaClaim(id: string): Promise<QuotaClaim>
+  questionsClaim(id: string): Promise<AnswerClaim>
   createSituationClaim(request: SituationClaimRequest): Promise<SituationClaim>
   createQuestionsClaim(request: QuestionsClaim): Promise<QuestionsClaim>
+  answerQuestions(reauest: AnswerRequest): Promise<any>
   quota(id: string): Promise<Quota>
   income(amount: number, quotaId: string): Promise<Quota>
   quotas(): Promise<Quota[]>
@@ -48,6 +53,7 @@ export default interface ApiClient {
   createQuota(quotaFields: any): Promise<Quota>
   editQuota(quotaFields: any): Promise<Quota>
   bindQuota(request: BindQuotaRequest): Promise<any>
+  closeClaim(request: CloseClaimRequest): Promise<any>
   transfer(
     quotaTransferRequest: QuotaTransferRequest,
   ): Promise<QuotaTransferResponse>

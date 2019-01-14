@@ -1,0 +1,13 @@
+.controls {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 64px;
+
+  & > * {
+    margin-left: 12px;
+  }
+}
+
+.textarea {
+  margin-bottom: 12px;
+}
