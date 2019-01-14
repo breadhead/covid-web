@@ -73,7 +73,7 @@ class Consultation extends React.Component<Props, State> {
               haveNewMessage={haveNewMessage}
               onClick={this.openChat}
             />
-            <Header />
+            <Header claimNumber={claim.mainInfo.number} />
             {renderSubHeader && renderSubHeader(claim)}
             <Theme shortClaim={claim.short} situationClaim={claim.situation} />
             {showAnswers && <ExpertAnswers answers={Answers} />}
