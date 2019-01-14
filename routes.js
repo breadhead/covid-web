@@ -43,3 +43,4 @@ module.exports = nextRoutes()
   )
   // doctor
   .add('doctor-consultation', '/doctor/consultation/:id', 'doctor/consultation')
+  .add('doctor-answers', '/doctor/answers/:id', 'doctor/answers')

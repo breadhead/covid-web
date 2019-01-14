@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Answer = ({ claimId }: Props) => (
-  <Button onClick={() => Router.push(`/doctor/answer/${claimId}`)}>
+  <Button onClick={() => Router.push(`/doctor/answers/${claimId}`)}>
     Заполнить ответ
   </Button>
 )
