@@ -19,6 +19,7 @@ export interface Props {
   label?: string
   onChange?: (evt: RadioChangeEvent) => void
   radioStyle?: RadioButtonStyles
+  value?: string
 }
 
 const RadioGroup = ({

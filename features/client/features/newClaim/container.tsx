@@ -86,7 +86,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       }
       return {
         phonePresence: true,
-        corporate: false,
+        companyPresence: false,
       }
     }
 
