@@ -1,8 +1,7 @@
-import { FORM_ERROR } from 'final-form'
 import Router from 'next/router'
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { compose, stateProps } from 'recompose'
+import { compose } from 'recompose'
 import { AnyAction, Dispatch } from 'redux'
 
 import { AnswerRequest } from '@app/lib/api/request/AnswerRequest'
