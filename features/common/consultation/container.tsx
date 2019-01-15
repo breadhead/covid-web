@@ -29,7 +29,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
     }
 
     public render() {
-      const { claim } = this.props as any
+      const { claim } = this.props
 
       if (!claim) {
         return null

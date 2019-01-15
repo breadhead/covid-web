@@ -1,6 +1,6 @@
 export interface Article {
   subtitle: string
-  text: string
+  text?: string
 }
 
 export interface InfoBlock {

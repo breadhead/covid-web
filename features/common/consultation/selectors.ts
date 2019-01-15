@@ -33,6 +33,6 @@ export const getClaim = createSelector(
       return claim
     }
 
-    return {}
+    return null
   },
 )
