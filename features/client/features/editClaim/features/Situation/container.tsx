@@ -4,18 +4,23 @@ import { State } from '@app/lib/store'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import routes from '@app/routes'
+import { isEmpty } from 'lodash'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 
 import { fetchShortClaim } from '../../../newClaim'
-import { createSituationClaim as createSituationClaimAction } from './actions'
+import {
+  createSituationClaim as createSituationClaimAction,
+  fetchSituationClaim,
+} from './actions'
 import { Props as PageProps } from './page'
 import { getSituationError } from './selectors'
 import { SituationClaimFields } from './types'
 const Router = routes.Router
 interface Props {
   shortClaim: ShortClaim
+  situationClaim: SituationClaim
   createSituationClaim: (fields: SituationClaimRequest) => SituationClaim
   error: false | string
 }
@@ -30,24 +35,30 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       reduxStore,
       query,
     }: AppContext<Query>) {
-      const shortClaim = await reduxStore.dispatch(fetchShortClaim(
-        query.id,
-      ) as any)
+      const { id } = query
+      const [shortClaim, situationClaim] = await Promise.all([
+        reduxStore.dispatch(fetchShortClaim(query.id) as any),
+        reduxStore.dispatch(fetchSituationClaim(query.id) as any),
+      ])
 
       return {
         shortClaim,
+        situationClaim,
+        id,
       }
     }
     public render() {
       const {
         shortClaim: { id, localization, theme },
+        situationClaim,
         error,
       } = this.props
+      const initialFields = this.getInitialFields(situationClaim)
       return (
         <WrappedComponent
-          id={id}
+          initialFields={initialFields}
           error={error}
-          claimData={{ localization, theme }}
+          claimData={{ localization, theme, id }}
           onFormSubmit={this.onFormSubmit}
         />
       )
@@ -55,20 +66,47 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
 
     private onFormSubmit = async (fields: SituationClaimFields) => {
       const { createSituationClaim, shortClaim } = this.props
-      const request = {
-        ...fields,
-        id: shortClaim.id,
-        relativesDiseases: fields.relativesDiseases || [],
-        surgicalTreatments: fields.surgicalTreatments || [],
-        medicalsTreatments: fields.medicalsTreatments || [],
-        radiationTreatments: fields.radiationTreatments || [],
-        otherFiles: fields.otherFiles || [],
-      }
+
+      const request = this.createRequest(fields, shortClaim.id)
       const { id } = await createSituationClaim(request)
 
       const { error } = this.props
 
       this.redirectIfNeeded(id, error)
+    }
+
+    private getInitialFields = (claim: SituationClaim) => {
+      const claimWasSent = !!claim.description
+      if (claimWasSent) {
+        return {
+          ...claim,
+          relativesDiseasesPresence: !isEmpty(claim.relativesDiseases),
+          surgicalTreatmentsPresence: !isEmpty(claim.surgicalTreatments),
+          medicalsTreatmentsPresence: !isEmpty(claim.medicalsTreatments),
+          radiationTreatmentsPresence: !isEmpty(claim.radiationTreatments),
+        }
+      }
+
+      return claim
+    }
+
+    private createRequest = (claimFields: SituationClaimFields, id: string) => {
+      const fields = claimFields
+
+      if (!claimFields.relativesDiseasesPresence) {
+        fields.relativesDiseases = []
+      }
+      if (!claimFields.surgicalTreatmentsPresence) {
+        fields.surgicalTreatments = []
+      }
+      if (!claimFields.medicalsTreatmentsPresence) {
+        fields.medicalsTreatments = []
+      }
+      if (!claimFields.radiationTreatmentsPresence) {
+        fields.radiationTreatments = []
+      }
+
+      return { ...fields, id, otherFiles: fields.otherFiles || [] }
     }
 
     private redirectIfNeeded(id: string, error: false | string) {

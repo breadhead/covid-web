@@ -14,22 +14,26 @@ import {
 
 import { SPACE, StylesType } from '@app/lib/config'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
+import { SituationClaimFields } from '../../../types'
 import { schema } from './schema'
 
 interface Props {
   width: number
   styles: StylesType
+  initial: Partial<SituationClaimFields>
 }
 
-const EmergingForm = ({ styles }: Props) => (
+const EmergingForm = ({ styles, initial }: Props) => (
   <>
     <h3 className={styles.subtitle}>Лучевая терапия</h3>
     <EmergingFormElement
-      name="emergingForm"
+      defaultVisible={initial.radiationTreatmentsPresence}
+      name="radiationTreatmentsPresence"
       className={styles.emergeField}
       controlType={EmergingControlTypes.Switch}
     >
       <AddFieldContainer
+        initialCount={initial.radiationTreatments!.length}
         buttonClassName={styles.addButton}
         buttonText="Добавить лучевую терапию"
       >

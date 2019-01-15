@@ -9,12 +9,13 @@ export interface Props {
   className?: string
 }
 
-const ComboClinic = ({ name, className }: Props) => (
+const ComboClinic = ({ name, className, ...rest }: Props) => (
   <Combobox
     placeholder="Выберите клинику"
     options={OPTIONS_CLINICS}
     name={name}
     className={className}
+    {...rest}
   />
 )
 

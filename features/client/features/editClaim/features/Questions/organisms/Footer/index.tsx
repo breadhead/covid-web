@@ -12,11 +12,12 @@ import NavLink from '@app/ui/atoms/NavLink'
 interface Props {
   styles: StylesType
   error: false | string
+  id: string
 }
 
 const ERROR_MESSAGE = 'Произошла ошибка, попробуйте еще раз'
 
-const Footer = ({ styles, error }: Props) => {
+const Footer = ({ styles, error, id }: Props) => {
   const errorMessage = error ? ERROR_MESSAGE : undefined
 
   return (
@@ -34,7 +35,9 @@ const Footer = ({ styles, error }: Props) => {
           className={styles.iconBack}
           name="24x24_arrow-small_right"
         />
-        <NavLink href="/client/new-claim">Вернуться назад</NavLink>
+        <NavLink href={`/client/claim/${id}/situation`}>
+          Вернуться назад
+        </NavLink>
       </div>
     </footer>
   )

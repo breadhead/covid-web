@@ -11,15 +11,16 @@ import { InputType } from '@app/features/common/form'
 import { SPACE, StylesType } from '@app/lib/config'
 import { mapString } from '@app/ui/atoms/Select'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
-import { ClaimData } from '../../types'
+import { ClaimData, SituationClaimFields } from '../../types'
 import { CONDITIONAL_THEME } from '../Form/config'
 import { localizations, relatives } from './config'
 import { schema } from './schema'
 interface Props {
   styles: StylesType
   claimData: ClaimData
+  initial: Partial<SituationClaimFields>
 }
-const Common = ({ styles, claimData }: Props) => (
+const Common = ({ styles, claimData, initial }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Общая информация</h2>
     <label htmlFor="description" className={styles.label}>
@@ -66,27 +67,34 @@ const Common = ({ styles, claimData }: Props) => (
         <EmergingFormElement
           name="relativesDiseasesPresence"
           className={styles.emergeField}
+          defaultVisible={initial.relativesDiseasesPresence}
           validate={schema.relativesDiseasesPresence}
           controlType={EmergingControlTypes.Radiogroup}
         >
           <AddFieldContainer
+            initialCount={initial.relativesDiseases!.length}
             buttonClassName={styles.addButton}
             buttonText="Добавить другого родственника"
           >
             {count =>
               count.map(key => (
                 <React.Fragment key={key}>
-                  <label className={styles.label}>Кто из родственников</label>
+                  <label
+                    htmlFor={`relativesDiseases.${key}.relative`}
+                    className={styles.label}
+                  >
+                    Кто из родственников
+                  </label>
                   <Select
                     className={styles.field}
-                    name={`relativeDiseases.${key}.relative`}
+                    name={`relativesDiseases.${key}.relative`}
                     validate={schema.relativesDiseases}
                     options={relatives.map(mapString)}
                   />
                   <label className={styles.label}>Локализация опухоли</label>
                   <Select
                     className={styles.field}
-                    name={`relativeDiseases.${key}.localization`}
+                    name={`relativesDiseases.${key}.localization`}
                     validate={schema.localization}
                     options={localizations.map(mapString)}
                   />
@@ -97,7 +105,7 @@ const Common = ({ styles, claimData }: Props) => (
                   <Input
                     validate={schema.diagnosisAge}
                     type={InputType.Number}
-                    name={`relativeDiseases.${key}.diagnosisAge`}
+                    name={`relativesDiseases.${key}.diagnosisAge`}
                   />
                 </React.Fragment>
               ))

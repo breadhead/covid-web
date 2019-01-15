@@ -27,7 +27,7 @@ const ClaimForm = ({ onFormSubmit, claimData, error }: Props) => {
         criterion={claimData.target}
       />
       <AdditionalQuestions styles={styles} />
-      <Footer error={error} styles={styles} />
+      <Footer error={error} styles={styles} id={claimData.id} />
     </Form>
   )
 }
