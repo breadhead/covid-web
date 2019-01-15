@@ -27,11 +27,11 @@ const Navigation = ({ className, hide }: Props) => (
       Эксперты
       <NavIcon />
     </NavLink>
-    <NavLink type={NavLinkType.Nav} href="#" className={styles.link}>
+    <NavLink type={NavLinkType.Nav} href="/contacts" className={styles.link}>
       Контакты
       <NavIcon />
     </NavLink>
-    <NavLink type={NavLinkType.Nav} href="#" className={styles.link}>
+    <NavLink type={NavLinkType.Nav} href="/#donation" className={styles.link}>
       Помочь проекту
       <NavIcon />
     </NavLink>

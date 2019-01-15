@@ -9,11 +9,12 @@
   margin-bottom: 32px;
 }
 
-.button {
-  padding: 16px 36px;
-  margin: 40px auto 0 auto;
+.button.button.button {
+  display: block !important;
+  padding: 16px 36px !important;
+  margin: 40px auto 0 auto !important;
 
   @media (--smallDown) {
-    margin: 24px auto 0 auto;
+    margin: 24px auto 0 auto !important;
   }
 }

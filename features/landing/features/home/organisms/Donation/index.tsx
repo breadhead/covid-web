@@ -6,7 +6,7 @@ import { NON_BREAKING_SPACE } from '@app/lib/config'
 
 const Donation = () => (
   <>
-    <div id="#donationContainer" className={styles.donationWrapper}>
+    <div id="donation" className={styles.donationWrapper}>
       <h2 className={styles.title}>Помочь проекту</h2>
       <div className={styles.content}>
         <div className={styles.iframe}>
@@ -14,8 +14,9 @@ const Donation = () => (
         </div>
         <article className={styles.quote}>
           <p className={styles.message}>
-            Все собранные средства идут на{NON_BREAKING_SPACE} оплату экспертов,
+            Все собранные средства идут на{NON_BREAKING_SPACE}оплату экспертов,
             задействованных в{NON_BREAKING_SPACE} консультациях и
+            {NON_BREAKING_SPACE}
             {NON_BREAKING_SPACE} на{NON_BREAKING_SPACE} поддержание
             работоспособности сервиса. Поддерживая системные проекты:
             образование талантливых врачей, просвещение населения РФ, внедрение
