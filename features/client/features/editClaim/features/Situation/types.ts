@@ -24,6 +24,10 @@ interface RelativesDisease {
 }
 
 export interface SituationClaimFields {
+  relativesDiseasesPresence: boolean
+  surgicalTreatmentsPresence: boolean
+  medicalsTreatmentsPresence: boolean
+  radiationTreatmentsPresence: boolean
   description: string
   diagnosis: string
   stage: string

@@ -3,11 +3,12 @@ import * as React from 'react'
 import { Input } from '@app/features/common/form'
 import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
-import { ClaimData } from '../../types'
+import { ClaimData, SituationClaimFields } from '../../types'
 
 interface Props {
   styles: StylesType
   claimData: ClaimData
+  initial: Partial<SituationClaimFields>
 }
 
 const Survey = ({ styles, claimData, initial }: Props) => (

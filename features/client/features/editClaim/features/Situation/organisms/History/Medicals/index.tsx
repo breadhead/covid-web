@@ -15,10 +15,12 @@ import {
 import { InputType } from '@app/features/common/form'
 import { SPACE, StylesType } from '@app/lib/config'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
+import { SituationClaimFields } from '../../../types'
 import { schema } from './schema'
 
 interface Props {
   styles: StylesType
+  initial: Partial<SituationClaimFields>
 }
 
 const EmergingForm = ({ styles, initial }: Props) => (

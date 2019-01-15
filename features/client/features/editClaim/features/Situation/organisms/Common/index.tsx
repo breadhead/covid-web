@@ -11,13 +11,14 @@ import { InputType } from '@app/features/common/form'
 import { SPACE, StylesType } from '@app/lib/config'
 import { mapString } from '@app/ui/atoms/Select'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
-import { ClaimData } from '../../types'
+import { ClaimData, SituationClaimFields } from '../../types'
 import { CONDITIONAL_THEME } from '../Form/config'
 import { localizations, relatives } from './config'
 import { schema } from './schema'
 interface Props {
   styles: StylesType
   claimData: ClaimData
+  initial: Partial<SituationClaimFields>
 }
 const Common = ({ styles, claimData, initial }: Props) => (
   <article className={styles.article}>
