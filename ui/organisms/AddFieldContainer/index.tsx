@@ -9,15 +9,19 @@ interface Props {
   children: (count: number[]) => React.ReactNode
   buttonClassName?: string
   buttonText?: string
+  initialCount?: number
 }
 
 interface State {
   count: number[]
 }
 
+const INITIAL_COUNT = 1
+
 class AddFieldContainer extends React.Component<Props, State> {
   public state = {
-    count: range(1),
+    // if initialCount is passed as a prop, we use it instead of defaults
+    count: range(this.props.initialCount || INITIAL_COUNT),
   }
 
   public render() {
