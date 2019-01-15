@@ -1,4 +1,5 @@
 import { ExtraArgs, State } from '@app/lib/store'
+
 import { Dispatch } from 'redux'
 import { actions } from './reducer'
 
@@ -10,9 +11,10 @@ export const sendFeedback = (feedbackFields: any) => async (
   const api = getApi(getState)
   try {
     dispatch(actions.request())
-    const feedback = await api.sendFeedback(feedbackFields)
-    return dispatch(actions.success(feedback))
+    await api.sendFeedback(feedbackFields)
+    return dispatch(actions.success())
   } catch (error) {
-    return dispatch(actions.error(error.message))
+    dispatch(actions.error(error.message))
+    throw error
   }
 }

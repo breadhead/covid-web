@@ -7,23 +7,20 @@ import {
   FetchingState,
 } from '@app/lib/symbioteFactory'
 
-interface State extends FetchingState {
-  feedbackFields?: any
-}
+type State = FetchingState
 
 interface Actions extends FetchingActions {
-  success(feedbackFields: any): Action
+  success(): Action
 }
 
-const initialState = createInitialState({
-  feedbackFields: undefined,
-})
+const initialState = createInitialState({})
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  (state: State, feedbackFields: any) => ({
+  (state: State) => ({
     ...state,
-    feedbackFields,
+    error: false,
+    fetching: false,
   }),
   'sendFeedback',
 )

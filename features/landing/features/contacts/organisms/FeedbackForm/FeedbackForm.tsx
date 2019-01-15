@@ -18,8 +18,8 @@ export const schema = {
   content: yup.string().required(REQUIRED),
 }
 
-interface Props {
-  onFormSubmit: (params: any) => any
+export interface Props {
+  onFormSubmit: (params: any) => Promise<any>
 }
 
 const FeedbackForm = ({ onFormSubmit }: Props) => (
