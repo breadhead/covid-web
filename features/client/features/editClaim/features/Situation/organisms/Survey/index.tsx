@@ -26,10 +26,10 @@ const Survey = ({ styles, claimData, initial }: Props) => (
         <p className={styles.secondaryText}>
           Последняя по дате. Укажите ссылку на скан или фотографию
         </p>
-        <label htmlFor="histology" className={styles.labelSmall}>
+        <label htmlFor="histology.url" className={styles.labelSmall}>
           Ссылка на файл
         </label>
-        <Input name="histology" />
+        <Input name="histology.url" />
       </>
     )}
 
@@ -37,11 +37,10 @@ const Survey = ({ styles, claimData, initial }: Props) => (
     <p className={styles.secondaryText}>
       Последние по дате. Укажите ссылку на сканы или фотографии
     </p>
-    <label htmlFor="discharge" className={styles.labelSmall}>
+    <label htmlFor="discharge.url" className={styles.labelSmall}>
       Ссылка на файл
     </label>
-    <Input name="discharge" />
-    {console.log(initial.otherFiles)}
+    <Input name="discharge.url" />
     <AddFieldContainer
       initialCount={initial.otherFiles!.length}
       buttonClassName={styles.addButton}
