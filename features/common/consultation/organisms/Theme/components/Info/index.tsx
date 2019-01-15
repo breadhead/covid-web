@@ -50,7 +50,6 @@ const Info = ({ styles, claim }: Props) => {
         return (
           <article className={styles.article} key={title}>
             <h2 className={styles.title}>{title}</h2>
-            <p className={styles.midtitle}>fkdl</p>
             <div className={styles.common}>{content}</div>
           </article>
         )

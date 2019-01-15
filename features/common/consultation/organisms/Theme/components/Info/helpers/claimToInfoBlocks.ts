@@ -5,6 +5,7 @@ import clearInfoBlockArray from './clearInfoBlockArray'
 import createExamination from './createExamination'
 import createFelling from './createFeeling'
 import createInfo from './createInfo'
+import createTreatment from './createTreatment'
 import { InfoBlock } from './types'
 
 const claimToInfoBlocks = (claim: SituationClaim): InfoBlock[] =>
@@ -12,6 +13,7 @@ const claimToInfoBlocks = (claim: SituationClaim): InfoBlock[] =>
     [
       ...createInfo(claim),
       ...createFelling(claim),
+      ...createTreatment(claim),
       ...createExamination(claim),
     ].map(clearInfoBlock),
   )
