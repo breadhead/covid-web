@@ -3,6 +3,7 @@ import * as React from 'react'
 import * as styles from './FeedbackForm.css'
 
 import { Form, Input, TextArea } from '@app/features/common/form'
+import { SendFeedbackRequest } from '@app/lib/api/request/SendFeedback'
 import Button, { ButtonType } from '@app/ui/atoms/Button'
 import * as yup from 'yup'
 
@@ -19,13 +20,13 @@ export const schema = {
 }
 
 export interface Props {
-  onFormSubmit: (params: any) => Promise<any>
+  onFormSubmit: (params: SendFeedbackRequest) => Promise<any>
 }
 
 const FeedbackForm = ({ onFormSubmit }: Props) => (
   <article className={styles.FeedbackFormWrapper}>
     <h2 className={styles.title}>Обратная связь</h2>
-    <Form onSubmit={onFormSubmit}>
+    <Form onSubmit={onFormSubmit as any}>
       <Input
         className={styles.formItem}
         label="Как к вам обратиться?"

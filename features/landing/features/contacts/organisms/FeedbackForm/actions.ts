@@ -1,9 +1,10 @@
 import { ExtraArgs, State } from '@app/lib/store'
 
+import { SendFeedbackRequest } from '@app/lib/api/request/SendFeedback'
 import { Dispatch } from 'redux'
 import { actions } from './reducer'
 
-export const sendFeedback = (feedbackFields: any) => async (
+export const sendFeedback = (feedbackFields: SendFeedbackRequest) => async (
   dispatch: Dispatch<any>,
   getState: () => State,
   { getApi }: ExtraArgs,

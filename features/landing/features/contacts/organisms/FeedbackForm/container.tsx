@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { compose } from 'recompose'
 import { AnyAction, Dispatch } from 'redux'
 
+import { push } from '@app/features/admin/features/toast'
 import { SendFeedbackRequest } from '@app/lib/api/request/SendFeedback'
 import { sendFeedback } from './actions'
 import { Props as PageProps } from './FeedbackForm'
@@ -22,6 +23,9 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     public onFormSubmit = async (feedbackFields: SendFeedbackRequest) => {
       const { send } = this.props
       await send(feedbackFields)
+      push({
+        message: 'THANKS!!!',
+      })
     }
   }
 }
