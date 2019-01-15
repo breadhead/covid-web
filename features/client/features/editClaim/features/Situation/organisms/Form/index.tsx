@@ -12,11 +12,10 @@ interface Props {
   onFormSubmit: (fields: SituationClaimFields) => Promise<void>
   claimData: ClaimData
   error: false | string
-  id: string
   initial: Partial<SituationClaimFields>
 }
 
-const ClaimForm = ({ onFormSubmit, claimData, error, id, initial }: Props) => {
+const ClaimForm = ({ onFormSubmit, claimData, error, initial }: Props) => {
   return (
     <Form
       initialValues={initial}
@@ -27,7 +26,7 @@ const ClaimForm = ({ onFormSubmit, claimData, error, id, initial }: Props) => {
       <Health claimData={claimData} styles={styles} />
       <History initial={initial} claimData={claimData} styles={styles} />
       <Survey initial={initial} claimData={claimData} styles={styles} />
-      <Footer error={error} styles={styles} id={id} />
+      <Footer error={error} styles={styles} id={claimData.id} />
     </Form>
   )
 }

@@ -57,9 +57,8 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       return (
         <WrappedComponent
           initialFields={initialFields}
-          id={id}
           error={error}
-          claimData={{ localization, theme }}
+          claimData={{ localization, theme, id }}
           onFormSubmit={this.onFormSubmit}
         />
       )

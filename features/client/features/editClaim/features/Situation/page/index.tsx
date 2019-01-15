@@ -11,14 +11,12 @@ export interface Props {
   initialFields: Partial<SituationClaimFields>
   claimData: ClaimData
   error: false | string
-  id: string
 }
 
 const SituationPage = ({
   onFormSubmit,
   claimData,
   error,
-  id,
   initialFields,
 }: Props) => {
   return (
@@ -32,7 +30,6 @@ const SituationPage = ({
     >
       <ClaimForm
         initial={initialFields}
-        id={id}
         error={error}
         claimData={claimData}
         onFormSubmit={onFormSubmit}
