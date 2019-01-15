@@ -5,4 +5,4 @@ export enum QuestionsCategories {
   theme = 'theme',
 }
 
-export type ClaimData = Pick<ShortClaim, 'target' | 'theme'>
+export type ClaimData = Pick<ShortClaim, 'target' | 'theme' | 'id'>

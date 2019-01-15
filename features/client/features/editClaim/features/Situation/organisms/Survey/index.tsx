@@ -3,14 +3,15 @@ import * as React from 'react'
 import { Input } from '@app/features/common/form'
 import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
-import { ClaimData } from '../../types'
+import { ClaimData, SituationClaimFields } from '../../types'
 
 interface Props {
   styles: StylesType
   claimData: ClaimData
+  initial: Partial<SituationClaimFields>
 }
 
-const Survey = ({ styles, claimData }: Props) => (
+const Survey = ({ styles, claimData, initial }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Обследования</h2>
 
@@ -26,10 +27,10 @@ const Survey = ({ styles, claimData }: Props) => (
         <p className={styles.secondaryText}>
           Последняя по дате. Укажите ссылку на скан или фотографию
         </p>
-        <label htmlFor="histology" className={styles.labelSmall}>
+        <label htmlFor="histology.url" className={styles.labelSmall}>
           Ссылка на файл
         </label>
-        <Input name="histology" />
+        <Input name="histology.url" />
       </>
     )}
 
@@ -37,11 +38,12 @@ const Survey = ({ styles, claimData }: Props) => (
     <p className={styles.secondaryText}>
       Последние по дате. Укажите ссылку на сканы или фотографии
     </p>
-    <label htmlFor="discharge" className={styles.labelSmall}>
+    <label htmlFor="discharge.url" className={styles.labelSmall}>
       Ссылка на файл
     </label>
-    <Input name="discharge" />
+    <Input name="discharge.url" />
     <AddFieldContainer
+      initialCount={initial.otherFiles!.length}
       buttonClassName={styles.addButton}
       buttonText="Добавить другие файлы"
     >

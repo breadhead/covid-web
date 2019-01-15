@@ -24,6 +24,10 @@ interface RelativesDisease {
 }
 
 export interface SituationClaimFields {
+  relativesDiseasesPresence: boolean
+  surgicalTreatmentsPresence: boolean
+  medicalsTreatmentsPresence: boolean
+  radiationTreatmentsPresence: boolean
   description: string
   diagnosis: string
   stage: string
@@ -46,4 +50,4 @@ export interface SituationClaimFields {
   diagnosisDate: Date
 }
 
-export type ClaimData = Pick<ShortClaim, 'localization' | 'theme'>
+export type ClaimData = Pick<ShortClaim, 'localization' | 'theme' | 'id'>
