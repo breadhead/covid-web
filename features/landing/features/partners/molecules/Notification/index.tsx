@@ -3,6 +3,7 @@ import * as React from 'react'
 import * as styles from './Notification.css'
 
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
+import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 
@@ -19,9 +20,11 @@ const Notification = () => (
         {NON_BREAKING_SPACE}корпоративные пожертвования. <br />
         Станьте нашим партнером и{NON_BREAKING_SPACE}поддержите работу сервиса.
       </p>
-      <Button className={styles.button} kind={ButtonKind.Secondary}>
-        Связаться с нами
-      </Button>
+      <NavLink type={NavLinkType.Nav} href="/contacts">
+        <Button className={styles.button} kind={ButtonKind.Secondary}>
+          Связаться с нами
+        </Button>
+      </NavLink>
     </div>
   </article>
 )

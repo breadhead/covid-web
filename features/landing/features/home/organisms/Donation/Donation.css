@@ -52,10 +52,6 @@
   border-radius: 20px;
 }
 
-.quote {
-  align-self: flex-end;
-}
-
 .author {
   display: flex;
   align-items: center;
