@@ -2,20 +2,14 @@ import * as React from 'react'
 
 import * as styles from './QuestionNotification.css'
 
-import Button, { ButtonSize } from '@app/ui/atoms/Button'
+import FinishButton from '../../molecules/FinishButton'
 
-interface Props {
-  onClick?: () => void
-}
-
-const QuestionNotification = ({ onClick }: Props) => (
+const QuestionNotification = () => (
   <article className={styles.questionNotification}>
     <h3 className={styles.title}>
       Эксперт понятно ответил на все ваши вопросы?
     </h3>
-    <Button onClick={onClick} className={styles.button} size={ButtonSize.Large}>
-      Да, cпасибо, мне все понятно
-    </Button>
+    <FinishButton className={styles.button} />
     <p className={styles.text}>
       Если у вас остались вопросы к эксперту, вы можете задать их в чате.
       <br />

@@ -85,3 +85,7 @@ body {
   min-height: 100%;
   overflow-x: hidden;
 }
+
+.ReactModal__Overlay--after-open {
+  z-index: 10;
+}
