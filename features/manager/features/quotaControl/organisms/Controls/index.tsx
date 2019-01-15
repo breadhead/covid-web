@@ -4,13 +4,13 @@ import { WithQuotaTypeModal } from '../../../bindQuota'
 import { WithCloseClaimModal } from '../../../closeClaim'
 import Buttons from '../../molecules/Buttons'
 import Corporate from '../../molecules/Corporate'
-
 import * as styles from './Controls.css'
 
 interface Props extends WithQuotaTypeModal, WithCloseClaimModal {
   allocationAvailable: boolean
   status: ClaimStatus
   allowEditing?: boolean
+  nextStatus: () => void
 }
 
 const Controls = ({
@@ -18,10 +18,12 @@ const Controls = ({
   openCloseClaim,
   allocationAvailable,
   status,
+  nextStatus,
   allowEditing = true,
 }: Props) => (
   <div className={styles.plate}>
     <Buttons
+      nextStatus={nextStatus}
       status={status}
       showBindQuota={allocationAvailable}
       openBindQuota={openBindQuota}
