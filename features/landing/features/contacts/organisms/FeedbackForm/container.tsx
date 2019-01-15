@@ -1,7 +1,7 @@
 import * as React from 'react'
-
 import { connect } from 'react-redux'
-import { AnyAction, compose, Dispatch } from 'redux'
+import { compose } from 'recompose'
+import { AnyAction, Dispatch } from 'redux'
 
 import { SendFeedbackRequest } from '@app/lib/api/request/SendFeedback'
 import { sendFeedback } from './actions'
