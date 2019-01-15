@@ -1,19 +1,22 @@
 import axios, { AxiosError, AxiosInstance } from 'axios'
 import HttpStatus from 'http-status-codes'
 
+import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 
-import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
-import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import ApiClient, { UploadedFile, User } from './ApiClient'
 import { queryString } from './helper/queryString'
 import { tapDate } from './helper/tapDate'
+import { AnswerRequest } from './request/AnswerRequest'
 import { BindQuotaRequest } from './request/BindQuotaRequest'
+import { CloseClaimRequest } from './request/CloseClaimRequest'
 import { QuotaCreateRequest, QuotaEditRequest } from './request/Quota'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
 import { SendFeedbackRequest } from './request/SendFeedback'
@@ -44,6 +47,9 @@ export default class RealApiClient implements ApiClient {
       .get(`/claims/${id}/main`)
       .then(response => response.data as ListedClaim)
 
+  public closeClaim = (request: CloseClaimRequest) =>
+    this.axiosInstance.post('/claims/close', request)
+
   public createShortClaim = (shortClaimRequest: ShortClaimRequest) =>
     this.axiosInstance
       .post('/claims/short', shortClaimRequest)
@@ -58,6 +64,11 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .get(`/claims/${id}/situation`)
       .then(response => response.data as SituationClaim)
+
+  public questionsClaim = (id: string) =>
+    this.axiosInstance
+      .get(`/claims/${id}/questions`)
+      .then(response => response.data as AnswerClaim)
 
   public quotaClaim = (id: string) =>
     this.axiosInstance
@@ -80,6 +91,11 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post('/quotas/transfer', quotaTransferRequest)
       .then(response => response.data as QuotaTransferResponse)
+
+  public answerQuestions = (request: AnswerRequest) =>
+    this.axiosInstance
+      .post('/claims/answer', request)
+      .then(response => response.data)
 
   public quota = (id: string) =>
     this.axiosInstance

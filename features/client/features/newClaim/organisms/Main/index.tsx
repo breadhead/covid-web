@@ -1,6 +1,3 @@
-import cx from 'classnames'
-import * as React from 'react'
-
 import {
   ComboBox,
   EmergingControlTypes,
@@ -13,16 +10,19 @@ import { NON_BREAKING_SPACE, SPACE, StylesType } from '@app/lib/config'
 import ClaimTarget from '@app/models/Claim/ClaimTarget'
 import NavLink from '@app/ui/atoms/NavLink'
 import { mapEnum, mapString } from '@app/ui/atoms/Select'
-
 import { RadioButtonsValue } from '@app/ui/organisms/EmergingFormElement/RadioGroupElement'
+import cx from 'classnames'
+import * as React from 'react'
 import { localizations, themes } from '../../../../values'
+import { ShortClaimFields } from '../ClaimForm'
 import { schema } from './schema'
 
 interface Props {
   styles: StylesType
+  initial: Partial<ShortClaimFields>
 }
 
-const Main = ({ styles }: Props) => (
+const Main = ({ styles, initial }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Кратко о теме консультации</h2>
     <label htmlFor="target" className={styles.label}>
@@ -45,14 +45,16 @@ const Main = ({ styles }: Props) => (
       options={themes.map(mapString)}
       placeholder="Выберите тему"
     />
+
     <label htmlFor="diagnosis" className={styles.label}>
       У вас есть установленный врачом онкологический диагноз?
     </label>
     <EmergingFormElement
       className={styles.field}
-      validate={schema.diagnosis}
+      validate={schema.localizationPresence}
       controlType={EmergingControlTypes.Radiogroup}
-      name="diagnosis"
+      name="localizationPresence"
+      defaultVisible={initial.localizationPresence}
     >
       <label
         htmlFor="localization"
@@ -77,12 +79,13 @@ const Main = ({ styles }: Props) => (
     </p>
     <EmergingFormElement
       defaultValue={RadioButtonsValue.No}
-      validate={schema.corporate}
+      validate={schema.companyPresence}
       controlType={EmergingControlTypes.Switch}
-      name="corporate"
+      defaultVisible={initial.companyPresence}
+      name="companyPresence"
     >
       <label
-        htmlFor="companyName"
+        htmlFor="company.name"
         className={cx(styles.label, styles.emergingLabel)}
       >
         Название компании-работодателя
@@ -90,10 +93,10 @@ const Main = ({ styles }: Props) => (
       <Input
         className={styles.field}
         validate={schema.companyName}
-        name="companyName"
+        name="company.name"
       />
       <label
-        htmlFor="companyPosition"
+        htmlFor="company.position"
         className={cx(styles.label, styles.emergingLabel)}
       >
         Ваша должность и департамент компании.{SPACE}
@@ -102,7 +105,7 @@ const Main = ({ styles }: Props) => (
           здесь.
         </span>
       </label>
-      <TextArea validate={schema.companyPosition} name="companyPosition" />
+      <TextArea validate={schema.companyPosition} name="company.position" />
     </EmergingFormElement>
   </article>
 )

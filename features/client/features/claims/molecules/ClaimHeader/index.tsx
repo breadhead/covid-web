@@ -5,13 +5,13 @@ import NewMessageBage from '../../atoms/NewMessageBage'
 import formatDate from '../../helpers/formatDate'
 import styles from './ClaimHeader.css'
 
-type Props = Pick<ListedClaim, 'createdAt' | 'newMessage' | 'target' | 'id'>
+type Props = Pick<ListedClaim, 'createdAt' | 'newMessage' | 'target' | 'number'>
 
-const Header = ({ createdAt, newMessage, target, id }: Props) => (
+const Header = ({ createdAt, newMessage, target, number }: Props) => (
   <header className={styles.container}>
     <div className={styles.mainInfo}>
       <h2 className={styles.title}>
-        {formatDate(createdAt)} {id}
+        {formatDate(createdAt)} {number}
       </h2>
       <NewMessageBage available={newMessage} />
       <small className={styles.for}>{target}</small>

@@ -1,25 +1,24 @@
+import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
+import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import routes from '@app/routes'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
-
-import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
-import { AppContext } from '@app/lib/server-types'
-import ClaimTarget from '@app/models/Claim/ClaimTarget'
-import { ShortClaim } from '@app/models/Claim/ShortClaim'
-
 import { createClaim, fetchShortClaim } from './actions'
 import { ShortClaimFields } from './organisms/ClaimForm'
+import { regions } from './organisms/Contacts/config'
 import { Props as PageProps } from './page'
-
-import routes from '@app/routes'
 import { getNewClaimError } from './selectors'
+
 const Router = routes.Router
 
 interface Props {
   createClaim: (request: ShortClaimRequest) => Promise<ShortClaim>
   error: false | string
   shortClaim?: ShortClaim
+  id: string
 }
 
 interface LocalState {
@@ -43,20 +42,19 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
 
         return {
           shortClaim,
+          id,
         }
       }
 
-      return {}
+      return { id }
     }
 
-    public state = {
-      clientInRussia: true,
-    } as LocalState
+    public state = this.getInitialState() as LocalState
 
     public render() {
       const { error, shortClaim } = this.props
 
-      const initialFields = !!shortClaim ? this.claimToFields(shortClaim) : {}
+      const initialFields = this.getInitialFields(shortClaim)
 
       return (
         <WrappedComponent
@@ -69,47 +67,38 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       )
     }
 
+    private getInitialState(): LocalState {
+      return {
+        clientInRussia: this.props.id
+          ? regions.includes(this.props.shortClaim!.personalData.region)
+          : true,
+      }
+    }
+
+    private getInitialFields = (claim?: ShortClaim) => {
+      if (!!claim) {
+        return {
+          ...claim,
+          localizationPresence: !!claim.localization,
+          companyPresence: !!claim.company,
+          phonePresence: !!claim.personalData.phone,
+        }
+      }
+      return {
+        phonePresence: true,
+        companyPresence: false,
+      }
+    }
+
     private onChangeInRussia = (value: boolean) =>
       this.setState({ clientInRussia: value })
 
-    private claimToFields = (claim: ShortClaim): ShortClaimFields => ({
-      target: claim.target,
-      theme: claim.theme,
-      diagnosis: !!claim.localization,
-      localization: claim.localization,
-      corporate: !!claim.company,
-      companyName: claim.company && claim.company.name,
-      companyPosition: claim.company && claim.company.position,
-      name: claim.personalData.name,
-      region: claim.personalData.region,
-      age: claim.personalData.age,
-      gender: claim.personalData.gender,
-      email: claim.personalData.email,
-      phone: claim.personalData.phone,
-      phoneAvailable: !!claim.personalData.phone,
-    })
-
     private onFormSubmit = async (claimFields: ShortClaimFields) => {
-      const request: ShortClaimRequest = {
-        target: claimFields.target as ClaimTarget,
-        personalData: {
-          name: claimFields.name,
-          region: claimFields.region,
-          age: claimFields.age,
-          gender: claimFields.gender,
-          email: claimFields.email,
-          phone: claimFields.phone,
-        },
-        localization: claimFields.diagnosis
-          ? claimFields.localization
-          : undefined,
-        theme: claimFields.theme,
-        company: this.createCompanyRequest(claimFields),
-      }
-
+      const request = this.createRequest(claimFields)
       const { id, quotaAllocated, personalData } = await this.props.createClaim(
-        request,
+        request as ShortClaimRequest,
       )
+
       const { email } = personalData
 
       const { error } = this.props
@@ -117,13 +106,25 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       this.redirectIfNeeded(error, quotaAllocated, id, email)
     }
 
-    private createCompanyRequest = (fields: ShortClaimFields) => {
-      if (fields.corporate) {
-        return {
-          name: fields.companyName || '',
-          position: fields.companyPosition || '',
-        }
+    private createRequest = (claimFields: ShortClaimFields) => {
+      const { id } = this.props
+      const fields = claimFields
+
+      if (!claimFields.localizationPresence) {
+        fields.localization = null
       }
+      if (!claimFields.companyPresence) {
+        fields.company = null
+      }
+      if (!claimFields.phonePresence) {
+        fields.personalData.phone = null
+      }
+
+      if (id) {
+        fields.id = id
+      }
+
+      return fields
     }
 
     private redirectIfNeeded(

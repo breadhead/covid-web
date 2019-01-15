@@ -1,7 +1,5 @@
-import * as React from 'react'
-
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-
+import * as React from 'react'
 import Layout from '../../organisms/ClaimFormLayout'
 import ClaimForm, { ShortClaimFields } from './organisms/ClaimForm'
 

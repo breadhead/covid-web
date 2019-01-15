@@ -9,8 +9,7 @@ import RadioButton from '@app/ui/atoms/RadioButton'
 import Select from '@app/ui/atoms/Select'
 import Switch from '@app/ui/atoms/Switch'
 import TextArea from '@app/ui/atoms/TextArea'
-import RadioGroup, { RadioGroupType } from '@app/ui/molecules/RadioGroup'
-import EmergingFormElement from '@app/ui/organisms/EmergingFormElement'
+import RadioGroup from '@app/ui/molecules/RadioGroup'
 
 import Layout from '@app/features/client/organisms/Layout'
 import { InputType } from '@app/features/common/form'
@@ -128,22 +127,6 @@ const Test = ({ modal }: WithModalProps) => (
       <Checkbox name="checkbox" disabled>
         Чекбокс с лейблом
       </Checkbox>
-      <EmergingFormElement controlType="switch">
-        <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
-        <br />
-        <Checkbox name="checkbox1" disabled>
-          Чекбокс с очень длинным лейблом
-        </Checkbox>
-        <br />
-      </EmergingFormElement>
-      <EmergingFormElement controlType="radiogroup">
-        <Checkbox name="checkbox">Чекбокс с лейблом</Checkbox>
-        <br />
-        <Checkbox name="checkbox1" disabled>
-          Чекбокс с очень длинным лейблом
-        </Checkbox>
-        <br />
-      </EmergingFormElement>
       <p>Комбобокс</p>
       <Combobox
         placeholder="Выберите пункт"
@@ -188,7 +171,6 @@ const Test = ({ modal }: WithModalProps) => (
       <br />
       <RadioGroup
         name="controls"
-        type={RadioGroupType.Controls}
         buttons={testControlsRadioButtons}
         defaultValue={testControlsRadioButtons[1].value}
       />

@@ -6,7 +6,9 @@ import * as styles from './Buttons.css'
 interface Props {
   openBindQuota: () => void
   showBindQuota: boolean
+  openCloseClaim: () => void
   status: ClaimStatus
+  allowEditing?: boolean
 }
 
 const defineNextStatusAction = (status: ClaimStatus) =>
@@ -15,7 +17,13 @@ const defineNextStatusAction = (status: ClaimStatus) =>
     [ClaimStatus.AnswerWaiting]: 'Передать заказчику',
   } as any)[status])
 
-const Buttons = ({ openBindQuota, showBindQuota, status }: Props) => {
+const Buttons = ({
+  openBindQuota,
+  showBindQuota,
+  openCloseClaim,
+  status,
+  allowEditing = true,
+}: Props) => {
   const nextAction = defineNextStatusAction(status)
   const closed = status === ClaimStatus.Closed
 
@@ -25,18 +33,23 @@ const Buttons = ({ openBindQuota, showBindQuota, status }: Props) => {
         <Status>{status}</Status>
         <Button kind={ButtonKind.Extra}>Trello</Button> {/* TODO: action */}
       </div>
-      <div className={styles.right}>
-        {showBindQuota && (
-          <>
-            <Button onClick={openBindQuota}>Выбрать квоту</Button>
-            <Button kind={ButtonKind.Extra}>В очередь</Button>{' '}
-            {/* TODO: action */}
-          </>
-        )}
-        {nextAction && <Button>{nextAction}</Button>} {/* TODO: action */}
-        {!closed && <Button kind={ButtonKind.Extra}>Закрыть</Button>}{' '}
-        {/* TODO: action */}
-      </div>
+      {allowEditing && (
+        <div className={styles.right}>
+          {showBindQuota && (
+            <>
+              <Button onClick={openBindQuota}>Выбрать квоту</Button>
+              <Button kind={ButtonKind.Extra}>В очередь</Button>
+              {/* TODO: action */}
+            </>
+          )}
+          {nextAction && <Button>{nextAction}</Button>} {/* TODO: action */}
+          {!closed && (
+            <Button onClick={openCloseClaim} kind={ButtonKind.Extra}>
+              Закрыть
+            </Button>
+          )}
+        </div>
+      )}
     </div>
   )
 }

@@ -3,7 +3,7 @@ import * as React from 'react'
 import { RadioGroup, TextArea } from '@app/features/common/form'
 
 import { SPACE, StylesType } from '@app/lib/config'
-import { RadioButtonStyles, RadioGroupType } from '@app/ui/molecules/RadioGroup'
+import { RadioButtonStyles } from '@app/ui/molecules/RadioGroup'
 import { ClaimData } from '../..//types'
 import { feelings } from './config'
 import { schema } from './schema'
@@ -18,7 +18,6 @@ const Health = ({ styles, claimData }: Props) => (
     <RadioGroup
       radioStyle={RadioButtonStyles.Radio}
       name="feeling"
-      type={RadioGroupType.Controls}
       buttons={feelings}
       defaultValue={null}
       validate={schema.feeling}
