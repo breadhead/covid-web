@@ -1,4 +1,5 @@
 export interface Article {
+  children?: Article[]
   subtitle: string
   text?: string
 }

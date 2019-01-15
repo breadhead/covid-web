@@ -7,6 +7,7 @@ const createInfo = ({
   diagnosis,
   stage,
   otherDisease,
+  relativesDiseases,
 }: SituationClaim): InfoBlock[] => [
   {
     title: 'Общая информация',
@@ -27,6 +28,24 @@ const createInfo = ({
         subtitle:
           'Другие заболевания, о которых, как вы считаете, нам надо знать',
         text: otherDisease,
+      },
+      {
+        subtitle: 'Кровные родстенники, которые болели раком',
+        children: relativesDiseases.map(
+          ({ relative, diagnosisAge, localization }) => ({
+            subtitle: relative,
+            children: [
+              {
+                subtitle: 'Локализация опухоли',
+                text: localization,
+              },
+              {
+                subtitle: 'Возраст, в котором был установлен диагноз',
+                text: diagnosisAge,
+              },
+            ],
+          }),
+        ),
       },
     ],
   },
