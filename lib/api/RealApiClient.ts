@@ -19,6 +19,7 @@ import { BindQuotaRequest } from './request/BindQuotaRequest'
 import { CloseClaimRequest } from './request/CloseClaimRequest'
 import { QuotaCreateRequest, QuotaEditRequest } from './request/Quota'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
+import { SendFeedbackRequest } from './request/SendFeedback'
 import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
@@ -138,6 +139,11 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post('/claims/bind-quota/', bindQuotaRequest)
       .then(response => response.data as any)
+
+  public sendFeedback = (feedback: SendFeedbackRequest) =>
+    this.axiosInstance
+      .post('/feedback/send', feedback)
+      .then(response => response.data as SendFeedbackRequest)
 
   public get token() {
     return this._token

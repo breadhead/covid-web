@@ -33,16 +33,16 @@
   margin-bottom: 120px;
   text-align: center;
 
-  & .button.button.button {
-    padding: 16px 36px;
-    font: var(--text18-28);
-  }
-
   @media (--smallDown) {
     flex-direction: column;
     align-items: center;
     margin-bottom: 40px;
   }
+}
+
+.button.button.button {
+    padding: 16px 36px;
+    font: var(--text18-28);
 }
 
 .buttonsItem.buttonsItem {
@@ -60,5 +60,17 @@
     &:last-of-type {
       margin-bottom: 0;
     }
+  }
+}
+
+.startButton {
+  display: inline-block;
+  padding: 16px 36px !important;
+  margin-right: 16px;
+  font: var(--text18-28) !important;
+
+  @media (--smallDown) {
+    margin-right: 0;
+    margin-bottom: 16px;
   }
 }

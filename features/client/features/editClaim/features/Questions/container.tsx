@@ -35,13 +35,13 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     }
     public render() {
       const {
-        shortClaim: { target, theme },
+        shortClaim: { target, theme, id },
         error,
       } = this.props
       return (
         <WrappedComponent
           error={error}
-          claimData={{ target, theme }}
+          claimData={{ target, theme, id }}
           onFormSubmit={this.onFormSubmit}
         />
       )
