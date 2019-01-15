@@ -8,12 +8,19 @@ import { ClaimData, SituationClaimFields } from '../types'
 
 export interface Props {
   onFormSubmit: (fields: SituationClaimFields) => Promise<void>
+  initialFields: Partial<SituationClaimFields>
   claimData: ClaimData
   error: false | string
   id: string
 }
 
-const SituationPage = ({ onFormSubmit, claimData, error, id }: Props) => {
+const SituationPage = ({
+  onFormSubmit,
+  claimData,
+  error,
+  id,
+  initialFields,
+}: Props) => {
   return (
     <Layout
       step={2}
@@ -24,6 +31,7 @@ const SituationPage = ({ onFormSubmit, claimData, error, id }: Props) => {
     необходимы дополнительные данные.`}
     >
       <ClaimForm
+        initial={initialFields}
         id={id}
         error={error}
         claimData={claimData}

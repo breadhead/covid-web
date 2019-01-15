@@ -21,11 +21,12 @@ interface Props {
   styles: StylesType
 }
 
-const EmergingForm = ({ styles }: Props) => (
+const EmergingForm = ({ styles, initial }: Props) => (
   <>
     <h3 className={styles.subtitle}>Лекарственное лечение</h3>
     <EmergingFormElement
-      name="emergingForm"
+      defaultVisible={initial.medicalsTreatmentsPresence}
+      name="medicalsTreatmentsPresence"
       className={styles.emergeField}
       controlType={EmergingControlTypes.Switch}
     >

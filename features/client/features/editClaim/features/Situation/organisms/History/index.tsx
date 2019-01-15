@@ -16,14 +16,14 @@ interface Props {
   claimData: ClaimData
 }
 
-const History = ({ windowSize, styles, claimData }: Props) => {
+const History = ({ windowSize, styles, claimData, initial }: Props) => {
   const { width } = windowSize
   return (
     <article className={styles.article}>
       <Main claimData={claimData} width={width} styles={styles} />
-      <Surgery width={width} styles={styles} />
-      <Medicals styles={styles} />
-      <Rays width={width} styles={styles} />
+      <Surgery initial={initial} width={width} styles={styles} />
+      <Medicals initial={initial} styles={styles} />
+      <Rays initial={initial} width={width} styles={styles} />
     </article>
   )
 }

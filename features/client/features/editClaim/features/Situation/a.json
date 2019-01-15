@@ -1,0 +1,100 @@
+{
+  "radiationTreatments": [
+    {
+      "region": "2",
+      "doctor": "sadasdasd",
+      "when": {
+        "month": "3",
+        "year": "2016"
+      },
+      "end": {
+        "month": "2",
+        "year": "2017"
+      },
+      "schema": "sadasdasd"
+    }
+  ],
+  "medicalsTreatments": [
+    {
+      "region": "2",
+      "when": {
+        "month": "3",
+        "year": "2016"
+      },
+      "end": {
+        "month": "2",
+        "year": "2017"
+      },
+      "doctor": "sdfsdfs",
+      "cyclesCount": "432423",
+      "schema": "sdfsdf"
+    },
+    {
+      "region": "1",
+      "when": {
+        "month": "2",
+        "year": "2017"
+      },
+      "doctor": "dsfsdf",
+      "cyclesCount": "3224",
+      "schema": "sadasdasd"
+    }
+  ],
+  "surgicalTreatments": [
+    {
+      "region": "1",
+      "when": {
+        "month": "3",
+        "year": "2017"
+      },
+      "doctor": "sdfsdf",
+      "surgery": "sdfsdfsdfs"
+    },
+    {
+      "region": "1",
+      "when": {
+        "month": "3",
+        "year": "2015"
+      },
+      "doctor": "dfgdgf",
+      "surgery": "dfgdfg"
+    }
+  ],
+  "otherFiles": [
+    {
+      "title": "sadasdasd",
+      "url": "sadasdasd"
+    },
+    {
+      "title": "sadasdasd",
+      "url": "sadasdasd"
+    }
+  ],
+  "relativesDiseases": [],
+  "id": "3eu3Uf0n8JRfyk",
+  "otherDisease": "sdfsdfsd",
+  "nowTreatment": null,
+  "description": "sdfsdfsdf",
+  "diagnosis": null,
+  "complaint": "dfsdfxvxcv",
+  "feeling": "Нормальная активность",
+  "stage": null,
+  "worst": "sdfsdfxcvxcvx",
+  "relativesDiseasesPresence": true,
+  "relativeDiseases": [
+    {
+      "relative": "Папа",
+      "localization": "Рак простаты",
+      "diagnosisAge": "2342"
+    },
+    {
+      "relative": "Мама",
+      "localization": "Рак мочевого пузыря",
+      "diagnosisAge": "24342"
+    }
+  ],
+  "surgicalTreatmentsPresence": true,
+  "medicalsTreatmentsPresence": true,
+  "radiationTreatmentsPresence": true,
+  "discharge": "sadasdasd"
+}
