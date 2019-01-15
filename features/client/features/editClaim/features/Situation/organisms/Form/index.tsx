@@ -23,10 +23,10 @@ const ClaimForm = ({ onFormSubmit, claimData, error, id, initial }: Props) => {
       onSubmit={onFormSubmit as any}
       className={styles.ClaimForm}
     >
-      <Common claimData={claimData} styles={styles} />
+      <Common initial={initial} claimData={claimData} styles={styles} />
       <Health claimData={claimData} styles={styles} />
       <History initial={initial} claimData={claimData} styles={styles} />
-      <Survey claimData={claimData} styles={styles} />
+      <Survey initial={initial} claimData={claimData} styles={styles} />
       <Footer error={error} styles={styles} id={id} />
     </Form>
   )

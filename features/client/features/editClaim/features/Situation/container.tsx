@@ -77,15 +77,13 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     }
 
     private getInitialFields = (claim: SituationClaim) => {
-      return claim.complaint // used as an indicator that has user already filled this form
-        ? {
-            ...claim,
-            relativesDiseasesPresence: !isEmpty(claim.relativesDiseases),
-            surgicalTreatmentsPresence: !isEmpty(claim.surgicalTreatments),
-            medicalsTreatmentsPresence: !isEmpty(claim.medicalsTreatments),
-            radiationTreatmentsPresence: !isEmpty(claim.radiationTreatments),
-          }
-        : claim
+      return {
+        ...claim,
+        relativesDiseasesPresence: !isEmpty(claim.relativesDiseases),
+        surgicalTreatmentsPresence: !isEmpty(claim.surgicalTreatments),
+        medicalsTreatmentsPresence: !isEmpty(claim.medicalsTreatments),
+        radiationTreatmentsPresence: !isEmpty(claim.radiationTreatments),
+      }
     }
 
     private createRequest = (claimFields: SituationClaimFields, id: string) => {

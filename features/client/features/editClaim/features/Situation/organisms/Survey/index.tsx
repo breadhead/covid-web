@@ -10,7 +10,7 @@ interface Props {
   claimData: ClaimData
 }
 
-const Survey = ({ styles, claimData }: Props) => (
+const Survey = ({ styles, claimData, initial }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Обследования</h2>
 
@@ -41,7 +41,9 @@ const Survey = ({ styles, claimData }: Props) => (
       Ссылка на файл
     </label>
     <Input name="discharge" />
+    {console.log(initial.otherFiles)}
     <AddFieldContainer
+      initialCount={initial.otherFiles!.length}
       buttonClassName={styles.addButton}
       buttonText="Добавить другие файлы"
     >

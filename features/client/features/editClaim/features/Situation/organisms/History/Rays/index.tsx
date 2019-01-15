@@ -31,6 +31,7 @@ const EmergingForm = ({ styles, initial }: Props) => (
       controlType={EmergingControlTypes.Switch}
     >
       <AddFieldContainer
+        initialCount={initial.radiationTreatments!.length}
         buttonClassName={styles.addButton}
         buttonText="Добавить лучевую терапию"
       >
