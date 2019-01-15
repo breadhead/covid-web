@@ -75,6 +75,11 @@ import {
   unauthorizedMiddleware,
 } from '@app/features/login'
 
+import {
+  reducer as sendFeedbackReducer,
+  State as SendFeedbackState,
+} from '@app/features/landing/features/contacts/organisms/FeedbackForm'
+
 import ApiClient from './api/ApiClient'
 import ApiClientFactory from './api/ApiClientFactory'
 import factory from './api/apiFactory'
@@ -93,6 +98,7 @@ export interface State {
   manager: ManagerState
   chat: ChatState
   consultation: ConsultationState
+  feedback: SendFeedbackState
   doctor: DoctorState
 }
 
@@ -111,6 +117,7 @@ const reducer = combineReducers({
   manager: managerReducer,
   chat: chatReducer,
   consultation: consultationReducer,
+  feedback: sendFeedbackReducer,
   doctor: doctorReducer,
 } as any)
 
