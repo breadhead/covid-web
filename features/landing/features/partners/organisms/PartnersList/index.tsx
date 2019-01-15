@@ -17,10 +17,12 @@ interface State {
   list: PartnerCardInterface[]
 }
 
+const DEFAULT_SELECT_VALUE = Options[1].key
+
 class PartnersList extends React.Component<{}, State> {
   public state = {
-    list: partners,
-    selectValue: Options[1].key,
+    list: partners.filter(partner => partner.type === DEFAULT_SELECT_VALUE),
+    selectValue: DEFAULT_SELECT_VALUE,
   }
 
   public componentDidMount() {
