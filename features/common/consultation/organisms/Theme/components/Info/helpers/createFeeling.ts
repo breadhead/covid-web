@@ -6,6 +6,7 @@ const createFelling = ({
   feeling,
   worst,
   complaint,
+  nowTreatment,
 }: SituationClaim): InfoBlock[] => [
   {
     title: 'Самочувствие',
@@ -21,6 +22,10 @@ const createFelling = ({
       {
         subtitle: 'Жалобы',
         text: complaint,
+      },
+      {
+        subtitle: 'Противоопухолевое лечение в данный момент',
+        text: nowTreatment,
       },
     ],
   },
