@@ -12,12 +12,13 @@ const Footer = () => (
       alt="nenaprasno.ru"
     />
     <p className={styles.text}>
-      Если у вас есть аккаунт на <b>nenaprasno.ru</b>, вы{NON_BREAKING_SPACE}
+      Если у вас есть аккаунт на{NON_BREAKING_SPACE}
+      <b>nenaprasno.ru</b>, вы{NON_BREAKING_SPACE}
       можете{SPACE}
       <NavLink href="#" className={styles.link}>
         войти
       </NavLink>
-      , используя те же данные
+      , используя те{NON_BREAKING_SPACE}же{NON_BREAKING_SPACE}данные
     </p>
   </footer>
 )

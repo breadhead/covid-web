@@ -3,6 +3,7 @@ import * as styles from './Intro.css'
 
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
+import StartConsultationButton from '../../../../molecules/StartConsultationButton'
 
 const Intro = () => (
   <section className={styles.intro}>
@@ -22,15 +23,9 @@ const Intro = () => (
       />
     </div>
     <div className={styles.buttons}>
-      <NavLink
-        type={NavLinkType.Nav}
-        className={styles.buttonsItem}
-        href="/client/new-claim"
-      >
-        <Button className={styles.button} kind={ButtonKind.Primary}>
-          Начать консультацию
-        </Button>
-      </NavLink>
+      <StartConsultationButton className={styles.startButton}>
+        Начать консультацию
+      </StartConsultationButton>
       <NavLink type={NavLinkType.Nav} href="#donation">
         <Button className={styles.button} kind={ButtonKind.Secondary}>
           Помочь проекту
