@@ -76,13 +76,18 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     }
 
     private getInitialFields = (claim: SituationClaim) => {
-      return {
-        ...claim,
-        relativesDiseasesPresence: !isEmpty(claim.relativesDiseases),
-        surgicalTreatmentsPresence: !isEmpty(claim.surgicalTreatments),
-        medicalsTreatmentsPresence: !isEmpty(claim.medicalsTreatments),
-        radiationTreatmentsPresence: !isEmpty(claim.radiationTreatments),
+      const claimWasSent = !!claim.description
+      if (claimWasSent) {
+        return {
+          ...claim,
+          relativesDiseasesPresence: !isEmpty(claim.relativesDiseases),
+          surgicalTreatmentsPresence: !isEmpty(claim.surgicalTreatments),
+          medicalsTreatmentsPresence: !isEmpty(claim.medicalsTreatments),
+          radiationTreatmentsPresence: !isEmpty(claim.radiationTreatments),
+        }
       }
+
+      return claim
     }
 
     private createRequest = (claimFields: SituationClaimFields, id: string) => {
