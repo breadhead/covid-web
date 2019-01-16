@@ -2,14 +2,10 @@ import * as React from 'react'
 
 import * as styles from './ExpertCard.css'
 
-interface Expert {
-  photo: string
-  name: string
-  specialization: string
-}
+import { ExpertInterface } from '../../features/Expert/page'
 
 interface Props {
-  expert: Expert
+  expert: ExpertInterface
 }
 
 const ExpertCard = ({ expert }: Props) => {
