@@ -88,4 +88,8 @@ body {
 
 .ReactModal__Overlay--after-open {
   z-index: 10;
+
+  @media (--smallDown) {
+      width: 100%;
+  }
 }
