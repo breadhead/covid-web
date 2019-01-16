@@ -12,37 +12,18 @@ interface Props {
   messages: ChatMessage[]
 }
 
-class ChatWrapper extends React.Component<Props> {
-  private myRef = React.createRef<HTMLDivElement>()
-
-  public scrollToBottom = () => {
-    const ref = this.myRef.current
-    if (ref) {
-      ref.scrollTop = ref.scrollHeight
-    }
-  }
-
-  public componentDidMount() {
-    this.scrollToBottom()
-  }
-
-  public componentDidUpdate() {
-    this.scrollToBottom()
-  }
-
-  public render() {
-    const { messages } = this.props
-
+const ChatWrapper = React.forwardRef<HTMLDivElement, Props>(
+  ({ messages }: Props, ref) => {
     return messages.length === 0 ? (
       <EmptyWindow text={EmptyWindowText} />
     ) : (
-      <div className={styles.chatWrapper} ref={this.myRef}>
+      <div className={styles.chatWrapper} ref={ref}>
         {messages.map(message => (
           <Message key={message.id} message={message} />
         ))}
       </div>
     )
-  }
-}
+  },
+)
 
 export default ChatWrapper

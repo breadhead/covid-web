@@ -8,6 +8,7 @@
   width: 400px;
   max-width: 400px;
   height: 100vh;
+  max-height: 100%;
   overflow: -moz-scrollbars-none;
   background-color: #fff;
   box-shadow: 0 0 8px 0 rgba(63, 63, 68, 0.04),

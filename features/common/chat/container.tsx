@@ -1,3 +1,4 @@
+import withLockScroll from '@breadhead/with-scroll-lock'
 import nanoid from 'nanoid'
 import * as React from 'react'
 import { connect } from 'react-redux'
@@ -9,9 +10,12 @@ import { getQuery } from '@app/features/common/browserQuery'
 import { State } from '@app/lib/store'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
 
+import withWindowSize, { WindowSize } from '../windowSize'
 import { fetch, send } from './actions'
 import { FormFileds, Props as PageProps } from './page'
 import { getLoaded, getMessages } from './selectors'
+
+const MOBILE_WIDTH = 720
 
 interface Query {
   id: string
@@ -22,7 +26,10 @@ interface OwnProps {
   fetchMessages: (claimId: string) => Promise<void>
   messages: ChatMessage[]
   query: Query
+  isOpen: boolean
   loaded: boolean
+  windowSize: WindowSize
+  bodyScrolling: { lock: () => void; unlock: () => void }
 }
 
 type ResultPageProps = Omit<PageProps, 'messages' | 'onSubmit'>
@@ -30,16 +37,63 @@ type Props = OwnProps & ResultPageProps
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
   return class extends React.Component<Props, {}> {
-    public componentDidMount() {
-      this.fetchMessages()
+    private messages = React.createRef<HTMLDivElement>()
+    public async componentDidMount() {
+      await this.fetchMessages()
+      this.scrollToBottom()
     }
 
-    public componentDidUpdate() {
-      this.fetchMessages()
+    public async componentDidUpdate({ isOpen }: Props) {
+      await this.fetchMessages()
+      this.scrollToBottom()
+      const { isOpen: currentIsOpen } = this.props
+
+      if (isOpen !== currentIsOpen) {
+        this.handleChatStatusChange(currentIsOpen)
+      }
     }
 
     public render() {
-      return <WrappedComponent onSubmit={this.send} {...this.props} />
+      return (
+        <WrappedComponent
+          onSubmit={this.send}
+          forwardedRef={this.messages}
+          onTextAreaFocus={this.onTextAreaFocus}
+          {...this.props}
+        />
+      )
+    }
+
+    private handleChatStatusChange = (isOpen: boolean) => {
+      const {
+        windowSize: { width },
+        bodyScrolling: { lock, unlock },
+      } = this.props
+
+      if (MOBILE_WIDTH > width) {
+        if (isOpen) {
+          lock()
+        } else {
+          unlock()
+        }
+      }
+    }
+
+    private scrollToBottom = () => {
+      const ref = this.messages.current
+      if (ref) {
+        ref.scrollTop = ref.scrollHeight
+      }
+    }
+
+    private onTextAreaFocus = () => {
+      const {
+        windowSize: { width },
+      } = this.props
+
+      if (MOBILE_WIDTH > width) {
+        this.scrollToBottom()
+      }
     }
 
     private send = ({ message }: FormFileds) => {
@@ -75,6 +129,8 @@ const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
 })
 
 export default compose<PageProps, ResultPageProps>(
+  withWindowSize,
+  withLockScroll(true),
   connect(
     mapState,
     mapDipatch,
