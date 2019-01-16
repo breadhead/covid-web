@@ -4,6 +4,7 @@ import Button, { ButtonKind } from '@app/ui/atoms/Button'
 import Status from '../../atoms/Status'
 import * as styles from './Buttons.css'
 interface Props {
+  nextStatus: () => void
   openBindQuota: () => void
   showBindQuota: boolean
   openCloseClaim: () => void
@@ -21,6 +22,7 @@ const Buttons = ({
   openBindQuota,
   showBindQuota,
   openCloseClaim,
+  nextStatus,
   status,
   allowEditing = true,
 }: Props) => {
@@ -42,7 +44,8 @@ const Buttons = ({
               {/* TODO: action */}
             </>
           )}
-          {nextAction && <Button>{nextAction}</Button>} {/* TODO: action */}
+          {nextAction && <Button onClick={nextStatus}>{nextAction}</Button>}{' '}
+          {/* TODO: action */}
           {!closed && (
             <Button onClick={openCloseClaim} kind={ButtonKind.Extra}>
               Закрыть

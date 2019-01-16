@@ -8,6 +8,7 @@ const actionsMap: ActionsMap = {
   [ClaimStatus.Closed]: id => `/client/consultation/${id}`,
   [ClaimStatus.DeliveredToCustomer]: id => `/client/consultation/${id}`,
   [ClaimStatus.AnswerWaiting]: () => undefined,
+  [ClaimStatus.AtTheDoctor]: () => undefined,
   [ClaimStatus.QuotaAllocation]: () => undefined,
   [ClaimStatus.QuestionnaireValidation]: () => undefined,
 }

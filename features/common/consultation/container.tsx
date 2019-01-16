@@ -4,9 +4,8 @@ import { connect } from 'react-redux'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 
-import { fetchClaim } from './actions'
+import { fetchClaim, getClaim } from './features/claimData'
 import { Props as PageProps } from './page'
-import { getClaim } from './selectors'
 
 interface Query {
   id: string
