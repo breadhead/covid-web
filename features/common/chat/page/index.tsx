@@ -23,6 +23,7 @@ export interface Props {
   onSubmit: (values: FormFileds) => Promise<void>
   onTextAreaFocus: () => void
   forwardedRef: React.Ref<HTMLDivElement>
+  muted: boolean
 }
 
 const Chat = ({
@@ -33,6 +34,7 @@ const Chat = ({
   opensOnce,
   onTextAreaFocus,
   forwardedRef,
+  muted,
 }: Props) => {
   const shouldHide = !opensOnce || !isOpen
   return (
@@ -49,17 +51,24 @@ const Chat = ({
         resetAfterSubmit
         forceSubmitOnEnter
       >
-        <TextArea
-          onFocus={onTextAreaFocus}
-          autosize={{ minRows: 1, maxRows: 4 }}
-          className={styles.input}
-          name="message"
-          disableResizeOnEnter
-          placeholder="Ваше сообщение..."
-        />
-        <button type={ButtonType.Submit} className={styles.sendButton}>
-          <IconCustom className={styles.inputIcon} name="24x24_send-message" />
-        </button>
+        {!muted && (
+          <>
+            <TextArea
+              onFocus={onTextAreaFocus}
+              autosize={{ minRows: 1, maxRows: 4 }}
+              className={styles.input}
+              name="message"
+              disableResizeOnEnter
+              placeholder="Ваше сообщение..."
+            />
+            <button type={ButtonType.Submit} className={styles.sendButton}>
+              <IconCustom
+                className={styles.inputIcon}
+                name="24x24_send-message"
+              />
+            </button>
+          </>
+        )}
       </Form>
     </section>
   )

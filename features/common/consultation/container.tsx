@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 
+import { currentUser } from '@app/features/login/features/user'
 import { fetchClaim, getClaim } from './features/claimData'
 import { Props as PageProps } from './page'
 
@@ -23,8 +24,9 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       query,
     }: AppContext<Query>) {
       await reduxStore.dispatch(fetchClaim(query.id) as any)
+      const user = await reduxStore.dispatch(currentUser() as any)
 
-      return {}
+      return { roles: user.roles }
     }
 
     public render() {

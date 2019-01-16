@@ -1,5 +1,6 @@
 import { Role } from '../lib/api/ApiClient'
 
-export interface CurrentUser {
+export interface User {
+  token: string
   roles: Role[]
 }

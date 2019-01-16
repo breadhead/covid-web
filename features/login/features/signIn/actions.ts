@@ -1,7 +1,7 @@
 import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
 import redirectUser from '../redirect'
-import { actions as tokenActions } from '../token/'
+import { actions as userActions } from '../user'
 import { setCookie } from './helpers/setAuthToken'
 import { actions } from './reducer'
 
@@ -16,7 +16,7 @@ export const login = (username: string, password: string) => async (
     const { token, roles } = await api.login(username, password)
 
     setCookie(token)
-    dispatch(tokenActions.set(token, roles))
+    dispatch(userActions.setToken(token))
 
     redirectUser(roles)
 

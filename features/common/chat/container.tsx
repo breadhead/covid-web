@@ -13,7 +13,7 @@ import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import withWindowSize, { WindowSize } from '../windowSize'
 import { fetch, send } from './actions'
 import { FormFileds, Props as PageProps } from './page'
-import { getLoaded, getMessages } from './selectors'
+import { getLoaded, getMessages, isMuted } from './selectors'
 
 const MOBILE_WIDTH = 720
 
@@ -30,6 +30,7 @@ interface OwnProps {
   loaded: boolean
   windowSize: WindowSize
   bodyScrolling: { lock: () => void; unlock: () => void }
+  muted: boolean
 }
 
 type ResultPageProps = Omit<PageProps, 'messages' | 'onSubmit'>
@@ -120,6 +121,7 @@ const mapState = (state: State) => ({
   messages: getMessages(state),
   query: getQuery<Query>(state),
   loaded: getLoaded(state),
+  muted: isMuted(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
@@ -128,7 +130,7 @@ const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
   fetchMessages: (claimId: string) => dispatch(fetch(claimId) as any),
 })
 
-export default compose<PageProps, ResultPageProps>(
+export default compose<PageProps, any>(
   withWindowSize,
   withLockScroll(true),
   connect(

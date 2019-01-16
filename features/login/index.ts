@@ -10,7 +10,7 @@ export {
   WithSignUpModal,
 } from './features/signUp'
 
-export { getToken } from './features/token'
+export { getToken } from './features/user'
 
 export {
   default as SignInModal,
@@ -24,8 +24,8 @@ export {
 
 export { State, reducer } from './reducer'
 
-import { actions } from './features/token'
+import { actions } from './features/user'
 
-const setToken = actions.set
+const setToken = actions.setToken
 
 export { setToken }
