@@ -8,9 +8,11 @@
   width: 400px;
   max-width: 400px;
   height: 100vh;
+  max-height: 100%;
   overflow: -moz-scrollbars-none;
   background-color: #fff;
-  box-shadow: 0 0 8px 0 rgba(63,63,68,0.04), 0 0 20px 0 rgba(63,63,68,0.12);
+  box-shadow: 0 0 8px 0 rgba(63, 63, 68, 0.04),
+    0 0 20px 0 rgba(63, 63, 68, 0.12);
   -ms-overflow-style: none;
 
   @media (--mediumDown) {
@@ -28,8 +30,8 @@
   }
 }
 
-.chat::-webkit-scrollbar { 
-  width: 0; 
+.chat::-webkit-scrollbar {
+  width: 0;
 }
 
 .messageWrapper {
@@ -37,8 +39,7 @@
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-  padding: 16px;
-  overflow-y: auto;
+  padding: 0 16px;
   background-color: var(--background-color);
 }
 

@@ -10,16 +10,16 @@ import {
   State as SignInState,
 } from './features/signIn'
 
-import { reducer as tokenReducer, State as TokenState } from './features/token'
+import { reducer as userReducer, State as UserState } from './features/user'
 
 export interface State {
   confirm: ConfirmState
   signIn: SignInState
-  token: TokenState
+  user: UserState
 }
 
 export const reducer = combineReducers<State>({
   confirm: confirmReducer,
   signIn: signInReducer,
-  token: tokenReducer,
+  user: userReducer,
 } as any)

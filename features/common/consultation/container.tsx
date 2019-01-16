@@ -5,6 +5,7 @@ import { fetchClaimBoardCard } from '@app/features/manager/features/quotaControl
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 
+import { currentUser } from '@app/features/login/features/user'
 import { fetchClaim, getClaim } from './features/claimData'
 import { Props as PageProps } from './page'
 
@@ -24,11 +25,12 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       query,
     }: AppContext<Query>) {
       await reduxStore.dispatch(fetchClaim(query.id) as any)
+      const user = await reduxStore.dispatch(currentUser() as any)
       await reduxStore
         .dispatch(fetchClaimBoardCard(query.id) as any)
         .catch(() => null) // .catch for roles without access to trello
 
-      return {}
+      return { roles: user.roles }
     }
 
     public render() {
