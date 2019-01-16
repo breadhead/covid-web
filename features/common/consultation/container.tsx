@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
+import { fetchClaimBoardCard } from '@app/features/manager/features/quotaControl/actions'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 
@@ -23,6 +24,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       query,
     }: AppContext<Query>) {
       await reduxStore.dispatch(fetchClaim(query.id) as any)
+      await reduxStore.dispatch(fetchClaimBoardCard(query.id) as any)
 
       return {}
     }

@@ -11,6 +11,7 @@ interface Props extends WithQuotaTypeModal, WithCloseClaimModal {
   status: ClaimStatus
   allowEditing?: boolean
   nextStatus: () => void
+  trelloUrl?: string
 }
 
 const Controls = ({
@@ -19,10 +20,12 @@ const Controls = ({
   allocationAvailable,
   status,
   nextStatus,
+  trelloUrl,
   allowEditing = true,
 }: Props) => (
   <div className={styles.plate}>
     <Buttons
+      trelloUrl={trelloUrl}
       nextStatus={nextStatus}
       status={status}
       showBindQuota={allocationAvailable}
