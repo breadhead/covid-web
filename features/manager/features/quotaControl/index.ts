@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 import { withBindQuotaModal } from '../bindQuota'
 import { withCloseClaimModal } from '../closeClaim'
-import Controls from './organisms/Controls'
 import Container from './container'
+import Controls from './organisms/Controls'
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   nextStatus: () => dispatch(nextStatus() as any),
