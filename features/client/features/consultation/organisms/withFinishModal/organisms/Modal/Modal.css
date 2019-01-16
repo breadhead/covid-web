@@ -1,0 +1,53 @@
+.modal {
+  padding: 13px 40px 40px 40px;
+}
+
+.text {
+  margin: 0 0 40px 0;
+  font: var(--title-medium);
+  text-align: center;
+}
+
+.title {
+  max-width: 600px;
+  margin: 0 auto 16px auto;
+  font: var(--title-medium);
+  text-align: center;
+}
+
+.message {
+  position: relative;
+  max-width: 480px;
+  padding: 16px;
+  margin: 0 0 12px 0;
+  font: var(--text14-20);
+  text-align: left;
+  background-color: #FFEAB7;
+  border-radius: 20px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+}
+
+.authorPhoto {
+  align-self: flex-start;
+  margin-right: 16px;
+  border-radius: 50%;
+}
+
+.textWrapper {
+  text-align: left;
+}
+
+.authorName {
+  margin: 0 0 4px 0;
+  font-weight: 500;
+}
+
+.authorPosition {
+  margin: 0;
+  font: var(--text14-20);
+  color: var(--text-color-secondary);
+}
