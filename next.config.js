@@ -57,6 +57,8 @@ module.exports = withPlugins(
           'Validator',
           'FormFinish',
           'WithCloseClaimModal',
+          'FetchingState',
+          'WithChooseDoctorModal',
         ]),
       )
 
