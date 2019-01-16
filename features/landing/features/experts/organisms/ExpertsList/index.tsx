@@ -2,9 +2,9 @@ import * as React from 'react'
 
 import * as styles from './ExpertsList.css'
 
-import { experts } from '../../../config'
-
 import ExpertCard from '../ExpertCard'
+
+import { experts } from './config'
 
 const ExpertsList = () => (
   <section className={styles.expertsList}>
