@@ -1,6 +1,7 @@
 export interface Article {
+  children?: Article[]
   subtitle: string
-  text: string
+  text?: string
 }
 
 export interface InfoBlock {
