@@ -1,5 +1,48 @@
 .expertCard {
+  max-width: 160px;
+  margin: 0 32px 64px;
   text-align: center;
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  &:nth-of-type(4n) {
+    margin-right: 0;
+  }
+
+  &:nth-of-type(4n + 1) {
+    margin-left: 0;
+  }
+
+  @media (max-width: 880px) {
+    &:nth-of-type(4n) {
+      margin-right: 32px;
+    }
+
+    &:nth-of-type(4n + 1) {
+      margin-left: 32px;
+    }
+  }
+
+  @media (--smallDown) {
+    max-width: 128px;
+
+    &:nth-of-type(n) {
+      margin: 0 16px 32px;
+    }
+  }
+
+
+  @media (max-width: 351px) {
+    &:nth-of-type(n) {
+      margin: 0 16px 32px 0;
+    }
+
+    &:nth-of-type(2n) {
+      margin: 0 0 32px 16px;
+    }
+  }
 }
 
 .image {
@@ -26,6 +69,7 @@
 }
 
 .specialization {
+  margin: 0;
   font: var(--text14-20);
   color: var(--text-color-secondary);
 }
