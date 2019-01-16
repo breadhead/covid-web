@@ -10,6 +10,7 @@ module.exports = nextRoutes()
   .add('landing-partners', '/partners', 'landing/partners')
   .add('landing-contacts', '/contacts', 'landing/contacts')
   .add('landing-experts', '/experts', 'landing/experts')
+  .add('landing-expert', '/experts/:id', 'landing/expert')
   // client
   .add('client-claims', '/client', 'client/claims')
   .add(
