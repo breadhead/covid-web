@@ -1,3 +1,5 @@
+import { NON_BREAKING_SPACE } from '@app/lib/config'
+
 export const partners = [
   {
     id: '1',
@@ -5,6 +7,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'DONOR',
     sum: '2 000 000',
+    info: `Доноры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '2',
@@ -12,6 +15,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'OLYMPUS',
     sum: '2 000 000',
+    info: `Доноры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '3',
@@ -19,6 +23,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'SIEMENS',
     sum: '2 000 000',
+    info: `Доноры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '4',
@@ -26,6 +31,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'NESTLE',
     sum: '2 000 000',
+    info: `Доноры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '5',
@@ -33,6 +39,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'AVON',
     sum: '2 000 000',
+    info: `Доноры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '6',
@@ -40,6 +47,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'GE HEALTHCARE',
     sum: '2 000 000',
+    info: `Доноры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '7',
@@ -47,6 +55,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'ЮНИКС',
     sum: '2 000 000',
+    info: `Доноры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '8',
@@ -54,6 +63,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'BD',
     sum: '2 000 000',
+    info: `Доноры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '9',
@@ -61,6 +71,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'ROCHE',
     sum: '2 000 000',
+    info: `Доноры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '10',
@@ -68,6 +79,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'MSD',
     sum: '2 000 000',
+    info: `Доноры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '11',
@@ -75,6 +87,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'NESTLE',
     sum: '2 000 000',
+    info: `Доноры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '12',
@@ -82,6 +95,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'MSD',
     sum: '2 000 000',
+    info: `Доноры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '13',
@@ -89,6 +103,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'BIOCAD',
     sum: '2 000 000',
+    info: `Доноры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '14',
@@ -96,6 +111,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'CORP',
     sum: '2 000 000',
+    info: `Корпоративные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '15',
@@ -103,6 +119,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'OLYMPUS',
     sum: '2 000 000',
+    info: `Корпоративные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '16',
@@ -110,6 +127,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'SIEMENS',
     sum: '2 000 000',
+    info: `Корпоративные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '17',
@@ -117,6 +135,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'NESTLE',
     sum: '2 000 000',
+    info: `Корпоративные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '18',
@@ -124,6 +143,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'AVON',
     sum: '2 000 000',
+    info: `Корпоративные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '19',
@@ -131,6 +151,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'GE HEALTHCARE',
     sum: '2 000 000',
+    info: `Корпоративные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '20',
@@ -138,6 +159,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'ЮНИКС',
     sum: '2 000 000',
+    info: `Корпоративные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '21',
@@ -145,6 +167,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'BD',
     sum: '2 000 000',
+    info: `Корпоративные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '22',
@@ -152,6 +175,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'ROCHE',
     sum: '2 000 000',
+    info: `Корпоративные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '23',
@@ -159,6 +183,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'MSD',
     sum: '2 000 000',
+    info: `Корпоративные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '24',
@@ -166,6 +191,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'NESTLE',
     sum: '2 000 000',
+    info: `Корпоративные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '25',
@@ -173,6 +199,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'MSD',
     sum: '2 000 000',
+    info: `Корпоративные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '26',
@@ -180,6 +207,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'BIOCAD',
     sum: '2 000 000',
+    info: `Корпоративные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
 
   {
@@ -188,6 +216,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'INFO PARTNER',
     sum: '2 000 000',
+    info: `Корпоративные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '28',
@@ -195,6 +224,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'OLYMPUS',
     sum: '2 000 000',
+    info: `Информационные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '29',
@@ -202,6 +232,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'SIEMENS',
     sum: '2 000 000',
+    info: `Информационные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '30',
@@ -209,6 +240,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'NESTLE',
     sum: '2 000 000',
+    info: `Информационные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '31',
@@ -216,6 +248,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'AVON',
     sum: '2 000 000',
+    info: `Информационные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '32',
@@ -223,6 +256,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'GE HEALTHCARE',
     sum: '2 000 000',
+    info: `Информационные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '33',
@@ -230,6 +264,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'ЮНИКС',
     sum: '2 000 000',
+    info: `Информационные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '34',
@@ -237,6 +272,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'BD',
     sum: '2 000 000',
+    info: `Информационные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '35',
@@ -244,6 +280,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'ROCHE',
     sum: '2 000 000',
+    info: `Информационные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '36',
@@ -251,6 +288,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'MSD',
     sum: '2 000 000',
+    info: `Информационные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '37',
@@ -258,6 +296,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'NESTLE',
     sum: '2 000 000',
+    info: `Информационные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '38',
@@ -265,6 +304,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'MSD',
     sum: '2 000 000',
+    info: `Информационные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '39',
@@ -272,6 +312,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'BIOCAD',
     sum: '2 000 000',
+    info: `Информационные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
 
   {
@@ -280,6 +321,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'INFRASRUCTURE PARNTER',
     sum: '2 000 000',
+    info: `Инфраструктурные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '41',
@@ -287,6 +329,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'OLYMPUS',
     sum: '2 000 000',
+    info: `Инфраструктурные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '42',
@@ -294,6 +337,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'SIEMENS',
     sum: '2 000 000',
+    info: `Инфраструктурные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '43',
@@ -301,6 +345,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'NESTLE',
     sum: '2 000 000',
+    info: `Инфраструктурные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '44',
@@ -315,6 +360,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'GE HEALTHCARE',
     sum: '2 000 000',
+    info: `Инфраструктурные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '46',
@@ -322,6 +368,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'ЮНИКС',
     sum: '2 000 000',
+    info: `Инфраструктурные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '47',
@@ -329,6 +376,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'BD',
     sum: '2 000 000',
+    info: `Инфраструктурные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '48',
@@ -336,6 +384,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'ROCHE',
     sum: '2 000 000',
+    info: `Инфраструктурные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '49',
@@ -343,6 +392,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'MSD',
     sum: '2 000 000',
+    info: `Инфраструктурные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '50',
@@ -350,6 +400,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'NESTLE',
     sum: '2 000 000',
+    info: `Инфраструктурные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '51',
@@ -357,6 +408,7 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'MSD',
     sum: '2 000 000',
+    info: `Инфраструктурные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
   {
     id: '52',
@@ -364,5 +416,6 @@ export const partners = [
     img: 'http://placecorgi.com/120/40',
     label: 'BIOCAD',
     sum: '2 000 000',
+    info: `Инфраструктурные партнеры выделяют дополнительные средства на${NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы${NON_BREAKING_SPACE}являетесь сотрудником одной из${NON_BREAKING_SPACE}этих компаний, укажите это в${NON_BREAKING_SPACE}своей заявке.`,
   },
 ]

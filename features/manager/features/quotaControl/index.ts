@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 import { withBindQuotaModal } from '../bindQuota'
 import { withCloseClaimModal } from '../closeClaim'
+import Container from './container'
 import Controls from './organisms/Controls'
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
@@ -16,4 +17,7 @@ export default compose(
     null,
     mapDispatch,
   ),
+  Container,
 )(Controls as any) as any
+
+export { State, reducer } from './reducer'

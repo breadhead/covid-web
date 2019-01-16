@@ -1,5 +1,6 @@
 import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
+import ClaimBoardCard from '@app/models/Claim/ClaimBoardCard'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
@@ -41,6 +42,7 @@ export default interface ApiClient {
   questionsClaim(id: string): Promise<AnswerClaim>
   createSituationClaim(request: SituationClaimRequest): Promise<SituationClaim>
   createQuestionsClaim(request: QuestionsClaim): Promise<QuestionsClaim>
+  getClaimBoardCard(id: string): Promise<ClaimBoardCard>
   answerQuestions(reauest: AnswerRequest): Promise<any>
   quota(id: string): Promise<Quota>
   income(amount: number, quotaId: string): Promise<Quota>

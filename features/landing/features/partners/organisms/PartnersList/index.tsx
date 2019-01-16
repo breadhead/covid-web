@@ -10,7 +10,6 @@ import PartnersGroupSelect, {
   Options,
 } from '../../molecules/PartnersGroupSelect'
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
 import { partners } from './config'
 
 interface State {
@@ -33,22 +32,13 @@ class PartnersList extends React.Component<{}, State> {
 
   public render() {
     const { list } = this.state
-
     return (
       <>
         <header className={styles.header}>
           <PartnersGroupSelect onSelect={this.getSelectedGroup} />
         </header>
         <div className={styles.textWrapper}>
-          <p className={styles.text}>
-            Корпоративные партнеры выделяют дополнительные средства на
-            {NON_BREAKING_SPACE}
-            консультации для своих сотрудников.
-            <br />
-            Если вы{NON_BREAKING_SPACE}являетесь сотрудником одной из
-            {NON_BREAKING_SPACE}
-            этих компаний, укажите это в{NON_BREAKING_SPACE}своей заявке.
-          </p>
+          <p className={styles.text}>{list[0].info}</p>
         </div>
         <div className={styles.partnersList}>
           {list.map(partner => (
