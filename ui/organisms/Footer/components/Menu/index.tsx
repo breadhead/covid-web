@@ -11,10 +11,10 @@ const linksShort = [
 
 const linksLong = [
   { title: 'Партнёры', href: '/partners' },
-  { title: 'Контакты', href: '#' },
-  { title: 'Помочь проекту', href: '#' },
+  { title: 'Контакты', href: '/contacts' },
+  { title: 'Помочь проекту', href: '#donation' },
   { title: 'Обратная связь', href: '#' },
-  { title: 'Эксперты', href: '#' },
+  { title: 'Эксперты', href: '/experts' },
 ]
 
 interface Props {

@@ -67,7 +67,7 @@ export const experts = [
   {
     id: '8',
     photo: 'http://placecorgi.com/160',
-    name: '',
+    name: 'Андрей Розов',
     specialization: 'Онколог',
     description:
       'Онколог, онкодерматолог\nВрач высшей категории, кандидант медицинских наук, стаж 12 лет',

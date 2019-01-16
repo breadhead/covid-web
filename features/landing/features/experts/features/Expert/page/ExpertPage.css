@@ -28,11 +28,19 @@
   }
 }
 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.link {
+  display: inline-block;
+  margin: 0 0 24px 0;
+}
+
 .expert {
   display: flex;
-  max-width: 800px;
   padding: 32px;
-  margin: 0 auto;
   white-space: pre-line;
   border: 1px solid rgba(21,24,51,0.12);
   border-radius: 8px;
