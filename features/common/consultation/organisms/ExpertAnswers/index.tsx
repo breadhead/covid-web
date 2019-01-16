@@ -25,7 +25,9 @@ const ExpertAnswers = ({ claim, renderCustomAnswer, title }: Props) => {
     })),
   ])
 
-  return (
+  const questionsAvailable = Object.keys(groups).length > 0
+
+  return questionsAvailable ? (
     <>
       <h2 className={styles.mainTitle}>
         {!!title && title}
@@ -50,7 +52,7 @@ const ExpertAnswers = ({ claim, renderCustomAnswer, title }: Props) => {
         <Footer />
       </section>
     </>
-  )
+  ) : null
 }
 
 export default ExpertAnswers

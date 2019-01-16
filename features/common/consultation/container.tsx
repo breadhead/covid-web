@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
+import { fetchClaimBoardCard } from '@app/features/manager/features/quotaControl/actions'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 
-import { fetchClaim } from './actions'
+import { fetchClaim, getClaim } from './features/claimData'
 import { Props as PageProps } from './page'
-import { getClaim } from './selectors'
 
 interface Query {
   id: string
@@ -24,12 +24,15 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       query,
     }: AppContext<Query>) {
       await reduxStore.dispatch(fetchClaim(query.id) as any)
+      await reduxStore
+        .dispatch(fetchClaimBoardCard(query.id) as any)
+        .catch(() => null) // .catch for roles without access to trello
 
       return {}
     }
 
     public render() {
-      const { claim } = this.props as any
+      const { claim } = this.props
 
       if (!claim) {
         return null

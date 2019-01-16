@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux'
 
-import { fetchQuotaClaim } from '@app/features/common/consultation/actions'
+import { fetchQuotaClaim } from '@app/features/common/consultation'
 import { CloseClaimRequest } from '@app/lib/api/request/CloseClaimRequest'
 import { ExtraArgs, State } from '@app/lib/store'
 

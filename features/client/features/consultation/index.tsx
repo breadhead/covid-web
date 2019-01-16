@@ -15,3 +15,8 @@ const ClientConsultation = createConsultationPage(
 export default ClientConsultation
 
 export { reducer, State } from '@app/features/common/consultation'
+
+export {
+  default as FinishModal,
+  MODAL_KEY as FINISH_MODAL_KEY,
+} from './organisms/withFinishModal'

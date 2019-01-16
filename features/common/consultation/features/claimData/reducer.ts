@@ -42,7 +42,7 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
     mainInfo,
     questions,
   }),
-  'common/consultation',
+  'common/consultation/claimData',
 )
 
 export { State, reducer, Actions, actions }

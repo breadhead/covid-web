@@ -10,6 +10,11 @@ import {
   State as BindQuotaState,
 } from './features/bindQuota'
 
+import {
+  reducer as quotaControlReducer,
+  State as QuotaControlState,
+} from './features/quotaControl'
+
 export { default as closeClaim } from './features/closeClaim'
 import {
   reducer as closeClaimReducer,
@@ -18,10 +23,12 @@ import {
 
 export interface State {
   bindQuota: BindQuotaState
+  quotaControl: QuotaControlState
   closeClaim: CloseClaimState
 }
 
 export const reducer = combineReducers({
   bindQuota: bindQuotaReducer,
+  quotaControl: quotaControlReducer,
   closeClaim: closeClaimReducer,
 } as any)

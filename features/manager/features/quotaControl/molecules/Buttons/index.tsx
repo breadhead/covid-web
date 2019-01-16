@@ -4,11 +4,13 @@ import Button, { ButtonKind } from '@app/ui/atoms/Button'
 import Status from '../../atoms/Status'
 import * as styles from './Buttons.css'
 interface Props {
+  nextStatus: () => void
   openBindQuota: () => void
   showBindQuota: boolean
   openCloseClaim: () => void
   status: ClaimStatus
   allowEditing?: boolean
+  trelloUrl?: string
 }
 
 const defineNextStatusAction = (status: ClaimStatus) =>
@@ -21,7 +23,9 @@ const Buttons = ({
   openBindQuota,
   showBindQuota,
   openCloseClaim,
+  nextStatus,
   status,
+  trelloUrl,
   allowEditing = true,
 }: Props) => {
   const nextAction = defineNextStatusAction(status)
@@ -31,7 +35,14 @@ const Buttons = ({
     <div className={styles.buttons}>
       <div className={styles.left}>
         <Status>{status}</Status>
-        <Button kind={ButtonKind.Extra}>Trello</Button> {/* TODO: action */}
+        {trelloUrl && (
+          <Button
+            onClick={() => window.open(trelloUrl, '_blank')}
+            kind={ButtonKind.Extra}
+          >
+            Trello
+          </Button>
+        )}
       </div>
       {allowEditing && (
         <div className={styles.right}>
@@ -42,7 +53,8 @@ const Buttons = ({
               {/* TODO: action */}
             </>
           )}
-          {nextAction && <Button>{nextAction}</Button>} {/* TODO: action */}
+          {nextAction && <Button onClick={nextStatus}>{nextAction}</Button>}{' '}
+          {/* TODO: action */}
           {!closed && (
             <Button onClick={openCloseClaim} kind={ButtonKind.Extra}>
               Закрыть
