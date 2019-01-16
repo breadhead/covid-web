@@ -24,7 +24,9 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       query,
     }: AppContext<Query>) {
       await reduxStore.dispatch(fetchClaim(query.id) as any)
-      await reduxStore.dispatch(fetchClaimBoardCard(query.id) as any)
+      await reduxStore
+        .dispatch(fetchClaimBoardCard(query.id) as any)
+        .catch(() => null) // .catch for roles without access to trello
 
       return {}
     }
