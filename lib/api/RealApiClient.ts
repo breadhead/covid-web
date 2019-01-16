@@ -11,6 +11,7 @@ import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 
+import { CurrentUser } from '@app/models/CurrentUser'
 import ApiClient, { UploadedFile, User } from './ApiClient'
 import { queryString } from './helper/queryString'
 import { tapDate } from './helper/tapDate'
@@ -35,6 +36,11 @@ export default class RealApiClient implements ApiClient {
       },
     })
   }
+
+  public currentUser = () =>
+    this.axiosInstance
+      .get('/users/current')
+      .then(response => response.data as CurrentUser)
 
   public nextStatus = (id: string) =>
     this.axiosInstance
@@ -155,7 +161,6 @@ export default class RealApiClient implements ApiClient {
   }
 
   public set token(newToken: string) {
-    // axios.defaults.headers.common.Authorization = `Bearer ${newToken}`
     this._token = newToken
   }
 

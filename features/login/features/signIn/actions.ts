@@ -16,7 +16,7 @@ export const login = (username: string, password: string) => async (
     const { token, roles } = await api.login(username, password)
 
     setCookie(token)
-    dispatch(tokenActions.set(token))
+    dispatch(tokenActions.set(token, roles))
 
     redirectUser(roles)
 

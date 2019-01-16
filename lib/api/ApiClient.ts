@@ -7,6 +7,7 @@ import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
+import { CurrentUser } from '../../models/CurrentUser'
 import { AnswerRequest } from './request/AnswerRequest'
 import { BindQuotaRequest } from './request/BindQuotaRequest'
 import { CloseClaimRequest } from './request/CloseClaimRequest'
@@ -34,6 +35,7 @@ export interface UploadedFile {
 export default interface ApiClient {
   token: string
 
+  currentUser(): Promise<CurrentUser>
   nextStatus(id: string): Promise<void>
   claimsForClient(): Promise<ListedClaim[]>
   mainInfoClaim(id: string): Promise<ListedClaim>
