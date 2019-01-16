@@ -5,6 +5,7 @@ import * as styles from './ExpertPage.css'
 import Layout from '@app/features/main/layout'
 
 export interface ExpertInterface {
+  id: string
   photo: string
   name: string
   specialization: string

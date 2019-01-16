@@ -2,6 +2,8 @@ import * as React from 'react'
 
 import * as styles from './ExpertCard.css'
 
+import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
+
 import { ExpertInterface } from '../../features/Expert/page'
 
 interface Props {
@@ -9,10 +11,12 @@ interface Props {
 }
 
 const ExpertCard = ({ expert }: Props) => {
-  const { photo, name, specialization } = expert
+  const { id, photo, name, specialization } = expert
   return (
     <article className={styles.expertCard}>
-      <img className={styles.image} src={photo} alt={name} />
+      <NavLink type={NavLinkType.Nav} href={`experts/${id}`}>
+        <img className={styles.image} src={photo} alt={name} />
+      </NavLink>
       <p className={styles.name}>{name}</p>
       <p className={styles.specialization}>{specialization}</p>
     </article>
