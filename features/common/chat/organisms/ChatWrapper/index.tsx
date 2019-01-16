@@ -17,11 +17,11 @@ class ChatWrapper extends React.Component<Props> {
   private myRef = React.createRef<HTMLDivElement>()
 
   public scrollToBottom = () => {
-    scroll.scrollToBottom({
-      container: this.myRef.current,
-      duration: 300,
-      smooth: 'easeInOutQuint',
-    })
+    // scroll.scrollToBottom({
+    //   container: this.myRef.current,
+    //   duration: 300,
+    //   smooth: 'easeInOutQuint',
+    // })
   }
 
   public componentDidMount() {

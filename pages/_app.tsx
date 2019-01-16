@@ -28,7 +28,7 @@ interface Props {
 }
 
 Router.events.on('routeChangeComplete', () => {
-  window.scrollTo(0, 0)
+  // window.scrollTo(0, 0)
 })
 
 class OncohelpWeb extends App<Props> {

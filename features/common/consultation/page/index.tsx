@@ -84,11 +84,11 @@ class Consultation extends React.Component<Props, State> {
             {renderFooter && renderFooter(claim)}
           </Layout>
         </div>
-        <Chat
+        {/* <Chat
           closeChat={this.closeChat}
           isOpen={isChatOpen}
           opensOnce={chatOpensOnce}
-        />
+        /> */}
       </div>
     )
   }

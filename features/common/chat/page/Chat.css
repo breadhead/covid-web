@@ -10,7 +10,8 @@
   height: 100vh;
   overflow: -moz-scrollbars-none;
   background-color: #fff;
-  box-shadow: 0 0 8px 0 rgba(63,63,68,0.04), 0 0 20px 0 rgba(63,63,68,0.12);
+  box-shadow: 0 0 8px 0 rgba(63, 63, 68, 0.04),
+    0 0 20px 0 rgba(63, 63, 68, 0.12);
   -ms-overflow-style: none;
 
   @media (--mediumDown) {
@@ -28,8 +29,8 @@
   }
 }
 
-.chat::-webkit-scrollbar { 
-  width: 0; 
+.chat::-webkit-scrollbar {
+  width: 0;
 }
 
 .messageWrapper {
@@ -38,7 +39,6 @@
   justify-content: flex-end;
   height: 100%;
   padding: 16px;
-  overflow-y: auto;
   background-color: var(--background-color);
 }
 
