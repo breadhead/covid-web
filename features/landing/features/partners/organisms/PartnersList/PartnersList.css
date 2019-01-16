@@ -15,7 +15,9 @@
 
 .text {
   position: relative;
-  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 
   &::before {
     position: absolute;
