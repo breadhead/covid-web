@@ -5,14 +5,17 @@ import { getShortClaim } from '@app/features/client/features/newClaim/selectors'
 import { State } from '@app/lib/store'
 import Claim from '@app/models/Claim/Claim'
 
-export const getQuotaClaim = (state: State) => state.consultation.claim
+export const getQuotaClaim = (state: State) =>
+  state.consultation.claimData.claim
 
-export const getMainInfo = (state: State) => state.consultation.mainInfo
+export const getMainInfo = (state: State) =>
+  state.consultation.claimData.mainInfo
 
 export const getClaimId = (state: State) =>
   state.client.newClaim.claim && state.client.newClaim.claim.id
 
-const getQuestionClaim = (state: State) => state.consultation.questions
+const getQuestionClaim = (state: State) =>
+  state.consultation.claimData.questions
 
 export const getClaim = createSelector(
   getQuotaClaim,

@@ -6,8 +6,6 @@ import NavLink from '@app/ui/atoms/NavLink'
 import { withSignUpModal } from '@app/features/login'
 
 interface Props {
-  onFormSubmit: () => Promise<any>
-  error: boolean | string
   openSignUp: () => void
 }
 

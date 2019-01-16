@@ -3,6 +3,7 @@ import HttpStatus from 'http-status-codes'
 
 import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
+import ClaimBoardCard from '@app/models/Claim/ClaimBoardCard'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
@@ -23,6 +24,7 @@ import { SendFeedbackRequest } from './request/SendFeedback'
 import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
+
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
   private _token: string = ''
@@ -35,6 +37,11 @@ export default class RealApiClient implements ApiClient {
       },
     })
   }
+
+  public nextStatus = (id: string) =>
+    this.axiosInstance
+      .post(`/claims/${id}/next-status?id=${id}`)
+      .then(response => response.data as void)
 
   public claimsForClient = () =>
     this.axiosInstance
@@ -74,6 +81,11 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .get(`/claims/${id}/quota`)
       .then(response => response.data as QuotaClaim)
+
+  public getClaimBoardCard = (id: string) =>
+    this.axiosInstance
+      .get(`/claims/${id}/trelloUrl`)
+      .then(response => response.data as ClaimBoardCard)
 
   public createSituationClaim = (
     situationClaimRequest: SituationClaimRequest,

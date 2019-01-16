@@ -1,7 +1,7 @@
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 
-import AnswerNotification from '../molucules/AnswerNotification'
-import Company from '../molucules/Company'
+import AnswerNotification from '../molecules/AnswerNotification'
+import Company from '../molecules/Company'
 
 interface Props {
   quotaClaim: QuotaClaim
