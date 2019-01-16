@@ -34,6 +34,7 @@ export interface UploadedFile {
 export default interface ApiClient {
   token: string
 
+  nextStatus(id: string): Promise<void>
   claimsForClient(): Promise<ListedClaim[]>
   mainInfoClaim(id: string): Promise<ListedClaim>
   createShortClaim(request: ShortClaimRequest): Promise<ShortClaim>

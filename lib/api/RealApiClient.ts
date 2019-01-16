@@ -36,6 +36,11 @@ export default class RealApiClient implements ApiClient {
     })
   }
 
+  public nextStatus = (id: string) =>
+    this.axiosInstance
+      .post(`/claims/${id}/next-status?id=${id}`)
+      .then(response => response.data as void)
+
   public claimsForClient = () =>
     this.axiosInstance
       .get('/claims')
