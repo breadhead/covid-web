@@ -4,8 +4,8 @@ import Claim from '@app/models/Claim/Claim'
 import Layout from '../../organisms/Layout'
 import Control from '../quotaControl'
 
-const renderControls = ({ quota, mainInfo: { status } }: Claim) => (
-  <Control status={status} allocationAvailable={!!quota.empty} />
+const renderControls = ({ mainInfo: { status } }: Claim) => (
+  <Control status={status} allocationAvailable={true} />
 )
 
 const ClientConsultation = createConsultationPage(

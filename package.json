@@ -13,7 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@breadhead/thunk-error": "^1.0.2",
+    "@breadhead/thunk-error": "^1.0.3",
     "@breadhead/with-scroll-lock": "^1.0.0",
     "@types/object-hash": "^1.2.0",
     "@zeit/next-less": "^1.0.1",
