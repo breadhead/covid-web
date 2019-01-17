@@ -7,6 +7,7 @@ import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
+import { Doctor } from '@app/models/Doctor'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 import { User } from '../../models/User'
@@ -34,6 +35,7 @@ export default interface ApiClient {
 
   // TODO: fix types
   chooseDoctor(data: any): Promise<any>
+  doctors(): Promise<Doctor[]>
   currentUser(): Promise<User>
   nextStatus(id: string): Promise<void>
   claimsForClient(): Promise<ListedClaim[]>

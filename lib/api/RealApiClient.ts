@@ -12,6 +12,7 @@ import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 
+import { Doctor } from '@app/models/Doctor'
 import { User } from '@app/models/User'
 import ApiClient, { UploadedFile } from './ApiClient'
 import { queryString } from './helper/queryString'
@@ -38,6 +39,11 @@ export default class RealApiClient implements ApiClient {
       },
     })
   }
+
+  public doctors = () =>
+    this.axiosInstance
+      .get('/users/doctors')
+      .then(response => response.data as Doctor[])
 
   public chooseDoctor = (data: any) =>
     this.axiosInstance
