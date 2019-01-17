@@ -8,7 +8,7 @@ const Footer = () => (
   <footer className={styles.footer}>
     <img
       className={styles.logo}
-      src="/static/images/layout/popup/26x40_foundation_logo-mark.svg"
+      src="/static/images/popup/26x40_foundation_logo-mark.svg"
       alt="nenaprasno.ru"
     />
     <p className={styles.text}>

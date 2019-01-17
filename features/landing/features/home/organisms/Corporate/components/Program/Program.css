@@ -28,3 +28,7 @@
   font: var(--text18-28);
   text-align: left;
 }
+
+.logo {
+  width: 80px;
+}

@@ -1,15 +1,5 @@
 .buttons {
   display: flex;
-
-  & .button {
-    align-self: flex-start;
-    margin-right: 12px;
-    white-space: nowrap;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-  }
 }
 
 .logo {
@@ -18,4 +8,14 @@
     justify-content: space-between;
     width: 100%;
   }
+}
+
+.login.login {
+  margin-right: 12px !important;
+}
+
+.button.button {
+  align-self: flex-start;
+  margin-right: 12px;
+  white-space: nowrap;
 }

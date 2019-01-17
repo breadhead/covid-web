@@ -21,10 +21,10 @@
 }
 
 .secondaryText {
+  display: flex;
   margin: 0 0 24px 0;
   font: var(--text14-20);
   color: #82839b;
-  display: flex;
 }
 
 .link.link {
