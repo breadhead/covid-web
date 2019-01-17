@@ -1,0 +1,24 @@
+.doctorsList {
+  & .ant-radio-group {
+    width: 100%;
+  }
+
+  & .ant-radio-wrapper {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin: 0 !important;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background-color: rgba(232, 233, 242, 0.5);
+    }
+  }
+
+  & .ant-radio {
+    margin-left: 14px;
+  }
+}
+
+.asd {
+  background-color: rgba(232, 233, 242, 0.5);
+}

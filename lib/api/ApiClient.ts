@@ -1,4 +1,3 @@
-import chooseDoctor from '@app/features/manager/features/chooseDoctor'
 import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import ClaimBoardCard from '@app/models/Claim/ClaimBoardCard'

@@ -8,6 +8,6 @@ export {
   WithChooseDoctorModal,
 } from './withCloseClaimModal'
 
-export { reducer, State } from './reducer'
+export { reducer, State } from './reducers'
 
 export { MODAL_KEY } from './container'

@@ -1,5 +1,6 @@
 export interface Doctor {
-  login: string
+  doctorLogin: string
+  login?: string
   fullName: string
   description: string
 }

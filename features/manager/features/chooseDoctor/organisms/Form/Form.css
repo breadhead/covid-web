@@ -1,0 +1,19 @@
+.Form {
+  & > form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.List {
+  max-height: 400px;
+  overflow-y: scroll;
+  border-top: 1px solid rgba(21, 24, 51, 0.12);
+  border-bottom: 1px solid rgba(21, 24, 51, 0.12);
+}
+
+.SubmitButton {
+  align-self: flex-end;
+  margin-top: 24px;
+  margin-left: auto;
+}

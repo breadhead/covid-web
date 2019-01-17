@@ -5,7 +5,10 @@ import { AnyAction, compose, Dispatch } from 'redux'
 import { getClaimId } from '@app/features/common/consultation'
 import { isModal, withModal, WithModalProps } from '@app/features/common/modal'
 import { State } from '@app/lib/store'
-import { fetchDoctors as fetchDoctorsAction } from './actions'
+import {
+  chooseDoctor as chooseDoctorAction,
+  fetchDoctors as fetchDoctorsAction,
+} from './actions'
 import { getDoctors } from './selectors'
 
 export const MODAL_KEY = 'choose-doctor'
@@ -32,6 +35,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       return (
         <WrappedComponent
           {...this.props}
+          onSubmit={this.onSubmit}
           doctors={filteredDoctors}
           filter={this.state.filter}
           onFilterChange={this.onFilterChange}
@@ -45,11 +49,18 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
 
     private filterDoctors = (doctors, filter) =>
       doctors.filter(doctor => RegExp(filter).test(doctor.fullName))
+
+    private onSubmit = value => {
+      const { claimId, chooseDoctor } = this.props
+      const request = { ...value, claimId }
+      chooseDoctor(request)
+    }
   }
 }
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   fetchDoctors: () => dispatch(fetchDoctorsAction() as any),
+  chooseDoctor: data => dispatch(chooseDoctorAction(data) as any),
 })
 
 const mapState = (state: State) => ({
