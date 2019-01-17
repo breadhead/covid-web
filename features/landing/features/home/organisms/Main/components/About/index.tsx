@@ -15,7 +15,7 @@ const About = () => (
       </h2>
       <img
         className={styles.logo}
-        src="http://placecorgi.com/72/64"
+        src="/static/images/layout/answers.png"
         alt="Помогаем разобраться в ситуации и найти хорошего онколога"
       />
     </div>

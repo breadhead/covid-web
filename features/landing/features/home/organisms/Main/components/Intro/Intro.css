@@ -21,6 +21,8 @@
 
 .logo {
   margin-right: 16px;
+  width: 140px;
+  height: 40px;
 
   &:last-of-type {
     margin-right: 0;
