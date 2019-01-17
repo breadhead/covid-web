@@ -1,6 +1,5 @@
-import React from 'react'
 import { connect } from 'react-redux'
-import { AnyAction, compose, Dispatch } from 'redux'
+import { compose } from 'redux'
 
 import { getClaimId } from '@app/features/common/consultation'
 import { isModal, withModal, WithModalProps } from '@app/features/common/modal'
