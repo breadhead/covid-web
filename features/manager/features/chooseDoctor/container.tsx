@@ -18,13 +18,33 @@ interface PageProps {}
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
   return class extends React.Component<ContainerProps> {
+    public state = { filter: '' }
+
     public componentDidMount() {
       const { fetchDoctors } = this.props
       fetchDoctors()
     }
     public render() {
-      return <WrappedComponent {...this.props} />
+      const { doctors } = this.props
+      const { filter } = this.state
+
+      const filteredDoctors = this.filterDoctors(doctors, filter)
+      return (
+        <WrappedComponent
+          {...this.props}
+          doctors={filteredDoctors}
+          filter={this.state.filter}
+          onFilterChange={this.onFilterChange}
+        />
+      )
     }
+
+    private onFilterChange = e => {
+      this.setState({ filter: e.target.value })
+    }
+
+    private filterDoctors = (doctors, filter) =>
+      doctors.filter(doctor => RegExp(filter).test(doctor.fullName))
   }
 }
 

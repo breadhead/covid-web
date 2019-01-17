@@ -1,7 +1,7 @@
 import Container from './container'
-import Modal from './organisms/Modal'
+import Doctors from './organisms/Doctors'
 
-export default Container(Modal)
+export default Container(Doctors)
 
 export {
   default as withChooseDoctorModal,
