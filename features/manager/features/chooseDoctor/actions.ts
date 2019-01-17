@@ -1,5 +1,3 @@
-import { fetchQuotaClaim } from '@app/features/common/consultation'
-import { BindQuotaRequest } from '@app/lib/api/request/BindQuotaRequest'
 import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
 import { actions } from './reducer'
@@ -12,9 +10,8 @@ export const fetchDoctors = () => async (
   const api = getApi(getState)
   dispatch(actions.request())
   try {
-    await api.chooseDoctor(data)
-    await dispatch(fetchQuotaClaim(data.claimId))
-    dispatch(actions.success())
+    const doctors = await api.doctors()
+    dispatch(actions.success(doctors))
   } catch (error) {
     dispatch(actions.error(error.message))
     throw error
