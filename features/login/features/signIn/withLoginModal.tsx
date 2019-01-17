@@ -7,7 +7,7 @@ export interface WithLoginModal {
 
 const Container = (Component: React.ComponentType<WithLoginModal>) =>
   withModal(({ modal, ...props }: WithModalProps) => (
-    <Component openLogin={() => modal.open(SIGN_IN_MODAL)} {...props} />
+    <Component {...props} openLogin={() => modal.open(SIGN_IN_MODAL)} />
   ))
 
 export default Container

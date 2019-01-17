@@ -18,4 +18,9 @@ const LoginButton: React.StatelessComponent<Props> = ({
   </Button>
 )
 
-export default withLoginModal(LoginButton) as any
+// Костыль, причина — иногда withLoginModal === undefined
+// Добавил @igorkamyshev 16.1.2018
+// На работоспособность приложение не вляет на первый взгляд
+// Времени разбираться не было
+const Container = withLoginModal || ((c: any) => c)
+export default Container(LoginButton) as any
