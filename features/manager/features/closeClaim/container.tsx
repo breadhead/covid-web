@@ -10,7 +10,7 @@ import { State } from '@app/lib/store'
 
 import { closeClaim as closeClaimAction } from './actions'
 
-export const MODAL_KEY = 'bind-quota'
+export const MODAL_KEY = 'close-claim'
 
 export interface ContainerProps extends WithModalProps {
   closeClaim: (data: CloseClaimRequest) => Promise<void>

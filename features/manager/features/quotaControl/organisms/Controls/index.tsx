@@ -1,12 +1,16 @@
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 
 import { WithQuotaTypeModal } from '../../../bindQuota'
+import { WithChooseDoctorModal } from '../../../chooseDoctor'
 import { WithCloseClaimModal } from '../../../closeClaim'
 import Buttons from '../../molecules/Buttons'
 import Corporate from '../../molecules/Corporate'
 import * as styles from './Controls.css'
 
-interface Props extends WithQuotaTypeModal, WithCloseClaimModal {
+interface Props
+  extends WithQuotaTypeModal,
+    WithCloseClaimModal,
+    WithChooseDoctorModal {
   allocationAvailable: boolean
   status: ClaimStatus
   allowEditing?: boolean
@@ -17,6 +21,7 @@ interface Props extends WithQuotaTypeModal, WithCloseClaimModal {
 const Controls = ({
   openBindQuota,
   openCloseClaim,
+  openChooseDoctor,
   allocationAvailable,
   status,
   nextStatus,
@@ -33,7 +38,7 @@ const Controls = ({
       openCloseClaim={openCloseClaim}
       allowEditing={allowEditing}
     />
-    {allowEditing && <Corporate />}
+    {allowEditing && <Corporate openChooseDoctor={openChooseDoctor} />}
   </div>
 )
 
