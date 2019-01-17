@@ -20,9 +20,9 @@
 }
 
 .logo {
-  margin-right: 16px;
   width: 140px;
   height: 40px;
+  margin-right: 16px;
 
   &:last-of-type {
     margin-right: 0;
