@@ -39,6 +39,11 @@ export default class RealApiClient implements ApiClient {
     })
   }
 
+  public chooseDoctor = (data: any) =>
+    this.axiosInstance
+      .post(`/claims/choose-doctor`, data)
+      .then(response => response.data as any)
+
   public currentUser = () =>
     this.axiosInstance
       .get('/users/current')

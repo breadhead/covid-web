@@ -1,3 +1,4 @@
+import chooseDoctor from '@app/features/manager/features/chooseDoctor'
 import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import ClaimBoardCard from '@app/models/Claim/ClaimBoardCard'
@@ -31,6 +32,8 @@ export interface UploadedFile {
 export default interface ApiClient {
   token: string
 
+  // TODO: fix types
+  chooseDoctor(data: any): Promise<any>
   currentUser(): Promise<User>
   nextStatus(id: string): Promise<void>
   claimsForClient(): Promise<ListedClaim[]>
