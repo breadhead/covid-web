@@ -18,6 +18,10 @@ interface PageProps {}
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
   return class extends React.Component<ContainerProps> {
+    public componentDidMount() {
+      const { fetchDoctors } = this.props
+      fetchDoctors()
+    }
     public render() {
       return <WrappedComponent {...this.props} />
     }
