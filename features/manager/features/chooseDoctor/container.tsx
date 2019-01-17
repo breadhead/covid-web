@@ -12,15 +12,15 @@ export interface ContainerProps extends WithModalProps {
   claimId: string
 }
 
-const Container = (WrappedComponent: any) => {
-  return class extends React.Component<ContainerProps> {
-    public render() {
-      return <WrappedComponent {...this.props} />
-    }
-  }
-}
+// const Container = (WrappedComponent: any) => {
+//   return class extends React.Component<ContainerProps> {
+//     public render() {
+//       return <WrappedComponent {...this.props} />
+//     }
+//   }
+// }
 
-const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({})
+// const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({})
 
 const mapState = (state: State) => ({
   claimId: getClaimId(state),
@@ -31,7 +31,7 @@ export default compose(
   withModal,
   connect(
     mapState,
-    mapDispatch,
+    null,
   ),
   // Container,
 )
