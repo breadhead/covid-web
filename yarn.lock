@@ -810,10 +810,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@breadhead/thunk-error@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@breadhead/thunk-error/-/thunk-error-1.0.2.tgz#a736dc509faafb12bafb4e1897afb98309edb499"
-  integrity sha512-/7KgDWV61hV2j7Yfl6Ad0mPwb/vXK8JC0/zrfs7Ml8E+1chxTQZKBq+j5udwNS3ihe7+iNXc59PvKmZ7y9VxAg==
+"@breadhead/thunk-error@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@breadhead/thunk-error/-/thunk-error-1.0.3.tgz#74d3edbcad31a453cd1a81ec1a47506031003e33"
+  integrity sha512-oq4y1a7gFG9nU0kMkTEgZQBslD36BUS/B3+sY0fNkBrUADtV7S2WAQK9d4vkIUqoZ6IVrA9rYn7K6wlOMTe2wg==
 
 "@breadhead/with-scroll-lock@^1.0.0":
   version "1.0.0"
