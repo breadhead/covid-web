@@ -23,7 +23,7 @@ const Navigation = ({ className, hide }: Props) => (
       Партнёры
       <NavIcon />
     </NavLink>
-    <NavLink type={NavLinkType.Nav} href="#" className={styles.link}>
+    <NavLink type={NavLinkType.Nav} href="/experts" className={styles.link}>
       Эксперты
       <NavIcon />
     </NavLink>

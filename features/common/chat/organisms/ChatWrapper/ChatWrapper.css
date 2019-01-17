@@ -1,7 +1,10 @@
 .chatWrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 8px;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
   overflow-y: scroll;
+  overscroll-behavior: contain;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
-/* stylelint-disable-next-line  хак чтобы оверфлоу-хидден работал с флексом  */

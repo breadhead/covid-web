@@ -18,7 +18,7 @@ const Experts = () => (
           {NON_BREAKING_SPACE} специалистов, рекомендованных экспертным советом
           Фонда.
         </p>
-        <NavLink className={styles.link} href="#">
+        <NavLink className={styles.link} href="/experts">
           Посмотреть всех экспертов
         </NavLink>
       </div>

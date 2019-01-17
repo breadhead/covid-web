@@ -1,27 +1,35 @@
+import { Role } from '@app/lib/api/ApiClient'
 import { Action } from 'redux'
 import { createSymbiote } from 'redux-symbiote'
 
 interface State {
   token: string
+  roles: Role[]
 }
 
 interface Actions {
-  set(token: string): Action
+  setToken(token: string): Action
+  setUser(roles: Role[]): Action
 }
 
 const initialState: State = {
   token: '',
+  roles: [],
 }
 
 const { actions, reducer } = createSymbiote<State, Actions>(
   initialState,
   {
-    set: (state, token: string) => ({
+    setToken: (state, token: string) => ({
       ...state,
       token,
     }),
+    setUser: (state, roles: Role[]) => ({
+      ...state,
+      roles,
+    }),
   },
-  'token',
+  'user',
 )
 
 export { State, reducer, Actions, actions }

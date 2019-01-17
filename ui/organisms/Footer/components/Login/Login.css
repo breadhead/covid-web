@@ -4,6 +4,7 @@
   & .button {
     align-self: flex-start;
     margin-right: 12px;
+    white-space: nowrap;
 
     &:last-of-type {
       margin-right: 0;

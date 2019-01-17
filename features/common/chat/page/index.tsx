@@ -21,9 +21,21 @@ export interface Props {
   opensOnce: boolean
   closeChat: () => void
   onSubmit: (values: FormFileds) => Promise<void>
+  onTextAreaFocus: () => void
+  forwardedRef: React.Ref<HTMLDivElement>
+  muted: boolean
 }
 
-const Chat = ({ isOpen, messages, closeChat, onSubmit, opensOnce }: Props) => {
+const Chat = ({
+  isOpen,
+  messages,
+  closeChat,
+  onSubmit,
+  opensOnce,
+  onTextAreaFocus,
+  forwardedRef,
+  muted,
+}: Props) => {
   const shouldHide = !opensOnce || !isOpen
   return (
     <section className={cx(styles.chat, shouldHide && styles.hide)}>
@@ -31,7 +43,7 @@ const Chat = ({ isOpen, messages, closeChat, onSubmit, opensOnce }: Props) => {
         <Header onCloseButtonClick={closeChat} />
       </div>
       <div className={styles.messageWrapper}>
-        <ChatWrapper messages={messages} />
+        <ChatWrapper ref={forwardedRef} messages={messages} />
       </div>
       <Form
         onSubmit={onSubmit as any}
@@ -39,16 +51,24 @@ const Chat = ({ isOpen, messages, closeChat, onSubmit, opensOnce }: Props) => {
         resetAfterSubmit
         forceSubmitOnEnter
       >
-        <TextArea
-          autosize={{ minRows: 1, maxRows: 4 }}
-          className={styles.input}
-          name="message"
-          disableResizeOnEnter
-          placeholder="Ваше сообщение..."
-        />
-        <button type={ButtonType.Submit} className={styles.sendButton}>
-          <IconCustom className={styles.inputIcon} name="24x24_send-message" />
-        </button>
+        {!muted && (
+          <>
+            <TextArea
+              onFocus={onTextAreaFocus}
+              autosize={{ minRows: 1, maxRows: 4 }}
+              className={styles.input}
+              name="message"
+              disableResizeOnEnter
+              placeholder="Ваше сообщение..."
+            />
+            <button type={ButtonType.Submit} className={styles.sendButton}>
+              <IconCustom
+                className={styles.inputIcon}
+                name="24x24_send-message"
+              />
+            </button>
+          </>
+        )}
       </Form>
     </section>
   )
