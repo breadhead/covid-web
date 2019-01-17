@@ -11,6 +11,7 @@
 
 .logos {
   display: flex;
+  align-items: center;
   justify-content: center;
   margin-bottom: 40px;
 
@@ -20,8 +21,8 @@
 }
 
 .logo {
-  width: 140px;
-  height: 40px;
+  width: 146px;
+  height: 56px;
   margin-right: 16px;
 
   &:last-of-type {
@@ -75,4 +76,11 @@
     margin-right: 0;
     margin-bottom: 16px;
   }
+}
+
+.status {
+  margin: 0 24px 0 0;
+  font: var(--text12-16);
+  font-weight: 500;
+  text-align: left;  
 }
