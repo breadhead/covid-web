@@ -89,10 +89,6 @@ body {
 .ReactModalPortal {
   position: relative;
   z-index: 20;
-
-  @media (--smallDown) {
-    max-height: 100%;
-  }
 }
 
 [class^="ReactModal"] {
