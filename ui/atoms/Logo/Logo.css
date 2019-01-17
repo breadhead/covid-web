@@ -4,7 +4,6 @@
   height: 38px;
 
   @media (--smallDown) {
-    width: 162px;
     height: 32px;
   }
 }
