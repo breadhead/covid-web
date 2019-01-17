@@ -11,7 +11,7 @@ const Notification = () => (
   <article className={styles.notification}>
     <img
       className={styles.logo}
-      src="/static/images/layout/partners.png"
+      src="/static/images/partners.png"
       alt="пожертвования"
     />
     <div className={styles.infoWrapper}>

@@ -10,9 +10,10 @@ interface Props {
   children: React.ReactNode
   className?: string
   pageClassName?: string
+  footerTheme?: FooterTheme
 }
 
-const Layout = ({ children, className, pageClassName }: Props) => (
+const Layout = ({ children, className, pageClassName, footerTheme }: Props) => (
   <>
     <Header className={pageClassName} />
 
@@ -22,7 +23,7 @@ const Layout = ({ children, className, pageClassName }: Props) => (
       )}
     </Container>
 
-    <Footer theme={FooterTheme.White} type={FooterType.Secondary} />
+    <Footer theme={footerTheme} type={FooterType.Secondary} />
   </>
 )
 

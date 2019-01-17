@@ -59,6 +59,7 @@
 
 .authorPhoto {
   align-self: flex-start;
+  width: 88px;
   margin-right: 16px;
   border-radius: 50%;
 }

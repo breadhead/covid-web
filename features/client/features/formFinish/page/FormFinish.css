@@ -1,7 +1,16 @@
+.formFinish {
+  background-color: #fff;
+}
+
 .logo {
   display: flex;
   justify-content: center;
   margin-bottom: 28px;
+}
+
+.image {
+  width: 192px;
+  align-self: center;
 }
 
 .title {

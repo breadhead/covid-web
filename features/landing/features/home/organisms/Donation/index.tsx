@@ -28,7 +28,7 @@ const Donation = () => (
           <div className={styles.author}>
             <img
               className={styles.authorPhoto}
-              src="http://placecorgi.com/80/80"
+              src="/static/images/fomin_avatar.jpg"
               alt="Илья Фоминцев"
             />
             <div className={styles.textWrapper}>

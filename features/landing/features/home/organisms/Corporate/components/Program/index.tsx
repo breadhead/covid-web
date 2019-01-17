@@ -8,7 +8,7 @@ const Program = () => (
       <h2 className={styles.title}>Программа корпоративных консультаций</h2>
       <img
         className={styles.logo}
-        src="/static/images/layout/corporate.png"
+        src="/static/images/corporate.png"
         alt="Программа корпоративных консультаций"
       />
     </div>

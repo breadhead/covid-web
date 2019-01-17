@@ -12,7 +12,7 @@ import { progressBarSteps, statements } from './config'
 const BeforeConsultation = () => (
   <Layout>
     <ProgressBar className={styles.progressBar} steps={progressBarSteps} />
-    <img className={styles.logo} src="/static/images/layout/answers.png" />
+    <img className={styles.logo} src="/static/images/answers.png" />
     <h1 className={styles.title}>
       Пожалуйста, прочитайте этот текст перед началом консультации
     </h1>
