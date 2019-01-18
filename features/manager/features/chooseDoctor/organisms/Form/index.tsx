@@ -36,7 +36,7 @@ const Form = ({
   return (
     <React.Fragment key={initialValues as any}>
       <UIForm
-        // initialValues={initialValues}
+        initialValues={initialValues}
         preventDefault
         className={styles.Form}
         onSubmit={onSubmit as any}
