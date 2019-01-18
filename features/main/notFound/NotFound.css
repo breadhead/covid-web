@@ -50,3 +50,22 @@
   width: 84px;
   margin-bottom: 10px;
 }
+
+.desktopLogo {
+  width: 238px;
+  height: 48px;
+
+  @media (--smallDown) {
+    display: none;
+  }
+}
+
+.mobileLogo {
+  display: none;
+  width: 200px;
+  height: 38px;
+
+  @media (--smallDown) {
+    display: block;
+  }
+}

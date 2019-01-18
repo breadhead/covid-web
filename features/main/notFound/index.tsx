@@ -1,21 +1,31 @@
 import * as React from 'react'
 
+import cx from 'classnames'
+
 export { default as notFoundMiddleware } from './notFoundMiddleware'
 export { State, reducer } from './reducer'
 export { getFound } from './selectors'
-
-import Logo from '@app/ui/atoms/Logo'
 
 import * as styles from './NotFound.css'
 
 import StartConsultationButton from '@app/features/landing/features/home/molecules/StartConsultationButton'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import Button, { ButtonKind, ButtonSize } from '@app/ui/atoms/Button'
+import IconCustom from '@app/ui/atoms/IconCustom'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 
 const NotFound = () => (
   <>
-    <Logo className={styles.logo} />
+    <NavLink href="/" type={NavLinkType.Nav}>
+      <IconCustom
+        className={cx(styles.desktopLogo, styles.logo)}
+        name="logo_full"
+      />
+      <IconCustom
+        className={cx(styles.mobileLogo, styles.logo)}
+        name="logo_short"
+      />
+    </NavLink>
     <div className={styles.container}>
       <img
         className={styles.image}
