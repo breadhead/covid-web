@@ -81,7 +81,7 @@ jobs:
       - run:
           name: Setup Env
           command: |
-            echo 'export IMAGE_TAG=${VERSION:-latest}' >> $BASH_ENV
+            echo 'export IMAGE_TAG=${CIRCLE_TAG:-latest}' >> $BASH_ENV
             echo 'export IMAGE_NAME=oncohelp-web' >> $BASH_ENV
       - run:
           name: Build and push Docker image
@@ -131,8 +131,6 @@ workflows:
             branches:
               only: 
                 - master
-            tags:
-              only: /.*/
       - dev:
           filters:
             branches:
@@ -140,5 +138,9 @@ workflows:
                 - master
           requires:
             - push
-
-
+  deploy-prod:
+    jobs:
+      - push:
+          filters:
+            tags:
+              only: /.*/
