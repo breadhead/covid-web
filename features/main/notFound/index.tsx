@@ -10,7 +10,7 @@ import * as styles from './NotFound.css'
 
 import StartConsultationButton from '@app/features/landing/features/home/molecules/StartConsultationButton'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import Button, { ButtonKind } from '@app/ui/atoms/Button'
+import Button, { ButtonKind, ButtonSize } from '@app/ui/atoms/Button'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 
 const NotFound = () => (
@@ -28,9 +28,11 @@ const NotFound = () => (
       </h1>
       <div className={styles.buttons}>
         <NavLink className={styles.buttonMain} href="/" type={NavLinkType.Nav}>
-          <Button kind={ButtonKind.Secondary}>Перейти на главную</Button>
+          <Button size={ButtonSize.Large} kind={ButtonKind.Secondary}>
+            Перейти на главную
+          </Button>
         </NavLink>
-        <StartConsultationButton className={styles.buttonConsult}>
+        <StartConsultationButton size={ButtonSize.Large}>
           Начать консультацию
         </StartConsultationButton>
       </div>

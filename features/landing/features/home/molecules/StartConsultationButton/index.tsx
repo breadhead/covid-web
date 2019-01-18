@@ -4,13 +4,14 @@ import { compose } from 'recompose'
 import { getToken } from './selectors'
 
 import { withLoginModal } from '@app/features/login'
-import Button, { ButtonKind } from '@app/ui/atoms/Button'
+import Button, { ButtonKind, ButtonSize } from '@app/ui/atoms/Button'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 
 interface Props {
   children: string
   token?: string
   className?: any
+  size?: ButtonSize
 }
 
 const StartConsultationButton = ({
@@ -18,15 +19,16 @@ const StartConsultationButton = ({
   openLogin,
   className,
   children,
+  size,
 }: Props & any) =>
   !!token ? (
     <NavLink type={NavLinkType.Nav} href="/client/new-claim">
-      <Button className={className} kind={ButtonKind.Primary}>
+      <Button size={size} className={className} kind={ButtonKind.Primary}>
         {children}
       </Button>
     </NavLink>
   ) : (
-    <Button className={className} onClick={openLogin}>
+    <Button size={size} className={className} onClick={openLogin}>
       {children}
     </Button>
   )

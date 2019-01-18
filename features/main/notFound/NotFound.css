@@ -20,16 +20,11 @@
 }
 
 .buttonMain {
-  height: 48;
   margin: 0 12px 0 0;
 
   @media (--smallDown) {
     margin: 0 0 16px 0;
   }
-}
-
-.buttonConsult {
-  height: 48;
 }
 
 .text {
