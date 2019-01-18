@@ -12,9 +12,7 @@
     url('/static/fonts/Muller-Regular/muller-regular-webfont.woff')
       format('woff'),
     url('/static/fonts/Muller-Regular/muller-regular-webfont.ttf')
-      format('truetype'),
-    url('/static/fonts/Muller-Regular/muller-regular-webfont.svg#muller_regularregular')
-      format('svg');
+      format('truetype');
 }
 
 *,
@@ -91,11 +89,11 @@ body {
   z-index: 20;
 }
 
-[class^="ReactModal"] {
+[class^='ReactModal'] {
   z-index: 20;
 
   @media (--smallDown) {
-      width: 100%;
-      min-width: auto;
+    width: 100%;
+    min-width: auto;
   }
 }
