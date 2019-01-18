@@ -1,6 +1,8 @@
 import * as React from 'react'
 
 export { default as notFoundMiddleware } from './notFoundMiddleware'
+export { State, reducer } from './reducer'
+export { getFound } from './selectors'
 
 import Logo from '@app/ui/atoms/Logo'
 

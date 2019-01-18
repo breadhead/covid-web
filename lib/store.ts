@@ -3,7 +3,11 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import windowSize, { REDUCER_KEY } from 'redux-windowsize'
 
-import { notFoundMiddleware } from '@app/features/main/notFound'
+import {
+  notFoundMiddleware,
+  reducer as notFoundReducer,
+  State as NotFoundState,
+} from '@app/features/main/notFound'
 
 import {
   reducer as chatReducer,
@@ -102,6 +106,7 @@ export interface State {
   consultation: ConsultationState
   feedback: SendFeedbackState
   doctor: DoctorState
+  notFound: NotFoundState
 }
 
 const reducer = combineReducers({
@@ -121,6 +126,7 @@ const reducer = combineReducers({
   consultation: consultationReducer,
   feedback: sendFeedbackReducer,
   doctor: doctorReducer,
+  notFound: notFoundReducer,
 } as any)
 
 export interface ExtraArgs {
