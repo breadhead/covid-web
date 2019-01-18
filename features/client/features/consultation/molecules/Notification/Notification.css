@@ -1,4 +1,4 @@
-.answerNotification {
+.Notification {
   display: grid;
   grid-template-columns: 92px auto;
   padding: 28px;

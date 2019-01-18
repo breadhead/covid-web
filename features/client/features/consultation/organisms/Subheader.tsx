@@ -1,7 +1,7 @@
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 
-import AnswerNotification from '../molecules/AnswerNotification'
 import Company from '../molecules/Company'
+import Notification from '../molecules/Notification'
 
 interface Props {
   quotaClaim: QuotaClaim
@@ -10,7 +10,7 @@ interface Props {
 const Subheader = ({ quotaClaim }: Props) => (
   <>
     <Company quotaClaim={quotaClaim} />
-    <AnswerNotification />
+    <Notification />
   </>
 )
 

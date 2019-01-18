@@ -1,12 +1,12 @@
 import * as React from 'react'
 
-import * as styles from './AnswerNotification.css'
+import * as styles from './Notification.css'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import Button, { ButtonSize } from '@app/ui/atoms/Button'
 
-const AnswerNotification = () => (
-  <article className={styles.answerNotification}>
+const Notification = () => (
+  <article className={styles.Notification}>
     <img
       className={styles.logo}
       src="http://placecorgi.com/72/72"
@@ -16,8 +16,7 @@ const AnswerNotification = () => (
       <h3 className={styles.title}>Эксперт ответил на ваши вопросы</h3>
       <p className={styles.text}>
         Если вы хотите что-то уточнить или оставить отзыв, напишите в
-        {NON_BREAKING_SPACE}чат
-        {NON_BREAKING_SPACE}в правой части страницы.
+        {NON_BREAKING_SPACE}чат{NON_BREAKING_SPACE}в правой части страницы.
       </p>
     </div>
     <Button className={styles.button} size={ButtonSize.Large}>
@@ -26,4 +25,4 @@ const AnswerNotification = () => (
   </article>
 )
 
-export default AnswerNotification
+export default Notification
