@@ -6,6 +6,7 @@ export const mapDoctors = (doctors: Doctor[]) =>
   doctors.map((doctor, i) => ({
     id: i,
     value: doctor.login,
+    text: doctor.login,
     component: (
       <RadioContent title={doctor.fullName} subtitle={doctor.description} />
     ),

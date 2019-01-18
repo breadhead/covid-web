@@ -1,12 +1,12 @@
 import Container from './container'
-import Doctors from './organisms/Doctors'
+import Page from './page'
 
-export default Container(Doctors)
+export default Container(Page)
 
 export {
   default as withChooseDoctorModal,
   WithChooseDoctorModal,
-} from './withCloseClaimModal'
+} from './withChooseDoctorModal'
 
 export { reducer, State } from './reducers'
 

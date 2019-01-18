@@ -12,7 +12,7 @@ import {
   fetchDoctors as fetchDoctorsAction,
 } from './actions'
 import { FormFields } from './organisms/Form'
-import { getDoctors } from './selectors'
+import { getChooseDoctorError, getDoctors } from './selectors'
 
 export const MODAL_KEY = 'choose-doctor'
 
@@ -35,9 +35,11 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       const { filter } = this.state
 
       const filteredDoctors = this.filterDoctors(doctors, filter)
+      const initialValues = this.getInitialValues(doctors)
       return (
         <WrappedComponent
           {...this.props}
+          initialValues={initialValues}
           onSubmit={this.onSubmit}
           doctors={filteredDoctors}
           filter={this.state.filter}
@@ -54,10 +56,35 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       return doctors.filter(doctor => RegExp(filter).test(doctor.fullName))
     }
 
-    private onSubmit = (value: FormFields) => {
-      const { claimId, chooseDoctor } = this.props
-      const request = { ...value, claimId }
-      chooseDoctor(request)
+    private onSubmit = async (fields: FormFields) => {
+      const {
+        claimId,
+        chooseDoctor,
+        modal: { close },
+      } = this.props
+      const request = { ...fields, claimId }
+      await chooseDoctor(request)
+      this.closeModalIfNeeded()
+    }
+
+    private getInitialValues = (doctors: Doctor[]) => {
+      const assignedDoctor = doctors.find(doctor => doctor.assigned)
+
+      if (assignedDoctor) {
+        return { doctorLogin: assignedDoctor.login }
+      }
+
+      return {}
+    }
+
+    private closeModalIfNeeded = () => {
+      const {
+        chooseDoctorError,
+        modal: { close },
+      } = this.props
+      if (!chooseDoctorError) {
+        close()
+      }
     }
   }
 }
@@ -71,6 +98,7 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
 const mapState = (state: State) => ({
   claimId: getClaimId(state),
   doctors: getDoctors(state),
+  chooseDoctorError: getChooseDoctorError(state),
 })
 
 export default compose(
