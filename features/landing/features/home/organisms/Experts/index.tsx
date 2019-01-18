@@ -14,8 +14,8 @@ const Experts = () => (
         <h2 className={styles.title}>Наши эксперты</h2>
         <p className={styles.text}>
           Фонд профилактики рака отбирает консультантов сервиса из
-          {NON_BREAKING_SPACE} числа выпускников Высшей школы онкологии и
-          {NON_BREAKING_SPACE} специалистов, рекомендованных экспертным советом
+          {NON_BREAKING_SPACE}числа выпускников Высшей школы онкологии и
+          {NON_BREAKING_SPACE}специалистов, рекомендованных экспертным советом
           Фонда.
         </p>
         <NavLink className={styles.link} href="/experts">

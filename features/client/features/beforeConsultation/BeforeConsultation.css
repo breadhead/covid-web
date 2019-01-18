@@ -9,9 +9,9 @@
 
 .logo {
   display: block;
+  width: 79px;
   margin: 0 auto;
   margin-bottom: 16px;
-
 
   @media (--smallDown) {
     width: 72px;

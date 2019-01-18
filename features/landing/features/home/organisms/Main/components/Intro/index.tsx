@@ -1,26 +1,23 @@
 import * as React from 'react'
 import * as styles from './Intro.css'
 
+import { NON_BREAKING_SPACE } from '@app/lib/config'
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
+import IconCustom from '@app/ui/atoms/IconCustom'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 import StartConsultationButton from '../../../../molecules/StartConsultationButton'
 
 const Intro = () => (
   <section className={styles.intro}>
     <h1 className={styles.title}>
-      Справочная служба для онкологических пациентов и их близких
+      Справочная служба для онкологических пациентов и{NON_BREAKING_SPACE}их
+      {NON_BREAKING_SPACE}близких
     </h1>
     <div className={styles.logos}>
-      <img
-        className={styles.logo}
-        src="http://placecorgi.com/130/56"
-        alt="Проект Фонда профилактики рака"
-      />
-      <img
-        className={styles.logo}
-        src="http://placecorgi.com/130/56"
-        alt="Фонд профилактики рака"
-      />
+      <p className={styles.status}>
+        Проект фонда <br /> профилактики рака
+      </p>
+      <IconCustom className={styles.logo} name="foundation-logo" />
     </div>
     <div className={styles.buttons}>
       <StartConsultationButton className={styles.startButton}>

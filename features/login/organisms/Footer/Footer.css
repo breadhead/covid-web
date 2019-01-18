@@ -24,6 +24,7 @@
 }
 
 .logo {
+  display: inline-block;
   width: 26px;
   height: 40px;
   margin-right: 12px;

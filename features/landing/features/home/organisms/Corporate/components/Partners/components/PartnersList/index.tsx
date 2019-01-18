@@ -6,13 +6,17 @@ import PartnerCard from '@app/features/landing/organisms/PartnerCard'
 
 import { partners } from './config'
 
+import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
+
 const PartnersList = () => (
   <section className={styles.partnersList}>
     {partners.map(partner => (
       <PartnerCard key={partner.id} card={partner} />
     ))}
     <div className={styles.buttonWrapper}>
-      <button className={styles.addPartnerButton} />
+      <NavLink href="/contacts" type={NavLinkType.Nav}>
+        <button className={styles.addPartnerButton} />
+      </NavLink>
       <p className={styles.buttonLabel}>
         Стать нашим
         <br />

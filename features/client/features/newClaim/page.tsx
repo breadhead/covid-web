@@ -22,7 +22,7 @@ const ClaimPage: React.StatelessComponent<Props> = ({
     <Layout
       step={1}
       title="Заполните заявку"
-      info={`Личные данные будут использованы только для${NON_BREAKING_SPACE} консультации.`}
+      info={`Личные данные будут использованы только для${NON_BREAKING_SPACE}консультации.`}
     >
       <ClaimForm
         initial={initialFields}
