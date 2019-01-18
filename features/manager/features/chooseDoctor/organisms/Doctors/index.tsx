@@ -1,4 +1,4 @@
-import { Doctor } from '@app/models/Doctor'
+import { Doctor } from '@app/models/Users/Doctor'
 import * as React from 'react'
 import SearchBar from '../../molecules/SearchBar'
 import Form, { FormFields } from '../Form'

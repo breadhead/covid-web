@@ -4,7 +4,7 @@ import {
   FetchingActions,
   FetchingState,
 } from '@app/lib/symbioteFactory'
-import { Doctor } from '@app/models/Doctor'
+import { Doctor } from '@app/models/Users/Doctor'
 import { Action } from 'redux'
 
 interface State extends FetchingState {

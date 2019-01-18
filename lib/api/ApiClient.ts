@@ -6,12 +6,13 @@ import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
-import { Doctor } from '@app/models/Doctor'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
-import { User } from '../../models/User'
+import { Doctor } from '@app/models/Users/Doctor'
+import { User } from '../../models/Users/User'
 import { AnswerRequest } from './request/AnswerRequest'
 import { BindQuotaRequest } from './request/BindQuotaRequest'
+import { ChooseDoctorRequest } from './request/ChooseDoctorRequest'
 import { CloseClaimRequest } from './request/CloseClaimRequest'
 import { QuotaTransferRequest } from './request/QuotaTransfer'
 import ShortClaimRequest from './request/ShortClaim'
@@ -32,8 +33,7 @@ export interface UploadedFile {
 export default interface ApiClient {
   token: string
 
-  // TODO: fix types
-  chooseDoctor(data: any): Promise<any>
+  chooseDoctor(data: ChooseDoctorRequest): Promise<void>
   doctors(): Promise<Doctor[]>
   currentUser(): Promise<User>
   nextStatus(id: string): Promise<void>

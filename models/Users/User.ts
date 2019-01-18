@@ -1,4 +1,4 @@
-import { Role } from '../lib/api/ApiClient'
+import { Role } from '../../lib/api/ApiClient'
 
 export interface User {
   token: string

@@ -1,4 +1,4 @@
-import { Doctor } from '@app/models/Doctor'
+import { Doctor } from '@app/models/Users/Doctor'
 import * as React from 'react'
 import RadioContent from '../molecules/RadioContent'
 

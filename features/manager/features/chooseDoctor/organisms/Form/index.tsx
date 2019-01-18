@@ -4,7 +4,7 @@ import {
   Form as UIForm,
   RadioGroup,
 } from '@app/features/common/form'
-import { Doctor } from '@app/models/Doctor'
+import { Doctor } from '@app/models/Users/Doctor'
 import { RadioButtonStyles } from '@app/ui/molecules/RadioGroup'
 import cx from 'classnames'
 import * as React from 'react'
@@ -25,6 +25,7 @@ const Form = ({ doctors, onSubmit }: Props) => (
   <UIForm className={styles.Form} onSubmit={onSubmit as any}>
     <div className={cx(styles.List, 'doctorsList')}>
       <RadioGroup
+        type="radio"
         radioStyle={RadioButtonStyles.Radio}
         name="doctorLogin"
         buttons={mapDoctors(doctors)}
