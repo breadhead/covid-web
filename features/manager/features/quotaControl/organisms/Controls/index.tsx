@@ -1,5 +1,6 @@
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 
+import { Doctor } from '@app/models/Users/Doctor'
 import { WithQuotaTypeModal } from '../../../bindQuota'
 import { WithChooseDoctorModal } from '../../../chooseDoctor'
 import { WithCloseClaimModal } from '../../../closeClaim'
@@ -16,6 +17,7 @@ interface Props
   allowEditing?: boolean
   nextStatus: () => void
   trelloUrl?: string
+  assignedDoctor?: Doctor
 }
 
 const Controls = ({
@@ -27,6 +29,7 @@ const Controls = ({
   nextStatus,
   trelloUrl,
   allowEditing = true,
+  assignedDoctor,
 }: Props) => (
   <div className={styles.plate}>
     <Buttons
@@ -38,7 +41,12 @@ const Controls = ({
       openCloseClaim={openCloseClaim}
       allowEditing={allowEditing}
     />
-    {allowEditing && <Corporate openChooseDoctor={openChooseDoctor} />}
+    {allowEditing && (
+      <Corporate
+        assignedDoctor={assignedDoctor}
+        openChooseDoctor={openChooseDoctor}
+      />
+    )}
   </div>
 )
 

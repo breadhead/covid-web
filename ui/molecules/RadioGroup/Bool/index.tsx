@@ -32,7 +32,7 @@ const Bool = ({
   >
     {buttons.map(button => (
       <Radio key={button.id} value={button.value} {...rest}>
-        {button.text || button.value}
+        {button.component || button.text || button.value}
       </Radio>
     ))}
   </AntRadioGroup>

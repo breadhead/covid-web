@@ -4,7 +4,9 @@ import { fetchSituationClaim } from '@app/features/client/features/editClaim'
 import { fetchShortClaim } from '@app/features/client/features/newClaim'
 import { ExtraArgs, State } from '@app/lib/store'
 
-import { actions } from './reducer'
+import { actions as claimDataActions } from './reducers/claimData'
+import { actions as nextStatusActions } from './reducers/nextStatus'
+import { getClaimId } from './selectors'
 
 export const fetchQuotaClaim = (id: string) => async (
   dispatch: Dispatch<any>,
@@ -12,17 +14,17 @@ export const fetchQuotaClaim = (id: string) => async (
   { getApi }: ExtraArgs,
 ) => {
   const api = getApi(getState)
-  dispatch(actions.request())
+  dispatch(claimDataActions.request())
   try {
     const [quotaClaim, mainInfo, questionsClaim] = await Promise.all([
       api.quotaClaim(id),
       api.mainInfoClaim(id),
       api.questionsClaim(id),
     ])
-    dispatch(actions.success(quotaClaim, mainInfo, questionsClaim))
+    dispatch(claimDataActions.success(quotaClaim, mainInfo, questionsClaim))
     return { quotaClaim, mainInfo, questionsClaim }
   } catch (error) {
-    dispatch(actions.error(error.message))
+    dispatch(claimDataActions.error(error.message))
     throw error
   }
 }
@@ -44,5 +46,23 @@ export const fetchClaim = (id: string) => async (dispatch: Dispatch<any>) => {
     situationClaim,
     quotaClaim,
     questionsClaim,
+  }
+}
+
+export const nextStatus = () => async (
+  dispatch: Dispatch<any>,
+  getState: () => State,
+  { getApi }: ExtraArgs,
+) => {
+  const api = getApi(getState)
+  const claimId = getClaimId(getState())
+  dispatch(nextStatusActions.request())
+  try {
+    await api.nextStatus(claimId!)
+    await dispatch(fetchClaim(claimId!))
+    dispatch(nextStatusActions.success())
+  } catch (error) {
+    dispatch(nextStatusActions.error(error.message))
+    throw error
   }
 }

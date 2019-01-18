@@ -5,6 +5,7 @@ interface OwnProps {
   className?: string
   resetAfterSubmit?: boolean
   forceSubmitOnEnter?: boolean
+  preventDefault?: boolean
 }
 
 type Props = OwnProps & FormProps
@@ -58,14 +59,15 @@ class Form extends Component<Props> {
   }
 
   private onEnterPress = (e: React.KeyboardEvent) => {
-    const { forceSubmitOnEnter } = this.props
+    const { forceSubmitOnEnter, preventDefault } = this.props
 
     const buttonFits = e.keyCode === 13 && e.shiftKey === false
     const element = this.formRef.current
 
     const shouldSubmit = buttonFits && forceSubmitOnEnter && element
+    const shouldPreventDefault = element && preventDefault
 
-    if (shouldSubmit) {
+    if (shouldSubmit || shouldPreventDefault) {
       e.preventDefault()
       element!.dispatchEvent(new Event('submit', { cancelable: true }))
     }

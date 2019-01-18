@@ -1,0 +1,23 @@
+.button {
+  position: relative;
+  padding: 0;
+  padding-right: 16px;
+
+  font: var(--text16-24);
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.arrowDown {
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #1518338c;
+  border-top: none;
+  border-left: none;
+  transform: translateY(-38%) rotate(45deg);
+}
