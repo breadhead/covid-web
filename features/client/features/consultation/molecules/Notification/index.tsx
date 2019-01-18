@@ -5,33 +5,15 @@ import * as styles from './Notification.css'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import Button, { ButtonSize } from '@app/ui/atoms/Button'
 
-export enum ClaimStatus {
-  New = 'new',
-  QuotaAllocation = 'quota-allocation',
-  QueueForQuota = 'queue-for-quota',
-  QuestionnaireWaiting = 'questionnaire-waiting',
-  QuestionnaireValidation = 'questionnaire-validation',
-  AtTheDoctor = 'at-the-doctor',
-  AnswerValidation = 'answer-validation',
-  DeliveredToCustomer = 'delivered-to-customer',
-  ClosedSuccessfully = 'closed-successfully',
-  Denied = 'denied',
-}
-
-interface ClientNotification {
-  id: string
-  image: string
-  title: string
-  text: string
-  button: string
-}
+import { notifications } from './notifications'
 
 interface Props {
-  status: keyof ClaimStatus
+  status: any
 }
 
 const Notification = ({ status }: Props) => {
-  console.log('status:', status)
+  const { id, image, title, text, button } = notifications[`${status}`]
+  console.log('id:', id, image)
   return (
     <article className={styles.Notification}>
       <img

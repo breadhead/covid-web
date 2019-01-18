@@ -7,6 +7,8 @@ enum ClaimStatus {
   AtTheDoctor = 'У врача',
   AnswerWaiting = 'Ожидание ответа',
   DeliveredToCustomer = 'Передано заказчику',
+  Denied = 'Отказ',
+  QueueForQuota = 'В очереди на квоту',
 }
 
 export default ClaimStatus

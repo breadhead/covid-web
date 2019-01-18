@@ -5,7 +5,7 @@ import { State } from '@app/lib/store'
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 
 import Company from '../molecules/Company'
-import Notification, { ClaimStatus } from '../molecules/Notification'
+import Notification from '../molecules/Notification'
 import { getClientStatus } from './selectors'
 
 interface Props {
@@ -24,4 +24,4 @@ const mapState = (state: State) => ({
   status: getClientStatus(state),
 })
 
-export default connect(mapState)(Subheader)
+export default connect(mapState)(Subheader as any)

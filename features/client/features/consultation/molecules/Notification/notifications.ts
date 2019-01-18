@@ -1,48 +1,49 @@
+import ClaimStatus from '@app/models/Claim/ClaimStatus'
+
 export const notifications = {
-  QuotaAllocation: {
+  [ClaimStatus.QuotaAllocation]: {
     id: '1',
     image: '/static/images/waiting-letter.png',
     title: '',
     text: '',
     button: '',
   },
-  QuestionnaireWaiting: {
+  [ClaimStatus.QuestionnaireWaiting]: {
     id: '2',
     image: '/static/images/continue-filling.png',
     title: '',
     text: '',
     button: '',
   },
-  QuestionnaireValidation: {
+  [ClaimStatus.QuestionnaireValidation]: {
     id: '3',
     image: '/static/images/expert-answered.png',
     title: '',
     text: '',
     button: '',
   },
-  DeliveredToCustomer: {
+  [ClaimStatus.DeliveredToCustomer]: {
     id: '4',
     image: '/static/images/expert-answering.png',
     title: '',
     text: '',
     button: '',
   },
-  ClosedSuccessfully: {
+  [ClaimStatus.Closed]: {
     id: '5',
     image: '/static/images/consultation-done-success.png',
     title: '',
     text: '',
     button: '',
   },
-  Denied: {
+  [ClaimStatus.Denied]: {
     id: '6',
     image: '/static/images/expert-answering.png',
     title: '',
     text: '',
     button: '',
   },
-  // нет в enum ClaimStatus
-  QueueForQuota: {
+  [ClaimStatus.QueueForQuota]: {
     id: '7',
     image: '/static/images/queue.png',
     title: '',
