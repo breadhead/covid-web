@@ -17,6 +17,7 @@ import '@app/ui/config.css?CSSModulesDisable'
 
 import { set as setQuery } from '@app/features/common/browserQuery'
 import { setToken } from '@app/features/login'
+import NotFound, { getFound } from '@app/features/main/notFound'
 import { canUseDOM } from '@app/lib/helpers/canUseDOM'
 import registerModals from '@app/lib/register-modals'
 import { AppContext } from '@app/lib/server-types'
@@ -55,7 +56,6 @@ class OncohelpWeb extends App<Props> {
     }
 
     const authViolate = getViolateState(this.props.reduxStore.getState())
-
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
       Router.push('/')
@@ -68,6 +68,7 @@ class OncohelpWeb extends App<Props> {
     const { Component, pageProps, reduxStore } = this.props
 
     const authViolate = getViolateState(reduxStore.getState())
+    const notFound = !getFound(reduxStore.getState())
 
     if (canUseDOM) {
       reduxStore.dispatch(createSizeAction(window))
@@ -86,7 +87,7 @@ class OncohelpWeb extends App<Props> {
           <Sprite />
           <Provider store={reduxStore}>
             <>
-              <Component {...pageProps} />
+              {notFound ? <NotFound /> : <Component {...pageProps} />}
               <Modal />
             </>
           </Provider>
