@@ -23,8 +23,9 @@ interface YearMonth {
   year: string
 }
 
-const yearMonthToString = ({ year, month }: YearMonth) =>
-  `${mothNumberToName(month)} ${year} года`
+const yearMonthToString = (
+  { year, month }: YearMonth = { year: '', month: '' },
+) => `${mothNumberToName(month)} ${year} года`
 
 const createTreatment = ({
   diagnosisDate,

@@ -9,10 +9,14 @@ import { State } from '@app/lib/store'
 import { Doctor } from '@app/models/Users/Doctor'
 import {
   chooseDoctor as chooseDoctorAction,
-  fetchDoctors as fetchDoctorsAction,
+  fetchDoctorsIfNeeded as fetchDoctorsAction,
 } from './actions'
 import { FormFields } from './organisms/Form'
-import { getChooseDoctorError, getDoctors } from './selectors'
+import {
+  getAssignedDoctor,
+  getChooseDoctorError,
+  getDoctors,
+} from './selectors'
 
 export const MODAL_KEY = 'choose-doctor'
 
@@ -26,10 +30,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
   return class extends React.Component<ContainerProps> {
     public state = { filter: '' }
 
-    public componentDidMount() {
-      const { fetchDoctors } = this.props
-      fetchDoctors()
-    }
     public render() {
       const { doctors } = this.props
       const { filter } = this.state
@@ -57,18 +57,14 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     }
 
     private onSubmit = async (fields: FormFields) => {
-      const {
-        claimId,
-        chooseDoctor,
-        modal: { close },
-      } = this.props
+      const { claimId, chooseDoctor } = this.props
       const request = { ...fields, claimId }
       await chooseDoctor(request)
       this.closeModalIfNeeded()
     }
 
     private getInitialValues = (doctors: Doctor[]) => {
-      const assignedDoctor = doctors.find(doctor => doctor.assigned)
+      const { assignedDoctor } = this.props
 
       if (assignedDoctor) {
         return { doctorLogin: assignedDoctor.login }
@@ -99,6 +95,7 @@ const mapState = (state: State) => ({
   claimId: getClaimId(state),
   doctors: getDoctors(state),
   chooseDoctorError: getChooseDoctorError(state),
+  assignedDoctor: getAssignedDoctor(state),
 })
 
 export default compose(

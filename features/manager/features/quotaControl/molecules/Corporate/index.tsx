@@ -1,6 +1,7 @@
-import Button from '@app/ui/atoms/Button'
 import Select from '@app/ui/atoms/Select'
 
+import { Doctor } from '@app/models/Users/Doctor'
+import AssignDoctorButton from '../../atoms/AssignDoctorButton'
 import * as styles from './Corporate.css'
 
 const options = [
@@ -12,13 +13,16 @@ const options = [
 
 interface Props {
   openChooseDoctor: () => void
+  assignedDoctor?: Doctor
 }
 
-const Corporate = ({ openChooseDoctor }: Props) => (
+const Corporate = ({ openChooseDoctor, assignedDoctor }: Props) => (
   <div className={styles.corporate}>
     <Select name="fdf" options={options} defaultValue={'1'} />
-    <Button onClick={openChooseDoctor}>Выбрать доктора</Button>
+    <AssignDoctorButton
+      openChooseDoctor={openChooseDoctor}
+      assignedDoctor={assignedDoctor}
+    />
   </div>
 )
-
 export default Corporate

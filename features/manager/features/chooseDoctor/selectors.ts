@@ -5,3 +5,6 @@ export const getDoctors = (state: State) =>
 
 export const getChooseDoctorError = (state: State) =>
   state.manager.chooseDoctor.choose.error
+
+export const getAssignedDoctor = (state: State) =>
+  state.manager.chooseDoctor.list.doctors.find(doctor => doctor.assigned)
