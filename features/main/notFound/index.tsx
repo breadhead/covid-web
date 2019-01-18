@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+export { default as notFoundMiddleware } from './notFoundMiddleware'
+
 import Logo from '@app/ui/atoms/Logo'
 
 import * as styles from './NotFound.css'

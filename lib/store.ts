@@ -3,6 +3,8 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import windowSize, { REDUCER_KEY } from 'redux-windowsize'
 
+import { notFoundMiddleware } from '@app/features/main/notFound'
+
 import {
   reducer as chatReducer,
   State as ChatState,
@@ -133,6 +135,7 @@ export const initializeStore = (initialState?: State) =>
     composeWithDevTools(
       applyMiddleware(
         unauthorizedMiddleware,
+        notFoundMiddleware,
         thunk.withExtraArgument({
           api: ApiClientFactory.getApiClient(),
           getApi: getState => factory(getToken(getState())),
