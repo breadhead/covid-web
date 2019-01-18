@@ -4,7 +4,10 @@
   left: 50%;
   min-width: 400px;
   min-height: 400px;
+  max-height: calc(100% - 50px);
   padding: 16px;
+  overflow-x: hidden;
+  overflow-y: scroll;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 8px 0 rgba(63, 63, 68, 0.04),

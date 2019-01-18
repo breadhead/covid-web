@@ -5,15 +5,15 @@ import stylesShort from './MenuShort.css'
 
 const linksShort = [
   { title: 'О проекте', href: '#' },
-  { title: 'Помочь проекту', href: '#' },
-  { title: 'Обратная связь', href: '#' },
+  { title: 'Помочь проекту', href: '#donation' },
+  { title: 'Обратная связь', href: '/contacts' },
 ]
 
 const linksLong = [
   { title: 'Партнёры', href: '/partners' },
   { title: 'Контакты', href: '/contacts' },
   { title: 'Помочь проекту', href: '#donation' },
-  { title: 'Обратная связь', href: '#' },
+  { title: 'Обратная связь', href: '/contacts' },
   { title: 'Эксперты', href: '/experts' },
 ]
 

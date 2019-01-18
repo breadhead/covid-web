@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial=scale=1">
+  <style type="text/css">
+    @font-face {
+      font-family: 'Muller Regular';
+      font-style: normal;
+      font-weight: 400;
+      src: url('./fonts/Muller-Regular/muller-regular-webfont.eot');
+      src: url('./fonts/Muller-Regular/muller-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/Muller-Regular/muller-regular-webfont.woff2') format('woff2'),
+        url('./fonts/Muller-Regular/muller-regular-webfont.woff') format('woff'),
+        url('./fonts/Muller-Regular/muller-regular-webfont.ttf') format('truetype'),
+        url('./fonts/Muller-Regular/muller-regular-webfont.svg#muller_regularregular') format('svg');
+    }
+
+    body {
+      margin: 0;
+      font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    }
+
+    .container {
+      max-width: 640px;
+      padding: 90px 0 120px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .image {
+      width: 84px;
+      margin: 0 0 10px 0;
+    }
+
+    .logo {
+      margin: 24px 0 24px 48px;
+    }
+
+    .text-secondary {
+      margin: 0 0 32px 0;
+      font-size: 14px;
+      line-height: 20px;
+      color: #616681;
+    }
+
+    .title {
+      margin: 0 0 16px 0;
+      font-family: 'Muller Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+      font-size: 32px;
+      font-weight: normal;
+      line-height: 40px;
+    }
+
+    .text {
+      margin: 0;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @media (max-width: 767px) {
+      .container {
+        padding: 56px 16px 72px;
+      }
+
+      .title {
+        font-size: 24px;
+        line-height: 32px;
+      }
+
+      .logo {
+        margin: 8px 0 8px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="/">
+    <picture>
+      <source srcset="./images/logo_short.svg" media="(max-width: 767px)">
+      <img class="logo" srcset="./images/logo_full.svg" alt="Просто спросить">
+    </picture>
+  </a>
+  <div class="container">
+    <img class="image" src="./images/50X.png" alt="Временные технические неполадки" />
+    <p class="text-secondary">50X ошибка</p>
+    <h1 class="title">
+      Временные технические неполадки
+    </h1>
+    <p class="text">Мы уже работаем над этой проблемой. Обновите страницу или вернитесь позже.</p>
+</body>
+
+</html>

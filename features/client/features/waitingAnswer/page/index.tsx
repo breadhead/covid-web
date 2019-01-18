@@ -3,6 +3,7 @@ import * as styles from './WaitingAnswer.css'
 
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 
+import { FooterTheme } from '@app/ui/organisms/Footer'
 import Layout from '../../../organisms/Layout'
 import ProgressBar from '../../progressBar/organisms/ProgressBar'
 import { progressBarSteps } from './config'
@@ -12,10 +13,10 @@ export interface Props {
 }
 
 const WaitingAnswer = ({ email }: Props) => (
-  <Layout>
+  <Layout footerTheme={FooterTheme.White} pageClassName={styles.layout}>
     <ProgressBar className={styles.progressBar} steps={progressBarSteps} />
     <div className={styles.logo}>
-      <img src="http://placecorgi.com/160/176" />
+      <img className={styles.image} src="/static/images/waiting.png" />
     </div>
     <h1 className={styles.title}>Дождитесь ответа нашего эксперта</h1>
     <p className={styles.text}>

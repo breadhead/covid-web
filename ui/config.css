@@ -86,10 +86,16 @@ body {
   overflow-x: hidden;
 }
 
-.ReactModal__Overlay--after-open {
-  z-index: 10;
+.ReactModalPortal {
+  position: relative;
+  z-index: 20;
+}
+
+[class^="ReactModal"] {
+  z-index: 20;
 
   @media (--smallDown) {
       width: 100%;
+      min-width: auto;
   }
 }

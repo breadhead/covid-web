@@ -1,5 +1,7 @@
 .button {
   display: block;
+  width: 38px;
+  height: 27px;
   margin-left: auto;
   font-size: 0;
   cursor: pointer;

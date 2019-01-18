@@ -24,7 +24,7 @@ const PartnerCard = ({ card, className }: Props) => {
       <p className={styles.label}>{label}</p>
       <p className={styles.sum}>
         {sum}
-        {NON_BREAKING_SPACE} ₽
+        {NON_BREAKING_SPACE}₽
       </p>
     </article>
   )

@@ -13,18 +13,18 @@ const partners = [
   {
     id: '1',
     text: `Системные проекты, которые меняют медицину России к${NON_BREAKING_SPACE}лучшему`,
-    logo: '/static/images/layout/footer/foundation_logo.png',
+    logo: '/static/images/footer/foundation_logo.png',
   },
   {
     id: '2',
     text: `Просветительский портал о${NON_BREAKING_SPACE}профилактике и лечении онкологических и${NON_BREAKING_SPACE}
     других заболеваний`,
-    logo: '/static/images/layout/footer/media_logo.png',
+    logo: '/static/images/footer/media_logo.png',
   },
   {
     id: '3',
     text: `Система определения показаний к${NON_BREAKING_SPACE}профилактике рака`,
-    logo: '/static/images/layout/footer/screen_logo.png',
+    logo: '/static/images/footer/screen_logo.png',
   },
 ]
 

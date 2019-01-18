@@ -3,6 +3,7 @@ import * as styles from './FormFinish.css'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 
+import { FooterTheme } from '@app/ui/organisms/Footer'
 import Layout from '../../../organisms/Layout'
 
 export interface Props {
@@ -10,9 +11,9 @@ export interface Props {
 }
 
 const FormFinish = ({ email }: Props) => (
-  <Layout>
+  <Layout pageClassName={styles.formFinish} footerTheme={FooterTheme.White}>
     <div className={styles.logo}>
-      <img src="http://placecorgi.com/160/176" />
+      <img className={styles.image} src="/static/images/2-step.png" />
     </div>
     <h1 className={styles.title}>Спасибо! Мы получили вашу заявку</h1>
     <p className={styles.text}>

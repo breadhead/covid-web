@@ -10,6 +10,10 @@
   }
 }
 
+.logo {
+  width: 79px;
+}
+
 .topic {
   flex-basis: 50%;
   text-align: left;

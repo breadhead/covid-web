@@ -7,13 +7,13 @@
     "start": "pm2 restart pm2.json",
     "lint": "yarn lint:code && yarn lint:style",
     "lint:code": "tslint -p tsconfig.json -c tslint.json",
-    "lint:style": "stylelint './**/*.css' --fix",
+    "lint:style": "stylelint './**/*.css'",
     "types": "tsc",
     "pretty": "prettier --write \"{,!(.next|out)/**/}*.{ts,tsx,js}\"",
     "test": "jest"
   },
   "dependencies": {
-    "@breadhead/thunk-error": "^1.0.2",
+    "@breadhead/thunk-error": "^1.0.3",
     "@breadhead/with-scroll-lock": "^1.0.0",
     "@types/object-hash": "^1.2.0",
     "@zeit/next-less": "^1.0.1",
@@ -61,6 +61,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
     "@commitlint/cli": "^7.2.1",
+    "@solid-soda/tslint-config": "^2.5.3",
     "@types/classnames": "^2.2.6",
     "@types/enzyme": "^3.1.14",
     "@types/jest": "^23.3.4",
@@ -98,8 +99,6 @@
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-order": "^1.0.0",
     "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.17.0",
-    "tslint-eslint-rules": "^5.4.0",
     "typescript": "^3.2.2"
   },
   "config": {
