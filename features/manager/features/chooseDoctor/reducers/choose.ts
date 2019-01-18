@@ -19,7 +19,7 @@ const { actions, reducer } = createFetchingSymbiote<FetchingState, Actions>(
     fetching: false,
     error: false,
   }),
-  'manager/chooseDoctor/list',
+  'manager/chooseDoctor/choose',
 )
 
 export { FetchingState as State, reducer, Actions, actions }

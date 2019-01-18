@@ -34,7 +34,7 @@ export default interface ApiClient {
   token: string
 
   chooseDoctor(data: ChooseDoctorRequest): Promise<void>
-  doctors(): Promise<Doctor[]>
+  doctors(claimId: string): Promise<Doctor[]>
   currentUser(): Promise<User>
   nextStatus(id: string): Promise<void>
   claimsForClient(): Promise<ListedClaim[]>

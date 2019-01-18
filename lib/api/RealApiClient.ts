@@ -40,9 +40,9 @@ export default class RealApiClient implements ApiClient {
     })
   }
 
-  public doctors = () =>
+  public doctors = (claimId: string) =>
     this.axiosInstance
-      .get('/users/doctors')
+      .get(`/users/doctors/${claimId}`)
       .then(response => response.data as Doctor[])
 
   public chooseDoctor = (data: any) =>

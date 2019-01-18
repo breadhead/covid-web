@@ -50,8 +50,9 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       this.setState({ filter: e.target.value })
     }
 
-    private filterDoctors = (doctors: Doctor[], filter: string) =>
-      doctors.filter(doctor => RegExp(filter).test(doctor.fullName))
+    private filterDoctors = (doctors: Doctor[], filter: string) => {
+      return doctors.filter(doctor => RegExp(filter).test(doctor.fullName))
+    }
 
     private onSubmit = (value: FormFields) => {
       const { claimId, chooseDoctor } = this.props

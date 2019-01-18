@@ -22,7 +22,7 @@ interface Props {
 }
 
 const Form = ({ doctors, onSubmit }: Props) => (
-  <UIForm className={styles.Form} onSubmit={onSubmit as any}>
+  <UIForm preventDefault className={styles.Form} onSubmit={onSubmit as any}>
     <div className={cx(styles.List, 'doctorsList')}>
       <RadioGroup
         type="radio"
