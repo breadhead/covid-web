@@ -1,6 +1,7 @@
 import React, { SyntheticEvent } from 'react'
 import { connect } from 'react-redux'
-import { AnyAction, compose, Dispatch } from 'redux'
+import { compose } from 'recompose'
+import { Action, AnyAction, Dispatch } from 'redux'
 
 import { getClaimId } from '@app/features/common/consultation'
 import { isModal, withModal, WithModalProps } from '@app/features/common/modal'
@@ -12,6 +13,7 @@ import {
   fetchDoctorsIfNeeded as fetchDoctorsAction,
 } from './actions'
 import { FormFields } from './organisms/Form'
+import { PageProps } from './page'
 import {
   getAssignedDoctor,
   getChooseDoctorError,
@@ -22,9 +24,11 @@ export const MODAL_KEY = 'choose-doctor'
 
 export interface ContainerProps extends WithModalProps {
   claimId: string
+  doctors: Doctor[]
+  chooseDoctor: (data: ChooseDoctorRequest) => Action
+  assignedDoctor?: Doctor
+  chooseDoctorError: false | string
 }
-
-interface PageProps {}
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
   return class extends React.Component<ContainerProps> {
@@ -35,7 +39,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       const { filter } = this.state
 
       const filteredDoctors = this.filterDoctors(doctors, filter)
-      const initialValues = this.getInitialValues(doctors)
+      const initialValues = this.getInitialValues()
       return (
         <WrappedComponent
           {...this.props}
@@ -49,7 +53,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     }
 
     private onFilterChange = (e: SyntheticEvent<HTMLInputElement>) => {
-      this.setState({ filter: e.target.value })
+      this.setState({ filter: (e.target as HTMLInputElement).value })
     }
 
     private filterDoctors = (doctors: Doctor[], filter: string) => {
@@ -63,7 +67,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       this.closeModalIfNeeded()
     }
 
-    private getInitialValues = (doctors: Doctor[]) => {
+    private getInitialValues = () => {
       const { assignedDoctor } = this.props
 
       if (assignedDoctor) {
@@ -98,7 +102,7 @@ const mapState = (state: State) => ({
   assignedDoctor: getAssignedDoctor(state),
 })
 
-export default compose(
+export default compose<PageProps, PageProps>(
   isModal(MODAL_KEY),
   withModal,
   connect(

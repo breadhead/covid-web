@@ -11,3 +11,5 @@ export {
 export { reducer, State } from './reducers'
 
 export { MODAL_KEY } from './container'
+
+export { fetchDoctorsIfNeeded } from './actions'

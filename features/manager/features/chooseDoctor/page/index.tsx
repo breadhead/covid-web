@@ -4,7 +4,7 @@ import SearchBar from '../molecules/SearchBar'
 import Form, { FormFields } from '../organisms/Form'
 import * as styles from './Page.css'
 
-interface Props {
+export interface PageProps {
   doctors: Doctor[]
   onSubmit: (fields: FormFields) => void
   filter: string
@@ -20,7 +20,7 @@ const Doctors = ({
   onSubmit,
   initialValues,
   chooseDoctorError,
-}: Props) => (
+}: PageProps) => (
   <div className={styles.Doctors}>
     <h2 className={styles.Title}>Выберите специалиста</h2>
     <SearchBar value={filter} onChange={onFilterChange} />

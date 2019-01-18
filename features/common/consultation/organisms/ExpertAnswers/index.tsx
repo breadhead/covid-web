@@ -15,46 +15,44 @@ interface Props {
 }
 
 const ExpertAnswers = ({ claim, renderCustomAnswer, title }: Props) => {
-  // TODO: fix it. Now app crashes
-  // const answeredClaim = answered(claim)
+  const answeredClaim = answered(claim)
 
-  // const groups = groupQuestion([
-  //   ...claim.defaultQuestions,
-  //   ...claim.additionalQuestions.map(({ question, answer }) => ({
-  //     question: `Дополнительные вопросы: ${question}`,
-  //     answer,
-  //   })),
-  // ])
+  const groups = groupQuestion([
+    ...claim.defaultQuestions,
+    ...claim.additionalQuestions.map(({ question, answer }) => ({
+      question: `Дополнительные вопросы: ${question}`,
+      answer,
+    })),
+  ])
 
-  // const questionsAvailable = Object.keys(groups).length > 0
+  const questionsAvailable = Object.keys(groups).length > 0
 
-  // return questionsAvailable ? (
-  //   <>
-  //     <h2 className={styles.mainTitle}>
-  //       {!!title && title}
-  //       {!title && (answeredClaim ? 'Ответ эксперта' : 'Вопросы эксперту')}
-  //     </h2>
-  //     <section className={styles.expertAnswers}>
-  //       {Object.entries(groups).map(([theme, questions]) => (
-  //         <article key={theme} className={styles.article}>
-  //           <h2 className={styles.title}>{theme}</h2>
-  //           {questions.map(({ question, answer }) => (
-  //             <div key={question} className={styles.articleWrapper}>
-  //               <p className={styles.question}>{question}</p>
-  //               {!!renderCustomAnswer &&
-  //                 renderCustomAnswer(theme, { question, answer })}
-  //               {!renderCustomAnswer && answeredClaim && answer && (
-  //                 <p className={styles.answer}>{answer}</p>
-  //               )}
-  //             </div>
-  //           ))}
-  //         </article>
-  //       ))}
-  //       <Footer />
-  //     </section>
-  //   </>
-  // ) : null
-  return null
+  return questionsAvailable ? (
+    <>
+      <h2 className={styles.mainTitle}>
+        {!!title && title}
+        {!title && (answeredClaim ? 'Ответ эксперта' : 'Вопросы эксперту')}
+      </h2>
+      <section className={styles.expertAnswers}>
+        {Object.entries(groups).map(([theme, questions]) => (
+          <article key={theme} className={styles.article}>
+            <h2 className={styles.title}>{theme}</h2>
+            {questions.map(({ question, answer }) => (
+              <div key={question} className={styles.articleWrapper}>
+                <p className={styles.question}>{question}</p>
+                {!!renderCustomAnswer &&
+                  renderCustomAnswer(theme, { question, answer })}
+                {!renderCustomAnswer && answeredClaim && answer && (
+                  <p className={styles.answer}>{answer}</p>
+                )}
+              </div>
+            ))}
+          </article>
+        ))}
+        <Footer />
+      </section>
+    </>
+  ) : null
 }
 
 export default ExpertAnswers

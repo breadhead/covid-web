@@ -6,7 +6,7 @@ import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 
 import { currentUser } from '@app/features/login/features/user'
-import { fetchDoctorsIfNeeded } from '@app/features/manager/features/chooseDoctor/actions'
+import { fetchDoctorsIfNeeded } from '@app/features/manager/features/chooseDoctor'
 import { fetchClaim } from './actions'
 import { Props as PageProps } from './page'
 import { getClaim } from './selectors'
