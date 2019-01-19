@@ -5,6 +5,7 @@ import * as styles from './Notification.css'
 import Button, { ButtonSize } from '@app/ui/atoms/Button'
 
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import NotificationButton from '../NotificationButton'
 import { getNotificationsText } from './helpers'
 
 interface Notification {
@@ -30,11 +31,7 @@ const Notification = ({ info }: Props) => {
         <h3 className={styles.title}>{title}</h3>
         {!!text && <p className={styles.text}>{text}</p>}
       </div>
-      {!!button && (
-        <Button className={styles.button} size={ButtonSize.Large}>
-          {button}
-        </Button>
-      )}
+      {!!button && <NotificationButton info={info} type={button} />}
     </article>
   )
 }

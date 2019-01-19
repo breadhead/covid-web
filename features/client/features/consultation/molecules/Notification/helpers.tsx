@@ -3,6 +3,7 @@ import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import moment from 'moment'
 import formatDate from '../../../claims/helpers/formatDate'
+import { NotifiationButtonType } from '../NotificationButton'
 
 moment.locale('ru')
 const claimDeadlineDate = moment()
@@ -33,14 +34,13 @@ export const getNotificationsText = (info: ListedClaim) => {
       image: '/static/images/continue-filling.png',
       title: `Вам нужно заполнить свои медицинские данные и${NON_BREAKING_SPACE}вопросы эксперту`,
       text: `Пожалуйста, постарайтесь заполнить анкету до${NON_BREAKING_SPACE}${formattedClaimDeadlineDate}.`,
-      button: 'Заполнить',
+      button: NotifiationButtonType.QuestionnaireWaiting,
     },
     [ClaimStatus.QuestionnaireValidation]: {
       id: '3',
       image: '/static/images/expert-answered.png',
       title: 'Ваша анкета принята на консультацию',
-      text:
-        'Мы будем сообщать вам о ходе консультации по электронной почте mymail@gmail.com. Вы можете закрыть эту страницу и дождаться нашего письма. В среднем срок консультации — 3 рабочих дня.',
+      text: `Мы будем сообщать вам о${NON_BREAKING_SPACE}ходе консультации по${NON_BREAKING_SPACE}электронной почте ${email}. Вы можете закрыть эту страницу и${NON_BREAKING_SPACE}дождаться нашего письма. В${NON_BREAKING_SPACE}среднем срок консультации — 3${NON_BREAKING_SPACE}рабочих дня.`,
     },
     [ClaimStatus.DeliveredToCustomer]: {
       id: '4',

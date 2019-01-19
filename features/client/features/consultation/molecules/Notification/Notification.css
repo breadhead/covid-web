@@ -29,15 +29,3 @@
   margin-right: 20px;
   border-radius: 50%;
 }
-
-.button.button.button.button {
-  grid-column-start: 2;
-  grid-column-end: 2;
-
-  @media (--smallDown) { 
-    grid-column-start: 1;
-    grid-column-end: 3;
-    width: 100%;
-    max-width: none;
-  }
-}
