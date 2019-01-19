@@ -1,6 +1,14 @@
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import moment from 'moment'
+import formatDate from '../../../claims/helpers/formatDate'
+
+moment.locale('ru')
+const claimDeadlineDate = moment()
+  .add(3, 'days')
+  .format()
+const formattedClaimDeadlineDate = formatDate(new Date(claimDeadlineDate))
 
 export const getNotificationsText = (info: ListedClaim) => {
   const {
@@ -24,7 +32,7 @@ export const getNotificationsText = (info: ListedClaim) => {
       id: '2',
       image: '/static/images/continue-filling.png',
       title: `Вам нужно заполнить свои медицинские данные и${NON_BREAKING_SPACE}вопросы эксперту`,
-      text: `Пожалуйста, постарайтесь заполнить анкету до${NON_BREAKING_SPACE}${createdAt} (текущая дата + 3 дня)`,
+      text: `Пожалуйста, постарайтесь заполнить анкету до${NON_BREAKING_SPACE}${formattedClaimDeadlineDate}.`,
       button: 'Заполнить',
     },
     [ClaimStatus.QuestionnaireValidation]: {
