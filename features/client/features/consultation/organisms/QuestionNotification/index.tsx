@@ -5,7 +5,7 @@ import * as styles from './QuestionNotification.css'
 import FinishButton from '../../molecules/FinishButton'
 
 const QuestionNotification = () => (
-  <article className={styles.questionNotification}>
+  <article id="expert-answers" className={styles.questionNotification}>
     <h3 className={styles.title}>
       Эксперт понятно ответил на все ваши вопросы?
     </h3>

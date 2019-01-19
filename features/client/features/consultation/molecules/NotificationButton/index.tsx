@@ -3,6 +3,7 @@ import * as React from 'react'
 import * as styles from './NotificationButton.css'
 
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import DeliveredToCustomerButton from './Buttons/DeliveredToCustomerButton'
 import QuestionnaireWaitingButton from './Buttons/QuestionnaireWaitingButton'
 
 export enum NotifiationButtonType {
@@ -19,11 +20,15 @@ interface Props {
 }
 
 const NotificationButton = ({ type, info }: Props) => {
-  const { QuestionnaireWaiting } = NotifiationButtonType
+  const { QuestionnaireWaiting, DeliveredToCustomer } = NotifiationButtonType
 
   if (type === QuestionnaireWaiting) {
     return (
       <QuestionnaireWaitingButton className={styles.button} claimId={info.id} />
+    )
+  } else if (type === DeliveredToCustomer) {
+    return (
+      <DeliveredToCustomerButton className={styles.button} claimId={info.id} />
     )
   }
 

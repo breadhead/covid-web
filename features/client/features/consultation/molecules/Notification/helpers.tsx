@@ -39,15 +39,15 @@ export const getNotificationsText = (info: ListedClaim) => {
     [ClaimStatus.QuestionnaireValidation]: {
       id: '3',
       image: '/static/images/expert-answered.png',
-      title: 'Ваша анкета принята на консультацию',
+      title: `Ваша анкета принята на${NON_BREAKING_SPACE}консультацию`,
       text: `Мы будем сообщать вам о${NON_BREAKING_SPACE}ходе консультации по${NON_BREAKING_SPACE}электронной почте ${email}. Вы можете закрыть эту страницу и${NON_BREAKING_SPACE}дождаться нашего письма. В${NON_BREAKING_SPACE}среднем срок консультации — 3${NON_BREAKING_SPACE}рабочих дня.`,
     },
     [ClaimStatus.DeliveredToCustomer]: {
       id: '4',
       image: '/static/images/expert-answering.png',
-      title: 'Эксперт ответил на ваши вопросы',
-      text: `Если вы хотите что-то уточнить или оставить отзыв, напишите в чат в правой части страницы.`,
-      button: 'Посмотреть ответы эксперта',
+      title: `Эксперт ответил на${NON_BREAKING_SPACE}ваши вопросы`,
+      text: `Если вы хотите что-то уточнить или оставить отзыв, напишите в${NON_BREAKING_SPACE}чат в${NON_BREAKING_SPACE}правой части страницы.`,
+      button: NotifiationButtonType.DeliveredToCustomer,
     },
     [ClaimStatus.Closed]: {
       id: '5',
