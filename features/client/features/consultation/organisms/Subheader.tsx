@@ -4,24 +4,25 @@ import { State } from '@app/lib/store'
 
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import Company from '../molecules/Company'
 import Notification from '../molecules/Notification'
-import { getClientStatus } from './selectors'
+import { getClientInfo } from './selectors'
 
 interface Props {
   quotaClaim: QuotaClaim
-  status: string
+  mainInfo: ListedClaim
 }
 
-const Subheader = ({ quotaClaim, status }: Props) => (
+const Subheader = ({ quotaClaim, mainInfo }: Props) => (
   <>
     <Company quotaClaim={quotaClaim} />
-    <Notification status={status} />
+    <Notification info={mainInfo} />
   </>
 )
 
 const mapState = (state: State) => ({
-  status: getClientStatus(state),
+  mainInfo: getClientInfo(state),
 })
 
 export default connect(mapState)(Subheader as any)

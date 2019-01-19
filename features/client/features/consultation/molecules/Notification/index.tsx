@@ -4,7 +4,8 @@ import * as styles from './Notification.css'
 
 import Button, { ButtonSize } from '@app/ui/atoms/Button'
 
-import { notifications } from './notifications'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import { getNotificationsText } from './helpers'
 
 interface Notification {
   id: string
@@ -15,11 +16,13 @@ interface Notification {
 }
 
 interface Props {
-  status: string
+  info: ListedClaim
 }
 
-const Notification = ({ status }: Props) => {
-  const { image, title, text, button } = notifications[status]
+const Notification = ({ info }: Props) => {
+  const { image, title, text, button } = getNotificationsText(info)[
+    'Ожидание анкеты'
+  ]
   return (
     <article className={styles.Notification}>
       {!!image && <img className={styles.logo} src={image} alt={title} />}
