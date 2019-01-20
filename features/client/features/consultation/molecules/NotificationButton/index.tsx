@@ -3,6 +3,7 @@ import * as React from 'react'
 import * as styles from './NotificationButton.css'
 
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import ClosedButton from './Buttons/ClosedButton'
 import DeliveredToCustomerButton from './Buttons/DeliveredToCustomerButton'
 import QuestionnaireWaitingButton from './Buttons/QuestionnaireWaitingButton'
 
@@ -20,7 +21,11 @@ interface Props {
 }
 
 const NotificationButton = ({ type, info }: Props) => {
-  const { QuestionnaireWaiting, DeliveredToCustomer } = NotifiationButtonType
+  const {
+    QuestionnaireWaiting,
+    DeliveredToCustomer,
+    Closed,
+  } = NotifiationButtonType
 
   if (type === QuestionnaireWaiting) {
     return (
@@ -30,6 +35,8 @@ const NotificationButton = ({ type, info }: Props) => {
     return (
       <DeliveredToCustomerButton className={styles.button} claimId={info.id} />
     )
+  } else if (type === Closed) {
+    return <ClosedButton className={styles.button} claimId={info.id} />
   }
 
   return <article className={styles.Notification} />

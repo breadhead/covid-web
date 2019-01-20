@@ -21,7 +21,7 @@ interface Props {
 }
 
 const Notification = ({ info }: Props) => {
-  const content = getNotificationsText(info)['Передано заказчику']
+  const content = getNotificationsText(info)['Закрыта']
   const { image, title } = content
   return (
     <article className={styles.Notification}>
