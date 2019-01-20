@@ -24,7 +24,7 @@ export interface Props {
 }
 
 const FeedbackForm = ({ onFormSubmit }: Props) => (
-  <article className={styles.FeedbackFormWrapper}>
+  <article id="feedback-form" className={styles.FeedbackFormWrapper}>
     <h2 className={styles.title}>Обратная связь</h2>
     <Form onSubmit={onFormSubmit as any}>
       <Input
