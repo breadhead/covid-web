@@ -9,15 +9,16 @@ import NotificationButton, {
 } from '../NotificationButton'
 import { getNotificationsText } from './helpers'
 
+interface NotificationLink {
+  label: string
+  href: string
+}
 interface Notification {
   id: string
   image: string
   title: string
   text?: string
-  link?: {
-    label: string
-    href: string
-  }
+  link?: NotificationLink
   button?: NotifiationButtonType
 }
 
@@ -26,7 +27,7 @@ interface Props {
 }
 
 const Notification = ({ info }: Props) => {
-  const content = getNotificationsText(info)['В очереди на квоту']
+  const content = getNotificationsText(info)[info.status]
   const { image, title } = content
   return (
     <article className={styles.Notification}>
