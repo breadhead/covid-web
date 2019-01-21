@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { compose } from 'recompose'
 import { getToken } from './selectors'
 
-import { withLoginModal } from '@app/features/login'
+import { withSignUpModal } from '@app/features/login'
 import Button, { ButtonKind, ButtonSize } from '@app/ui/atoms/Button'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 
@@ -16,10 +16,10 @@ interface Props {
 
 const StartConsultationButton = ({
   token,
-  openLogin,
   className,
-  children,
   size,
+  openSignUp,
+  children,
 }: Props & any) =>
   !!token ? (
     <NavLink type={NavLinkType.Nav} href="/client/new-claim">
@@ -28,7 +28,7 @@ const StartConsultationButton = ({
       </Button>
     </NavLink>
   ) : (
-    <Button size={size} className={className} onClick={openLogin}>
+    <Button size={size} className={className} onClick={openSignUp}>
       {children}
     </Button>
   )
@@ -39,5 +39,5 @@ const mapState = (state: any) => ({
 
 export default compose<any, Props>(
   connect(mapState),
-  withLoginModal,
+  withSignUpModal,
 )(StartConsultationButton)
