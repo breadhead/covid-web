@@ -12,6 +12,9 @@ const titlesMap: TitlesMap = {
   [ClaimStatus.AnswerWaiting]: 'Ваша анкета принята на консультацию',
   [ClaimStatus.AtTheDoctor]: 'Ваша анкета принята на консультацию',
   [ClaimStatus.DeliveredToCustomer]: 'Эксперт ответил на ваши вопросы',
+  [ClaimStatus.Denied]: 'Вам отказано в консультации',
+  [ClaimStatus.QueueForQuota]:
+    'Ваша заявка в очереди на бесплатную консультацию',
 }
 
 export default (status: ClaimStatus): string => titlesMap[status] || ''

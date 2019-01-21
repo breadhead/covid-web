@@ -10,6 +10,7 @@
 .title {
   margin-bottom: 32px;
   font: var(--title-medium);
+  text-align: center;
 
   @media (--smallDown) {
     margin-bottom: 24px;

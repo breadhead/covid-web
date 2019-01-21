@@ -11,6 +11,8 @@ const actionsMap: ActionsMap = {
   [ClaimStatus.QuotaAllocation]: undefined,
   [ClaimStatus.AtTheDoctor]: undefined,
   [ClaimStatus.QuestionnaireValidation]: undefined,
+  [ClaimStatus.Denied]: undefined,
+  [ClaimStatus.QueueForQuota]: undefined,
 }
 
 export default (status: ClaimStatus): string | undefined => actionsMap[status]

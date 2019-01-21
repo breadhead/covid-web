@@ -1,17 +1,28 @@
+import { connect } from 'react-redux'
+
+import { State } from '@app/lib/store'
+
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
 
-import AnswerNotification from '../molecules/AnswerNotification'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import Company from '../molecules/Company'
+import Notification from '../molecules/Notification'
+import { getClientInfo } from './selectors'
 
 interface Props {
   quotaClaim: QuotaClaim
+  mainInfo: ListedClaim
 }
 
-const Subheader = ({ quotaClaim }: Props) => (
+const Subheader = ({ quotaClaim, mainInfo }: Props) => (
   <>
     <Company quotaClaim={quotaClaim} />
-    <AnswerNotification />
+    <Notification info={mainInfo} />
   </>
 )
 
-export default Subheader
+const mapState = (state: State) => ({
+  mainInfo: getClientInfo(state),
+})
+
+export default connect(mapState)(Subheader as any) as any
