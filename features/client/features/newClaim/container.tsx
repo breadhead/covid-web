@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 import { createClaim, fetchShortClaim } from './actions'
 import { ShortClaimFields } from './organisms/ClaimForm'
-import { regions } from './organisms/Contacts/config'
+import { regions } from './organisms/Contacts/regions'
 import { Props as PageProps } from './page'
 import { getNewClaimError } from './selectors'
 
