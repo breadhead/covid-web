@@ -3,9 +3,9 @@ import * as React from 'react'
 import * as styles from './NotificationButton.css'
 
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import ClosedButton from './Buttons/ClosedButton'
-import DeliveredToCustomerButton from './Buttons/DeliveredToCustomerButton'
-import QuestionnaireWaitingButton from './Buttons/QuestionnaireWaitingButton'
+import ClosedButton from './components/ClosedButton'
+import DeliveredToCustomerButton from './components/DeliveredToCustomerButton'
+import QuestionnaireWaitingButton from './components/QuestionnaireWaitingButton'
 
 export enum NotifiationButtonType {
   QuestionnaireWaiting = 'QuestionnaireWaiting',
@@ -27,19 +27,26 @@ const NotificationButton = ({ type, info }: Props) => {
     Closed,
   } = NotifiationButtonType
 
-  if (type === QuestionnaireWaiting) {
-    return (
-      <QuestionnaireWaitingButton className={styles.button} claimId={info.id} />
-    )
-  } else if (type === DeliveredToCustomer) {
-    return (
-      <DeliveredToCustomerButton className={styles.button} claimId={info.id} />
-    )
-  } else if (type === Closed) {
-    return <ClosedButton className={styles.button} claimId={info.id} />
+  switch (type) {
+    case QuestionnaireWaiting:
+      return (
+        <QuestionnaireWaitingButton
+          className={styles.button}
+          claimId={info.id}
+        />
+      )
+    case DeliveredToCustomer:
+      return (
+        <DeliveredToCustomerButton
+          className={styles.button}
+          claimId={info.id}
+        />
+      )
+    case Closed:
+      return <ClosedButton className={styles.button} claimId={info.id} />
+    default:
+      return null
   }
-
-  return <article className={styles.Notification} />
 }
 
 export default NotificationButton
