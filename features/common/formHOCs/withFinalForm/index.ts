@@ -1,2 +1,1 @@
-import withFinalForm from './container'
-export default withFinalForm
+export { default, FORM_ERROR_CLASSNAME } from './container'
