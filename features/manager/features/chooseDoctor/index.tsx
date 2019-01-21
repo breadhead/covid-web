@@ -1,11 +1,15 @@
 import Container from './container'
-import Modal from './organisms/Modal'
+import Page from './page'
 
-export default Container(Modal)
+export default Container(Page)
 
 export {
   default as withChooseDoctorModal,
   WithChooseDoctorModal,
-} from './withCloseClaimModal'
+} from './withChooseDoctorModal'
+
+export { reducer, State } from './reducers'
 
 export { MODAL_KEY } from './container'
+
+export { fetchDoctorsIfNeeded } from './actions'
