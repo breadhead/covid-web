@@ -2,10 +2,10 @@ import Router from 'next/router'
 import * as React from 'react'
 
 import {
+  ButtonType,
   ButtonWithTooltip,
   Checkbox,
   Form,
-  ButtonType,
 } from '@app/features/common/form'
 
 import styles from './Terms.css'
