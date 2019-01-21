@@ -27,7 +27,7 @@ const SignUp = ({ onFormSubmit, error }: Props) => (
 
     <Form onSubmit={onFormSubmit}>
       <Input
-        label="Логин (email)"
+        label="Эл. почта"
         className={styles.input}
         name="login"
         type={InputType.Email}

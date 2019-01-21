@@ -30,7 +30,7 @@ const SignIn = ({ onFormSubmit, passwordRecoveryUrl }: Props) => (
       <Input
         className={styles.input}
         name="login"
-        label={'Логин (email)'}
+        label={'Эл. почта'}
         type={InputType.Text}
         validate={schema.login}
       />
