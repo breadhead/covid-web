@@ -1,3 +1,5 @@
+import ButtonWithTooltip from '@app/features/common/form/components/ButtonWithTooltip'
+import { SignUpError } from '@app/features/login/features/signUp/reducer'
 import * as React from 'react'
 import styles from './SignUp.css'
 
@@ -7,15 +9,15 @@ import Input from '@app/features/common/form/components/Input'
 import Footer from '@app/features/login/organisms/Footer'
 import LoginButton from '@app/features/main/layout/organisms/Header/atoms/LoginButton'
 import { SPACE } from '@app/lib/config'
-import Button, { ButtonType } from '@app/ui/atoms/Button'
+import { ButtonType } from '@app/ui/atoms/Button'
 import { schema } from '../../container'
 
 interface Props {
   onFormSubmit: () => Promise<any>
-  error: boolean | string
+  error?: SignUpError
 }
 
-const SignUp = ({ onFormSubmit }: Props) => (
+const SignUp = ({ onFormSubmit, error }: Props) => (
   <article className={styles.popup}>
     <h1 className={styles.title}>Регистрация</h1>
     <p className={styles.secondaryText}>
@@ -45,9 +47,13 @@ const SignUp = ({ onFormSubmit }: Props) => (
         type={InputType.Password}
         validate={schema.confirm}
       />
-      <Button type={ButtonType.Submit} className={styles.button}>
+      <ButtonWithTooltip
+        type={ButtonType.Submit}
+        error={!!error && !error.fields ? error.message : undefined}
+        className={styles.button}
+      >
         Зарегистрироваться
-      </Button>
+      </ButtonWithTooltip>
     </Form>
     <Footer />
   </article>
