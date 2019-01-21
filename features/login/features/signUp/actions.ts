@@ -30,6 +30,7 @@ export const signUp = (
     const { message, fields } = error.response.data
 
     dispatch(actions.error(error.message))
+    dispatch(actions.signUpError({ message, fields }))
     throw error
   }
 }
