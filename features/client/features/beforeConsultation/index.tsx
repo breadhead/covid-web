@@ -4,12 +4,13 @@ import * as styles from './BeforeConsultation.css'
 import Layout from '../../organisms/Layout'
 
 import ProgressBar from '../progressBar/organisms/ProgressBar'
+import Container, { PageProps } from './container'
 import Terms from './Terms'
 import TextList from './TextList'
 
 import { progressBarSteps, statements } from './config'
 
-const BeforeConsultation = () => (
+const BeforeConsultation: React.SFC<PageProps> = ({ next }) => (
   <Layout>
     <ProgressBar className={styles.progressBar} steps={progressBarSteps} />
     <img className={styles.logo} src="/static/images/answers.png" />
@@ -21,10 +22,10 @@ const BeforeConsultation = () => (
         <TextList items={statements} />
       </article>
       <article className={styles.article}>
-        <Terms />
+        <Terms next={next} />
       </article>
     </section>
   </Layout>
 )
 
-export default BeforeConsultation
+export default Container(BeforeConsultation)

@@ -15,11 +15,15 @@ interface Fields {
   personalDataConditions: boolean
 }
 
+interface Props {
+  next: () => void
+}
+
 interface State {
   failed: boolean
 }
 
-class Terms extends React.Component<{}, State> {
+class Terms extends React.Component<Props, State> {
   public state = {
     failed: false,
   } as State
@@ -27,10 +31,18 @@ class Terms extends React.Component<{}, State> {
   public render() {
     return (
       <Form onSubmit={this.onSubmit as any}>
-        <Checkbox name="consultationTerms" className={styles.checkbox}>
+        <Checkbox
+          name="consultationTerms"
+          type="checkbox"
+          className={styles.checkbox}
+        >
           Я согласен с <a href="#">условиями получения консультации</a>
         </Checkbox>
-        <Checkbox name="personalDataConditions" className={styles.checkbox}>
+        <Checkbox
+          name="personalDataConditions"
+          type="checkbox"
+          className={styles.checkbox}
+        >
           Я согласен с <a href="#">условиями обработки персональных данных</a>
         </Checkbox>
         <ButtonWithTooltip
@@ -53,7 +65,7 @@ class Terms extends React.Component<{}, State> {
     }
 
     this.setState({ failed: false })
-    return Router.push('/client/new-claim')
+    return this.props.next()
   }
 
   private getError = () =>

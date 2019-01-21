@@ -1,3 +1,4 @@
+import Router from 'next/router'
 import React from 'react'
 
 import Conditions from '../../atoms/Conditions'
@@ -12,23 +13,37 @@ export interface Props {
   validateSmsCode: (code: string) => Promise<void>
   smsSendSuccess: boolean
   validationSuccess: boolean
+  close: () => void
 }
 
-const ModalSmsConfirm = ({
-  smsSendSuccess,
-  sendSmsCode,
-  validationSuccess,
-  validateSmsCode,
-}: Props) => {
-  return (
-    <div className={styles.modal}>
-      <Title />
-      <Conditions />
+class ModalSmsConfirm extends React.Component<Props> {
+  public componentDidUpdate() {
+    const { validationSuccess } = this.props
 
-      <SendSms success={smsSendSuccess} send={sendSmsCode} />
-      <SmsCode valid={validationSuccess} validate={validateSmsCode} />
-    </div>
-  )
+    if (validationSuccess) {
+      Router.push('/client/new-claim')
+      this.props.close()
+    }
+  }
+
+  public render() {
+    const {
+      smsSendSuccess,
+      sendSmsCode,
+      validationSuccess,
+      validateSmsCode,
+    } = this.props
+
+    return (
+      <div className={styles.modal}>
+        <Title />
+        <Conditions />
+
+        <SendSms success={smsSendSuccess} send={sendSmsCode} />
+        <SmsCode valid={validationSuccess} validate={validateSmsCode} />
+      </div>
+    )
+  }
 }
 
 export default ModalSmsConfirm

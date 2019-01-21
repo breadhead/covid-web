@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { compose } from 'recompose'
 import { AnyAction, Dispatch } from 'redux'
 
-import { isModal } from '@app/features/common/modal'
+import { isModal, withModal, WithModalProps } from '@app/features/common/modal'
 import { State } from '@app/lib/store'
 
 import { sendSms, validateCode } from './actions'
@@ -20,13 +20,14 @@ interface Props {
 }
 
 const Container = (WrappedComponent: ComponentType<WrappedProps>) =>
-  class extends React.Component<Props> {
+  class extends React.Component<Props & WithModalProps> {
     public render() {
       const {
         sendSmsCode,
         smsSendSuccess,
         codeValid,
         validateSmsCode,
+        modal: { close },
       } = this.props
 
       const childProps: WrappedProps = {
@@ -34,6 +35,7 @@ const Container = (WrappedComponent: ComponentType<WrappedProps>) =>
         smsSendSuccess,
         validateSmsCode,
         validationSuccess: smsSendSuccess && codeValid,
+        close,
       }
 
       return <WrappedComponent {...childProps} />
@@ -52,6 +54,7 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
 
 export default compose<WrappedProps, {}>(
   isModal(MODAL_KEY),
+  withModal,
   connect(
     mapState,
     mapDispatch,
