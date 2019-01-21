@@ -1,13 +1,13 @@
+import dayjs from 'dayjs'
+
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import moment from 'moment'
 import formatDate from '../../../claims/helpers/formatDate'
 import { NotifiationButtonType } from '../NotificationButton'
 
-moment.locale('ru')
-const claimDeadlineDate = moment()
-  .add(3, 'days')
+const claimDeadlineDate = dayjs()
+  .add(3, 'day')
   .format()
 const formattedClaimDeadlineDate = formatDate(new Date(claimDeadlineDate))
 
