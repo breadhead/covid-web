@@ -6,11 +6,15 @@ interface Props {
 }
 
 class WithScrollToInvalid extends React.Component<Props> {
-  componentDidUpdate({ submitFailed: prevSubmitFailed }: Props) {
+  public componentDidUpdate({ submitFailed: prevSubmitFailed }: Props) {
     const { submitFailed, formErrorClassName } = this.props
     if (submitFailed !== prevSubmitFailed && submitFailed) {
       this.logInvalidInputs(formErrorClassName)
     }
+  }
+
+  public render() {
+    return null
   }
 
   private logInvalidInputs = (formErrorClassName: string) => {
@@ -20,10 +24,6 @@ class WithScrollToInvalid extends React.Component<Props> {
       block: 'center',
       inline: 'nearest',
     })
-  }
-
-  render() {
-    return null
   }
 }
 
