@@ -5,7 +5,7 @@ import NavLink from '@app/ui/atoms/NavLink'
 const Title = () => (
   <header className={styles.container}>
     <h1 className={styles.title}>Мои консультации</h1>
-    <NavLink href="/client/new-claim">Начать новую консультацию</NavLink>
+    <NavLink href="/client/rules">Начать новую консультацию</NavLink>
   </header>
 )
 
