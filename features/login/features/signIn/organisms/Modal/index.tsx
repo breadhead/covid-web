@@ -15,9 +15,10 @@ interface Props {
   onFormSubmit: () => Promise<any>
   error: boolean | string
   openSignUp: () => void
+  passwordRecoveryUrl: string
 }
 
-const SignIn = ({ onFormSubmit }: Props) => (
+const SignIn = ({ onFormSubmit, passwordRecoveryUrl }: Props) => (
   <article className={styles.popup}>
     <h1 className={styles.title}>Войти</h1>
     <p className={styles.secondaryText}>
@@ -40,7 +41,7 @@ const SignIn = ({ onFormSubmit }: Props) => (
         type={InputType.Password}
         validate={schema.password}
       />
-      <NavLink href="#" className={styles.link}>
+      <NavLink href={passwordRecoveryUrl} className={styles.link}>
         Забыли пароль?
       </NavLink>
       <Button type={ButtonType.Submit} className={styles.mainButton}>
