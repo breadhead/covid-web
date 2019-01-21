@@ -1,10 +1,10 @@
 import { actions as modalActions } from '@app/features/common/modal'
 import { setCookie } from '@app/features/login/features/signIn/helpers/setAuthToken'
-import { actions } from '@app/features/login/features/signIn/reducer'
 import { actions as userActions } from '@app/features/login/features/user'
 import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
 import redirectUser, { Condition } from '../redirect'
+import { actions } from './reducer'
 
 export const signUp = (
   login: string,
@@ -27,6 +27,8 @@ export const signUp = (
 
     return dispatch(actions.success(token))
   } catch (error) {
+    const { message, fields } = error.response.data
+
     dispatch(actions.error(error.message))
     throw error
   }
