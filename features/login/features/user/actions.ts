@@ -11,10 +11,10 @@ export const currentUser = () => async (
   const api = getApi(getState)
   try {
     dispatch(actions.request())
-    const { roles } = await api.currentUser()
+    const user = await api.currentUser()
 
-    dispatch(userActions.setUser(roles))
-    return { roles }
+    dispatch(userActions.setUser(user.roles))
+    return user
   } catch (error) {
     dispatch(actions.error(error.message))
     throw error
