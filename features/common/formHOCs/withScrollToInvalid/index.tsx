@@ -1,3 +1,4 @@
+import { head } from 'lodash'
 import * as React from 'react'
 
 interface Props {
@@ -18,12 +19,17 @@ class WithScrollToInvalid extends React.Component<Props> {
   }
 
   private logInvalidInputs = (formErrorClassName: string) => {
-    const invalidInputs = document.querySelectorAll(`.${formErrorClassName}`)
-    invalidInputs[0].scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-      inline: 'nearest',
-    })
+    const firstInvalidInput = head(
+      document.querySelectorAll(`.${formErrorClassName}`),
+    )
+
+    if (firstInvalidInput) {
+      firstInvalidInput.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'nearest',
+      })
+    }
   }
 }
 
