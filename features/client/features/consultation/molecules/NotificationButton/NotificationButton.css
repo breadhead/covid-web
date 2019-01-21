@@ -1,0 +1,12 @@
+.button.button.button.button {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  justify-self: flex-start;
+
+  @media (--smallDown) { 
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 100%;
+    max-width: none;
+  }
+}

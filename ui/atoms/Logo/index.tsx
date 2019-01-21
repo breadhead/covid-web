@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Logo = ({ className }: Props) => (
-  <NavLink type={NavLinkType.Nav} href="/">
+  <NavLink className={styles.logo} type={NavLinkType.Nav} href="/">
     <IconCustom className={cx(styles.logo, className)} name="logo_short" />
   </NavLink>
 )

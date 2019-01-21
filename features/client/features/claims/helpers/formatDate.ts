@@ -6,7 +6,7 @@ export default (date: Date) => {
   }
 
   let mm = (date.getMonth() + 1).toString()
-  if (dd.length === 1) {
+  if (mm.length === 1) {
     mm = '0' + mm
   }
 
