@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import Select from '@app/ui/atoms/Select'
 
-import { OPTIONS_YEARS } from './config'
+import { getYears } from './years'
 
 export interface Props {
   name: string
@@ -10,6 +10,9 @@ export interface Props {
   className?: string
   placeholder?: string
 }
+
+const YEARS_AMOUNT = 70
+const years = getYears(YEARS_AMOUNT)
 
 const SelectYears = ({
   isMobile,
@@ -27,7 +30,7 @@ const SelectYears = ({
   return (
     <Select
       placeholder={selectPlaceholder}
-      options={OPTIONS_YEARS}
+      options={years}
       name={name}
       {...rest}
       className={className}
