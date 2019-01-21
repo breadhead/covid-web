@@ -1,11 +1,14 @@
 import React, { Component, createRef } from 'react'
 import { Form as FinalForm, FormProps } from 'react-final-form'
+import { FORM_ERROR_CLASSNAME } from '../../formHOCs/withFinalForm'
+import WithScrollToInvalid from '../../formHOCs/withScrollToInvalid'
 
 interface OwnProps {
   className?: string
   resetAfterSubmit?: boolean
   forceSubmitOnEnter?: boolean
   preventDefault?: boolean
+  scrollToInvalid?: boolean
 }
 
 type Props = OwnProps & FormProps
@@ -14,20 +17,35 @@ type SubmitEvent = React.FormEvent<HTMLFormElement>
 type SubmitResult = Promise<object | undefined> | undefined
 
 class Form extends Component<Props> {
+  public static defaultProps = {
+    scrollToInvalid: true,
+  }
   private formRef = createRef<HTMLFormElement>()
 
   public render() {
-    const { children, className, resetAfterSubmit, ...rest } = this.props
+    const {
+      children,
+      className,
+      resetAfterSubmit,
+      scrollToInvalid,
+      ...rest
+    } = this.props
 
     return (
       <section className={className}>
         <FinalForm
-          render={({ handleSubmit, form }) => (
+          render={props => (
             <form
               onKeyDown={this.onEnterPress}
               ref={this.formRef}
-              onSubmit={this.onSubmit(form.reset, handleSubmit)}
+              onSubmit={this.onSubmit(props.form.reset, props.handleSubmit)}
             >
+              {scrollToInvalid && (
+                <WithScrollToInvalid
+                  formErrorClassName={FORM_ERROR_CLASSNAME}
+                  submitFailed={props.submitFailed}
+                />
+              )}
               {children}
             </form>
           )}
