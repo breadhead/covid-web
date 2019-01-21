@@ -11,6 +11,8 @@ interface OwnProps {
   validateOnBlur?: boolean
 }
 
+export const FORM_ERROR_CLASSNAME = 'finalFormError'
+
 type InputProps = Pick<FieldRenderProps, 'input'>['input']
 
 type WrappedProps = OwnProps & InputProps
@@ -41,15 +43,16 @@ const withFinalForm = <T extends WrappedProps>(
         const error = shouldValidate
           ? meta.submitError || meta.error
           : undefined
-
         return (
-          <WrappedComponent
-            error={error}
-            name={name}
-            type={type}
-            {...input}
-            {...rest}
-          />
+          <span className={error ? FORM_ERROR_CLASSNAME : undefined}>
+            <WrappedComponent
+              error={error}
+              name={name}
+              type={type}
+              {...input}
+              {...rest}
+            />
+          </span>
         )
       }}
     </Field>
