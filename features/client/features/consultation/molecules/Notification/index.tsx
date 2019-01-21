@@ -4,30 +4,15 @@ import * as styles from './Notification.css'
 
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import ExternalLink from '@app/ui/molecules/ExternalLink'
-import NotificationButton, {
-  NotifiationButtonType,
-} from '../NotificationButton'
+import NotificationButton from '../NotificationButton'
 import { getNotificationsText } from './helpers'
-
-interface NotificationLink {
-  label: string
-  href: string
-}
-interface Notification {
-  id: string
-  image: string
-  title: string
-  text?: string
-  link?: NotificationLink
-  button?: NotifiationButtonType
-}
 
 interface Props {
   info: ListedClaim
 }
 
 const Notification = ({ info }: Props) => {
-  const content = getNotificationsText(info)[info.status]
+  const content = getNotificationsText(info)
   const { image, title } = content
   return (
     <article className={styles.Notification}>

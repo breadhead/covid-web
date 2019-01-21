@@ -11,9 +11,25 @@ const claimDeadlineDate = moment()
   .format()
 const formattedClaimDeadlineDate = formatDate(new Date(claimDeadlineDate))
 
-export const getNotificationsText = (info: ListedClaim) => {
-  const { email } = info
-  return {
+interface NotificationLink {
+  label: string
+  href: string
+}
+
+interface NotificationText {
+  id: string
+  image: string
+  title: string
+  text: string
+  link?: NotificationLink
+  button?: NotifiationButtonType
+}
+
+type NotificationMap = { [key in ClaimStatus]: NotificationText }
+
+export const getNotificationsText = (info: ListedClaim): NotificationText => {
+  const { email, status } = info
+  return ({
     [ClaimStatus.QuotaAllocation]: {
       id: '1',
       image: '/static/images/waiting-letter.png',
@@ -65,5 +81,5 @@ export const getNotificationsText = (info: ListedClaim) => {
       text: `Вы сможете заполнить анкету, когда Фонд профилактики рака найдет необходимые средства. Мы${NON_BREAKING_SPACE}стараемся сделать всё возможное, чтобы помочь каждому как можно скорее.
       Мы сообщим вам о${NON_BREAKING_SPACE}получении средств на${NON_BREAKING_SPACE}вашу консультацию по${NON_BREAKING_SPACE}почте ${email}.`,
     },
-  }
+  } as NotificationMap)[status]
 }

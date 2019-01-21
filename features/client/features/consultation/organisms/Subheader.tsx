@@ -25,4 +25,4 @@ const mapState = (state: State) => ({
   mainInfo: getClientInfo(state),
 })
 
-export default connect(mapState)(Subheader as any)
+export default connect(mapState)(Subheader as any) as any
