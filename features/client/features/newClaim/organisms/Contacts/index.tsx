@@ -13,7 +13,7 @@ import { ControlTypes } from '@app/ui/organisms/EmergingFormElement'
 import cx from 'classnames'
 import * as React from 'react'
 import { ShortClaimFields } from '../ClaimForm'
-import { countries } from './config'
+import { countries } from './countries'
 import { regions } from './regions'
 import { schema } from './schema'
 
