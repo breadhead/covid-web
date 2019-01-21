@@ -24,7 +24,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       const { send } = this.props
       await send(feedbackFields)
       push({
-        message: 'THANKS!!!',
+        message: 'Ваше сообщение успешно отправлено',
       })
     }
   }
