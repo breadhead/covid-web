@@ -2,6 +2,7 @@ import {
   EmergingFormElement,
   Input,
   InputType,
+  PhoneInput,
   RadioGroup,
   Select,
 } from '@app/features/common/form'
@@ -141,11 +142,7 @@ const Contacts = ({
       >
         Мобильный телефон
       </label>
-      <Input
-        name="personalData.phone"
-        type={InputType.Phone}
-        placeholder="+7"
-      />
+      <PhoneInput id="personalData.phone" name="personalData.phone" />
     </EmergingFormElement>
   </article>
 )

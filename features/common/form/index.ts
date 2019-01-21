@@ -14,6 +14,7 @@ export { default as ComboClinic } from './components/ComboClinic'
 export { default as SelectMonths } from './components/SelectMonths'
 export { default as SelectYears } from './components/SelectYears'
 export { default as Checkbox } from './components/Checkbox'
+export { default as PhoneInput } from './components/PhoneInput'
 export {
   default as ButtonWithTooltip,
   ButtonSize,
