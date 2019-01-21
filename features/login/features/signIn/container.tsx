@@ -10,12 +10,18 @@ import { getViolateState } from './selectors'
 
 export const MODAL_KEY = 'sign-in'
 
+const passwordRecoveryUrl = 'https://cabinet.nenaprasno.ru/restore'
+
 export interface Credentials {
   login: string
   password: string
 }
 
-interface Props {
+interface Props extends ContainerProps {
+  passwordRecoveryUrl: string
+}
+
+interface ContainerProps {
   login: (credentials: Credentials) => any
   onFormSubmit: () => Promise<any>
   violateState?: boolean
@@ -33,10 +39,14 @@ export const schema = {
 }
 
 const Container = (WrappedComponent: React.ComponentType<Props>) => {
-  return class extends React.Component<Props> {
+  return class extends React.Component<ContainerProps> {
     public render() {
       return (
-        <WrappedComponent onFormSubmit={this.onFormSubmit} {...this.props} />
+        <WrappedComponent
+          onFormSubmit={this.onFormSubmit}
+          passwordRecoveryUrl={passwordRecoveryUrl}
+          {...this.props}
+        />
       )
     }
 

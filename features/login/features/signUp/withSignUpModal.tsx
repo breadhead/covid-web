@@ -1,5 +1,5 @@
 import { withModal, WithModalProps } from '@app/features/common/modal'
-import { SIGN_UP_MODAL } from '@app/features/login'
+import { SIGN_IN_MODAL } from '@app/features/login'
 
 export interface WithSignUpModal {
   openSignUp: () => void
@@ -7,7 +7,7 @@ export interface WithSignUpModal {
 
 const Container = (Component: React.ComponentType<any>) =>
   withModal(({ modal, ...props }: WithModalProps) => (
-    <Component {...props} openSignUp={() => modal.open(SIGN_UP_MODAL)} />
+    <Component {...props} openSignUp={() => modal.open(SIGN_IN_MODAL)} />
   ))
 
 export default Container
