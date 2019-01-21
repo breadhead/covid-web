@@ -1,5 +1,6 @@
-import { getViolateState } from '@app/features/login/features/signIn/selectors'
 import { signUp } from '@app/features/login/features/signUp/actions'
+import { SignUpError } from '@app/features/login/features/signUp/reducer'
+import { getSignUpError } from '@app/features/login/features/signUp/selectors'
 import { State } from '@app/lib/store'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -19,7 +20,7 @@ export interface SignUpData {
 interface Props {
   signUp: (signUpData: SignUpData) => any
   onFormSubmit: () => Promise<any>
-  violateState?: boolean
+  error?: SignUpError
 }
 
 export const schema = {
@@ -45,13 +46,17 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
     }
 
     private onFormSubmit = async (credentials: SignUpData) => {
-      await this.props.signUp(credentials)
-      const { violateState } = this.props
-      if (violateState) {
-        return {
-          login: 'Ошибка при регистрации',
-          password: 'Ошибка при регистрации',
-          confirm: 'Ошибка при регистрации',
+      try {
+        await this.props.signUp(credentials)
+      } catch (e) {
+        const { error } = this.props
+
+        if (error) {
+          return {
+            login: error.fields.login && error.message,
+            password: error.fields.password && error.message,
+            confirm: error.fields.confirm && error.message,
+          }
         }
       }
     }
@@ -59,7 +64,7 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
 }
 
 const mapState = (state: State) => ({
-  violateState: getViolateState(state),
+  error: getSignUpError(state),
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
