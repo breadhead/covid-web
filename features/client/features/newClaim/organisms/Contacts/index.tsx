@@ -13,7 +13,8 @@ import { ControlTypes } from '@app/ui/organisms/EmergingFormElement'
 import cx from 'classnames'
 import * as React from 'react'
 import { ShortClaimFields } from '../ClaimForm'
-import { countries, regions } from './config'
+import { countries } from './config'
+import { regions } from './regions'
 import { schema } from './schema'
 
 const genderRadioGroup = Object.entries(Gender).map(([id, value]) => ({
