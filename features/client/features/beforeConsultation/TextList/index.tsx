@@ -12,14 +12,11 @@ interface Props {
 
 const TextList = ({ items }: Props) => (
   <>
-    <p className={styles.text}>Тест не гарантирует 100 % точности прогноза:</p>
-    <ul className={styles.list}>
-      {items.map(item => (
-        <li key={item.id} className={styles.listItem}>
-          {item.text}
-        </li>
-      ))}
-    </ul>
+    {items.map(item => (
+      <p className={styles.text} key={item.id}>
+        {item.text}
+      </p>
+    ))}
   </>
 )
 export default TextList
