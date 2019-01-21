@@ -7,23 +7,23 @@ export default Container(Page as any)
 export { default as ExpertAnswers } from './organisms/ExpertAnswers'
 
 import {
-  reducer as actionsReducer,
-  State as ActionsState,
-} from './features/actions'
-import {
   reducer as claimReducer,
   State as ClaimState,
-} from './features/claimData'
+} from './reducers/claimData'
+import {
+  reducer as nextStatusReducer,
+  State as NextStatusState,
+} from './reducers/nextStatus'
 
 export interface State {
   claimData: ClaimState
-  actions: ActionsState
+  actions: NextStatusState
 }
 
 export const reducer = combineReducers({
   claimData: claimReducer,
-  actions: actionsReducer,
+  nextStatus: nextStatusReducer,
 } as any)
 
-export { nextStatus } from './features/actions'
-export { getClaimId, fetchQuotaClaim } from './features/claimData'
+export { fetchQuotaClaim, fetchClaim, nextStatus } from './actions'
+export { getClaimId, getClaim } from './selectors'

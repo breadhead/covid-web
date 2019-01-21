@@ -21,14 +21,21 @@ import {
   State as CloseClaimState,
 } from './features/closeClaim'
 
+import {
+  reducer as chooseDoctorReducer,
+  State as ChooseDoctorState,
+} from './features/chooseDoctor'
+
 export interface State {
   bindQuota: BindQuotaState
   quotaControl: QuotaControlState
   closeClaim: CloseClaimState
+  chooseDoctor: ChooseDoctorState
 }
 
 export const reducer = combineReducers({
   bindQuota: bindQuotaReducer,
   quotaControl: quotaControlReducer,
   closeClaim: closeClaimReducer,
+  chooseDoctor: chooseDoctorReducer,
 } as any)
