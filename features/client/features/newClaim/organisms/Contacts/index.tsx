@@ -49,7 +49,6 @@ const Contacts = ({
       validate={schema.name}
       name="personalData.name"
     />
-
     <label htmlFor="personalData.russia" className={styles.label}>
       Вы живете в России?
     </label>
@@ -59,7 +58,6 @@ const Contacts = ({
       onChange={onChangeInRussia}
       checked={clientInRussia}
     />
-
     {clientInRussia && (
       <>
         <label htmlFor="personalData.region" className={styles.label}>
@@ -74,7 +72,6 @@ const Contacts = ({
         />
       </>
     )}
-
     {!clientInRussia && (
       <>
         <label htmlFor="personalData.region" className={styles.label}>
@@ -89,7 +86,6 @@ const Contacts = ({
         />
       </>
     )}
-
     <label htmlFor="personalData.age" className={styles.label}>
       Возраст (полных лет)
     </label>
@@ -122,7 +118,6 @@ const Contacts = ({
       type={InputType.Email}
       placeholder="konstantinopolsky@gmail.com"
     />
-
     <p className={styles.label}>
       Можем ли мы позвонить вам по телефону в случае необходимости?
       <span className={styles.secondaryText}>
@@ -141,7 +136,11 @@ const Contacts = ({
         htmlFor="personalData.phone"
         className={cx(styles.label, styles.emergingLabel)}
       >
-        Мобильный телефон
+        Контактный телефон.
+        <span className={styles.secondaryText}>
+          {' '}
+          Необязательно, но так нам будет проще и быстрее связаться с вами.
+        </span>
       </label>
       <PhoneInput id="personalData.phone" name="personalData.phone" />
     </EmergingFormElement>
