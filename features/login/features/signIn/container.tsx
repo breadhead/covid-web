@@ -6,6 +6,7 @@ import { login } from './actions'
 
 import { isModal } from '@app/features/common/modal'
 import * as yup from 'yup'
+import withSignUpModal, { WithSignUpModal } from '../signUp/withSignUpModal'
 import { getViolateState } from './selectors'
 
 export const MODAL_KEY = 'sign-in'
@@ -21,7 +22,7 @@ interface Props extends ContainerProps {
   passwordRecoveryUrl: string
 }
 
-interface ContainerProps {
+interface ContainerProps extends WithSignUpModal {
   login: (credentials: Credentials) => any
   onFormSubmit: () => Promise<any>
   violateState?: boolean
@@ -74,6 +75,7 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
 
 export default compose(
   isModal(MODAL_KEY),
+  withSignUpModal,
   connect(
     mapState,
     mapDispatch,

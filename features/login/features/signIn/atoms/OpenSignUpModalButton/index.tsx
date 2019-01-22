@@ -3,8 +3,6 @@ import * as styles from './OpenSignUpModalButton.css'
 
 import NavLink from '@app/ui/atoms/NavLink'
 
-import { withSignUpModal } from '@app/features/login'
-
 interface Props {
   openSignUp: () => void
 }
@@ -21,4 +19,4 @@ const OpenSignUpModalButton = ({ openSignUp }: Props) => (
   </button>
 )
 
-export default withSignUpModal(OpenSignUpModalButton)
+export default OpenSignUpModalButton

@@ -1,6 +1,9 @@
 import * as React from 'react'
 
-import { withLoginModal, WithLoginModal } from '@app/features/login'
+import {
+  withLoginModal,
+  WithLoginModal,
+} from '@app/features/login/features/signIn'
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
 
 interface LoginButtonProps {
@@ -18,9 +21,4 @@ const LoginButton: React.StatelessComponent<Props> = ({
   </Button>
 )
 
-// Костыль, причина — иногда withLoginModal === undefined
-// Добавил @igorkamyshev 16.1.2018
-// На работоспособность приложение не вляет на первый взгляд
-// Времени разбираться не было
-const Container = withLoginModal || ((c: any) => c)
-export default Container(LoginButton) as any
+export default withLoginModal(LoginButton) as any
