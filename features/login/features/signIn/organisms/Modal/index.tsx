@@ -18,12 +18,12 @@ interface Props {
   passwordRecoveryUrl: string
 }
 
-const SignIn = ({ onFormSubmit, passwordRecoveryUrl }: Props) => (
+const SignIn = ({ onFormSubmit, passwordRecoveryUrl, openSignUp }: Props) => (
   <article className={styles.popup}>
     <h1 className={styles.title}>Войти</h1>
     <p className={styles.secondaryText}>
       Ещё нет аккаунта?{SPACE}
-      <OpenSignUpModalButton />
+      <OpenSignUpModalButton openSignUp={openSignUp} />
     </p>
 
     <Form onSubmit={onFormSubmit}>
