@@ -3,6 +3,11 @@ import NextLink from 'next/link'
 import * as React from 'react'
 import styles from './NavLink.css'
 
+export enum TargetType {
+  Default = '',
+  Blank = '_blank',
+}
+
 export enum NavLinkType {
   Link = 'Link',
   Nav = 'Nav',
@@ -12,6 +17,7 @@ interface Props {
   type?: NavLinkType
   className?: string
   href: string
+  target?: TargetType
 }
 
 const NavLink = ({
@@ -19,10 +25,13 @@ const NavLink = ({
   className,
   href,
   type = NavLinkType.Link,
+  target = TargetType.Default,
   ...rest
 }: Props) => (
   <NextLink href={href} {...rest}>
-    <a className={cx(styles[type], styles.NavLink, className)}>{children}</a>
+    <a target={target} className={cx(styles[type], styles.NavLink, className)}>
+      {children}
+    </a>
   </NextLink>
 )
 

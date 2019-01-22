@@ -810,6 +810,14 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@breadhead/phone-input-ru@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@breadhead/phone-input-ru/-/phone-input-ru-1.0.3.tgz#0e223ebb74298c71e525c81e9dbc516557c1deb6"
+  integrity sha512-nUsaXfqakl9LZHh5MiUco9sqAgpwwWX5zHc5YIdyNfkonMwTdGbgdjD6KcBn1VcSj5/0Q0aYf2KETdW3gFwfjQ==
+  dependencies:
+    fast-diff "^1.2.0"
+    lodash.flow "^3.5.0"
+
 "@breadhead/thunk-error@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@breadhead/thunk-error/-/thunk-error-1.0.3.tgz#74d3edbcad31a453cd1a81ec1a47506031003e33"
@@ -3955,6 +3963,11 @@ fast-deep-equal@^2.0.1:
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
   integrity sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=
 
+fast-diff@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.2.0.tgz#73ee11982d86caaf7959828d519cfe927fac5f03"
+  integrity sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
+
 fast-glob@^2.0.2:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-2.2.3.tgz#d09d378e9ef6b0076a0fa1ba7519d9d4d9699c28"
@@ -6222,6 +6235,11 @@ lodash.flattendeep@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.flattendeep/-/lodash.flattendeep-4.4.0.tgz#fb030917f86a3134e5bc9bec0d69e0013ddfedb2"
   integrity sha1-+wMJF/hqMTTlvJvsDWngAT3f7bI=
+
+lodash.flow@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.flow/-/lodash.flow-3.5.0.tgz#87bf40292b8cf83e4e8ce1a3ae4209e20071675a"
+  integrity sha1-h79AKSuM+D5OjOGjrkIJ4gBxZ1o=
 
 lodash.isarguments@^3.0.0:
   version "3.1.0"

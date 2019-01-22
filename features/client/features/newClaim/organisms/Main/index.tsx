@@ -8,7 +8,7 @@ import {
 } from '@app/features/common/form'
 import { NON_BREAKING_SPACE, SPACE, StylesType } from '@app/lib/config'
 import ClaimTarget from '@app/models/Claim/ClaimTarget'
-import NavLink from '@app/ui/atoms/NavLink'
+import NavLink, { TargetType } from '@app/ui/atoms/NavLink'
 import { mapEnum, mapString } from '@app/ui/atoms/Select'
 import { RadioButtonsValue } from '@app/ui/organisms/EmergingFormElement/RadioGroupElement'
 import cx from 'classnames'
@@ -72,7 +72,7 @@ const Main = ({ styles, initial }: Props) => (
     <p className={styles.emergingLabel}>
       Вы консультируетесь по корпоративной программе от своего работодателя?
       {SPACE}
-      <NavLink href="#">
+      <NavLink href="/partners" target={TargetType.Blank}>
         Узнать{NON_BREAKING_SPACE}больше{NON_BREAKING_SPACE}о
         {NON_BREAKING_SPACE}программе
       </NavLink>
