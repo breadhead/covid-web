@@ -1,10 +1,10 @@
 import { sortBy } from 'lodash'
 import { createSelector } from 'reselect'
 
-import { Role } from '@app/lib/api/ApiClient'
 import { State } from '@app/lib/store'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
+import { Role } from '@app/models/Users/User'
 
 const getUnsortedMessages = (state: State) => state.chat.messages
 

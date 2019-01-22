@@ -1,5 +1,5 @@
-import { StrippedQuota } from '../container'
 import { getQuotaCount } from './getQuotaCount'
+import StrippedQuota from './StrippedQuota'
 
 export const validateCountToTransfer = (
   sourceId: string,

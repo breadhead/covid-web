@@ -1,8 +1,8 @@
 import { getClaimId } from '@app/features/common/consultation'
 import { getRoles } from '@app/features/login/features/user'
-import { Role } from '@app/lib/api/ApiClient'
 import { ChooseDoctorRequest } from '@app/lib/api/request/ChooseDoctorRequest'
 import { ExtraArgs, State } from '@app/lib/store'
+import { Role } from '@app/models/Users/User'
 import { Dispatch } from 'redux'
 import { chooseActions, listActions } from './reducers'
 

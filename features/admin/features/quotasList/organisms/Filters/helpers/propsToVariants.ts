@@ -1,8 +1,12 @@
 import { QuotaType } from '@app/models/Quota/Quota'
-import { Props } from '../index'
 import { quotaTypeToPlural } from './quotaTypeToPlural'
 
-export const propsToVariants = ({ totalCount, countByTypes }: Props) => [
+export interface Counts {
+  totalCount: number
+  countByTypes: { [key in keyof typeof QuotaType]: number }
+}
+
+export const propsToVariants = ({ totalCount, countByTypes }: Counts) => [
   {
     quotaType: 'All',
     count: totalCount,

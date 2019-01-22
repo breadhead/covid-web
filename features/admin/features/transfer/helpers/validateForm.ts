@@ -2,7 +2,7 @@ import * as yup from 'yup'
 
 import { QuotaTransferRequest } from '@app/lib/api/request/QuotaTransfer'
 
-import { StrippedQuota } from '../container'
+import StrippedQuota from './StrippedQuota'
 import { validateCountToTransfer } from './validateCountToTransfer'
 import { validateIds } from './validateIds'
 

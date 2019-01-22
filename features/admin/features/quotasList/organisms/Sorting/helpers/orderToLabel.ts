@@ -1,4 +1,9 @@
-import { Order } from '../index'
+export enum Order {
+  Name = 'name',
+  Count = 'count',
+  DateNew = 'date-now',
+  DateOld = 'date-old',
+}
 
 export const orderToLabel = (order: Order) =>
   (({

@@ -1,4 +1,4 @@
-import { Role } from '@app/lib/api/ApiClient'
+import { Role } from '@app/models/Users/User'
 import { Action } from 'redux'
 import { createSymbiote } from 'redux-symbiote'
 

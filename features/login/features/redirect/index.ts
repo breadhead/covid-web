@@ -1,4 +1,4 @@
-import { Role } from '@app/lib/api/ApiClient'
+import { Role } from '@app/models/Users/User'
 import Router from 'next/router'
 
 export enum Condition {

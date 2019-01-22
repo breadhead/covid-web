@@ -12,12 +12,6 @@ import { transfer } from './actions'
 import { validateForm } from './helpers/validateForm'
 import { getQuotasCounts, getTransferError } from './selectors'
 
-export interface StrippedQuota {
-  id: string
-  count: number | string
-  name: string
-}
-
 interface QuotaTransferData {
   sourceId: string
   targetId: string
