@@ -3,7 +3,18 @@
 
   & .infoLink {
     font: var(--text14-20);
+    color: var(--text-color-primary);
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      color: var(--color-link);
+    }
+
+    &:active {
+      color: var(--color-link);
+    }
   }
+
 
   @media (--smallDown) {    
     flex-direction: column;
