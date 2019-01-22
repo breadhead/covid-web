@@ -136,7 +136,11 @@ const Contacts = ({
         htmlFor="personalData.phone"
         className={cx(styles.label, styles.emergingLabel)}
       >
-        Мобильный телефон
+        Контактный телефон.
+        <span className={styles.secondaryText}>
+          {' '}
+          Необязательно, но так нам будет проще и быстрее связаться с вами.
+        </span>
       </label>
       <PhoneInput id="personalData.phone" name="personalData.phone" />
     </EmergingFormElement>
