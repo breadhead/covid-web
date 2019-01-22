@@ -1,12 +1,10 @@
-import { push } from '@app/features/admin/features/toast'
-import { Quota } from '@app/models/Quota/Quota'
 import * as React from 'react'
 import * as yup from 'yup'
-import { IncomeFormProps } from './Form'
 
-export interface SubmitValues {
-  amount?: number
-}
+import { push } from '@app/features/admin/features/toast'
+import { Quota } from '@app/models/Quota/Quota'
+
+import { IncomeFormProps, SubmitValues } from './Form'
 
 interface ContainerProps {
   income: (amount: number, quotaId: string) => Promise<Quota>

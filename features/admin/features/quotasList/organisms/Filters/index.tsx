@@ -3,13 +3,11 @@ import { sortBy } from 'lodash'
 import * as React from 'react'
 
 import { QuotaType } from '@app/models/Quota/Quota'
-import { propsToVariants } from './helpers/propsToVariants'
+import { Counts, propsToVariants } from './helpers/propsToVariants'
 
 export type Filter = QuotaType | 'All'
 
-export interface Props {
-  totalCount: number
-  countByTypes: { [key in keyof typeof QuotaType]: number }
+export interface Props extends Counts {
   activeFilter: Filter
   onChange: (value: Filter) => void
   className?: string

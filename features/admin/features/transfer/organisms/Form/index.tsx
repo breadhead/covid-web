@@ -3,7 +3,8 @@ import * as React from 'react'
 import { Form, Input, InputType, Select } from '@app/features/common/form'
 import Button, { ButtonType } from '@app/ui/atoms/Button'
 
-import Container, { StrippedQuota } from '../../container'
+import Container from '../../container'
+import StrippedQuota from '../../helpers/StrippedQuota'
 import styles from './Form.css'
 
 interface Props {

@@ -1,15 +1,8 @@
 import { Select } from 'antd'
 import * as React from 'react'
 
-import { orderToLabel } from './helpers/orderToLabel'
+import { Order, orderToLabel } from './helpers/orderToLabel'
 import * as styles from './Sorting.css'
-
-export enum Order {
-  Name = 'name',
-  Count = 'count',
-  DateNew = 'date-now',
-  DateOld = 'date-old',
-}
 
 interface Props {
   onChange: (order: Order) => void
@@ -37,3 +30,5 @@ const Sorting = ({ className, onChange, activeOrder }: Props) => {
 }
 
 export default Sorting
+
+export { Order }

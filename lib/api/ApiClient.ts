@@ -19,13 +19,6 @@ import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 
-export enum Role {
-  Client = 'client',
-  CaseManager = 'case-manager',
-  Doctor = 'doctor',
-  Admin = 'admin',
-}
-
 export interface UploadedFile {
   path: string
 }

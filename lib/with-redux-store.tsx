@@ -1,14 +1,11 @@
 import React from 'react'
-import { Store as ReduxStore } from 'redux'
 
 import actualizeStore from './helpers/actualizeStore'
 import { AppContext } from './server-types'
-import { initializeStore, State } from './store'
+import { initializeStore, State, Store } from './store'
 
 const isServer = typeof window === 'undefined'
 const __NEXT_REDUX_STORE__ = '__NEXT_REDUX_STORE__'
-
-export type Store = ReduxStore<State>
 
 const getOrCreateStore = (initialState?: State) => {
   const state = actualizeStore(initialState)

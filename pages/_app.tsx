@@ -1,7 +1,8 @@
 import Modal from '@app/features/common/modal'
 import { authViolateStatus, getViolateState } from '@app/features/login'
 import ApiClientFactory from '@app/lib/api/ApiClientFactory'
-import withReduxStore, { Store } from '@app/lib/with-redux-store'
+import { Store } from '@app/lib/store'
+import withReduxStore from '@app/lib/with-redux-store'
 import '@app/ui/antd-styles.less'
 import Sprite from '@app/ui/atoms/Sprite'
 

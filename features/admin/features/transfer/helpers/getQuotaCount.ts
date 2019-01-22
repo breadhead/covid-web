@@ -1,5 +1,7 @@
 import { Option } from 'tsoption'
-import { StrippedQuota } from '../container'
+
+import StrippedQuota from './StrippedQuota'
+
 export const getQuotaCount = (id: string, quotas: StrippedQuota[]) =>
   Option.of(quotas.find(quota => quota.id === id))
     .map(quota => quota.count)
