@@ -10,13 +10,13 @@ import { StylesType } from '@app/lib/config'
 interface Props {
   styles: StylesType
   error: false | string
+  loading: boolean
 }
 
 const ERROR_MESSAGE = 'Произошла ошибка, попробуйте еще раз'
 
-const Footer = ({ styles, error }: Props) => {
+const Footer = ({ styles, error, loading }: Props) => {
   const errorMessage = error ? ERROR_MESSAGE : undefined
-
   return (
     <footer className={styles.article}>
       <ButtonWithTooltip
@@ -24,6 +24,7 @@ const Footer = ({ styles, error }: Props) => {
         size={ButtonSize.Large}
         type={ButtonType.Submit}
         className={styles.button}
+        loading={loading}
       >
         Продолжить
       </ButtonWithTooltip>

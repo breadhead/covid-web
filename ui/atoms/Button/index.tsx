@@ -31,22 +31,32 @@ export interface Props {
   kind?: ButtonKind
   children?: React.ReactNode
   onClick?: () => void
+  loading?: boolean
 }
 
 const Button = ({
   type = ButtonType.Button,
   size = ButtonSize.Medium,
   kind = ButtonKind.Primary,
+  loading = false,
   children,
   className,
   ...rest
 }: Props) => (
   <AntButton
-    className={cx(`ant-btn-${size} ant-btn-${kind}`, className)}
+    className={cx(
+      `ant-btn-${size} ant-btn-${kind}`,
+      className,
+      loading && 'loading',
+    )}
+    disabled={loading}
     htmlType={type}
     {...rest}
   >
-    {children}
+    <>
+      {children}
+      <div className={loading ? 'loader' : 'hidden'} />
+    </>
   </AntButton>
 )
 

@@ -39,6 +39,7 @@ interface Props {
   onChangeInRussia: (value: boolean) => void
   error: false | string
   initial: Partial<ShortClaimFields>
+  loading: boolean
 }
 
 const ClaimForm = ({
@@ -47,6 +48,7 @@ const ClaimForm = ({
   clientInRussia,
   onChangeInRussia,
   error,
+  loading,
 }: Props) => {
   return (
     <Form
@@ -63,7 +65,7 @@ const ClaimForm = ({
         onChangeInRussia={onChangeInRussia}
         styles={styles}
       />
-      <Footer error={error} styles={styles} />
+      <Footer error={error} loading={loading} styles={styles} />
     </Form>
   )
 }

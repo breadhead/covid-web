@@ -6,16 +6,17 @@ import * as transitionStyles from './transitionStyles.css'
 
 interface OwnProps {
   error?: string
+  loading?: boolean
   className?: string
 }
-type WrappedComponentProps = Pick<OwnProps, 'error'>
+type WrappedComponentProps = Pick<OwnProps, 'error' | 'loading' | 'className'>
 
 const withTooltip = <T extends {}>(
   WrappedComponent: React.ComponentType<WrappedComponentProps>,
-) => ({ className, error, ...rest }: T & OwnProps) => {
+) => ({ className, error, loading }: T & OwnProps) => {
   return (
-    <div className={cx(styles.wrapper, className)}>
-      <WrappedComponent {...rest} error={error} />
+    <div className={cx(styles.wrapper)}>
+      <WrappedComponent error={error} loading={loading} className={className} />
       <TransitionGroup component={null}>
         {!!error && (
           <CSSTransition
