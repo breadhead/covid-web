@@ -9,14 +9,19 @@ interface OwnProps {
   loading?: boolean
   className?: string
 }
-type WrappedComponentProps = Pick<OwnProps, 'error' | 'loading' | 'className'>
+type WrappedComponentProps = Pick<OwnProps, 'error'>
 
 const withTooltip = <T extends {}>(
   WrappedComponent: React.ComponentType<WrappedComponentProps>,
-) => ({ className, error, loading }: T & OwnProps) => {
+) => ({ className, error, loading, ...rest }: T & OwnProps) => {
   return (
     <div className={cx(styles.wrapper)}>
-      <WrappedComponent error={error} loading={loading} className={className} />
+      <WrappedComponent
+        {...rest}
+        error={error}
+        loading={loading}
+        className={className}
+      />
       <TransitionGroup component={null}>
         {!!error && (
           <CSSTransition

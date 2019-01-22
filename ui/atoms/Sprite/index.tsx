@@ -11,6 +11,13 @@ const Sprite = () => (
     overflow="hidden"
   >
     <defs>
+      <symbol width="24" height="24" id="button-loader">
+        <g fill="none" fillRule="evenodd">
+          <path d="M0 0h24v24H0z" />
+          <path d="M0 0h24v24H0z" />
+          <path d="M12 21v-2a7 7 0 1 0-7-7H3a9 9 0 1 1 9 9z" fill="#FFF" />
+        </g>
+      </symbol>
       <symbol
         id="foundation-logo"
         width="146"
