@@ -19,7 +19,7 @@ interface Props {
 
 const SignUp = ({ onFormSubmit, error }: Props) => (
   <article className={styles.popup}>
-    <h1 className={styles.title}>Регистрация</h1>
+    <h1 className={styles.title}>Пожалуйста, зарегистрируйтесь</h1>
     <p className={styles.secondaryText}>
       Уже есть аккаунт?{SPACE}
       <LoginButton className={styles.loginButton} />
