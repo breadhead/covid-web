@@ -810,10 +810,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@breadhead/phone-input-ru@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@breadhead/phone-input-ru/-/phone-input-ru-1.0.3.tgz#0e223ebb74298c71e525c81e9dbc516557c1deb6"
-  integrity sha512-nUsaXfqakl9LZHh5MiUco9sqAgpwwWX5zHc5YIdyNfkonMwTdGbgdjD6KcBn1VcSj5/0Q0aYf2KETdW3gFwfjQ==
+"@breadhead/phone-input-ru@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@breadhead/phone-input-ru/-/phone-input-ru-1.1.0.tgz#6263c025b1a2284f516d33792ebfc7f160caf215"
+  integrity sha512-PQJ9p0dc4PGnoBr67VLYCbB4+g20staPewD1T1JZkKw+u7P4GD2tgv9CjTNPL/fcAhOQrw/dSgySeB0QQRf4Fg==
   dependencies:
     fast-diff "^1.2.0"
     lodash.flow "^3.5.0"
