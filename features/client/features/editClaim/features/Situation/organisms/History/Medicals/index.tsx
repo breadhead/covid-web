@@ -12,7 +12,6 @@ import {
   TextArea,
 } from '@app/features/common/form'
 
-import { InputType } from '@app/features/common/form'
 import { SPACE, StylesType } from '@app/lib/config'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
 import { SituationClaimFields } from '../../../types'
@@ -122,10 +121,7 @@ const EmergingForm = ({ styles, initial }: Props) => (
               >
                 Количество циклов
               </label>
-              <Input
-                type={InputType.Number}
-                name={`medicalsTreatments.${key}.cyclesCount`}
-              />
+              <Input name={`medicalsTreatments.${key}.cyclesCount`} />
 
               <label
                 htmlFor={`medicalsTreatments.${key}.schema`}

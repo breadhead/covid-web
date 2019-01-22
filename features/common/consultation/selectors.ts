@@ -11,6 +11,11 @@ export const getQuotaClaim = (state: State) =>
 export const getMainInfo = (state: State) =>
   state.consultation.claimData.mainInfo
 
+export const getClaimStatus = createSelector(
+  getMainInfo,
+  mainInfo => mainInfo && mainInfo.status,
+)
+
 export const getClaimId = (state: State) =>
   state.client.newClaim.claim && state.client.newClaim.claim.id
 
