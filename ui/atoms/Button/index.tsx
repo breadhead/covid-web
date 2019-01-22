@@ -39,32 +39,29 @@ const Button = ({
   type = ButtonType.Button,
   size = ButtonSize.Medium,
   kind = ButtonKind.Primary,
-  loading = true,
+  loading = false,
   children,
   className,
   ...rest
-}: Props) => {
-  const fakeLoading = true
-  return (
-    <AntButton
-      className={cx(
-        `ant-btn-${size} ant-btn-${kind}`,
-        className,
-        fakeLoading && 'loading',
-      )}
-      disabled={fakeLoading}
-      htmlType={type}
-      {...rest}
-    >
-      <>
-        {children}
-        <IconCustom
-          className={fakeLoading ? 'loader' : 'hidden'}
-          name="button-loader"
-        />
-      </>
-    </AntButton>
-  )
-}
+}: Props) => (
+  <AntButton
+    className={cx(
+      `ant-btn-${size} ant-btn-${kind}`,
+      className,
+      loading && 'loading',
+    )}
+    disabled={loading}
+    htmlType={type}
+    {...rest}
+  >
+    <>
+      {children}
+      <IconCustom
+        className={loading ? 'loader' : 'hidden'}
+        name="button-loader"
+      />
+    </>
+  </AntButton>
+)
 
 export default Button

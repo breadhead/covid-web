@@ -9,32 +9,26 @@ interface OwnProps {
   loading?: boolean
   className?: string
 }
-type WrappedComponentProps = Pick<OwnProps, 'error'>
+type WrappedComponentProps = Pick<OwnProps, 'error' | 'loading' | 'className'>
 
 const withTooltip = <T extends {}>(
   WrappedComponent: React.ComponentType<WrappedComponentProps>,
-) => ({ className, error, loading, ...rest }: T & OwnProps) => {
-  return (
-    <div className={cx(styles.wrapper)}>
-      <WrappedComponent
-        {...rest}
-        error={error}
-        loading={loading}
-        className={className}
-      />
-      <TransitionGroup component={null}>
-        {!!error && (
-          <CSSTransition
-            key={error}
-            timeout={300}
-            classNames={transitionStyles}
-          >
-            <div className={styles.error}>{error}</div>
-          </CSSTransition>
-        )}
-      </TransitionGroup>
-    </div>
-  )
-}
+) => ({ className, error, loading, ...rest }: T & OwnProps) => (
+  <div className={cx(styles.wrapper)}>
+    <WrappedComponent
+      {...rest}
+      error={error}
+      loading={loading}
+      className={className}
+    />
+    <TransitionGroup component={null}>
+      {!!error && (
+        <CSSTransition key={error} timeout={300} classNames={transitionStyles}>
+          <div className={styles.error}>{error}</div>
+        </CSSTransition>
+      )}
+    </TransitionGroup>
+  </div>
+)
 
 export default withTooltip
