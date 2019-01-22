@@ -26,4 +26,4 @@ export const reducer = combineReducers({
 } as any)
 
 export { fetchQuotaClaim, fetchClaim, nextStatus } from './actions'
-export { getClaimId, getClaim } from './selectors'
+export { getClaimId, getClaim, getClaimStatus } from './selectors'
