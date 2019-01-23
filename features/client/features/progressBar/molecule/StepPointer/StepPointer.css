@@ -69,3 +69,8 @@
 .titleDisabled {
   color: #9F9FA8;
 }
+
+.successIcon {
+  width: 24px;
+  height: 24px;
+}
