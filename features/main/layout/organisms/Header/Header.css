@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   padding: 24px 48px;
-  border-bottom: 1px solid var(--divider-color);
 
   @media (--smallDown) {
     padding: 16px 8px;

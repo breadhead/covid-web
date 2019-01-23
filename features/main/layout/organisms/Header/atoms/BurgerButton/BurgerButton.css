@@ -6,4 +6,9 @@
   background-repeat: no-repeat;
   background-position: 0 -168px;
   border: none;
+
+  & svg {
+    width: 24px;
+    height: 24px;
+  }
 }

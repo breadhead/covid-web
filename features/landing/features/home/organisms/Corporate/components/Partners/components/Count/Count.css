@@ -14,14 +14,14 @@
 }
 
 .label {
-  font: var(--text16-24);
   margin: 0;
+  font: var(--text16-24);
   font-weight: 500;
 }
 
 .number {
-  font-family: var(--fontFamily-title);
   margin-bottom: 4px;
+  font-family: var(--fontFamily-title);
   font-size: 64px;
   line-height: 64px;
 }
