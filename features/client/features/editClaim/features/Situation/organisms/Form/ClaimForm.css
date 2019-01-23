@@ -30,6 +30,7 @@
   }
 }
 
+
 .article {
   position: relative;
   padding: 48px 160px 56px 160px;
@@ -45,34 +46,20 @@
     background-color: var(--divider-color);
   }
 
-  &:last-of-type {
-    padding-bottom: 0;
-
-    &::after {
-      display: none;
-    }
+  @media (--smallDown) {
+    padding: 32px 16px 48px;
   }
 
   & .button.button {
-    width: 480px;
+    width: 100%;
     max-width: 480px;
+    padding: 18px 20px;
     margin: 0 auto;
-    margin-bottom: 104px;
     font: var(--text18-28);
 
     @media (--smallDown) {
-      width: 100%;
       max-width: 328px;
-      margin-bottom: 96px;
     }
-
-    @media (--smallDown) {
-      padding: 32px 16px 40px 16px;
-    }
-  }
-
-  @media (--smallDown) {
-    padding: 32px 16px 48px;
   }
 }
 
@@ -106,6 +93,7 @@
 
 .historyComboContainer {
   display: flex;
+  justify-content: space-between;
 
   &:last-child {
     margin-right: 0;
@@ -156,6 +144,8 @@
 }
 
 .iconBack {
+  width: 24px;
+  height: 24px;
   margin-right: 4px;
   fill: var(--color-primary);
   transform: rotate(180deg);
@@ -164,6 +154,11 @@
 .footerBack {
   display: flex;
   align-items: center;
+  margin-top: 104px;
+
+  @media (--smallDown) {
+    margin-top: 96px;
+  }
 }
 
 .emergeField {
@@ -182,4 +177,19 @@
 
 .radio {
   margin-bottom: 16px;
+}
+
+.articleSurvey {
+  padding-bottom: 56px;
+
+  @media (--smallDown) {
+    padding-bottom: 40px;
+  }
+}
+
+.footer {
+  padding: 48px 160px 0 160px;
+  &::after {
+    display: none;
+  }
 }
