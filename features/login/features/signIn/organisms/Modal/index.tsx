@@ -6,7 +6,7 @@ import Form from '@app/features/common/form/components/Form'
 import Input from '@app/features/common/form/components/Input'
 import Footer from '@app/features/login/organisms/Footer'
 import { SPACE } from '@app/lib/config'
-import Button, { ButtonType } from '@app/ui/atoms/Button'
+import Button, { ButtonKind, ButtonType } from '@app/ui/atoms/Button'
 import NavLink from '@app/ui/atoms/NavLink'
 import OpenSignUpModalButton from '../../atoms/OpenSignUpModalButton'
 import { schema } from '../../container'
@@ -47,7 +47,9 @@ const SignIn = ({ onFormSubmit, passwordRecoveryUrl, openSignUp }: Props) => (
       <Button type={ButtonType.Submit} className={styles.mainButton}>
         Войти
       </Button>
-      <Button className={styles.socialButton}>Войти через соцсети</Button>
+      <Button kind={ButtonKind.Extra} className={styles.socialButton}>
+        Войти через соцсети
+      </Button>
     </Form>
     <Footer />
   </article>

@@ -38,7 +38,7 @@
 .ant-select-dropdown {
   padding: 8px 0;
   box-shadow: 0 0 1px 1px rgba(21, 24, 51, 0.04),
-    0 4px 12px 0 rgba(21, 24, 51, 0.12);
+    0 4px 12px 0 var(--divider-color);
 }
 
 .ant-select-dropdown-menu-item {
