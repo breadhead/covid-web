@@ -1,10 +1,10 @@
 .logo {
   flex-shrink: 0;
-  width: 238px;
-  height: 48px;
+  width: 200px;
+  height: 38px;
 
   @media (--smallDown) {
-    width: 160px;
+    width: 168px;
     height: 32px;
   }
 }

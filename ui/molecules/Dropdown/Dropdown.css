@@ -79,3 +79,9 @@
 .center {
   right: -473%;
 }
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--text-color-secondary);
+}

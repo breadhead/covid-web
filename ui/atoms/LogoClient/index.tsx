@@ -8,13 +8,10 @@ interface Props {
   className?: string
 }
 
-const Logo = ({ className }: Props) => (
+const LogoClient = ({ className }: Props) => (
   <NavLink className={styles.logo} type={NavLinkType.Nav} href="/">
-    <IconCustom
-      className={cx(styles.desktopLogo, styles.logo, className)}
-      name="logo_full"
-    />
+    <IconCustom className={cx(styles.logo, className)} name="logo_short" />
   </NavLink>
 )
 
-export default Logo
+export default LogoClient
