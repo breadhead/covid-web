@@ -24,6 +24,7 @@ const ClaimForm = ({ onFormSubmit, claimData, error, initial }: Props) => {
       onSubmit={onFormSubmit as any}
       className={styles.ClaimForm}
       saveOnBlur={saveSituationClaimDraft(claimData.id)}
+      saveDebounced={saveSituationClaimDraft(claimData.id)}
     >
       <Common initial={initial} claimData={claimData} styles={styles} />
       <Health claimData={claimData} styles={styles} />
