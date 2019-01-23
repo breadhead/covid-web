@@ -1,23 +1,34 @@
 .claimPage {
-  padding: 48px 0 120px;
+  padding: 8px 0 120px;
   font: var(--text16-24);
   text-align: center;
   background-color: var(--background-color);
   
-
   @media (--smallDown) {
-    padding: 24px 16px 80px;
+    padding: 0 16px 80px;
     font: var(--text14-20);
+  }
+
+  @media (--xsmallDown) {
+    padding: 0 0 80px;
   }
 }
 
 .title {
   margin: 48px auto 8px;
   font: var(--title-regular);
+
+  @media (--smallDown) {
+    margin: 24px auto 8px;
+  }
 }
 
 
 .infoText {
   margin: 0 0 32px 0;
   color: #82839B;
+
+  @media (--smallDown) {
+    margin: 0 0 24px 0;
+  }
 }

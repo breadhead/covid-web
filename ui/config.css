@@ -73,6 +73,7 @@ body {
 }
 
 /* custom media queries */
+@custom-media --xsmallDown (max-width: 500px);
 @custom-media --smallDown (max-width: 767px);
 @custom-media --mediumDown (max-width: 959px);
 

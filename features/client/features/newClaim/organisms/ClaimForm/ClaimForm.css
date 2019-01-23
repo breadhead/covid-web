@@ -8,6 +8,7 @@
   box-shadow: 0 1px 3px 0 rgba(21, 24, 51, 0.2);
 
   @media (--smallDown) {
+    width: 100%;
     padding: 0 0 32px 0;
   }
 }
