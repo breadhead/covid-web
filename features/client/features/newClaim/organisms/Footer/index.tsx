@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import cx from 'classnames'
+
 import {
   ButtonSize,
   ButtonType,
@@ -18,7 +20,7 @@ const ERROR_MESSAGE = 'Произошла ошибка, попробуйте е�
 const Footer = ({ styles, error, loading }: Props) => {
   const errorMessage = error ? ERROR_MESSAGE : undefined
   return (
-    <footer className={styles.article}>
+    <footer className={cx(styles.article, styles.footer)}>
       <ButtonWithTooltip
         error={errorMessage}
         size={ButtonSize.Large}

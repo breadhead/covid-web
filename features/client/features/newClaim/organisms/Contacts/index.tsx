@@ -35,7 +35,7 @@ const Contacts = ({
   styles,
   initial,
 }: Props) => (
-  <article className={styles.article}>
+  <article className={cx(styles.article, styles.articleContacts)}>
     <h2 className={styles.title}>Контактные данные</h2>
     <label htmlFor="personalData.name" className={styles.label}>
       Как к вам обращаться?
