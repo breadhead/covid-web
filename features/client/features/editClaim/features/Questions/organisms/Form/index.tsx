@@ -11,9 +11,10 @@ interface Props {
   onFormSubmit: (fields: QuestionsClaim) => Promise<QuestionsClaim>
   claimData: ClaimData
   error: false | string
+  loading: boolean
 }
 
-const ClaimForm = ({ onFormSubmit, claimData, error }: Props) => {
+const ClaimForm = ({ onFormSubmit, claimData, error, loading }: Props) => {
   return (
     <Form onSubmit={onFormSubmit as any} className={styles.ClaimForm}>
       <Questions
@@ -27,7 +28,12 @@ const ClaimForm = ({ onFormSubmit, claimData, error }: Props) => {
         criterion={claimData.target}
       />
       <AdditionalQuestions styles={styles} />
-      <Footer error={error} styles={styles} id={claimData.id} />
+      <Footer
+        loading={loading}
+        error={error}
+        styles={styles}
+        id={claimData.id}
+      />
     </Form>
   )
 }

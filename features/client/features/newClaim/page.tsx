@@ -9,6 +9,7 @@ export interface Props {
   onChangeInRussia: (value: boolean) => void
   error: false | string
   initialFields: Partial<ShortClaimFields>
+  loading: boolean
 }
 
 const ClaimPage: React.StatelessComponent<Props> = ({
@@ -17,6 +18,7 @@ const ClaimPage: React.StatelessComponent<Props> = ({
   clientInRussia,
   onChangeInRussia,
   error,
+  loading,
 }) => {
   return (
     <Layout
@@ -30,6 +32,7 @@ const ClaimPage: React.StatelessComponent<Props> = ({
         onSubmit={onFormSubmit}
         clientInRussia={clientInRussia}
         onChangeInRussia={onChangeInRussia}
+        loading={loading}
       />
     </Layout>
   )

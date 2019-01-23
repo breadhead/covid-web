@@ -10,13 +10,14 @@ import { createClaim, fetchShortClaim } from './actions'
 import { ShortClaimFields } from './organisms/ClaimForm'
 import { regions } from './organisms/Contacts/regions'
 import { Props as PageProps } from './page'
-import { getNewClaimError } from './selectors'
+import { getLoading, getNewClaimError } from './selectors'
 
 const Router = routes.Router
 
 interface Props {
   createClaim: (request: ShortClaimRequest) => Promise<ShortClaim>
   error: false | string
+  loading: boolean
   shortClaim?: ShortClaim
   id: string
 }
@@ -52,13 +53,14 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     public state = this.getInitialState() as LocalState
 
     public render() {
-      const { error, shortClaim } = this.props
+      const { error, loading, shortClaim } = this.props
 
       const initialFields = this.getInitialFields(shortClaim)
 
       return (
         <WrappedComponent
           error={error}
+          loading={loading}
           initialFields={initialFields}
           onFormSubmit={this.onFormSubmit}
           clientInRussia={this.state.clientInRussia}
@@ -146,6 +148,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
 
 const mapState = (state: State) => ({
   error: getNewClaimError(state),
+  loading: getLoading(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({

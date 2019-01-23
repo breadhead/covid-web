@@ -9,12 +9,13 @@ import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 import { createQuestionsClaim as createQuestionsClaimAction } from './actions'
 import { Props as PageProps } from './page'
-import { getQuestionsError } from './selectors'
+import { getQuestionsError, getQuestionsLoading } from './selectors'
 const Router = routes.Router
 interface Props {
   shortClaim: ShortClaim
   createQuestionsClaim: (fields: QuestionsClaim) => Promise<QuestionsClaim>
   error: false | string
+  loading: boolean
 }
 
 interface Query {
@@ -37,10 +38,12 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       const {
         shortClaim: { target, theme, id },
         error,
+        loading,
       } = this.props
       return (
         <WrappedComponent
           error={error}
+          loading={loading}
           claimData={{ target, theme, id }}
           onFormSubmit={this.onFormSubmit}
         />
@@ -77,6 +80,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
 
 const mapState = (state: State) => ({
   error: getQuestionsError(state),
+  loading: getQuestionsLoading(state),
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
