@@ -27,9 +27,10 @@ class AddFieldContainer extends React.Component<Props, State> {
   public render() {
     const { buttonClassName, buttonText, children } = this.props
     const { count } = this.state
+
     return (
-      <>
-        {children(count)}
+      <article>
+        <article className={styles.fields}>{children(count)}</article>
         <Button
           onClick={this.onClick}
           className={buttonClassName}
@@ -38,7 +39,7 @@ class AddFieldContainer extends React.Component<Props, State> {
           <IconCustom className={styles.icon} name="24x24_plus" />
           {buttonText}
         </Button>
-      </>
+      </article>
     )
   }
 
