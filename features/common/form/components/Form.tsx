@@ -1,5 +1,10 @@
+import {
+  withAutoSaveOnFieldBlur,
+  withAutoSaveWithDebounce,
+} from '@breadhead/form-saver'
 import React, { Component, createRef } from 'react'
-import { Form as FinalForm, FormProps } from 'react-final-form'
+import { Form as FinalForm, FormProps, FormSpy } from 'react-final-form'
+
 import { FORM_ERROR_CLASSNAME } from '../../formHOCs/withFinalForm'
 import WithScrollToInvalid from '../../formHOCs/withScrollToInvalid'
 
@@ -9,12 +14,17 @@ interface OwnProps {
   forceSubmitOnEnter?: boolean
   preventDefault?: boolean
   scrollToInvalid?: boolean
+  saveDebounced?: (fields: any) => Promise<any>
+  saveOnBlur?: (fields: any) => Promise<any>
 }
 
 type Props = OwnProps & FormProps
 
 type SubmitEvent = React.FormEvent<HTMLFormElement>
 type SubmitResult = Promise<object | undefined> | undefined
+
+const DebouncedSaver = withAutoSaveWithDebounce(FormSpy)
+const BlurSaver = withAutoSaveOnFieldBlur(FormSpy)
 
 class Form extends Component<Props> {
   public static defaultProps = {
@@ -28,6 +38,8 @@ class Form extends Component<Props> {
       className,
       resetAfterSubmit,
       scrollToInvalid,
+      saveDebounced,
+      saveOnBlur,
       ...rest
     } = this.props
 
@@ -40,6 +52,8 @@ class Form extends Component<Props> {
               ref={this.formRef}
               onSubmit={this.onSubmit(props.form.reset, props.handleSubmit)}
             >
+              {!!saveDebounced && <DebouncedSaver save={saveDebounced} />}
+              {!!saveOnBlur && <BlurSaver save={saveOnBlur} />}
               {scrollToInvalid && (
                 <WithScrollToInvalid
                   formErrorClassName={FORM_ERROR_CLASSNAME}

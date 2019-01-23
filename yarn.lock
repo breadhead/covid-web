@@ -810,6 +810,13 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@breadhead/form-saver@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@breadhead/form-saver/-/form-saver-1.0.2.tgz#d72f05869435f1f7052844898615bff801aeb0a4"
+  integrity sha512-G9HjwGHSFt6FTFcpiDkE7xX3XalgN5xNLYDfNB5Rv8/I2LjGrTDfPhtmkT2+1R4mAOv9j0Tbhw+/vdxW4tfH4Q==
+  dependencies:
+    object-diff "^0.0.4"
+
 "@breadhead/thunk-error@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@breadhead/thunk-error/-/thunk-error-1.0.3.tgz#74d3edbcad31a453cd1a81ec1a47506031003e33"
@@ -7304,6 +7311,11 @@ object-copy@^0.1.0:
     copy-descriptor "^0.1.0"
     define-property "^0.2.5"
     kind-of "^3.0.3"
+
+object-diff@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/object-diff/-/object-diff-0.0.4.tgz#d883b0444fe8fd6e04e595d7bb665682c916047f"
+  integrity sha1-2IOwRE/o/W4E5ZXXu2ZWgskWBH8=
 
 object-hash@^1.3.1:
   version "1.3.1"
