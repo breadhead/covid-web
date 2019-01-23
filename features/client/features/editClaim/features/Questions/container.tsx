@@ -3,13 +3,17 @@ import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
-import routes from '@app/routes'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
+
+import routes from '@app/routes'
+
 import { createQuestionsClaim as createQuestionsClaimAction } from './actions'
+import { getQuestionsClaimDraft } from './localStorage'
 import { Props as PageProps } from './page'
 import { getQuestionsError, getQuestionsLoading } from './selectors'
+
 const Router = routes.Router
 interface Props {
   shortClaim: ShortClaim
@@ -22,8 +26,12 @@ interface Query {
   id: string
 }
 
+interface LocalState {
+  initialFields: any
+}
+
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
-  return class extends React.Component<Props> {
+  return class extends React.Component<Props, LocalState> {
     public static async getInitialProps(context: AppContext<Query>) {
       const { id } = context.query
 
@@ -34,21 +42,37 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
         shortClaim,
       }
     }
+
+    public state = {
+      initialFields: {},
+    } as LocalState
+
+    public componentDidMount() {
+      this.setState({ initialFields: this.getIntialValues() })
+    }
+
     public render() {
       const {
         shortClaim: { target, theme, id },
         error,
         loading,
       } = this.props
+
+      const { initialFields } = this.state
+
       return (
         <WrappedComponent
           error={error}
           loading={loading}
           claimData={{ target, theme, id }}
           onFormSubmit={this.onFormSubmit}
+          initialFields={initialFields}
         />
       )
     }
+
+    private getIntialValues = () =>
+      getQuestionsClaimDraft(this.props.shortClaim.id)
 
     private onFormSubmit = async ({
       defaultQuestions,

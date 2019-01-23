@@ -11,15 +11,23 @@ export interface Props {
   error: false | string
   loading: boolean
   claimData: ClaimData
+  initialFields: Partial<QuestionsClaim>
 }
 
-const ClaimPage = ({ error, loading, onFormSubmit, claimData }: Props) => (
+const ClaimPage = ({
+  error,
+  loading,
+  onFormSubmit,
+  claimData,
+  initialFields,
+}: Props) => (
   <Layout step={3} title="Отметьте вопросы, которые хотите задать эксперту">
     <ClaimForm
       claimData={claimData}
       error={error}
       loading={loading}
       onFormSubmit={onFormSubmit}
+      initial={initialFields}
     />
   </Layout>
 )

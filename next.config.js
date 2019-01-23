@@ -6,7 +6,7 @@ const lessToJS = require('less-vars-to-js')
 const fs = require('fs')
 const path = require('path')
 
-const IgnoreNotFoundExportPlugin = require('./webpack/IgnoreNotFoundExportPlugin')
+const IgnoreNotFoundExportPlugin = require('ignore-not-found-export-plugin')
 
 // Where your antd-custom.less file lives
 const themeVariables = lessToJS(
