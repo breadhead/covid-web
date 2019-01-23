@@ -1,10 +1,12 @@
+import cx from 'classnames'
+
 interface Props {
   className?: string
   name: string
 }
 
-const PhoneInput = (props: Props) => (
-  <input className="ant-input" {...props} type="tel" />
+const PhoneInput = ({ className, ...rest }: Props) => (
+  <input {...rest} className={cx(className, 'ant-input')} type="tel" />
 )
 
 export default PhoneInput
