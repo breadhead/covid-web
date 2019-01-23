@@ -11,6 +11,29 @@ const Sprite = () => (
     overflow="hidden"
   >
     <defs>
+      <symbol
+        xmlns="http://www.w3.org/2000/svg"
+        id="foundation_logo_mark"
+        width="26"
+        height="40"
+      >
+        <g fill="none" fillRule="nonzero">
+          <path
+            fill="#E7705E"
+            d="M25 4.75A18.64 18.64 0 0 0 12.5 0C7.84 0 3.4 1.69 0 4.75l2.93 1.4A15.62 15.62 0 0 1 12.5 2.9c3.5 0 6.86 1.15 9.58 3.25l2.91-1.39H25z"
+          />
+          <path fill="#EFA02A" d="M23 23.71l3 2.96V6.15l-3 1.51z" />
+          <path
+            fill="#35AE95"
+            d="M0 27.16l5.02 5.66L7 30.6l-4.21-4.73V7.7L0 6.15z"
+          />
+          <path
+            fill="#2CAEE4"
+            d="M12.79 40L25 27.8l-2.15-2.16L12.79 35.7l-4.64-4.63L6 33.21z"
+          />
+        </g>
+      </symbol>
+
       <symbol width="24" height="24" id="button-loader">
         <g fill="none" fillRule="evenodd">
           <path d="M0 0h24v24H0z" />
