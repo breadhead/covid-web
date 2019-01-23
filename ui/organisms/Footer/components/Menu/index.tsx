@@ -1,10 +1,10 @@
-import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
+import NavLink, { NavLinkType, TargetType } from '@app/ui/atoms/NavLink'
 
 import stylesLong from './MenuLong.css'
 import stylesShort from './MenuShort.css'
 
 const linksShort = [
-  { title: 'О проекте', href: '#' },
+  { title: 'О проекте', href: 'https://nenaprasno.ru' },
   { title: 'Помочь проекту', href: '#donation' },
   { title: 'Обратная связь', href: '/contacts' },
 ]
@@ -30,6 +30,7 @@ const Menu = ({ long }: Props) => {
     <nav className={styles.menu}>
       {links.map(({ title, href }) => (
         <NavLink
+          target={TargetType.Blank}
           key={title}
           type={NavLinkType.Nav}
           href={href}

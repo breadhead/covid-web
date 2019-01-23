@@ -5,6 +5,7 @@ import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 
 import * as styles from './Legal.css'
 
+import ExternalLink from '@app/ui/molecules/ExternalLink'
 interface Props {
   className?: string
 }
@@ -19,9 +20,9 @@ const Legal = ({ className }: Props) => (
     </div>
     <span className={styles.breadhead}>
       <span className={styles.secondaryText}>Сайт сделан в </span>
-      <NavLink className={styles.infoLink} type={NavLinkType.Nav} href="#">
+      <ExternalLink className={styles.infoLink} href="https://breadhead.ru/">
         Breadhead
-      </NavLink>
+      </ExternalLink>
     </span>
   </div>
 )
