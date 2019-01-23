@@ -10,13 +10,14 @@ import { createClaim, fetchShortClaim } from './actions'
 import { ShortClaimFields } from './organisms/ClaimForm'
 import { regions } from './organisms/Contacts/regions'
 import { Props as PageProps } from './page'
-import { getNewClaimError } from './selectors'
+import { getLoading, getNewClaimError } from './selectors'
 
 const Router = routes.Router
 
 interface Props {
   createClaim: (request: ShortClaimRequest) => Promise<ShortClaim>
   error: false | string
+  loading: boolean
   shortClaim?: ShortClaim
   id: string
 }
@@ -52,13 +53,14 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     public state = this.getInitialState() as LocalState
 
     public render() {
-      const { error, shortClaim } = this.props
+      const { error, loading, shortClaim } = this.props
 
       const initialFields = this.getInitialFields(shortClaim)
 
       return (
         <WrappedComponent
           error={error}
+          loading={loading}
           initialFields={initialFields}
           onFormSubmit={this.onFormSubmit}
           clientInRussia={this.state.clientInRussia}
@@ -81,13 +83,29 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
           ...claim,
           localizationPresence: !!claim.localization,
           companyPresence: !!claim.company,
-          phonePresence: !!claim.personalData.phone,
         }
       }
       return {
-        phonePresence: true,
         companyPresence: false,
       }
+    }
+
+    private createRequest = (claimFields: ShortClaimFields) => {
+      const { id } = this.props
+      const fields = claimFields
+
+      if (!claimFields.localizationPresence) {
+        fields.localization = null
+      }
+      if (!claimFields.companyPresence) {
+        fields.company = null
+      }
+
+      if (id) {
+        fields.id = id
+      }
+
+      return fields
     }
 
     private onChangeInRussia = (value: boolean) =>
@@ -104,27 +122,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       const { error } = this.props
 
       this.redirectIfNeeded(error, quotaAllocated, id, email)
-    }
-
-    private createRequest = (claimFields: ShortClaimFields) => {
-      const { id } = this.props
-      const fields = claimFields
-
-      if (!claimFields.localizationPresence) {
-        fields.localization = null
-      }
-      if (!claimFields.companyPresence) {
-        fields.company = null
-      }
-      if (!claimFields.phonePresence) {
-        fields.personalData.phone = null
-      }
-
-      if (id) {
-        fields.id = id
-      }
-
-      return fields
     }
 
     private redirectIfNeeded(
@@ -146,6 +143,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
 
 const mapState = (state: State) => ({
   error: getNewClaimError(state),
+  loading: getLoading(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({

@@ -11,6 +11,7 @@ export interface Props {
   initialFields: Partial<SituationClaimFields>
   claimData: ClaimData
   error: false | string
+  loading?: boolean
 }
 
 const SituationPage = ({
@@ -18,6 +19,7 @@ const SituationPage = ({
   claimData,
   error,
   initialFields,
+  loading,
 }: Props) => {
   return (
     <Layout
@@ -31,6 +33,7 @@ const SituationPage = ({
       <ClaimForm
         initial={initialFields}
         error={error}
+        loading={loading}
         claimData={claimData}
         onFormSubmit={onFormSubmit}
       />

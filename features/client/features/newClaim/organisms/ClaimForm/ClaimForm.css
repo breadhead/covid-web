@@ -45,12 +45,13 @@
   }
 
   & .button.button {
-    width: 480px;
+    width: 100%;
+    max-width: 480px;
+    padding: 18px 20px;
     margin: 0 auto;
     font: var(--text18-28);
 
     @media (--smallDown) {
-      width: 100%;
       max-width: 328px;
     }
   }

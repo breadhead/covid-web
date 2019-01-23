@@ -18,7 +18,7 @@ import {
 } from './actions'
 import { getSituationClaimDraft } from './localStorage'
 import { Props as PageProps } from './page'
-import { getSituationError } from './selectors'
+import { getSituationError, getSituationLoading } from './selectors'
 import { SituationClaimFields } from './types'
 
 const Router = routes.Router
@@ -27,6 +27,7 @@ interface Props {
   situationClaim: SituationClaim
   createSituationClaim: (fields: SituationClaimRequest) => SituationClaim
   error: false | string
+  loading: boolean
 }
 
 interface Query {
@@ -56,12 +57,14 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
         shortClaim: { id, localization, theme },
         situationClaim,
         error,
+        loading,
       } = this.props
       const initialFields = this.getInitialFields(situationClaim)
       return (
         <WrappedComponent
           initialFields={initialFields}
           error={error}
+          loading={loading}
           claimData={{ localization, theme, id }}
           onFormSubmit={this.onFormSubmit}
         />
@@ -128,6 +131,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
 
 const mapState = (state: State) => ({
   error: getSituationError(state),
+  loading: getSituationLoading(state),
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({

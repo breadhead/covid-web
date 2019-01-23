@@ -120,3 +120,23 @@
 }
 
 
+.loading.loading.loading.loading {
+  position: relative;
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - 10px);
+  right: 8px;
+  animation: rotate 2s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes rotate { 
+  100% { 
+      transform:rotate(360deg); 
+    } 
+  }

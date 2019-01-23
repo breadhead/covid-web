@@ -1,6 +1,7 @@
 import { Button as AntButton } from 'antd'
 import cx from 'classnames'
 import * as React from 'react'
+import IconCustom from '../IconCustom'
 
 import './Button.css?CSSModulesDisable'
 
@@ -31,22 +32,35 @@ export interface Props {
   kind?: ButtonKind
   children?: React.ReactNode
   onClick?: () => void
+  loading?: boolean
 }
 
 const Button = ({
   type = ButtonType.Button,
   size = ButtonSize.Medium,
   kind = ButtonKind.Primary,
+  loading = false,
   children,
   className,
   ...rest
 }: Props) => (
   <AntButton
-    className={cx(`ant-btn-${size} ant-btn-${kind}`, className)}
+    className={cx(
+      `ant-btn-${size} ant-btn-${kind}`,
+      className,
+      loading && 'loading',
+    )}
+    disabled={loading}
     htmlType={type}
     {...rest}
   >
-    {children}
+    <>
+      {children}
+      <IconCustom
+        className={loading ? 'loader' : 'hidden'}
+        name="button-loader"
+      />
+    </>
   </AntButton>
 )
 

@@ -9,12 +9,14 @@ import { ClaimData } from '../types'
 export interface Props {
   onFormSubmit: (fields: QuestionsClaim) => Promise<QuestionsClaim>
   error: false | string
+  loading: boolean
   claimData: ClaimData
   initialFields: Partial<QuestionsClaim>
 }
 
 const ClaimPage = ({
   error,
+  loading,
   onFormSubmit,
   claimData,
   initialFields,
@@ -23,6 +25,7 @@ const ClaimPage = ({
     <ClaimForm
       claimData={claimData}
       error={error}
+      loading={loading}
       onFormSubmit={onFormSubmit}
       initial={initialFields}
     />

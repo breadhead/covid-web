@@ -12,17 +12,19 @@ import NavLink from '@app/ui/atoms/NavLink'
 interface Props {
   styles: StylesType
   error: false | string
+  loading?: boolean
   id: string
 }
 
 const ERROR_MESSAGE = 'Произошла ошибка, попробуйте еще раз'
 
-const Footer = ({ styles, error, id }: Props) => {
+const Footer = ({ styles, error, loading, id }: Props) => {
   const errorMessage = error ? ERROR_MESSAGE : undefined
   return (
     <footer className={styles.article}>
       <ButtonWithTooltip
         error={errorMessage}
+        loading={loading}
         size={ButtonSize.Large}
         type={ButtonType.Submit}
         className={styles.button}
