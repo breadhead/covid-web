@@ -1,5 +1,4 @@
 import {
-  EmergingFormElement,
   Input,
   InputType,
   PhoneInput,
@@ -10,7 +9,6 @@ import { StylesType } from '@app/lib/config'
 import Gender from '@app/models/Gender'
 import { mapString } from '@app/ui/atoms/Select'
 import Switch from '@app/ui/atoms/Switch'
-import { ControlTypes } from '@app/ui/organisms/EmergingFormElement'
 import cx from 'classnames'
 import * as React from 'react'
 import { ShortClaimFields } from '../ClaimForm'
@@ -29,13 +27,8 @@ interface Props {
   styles: StylesType
   initial: Partial<ShortClaimFields>
 }
-const Contacts = ({
-  clientInRussia,
-  onChangeInRussia,
-  styles,
-  initial,
-}: Props) => (
-  <article className={cx(styles.article, styles.articleContacts)}>
+const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
+  <article className={styles.article}>
     <h2 className={styles.title}>Контактные данные</h2>
     <label htmlFor="personalData.name" className={styles.label}>
       Как к вам обращаться?
@@ -118,32 +111,17 @@ const Contacts = ({
       type={InputType.Email}
       placeholder="konstantinopolsky@gmail.com"
     />
-    <p className={styles.label}>
-      Можем ли мы позвонить вам по телефону в случае необходимости?
+    <label
+      htmlFor="personalData.phone"
+      className={cx(styles.label, styles.emergingLabel)}
+    >
+      Контактный телефон.
       <span className={styles.secondaryText}>
         {' '}
-        Так эксперту будет быстрее и проще уточнить у вас информацию при
-        необходимости и предоставить более полный ответ.
+        Необязательно, но так нам будет проще и быстрее связаться с вами.
       </span>
-    </p>
-    <EmergingFormElement
-      className={styles.field}
-      controlType={ControlTypes.Radiogroup}
-      defaultVisible={initial.phonePresence}
-      name="phonePresence"
-    >
-      <label
-        htmlFor="personalData.phone"
-        className={cx(styles.label, styles.emergingLabel)}
-      >
-        Контактный телефон.
-        <span className={styles.secondaryText}>
-          {' '}
-          Необязательно, но так нам будет проще и быстрее связаться с вами.
-        </span>
-      </label>
-      <PhoneInput id="personalData.phone" name="personalData.phone" />
-    </EmergingFormElement>
+    </label>
+    <PhoneInput id="personalData.phone" name="personalData.phone" />
   </article>
 )
 

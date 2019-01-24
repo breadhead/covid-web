@@ -1,22 +1,26 @@
+import { isEmpty } from 'lodash'
+import nanomerge from 'nanomerge'
+import * as React from 'react'
+import { connect } from 'react-redux'
+import { AnyAction, compose, Dispatch } from 'redux'
+
 import { SituationClaimRequest } from '@app/lib/api/request/SituationClaim'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import routes from '@app/routes'
-import { isEmpty } from 'lodash'
-import * as React from 'react'
-import { connect } from 'react-redux'
-import { AnyAction, compose, Dispatch } from 'redux'
 
 import { fetchShortClaim } from '../../../newClaim'
 import {
   createSituationClaim as createSituationClaimAction,
   fetchSituationClaim,
 } from './actions'
+import { getSituationClaimDraft } from './localStorage'
 import { Props as PageProps } from './page'
 import { getSituationError, getSituationLoading } from './selectors'
 import { SituationClaimFields } from './types'
+
 const Router = routes.Router
 interface Props {
   shortClaim: ShortClaim
@@ -79,18 +83,23 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     }
 
     private getInitialFields = (claim: SituationClaim) => {
+      const draft = getSituationClaimDraft(claim.id)
+
       const claimWasSent = !!claim.description
       if (claimWasSent) {
-        return {
-          ...claim,
-          relativesDiseasesPresence: !isEmpty(claim.relativesDiseases),
-          surgicalTreatmentsPresence: !isEmpty(claim.surgicalTreatments),
-          medicalsTreatmentsPresence: !isEmpty(claim.medicalsTreatments),
-          radiationTreatmentsPresence: !isEmpty(claim.radiationTreatments),
-        }
+        return nanomerge(
+          {
+            ...claim,
+            relativesDiseasesPresence: !isEmpty(claim.relativesDiseases),
+            surgicalTreatmentsPresence: !isEmpty(claim.surgicalTreatments),
+            medicalsTreatmentsPresence: !isEmpty(claim.medicalsTreatments),
+            radiationTreatmentsPresence: !isEmpty(claim.radiationTreatments),
+          },
+          draft,
+        )
       }
 
-      return claim
+      return nanomerge(claim, draft)
     }
 
     private createRequest = (claimFields: SituationClaimFields, id: string) => {

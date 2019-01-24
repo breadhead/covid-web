@@ -83,13 +83,29 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
           ...claim,
           localizationPresence: !!claim.localization,
           companyPresence: !!claim.company,
-          phonePresence: !!claim.personalData.phone,
         }
       }
       return {
-        phonePresence: true,
         companyPresence: false,
       }
+    }
+
+    private createRequest = (claimFields: ShortClaimFields) => {
+      const { id } = this.props
+      const fields = claimFields
+
+      if (!claimFields.localizationPresence) {
+        fields.localization = null
+      }
+      if (!claimFields.companyPresence) {
+        fields.company = null
+      }
+
+      if (id) {
+        fields.id = id
+      }
+
+      return fields
     }
 
     private onChangeInRussia = (value: boolean) =>
@@ -106,27 +122,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       const { error } = this.props
 
       this.redirectIfNeeded(error, quotaAllocated, id, email)
-    }
-
-    private createRequest = (claimFields: ShortClaimFields) => {
-      const { id } = this.props
-      const fields = claimFields
-
-      if (!claimFields.localizationPresence) {
-        fields.localization = null
-      }
-      if (!claimFields.companyPresence) {
-        fields.company = null
-      }
-      if (!claimFields.phonePresence) {
-        fields.personalData.phone = null
-      }
-
-      if (id) {
-        fields.id = id
-      }
-
-      return fields
     }
 
     private redirectIfNeeded(

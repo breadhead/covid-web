@@ -810,6 +810,13 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@breadhead/form-saver@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@breadhead/form-saver/-/form-saver-1.0.3.tgz#7c6a2ef86e199051d621059f88da666e94eaac92"
+  integrity sha512-h7un5GmubtKt1d00Fp29Zc0tOijwFwP5rMOZ2WETBGQwkmfNQ2ymgo0ULv0WKt+DpLVfxfiC6DT2CQGI0FrTag==
+  dependencies:
+    object-diff "^0.0.4"
+
 "@breadhead/thunk-error@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@breadhead/thunk-error/-/thunk-error-1.0.3.tgz#74d3edbcad31a453cd1a81ec1a47506031003e33"
@@ -4919,6 +4926,11 @@ ignore-loader@0.1.2:
   resolved "https://registry.yarnpkg.com/ignore-loader/-/ignore-loader-0.1.2.tgz#d81f240376d0ba4f0d778972c3ad25874117a463"
   integrity sha1-2B8kA3bQuk8Nd4lyw60lh0EXpGM=
 
+ignore-not-found-export-plugin@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ignore-not-found-export-plugin/-/ignore-not-found-export-plugin-1.0.1.tgz#0cc1af5f709df808e079ef4000641a6aa1c606ad"
+  integrity sha512-QPMrUVdhTXUII2xcq1pGqXJvIz7qb77TlY9eejQdZJaE2bKMBMBtjkVbDTgovieV591tfZ9fSr6ejCWxzX/gzw==
+
 ignore-walk@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/ignore-walk/-/ignore-walk-3.0.1.tgz#a83e62e7d272ac0e3b551aaa82831a19b69f82f8"
@@ -6923,6 +6935,11 @@ nan@^2.9.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.11.1.tgz#90e22bccb8ca57ea4cd37cc83d3819b52eea6766"
   integrity sha512-iji6k87OSXa0CcrLl9z+ZiYSuR2o+c0bGuNmXdrhTQTakxytAFsC56SArGYoiHlJlFoHSnvmhpceZJaXkVuOtA==
 
+nanoclone@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/nanoclone/-/nanoclone-0.1.5.tgz#2c80c672a85471ec46ba588f40cac6b5ff9de41e"
+  integrity sha1-LIDGcqhUcexGuliPQMrGtf+d5B4=
+
 nanoid@1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-1.2.1.tgz#922bf6c10e35f7b208993768dad643577c907adf"
@@ -6949,6 +6966,13 @@ nanomatch@^1.2.9:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
+
+nanomerge@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/nanomerge/-/nanomerge-0.2.0.tgz#ad29c5b24c7111095b4d8113fe8b22a3d75f34af"
+  integrity sha512-b929MpaA7PBFWggbjaqJUWbmFZlhqdgy7d1n3HvS9QRnkdifwsBijQ6Ap/ajaE1V7nc8w1VIS8DI2fOGbIxB3w==
+  dependencies:
+    nanoclone "^0.1.5"
 
 natural-compare@^1.4.0:
   version "1.4.0"
@@ -7299,6 +7323,11 @@ object-copy@^0.1.0:
     copy-descriptor "^0.1.0"
     define-property "^0.2.5"
     kind-of "^3.0.3"
+
+object-diff@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/object-diff/-/object-diff-0.0.4.tgz#d883b0444fe8fd6e04e595d7bb665682c916047f"
+  integrity sha1-2IOwRE/o/W4E5ZXXu2ZWgskWBH8=
 
 object-hash@^1.3.1:
   version "1.3.1"
@@ -10183,6 +10212,11 @@ stealthy-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
+
+store2@^2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/store2/-/store2-2.7.1.tgz#22070b7dc04748a792fc6912a58ab99d3a21d788"
+  integrity sha512-zzzP5ZY6QWumnAFV6kBRbS44pUMcpZBNER5DWUe1HETlaKXqLcCQxbNu6IHaKr1pUsjuhUGBdOy8sWKmMkL6pQ==
 
 stream-browserify@^2.0.1:
   version "2.0.1"
