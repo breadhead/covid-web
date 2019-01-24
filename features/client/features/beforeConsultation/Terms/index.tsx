@@ -1,11 +1,14 @@
 import * as React from 'react'
 
 import {
+  ButtonSize,
   ButtonType,
   ButtonWithTooltip,
   Checkbox,
   Form,
 } from '@app/features/common/form'
+
+import NavLink, { TargetType } from '@app/ui/atoms/NavLink'
 
 import styles from './Terms.css'
 
@@ -36,9 +39,12 @@ class Terms extends React.Component<Props, State> {
           className={styles.checkbox}
         >
           Я согласен с{' '}
-          <a href="/static/docs/terms-of-use.pdf">
+          <NavLink
+            target={TargetType.Blank}
+            href="/static/docs/terms-of-use.pdf"
+          >
             условиями получения консультации
-          </a>
+          </NavLink>
         </Checkbox>
         <Checkbox
           name="personalDataConditions"
@@ -46,14 +52,18 @@ class Terms extends React.Component<Props, State> {
           className={styles.checkbox}
         >
           Я согласен с{' '}
-          <a href="/static/docs/personal-data-processing-policy.pdf">
+          <NavLink
+            target={TargetType.Blank}
+            href="/static/docs/personal-data-processing-policy.pdf"
+          >
             условиями обработки персональных данных
-          </a>
+          </NavLink>
         </Checkbox>
         <ButtonWithTooltip
           error={this.getError()}
           type={ButtonType.Submit}
           className={styles.button}
+          size={ButtonSize.ExtraLarge}
         >
           Начать консультацию
         </ButtonWithTooltip>

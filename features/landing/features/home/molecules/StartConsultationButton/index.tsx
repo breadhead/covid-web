@@ -22,7 +22,7 @@ const StartConsultationButton = ({
   children,
 }: Props & any) =>
   !!token ? (
-    <NavLink type={NavLinkType.Nav} href="/client/new-claim">
+    <NavLink type={NavLinkType.Nav} href="/client/rules">
       <Button size={size} className={className} kind={ButtonKind.Primary}>
         {children}
       </Button>
