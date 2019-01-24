@@ -5,16 +5,16 @@
   background-color: var(--background-color);
 
   @media (--mediumSecondDown) {
-    padding: 0 24px 80px;
+    padding: 0 24px 0;
   }
 
   @media (--smallDown) {
-    padding: 0 16px 80px;
+    padding: 0 16px 0;
     font: var(--text14-20);
   }
 
   @media (--xsmallDown) {
-    padding: 0 0 80px;
+    padding: 0;
   }
 }
 

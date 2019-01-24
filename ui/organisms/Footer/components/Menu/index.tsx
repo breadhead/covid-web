@@ -3,6 +3,8 @@ import NavLink, { NavLinkType, TargetType } from '@app/ui/atoms/NavLink'
 import stylesLong from './MenuLong.css'
 import stylesShort from './MenuShort.css'
 
+import NavIcon from '../NavIcon'
+
 const linksShort = [
   { title: 'О проекте', href: 'https://nenaprasno.ru' },
   { title: 'Помочь проекту', href: '#donation' },
@@ -37,6 +39,7 @@ const Menu = ({ long }: Props) => {
           className={styles.link}
         >
           {title}
+          <NavIcon />
         </NavLink>
       ))}
     </nav>

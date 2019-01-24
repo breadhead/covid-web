@@ -34,8 +34,16 @@
 }
 
 .consultation {
+  padding-top: 16px;
+  padding-bottom: 15px;
+
   & .menuItemText {
     margin-left: 8px;
+  }
+
+  @media (--smallDown) {
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 }
 
