@@ -5,8 +5,6 @@ import ClaimForm, { ShortClaimFields } from './organisms/ClaimForm'
 
 export interface Props {
   onFormSubmit: (claimFields: ShortClaimFields) => Promise<void>
-  clientInRussia: boolean
-  onChangeInRussia: (value: boolean) => void
   error: false | string
   initialFields: Partial<ShortClaimFields>
   loading: boolean
@@ -15,8 +13,6 @@ export interface Props {
 const ClaimPage: React.StatelessComponent<Props> = ({
   initialFields,
   onFormSubmit,
-  clientInRussia,
-  onChangeInRussia,
   error,
   loading,
 }) => {
@@ -30,8 +26,6 @@ const ClaimPage: React.StatelessComponent<Props> = ({
         initial={initialFields}
         error={error}
         onSubmit={onFormSubmit}
-        clientInRussia={clientInRussia}
-        onChangeInRussia={onChangeInRussia}
         loading={loading}
       />
     </Layout>

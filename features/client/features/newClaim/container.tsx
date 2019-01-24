@@ -8,7 +8,6 @@ import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 import { createClaim, fetchShortClaim } from './actions'
 import { ShortClaimFields } from './organisms/ClaimForm'
-import { regions } from './organisms/Contacts/regions'
 import { Props as PageProps } from './page'
 import { getLoading, getNewClaimError } from './selectors'
 
@@ -22,16 +21,12 @@ interface Props {
   id: string
 }
 
-interface LocalState {
-  clientInRussia: boolean
-}
-
 interface Query {
   id?: string
 }
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
-  return class extends React.Component<Props, LocalState> {
+  return class extends React.Component<Props> {
     public static async getInitialProps({
       query,
       reduxStore,
@@ -50,8 +45,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       return { id }
     }
 
-    public state = this.getInitialState() as LocalState
-
     public render() {
       const { error, loading, shortClaim } = this.props
 
@@ -63,18 +56,8 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
           loading={loading}
           initialFields={initialFields}
           onFormSubmit={this.onFormSubmit}
-          clientInRussia={this.state.clientInRussia}
-          onChangeInRussia={this.onChangeInRussia}
         />
       )
-    }
-
-    private getInitialState(): LocalState {
-      return {
-        clientInRussia: this.props.id
-          ? regions.includes(this.props.shortClaim!.personalData.region)
-          : true,
-      }
     }
 
     private getInitialFields = (claim?: ShortClaim) => {
@@ -107,9 +90,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
 
       return fields
     }
-
-    private onChangeInRussia = (value: boolean) =>
-      this.setState({ clientInRussia: value })
 
     private onFormSubmit = async (claimFields: ShortClaimFields) => {
       const request = this.createRequest(claimFields)

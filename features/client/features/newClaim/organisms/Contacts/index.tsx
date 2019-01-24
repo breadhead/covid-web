@@ -18,8 +18,6 @@ const genderRadioGroup = Object.entries(Gender).map(([id, value]) => ({
 }))
 
 interface Props {
-  clientInRussia: boolean
-  onChangeInRussia: (value: boolean) => void
   styles: StylesType
   initial: Partial<ShortClaimFields>
 }
