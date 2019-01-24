@@ -34,5 +34,12 @@
 }
 
 .iconChat {
+  width: 24px;
+  height: 24px;
   fill: lightgreen;
+}
+
+.iconClose {
+  width: 24px;
+  height: 24px;
 }

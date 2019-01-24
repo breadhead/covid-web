@@ -65,3 +65,8 @@
 .link:hover svg {
   fill: var(--color-primary);
 }
+
+.NavIcon {
+  width: 24px;
+  height: 24px;
+}
