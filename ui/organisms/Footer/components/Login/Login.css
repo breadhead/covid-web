@@ -1,5 +1,6 @@
 .buttons {
   display: flex;
+  white-space: nowrap;
 }
 
 .logo {
