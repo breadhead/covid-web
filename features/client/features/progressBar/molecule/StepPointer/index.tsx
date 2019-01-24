@@ -29,7 +29,7 @@ const StepPointer = ({ step, index, className }: Props) => {
 
   const currentContent =
     type === StepPointerType.Success ? (
-      <IconCustom name="input-valid" />
+      <IconCustom className={styles.successIcon} name="input-valid" />
     ) : (
       index + 1
     )

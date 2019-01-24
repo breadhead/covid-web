@@ -30,8 +30,14 @@
 
 .logo {
   @media (--smallDown) {
-    align-self: flex-start;
     height: 40px;
+  }
+}
+
+.logoWrapper {
+  @media (--smallDown) {
+    align-self: flex-start;
+    max-height: 40px;
     margin-bottom: 16px;
   }
 }

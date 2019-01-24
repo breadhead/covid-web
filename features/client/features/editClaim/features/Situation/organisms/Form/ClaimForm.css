@@ -30,6 +30,7 @@
   }
 }
 
+
 .article {
   position: relative;
   padding: 48px 160px 56px 160px;
@@ -42,41 +43,28 @@
     width: 100%;
     height: 1px;
     content: '';
-    background-color: rgba(21, 24, 51, 0.12);
-  }
-
-  &:last-of-type {
-    padding-bottom: 0;
-
-    &::after {
-      display: none;
-    }
-  }
-
-  & .button.button {
-    width: 480px;
-    max-width: 480px;
-    margin: 0 auto;
-    margin-bottom: 104px;
-    font: var(--text18-28);
-
-    @media (--smallDown) {
-      width: 100%;
-      max-width: 328px;
-      margin-bottom: 96px;
-    }
-
-    @media (--smallDown) {
-      padding: 32px 16px 40px 16px;
-    }
+    background-color: var(--divider-color);
   }
 
   @media (--smallDown) {
     padding: 32px 16px 48px;
   }
+
+  & .button.button {
+    width: 100%;
+    max-width: 480px;
+    padding: 18px 20px;
+    margin: 0 auto;
+    font: var(--text18-28);
+
+    @media (--smallDown) {
+      max-width: 328px;
+    }
+  }
 }
 
 .label {
+  position: relative;
   z-index: 1;
   display: block;
   margin: 24px 0 8px 0;
@@ -87,6 +75,10 @@
 .labelSmall {
   display: block;
   margin: 16px 0 8px 0;
+}
+
+.labelInAddFieldContainer {
+  margin-top: 0;
 }
 
 .emergingLabel {
@@ -101,6 +93,7 @@
 
 .historyComboContainer {
   display: flex;
+  justify-content: space-between;
 
   &:last-child {
     margin-right: 0;
@@ -137,7 +130,7 @@
   align-self: flex-start;
   max-width: none;
   padding: 8px 16px;
-  margin-top: 40px;
+  margin-top: 24px;
 }
 
 .text {
@@ -151,6 +144,8 @@
 }
 
 .iconBack {
+  width: 24px;
+  height: 24px;
   margin-right: 4px;
   fill: var(--color-primary);
   transform: rotate(180deg);
@@ -159,6 +154,11 @@
 .footerBack {
   display: flex;
   align-items: center;
+  margin-top: 104px;
+
+  @media (--smallDown) {
+    margin-top: 96px;
+  }
 }
 
 .emergeField {
@@ -177,4 +177,23 @@
 
 .radio {
   margin-bottom: 16px;
+}
+
+.articleSurvey {
+  padding-bottom: 56px;
+
+  @media (--smallDown) {
+    padding-bottom: 40px;
+  }
+}
+
+.footer {
+  padding: 48px 160px 0 160px;
+  &::after {
+    display: none;
+  }
+
+  @media (--smallDown) {
+    padding: 32px 20px 0;
+  }
 }

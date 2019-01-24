@@ -17,12 +17,15 @@
 
 
   @media (--smallDown) {    
-    flex-direction: column;
     font: var(--text12-16);
 
     & .infoLink {
     font: var(--text12-16);
     }
+  }
+
+  @media (--xsmallDown) {    
+    flex-direction: column;
   }
 }
 
@@ -40,11 +43,17 @@
 }
 
 .oncohelp {
-  @media (--smallDown) {
+  @media (--xsmallDown) {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 12px;
   }
 }
 
 .breadhead {
   align-self: center;
+
+  @media (--xsmallDown) {    
+    margin-left: auto;
+  }
 }

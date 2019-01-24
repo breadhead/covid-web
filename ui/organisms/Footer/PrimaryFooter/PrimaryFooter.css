@@ -1,7 +1,7 @@
 .footer {
   padding: 48px 48px 32px 48px;
 
-  @media (--smallDown) {
+  @media (--mediumDown) {
     padding: 80px 16px 56px 16px;    
   }
 }
@@ -16,7 +16,7 @@
 }
 
 .logo {
-    @media (--smallDown) {
+    @media (--mediumDown) {
     display: none;
   }
 }

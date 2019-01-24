@@ -18,9 +18,13 @@
   }
 
    @media (--smallDown) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 8px 0;
     margin: 0;
     border-bottom: 1px solid #EDEDEF;
+
 
     &:first-of-type {
       box-shadow: 0px -1px 0px 0px #EDEDEF;

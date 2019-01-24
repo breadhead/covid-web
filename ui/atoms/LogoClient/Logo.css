@@ -1,0 +1,20 @@
+.logo {
+  width: 200px;
+  height: 38px;
+
+  @media (--smallDown) {
+    width: 168px;
+    height: 32px;
+  }
+}
+
+.logoWrapper {
+  max-height: 55px;
+  padding: 9px 0 8px 0;
+  cursor: pointer;
+
+
+  @media (--smallDown) {
+    max-height: 48px;
+  }
+}

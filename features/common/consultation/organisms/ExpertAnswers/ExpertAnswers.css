@@ -65,6 +65,6 @@
 
 .question {
   margin: 0 0 8px 0;
-  font: var(--title-bold);
+  font-weight: 500;
   white-space: pre-line
 }

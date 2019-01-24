@@ -14,18 +14,21 @@
 }
 
 .label {
+  margin: 0;
   font: var(--text16-24);
+  font-weight: 500;
 }
 
 .number {
   margin-bottom: 4px;
+  font-family: var(--fontFamily-title);
   font-size: 64px;
   line-height: 64px;
 }
 
 .countItem {
   flex-basis: 50%;    
-  padding: 24px 0;
+  padding: 32px 0;
 
   &:first-of-type {
     border-right: 1px solid rgba(21, 24, 51, 0.08);

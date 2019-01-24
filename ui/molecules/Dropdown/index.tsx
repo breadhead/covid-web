@@ -19,7 +19,7 @@ interface Props {
 
 const Dropdown = ({ signOut, position = DropdownPositions.Left }: Props) => (
   <div className={styles.dropdown}>
-    <IconCustom name="24x24_user" />
+    <IconCustom className={styles.icon} name="24x24_user" />
     <div className={cx(styles.menu, styles[position])}>
       <NavLink href="https://nenaprasno.ru/" className={styles.menuItem}>
         Личный кабинет на{SPACE}

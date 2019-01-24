@@ -1,6 +1,7 @@
 .ant-radio-wrapper.ant-radio-wrapper {
   display: flex;
   align-items: center;
+  max-height: 40px;
 
   white-space: normal;
 

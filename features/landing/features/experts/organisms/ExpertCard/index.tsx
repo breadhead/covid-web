@@ -16,9 +16,9 @@ const ExpertCard = ({ expert }: Props) => {
     <article className={styles.expertCard}>
       <NavLink type={NavLinkType.Nav} href={`experts/${id}`}>
         <img className={styles.image} src={photo} alt={name} />
+        <p className={styles.name}>{name}</p>
+        <p className={styles.specialization}>{specialization}</p>
       </NavLink>
-      <p className={styles.name}>{name}</p>
-      <p className={styles.specialization}>{specialization}</p>
     </article>
   )
 }
