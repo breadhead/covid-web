@@ -69,7 +69,7 @@ const mapState = (state: State) => ({
   query: getQuery(state),
 })
 
-export default compose(
+export default compose<ComponentProps, Pick<Props, 'step'>>(
   connect(mapState),
   Container,
 )
