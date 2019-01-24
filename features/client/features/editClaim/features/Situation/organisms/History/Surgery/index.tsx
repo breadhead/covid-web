@@ -1,8 +1,8 @@
+import RegionSelect from '@app/features/client/features/regionSelect'
 import cx from 'classnames'
 import * as React from 'react'
 
 import {
-  ComboCity,
   ComboClinic,
   EmergingControlTypes,
   EmergingFormElement,
@@ -40,16 +40,12 @@ const EmergingForm = ({ styles, initial }: Props) => (
         {count =>
           count.map(key => (
             <React.Fragment key={key}>
-              <label
-                htmlFor={`surgicalTreatments.${key}.region`}
-                className={styles.label}
-              >
-                Регион, где проходили лечение
-              </label>
-              <ComboCity
-                validate={schema.region}
-                className={styles.historyComboSingle}
+              <RegionSelect
                 name={`surgicalTreatments.${key}.region`}
+                styles={styles}
+                textRegion="Регион, где проходили лечение"
+                textCountry="Страна, где проходили лечение"
+                textSwitch="Вы проходили лечение в России?"
               />
               <label
                 htmlFor={`surgicalTreatments.${key}.when.month`}

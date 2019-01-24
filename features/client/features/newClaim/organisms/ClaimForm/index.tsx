@@ -35,21 +35,12 @@ export interface ShortClaimFields {
 
 interface Props {
   onSubmit: (claimFields: ShortClaimFields) => Promise<void>
-  clientInRussia: boolean
-  onChangeInRussia: (value: boolean) => void
   error: false | string
   initial: Partial<ShortClaimFields>
   loading: boolean
 }
 
-const ClaimForm = ({
-  initial,
-  onSubmit,
-  clientInRussia,
-  onChangeInRussia,
-  error,
-  loading,
-}: Props) => {
+const ClaimForm = ({ initial, onSubmit, error, loading }: Props) => {
   return (
     <Form
       onSubmit={onSubmit as any}
@@ -59,12 +50,7 @@ const ClaimForm = ({
       }}
     >
       <Main initial={initial} styles={styles} />
-      <Contacts
-        initial={initial}
-        clientInRussia={clientInRussia}
-        onChangeInRussia={onChangeInRussia}
-        styles={styles}
-      />
+      <Contacts initial={initial} styles={styles} />
       <Footer error={error} loading={loading} styles={styles} />
     </Form>
   )
