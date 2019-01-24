@@ -3,7 +3,6 @@ import cx from 'classnames'
 import * as React from 'react'
 
 import {
-  ComboCity,
   ComboClinic,
   EmergingControlTypes,
   EmergingFormElement,

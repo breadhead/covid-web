@@ -4,7 +4,6 @@ import * as React from 'react'
 import RegionSelect from '@app/features/client/features/regionSelect'
 
 import {
-  ComboCity,
   ComboClinic,
   EmergingControlTypes,
   EmergingFormElement,
