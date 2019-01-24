@@ -6,11 +6,12 @@ import styles from './Logo.css'
 
 interface Props {
   className?: string
+  wrapperClassName?: string
 }
 
-const Logo = ({ className }: Props) => (
+const Logo = ({ className, wrapperClassName }: Props) => (
   <NavLink
-    className={cx(styles.logo, className)}
+    className={cx(styles.logoWrapper, wrapperClassName)}
     type={NavLinkType.Nav}
     href="/"
   >

@@ -8,3 +8,14 @@
     height: 32px;
   }
 }
+
+.logoWrapper {
+  max-width: 238px;
+  max-height: 48px;
+  cursor: pointer;
+
+  @media (--smallDown) {
+    max-width: 160px;
+    max-height: 32px;
+  }
+}
