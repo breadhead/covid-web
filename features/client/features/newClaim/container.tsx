@@ -1,3 +1,4 @@
+import { set } from '@app/features/common/browserQuery'
 import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
@@ -16,6 +17,7 @@ const Router = routes.Router
 
 interface Props {
   createClaim: (request: ShortClaimRequest) => Promise<ShortClaim>
+  setIdInQuery: (id: string) => void
   error: false | string
   loading: boolean
   shortClaim?: ShortClaim
@@ -133,6 +135,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
       if (!error) {
         if (quotaAllocated) {
           Router.pushRoute(`/client/claim/${id}/situation`)
+          this.props.setIdInQuery(id)
         } else if (email) {
           Router.pushRoute(`/client/claim/wait/${encodeURIComponent(email)}`)
         }
@@ -149,6 +152,7 @@ const mapState = (state: State) => ({
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
   createClaim: (claimRequest: ShortClaimRequest) =>
     dispatch(createClaim(claimRequest) as any),
+  setIdInQuery: (id: string) => dispatch(set({ id })),
 })
 
 export default compose(
