@@ -140,6 +140,17 @@ const Sprite = () => (
       <symbol
         width="24"
         height="24"
+        id="24x24_arrow-big-back-hover"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M9.41 12l6.3 6.3a1 1 0 0 1-1.42 1.4l-7-7a1 1 0 0 1 0-1.4l7-7a1 1 0 0 1 1.42 1.4L9.4 12z"
+          fill="var(--color-hover)"
+        />
+      </symbol>
+      <symbol
+        width="24"
+        height="24"
         id="24x24_arrow-small-select_down_grey"
         viewBox="0 0 24 24"
       >
