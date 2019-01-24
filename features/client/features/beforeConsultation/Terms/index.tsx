@@ -35,14 +35,20 @@ class Terms extends React.Component<Props, State> {
           type="checkbox"
           className={styles.checkbox}
         >
-          Я согласен с <a href="#">условиями получения консультации</a>
+          Я согласен с{' '}
+          <a href="/static/docs/terms-of-use.pdf">
+            условиями получения консультации
+          </a>
         </Checkbox>
         <Checkbox
           name="personalDataConditions"
           type="checkbox"
           className={styles.checkbox}
         >
-          Я согласен с <a href="#">условиями обработки персональных данных</a>
+          Я согласен с{' '}
+          <a href="/static/docs/personal-data-processing-policy.pdf">
+            условиями обработки персональных данных
+          </a>
         </Checkbox>
         <ButtonWithTooltip
           error={this.getError()}
