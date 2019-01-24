@@ -1,19 +1,15 @@
+import RegionSelect from '@app/features/client/features/regionSelect'
 import {
   Input,
   InputType,
   PhoneInput,
   RadioGroup,
-  Select,
 } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
 import Gender from '@app/models/Gender'
-import { mapString } from '@app/ui/atoms/Select'
-import Switch from '@app/ui/atoms/Switch'
 import cx from 'classnames'
 import * as React from 'react'
 import { ShortClaimFields } from '../ClaimForm'
-import { countries } from './countries'
-import { regions } from './regions'
 import { schema } from './schema'
 
 const genderRadioGroup = Object.entries(Gender).map(([id, value]) => ({
@@ -27,7 +23,7 @@ interface Props {
   styles: StylesType
   initial: Partial<ShortClaimFields>
 }
-const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
+const Contacts = ({ initial, styles }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Контактные данные</h2>
     <label htmlFor="personalData.name" className={styles.label}>
@@ -42,43 +38,14 @@ const Contacts = ({ clientInRussia, onChangeInRussia, styles }: Props) => (
       validate={schema.name}
       name="personalData.name"
     />
-    <label htmlFor="personalData.russia" className={styles.label}>
-      Вы живете в России?
-    </label>
-    <Switch
-      className={styles.field}
-      name="personalData.russia"
-      onChange={onChangeInRussia}
-      checked={clientInRussia}
+    <RegionSelect
+      name="personalData.region"
+      region={initial && initial.personalData && initial.personalData.region}
+      styles={styles}
+      textRegion="Регион проживания"
+      textCountry="Страна проживания"
+      textSwitch="Вы живёте в России?"
     />
-    {clientInRussia && (
-      <>
-        <label htmlFor="personalData.region" className={styles.label}>
-          Регион проживания
-        </label>
-        <Select
-          className={styles.field}
-          validate={schema.regions}
-          name="personalData.region"
-          options={regions.map(mapString)}
-          placeholder={clientInRussia ? 'Выберите регион' : 'Выберите страну'}
-        />
-      </>
-    )}
-    {!clientInRussia && (
-      <>
-        <label htmlFor="personalData.region" className={styles.label}>
-          Страна проживания
-        </label>
-        <Select
-          className={styles.field}
-          validate={schema.countries}
-          name="personalData.region"
-          options={countries.map(mapString)}
-          placeholder="Выберите страну"
-        />
-      </>
-    )}
     <label htmlFor="personalData.age" className={styles.label}>
       Возраст (полных лет)
     </label>
