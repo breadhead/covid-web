@@ -12,7 +12,7 @@ import * as styles from './PrimaryFooter.css'
 const PrimaryFooter = () => (
   <footer className={styles.footer}>
     <div className={cx(styles.top, styles.row)}>
-      <Logo className={styles.logo} />
+      <Logo wrapperClassName={styles.logo} className={styles.logo} />
       <Menu long />
       <Login />
     </div>
