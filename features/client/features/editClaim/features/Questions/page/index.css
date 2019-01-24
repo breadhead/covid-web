@@ -4,9 +4,17 @@
   text-align: center;
   background-color: var(--background-color);
 
+  @media (--mediumSecondDown) {
+    padding: 0 24px 0;
+  }
+
   @media (--smallDown) {
-    padding: 0;
+    padding: 0 16px 0;
     font: var(--text14-20);
+  }
+
+  @media (--xsmallDown) {
+    padding: 0;
   }
 }
 

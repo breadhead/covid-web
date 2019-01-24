@@ -11,11 +11,11 @@ interface Props {
 
 const Logo = ({ className, wrapperClassName }: Props) => (
   <NavLink
-    className={cx(styles.logoWrapper, wrapperClassName)}
+    className={cx(styles.logo, wrapperClassName)}
     type={NavLinkType.Nav}
     href="/"
   >
-    <IconCustom className={cx(styles.logo, className)} name="logo_full" />
+    <IconCustom className={cx(styles.logo, className)} name="logo_short" />
   </NavLink>
 )
 

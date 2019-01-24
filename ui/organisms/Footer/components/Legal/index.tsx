@@ -16,7 +16,11 @@ const Legal = ({ className }: Props) => (
   <div className={cx(styles.bottom, className)}>
     <div className={styles.oncohelp}>
       <span className={styles.copyright}>© Просто спросить, 2018</span>
-      <NavLink className={styles.infoLink} type={NavLinkType.Nav} href="#">
+      <NavLink
+        className={styles.infoLink}
+        type={NavLinkType.Nav}
+        href="/static/docs/terms-of-use.pdf"
+      >
         Пользовательское соглашение
       </NavLink>
     </div>

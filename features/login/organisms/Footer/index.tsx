@@ -12,7 +12,7 @@ const Footer = () => (
       Если у вас есть аккаунт на{NON_BREAKING_SPACE}
       <b>nenaprasno.ru</b>, вы{NON_BREAKING_SPACE}
       можете{SPACE}
-      <NavLink href="#" className={styles.link}>
+      <NavLink href="" className={styles.link}>
         войти
       </NavLink>
       , используя те{NON_BREAKING_SPACE}же{NON_BREAKING_SPACE}данные

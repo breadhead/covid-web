@@ -13,7 +13,7 @@ const OpenSignUpModalButton = ({ openSignUp }: Props) => (
     className={styles.openSignUpButton}
     onClick={openSignUp}
   >
-    <NavLink href="#" className={styles.link}>
+    <NavLink href="" className={styles.link}>
       Зарегистрироваться
     </NavLink>
   </button>

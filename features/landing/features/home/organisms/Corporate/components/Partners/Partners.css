@@ -7,6 +7,7 @@
 
 .subtitle {
   margin-bottom: 32px;
+  font: var(--text18-28);
 }
 
 .button.button.button {
