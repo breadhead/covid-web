@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import Button from '@app/ui/atoms/Button'
+import Button, { ButtonSize } from '@app/ui/atoms/Button'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 
 interface Props {
@@ -9,14 +9,13 @@ interface Props {
 }
 
 const DeliveredToCustomerButton = ({ claimId, className }: Props) => (
-  <Button className={className}>
-    <NavLink
-      href={`/client/consultation/${claimId}#expert-answers`}
-      type={NavLinkType.Nav}
-    >
-      Посмотреть ответы эксперта
-    </NavLink>
-  </Button>
+  <NavLink
+    href={`/client/consultation/${claimId}#expert-answers`}
+    type={NavLinkType.Nav}
+    className={className}
+  >
+    <Button size={ButtonSize.Large}>Посмотреть ответы эксперта</Button>
+  </NavLink>
 )
 
 export default DeliveredToCustomerButton

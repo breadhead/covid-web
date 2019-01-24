@@ -55,8 +55,8 @@
     }
   }
 
-  &.ant-radio.ant-radio {
-    display: none;
+  & .ant-radio.ant-radio {
+    display: none !important;
   }
 
   &.ant-radio-wrapper.ant-radio-wrapper {

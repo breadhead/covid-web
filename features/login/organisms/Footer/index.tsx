@@ -2,15 +2,12 @@ import * as React from 'react'
 import styles from './Footer.css'
 
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
+import IconCustom from '@app/ui/atoms/IconCustom'
 import NavLink from '@app/ui/atoms/NavLink'
 
 const Footer = () => (
   <footer className={styles.footer}>
-    <img
-      className={styles.logo}
-      src="/static/images/popup/26x40_foundation_logo-mark.svg"
-      alt="nenaprasno.ru"
-    />
+    <IconCustom className={styles.logo} name="foundation_logo_mark" />
     <p className={styles.text}>
       Если у вас есть аккаунт на{NON_BREAKING_SPACE}
       <b>nenaprasno.ru</b>, вы{NON_BREAKING_SPACE}

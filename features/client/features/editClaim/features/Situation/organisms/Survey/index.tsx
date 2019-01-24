@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import cx from 'classnames'
+
 import { Input } from '@app/features/common/form'
 import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
@@ -12,7 +14,7 @@ interface Props {
 }
 
 const Survey = ({ styles, claimData, initial }: Props) => (
-  <article className={styles.article}>
+  <article className={cx(styles.article, styles.articleSurvey)}>
     <h2 className={styles.title}>Обследования</h2>
 
     <p className={styles.text}>
@@ -30,7 +32,7 @@ const Survey = ({ styles, claimData, initial }: Props) => (
         <label htmlFor="histology.url" className={styles.labelSmall}>
           Ссылка на файл
         </label>
-        <Input name="histology.url" />
+        <Input placeholder="https://" name="histology.url" />
       </>
     )}
 
@@ -41,7 +43,7 @@ const Survey = ({ styles, claimData, initial }: Props) => (
     <label htmlFor="discharge.url" className={styles.labelSmall}>
       Ссылка на файл
     </label>
-    <Input name="discharge.url" />
+    <Input placeholder="https://" name="discharge.url" />
     <AddFieldContainer
       initialCount={initial.otherFiles!.length}
       buttonClassName={styles.addButton}
@@ -61,7 +63,7 @@ const Survey = ({ styles, claimData, initial }: Props) => (
             <label htmlFor={`otherFiles.${key}.url`} className={styles.label}>
               Ссылка на файл
             </label>
-            <Input name={`otherFiles.${key}.url`} />
+            <Input placeholder="https://" name={`otherFiles.${key}.url`} />
           </React.Fragment>
         ))
       }

@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import cx from 'classnames'
+
 import {
   ButtonSize,
   ButtonType,
@@ -22,7 +24,7 @@ const Footer = ({ styles, error, loading, id }: Props) => {
   const errorMessage = error ? ERROR_MESSAGE : undefined
 
   return (
-    <footer className={styles.article}>
+    <footer className={cx(styles.article, styles.footer)}>
       <ButtonWithTooltip
         error={errorMessage}
         loading={loading}

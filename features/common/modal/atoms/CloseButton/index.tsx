@@ -11,7 +11,7 @@ interface Props {
 
 const CloseButton = ({ onClick }: Props) => (
   <button className={styles.button} onClick={onClick}>
-    <IconCustom name="24x24_close_light" />
+    <IconCustom className={styles.icon} name="24x24_close_light" />
     закрыть окно
   </button>
 )

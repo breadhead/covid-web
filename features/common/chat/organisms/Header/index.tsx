@@ -19,7 +19,7 @@ const Header = ({ onCloseButtonClick }: Props) => (
       onClick={onCloseButtonClick}
       className={cx(styles.button, styles.closeButton)}
     >
-      <IconCustom name="24x24_close_light" />
+      <IconCustom className={styles.iconClose} name="24x24_close_light" />
     </button>
   </header>
 )

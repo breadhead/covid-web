@@ -44,6 +44,9 @@
 }
 
 .input {
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+
   & > * {
     margin-top: auto !important;
     resize: none !important;
@@ -60,6 +63,8 @@
 }
 
 .inputIcon {
+  width: 24px;  
+  height: 24px;
   fill: var(--color-primary);
 }
 
@@ -73,3 +78,4 @@
   background-color: transparent;
   border: 0;
 }
+

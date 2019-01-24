@@ -1,9 +1,21 @@
 .logo {
   flex-shrink: 0;
-  width: 200px;
-  height: 38px;
+  width: 238px;
+  height: 48px;
 
   @media (--smallDown) {
+    width: 160px;
     height: 32px;
+  }
+}
+
+.logoWrapper {
+  max-width: 238px;
+  max-height: 48px;
+  cursor: pointer;
+
+  @media (--smallDown) {
+    max-width: 160px;
+    max-height: 32px;
   }
 }

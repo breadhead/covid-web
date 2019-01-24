@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import cx from 'classnames'
+
 import {
   EmergingControlTypes,
   EmergingFormElement,
@@ -91,7 +93,14 @@ const Common = ({ styles, claimData, initial }: Props) => (
                     validate={schema.relativesDiseases}
                     options={relatives.map(mapString)}
                   />
-                  <label className={styles.label}>Локализация опухоли</label>
+                  <label
+                    className={cx(
+                      styles.label,
+                      styles.labelInAddFieldContainer,
+                    )}
+                  >
+                    Локализация опухоли
+                  </label>
                   <Select
                     className={styles.field}
                     name={`relativesDiseases.${key}.localization`}
@@ -99,7 +108,12 @@ const Common = ({ styles, claimData, initial }: Props) => (
                     options={localizations.map(mapString)}
                   />
 
-                  <label className={styles.label}>
+                  <label
+                    className={cx(
+                      styles.label,
+                      styles.labelInAddFieldContainer,
+                    )}
+                  >
                     Возраст, в котором был установлен диагноз
                   </label>
                   <Input

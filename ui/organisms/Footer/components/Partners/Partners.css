@@ -2,7 +2,7 @@
   display: flex;
   margin-bottom: 32px;
 
-  @media (--smallDown) {
+  @media (--mediumSecondDown) {
     flex-direction: column;
   }
 }
@@ -22,7 +22,7 @@
     margin-right: 0;
   }
 
-  @media (--smallDown) {
+  @media (--mediumSecondDown) {
     width: 100%;
     margin-right: 0;
     margin-bottom: 12px;
@@ -40,5 +40,7 @@
 }
 
 .logo {
+  width: 100%;
+  max-width: 136px;
   max-height: 64px;
 }

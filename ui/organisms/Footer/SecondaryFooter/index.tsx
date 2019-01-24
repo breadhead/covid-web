@@ -15,7 +15,7 @@ interface Props {
 const SecondaryFooter = ({ theme = FooterTheme.Default }: Props) => (
   <footer className={cx(styles.footer, styles[theme])}>
     <div className={styles.top}>
-      <Logo className={styles.logo} />
+      <Logo wrapperClassName={styles.logoWrapper} className={styles.logo} />
       <Menu />
     </div>
     <Legal className={styles.row} />
