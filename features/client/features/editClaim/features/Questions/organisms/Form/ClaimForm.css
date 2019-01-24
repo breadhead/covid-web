@@ -2,13 +2,14 @@
   position: relative;
   max-width: 800px;
   padding: 0 0 40px 0;
-  margin: 0 auto;
+  margin: 32px auto 0 auto;
   text-align: left;
   background-color: #fff;
   box-shadow: 0 1px 3px 0 rgba(21, 24, 51, 0.2);
 
   @media (--smallDown) {
     padding: 0 0 32px 0;
+    margin: 24px auto 0 auto;
   }
 }
 
@@ -181,5 +182,9 @@
   padding: 48px 160px 0 160px;
   &::after {
     display: none;
+  }
+
+  @media (--smallDown) {
+    padding: 32px 20px 0;
   }
 }
