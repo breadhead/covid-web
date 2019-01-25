@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import Combobox from '@app/ui/molecules/Combobox'
+import HintInput from '@app/ui/molecules/HintInput'
 
 import { OPTIONS_CLINICS } from './config'
 
@@ -10,11 +10,10 @@ export interface Props {
 }
 
 const ComboClinic = ({ name, className, ...rest }: Props) => (
-  <Combobox
-    placeholder="Выберите клинику"
-    options={OPTIONS_CLINICS}
+  <HintInput
     name={name}
     className={className}
+    options={OPTIONS_CLINICS}
     {...rest}
   />
 )
