@@ -5,37 +5,47 @@ import * as styles from './PartnersList.css'
 import PartnerCard, {
   PartnerCardInterface,
 } from '@app/features/landing/organisms/PartnerCard'
-import { SelectValue } from 'antd/lib/select'
-import PartnersGroupSelect, {
-  Options,
-} from '../../molecules/PartnersGroupSelect'
+import PartnersRadioGroup, {
+  partnersType,
+} from '../../molecules/PartnersRadioGroup'
 
+import { RadioChangeEvent } from 'antd/lib/radio'
 import { partners } from './config'
 
 interface State {
   list: PartnerCardInterface[]
+  radioButtonValue: string
 }
 
-const DEFAULT_SELECT_VALUE = Options[1].key
+const DEFAULT_VALUE = partnersType[0].value
 
 class PartnersList extends React.Component<{}, State> {
   public state = {
-    list: partners.filter(partner => partner.type === DEFAULT_SELECT_VALUE),
-    selectValue: DEFAULT_SELECT_VALUE,
+    list: partners.filter(partner => partner.type === DEFAULT_VALUE),
+    radioButtonValue: DEFAULT_VALUE,
   }
 
   public componentDidMount() {
-    const { selectValue } = this.state
+    const { radioButtonValue } = this.state
 
-    this.getSelectedGroup(selectValue)
+    this.getSelectedGroup(radioButtonValue)
+  }
+
+  public onRadioButtonChange = (evt: RadioChangeEvent) => {
+    this.getSelectedGroup(evt.target.value)
+    this.setState({ radioButtonValue: evt.target.value })
   }
 
   public render() {
-    const { list } = this.state
+    const { list, radioButtonValue } = this.state
     return (
       <>
         <header className={styles.header}>
-          <PartnersGroupSelect onSelect={this.getSelectedGroup} />
+          <PartnersRadioGroup
+            name="partners-radio-group"
+            value={radioButtonValue}
+            onChange={this.onRadioButtonChange}
+          />
         </header>
         <div className={styles.textWrapper}>
           <p className={styles.text}>{list[0].info}</p>
@@ -53,9 +63,9 @@ class PartnersList extends React.Component<{}, State> {
     )
   }
 
-  private getSelectedGroup = (selectValue: SelectValue) => {
+  private getSelectedGroup = (radioButtonValue: string) => {
     this.setState({
-      list: partners.filter(partner => partner.type === selectValue),
+      list: partners.filter(partner => partner.type === radioButtonValue),
     })
   }
 }
