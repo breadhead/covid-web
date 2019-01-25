@@ -16,6 +16,9 @@ import { SelectValue } from 'antd/lib/select'
 import PartnersGroupSelect from '../../molecules/PartnersGroupSelect'
 import { partners } from './config'
 
+interface Props {
+  type: string
+}
 interface State {
   list: PartnerCardInterface[]
   value: string | SelectValue
@@ -24,16 +27,14 @@ interface State {
 const DEFAULT_VALUE = partnersType[0].value
 const CORP_VALUE = partnersType[1].value
 
-class PartnersList extends React.Component<{}, State> {
-  public state = {
-    list: partners.filter(partner => partner.type === DEFAULT_VALUE),
-    value: DEFAULT_VALUE,
+class PartnersList extends React.Component<Props, State> {
+  public static defaultProps = {
+    type: DEFAULT_VALUE,
   }
 
-  public componentDidMount() {
-    const { value } = this.state
-
-    this.onValueChange(value)
+  public state = {
+    list: partners.filter(partner => partner.type === this.props.type),
+    value: this.props.type,
   }
 
   public onValueChange = (value: string | SelectValue) => {
@@ -41,7 +42,7 @@ class PartnersList extends React.Component<{}, State> {
       list: partners.filter(partner => partner.type === value),
       value,
     })
-    Router.push(`/partners#${value}`)
+    Router.push(`/partners/${value}`)
   }
 
   public render() {
