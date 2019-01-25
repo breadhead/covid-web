@@ -2,6 +2,8 @@ import * as React from 'react'
 
 import * as styles from './PartnersList.css'
 
+import Router from 'next/router'
+
 import PartnerCard, {
   PartnerCardInterface,
 } from '@app/features/landing/organisms/PartnerCard'
@@ -31,12 +33,15 @@ class PartnersList extends React.Component<{}, State> {
   public componentDidMount() {
     const { value } = this.state
 
-    this.getSelectedGroup(value)
+    this.onValueChange(value)
   }
 
   public onValueChange = (value: string | SelectValue) => {
-    this.getSelectedGroup(value)
-    this.setState({ value })
+    this.setState({
+      list: partners.filter(partner => partner.type === value),
+      value,
+    })
+    Router.push(`/partners#${value}`)
   }
 
   public render() {
@@ -78,12 +83,6 @@ class PartnersList extends React.Component<{}, State> {
         </div>
       </>
     )
-  }
-
-  private getSelectedGroup = (value: SelectValue) => {
-    this.setState({
-      list: partners.filter(partner => partner.type === value),
-    })
   }
 }
 
