@@ -7,43 +7,43 @@
   clip: rect(1px, 1px, 1px, 1px) !important;
 }
 
-.Sm {
+.FromSmall {
   @media (--xsmallDown) {
     @inherit: .hide;
   }
 }
-.Md {
+.FromMedium {
   @media (--smallDown) {
     @inherit: .hide;
   }
 }
-.Lg {
+.FromLarge {
   @media (--mediumSecondDown) {
     @inherit: .hide;
   }
 }
-.Xl {
+.FromExtraLarge {
   @media (--mediumDown) {
     @inherit: .hide;
   }
 }
 
-.ToSm {
+.ToSmall {
   @media (--xsmallUp) {
     @inherit: .hide;
   }
 }
-.ToMd {
+.ToMedium {
   @media (--smallUp) {
     @inherit: .hide;
   }
 }
-.ToLg {
+.ToLarge {
   @media (--mediumSecondUp) {
     @inherit: .hide;
   }
 }
-.ToXl {
+.ToExtraLarge {
   @media (--mediumUp) {
     @inherit: .hide;
   }
