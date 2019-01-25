@@ -82,7 +82,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
 
       const request = {
         ...rest,
-        defaultQuestions: Object.keys(defaultQuestions),
+        defaultQuestions: defaultQuestions && Object.keys(defaultQuestions),
         id: shortClaim.id,
       }
       const claim = await createQuestionsClaim(request)
