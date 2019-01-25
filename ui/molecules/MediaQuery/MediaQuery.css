@@ -1,0 +1,50 @@
+.hide {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(1px 1px 1px 1px) !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+}
+
+.Sm {
+  @media (--xsmallDown) {
+    @inherit: .hide;
+  }
+}
+.Md {
+  @media (--smallDown) {
+    @inherit: .hide;
+  }
+}
+.Lg {
+  @media (--mediumSecondDown) {
+    @inherit: .hide;
+  }
+}
+.Xl {
+  @media (--mediumDown) {
+    @inherit: .hide;
+  }
+}
+
+.ToSm {
+  @media (--xsmallUp) {
+    @inherit: .hide;
+  }
+}
+.ToMd {
+  @media (--smallUp) {
+    @inherit: .hide;
+  }
+}
+.ToLg {
+  @media (--mediumSecondUp) {
+    @inherit: .hide;
+  }
+}
+.ToXl {
+  @media (--mediumUp) {
+    @inherit: .hide;
+  }
+}
