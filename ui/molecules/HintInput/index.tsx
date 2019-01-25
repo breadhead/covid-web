@@ -29,7 +29,7 @@ class HintInput extends React.Component<Props> {
     const { value } = this.state
 
     const optionsGroup =
-      value.length > 0 ? (
+      value.length > 1 ? (
         <OptGroup>
           {options.map(option => (
             <Option className="option" key={option.key} value={option.key}>
