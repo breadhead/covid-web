@@ -13,11 +13,11 @@
 }
 
 .logo.logo.logo {
-  max-height: 96px;
+  height: 96px;
   padding: 24px 0;
 
   @media (--smallDown) {
-    max-height: 48px;
+    height: 48px;
     padding: 8px 0;    
   }
 }
