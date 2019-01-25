@@ -9,47 +9,64 @@ import PartnersRadioGroup, {
   partnersType,
 } from '../../molecules/PartnersRadioGroup'
 
-import { RadioChangeEvent } from 'antd/lib/radio'
+import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { SelectValue } from 'antd/lib/select'
+import PartnersGroupSelect from '../../molecules/PartnersGroupSelect'
 import { partners } from './config'
 
 interface State {
   list: PartnerCardInterface[]
-  radioButtonValue: string
+  value: string | SelectValue
 }
 
 const DEFAULT_VALUE = partnersType[0].value
+const CORP_VALUE = partnersType[1].value
 
 class PartnersList extends React.Component<{}, State> {
   public state = {
     list: partners.filter(partner => partner.type === DEFAULT_VALUE),
-    radioButtonValue: DEFAULT_VALUE,
+    value: DEFAULT_VALUE,
   }
 
   public componentDidMount() {
-    const { radioButtonValue } = this.state
+    const { value } = this.state
 
-    this.getSelectedGroup(radioButtonValue)
+    this.getSelectedGroup(value)
   }
 
-  public onRadioButtonChange = (evt: RadioChangeEvent) => {
-    this.getSelectedGroup(evt.target.value)
-    this.setState({ radioButtonValue: evt.target.value })
+  public onValueChange = (value: string | SelectValue) => {
+    this.getSelectedGroup(value)
+    this.setState({ value })
   }
 
   public render() {
-    const { list, radioButtonValue } = this.state
+    const { list, value } = this.state
     return (
       <>
         <header className={styles.header}>
           <PartnersRadioGroup
             name="partners-radio-group"
-            value={radioButtonValue}
-            onChange={this.onRadioButtonChange}
+            value={value}
+            onChange={this.onValueChange}
+            className={styles.radioGroup}
+          />
+          <PartnersGroupSelect
+            value={value}
+            onSelect={this.onValueChange}
+            className={styles.select}
           />
         </header>
-        <div className={styles.textWrapper}>
-          <p className={styles.text}>{list[0].info}</p>
-        </div>
+        {value === CORP_VALUE ? (
+          <div className={styles.textWrapper}>
+            <p className={styles.text}>
+              Корпоративные партнеры выделяют дополнительные средства на
+              {NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы
+              {NON_BREAKING_SPACE}являетесь сотрудником одной из
+              {NON_BREAKING_SPACE}этих компаний, укажите это в
+              {NON_BREAKING_SPACE}своей заявке.
+            </p>
+          </div>
+        ) : null}
         <div className={styles.partnersList}>
           {list.map(partner => (
             <PartnerCard
@@ -63,9 +80,9 @@ class PartnersList extends React.Component<{}, State> {
     )
   }
 
-  private getSelectedGroup = (radioButtonValue: string) => {
+  private getSelectedGroup = (value: SelectValue) => {
     this.setState({
-      list: partners.filter(partner => partner.type === radioButtonValue),
+      list: partners.filter(partner => partner.type === value),
     })
   }
 }

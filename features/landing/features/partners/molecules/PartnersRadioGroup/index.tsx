@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import cx from 'classnames'
+
 import '@app/ui/molecules/RadioGroup/ButtonStyle.css?CSSModulesDisable'
 
 import { Radio } from 'antd'
@@ -27,18 +29,19 @@ export const partnersType = [
 ]
 
 interface Props {
-  onChange: (evt: RadioChangeEvent) => void
+  onChange: (evt: string) => void
   value: string
   name: string
+  className?: string
 }
 
-const PartnersRadioGroup = ({ name, onChange, value }: Props) => {
+const PartnersRadioGroup = ({ name, onChange, value, className }: Props) => {
   const onRadioButtonChange = (evt: RadioChangeEvent) => {
-    onChange(evt)
+    onChange(evt.target.value)
   }
 
   return (
-    <div className="radioButtonStyle__Button">
+    <div className={cx('radioButtonStyle__Button', className)}>
       <RadioGroup
         name={name}
         options={partnersType}
