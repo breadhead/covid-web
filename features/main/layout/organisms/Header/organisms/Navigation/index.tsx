@@ -9,8 +9,8 @@ import LoginButton from '../../atoms/LoginButton'
 import NavIcon from '../../atoms/NavIcon'
 
 interface Props {
-  className: string
-  hide: () => void
+  className?: string
+  hide?: () => void
 }
 
 const Navigation = ({ className, hide }: Props) => (

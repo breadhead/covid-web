@@ -10,59 +10,30 @@ interface Props {
   windowSize: WindowSize
 }
 export interface State {
-  isMenuVisible: boolean
-  isBurgerButtonVisible: boolean
-  isOverlayVisible: boolean
+  menuOpened: boolean
 }
-
-const MOBILE_BREAKPOINT = 959
 
 class Container extends React.Component<Props, State> {
   public state = {
-    isBurgerButtonVisible: false,
-    isMenuVisible: false,
-    isOverlayVisible: false,
-  }
-
-  public componentDidMount() {
-    this.toggleVisibility()
-  }
-
-  public componentDidUpdate(prevProps: Props) {
-    if (this.props.windowSize.width !== prevProps.windowSize.width) {
-      this.toggleVisibility()
-    }
+    menuOpened: false,
   }
 
   public show = () => {
-    this.setState({ isMenuVisible: true, isOverlayVisible: true })
+    this.setState({ menuOpened: true })
   }
 
   public hide = () => {
-    this.setState({ isMenuVisible: false, isOverlayVisible: false })
-  }
-
-  public toggleVisibility = () => {
-    const { width } = this.props.windowSize
-
-    const isMenuVisible = !!(width > MOBILE_BREAKPOINT)
-    const isBurgerButtonVisible = !!(width < MOBILE_BREAKPOINT)
-
-    this.setState({ isBurgerButtonVisible, isMenuVisible })
+    this.setState({ menuOpened: false })
   }
 
   public render() {
-    const {
-      isMenuVisible,
-      isBurgerButtonVisible,
-      isOverlayVisible,
-    } = this.state
+    const { menuOpened: menuOpened } = this.state
 
     return (
       <>
-        <Overlay isVisible={isOverlayVisible} onClick={this.hide} />
-        <BurgerButton show={this.show} isVisible={isBurgerButtonVisible} />
-        <Menu hide={this.hide} isVisible={isMenuVisible} />
+        <Overlay isVisible={menuOpened} onClick={this.hide} />
+        <BurgerButton show={this.show} />
+        <Menu hide={this.hide} isVisible={menuOpened} />
       </>
     )
   }

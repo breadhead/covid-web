@@ -1,6 +1,6 @@
-.menu { 
+.menu {
   position: relative;
-  display: flex; 
+  display: flex;
   align-items: center;
 
   @media (max-width: 959px) {
@@ -14,7 +14,8 @@
     height: 100vh;
     padding: 16px 16px 0 24px;
     background-color: white;
-    box-shadow: 0 0 8px 0 rgba(63,63,68,0.04), 0 0 20px 0 rgba(63,63,68,0.12);
+    box-shadow: 0 0 8px 0 rgba(63, 63, 68, 0.04),
+      0 0 20px 0 rgba(63, 63, 68, 0.12);
     transition: transform 250ms ease-out;
     will-change: transform;
   }

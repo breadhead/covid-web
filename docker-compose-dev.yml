@@ -1,0 +1,8 @@
+version: '3'
+services:
+  web:
+    image: oncohelp-web
+    ports:
+      - '4001:3001'
+    environment:
+      BACK_URL: 'http://api.oncohelp.breadhead.ru'

@@ -6,7 +6,7 @@
     {
       "label": "fix styles",
       "type": "npm",
-      "script": "lint:style",
+      "script": "fix:style",
       "problemMatcher": []
     }
   ]
