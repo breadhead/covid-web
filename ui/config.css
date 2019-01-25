@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600,700&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600,700&subset=cyrillic&font-display=fallback');
 
 @font-face {
   font-family: 'Muller Regular';
   font-style: normal;
+  font-display: fallback;
   font-weight: 400;
   src: url('/static/fonts/Muller-Regular/muller-regular-webfont.eot');
   src: url('/static/fonts/Muller-Regular/muller-regular-webfont.eot?#iefix')
