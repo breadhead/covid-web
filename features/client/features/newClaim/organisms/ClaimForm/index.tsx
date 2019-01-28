@@ -49,9 +49,13 @@ const ClaimForm = ({ initial, onSubmit, error, loading }: Props) => {
         ...initial,
       }}
     >
-      <Main initial={initial} styles={styles} />
-      <Contacts initial={initial} styles={styles} />
-      <Footer error={error} loading={loading} styles={styles} />
+      {() => (
+        <>
+          <Main initial={initial} styles={styles} />
+          <Contacts initial={initial} styles={styles} />
+          <Footer error={error} loading={loading} styles={styles} />
+        </>
+      )}
     </Form>
   )
 }

@@ -6,13 +6,17 @@ import {
   EmergingControlTypes,
   EmergingFormElement,
   Input,
+  RemoveSection,
   Select,
   TextArea,
 } from '@app/features/common/form'
 import { InputType } from '@app/features/common/form'
 import { SPACE, StylesType } from '@app/lib/config'
 import { mapString } from '@app/ui/atoms/Select'
-import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
+import AddFieldContainer, {
+  SectionDivider,
+  SectionHeader,
+} from '@app/ui/organisms/AddFieldContainer'
 import { ClaimData, SituationClaimFields } from '../../types'
 import { CONDITIONAL_THEME } from '../Form/config'
 import { localizations, relatives } from './config'
@@ -21,8 +25,14 @@ interface Props {
   styles: StylesType
   claimData: ClaimData
   initial: Partial<SituationClaimFields>
+  removeSectionFromState: RemoveSection
 }
-const Common = ({ styles, claimData, initial }: Props) => (
+const Common = ({
+  styles,
+  claimData,
+  initial,
+  removeSectionFromState,
+}: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Общая информация</h2>
     <label htmlFor="description" className={styles.label}>
@@ -78,9 +88,15 @@ const Common = ({ styles, claimData, initial }: Props) => (
             buttonClassName={styles.addButton}
             buttonText="Добавить другого родственника"
           >
-            {count =>
+            {(count, removeSection) =>
               count.map(key => (
                 <React.Fragment key={key}>
+                  <SectionHeader
+                    index={key}
+                    onRemoveClick={() =>
+                      removeSection(removeSectionFromState(key, 'otherFiles'))
+                    }
+                  />
                   <label
                     htmlFor={`relativesDiseases.${key}.relative`}
                     className={styles.label}
@@ -121,6 +137,7 @@ const Common = ({ styles, claimData, initial }: Props) => (
                     type={InputType.Number}
                     name={`relativesDiseases.${key}.diagnosisAge`}
                   />
+                  <SectionDivider />
                 </React.Fragment>
               ))
             }

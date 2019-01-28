@@ -47,34 +47,38 @@ const QuotaType = ({ onFormSubmit }: Props) => (
     initialValues={initial}
     className={styles.form}
   >
-    <div className={styles.container}>
-      <h1 className={styles.title}>Закрыть консультацию</h1>
+    {() => (
+      <>
+        <div className={styles.container}>
+          <h1 className={styles.title}>Закрыть консультацию</h1>
 
-      <RadioGroup
-        className={styles.radioBlock}
-        radioStyle={RadioButtonStyles.Radio}
-        buttons={closeTypes}
-        name="type"
-        type="radio"
-        defaultValue={initial.type}
-      />
-      <RadioGroup
-        className={styles.radioBlock}
-        radioStyle={RadioButtonStyles.Radio}
-        buttons={deallocateQuotaTypes}
-        name="deallocateQuota"
-        type="radio"
-        defaultValue={initial.deallocateQuota}
-      />
+          <RadioGroup
+            className={styles.radioBlock}
+            radioStyle={RadioButtonStyles.Radio}
+            buttons={closeTypes}
+            name="type"
+            type="radio"
+            defaultValue={initial.type}
+          />
+          <RadioGroup
+            className={styles.radioBlock}
+            radioStyle={RadioButtonStyles.Radio}
+            buttons={deallocateQuotaTypes}
+            name="deallocateQuota"
+            type="radio"
+            defaultValue={initial.deallocateQuota}
+          />
 
-      <Button
-        className={styles.submit}
-        size={ButtonSize.Large}
-        type={ButtonType.Submit}
-      >
-        Применить
-      </Button>
-    </div>
+          <Button
+            className={styles.submit}
+            size={ButtonSize.Large}
+            type={ButtonType.Submit}
+          >
+            Применить
+          </Button>
+        </div>
+      </>
+    )}
   </Form>
 )
 

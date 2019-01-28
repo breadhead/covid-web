@@ -2,7 +2,6 @@ import * as React from 'react'
 
 import { withModal, WithModalProps } from '@app/features/common/modal'
 
-import { RadioGroup } from '@app/features/common/form'
 import { ButtonKind, ButtonSize } from '@app/ui/atoms/Button'
 import Checkbox from '@app/ui/atoms/Checkbox'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
@@ -25,26 +24,6 @@ import TimePicker from '@app/ui/atoms/TimePicker'
 import Combobox from '@app/ui/molecules/Combobox'
 import HintInput from '@app/ui/molecules/HintInput'
 import FormTest from './FormTest'
-
-import { Form } from '@app/features/common/form'
-
-const testControlsRadioButtons = [
-  {
-    id: '1',
-    text: 'Общие',
-    value: '329',
-  },
-  {
-    id: '2',
-    text: 'Специальные',
-    value: '217',
-  },
-  {
-    id: '3',
-    text: 'Другие',
-    value: '29',
-  },
-]
 
 const testSelectOptions = [
   {
@@ -171,9 +150,6 @@ const Test = ({ modal }: WithModalProps) => (
       <Switch name="fd" />
       <br />
       <br />
-      <Form onSubmit={() => undefined}>
-        <RadioGroup name="controls" buttons={testControlsRadioButtons} />
-      </Form>
       <br />
       <RadioButton name="testRadioButton" value="memem">
         радиокнопка

@@ -16,21 +16,25 @@ const QuotaType = ({ onFormSubmit }: Props) => {
       <h1 className={styles.title}>Выберите тип квоты</h1>
 
       <Form onSubmit={onFormSubmit as any}>
-        <QuotasListContent
-          search={false}
-          sorting={false}
-          list={{
-            component: SelectQuotaType,
-            props: {
-              className: styles.field,
-              name: 'quotaId',
-            },
-          }}
-        />
+        {() => (
+          <>
+            <QuotasListContent
+              search={false}
+              sorting={false}
+              list={{
+                component: SelectQuotaType,
+                props: {
+                  className: styles.field,
+                  name: 'quotaId',
+                },
+              }}
+            />
 
-        <Button type={ButtonType.Submit} className={styles.button}>
-          Сохранить
-        </Button>
+            <Button type={ButtonType.Submit} className={styles.button}>
+              Сохранить
+            </Button>
+          </>
+        )}
       </Form>
     </section>
   )
