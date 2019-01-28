@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import cx from 'classnames'
+
 import * as styles from './PartnersGroupSelect.css'
 import './PartnersGroupSelect.css?CSSModulesDisable'
 
@@ -28,16 +30,23 @@ export const Options = [
 ]
 
 interface Props {
-  onSelect: (value: SelectValue, option: React.ReactElement<any>) => void
+  onSelect: (value: SelectValue) => void
+  value: string
+  className?: string
 }
 
-const PartnersGroupSelect = ({ onSelect }: Props) => {
+const PartnersGroupSelect = ({ onSelect, value, className }: Props) => {
+  const onPartnersGroupSelect = (evt: SelectValue) => {
+    onSelect(evt)
+  }
+
   return (
     <AntSelect
       id="partners-select"
-      onSelect={onSelect}
-      className={styles.select}
+      onSelect={onPartnersGroupSelect}
+      className={cx(styles.select, className)}
       defaultValue={Options[1].key}
+      value={value}
     >
       {Options.map(option => (
         <Option key={option.key} value={option.key}>
