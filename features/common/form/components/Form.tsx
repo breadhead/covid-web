@@ -53,11 +53,11 @@ class Form extends Component<Props> {
     return (
       <section className={className}>
         <FinalForm
-          render={({ values, form, submitFailed, handleSubmit }) => (
+          render={({ values, form, submitFailed, handleSubmit, valid }) => (
             <form
               onKeyDown={this.onEnterPress}
               ref={this.formRef}
-              onSubmit={this.onSubmit(form.reset, handleSubmit)}
+              onSubmit={this.onSubmit(form.reset, handleSubmit, valid)}
             >
               {!!saveDebounced && <DebouncedSaver save={saveDebounced} />}
               {!!saveOnBlur && <BlurSaver save={saveOnBlur} />}
@@ -89,9 +89,9 @@ class Form extends Component<Props> {
   private onSubmit = (
     reset: () => void,
     handleSubmit: (event: SubmitEvent) => SubmitResult,
+    isValid: boolean,
   ) => (event: SubmitEvent) => {
     const { resetAfterSubmit } = this.props
-
     let promise: Promise<any>
     try {
       promise = Promise.resolve(handleSubmit(event))
@@ -100,7 +100,7 @@ class Form extends Component<Props> {
     }
 
     return promise.then(data => {
-      if (resetAfterSubmit) {
+      if (resetAfterSubmit && isValid) {
         reset()
       }
       return data
