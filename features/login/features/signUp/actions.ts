@@ -27,10 +27,10 @@ export const signUp = (
 
     return dispatch(actions.success(token))
   } catch (error) {
-    const { message, fields } = error.response.data
+    const { message, fields, code } = error.response.data
 
     dispatch(actions.error(error.message))
-    dispatch(actions.signUpError({ message, fields }))
+    dispatch(actions.signUpError({ message, fields, code }))
     throw error
   }
 }
