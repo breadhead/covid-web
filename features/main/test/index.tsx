@@ -9,7 +9,6 @@ import RadioButton from '@app/ui/atoms/RadioButton'
 import Select from '@app/ui/atoms/Select'
 import Switch from '@app/ui/atoms/Switch'
 import TextArea from '@app/ui/atoms/TextArea'
-import RadioGroup from '@app/ui/molecules/RadioGroup'
 
 import Layout from '@app/features/client/organisms/Layout'
 import { InputType } from '@app/features/common/form'
@@ -25,24 +24,6 @@ import TimePicker from '@app/ui/atoms/TimePicker'
 import Combobox from '@app/ui/molecules/Combobox'
 import HintInput from '@app/ui/molecules/HintInput'
 import FormTest from './FormTest'
-
-const testControlsRadioButtons = [
-  {
-    id: '1',
-    text: 'Общие',
-    value: '329',
-  },
-  {
-    id: '2',
-    text: 'Специальные',
-    value: '217',
-  },
-  {
-    id: '3',
-    text: 'Другие',
-    value: '29',
-  },
-]
 
 const testSelectOptions = [
   {
@@ -169,11 +150,6 @@ const Test = ({ modal }: WithModalProps) => (
       <Switch name="fd" />
       <br />
       <br />
-      <RadioGroup
-        name="controls"
-        buttons={testControlsRadioButtons}
-        defaultValue={testControlsRadioButtons[1].value}
-      />
       <br />
       <RadioButton name="testRadioButton" value="memem">
         радиокнопка

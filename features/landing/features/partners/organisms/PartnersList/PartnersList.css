@@ -1,14 +1,20 @@
 .header {
+  display: flex;
+  justify-content: center;
   padding-bottom: 24px;
   border-bottom: 1px solid rgba(21,24,51,0.12);
+
+  @media (--mediumDown) {
+    justify-content: flex-start;
+  }
 }
 
 .textWrapper {
   display: flex;
   justify-content: center;
-  margin: 32px 0 48px 0;
+  margin: 32px 0 0 0;
 
-  @media (--smallDown) {
+  @media (--mediumDown) {
     padding-left: 21px;
   }
 }
@@ -36,6 +42,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 48px 0 0 0;
 }
 
 .partnerCard {
@@ -45,5 +52,19 @@
 
   @media (--mediumDown) {
     margin: 0 24px 24px 24px;
+  }
+}
+
+.radioGroup.radioGroup.radioGroup.radioGroup {
+  @media (--mediumDown) {
+    display: none;
+  }
+}
+
+.select.select.select.select {
+  display: none;
+
+  @media (--mediumDown) {
+    display: inline-block;
   }
 }

@@ -1,4 +1,5 @@
 import ButtonWithTooltip from '@app/features/common/form/components/ButtonWithTooltip'
+import { ACCOUNT_EXISTS_STATUS } from '@app/features/login/features/signUp'
 import { SignUpError } from '@app/features/login/features/signUp/reducer'
 import * as React from 'react'
 import styles from './SignUp.css'
@@ -49,6 +50,13 @@ const SignUp = ({ onFormSubmit, error }: Props) => (
             type={InputType.Password}
             validate={schema.confirm}
           />
+          {!!error && error.code === ACCOUNT_EXISTS_STATUS && (
+            <div className={styles.error}>
+              У вас есть аккаунт на нашем основном сайте nenaprasno.ru,{' '}
+              <LoginButton className={styles.loginButton} />, используя те же
+              данные
+            </div>
+          )}
           <ButtonWithTooltip
             type={ButtonType.Submit}
             error={!!error && !error.fields ? error.message : undefined}

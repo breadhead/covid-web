@@ -22,7 +22,7 @@ const Notification = () => (
       </p>
       <NavLink type={NavLinkType.Nav} href="/contacts">
         <Button className={styles.button} kind={ButtonKind.Secondary}>
-          Связаться с нами
+          Связаться с{NON_BREAKING_SPACE}нами
         </Button>
       </NavLink>
     </div>
