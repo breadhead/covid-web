@@ -2,7 +2,8 @@ import * as React from 'react'
 
 import * as styles from './PartnersList.css'
 
-import Router from 'next/router'
+import routes from '@app/routes'
+const Router = routes.Router
 
 import PartnerCard, {
   PartnerCardInterface,
@@ -22,6 +23,7 @@ interface Props {
 interface State {
   list: PartnerCardInterface[]
   value: string | SelectValue
+  scrollPosition: number
 }
 
 const DEFAULT_VALUE = partnersType[0].value
@@ -35,14 +37,18 @@ class PartnersList extends React.Component<Props, State> {
   public state = {
     list: partners.filter(partner => partner.type === this.props.type),
     value: this.props.type,
+    scrollPosition: 0,
   }
 
   public onValueChange = (value: string | SelectValue) => {
     this.setState({
       list: partners.filter(partner => partner.type === value),
       value,
+      scrollPosition: window.scrollY,
     })
-    Router.push(`/partners/${value}`)
+    Router.pushRoute(`/partners/${value}`).then(() =>
+      window.scrollTo(0, this.state.scrollPosition),
+    )
   }
 
   public render() {
