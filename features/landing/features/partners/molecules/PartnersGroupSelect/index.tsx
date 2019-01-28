@@ -7,28 +7,16 @@ import './PartnersGroupSelect.css?CSSModulesDisable'
 
 import { Select as AntSelect } from 'antd'
 import { SelectValue } from 'antd/lib/select'
-import { PartnersType } from '../../organisms/PartnersList/config'
+import { currentPartnersOptions } from '../../organisms/PartnersList/config'
 
 const Option = AntSelect.Option
 
-export const Options = [
-  {
-    key: PartnersType.Donor,
-    label: 'Доноры',
-  },
-  {
-    key: PartnersType.Corp,
-    label: 'Корпоративные партнёры',
-  },
-  {
-    key: PartnersType.InfoPartner,
-    label: 'Информационные партнёры',
-  },
-  {
-    key: PartnersType.InfrastructurePartner,
-    label: 'Инфраструктурные партнёры',
-  },
-]
+const options = currentPartnersOptions.map(option => {
+  return {
+    label: option.label,
+    key: option.type,
+  }
+})
 
 interface Props {
   onSelect: (value: SelectValue) => void
@@ -46,10 +34,10 @@ const PartnersGroupSelect = ({ onSelect, value, className }: Props) => {
       id="partners-select"
       onSelect={onPartnersGroupSelect}
       className={cx(styles.select, className)}
-      defaultValue={Options[1].key}
+      defaultValue={options[1].key}
       value={value}
     >
-      {Options.map(option => (
+      {options.map(option => (
         <Option key={option.key} value={option.key}>
           {option.label}
         </Option>

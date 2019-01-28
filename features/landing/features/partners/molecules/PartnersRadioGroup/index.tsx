@@ -6,27 +6,16 @@ import '@app/ui/molecules/RadioGroup/ButtonStyle.css?CSSModulesDisable'
 
 import { Radio } from 'antd'
 import { RadioChangeEvent } from 'antd/lib/radio'
+import { currentPartnersOptions } from '../../organisms/PartnersList/config'
 
 const RadioGroup = Radio.Group
 
-const partnersType = [
-  {
-    label: 'Доноры',
-    value: 'donor',
-  },
-  {
-    label: 'Корпоративные партнёры',
-    value: 'corp',
-  },
-  {
-    label: 'Информационные партнёры',
-    value: 'infoPartner',
-  },
-  {
-    label: 'Инфраструктурные партнёры',
-    value: 'infrastructurePartner',
-  },
-]
+const options = currentPartnersOptions.map(option => {
+  return {
+    label: option.label,
+    value: option.type,
+  }
+})
 
 interface Props {
   onChange: (evt: string) => void
@@ -44,7 +33,7 @@ const PartnersRadioGroup = ({ name, onChange, value, className }: Props) => {
     <div className={cx('radioButtonStyle__Button', className)}>
       <RadioGroup
         name={name}
-        options={partnersType}
+        options={options}
         onChange={onRadioButtonChange}
         value={value}
       />
