@@ -23,6 +23,8 @@ import { canUseDOM } from '@app/lib/helpers/canUseDOM'
 import registerModals from '@app/lib/register-modals'
 import { AppContext } from '@app/lib/server-types'
 
+import { description, keywords } from './SEO'
+
 interface Props {
   reduxStore: Store
   pageProps: any
@@ -84,6 +86,8 @@ class OncohelpWeb extends App<Props> {
               name="viewport"
               content="width=device-width, initial=scale=1"
             />
+            <meta name="keywords" content={keywords.join(', ')} />
+            <meta name="description" content={description} />
           </Head>
           <Sprite />
           <Provider store={reduxStore}>
