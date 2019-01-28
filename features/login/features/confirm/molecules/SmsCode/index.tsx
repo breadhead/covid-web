@@ -11,16 +11,22 @@ interface Props {
 
 const SmsCode = ({ valid, validate }: Props) => (
   <Form onSubmit={({ code }: any) => validate(code)}>
-    <Input
-      name="code"
-      type={InputType.Number}
-      label="Код из СМС"
-      addonAfter={
-        valid && <Icon type={IconType.CheckCircle} color={IconColor.Success} />
-      }
-      maxLength={4}
-      required
-    />
+    {() => (
+      <>
+        <Input
+          name="code"
+          type={InputType.Number}
+          label="Код из СМС"
+          addonAfter={
+            valid && (
+              <Icon type={IconType.CheckCircle} color={IconColor.Success} />
+            )
+          }
+          maxLength={4}
+          required
+        />
+      </>
+    )}
   </Form>
 )
 

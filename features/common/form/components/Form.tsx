@@ -8,6 +8,12 @@ import { Form as FinalForm, FormProps, FormSpy } from 'react-final-form'
 import { FORM_ERROR_CLASSNAME } from '../../formHOCs/withFinalForm'
 import WithScrollToInvalid from '../../formHOCs/withScrollToInvalid'
 
+interface ChildrenPropsArgs {
+  removeSectionFromState: RemoveSection
+}
+
+export type RemoveSection = (key: number, name: string) => () => void
+
 interface OwnProps {
   className?: string
   resetAfterSubmit?: boolean
@@ -16,6 +22,7 @@ interface OwnProps {
   scrollToInvalid?: boolean
   saveDebounced?: (fields: any) => Promise<any>
   saveOnBlur?: (fields: any) => Promise<any>
+  children: (childrenPropsArgs: ChildrenPropsArgs) => React.ReactNode
 }
 
 type Props = OwnProps & FormProps
@@ -46,31 +53,37 @@ class Form extends Component<Props> {
     return (
       <section className={className}>
         <FinalForm
-          render={props => (
+          render={({ values, form, submitFailed, handleSubmit, valid }) => (
             <form
               onKeyDown={this.onEnterPress}
               ref={this.formRef}
-              onSubmit={this.onSubmit(
-                props.form.reset,
-                props.handleSubmit,
-                props.valid,
-              )}
+              onSubmit={this.onSubmit(form.reset, handleSubmit, valid)}
             >
               {!!saveDebounced && <DebouncedSaver save={saveDebounced} />}
               {!!saveOnBlur && <BlurSaver save={saveOnBlur} />}
               {scrollToInvalid && (
                 <WithScrollToInvalid
                   formErrorClassName={FORM_ERROR_CLASSNAME}
-                  submitFailed={props.submitFailed}
+                  submitFailed={submitFailed}
                 />
               )}
-              {children}
+              {children({
+                removeSectionFromState: this.removeSection(form.change, values),
+              })}
             </form>
           )}
           {...rest}
         />
       </section>
     )
+  }
+
+  private removeSection = (
+    change: (name: string, value: any) => void,
+    values: { [key: string]: any[] },
+  ) => (key: number, name: string) => () => {
+    const newValues = values[name].filter((_: any, i) => i !== key)
+    change(name, newValues)
   }
 
   private onSubmit = (

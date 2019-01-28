@@ -15,13 +15,17 @@ export interface IncomeFormProps {
 
 const IncomeForm: React.SFC<IncomeFormProps> = ({ onFormSubmit }) => (
   <Form onSubmit={onFormSubmit}>
-    <Input
-      name="amount"
-      type={InputType.Number}
-      label="Количество квот"
-      className={styles.input}
-    />
-    <Button type={ButtonType.Submit}>Добавить</Button>
+    {() => (
+      <>
+        <Input
+          name="amount"
+          type={InputType.Number}
+          label="Количество квот"
+          className={styles.input}
+        />
+        <Button type={ButtonType.Submit}>Добавить</Button>
+      </>
+    )}
   </Form>
 )
 

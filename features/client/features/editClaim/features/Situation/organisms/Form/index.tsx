@@ -33,16 +33,35 @@ const ClaimForm = ({
       saveOnBlur={saveSituationClaimDraft(claimData.id)}
       saveDebounced={saveSituationClaimDraft(claimData.id)}
     >
-      <Common initial={initial} claimData={claimData} styles={styles} />
-      <Health claimData={claimData} styles={styles} />
-      <History initial={initial} claimData={claimData} styles={styles} />
-      <Survey initial={initial} claimData={claimData} styles={styles} />
-      <Footer
-        error={error}
-        loading={loading}
-        styles={styles}
-        id={claimData.id}
-      />
+      {({ removeSectionFromState }) => (
+        <>
+          <Common
+            removeSectionFromState={removeSectionFromState}
+            initial={initial}
+            claimData={claimData}
+            styles={styles}
+          />
+          <Health claimData={claimData} styles={styles} />
+          <History
+            removeSectionFromState={removeSectionFromState}
+            initial={initial}
+            claimData={claimData}
+            styles={styles}
+          />
+          <Survey
+            removeSectionFromState={removeSectionFromState}
+            initial={initial}
+            claimData={claimData}
+            styles={styles}
+          />
+          <Footer
+            error={error}
+            loading={loading}
+            styles={styles}
+            id={claimData.id}
+          />
+        </>
+      )}
     </Form>
   )
 }

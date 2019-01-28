@@ -32,23 +32,27 @@ const ClaimForm = ({
       saveDebounced={saveQuestionsClaimDraft(claimData.id)}
       saveOnBlur={saveQuestionsClaimDraft(claimData.id)}
     >
-      <Questions
-        styles={styles}
-        category={QuestionsCategories.theme}
-        criterion={claimData.theme}
-      />
-      <Questions
-        styles={styles}
-        category={QuestionsCategories.target}
-        criterion={claimData.target}
-      />
-      <AdditionalQuestions styles={styles} />
-      <Footer
-        loading={loading}
-        error={error}
-        styles={styles}
-        id={claimData.id}
-      />
+      {() => (
+        <>
+          <Questions
+            styles={styles}
+            category={QuestionsCategories.theme}
+            criterion={claimData.theme}
+          />
+          <Questions
+            styles={styles}
+            category={QuestionsCategories.target}
+            criterion={claimData.target}
+          />
+          <AdditionalQuestions styles={styles} />
+          <Footer
+            loading={loading}
+            error={error}
+            styles={styles}
+            id={claimData.id}
+          />
+        </>
+      )}
     </Form>
   )
 }

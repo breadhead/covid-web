@@ -26,37 +26,41 @@ export interface Props {
 const FeedbackForm = ({ onFormSubmit }: Props) => (
   <article id="feedback-form" className={styles.FeedbackFormWrapper}>
     <h2 className={styles.title}>Обратная связь</h2>
-    <Form resetAfterSubmit onSubmit={onFormSubmit as any}>
-      <Input
-        className={styles.formItem}
-        label="Как к вам обратиться?"
-        validate={schema.name}
-        name="name"
-        type="text"
-      />
-      <Input
-        className={styles.formItem}
-        label="Электронная почта"
-        validate={schema.email}
-        name="email"
-        type="text"
-      />
-      <Input
-        className={styles.formItem}
-        label="Тема сообщения"
-        validate={schema.theme}
-        name="theme"
-        type="text"
-      />
-      <TextArea
-        label="Ваше сообщение"
-        name="content"
-        validate={schema.content}
-        rows={3}
-      />
-      <Button className={styles.button} type={ButtonType.Submit}>
-        Отправить
-      </Button>
+    <Form onSubmit={onFormSubmit as any} resetAfterSubmit>
+      {() => (
+        <>
+          <Input
+            className={styles.formItem}
+            label="Как к вам обратиться?"
+            validate={schema.name}
+            name="name"
+            type="text"
+          />
+          <Input
+            className={styles.formItem}
+            label="Электронная почта"
+            validate={schema.email}
+            name="email"
+            type="text"
+          />
+          <Input
+            className={styles.formItem}
+            label="Тема сообщения"
+            validate={schema.theme}
+            name="theme"
+            type="text"
+          />
+          <TextArea
+            label="Ваше сообщение"
+            name="content"
+            validate={schema.content}
+            rows={3}
+          />
+          <Button className={styles.button} type={ButtonType.Submit}>
+            Отправить
+          </Button>
+        </>
+      )}
     </Form>
   </article>
 )

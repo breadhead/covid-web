@@ -33,40 +33,45 @@ class Terms extends React.Component<Props, State> {
   public render() {
     return (
       <Form onSubmit={this.onSubmit as any}>
-        <Checkbox
-          name="consultationTerms"
-          type="checkbox"
-          className={styles.checkbox}
-        >
-          Я согласен с{' '}
-          <NavLink
-            target={TargetType.Blank}
-            href="/static/docs/terms-of-use.pdf"
-          >
-            условиями получения консультации
-          </NavLink>
-        </Checkbox>
-        <Checkbox
-          name="personalDataConditions"
-          type="checkbox"
-          className={styles.checkbox}
-        >
-          Я согласен с{' '}
-          <NavLink
-            target={TargetType.Blank}
-            href="/static/docs/personal-data-processing-policy.pdf"
-          >
-            условиями обработки персональных данных
-          </NavLink>
-        </Checkbox>
-        <ButtonWithTooltip
-          error={this.getError()}
-          type={ButtonType.Submit}
-          className={styles.button}
-          size={ButtonSize.ExtraLarge}
-        >
-          Начать консультацию
-        </ButtonWithTooltip>
+        {() => (
+          <>
+            {' '}
+            <Checkbox
+              name="consultationTerms"
+              type="checkbox"
+              className={styles.checkbox}
+            >
+              Я согласен с{' '}
+              <NavLink
+                target={TargetType.Blank}
+                href="/static/docs/terms-of-use.pdf"
+              >
+                условиями получения консультации
+              </NavLink>
+            </Checkbox>
+            <Checkbox
+              name="personalDataConditions"
+              type="checkbox"
+              className={styles.checkbox}
+            >
+              Я согласен с{' '}
+              <NavLink
+                target={TargetType.Blank}
+                href="/static/docs/personal-data-processing-policy.pdf"
+              >
+                условиями обработки персональных данных
+              </NavLink>
+            </Checkbox>
+            <ButtonWithTooltip
+              error={this.getError()}
+              type={ButtonType.Submit}
+              className={styles.button}
+              size={ButtonSize.ExtraLarge}
+            >
+              Начать консультацию
+            </ButtonWithTooltip>
+          </>
+        )}
       </Form>
     )
   }

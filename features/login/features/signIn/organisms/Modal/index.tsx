@@ -27,29 +27,33 @@ const SignIn = ({ onFormSubmit, passwordRecoveryUrl, openSignUp }: Props) => (
     </p>
 
     <Form onSubmit={onFormSubmit}>
-      <Input
-        className={styles.input}
-        name="login"
-        label={'Эл. почта'}
-        type={InputType.Text}
-        validate={schema.login}
-      />
-      <Input
-        className={styles.input}
-        name="password"
-        label={'Пароль'}
-        type={InputType.Password}
-        validate={schema.password}
-      />
-      <NavLink href={passwordRecoveryUrl} className={styles.link}>
-        Забыли пароль?
-      </NavLink>
-      <Button type={ButtonType.Submit} className={styles.mainButton}>
-        Войти
-      </Button>
-      <Button kind={ButtonKind.Extra} className={styles.socialButton}>
-        Войти через соцсети
-      </Button>
+      {() => (
+        <>
+          <Input
+            className={styles.input}
+            name="login"
+            label={'Эл. почта'}
+            type={InputType.Text}
+            validate={schema.login}
+          />
+          <Input
+            className={styles.input}
+            name="password"
+            label={'Пароль'}
+            type={InputType.Password}
+            validate={schema.password}
+          />
+          <NavLink href={passwordRecoveryUrl} className={styles.link}>
+            Забыли пароль?
+          </NavLink>
+          <Button type={ButtonType.Submit} className={styles.mainButton}>
+            Войти
+          </Button>
+          <Button kind={ButtonKind.Extra} className={styles.socialButton}>
+            Войти через соцсети
+          </Button>
+        </>
+      )}
     </Form>
     <Footer />
   </article>
