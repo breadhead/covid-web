@@ -63,7 +63,7 @@ export const experts = [
   },
   {
     id: '3',
-    photo: '/static/images/experts/Gavrilyukov.jpg', // TODO: real photo
+    photo: '/static/images/experts/Zaiceva.jpg',
     name: 'Зайцева Юлия Александровна',
     specialization: 'Онколог-химиотерапевт',
     info: (
