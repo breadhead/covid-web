@@ -50,13 +50,12 @@
 }
 
 .arrow {
-
-  height: 28px;
   width: 28px;
+  height: 28px;
   margin-left: 8px;
   transform: rotate(180deg);
   @media (--mediumDown) {
-    height: 24px;
     width: 24px;
+    height: 24px;
   }
 }
