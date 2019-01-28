@@ -41,17 +41,21 @@
   display: flex;
   flex-wrap: wrap;
   margin: 48px 0 0 0;
+
+  @media (--smallSecondDown) {
+    justify-content: center;
+  }
+
+  @media (--xsmallDown) {
+    justify-content: space-between;
+  }
 }
 
 .partnerCard {
-  max-width: 200px;
+  max-width: 120px;
   padding-top: 0;
   margin: 0 32px 32px 32px;
   text-align: center;
-
-  @media (--mediumDown) {
-    margin: 0 24px 24px 24px;
-  }
 }
 
 .radioGroup.radioGroup.radioGroup.radioGroup {
