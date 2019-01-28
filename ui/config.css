@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600,700&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600,700&subset=cyrillic&font-display=fallback');
 
 @font-face {
   font-family: 'Muller Regular';
   font-style: normal;
+  font-display: fallback;
   font-weight: 400;
   src: url('/static/fonts/Muller-Regular/muller-regular-webfont.eot');
   src: url('/static/fonts/Muller-Regular/muller-regular-webfont.eot?#iefix')
@@ -77,6 +78,11 @@ body {
 @custom-media --smallDown (max-width: 767px);
 @custom-media --mediumSecondDown (max-width: 832px);
 @custom-media --mediumDown (max-width: 959px);
+
+@custom-media --xsmallUp (min-width: 501px);
+@custom-media --smallUp (min-width: 768px);
+@custom-media --mediumSecondUp (min-width: 833px);
+@custom-media --mediumUp (min-width: 960px);
 
 #__next {
   display: flex;

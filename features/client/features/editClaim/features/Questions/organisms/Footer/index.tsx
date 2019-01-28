@@ -18,7 +18,7 @@ interface Props {
   id: string
 }
 
-const ERROR_MESSAGE = 'Произошла ошибка, попробуйте еще раз'
+const ERROR_MESSAGE = 'Произошла ошибка'
 
 const Footer = ({ styles, error, loading, id }: Props) => {
   const errorMessage = error ? ERROR_MESSAGE : undefined

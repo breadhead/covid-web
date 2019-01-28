@@ -10,7 +10,7 @@ import Notification from '../molecules/Notification'
 import PartnersList from '../organisms/PartnersList'
 
 interface Props {
-  id: any
+  id: string
 }
 
 interface Query {
