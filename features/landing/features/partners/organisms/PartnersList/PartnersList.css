@@ -1,6 +1,5 @@
 .header {
   display: flex;
-  justify-content: center;
   padding-bottom: 24px;
   border-bottom: 1px solid rgba(21,24,51,0.12);
 
@@ -41,18 +40,22 @@
 .partnersList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   margin: 48px 0 0 0;
+
+  @media (--smallSecondDown) {
+    justify-content: center;
+  }
+
+  @media (--xsmallDown) {
+    justify-content: space-between;
+  }
 }
 
 .partnerCard {
   max-width: 120px;
   padding-top: 0;
   margin: 0 32px 32px 32px;
-
-  @media (--mediumDown) {
-    margin: 0 24px 24px 24px;
-  }
+  text-align: center;
 }
 
 .radioGroup.radioGroup.radioGroup.radioGroup {

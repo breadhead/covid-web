@@ -20,7 +20,9 @@ const PartnerCard = ({ card, className }: Props) => {
   const { img, label, sum } = card
   return (
     <article className={cx(styles.card, className)}>
-      <img className={styles.logo} src={img} alt={label} />
+      <div className={styles.logoWrapper}>
+        <img className={styles.logo} src={img} alt={label} />
+      </div>
       <p className={styles.label}>{label}</p>
       <p className={styles.sum}>
         {sum}
