@@ -10,8 +10,7 @@ export interface ExpertInterface {
   photo: string
   name: string
   specialization: string
-  description: string
-  info: string
+  info: React.ReactNode
 }
 
 interface Props {
@@ -19,7 +18,7 @@ interface Props {
 }
 
 const ExpertPage = ({ expert }: Props) => {
-  const { photo, name, description, info } = expert
+  const { photo, name, specialization, info } = expert
   return (
     <Layout className={styles.main}>
       <div className={styles.container}>
@@ -30,8 +29,8 @@ const ExpertPage = ({ expert }: Props) => {
           <img className={styles.photo} src={photo} alt={name} />
           <div className={styles.textWrapper}>
             <h1 className={styles.title}>{name}</h1>
-            <p className={styles.description}>{description}</p>
-            <p className={styles.info}>{info}</p>
+            <p className={styles.description}>{specialization}</p>
+            <div className={styles.info}>{info}</div>
           </div>
         </section>
       </div>
