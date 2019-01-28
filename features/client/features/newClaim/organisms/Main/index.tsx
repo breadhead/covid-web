@@ -2,15 +2,11 @@ import {
   ComboBox,
   EmergingControlTypes,
   EmergingFormElement,
-  Input,
   Select,
-  TextArea,
 } from '@app/features/common/form'
-import { NON_BREAKING_SPACE, SPACE, StylesType } from '@app/lib/config'
+import { StylesType } from '@app/lib/config'
 import ClaimTarget from '@app/models/Claim/ClaimTarget'
-import NavLink, { TargetType } from '@app/ui/atoms/NavLink'
 import { mapEnum, mapString } from '@app/ui/atoms/Select'
-import { RadioButtonsValue } from '@app/ui/organisms/EmergingFormElement/RadioGroupElement'
 import cx from 'classnames'
 import * as React from 'react'
 import { localizations, themes } from '../../../../values'
@@ -69,7 +65,8 @@ const Main = ({ styles, initial }: Props) => (
         placeholder="Выберите локализацию"
       />
     </EmergingFormElement>
-    <p className={styles.emergingLabel}>
+    {/* TODO: Hide by ON-357, DO NOT delete */}
+    {/* <p className={styles.emergingLabel}>
       Вы консультируетесь по корпоративной программе от своего работодателя?
       {SPACE}
       <NavLink href="/partners" target={TargetType.Blank}>
@@ -106,7 +103,7 @@ const Main = ({ styles, initial }: Props) => (
         </span>
       </label>
       <TextArea validate={schema.companyPosition} name="company.position" />
-    </EmergingFormElement>
+    </EmergingFormElement> */}
   </article>
 )
 
