@@ -11,12 +11,10 @@ import { currentPartnersOptions } from '../../organisms/PartnersList/config'
 
 const Option = AntSelect.Option
 
-const options = currentPartnersOptions.map(option => {
-  return {
-    label: option.label,
-    key: option.type,
-  }
-})
+const options = currentPartnersOptions.map(option => ({
+  label: option.label,
+  key: option.type,
+}))
 
 interface Props {
   onSelect: (value: SelectValue) => void

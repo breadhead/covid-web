@@ -10,12 +10,10 @@ import { currentPartnersOptions } from '../../organisms/PartnersList/config'
 
 const RadioGroup = Radio.Group
 
-const options = currentPartnersOptions.map(option => {
-  return {
-    label: option.label,
-    value: option.type,
-  }
-})
+const options = currentPartnersOptions.map(option => ({
+  label: option.label,
+  value: option.type,
+}))
 
 interface Props {
   onChange: (evt: string) => void

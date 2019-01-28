@@ -58,9 +58,7 @@ const getCurrentPartnersOptions = (currentPartners: Partner[]) => {
   const uniqueTypes = Array.from(new Set(types))
   const uniqueLabels = Array.from(new Set(labels))
 
-  return uniqueTypes.map((type, i) => {
-    return { type, label: uniqueLabels[i] }
-  })
+  return uniqueTypes.map((type, i) => ({ type, label: uniqueLabels[i] }))
 }
 
 const currentPartnersOptions = getCurrentPartnersOptions(partners)
