@@ -1,5 +1,4 @@
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import { getCurrentPartnersOptions } from './helpers'
 
 interface Partner {
   id: string
@@ -52,6 +51,18 @@ const partners = [
   },
 ]
 
+const getCurrentPartnersOptions = (currentPartners: Partner[]) => {
+  const types = currentPartners.map((partner: Partner) => partner.type)
+  const labels = currentPartners.map((partner: Partner) => partner.typeLabel)
+
+  const uniqueTypes = Array.from(new Set(types))
+  const uniqueLabels = Array.from(new Set(labels))
+
+  return uniqueTypes.map((type, i) => {
+    return { type, label: uniqueLabels[i] }
+  })
+}
+
 const currentPartnersOptions = getCurrentPartnersOptions(partners)
 
 export {
@@ -60,4 +71,5 @@ export {
   PartnersLabel,
   partners,
   currentPartnersOptions,
+  getCurrentPartnersOptions,
 }
