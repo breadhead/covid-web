@@ -19,7 +19,7 @@
   }
 
   @media (--mediumDown) {
-    padding: 16px 0;
+    padding: 0 16px;
   }
 
   @media (--smallDown) {

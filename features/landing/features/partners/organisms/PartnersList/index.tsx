@@ -2,44 +2,83 @@ import * as React from 'react'
 
 import * as styles from './PartnersList.css'
 
+import routes from '@app/routes'
+const Router = routes.Router
+
 import PartnerCard, {
   PartnerCardInterface,
 } from '@app/features/landing/organisms/PartnerCard'
-import { SelectValue } from 'antd/lib/select'
-import PartnersGroupSelect, {
-  Options,
-} from '../../molecules/PartnersGroupSelect'
+import PartnersRadioGroup, {
+  partnersType,
+} from '../../molecules/PartnersRadioGroup'
 
+import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { SelectValue } from 'antd/lib/select'
+import PartnersGroupSelect from '../../molecules/PartnersGroupSelect'
 import { partners } from './config'
 
+interface Props {
+  type: string
+}
 interface State {
   list: PartnerCardInterface[]
+  value: string | SelectValue
+  scrollPosition: number
 }
 
-const DEFAULT_SELECT_VALUE = Options[1].key
+const DEFAULT_VALUE = partnersType[0].value
+const CORP_VALUE = partnersType[1].value
 
-class PartnersList extends React.Component<{}, State> {
-  public state = {
-    list: partners.filter(partner => partner.type === DEFAULT_SELECT_VALUE),
-    selectValue: DEFAULT_SELECT_VALUE,
+class PartnersList extends React.Component<Props, State> {
+  public static defaultProps = {
+    type: DEFAULT_VALUE,
   }
 
-  public componentDidMount() {
-    const { selectValue } = this.state
+  public state = {
+    list: partners.filter(partner => partner.type === this.props.type),
+    value: this.props.type,
+    scrollPosition: 0,
+  }
 
-    this.getSelectedGroup(selectValue)
+  public onValueChange = (value: string | SelectValue) => {
+    this.setState({
+      list: partners.filter(partner => partner.type === value),
+      value,
+      scrollPosition: window.scrollY,
+    })
+    Router.pushRoute(`/partners/${value}`).then(() =>
+      window.scrollTo(0, this.state.scrollPosition),
+    )
   }
 
   public render() {
-    const { list } = this.state
+    const { list, value } = this.state
     return (
       <>
         <header className={styles.header}>
-          <PartnersGroupSelect onSelect={this.getSelectedGroup} />
+          <PartnersRadioGroup
+            name="partners-radio-group"
+            value={value}
+            onChange={this.onValueChange}
+            className={styles.radioGroup}
+          />
+          <PartnersGroupSelect
+            value={value}
+            onSelect={this.onValueChange}
+            className={styles.select}
+          />
         </header>
-        <div className={styles.textWrapper}>
-          <p className={styles.text}>{list[0].info}</p>
-        </div>
+        {value === CORP_VALUE ? (
+          <div className={styles.textWrapper}>
+            <p className={styles.text}>
+              Корпоративные партнеры выделяют дополнительные средства на
+              {NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы
+              {NON_BREAKING_SPACE}являетесь сотрудником одной из
+              {NON_BREAKING_SPACE}этих компаний, укажите это в
+              {NON_BREAKING_SPACE}своей заявке.
+            </p>
+          </div>
+        ) : null}
         <div className={styles.partnersList}>
           {list.map(partner => (
             <PartnerCard
@@ -51,12 +90,6 @@ class PartnersList extends React.Component<{}, State> {
         </div>
       </>
     )
-  }
-
-  private getSelectedGroup = (selectValue: SelectValue) => {
-    this.setState({
-      list: partners.filter(partner => partner.type === selectValue),
-    })
   }
 }
 

@@ -50,6 +50,11 @@
   font: var(--text16-24);
   white-space: initial !important;
 
+  &:first-child,
+  &:last-child {
+    border-radius: 0;
+  }
+
   &:hover {
     background-color: #f7f6f2;
   }
