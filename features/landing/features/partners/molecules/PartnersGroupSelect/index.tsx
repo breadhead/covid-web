@@ -7,24 +7,25 @@ import './PartnersGroupSelect.css?CSSModulesDisable'
 
 import { Select as AntSelect } from 'antd'
 import { SelectValue } from 'antd/lib/select'
+import { PartnersType } from '../../organisms/PartnersList/config'
 
 const Option = AntSelect.Option
 
 export const Options = [
   {
-    key: 'donor',
+    key: PartnersType.Donor,
     label: 'Доноры',
   },
   {
-    key: 'corp',
+    key: PartnersType.Corp,
     label: 'Корпоративные партнёры',
   },
   {
-    key: 'infoPartner',
+    key: PartnersType.InfoPartner,
     label: 'Информационные партнёры',
   },
   {
-    key: 'infrastructurePartner',
+    key: PartnersType.InfrastructurePartner,
     label: 'Инфраструктурные партнёры',
   },
 ]

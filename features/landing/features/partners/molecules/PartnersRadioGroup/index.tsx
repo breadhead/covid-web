@@ -9,7 +9,7 @@ import { RadioChangeEvent } from 'antd/lib/radio'
 
 const RadioGroup = Radio.Group
 
-export const partnersType = [
+const partnersType = [
   {
     label: 'Доноры',
     value: 'donor',
