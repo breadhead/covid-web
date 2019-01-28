@@ -15,23 +15,27 @@ interface Props {
 
 const SendSms = ({ success, send }: Props) => (
   <Form onSubmit={({ phone }: any) => send(phone)}>
-    <Input
-      name="phone"
-      type={InputType.Number}
-      label="Номер вашего телефона"
-      defaultValue="+7"
-      className={styles.inputWrapper}
-      required
-    />
-    <div className={styles.blockGettingCode}>
-      <Button type={ButtonType.Submit}>Получить код</Button>
-      {success && (
-        <p className={styles.messageCodeSent} hidden={false}>
-          <Icon type={IconType.CheckCircle} color={IconColor.Success} />
-          {NON_BREAKING_SPACE}Код отправлен
-        </p>
-      )}
-    </div>
+    {() => (
+      <>
+        <Input
+          name="phone"
+          type={InputType.Number}
+          label="Номер вашего телефона"
+          defaultValue="+7"
+          className={styles.inputWrapper}
+          required
+        />
+        <div className={styles.blockGettingCode}>
+          <Button type={ButtonType.Submit}>Получить код</Button>
+          {success && (
+            <p className={styles.messageCodeSent} hidden={false}>
+              <Icon type={IconType.CheckCircle} color={IconColor.Success} />
+              {NON_BREAKING_SPACE}Код отправлен
+            </p>
+          )}
+        </div>
+      </>
+    )}
   </Form>
 )
 

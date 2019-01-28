@@ -27,27 +27,31 @@ export interface Props {
 
 const Answers = ({ claim, onSubmit, error }: Props) => (
   <Form onSubmit={onSubmit as any}>
-    <ExpertAnswers
-      claim={claim}
-      title="Вопросы эксперту"
-      renderCustomAnswer={(theme, { question }) => (
-        <TextArea
-          className={styles.textarea}
-          name={`answers[${theme}: ${question}]`}
+    {() => (
+      <>
+        <ExpertAnswers
+          claim={claim}
+          title="Вопросы эксперту"
+          renderCustomAnswer={(theme, { question }) => (
+            <TextArea
+              className={styles.textarea}
+              name={`answers[${theme}: ${question}]`}
+            />
+          )}
         />
-      )}
-    />
-    <div className={styles.controls}>
-      <ButtonWithTooltip error={error} type={ButtonType.Submit}>
-        Отправить ответ
-      </ButtonWithTooltip>
-      <Button
-        kind={ButtonKind.Secondary}
-        onClick={() => Router.push(`/doctor/consultation/${claim.id}`)}
-      >
-        Отменить
-      </Button>
-    </div>
+        <div className={styles.controls}>
+          <ButtonWithTooltip error={error} type={ButtonType.Submit}>
+            Отправить ответ
+          </ButtonWithTooltip>
+          <Button
+            kind={ButtonKind.Secondary}
+            onClick={() => Router.push(`/doctor/consultation/${claim.id}`)}
+          >
+            Отменить
+          </Button>
+        </div>
+      </>
+    )}
   </Form>
 )
 

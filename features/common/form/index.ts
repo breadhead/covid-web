@@ -3,7 +3,7 @@ export {
   default as EmergingFormElement,
   ControlTypes as EmergingControlTypes,
 } from './components/EmergingFormElement'
-export { default as Form } from './components/Form'
+export { default as Form, RemoveSection } from './components/Form'
 export { default as Input, InputType } from './components/Input'
 export { default as RadioGroup } from './components/RadioGroup'
 export { default as Select } from './components/Select'

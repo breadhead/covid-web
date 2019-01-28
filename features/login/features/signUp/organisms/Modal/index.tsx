@@ -26,34 +26,38 @@ const SignUp = ({ onFormSubmit, error }: Props) => (
     </p>
 
     <Form onSubmit={onFormSubmit}>
-      <Input
-        label="Эл. почта"
-        className={styles.input}
-        name="login"
-        type={InputType.Email}
-        validate={schema.login}
-      />
-      <Input
-        label="Пароль"
-        className={styles.input}
-        name="password"
-        type={InputType.Password}
-        validate={schema.password}
-      />
-      <Input
-        label="Повторите пароль"
-        className={styles.input}
-        name="confirm"
-        type={InputType.Password}
-        validate={schema.confirm}
-      />
-      <ButtonWithTooltip
-        type={ButtonType.Submit}
-        error={!!error && !error.fields ? error.message : undefined}
-        className={styles.button}
-      >
-        Зарегистрироваться
-      </ButtonWithTooltip>
+      {() => (
+        <>
+          <Input
+            label="Эл. почта"
+            className={styles.input}
+            name="login"
+            type={InputType.Email}
+            validate={schema.login}
+          />
+          <Input
+            label="Пароль"
+            className={styles.input}
+            name="password"
+            type={InputType.Password}
+            validate={schema.password}
+          />
+          <Input
+            label="Повторите пароль"
+            className={styles.input}
+            name="confirm"
+            type={InputType.Password}
+            validate={schema.confirm}
+          />
+          <ButtonWithTooltip
+            type={ButtonType.Submit}
+            error={!!error && !error.fields ? error.message : undefined}
+            className={styles.button}
+          >
+            Зарегистрироваться
+          </ButtonWithTooltip>
+        </>
+      )}
     </Form>
     <Footer />
   </article>

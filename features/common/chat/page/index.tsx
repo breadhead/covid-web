@@ -51,24 +51,26 @@ const Chat = ({
         resetAfterSubmit
         forceSubmitOnEnter
       >
-        {!muted && (
-          <>
-            <TextArea
-              onFocus={onTextAreaFocus}
-              autosize={{ minRows: 1, maxRows: 4 }}
-              className={styles.input}
-              name="message"
-              disableResizeOnEnter
-              placeholder="Ваше сообщение..."
-            />
-            <button type={ButtonType.Submit} className={styles.sendButton}>
-              <IconCustom
-                className={styles.inputIcon}
-                name="24x24_send-message"
+        {() =>
+          !muted && (
+            <>
+              <TextArea
+                onFocus={onTextAreaFocus}
+                autosize={{ minRows: 1, maxRows: 4 }}
+                className={styles.input}
+                name="message"
+                disableResizeOnEnter
+                placeholder="Ваше сообщение..."
               />
-            </button>
-          </>
-        )}
+              <button type={ButtonType.Submit} className={styles.sendButton}>
+                <IconCustom
+                  className={styles.inputIcon}
+                  name="24x24_send-message"
+                />
+              </button>
+            </>
+          )
+        }
       </Form>
     </section>
   )
