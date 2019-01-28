@@ -1,8 +1,9 @@
 import cx from 'classnames'
 import * as React from 'react'
 
+import RegionSelect from '@app/features/client/features/regionSelect'
+
 import {
-  ComboCity,
   ComboClinic,
   EmergingControlTypes,
   EmergingFormElement,
@@ -15,7 +16,6 @@ import {
 import { SPACE, StylesType } from '@app/lib/config'
 import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
 import { SituationClaimFields } from '../../../types'
-import { schema } from './schema'
 
 interface Props {
   styles: StylesType
@@ -39,16 +39,12 @@ const EmergingForm = ({ styles, initial }: Props) => (
         {count =>
           count.map(key => (
             <React.Fragment key={key}>
-              <label
-                htmlFor={`medicalsTreatments.${key}.region`}
-                className={styles.label}
-              >
-                Регион, где проходили лечение
-              </label>
-              <ComboCity
-                validate={schema.region}
-                className={styles.historyComboSingle}
+              <RegionSelect
                 name={`medicalsTreatments.${key}.region`}
+                styles={styles}
+                textRegion="Регион, где проходили лечение"
+                textCountry="Страна, где проходили лечение"
+                textSwitch="Вы проходили лечение в России?"
               />
               <label
                 htmlFor={`medicalsTreatments.${key}.when.month`}

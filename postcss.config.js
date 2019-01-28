@@ -4,5 +4,6 @@ module.exports = {
     'postcss-nesting': {},
     'postcss-preset-env': {},
     'postcss-custom-media': {},
+    'postcss-inherit': {},
   },
 }

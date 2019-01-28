@@ -1,6 +1,6 @@
 .button.button {
   width: 100%;
-  max-width: none;
+  max-width: none !important;
   padding: 16px 36px;
   margin-top: 48px;
 }
@@ -8,11 +8,7 @@
 .checkbox {
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
+  margin-bottom: 16px;
 
   @media (--smallDown) {
     align-items: flex-start;
