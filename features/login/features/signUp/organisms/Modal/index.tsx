@@ -47,6 +47,12 @@ const SignUp = ({ onFormSubmit, error }: Props) => (
         type={InputType.Password}
         validate={schema.confirm}
       />
+      {!!error && error.code === 409 && (
+        <div className={styles.error}>
+          У вас есть аккаунт на нашем основном сайте nenaprasno.ru,{' '}
+          <LoginButton className={styles.loginButton} />, используя те же данные
+        </div>
+      )}
       <ButtonWithTooltip
         type={ButtonType.Submit}
         error={!!error && !error.fields ? error.message : undefined}

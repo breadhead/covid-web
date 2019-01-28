@@ -15,6 +15,7 @@ export interface SignUpErrorFields {
 export interface SignUpError {
   fields: SignUpErrorFields
   message: string
+  code?: number
 }
 
 interface State extends FetchingState {
