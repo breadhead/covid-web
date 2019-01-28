@@ -12,9 +12,12 @@ export interface SignUpErrorFields {
   login?: boolean
 }
 
+export const ACCOUNT_EXISTS_STATUS = 409
+
 export interface SignUpError {
   fields: SignUpErrorFields
   message: string
+  code?: number
 }
 
 interface State extends FetchingState {
