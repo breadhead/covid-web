@@ -35,9 +35,19 @@ const ClaimForm = ({
     >
       {({ removeSectionFromState }) => (
         <>
-          <Common initial={initial} claimData={claimData} styles={styles} />
+          <Common
+            removeSectionFromState={removeSectionFromState}
+            initial={initial}
+            claimData={claimData}
+            styles={styles}
+          />
           <Health claimData={claimData} styles={styles} />
-          <History initial={initial} claimData={claimData} styles={styles} />
+          <History
+            removeSectionFromState={removeSectionFromState}
+            initial={initial}
+            claimData={claimData}
+            styles={styles}
+          />
           <Survey
             removeSectionFromState={removeSectionFromState}
             initial={initial}

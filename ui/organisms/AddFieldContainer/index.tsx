@@ -17,7 +17,7 @@ interface State {
   count: number[]
 }
 
-const INITIAL_COUNT = 5
+const INITIAL_COUNT = 1
 
 class AddFieldContainer extends React.Component<Props, State> {
   public state = {
@@ -63,3 +63,5 @@ class AddFieldContainer extends React.Component<Props, State> {
 }
 
 export default AddFieldContainer
+export { default as SectionHeader } from './SectionHeader'
+export { default as SectionDivider } from './SectionDivider'

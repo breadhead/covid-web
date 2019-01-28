@@ -5,8 +5,12 @@ import cx from 'classnames'
 import { Input } from '@app/features/common/form'
 import { RemoveSection } from '@app/features/common/form'
 import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
-import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
+import AddFieldContainer, {
+  SectionDivider,
+  SectionHeader,
+} from '@app/ui/organisms/AddFieldContainer'
 import { ClaimData, SituationClaimFields } from '../../types'
+import * as surveyStyles from './Survey.css'
 
 interface Props {
   styles: StylesType
@@ -59,15 +63,15 @@ const Survey = ({
       {(count, removeSection) =>
         count.map(key => (
           <React.Fragment key={key}>
-            <h3 className={styles.subtitle}>Дополнительный файл</h3>
-            <button
-              type="button"
-              onClick={() =>
+            <SectionHeader
+              index={key}
+              onRemoveClick={() =>
                 removeSection(removeSectionFromState(key, 'otherFiles'))
               }
-            >
-              удалить
-            </button>
+            />
+            <h3 className={cx(styles.subtitle, surveyStyles.subtitle)}>
+              Дополнительный файл
+            </h3>
             <label
               htmlFor={`otherFiles.${key}.title`}
               className={styles.labelSmall}
@@ -79,6 +83,7 @@ const Survey = ({
               Ссылка на файл
             </label>
             <Input placeholder="https://" name={`otherFiles.${key}.url`} />
+            <SectionDivider />
           </React.Fragment>
         ))
       }

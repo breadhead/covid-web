@@ -220,6 +220,19 @@ const Sprite = () => (
           fillRule="evenodd"
         />
       </symbol>
+      <symbol width="24" height="24" id="24x24_close_blue" viewBox="0 0 24 24">
+        <g fill="none" fillRule="evenodd">
+          <path d="M0 0h24v24H0z" />
+          <path
+            stroke="var(--color-link)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M8 8l4 4 4 4m-8 0l4-4 4-4z"
+          />
+        </g>
+      </symbol>
+
       <symbol width="24" height="24" id="24x24_close_light" viewBox="0 0 24 24">
         <path
           d="M12 10.59l6.3-6.3a1 1 0 0 1 1.4 1.42L13.42 12l6.3 6.3a1 1 0 0 1-1.42 1.4L12 13.42l-6.3 6.3a1 1 0 1 1-1.4-1.42l6.28-6.3-6.3-6.3A1 1 0 0 1 5.7 4.3l6.3 6.28z"
