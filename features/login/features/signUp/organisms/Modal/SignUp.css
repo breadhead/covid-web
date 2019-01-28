@@ -70,3 +70,8 @@
       background-color: transparent;
     }
 }
+
+.error {
+    font: var(--text14-20);
+    color: var(--color-danger);
+}
