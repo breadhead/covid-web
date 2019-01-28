@@ -3,7 +3,13 @@ import Modal from './organisms/Modal'
 
 export default Container(Modal)
 
-export { State, reducer, Actions, actions } from './reducer'
+export {
+  State,
+  reducer,
+  Actions,
+  actions,
+  ACCOUNT_EXISTS_STATUS,
+} from './reducer'
 
 export { default as withSignUpModal, WithSignUpModal } from './withSignUpModal'
 
