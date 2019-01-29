@@ -63,3 +63,15 @@
   font: var(--text14-20);
   font-weight: 500;
 }
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (--smallDown) {
+    &:first-child {
+      padding-left: 16px;
+    }
+  }
+}

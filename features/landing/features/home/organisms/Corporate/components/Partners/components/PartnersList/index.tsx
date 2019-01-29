@@ -9,9 +9,11 @@ import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 
 const PartnersList = () => (
   <section className={styles.partnersList}>
-    {partners.map(partner => (
-      <PartnerCard key={partner.id} card={partner} />
-    ))}
+    <div className={styles.list}>
+      {partners.map(partner => (
+        <PartnerCard key={partner.id} card={partner} />
+      ))}
+    </div>
     <div className={styles.buttonWrapper}>
       <NavLink
         className={styles.buttonContainer}
