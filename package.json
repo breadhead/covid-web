@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "pm2 restart pm2.js",
+    "start": "pm2 restart ecosystem.config.js",
     "lint": "yarn lint:code && yarn lint:style",
     "lint:code": "tslint -p tsconfig.json -c tslint.json",
     "lint:style": "stylelint './**/*.css'",
