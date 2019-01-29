@@ -2,10 +2,10 @@ import * as React from 'react'
 
 import * as styles from './Modal.css'
 
-import DonationWidget from '@app/features/main/donation'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import Info from '../Info'
+import Widget from '../Widget'
 
 interface Props {
   closeClaim: (id: string) => Promise<void>
@@ -34,9 +34,7 @@ class Modal extends React.Component<Props> {
           этой странице
         </h1>
         <Info />
-        <div className={styles.widget}>
-          <DonationWidget />
-        </div>
+        <Widget />
       </article>
     )
   }
