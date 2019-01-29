@@ -10,7 +10,7 @@ export interface ExpertInterface {
   photo: string
   name: string
   specialization: string
-  info: React.ReactNode
+  info: string[]
 }
 
 interface Props {
@@ -30,7 +30,11 @@ const ExpertPage = ({ expert }: Props) => {
           <div className={styles.textWrapper}>
             <h1 className={styles.title}>{name}</h1>
             <p className={styles.description}>{specialization}</p>
-            <div className={styles.info}>{info}</div>
+            <div className={styles.info}>
+              {info.map((text, i) => (
+                <p key={i}>{text}</p>
+              ))}
+            </div>
           </div>
         </section>
       </div>
