@@ -35,19 +35,19 @@ const partners = [
   },
   {
     id: '20',
-    type: PartnersType.Donor,
-    typeLabel: PartnersLabel.Donor,
-    img: '/static/images/partners/Pravoslavie_i_Mir.png',
-    label: `БФ «Православие и${NON_BREAKING_SPACE}мир»`,
-    sum: `1${NON_BREAKING_SPACE}000${NON_BREAKING_SPACE}000`,
-  },
-  {
-    id: '30',
     type: PartnersType.InfrastructurePartner,
     typeLabel: PartnersLabel.InfrastructurePartner,
     img: '/static/images/partners/Holdingoavya_kompaniya_Adamant.png',
     label: 'Холдинговая компания «Адамант»',
     sum: '2 000 000',
+  },
+  {
+    id: '30',
+    type: PartnersType.Donor,
+    typeLabel: PartnersLabel.Donor,
+    img: '/static/images/partners/Pravoslavie_i_Mir.png',
+    label: `БФ «Православие и${NON_BREAKING_SPACE}мир»`,
+    sum: `1${NON_BREAKING_SPACE}000${NON_BREAKING_SPACE}000`,
   },
 ]
 

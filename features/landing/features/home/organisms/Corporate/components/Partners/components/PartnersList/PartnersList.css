@@ -1,8 +1,6 @@
 .partnersList {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-right: 16px;
   margin-bottom: 68px;
 
   @media (--smallDown) {
@@ -12,11 +10,24 @@
   }
 }
 
+.buttonWrapper {  
+  @media (--smallDown) {
+    padding-right: 16px;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 112px;
+  margin-bottom: 24px;
+}
+
 .addPartnerButton {
   position: relative;
   width: 72px;
   height: 72px;
-  margin-bottom: 20px;
   cursor: pointer;
   background-color: var(--color-highlight);
   border: none;
@@ -50,10 +61,5 @@
 .buttonLabel {
   margin: 0;
   font: var(--text14-20);
-}
-
-.buttonWrapper {
-  @media (--smallDown) {
-    padding-right: 16px;
-  }
+  font-weight: 500;
 }
