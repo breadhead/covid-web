@@ -21,5 +21,5 @@ app.prepare().then(() => {
     app.render(req, res, req.path, req.query)
   })
 
-  server.listen(FALLBACK_PORT) // listen on port which is supplied as -p console argument
+  server.listen(args.p || FALLBACK_PORT) // listen on port which is supplied as -p console argument
 })
