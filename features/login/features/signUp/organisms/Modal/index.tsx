@@ -33,7 +33,7 @@ const SignUp = ({ onFormSubmit, error }: Props) => (
             label="Эл. почта"
             className={styles.input}
             name="login"
-            type={InputType.Email}
+            type={InputType.Text}
             validate={schema.login}
           />
           <Input
