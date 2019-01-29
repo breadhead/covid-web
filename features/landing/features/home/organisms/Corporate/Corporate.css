@@ -4,4 +4,8 @@
   @media (--mediumDown) {
     padding: 32px 16px;
   }
+
+  @media (--smallDown) {
+    padding: 32px 0;
+  }
 }

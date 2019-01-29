@@ -9,7 +9,7 @@ import Count from './components/Count'
 import PartnersList from './components/PartnersList'
 
 const Partners = () => (
-  <>
+  <article className={styles.partners}>
     <h2 className={styles.title}>
       Консультации проводятся на{NON_BREAKING_SPACE}пожертвования физических лиц
       и{NON_BREAKING_SPACE}компаний-партнёров
@@ -25,7 +25,7 @@ const Partners = () => (
     <StartConsultationButton className={styles.button}>
       Начать консультацию
     </StartConsultationButton>
-  </>
+  </article>
 )
 
 export default Partners

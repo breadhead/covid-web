@@ -3,11 +3,19 @@
   margin: 0 auto;
   margin-bottom: 40px;
   font: var(--title-regular);
+
+  @media (--smallDown) {
+    padding: 0 16px;
+  }
 }
 
 .subtitle {
   margin-bottom: 32px;
   font: var(--text18-28);
+
+  @media (--smallDown) {
+    padding: 0 16px;
+  }
 }
 
 .button.button.button {
