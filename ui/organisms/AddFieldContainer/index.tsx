@@ -1,12 +1,13 @@
+import Button, { ButtonKind } from '@app/ui/atoms/Button'
+import IconCustom from '@app/ui/atoms/IconCustom'
 import { range } from 'lodash'
+import { size } from 'lodash'
 import * as React from 'react'
 import * as styles from './AddFieldContainer.css'
 
-import Button, { ButtonKind } from '@app/ui/atoms/Button'
-import IconCustom from '@app/ui/atoms/IconCustom'
-
+type RemoveSection = (changeState: () => void) => void
 interface Props {
-  children: (count: number[]) => React.ReactNode
+  children: (count: number[], removeSection: RemoveSection) => React.ReactNode
   buttonClassName?: string
   buttonText?: string
   initialCount?: number
@@ -29,8 +30,10 @@ class AddFieldContainer extends React.Component<Props, State> {
     const { count } = this.state
 
     return (
-      <article>
-        <article className={styles.fields}>{children(count)}</article>
+      <div>
+        <div className={styles.fields}>
+          {children(count, this.removeSection)}
+        </div>
         <Button
           onClick={this.onClick}
           className={buttonClassName}
@@ -39,15 +42,26 @@ class AddFieldContainer extends React.Component<Props, State> {
           <IconCustom className={styles.icon} name="24x24_plus" />
           {buttonText}
         </Button>
-      </article>
+      </div>
     )
   }
 
   private onClick = () => {
+    this.changeCount(1)
+  }
+
+  private removeSection: RemoveSection = changeState => {
+    changeState()
+    this.changeCount(-1)
+  }
+
+  private changeCount = (quantity: number) => {
     this.setState((state: State) => ({
-      count: range(state.count.length + 1),
+      count: range(size(state.count) + quantity),
     }))
   }
 }
 
 export default AddFieldContainer
+export { default as SectionHeader } from './SectionHeader'
+export { default as SectionDivider } from './SectionDivider'

@@ -8,14 +8,12 @@ const Router = routes.Router
 import PartnerCard, {
   PartnerCardInterface,
 } from '@app/features/landing/organisms/PartnerCard'
-import PartnersRadioGroup, {
-  partnersType,
-} from '../../molecules/PartnersRadioGroup'
+import PartnersRadioGroup from '../../molecules/PartnersRadioGroup'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import { SelectValue } from 'antd/lib/select'
 import PartnersGroupSelect from '../../molecules/PartnersGroupSelect'
-import { partners } from './config'
+import { partners, PartnersType } from './config'
 
 interface Props {
   type: string
@@ -26,8 +24,7 @@ interface State {
   scrollPosition: number
 }
 
-const DEFAULT_VALUE = partnersType[0].value
-const CORP_VALUE = partnersType[1].value
+const DEFAULT_VALUE = PartnersType.Donor
 
 class PartnersList extends React.Component<Props, State> {
   public static defaultProps = {
@@ -68,7 +65,7 @@ class PartnersList extends React.Component<Props, State> {
             className={styles.select}
           />
         </header>
-        {value === CORP_VALUE ? (
+        {value === PartnersType.Corp ? (
           <div className={styles.textWrapper}>
             <p className={styles.text}>
               Корпоративные партнеры выделяют дополнительные средства на

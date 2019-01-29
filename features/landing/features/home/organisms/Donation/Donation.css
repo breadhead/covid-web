@@ -19,61 +19,19 @@
 
 .content {
   display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media (--smallDown) {
     flex-direction: column;
   }
 }
 
-.iframe {
-  flex-basis: 70%;
-  width: 672px;
-  height: 817px;
-  overflow: hidden;
-
-  & iframe {
-    margin: -4324px 0 0 -246px;
-    border: none;
-  }
+.widget {
+  margin-right: 76px;
 
   @media (--smallDown) {
-    margin-bottom: 24px;
+    margin-right: 0;
+    margin-bottom: 32px;
   }
-}
-
-.message {
-  position: relative;
-  max-width: 280px;
-  padding: 16px;
-  margin: 0 0 36px 0;
-  font: var(--text14-20);
-  text-align: left;
-  background-color: #FFEAB7;
-  border-radius: 20px;
-}
-
-.author {
-  display: flex;
-  align-items: center;
-}
-
-.authorPhoto {
-  align-self: flex-start;
-  width: 88px;
-  margin-right: 16px;
-  border-radius: 50%;
-}
-
-.textWrapper {
-  text-align: left;
-}
-
-.authorName {
-  margin: 0 0 4px 0;
-  font-weight: 500;
-}
-
-.authorPosition {
-  margin: 0;
-  font: var(--text12-16);
 }

@@ -15,9 +15,17 @@ class FormTest extends React.Component {
           return { firstName: 'errorsss' }
         }}
       >
-        <button type="submit">click</button>
-        <EnchancedInput validate={testSchema} name="firstsName" type="text" />
-        <EnchancedInput validate={testSchema} name="second" type="text" />
+        {() => (
+          <>
+            <button type="submit">click</button>
+            <EnchancedInput
+              validate={testSchema}
+              name="firstsName"
+              type="text"
+            />
+            <EnchancedInput validate={testSchema} name="second" type="text" />
+          </>
+        )}
       </Form>
     )
   }

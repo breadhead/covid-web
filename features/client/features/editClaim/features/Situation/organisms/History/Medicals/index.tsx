@@ -8,21 +8,26 @@ import {
   EmergingControlTypes,
   EmergingFormElement,
   Input,
+  RemoveSection,
   SelectMonths,
   SelectYears,
   TextArea,
 } from '@app/features/common/form'
 
 import { SPACE, StylesType } from '@app/lib/config'
-import AddFieldContainer from '@app/ui/organisms/AddFieldContainer'
+import AddFieldContainer, {
+  SectionDivider,
+  SectionHeader,
+} from '@app/ui/organisms/AddFieldContainer'
 import { SituationClaimFields } from '../../../types'
 
 interface Props {
   styles: StylesType
   initial: Partial<SituationClaimFields>
+  removeSectionFromState: RemoveSection
 }
 
-const EmergingForm = ({ styles, initial }: Props) => (
+const EmergingForm = ({ styles, initial, removeSectionFromState }: Props) => (
   <>
     <h3 className={styles.subtitle}>Лекарственное лечение</h3>
     <EmergingFormElement
@@ -36,9 +41,17 @@ const EmergingForm = ({ styles, initial }: Props) => (
         buttonClassName={styles.addButton}
         buttonText="Добавить лекарственное лечение"
       >
-        {count =>
+        {(count, removeSection) =>
           count.map(key => (
             <React.Fragment key={key}>
+              <SectionHeader
+                index={key}
+                onRemoveClick={() =>
+                  removeSection(
+                    removeSectionFromState(key, 'medicalsTreatments'),
+                  )
+                }
+              />
               <RegionSelect
                 name={`medicalsTreatments.${key}.region`}
                 styles={styles}
@@ -129,6 +142,7 @@ const EmergingForm = ({ styles, initial }: Props) => (
                 </span>
               </label>
               <TextArea name={`medicalsTreatments.${key}.schema`} />
+              <SectionDivider />
             </React.Fragment>
           ))
         }

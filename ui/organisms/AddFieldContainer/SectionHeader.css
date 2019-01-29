@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.text {
+  font: var(--title-small);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-left: auto;
+  font: var(--text-18-28);
+  color: var(--color-link);
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+
+  & .icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+}

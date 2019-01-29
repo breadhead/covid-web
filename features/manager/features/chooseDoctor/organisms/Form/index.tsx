@@ -41,23 +41,27 @@ const Form = ({
         className={styles.Form}
         onSubmit={onSubmit as any}
       >
-        <div className={cx(styles.List, 'doctorsList')}>
-          <RadioGroup
-            radioStyle={RadioButtonStyles.Radio}
-            type={RadioButtonStyles.Radio}
-            name="doctorLogin"
-            buttons={mapDoctors(doctors)}
-            defaultValue={null}
-            validate={schema.doctorLogin}
-          />
-        </div>
-        <ButtonWithTooltip
-          error={errorMessage}
-          className={styles.SubmitButton}
-          type={ButtonType.Submit}
-        >
-          Сохранить
-        </ButtonWithTooltip>
+        {() => (
+          <>
+            <div className={cx(styles.List, 'doctorsList')}>
+              <RadioGroup
+                radioStyle={RadioButtonStyles.Radio}
+                type={RadioButtonStyles.Radio}
+                name="doctorLogin"
+                buttons={mapDoctors(doctors)}
+                defaultValue={null}
+                validate={schema.doctorLogin}
+              />
+            </div>
+            <ButtonWithTooltip
+              error={errorMessage}
+              className={styles.SubmitButton}
+              type={ButtonType.Submit}
+            >
+              Сохранить
+            </ButtonWithTooltip>
+          </>
+        )}
       </UIForm>
     </React.Fragment>
   )
