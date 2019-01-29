@@ -1,5 +1,9 @@
-.hintInput.ant-select-dropdown {
+.hintInput > .ant-select-selection {
   padding: 0;
+}
+
+.hintInput .ant-input {
+  background: #fff !important;
 }
 
 .hidden {
