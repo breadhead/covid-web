@@ -5,6 +5,7 @@
 
   @media (--smallDown) {
     flex-direction: column;
+    width: 100vw;
     padding: 0 16px;
     margin-bottom: 40px;
   }

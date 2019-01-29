@@ -1,5 +1,6 @@
 .intro {
   @media (--smallDown) {
+    width: 100vw;
     padding: 0 16px;
   }
 }

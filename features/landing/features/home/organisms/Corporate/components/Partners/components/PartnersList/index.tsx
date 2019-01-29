@@ -20,7 +20,7 @@ const PartnersList = () => (
       <p className={styles.buttonLabel}>
         Стать нашим
         <br />
-        партнером
+        партнёром
       </p>
     </div>
   </section>

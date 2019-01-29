@@ -1,3 +1,9 @@
+.quote {
+  @media (--smallDown) {
+    margin-left: -16px;
+  }
+}
+
 .message {
   position: relative;
   max-width: 280px;

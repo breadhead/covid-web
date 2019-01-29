@@ -19,7 +19,9 @@
 
   @media (--smallDown) {
     flex-direction: column;
+    width: 100vw;
     padding: 32px 16px;
+    margin-left: 0;
   }
 }
 
