@@ -59,6 +59,7 @@ module.exports = withPlugins(
           'WithCloseClaimModal',
           'FetchingState',
           'WithChooseDoctorModal',
+          'RemoveSection',
         ]),
       )
 

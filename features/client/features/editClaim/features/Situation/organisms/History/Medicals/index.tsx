@@ -47,7 +47,9 @@ const EmergingForm = ({ styles, initial, removeSectionFromState }: Props) => (
               <SectionHeader
                 index={key}
                 onRemoveClick={() =>
-                  removeSection(removeSectionFromState(key, 'otherFiles'))
+                  removeSection(
+                    removeSectionFromState(key, 'medicalsTreatments'),
+                  )
                 }
               />
               <RegionSelect

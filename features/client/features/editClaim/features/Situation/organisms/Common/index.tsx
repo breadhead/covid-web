@@ -94,7 +94,9 @@ const Common = ({
                   <SectionHeader
                     index={key}
                     onRemoveClick={() =>
-                      removeSection(removeSectionFromState(key, 'otherFiles'))
+                      removeSection(
+                        removeSectionFromState(key, 'relativesDiseases'),
+                      )
                     }
                   />
                   <label
