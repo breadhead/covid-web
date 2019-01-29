@@ -42,20 +42,70 @@
   flex-wrap: wrap;
   margin: 48px 0 0 0;
 
-  @media (--smallSecondDown) {
+  @media (--mediumDown) {
     justify-content: center;
   }
 
-  @media (--xsmallDown) {
+
+  @media (--smallDown) {
     justify-content: space-between;
   }
 }
 
-.partnerCard {
+.partnerCard.partnerCard {
   max-width: 120px;
   padding-top: 0;
   margin: 0 32px 32px 32px;
   text-align: center;
+
+  &:first-of-type {
+    padding-left: 0;
+  }
+
+  @media (--smallMiddleDown) {
+    margin: 0 16px 24px 16px;
+
+    &:first-of-type,
+    &:nth-of-type(5n) {
+      padding-left: 0;
+      margin-left: 0;
+    }
+
+    &:nth-of-type(4n) {
+      padding-right: 0;
+      margin-right: 0;
+    }
+  }
+
+  @media (--smallSecondDown) {
+    &:nth-of-type(n) {
+      margin: 0 16px 24px 16px;
+    }
+  }
+
+  @media (--xxsmallDown) {  
+    &:first-of-type,
+    &:nth-of-type(4n) {
+      padding-left: 0;
+      margin-left: 16px;
+    }
+
+    &:nth-of-type(3n) {
+      padding-right: 0;
+      margin-right: 16px;
+    }
+
+    &:nth-of-type(odd) {
+      padding-left: 0;
+      margin-left: 0;
+    }
+
+    &:nth-of-type(even) {
+      padding-right: 0;
+      margin-right: 0;
+    }
+  }
+
 }
 
 .radioGroup.radioGroup.radioGroup.radioGroup {

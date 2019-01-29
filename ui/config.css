@@ -75,8 +75,10 @@ body {
 
 /* custom media queries */
 @custom-media --xxsmallDown (max-width: 360px);
+@custom-media --xsmallSecondDown (max-width: 440px);
 @custom-media --xsmallDown (max-width: 500px);
 @custom-media --smallSecondDown (max-width: 540px);
+@custom-media --smallMiddleDown (max-width: 740px);
 @custom-media --smallDown (max-width: 767px);
 @custom-media --mediumSecondDown (max-width: 832px);
 @custom-media --mediumDown (max-width: 959px);
