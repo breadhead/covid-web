@@ -2,6 +2,8 @@ import * as React from 'react'
 
 import * as styles from './Program.css'
 
+import { NON_BREAKING_SPACE } from '@app/lib/config'
+
 const Program = () => (
   <section className={styles.program}>
     <div className={styles.topic}>
@@ -16,8 +18,9 @@ const Program = () => (
       Мы даем возможность компаниям оплачивать консультации своим сотрудникам.
       <br />
       <br />
-      Если ваш работодатель участвует в нашей корпоративной программе, то вы
-      можете получить консультацию как сотрудник по специальному приглашению.
+      Если ваш работодатель участвует в{NON_BREAKING_SPACE}нашей корпоративной
+      программе, то вы можете получить консультацию как сотрудник по
+      {NON_BREAKING_SPACE}специальному приглашению.
     </p>
   </section>
 )
