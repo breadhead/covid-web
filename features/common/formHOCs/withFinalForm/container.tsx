@@ -4,10 +4,13 @@ import { Omit } from 'utility-types'
 import * as yup from 'yup'
 import { getShouldValidate } from './helpers/getShouldValidate'
 import { validator } from './helpers/validator'
+
+type Schema = yup.Schema<any>
+
 interface OwnProps {
   name: string
   type?: string
-  validate?: yup.Schema<any>
+  validate?: Schema
   validateOnBlur?: boolean
 }
 
@@ -60,3 +63,5 @@ const withFinalForm = <T extends WrappedProps>(
 }
 
 export default withFinalForm
+
+export { Schema }

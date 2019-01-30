@@ -1,15 +1,9 @@
-import {
-  ComboBox,
-  EmergingControlTypes,
-  EmergingFormElement,
-  Select,
-} from '@app/features/common/form'
+import { Select } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
 import ClaimTarget from '@app/models/Claim/ClaimTarget'
 import { mapEnum, mapString } from '@app/ui/atoms/Select'
-import cx from 'classnames'
 import * as React from 'react'
-import { localizations, themes } from '../../../../values'
+import { themes } from '../../../../values'
 import { ShortClaimFields } from '../ClaimForm'
 import { schema } from './schema'
 
@@ -18,19 +12,9 @@ interface Props {
   initial: Partial<ShortClaimFields>
 }
 
-const Main = ({ styles, initial }: Props) => (
+const Main = ({ styles }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Кратко о теме консультации</h2>
-    <label htmlFor="target" className={styles.label}>
-      Для кого эта консультация
-    </label>
-    <Select
-      className={styles.field}
-      validate={schema.target}
-      name="target"
-      options={Object.entries(ClaimTarget).map(mapEnum)}
-      placeholder="Выберите для кого консультация"
-    />
     <label htmlFor="theme" className={styles.label}>
       Тема вашего вопроса
     </label>
@@ -41,30 +25,17 @@ const Main = ({ styles, initial }: Props) => (
       options={themes.map(mapString)}
       placeholder="Выберите тему"
     />
-
-    <label htmlFor="diagnosis" className={styles.label}>
-      У вас есть установленный врачом онкологический диагноз?
+    <label htmlFor="target" className={styles.label}>
+      Для кого эта консультация
     </label>
-    <EmergingFormElement
+    <Select
       className={styles.field}
-      validate={schema.localizationPresence}
-      controlType={EmergingControlTypes.Radiogroup}
-      name="localizationPresence"
-      defaultVisible={initial.localizationPresence}
-    >
-      <label
-        htmlFor="localization"
-        className={cx(styles.label, styles.emergingLabel)}
-      >
-        Локализация
-      </label>
-      <ComboBox
-        validate={schema.localization}
-        name="localization"
-        options={localizations.map(mapString)}
-        placeholder="Выберите локализацию"
-      />
-    </EmergingFormElement>
+      validate={schema.target}
+      name="target"
+      options={Object.entries(ClaimTarget).map(mapEnum)}
+      placeholder="Выберите для кого консультация"
+    />
+
     {/* TODO: Hide by ON-357, DO NOT delete */}
     {/* <p className={styles.emergingLabel}>
       Вы консультируетесь по корпоративной программе от своего работодателя?

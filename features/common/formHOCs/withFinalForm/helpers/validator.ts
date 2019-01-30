@@ -1,13 +1,13 @@
-import * as yup from 'yup'
+import { Schema } from '../container'
 
-export type Validator = (
-  value: any,
-  schema: yup.Schema<any>,
-) => undefined | string
-export const validator: Validator = (value, schema) => {
+type Validator = (value: any, schema: Schema) => undefined | string
+
+const validator: Validator = (value, schema) => {
   try {
     schema.validateSync(value)
   } catch (error) {
     return error.message
   }
 }
+
+export { Validator, Schema, validator }

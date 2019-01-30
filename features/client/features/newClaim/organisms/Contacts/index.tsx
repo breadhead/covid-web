@@ -1,27 +1,15 @@
-import RegionSelect from '@app/features/client/features/regionSelect'
-import {
-  Input,
-  InputType,
-  PhoneInput,
-  RadioGroup,
-} from '@app/features/common/form'
+import { Input, InputType, PhoneInput } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
-import Gender from '@app/models/Gender'
 import cx from 'classnames'
 import * as React from 'react'
 import { ShortClaimFields } from '../ClaimForm'
 import { schema } from './schema'
 
-const genderRadioGroup = Object.entries(Gender).map(([id, value]) => ({
-  id,
-  value,
-}))
-
 interface Props {
   styles: StylesType
   initial: Partial<ShortClaimFields>
 }
-const Contacts = ({ initial, styles }: Props) => (
+const Contacts = ({ styles }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Контактные данные</h2>
     <label htmlFor="personalData.name" className={styles.label}>
@@ -36,32 +24,7 @@ const Contacts = ({ initial, styles }: Props) => (
       validate={schema.name}
       name="personalData.name"
     />
-    <RegionSelect
-      name="personalData.region"
-      region={initial && initial.personalData && initial.personalData.region}
-      styles={styles}
-      textRegion="Регион проживания"
-      textCountry="Страна проживания"
-      textSwitch="Вы живёте в России?"
-    />
-    <label htmlFor="personalData.age" className={styles.label}>
-      Возраст (полных лет)
-    </label>
-    <Input
-      className={styles.field}
-      validate={schema.age}
-      name="personalData.age"
-      type={InputType.Number}
-    />
-    <label htmlFor="personalData.gender" className={styles.label}>
-      Пол
-    </label>
-    <RadioGroup
-      className={styles.field}
-      validate={schema.gender}
-      name="personalData.gender"
-      buttons={genderRadioGroup}
-    />
+
     <label htmlFor="personalData.email" className={styles.label}>
       Электронная почта.
       <span className={styles.secondaryText}>
