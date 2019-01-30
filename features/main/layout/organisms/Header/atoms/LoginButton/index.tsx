@@ -1,24 +1,27 @@
-import * as React from 'react'
-
 import {
-  withLoginModal,
   WithLoginModal,
+  withSignInModal,
 } from '@app/features/login/features/signIn'
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
+import * as React from 'react'
 
 interface LoginButtonProps {
-  className?: any
+  className?: string
 }
 
 type Props = LoginButtonProps & WithLoginModal
 
 const LoginButton: React.StatelessComponent<Props> = ({
   className,
-  openLogin,
+  openSignIn,
 }: Props) => (
-  <Button className={className} onClick={openLogin} kind={ButtonKind.Secondary}>
+  <Button
+    className={className}
+    onClick={openSignIn}
+    kind={ButtonKind.Secondary}
+  >
     Войти
   </Button>
 )
 
-export default withLoginModal(LoginButton) as any
+export default withSignInModal(LoginButton) as any

@@ -8,6 +8,7 @@ import { AnyAction, compose, Dispatch } from 'redux'
 
 import { isModal } from '@app/features/common/modal'
 import * as yup from 'yup'
+import { withSignInModal } from '../signIn'
 
 export const MODAL_KEY = 'sign-up'
 
@@ -78,6 +79,7 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
 
 export default compose(
   isModal(MODAL_KEY),
+  withSignInModal,
   connect(
     mapState,
     mapDispatch,
