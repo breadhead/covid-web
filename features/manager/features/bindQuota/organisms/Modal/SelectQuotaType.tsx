@@ -17,7 +17,6 @@ const SelectQuotaType = ({ quotas = [{}], ...rest }: any) => {
 
   return (
     <RadioGroup
-      type="radio"
       radioStyle={RadioButtonStyles.Radio}
       key={hash(quotas)}
       {...rest}
