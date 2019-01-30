@@ -8,6 +8,7 @@
     grid-column-end: 3;
     width: 100%;
     max-width: none;
+    margin-top: 20px;
   }
 
   & a {
