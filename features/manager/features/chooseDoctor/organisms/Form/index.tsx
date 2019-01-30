@@ -46,7 +46,6 @@ const Form = ({
             <div className={cx(styles.List, 'doctorsList')}>
               <RadioGroup
                 radioStyle={RadioButtonStyles.Radio}
-                type={RadioButtonStyles.Radio}
                 name="doctorLogin"
                 buttons={mapDoctors(doctors)}
                 defaultValue={null}
