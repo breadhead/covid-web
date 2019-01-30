@@ -1,4 +1,6 @@
-import { Schema } from '../container'
+import * as yup from 'yup'
+
+type Schema = yup.Schema<any>
 
 type Validator = (value: any, schema: Schema) => undefined | string
 

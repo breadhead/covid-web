@@ -1,11 +1,8 @@
 import * as React from 'react'
 import { Field, FieldRenderProps } from 'react-final-form'
 import { Omit } from 'utility-types'
-import * as yup from 'yup'
 import { getShouldValidate } from './helpers/getShouldValidate'
-import { validator } from './helpers/validator'
-
-type Schema = yup.Schema<any>
+import { Schema, validator } from './helpers/validator'
 
 interface OwnProps {
   name: string
