@@ -18,7 +18,7 @@ const Notification = () => (
       <p className={styles.text}>
         Наш проект существует на{NON_BREAKING_SPACE}частные и
         {NON_BREAKING_SPACE}корпоративные пожертвования. <br />
-        Станьте нашим партнером и{NON_BREAKING_SPACE}поддержите работу сервиса.
+        Станьте нашим партнёром и{NON_BREAKING_SPACE}поддержите работу сервиса.
       </p>
       <NavLink type={NavLinkType.Nav} href="/contacts">
         <Button className={styles.button} kind={ButtonKind.Secondary}>

@@ -58,17 +58,6 @@
   position: relative;
   width: 98%;
   text-overflow: clip;
-
-  &::after {
-    position: absolute;
-    top: 0;
-    right: -1px;
-    display: block;
-    width: 20px;
-    height: 20px;
-    content: '';
-    background: linear-gradient(to right, transparent 0%, #fff 40%);
-  }
 }
 
 .ant-select-disabled .ant-select-selection {

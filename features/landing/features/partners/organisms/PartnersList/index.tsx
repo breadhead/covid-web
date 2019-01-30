@@ -68,7 +68,7 @@ class PartnersList extends React.Component<Props, State> {
         {value === PartnersType.Corp ? (
           <div className={styles.textWrapper}>
             <p className={styles.text}>
-              Корпоративные партнеры выделяют дополнительные средства на
+              Корпоративные партнёры выделяют дополнительные средства на
               {NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы
               {NON_BREAKING_SPACE}являетесь сотрудником одной из
               {NON_BREAKING_SPACE}этих компаний, укажите это в

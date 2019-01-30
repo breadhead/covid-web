@@ -3,6 +3,7 @@
   top: 50%;
   left: 50%;
   min-width: 400px;
+  max-width: 400px;
   min-height: 400px;
   max-height: calc(100% - 50px);
   padding: 16px;
@@ -17,6 +18,7 @@
   @media (--smallDown) {
     width: 100%;
     min-width: auto;
+    max-width: auto;
     padding: 16px 0 0;
     border-radius: 0;
   }

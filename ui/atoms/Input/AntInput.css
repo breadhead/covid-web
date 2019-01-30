@@ -10,6 +10,8 @@
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
   box-shadow: 0 0 0 1px #d9d9d9;
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
 
   &:hover {
     box-shadow: 0 0 0 1px var(--color-primary);
