@@ -85,7 +85,7 @@ const createTreatment = ({
               text: medical.doctor,
             },
             {
-              subtitle: 'Количество циклов',
+              subtitle: 'Количество циклов лекарственного лечения',
               text: medical.cyclesCount,
             },
             {
