@@ -13,6 +13,8 @@ export interface Props {
   validateSmsCode: (code: string) => Promise<void>
   smsSendSuccess: boolean
   validationSuccess: boolean
+  codeValidationError: false | string
+  smsSendError: false | string
   close: () => void
 }
 
@@ -32,6 +34,8 @@ class ModalSmsConfirm extends React.Component<Props> {
       sendSmsCode,
       validationSuccess,
       validateSmsCode,
+      codeValidationError,
+      smsSendError,
     } = this.props
 
     return (
@@ -39,8 +43,16 @@ class ModalSmsConfirm extends React.Component<Props> {
         <Title />
         <Conditions />
 
-        <SendSms success={smsSendSuccess} send={sendSmsCode} />
-        <SmsCode valid={validationSuccess} validate={validateSmsCode} />
+        <SendSms
+          smsSendError={smsSendError}
+          success={smsSendSuccess}
+          send={sendSmsCode}
+        />
+        <SmsCode
+          codeValidationError={codeValidationError}
+          valid={validationSuccess}
+          validate={validateSmsCode}
+        />
       </div>
     )
   }
