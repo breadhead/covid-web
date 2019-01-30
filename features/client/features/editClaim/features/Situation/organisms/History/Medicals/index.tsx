@@ -128,7 +128,7 @@ const EmergingForm = ({ styles, initial, removeSectionFromState }: Props) => (
                 htmlFor={`medicalsTreatments.${key}.cyclesCount`}
                 className={styles.label}
               >
-                Количество циклов
+                Количество циклов лекарственного лечения
               </label>
               <Input name={`medicalsTreatments.${key}.cyclesCount`} />
 
