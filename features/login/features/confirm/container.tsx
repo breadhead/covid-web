@@ -8,7 +8,12 @@ import { State } from '@app/lib/store'
 
 import { sendSms, validateCode } from './actions'
 import { Props as WrappedProps } from './organisms/Modal'
-import { getCodeValid, getSendSuccess } from './selectors'
+import {
+  getCodeValid,
+  getCodeValidationError,
+  getSendError,
+  getSendSuccess,
+} from './selectors'
 
 export const MODAL_KEY = 'sms-confirm'
 
@@ -16,6 +21,8 @@ interface Props {
   sendSmsCode: (phone: string) => Promise<void>
   validateSmsCode: (code: string) => Promise<void>
   smsSendSuccess: boolean
+  codeValidationError: false | string
+  smsSendError: false | string
   codeValid: boolean
 }
 
@@ -27,6 +34,8 @@ const Container = (WrappedComponent: ComponentType<WrappedProps>) =>
         smsSendSuccess,
         codeValid,
         validateSmsCode,
+        codeValidationError,
+        smsSendError,
         modal: { close },
       } = this.props
 
@@ -34,6 +43,8 @@ const Container = (WrappedComponent: ComponentType<WrappedProps>) =>
         sendSmsCode,
         smsSendSuccess,
         validateSmsCode,
+        codeValidationError,
+        smsSendError,
         validationSuccess: smsSendSuccess && codeValid,
         close,
       }
@@ -44,7 +55,9 @@ const Container = (WrappedComponent: ComponentType<WrappedProps>) =>
 
 const mapState = (state: State) => ({
   smsSendSuccess: getSendSuccess(state),
+  smsSendError: getSendError(state),
   codeValid: getCodeValid(state),
+  codeValidationError: getCodeValidationError(state),
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({

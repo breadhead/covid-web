@@ -11,9 +11,10 @@ import * as styles from './SendSms.css'
 interface Props {
   success: boolean
   send: (phone: string) => void
+  smsSendError: false | string
 }
 
-const SendSms = ({ success, send }: Props) => (
+const SendSms = ({ success, send, smsSendError }: Props) => (
   <Form onSubmit={({ phone }: any) => send(phone)}>
     {() => (
       <>
@@ -24,6 +25,7 @@ const SendSms = ({ success, send }: Props) => (
           defaultValue="+7"
           className={styles.inputWrapper}
           required
+          error={smsSendError}
         />
         <div className={styles.blockGettingCode}>
           <Button className={styles.button} type={ButtonType.Submit}>
