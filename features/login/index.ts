@@ -18,7 +18,7 @@ export {
   unauthorizedMiddleware,
   authViolateStatus,
   getViolateState,
-  withLoginModal,
+  withSignInModal as withLoginModal,
   WithLoginModal,
 } from './features/signIn'
 

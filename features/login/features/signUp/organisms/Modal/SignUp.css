@@ -48,30 +48,7 @@
   margin: 16px 0 32px 0;
 }
 
-.loginButton.loginButton.loginButton {
-  display: inline-block;
-  padding: 0;
-  font: var(--text14-20);
-  color: var(--color-link);
-  border: none;
-  border-bottom: 1px solid transparent;
-  border-radius: 0;
-  box-shadow: none;
-
-    &:hover {
-      border-bottom: 1px solid var(--color-link-underline);
-    }
-
-    &:active {
-      background-color: transparent;
-    }
-
-    &:focus {
-      background-color: transparent;
-    }
-}
-
 .error {
-    font: var(--text14-20);
-    color: var(--color-danger);
+  font: var(--text14-20);
+  color: var(--color-danger);
 }

@@ -1,15 +1,13 @@
-import * as React from 'react'
-import * as styles from './SignIn.css'
-
 import { InputType } from '@app/features/common/form'
 import Form from '@app/features/common/form/components/Form'
 import Input from '@app/features/common/form/components/Input'
-import Footer from '@app/features/login/organisms/Footer'
+import OpenModalButton from '@app/features/login/atoms/OpenModalButton'
 import { SPACE } from '@app/lib/config'
 import Button, { ButtonKind, ButtonType } from '@app/ui/atoms/Button'
 import NavLink from '@app/ui/atoms/NavLink'
-import OpenSignUpModalButton from '../../atoms/OpenSignUpModalButton'
+import * as React from 'react'
 import { schema } from '../../container'
+import * as styles from './SignIn.css'
 
 interface Props {
   onFormSubmit: () => Promise<any>
@@ -23,7 +21,7 @@ const SignIn = ({ onFormSubmit, passwordRecoveryUrl, openSignUp }: Props) => (
     <h1 className={styles.title}>Войти</h1>
     <p className={styles.secondaryText}>
       Ещё нет аккаунта?{SPACE}
-      <OpenSignUpModalButton openSignUp={openSignUp} />
+      <OpenModalButton onClick={openSignUp}>Зарегистрироваться</OpenModalButton>
     </p>
 
     <Form onSubmit={onFormSubmit}>
@@ -55,7 +53,6 @@ const SignIn = ({ onFormSubmit, passwordRecoveryUrl, openSignUp }: Props) => (
         </>
       )}
     </Form>
-    <Footer />
   </article>
 )
 

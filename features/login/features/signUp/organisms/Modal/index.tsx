@@ -7,6 +7,7 @@ import styles from './SignUp.css'
 import { InputType } from '@app/features/common/form'
 import Form from '@app/features/common/form/components/Form'
 import Input from '@app/features/common/form/components/Input'
+import OpenModalButton from '@app/features/login/atoms/OpenModalButton'
 import Footer from '@app/features/login/organisms/Footer'
 import LoginButton from '@app/features/main/layout/organisms/Header/atoms/LoginButton'
 import { SPACE } from '@app/lib/config'
@@ -16,14 +17,15 @@ import { schema } from '../../container'
 interface Props {
   onFormSubmit: () => Promise<any>
   error?: SignUpError
+  openSignIn: () => void
 }
 
-const SignUp = ({ onFormSubmit, error }: Props) => (
+const SignUp = ({ onFormSubmit, error, openSignIn }: Props) => (
   <article className={styles.popup}>
     <h1 className={styles.title}>Пожалуйста, зарегистрируйтесь</h1>
     <p className={styles.secondaryText}>
       Уже есть аккаунт?{SPACE}
-      <LoginButton className={styles.loginButton} />
+      <OpenModalButton onClick={openSignIn}>Войти</OpenModalButton>
     </p>
 
     <Form onSubmit={onFormSubmit}>
@@ -67,7 +69,7 @@ const SignUp = ({ onFormSubmit, error }: Props) => (
         </>
       )}
     </Form>
-    <Footer />
+    <Footer onOpenModalClick={openSignIn} />
   </article>
 )
 
