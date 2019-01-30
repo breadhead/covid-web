@@ -6,8 +6,8 @@ import stylesShort from './MenuShort.css'
 import NavIcon from '../NavIcon'
 
 const linksShort = [
-  { title: 'О проекте', href: 'https://nenaprasno.ru' },
-  { title: 'Помочь проекту', href: '#donation' },
+  { title: 'О проекте', href: '/' },
+  { title: 'Помочь проекту', href: '/#donation' },
   { title: 'Обратная связь', href: '/contacts' },
 ]
 
