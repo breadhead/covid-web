@@ -2,7 +2,10 @@ import React from 'react'
 
 import { Form, Input } from '@app/features/common/form'
 import { InputType } from '@app/features/common/form'
+import Button, { ButtonType } from '@app/ui/atoms/Button'
 import Icon, { IconColor, IconType } from '@app/ui/atoms/Icon'
+
+import * as styles from './SmsCode.css'
 
 interface Props {
   valid: boolean
@@ -26,7 +29,12 @@ const SmsCode = ({ valid, validate, codeValidationError }: Props) => (
           }
           maxLength={4}
           required
+          className={styles.inputWrapper}
         />
+
+        <Button type={ButtonType.Submit} className={styles.button}>
+          Отправить
+        </Button>
       </>
     )}
   </Form>
