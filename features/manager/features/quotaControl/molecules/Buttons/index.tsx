@@ -38,7 +38,7 @@ const Buttons = ({
   id,
 }: Props) => {
   const nextAction = defineNextStatusAction(status)
-  const closed = status === ClaimStatus.Closed
+  const closed = [ClaimStatus.Closed, ClaimStatus.Denied].includes(status)
 
   return (
     <>

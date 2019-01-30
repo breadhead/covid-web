@@ -25,9 +25,6 @@ const Container = (WrappedComponent: any) => {
     public render() {
       const mainInfo: ListedClaim = (this.props as any).mainInfo || []
       const editClaim = ![
-        ClaimStatus.QuotaAllocation,
-        ClaimStatus.QueueForQuota,
-        ClaimStatus.QuestionnaireWaiting,
         ClaimStatus.Closed,
         ClaimStatus.Denied,
         ClaimStatus.DeliveredToCustomer,
