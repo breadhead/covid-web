@@ -101,20 +101,31 @@
 }
 
 .historyComboWrapper.historyComboWrapper {
+  width: 232px;
   margin-right: 16px;
 
   &:last-of-type {
     margin-right: 0;
   }
 
-  @media (--smallDown) {
-    flex-basis: 50%;
+  @media (--mediumSecondDown) {
+    width: 170px;
+  }
+
+ @media (--smallDown) {
+   width: 232px;
+ }
+
+ @media (--smallSecondDown) {
+  width: 170px;
+ }
+
+  @media (--xsmallDown) {
+    width: 42vw;
   }
 }
 
 .historyCombo {
-  width: 232px;
-
   @media (--smallDown) {
     width: 100%;
   }

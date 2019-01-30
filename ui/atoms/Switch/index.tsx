@@ -7,14 +7,20 @@ import './Switch.css?CSSModulesDisable'
 interface OwnProps {
   label?: string
   name: string
+  className?: string
 }
 
 export type Props = OwnProps & SwitchProps
 
-const Switch = ({ label, name, ...rest }: Props) => (
+const Switch = ({ label, name, className, ...rest }: Props) => (
   <>
     {label && <label htmlFor={name}>{label}</label>}
-    <AntSwitch checkedChildren="Да" unCheckedChildren="Нет" {...rest} />
+    <AntSwitch
+      className={className}
+      checkedChildren="Да"
+      unCheckedChildren="Нет"
+      {...rest}
+    />
   </>
 )
 

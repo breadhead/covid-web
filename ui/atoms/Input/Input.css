@@ -3,9 +3,13 @@
   -webkit-appearance: none;
 }
 
-.input[type='number'] {
+input[type='number'],
+input[type='email'],
+input[type='phone'], {
   -moz-appearance: textfield;
+  -webkit-appearance: none;
 }
+
 .label {
   display: block;
   margin-bottom: 8px;
