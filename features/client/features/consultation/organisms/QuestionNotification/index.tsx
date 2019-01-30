@@ -17,10 +17,7 @@ interface Props {
   mainInfo: ListedClaim
 }
 
-const STATUSES_WITH_VISIBLE_EXPERTS_BLOCK = [
-  ClaimStatus.Closed,
-  ClaimStatus.DeliveredToCustomer,
-]
+const STATUSES_WITH_VISIBLE_EXPERTS_BLOCK = [ClaimStatus.DeliveredToCustomer]
 
 const QuestionNotification = ({ mainInfo }: Props) =>
   STATUSES_WITH_VISIBLE_EXPERTS_BLOCK.includes(mainInfo.status) ? (
