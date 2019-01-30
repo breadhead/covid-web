@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { Field, FieldRenderProps } from 'react-final-form'
 import { Omit } from 'utility-types'
-import * as yup from 'yup'
 import { getShouldValidate } from './helpers/getShouldValidate'
-import { validator } from './helpers/validator'
+import { Schema, validator } from './helpers/validator'
+
 interface OwnProps {
   name: string
   type?: string
-  validate?: yup.Schema<any>
+  validate?: Schema
   validateOnBlur?: boolean
 }
 
@@ -60,3 +60,5 @@ const withFinalForm = <T extends WrappedProps>(
 }
 
 export default withFinalForm
+
+export { Schema }

@@ -8,12 +8,13 @@ interface OwnProps {
   error?: string
   loading?: boolean
   className?: string
+  innerClassName?: string
 }
 type WrappedComponentProps = Pick<OwnProps, 'error' | 'loading' | 'className'>
 
 const withTooltip = <T extends {}>(
   WrappedComponent: React.ComponentType<WrappedComponentProps>,
-) => ({ className, error, loading, ...rest }: T & OwnProps) => (
+) => ({ className, innerClassName, error, loading, ...rest }: T & OwnProps) => (
   <div className={cx(styles.wrapper)}>
     <WrappedComponent
       {...rest}

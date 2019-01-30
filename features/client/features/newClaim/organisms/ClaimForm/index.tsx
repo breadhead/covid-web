@@ -1,9 +1,11 @@
 import { Form } from '@app/features/common/form'
 import Gender from '@app/models/Gender'
 import * as React from 'react'
-import Contacts from './../Contacts'
+import { ShortClaimFields } from '../ClaimForm'
+import Contacts from '../Contacts'
+import Main from '../Main'
+import Patient from '../Patient'
 import Footer from './../Footer'
-import Main from './../Main'
 import * as styles from './ClaimForm.css'
 
 interface Company {
@@ -51,8 +53,9 @@ const ClaimForm = ({ initial, onSubmit, error, loading }: Props) => {
     >
       {() => (
         <>
-          <Main initial={initial} styles={styles} />
-          <Contacts initial={initial} styles={styles} />
+          <Contacts styles={styles} initial={initial} />
+          <Main styles={styles} initial={initial} />
+          <Patient styles={styles} initial={initial} />
           <Footer error={error} loading={loading} styles={styles} />
         </>
       )}

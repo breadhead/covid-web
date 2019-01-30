@@ -1,4 +1,5 @@
-import { regions } from '@app/features/client/features/newClaim/organisms/Contacts/regions'
+import { regions } from '@app/features/client/features/regionSelect/organisms/RegionSelect/regions'
+import { Schema } from '@app/features/common/formHOCs/withFinalForm'
 import { StylesType } from '@app/lib/config'
 import * as React from 'react'
 
@@ -7,6 +8,7 @@ interface LocalState {
 }
 
 interface ContainerProps {
+  validate?: Schema
   region?: string
   styles: StylesType
   name: string

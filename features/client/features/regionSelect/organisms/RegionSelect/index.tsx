@@ -1,11 +1,10 @@
-import { countries } from '@app/features/client/features/newClaim/organisms/Contacts/countries'
-import { regions } from '@app/features/client/features/newClaim/organisms/Contacts/regions'
-import { schema } from '@app/features/client/features/newClaim/organisms/Contacts/schema'
 import { Props } from '@app/features/client/features/regionSelect/container'
 import { Select } from '@app/features/common/form'
 import { mapString } from '@app/ui/atoms/Select'
 import Switch from '@app/ui/atoms/Switch'
 import * as React from 'react'
+import { countries } from './countries'
+import { regions } from './regions'
 
 const RegionSelect = ({
   clientInRussia,
@@ -15,6 +14,7 @@ const RegionSelect = ({
   textRegion,
   textCountry,
   textSwitch,
+  validate,
 }: Props) => (
   <>
     <label htmlFor="personalData.russia" className={styles.label}>
@@ -33,7 +33,7 @@ const RegionSelect = ({
         </label>
         <Select
           className={styles.field}
-          validate={schema.regions}
+          validate={validate}
           name={name}
           options={regions.map(mapString)}
           placeholder={'Выберите регион'}
@@ -47,7 +47,7 @@ const RegionSelect = ({
         </label>
         <Select
           className={styles.field}
-          validate={schema.countries}
+          validate={validate}
           name={name}
           options={countries.map(mapString)}
           placeholder="Выберите страну"
