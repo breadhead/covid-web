@@ -44,9 +44,9 @@ class Terms extends React.Component<Props, State> {
               Я согласен с{' '}
               <NavLink
                 target={TargetType.Blank}
-                href="/static/docs/terms-of-use.pdf"
+                href="/static/docs/personal-data-processing-policy.pdf"
               >
-                условиями получения консультации
+                политикой обработки персональных данных
               </NavLink>
             </Checkbox>
             <Checkbox
@@ -57,9 +57,9 @@ class Terms extends React.Component<Props, State> {
               Я согласен с{' '}
               <NavLink
                 target={TargetType.Blank}
-                href="/static/docs/personal-data-processing-policy.pdf"
+                href="/static/docs/terms-of-use.pdf"
               >
-                условиями обработки персональных данных
+                условиями пользовательского соглашения
               </NavLink>
             </Checkbox>
             <ButtonWithTooltip

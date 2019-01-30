@@ -16,7 +16,7 @@ const Conditions = () => (
       target={TargetType.Blank}
       href="/static/docs/personal-data-processing-policy.pdf"
     >
-      условиями обработки личных данных
+      политикой обработки персональных данных
     </NavLink>
   </p>
 )
