@@ -5,17 +5,16 @@ import * as styles from './PartnersList.css'
 import PartnerCard from '@app/features/landing/organisms/PartnerCard'
 
 import { partners } from '@app/features/landing/features/partners/organisms/PartnersList/config'
-import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
+import NavLink, { NavLinkType, TargetType } from '@app/ui/atoms/NavLink'
 
 const PartnersList = () => (
   <section className={styles.partnersList}>
-    <div className={styles.list}>
-      {partners.map(partner => (
-        <PartnerCard key={partner.id} card={partner} />
-      ))}
-    </div>
+    {partners.map(partner => (
+      <PartnerCard key={partner.id} card={partner} />
+    ))}
     <div className={styles.buttonWrapper}>
       <NavLink
+        target={TargetType.Blank}
         className={styles.buttonContainer}
         href="/contacts"
         type={NavLinkType.Nav}

@@ -26,7 +26,9 @@ const SendSms = ({ success, send }: Props) => (
           required
         />
         <div className={styles.blockGettingCode}>
-          <Button type={ButtonType.Submit}>Получить код</Button>
+          <Button className={styles.button} type={ButtonType.Submit}>
+            Получить код
+          </Button>
           {success && (
             <p className={styles.messageCodeSent} hidden={false}>
               <Icon type={IconType.CheckCircle} color={IconColor.Success} />
