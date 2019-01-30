@@ -4,7 +4,7 @@ import * as styles from './Widget.css'
 import DonationWidget from '@app/features/main/donation'
 
 const Widget = () => (
-  <div className={styles.widget}>
+  <div id="nenaprasno_donation" className={styles.widget}>
     <DonationWidget />
   </div>
 )
