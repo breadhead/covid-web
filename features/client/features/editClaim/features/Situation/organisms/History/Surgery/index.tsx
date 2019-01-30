@@ -64,7 +64,7 @@ const EmergingForm = ({ styles, initial, removeSectionFromState }: Props) => (
                 htmlFor={`surgicalTreatments.${key}.when.month`}
                 className={styles.label}
               >
-                Когда проходили это лечение (месяц и год)
+                Когда делали операцию (месяц и год)
               </label>
               <div className={styles.historyComboContainer}>
                 <SelectMonths
