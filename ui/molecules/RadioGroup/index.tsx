@@ -1,6 +1,8 @@
 import { RadioChangeEvent } from 'antd/lib/radio'
 import * as React from 'react'
 
+import cx from 'classnames'
+
 import { Radio } from 'antd'
 
 import './ButtonStyle.css?CSSModulesDisable'
@@ -35,7 +37,7 @@ const RadioGroup = ({
   ...rest
 }: Props) => {
   return (
-    <div className={`radioButtonStyle__${radioStyle}`}>
+    <div className={cx(`radioButtonStyle__${radioStyle}`, className)}>
       <AntRadioGroup
         name={name}
         onChange={onChange}
