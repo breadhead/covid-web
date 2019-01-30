@@ -3,6 +3,7 @@ import * as styles from './ClaimForm.css'
 
 import { Form } from '@app/features/common/form'
 
+import { themeNamesMap } from '@app/features/client/values'
 import { saveSituationClaimDraft } from '../../localStorage'
 import { ClaimData, SituationClaimFields } from '../../types'
 import Common from '../Common'
@@ -41,13 +42,17 @@ const ClaimForm = ({
             claimData={claimData}
             styles={styles}
           />
-          <Health claimData={claimData} styles={styles} />
-          <History
-            removeSectionFromState={removeSectionFromState}
-            initial={initial}
-            claimData={claimData}
-            styles={styles}
-          />
+          {claimData.theme !== themeNamesMap.heredity && (
+            <>
+              <Health claimData={claimData} styles={styles} />
+              <History
+                removeSectionFromState={removeSectionFromState}
+                initial={initial}
+                claimData={claimData}
+                styles={styles}
+              />
+            </>
+          )}
           <Survey
             removeSectionFromState={removeSectionFromState}
             initial={initial}
