@@ -15,4 +15,6 @@ ENV PATH="./node_modules/.bin:$PATH"
 
 COPY --from=build /usr/src .
 
-CMD [ "pm2-docker", "start", "pm2.json" ]
+EXPOSE 3001
+
+CMD [ "pm2-docker", "start", "ecosystem.config.js" ]

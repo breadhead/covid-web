@@ -1,22 +1,19 @@
+import Button, { ButtonKind } from '@app/ui/atoms/Button'
 import * as React from 'react'
 import * as styles from './OpenSignUpModalButton.css'
-
-import NavLink from '@app/ui/atoms/NavLink'
 
 interface Props {
   openSignUp: () => void
 }
 
 const OpenSignUpModalButton = ({ openSignUp }: Props) => (
-  <button
-    type="button"
+  <Button
     className={styles.openSignUpButton}
     onClick={openSignUp}
+    kind={ButtonKind.Secondary}
   >
-    <NavLink href="" className={styles.link}>
-      Зарегистрироваться
-    </NavLink>
-  </button>
+    Зарегистрироваться
+  </Button>
 )
 
 export default OpenSignUpModalButton

@@ -1,23 +1,24 @@
 import * as React from 'react'
 
-import { Select as AntSelect } from 'antd'
-import { LabeledValue, OptionProps, SelectProps } from 'antd/lib/select'
+import { AutoComplete } from 'antd'
+import { AutoCompleteProps } from 'antd/lib/auto-complete'
+import { OptionProps } from 'antd/lib/select'
 
 import { toString } from 'lodash'
 
 import './HintInput.css?CSSModulesDisable'
 
-const { Option, OptGroup } = AntSelect
+const { Option } = AutoComplete
 
 interface OwnProps {
   name: string
-  options: LabeledValue[]
+  options: string[]
   className?: string
 }
 
 type Option = React.ReactElement<OptionProps>
 
-export type Props = OwnProps & SelectProps
+export type Props = OwnProps & AutoCompleteProps
 
 class HintInput extends React.Component<Props> {
   public state = {
@@ -26,33 +27,18 @@ class HintInput extends React.Component<Props> {
 
   public render() {
     const { name, className, options, ...rest } = this.props
-    const { value } = this.state
-
-    const optionsGroup =
-      value.length > 1 ? (
-        <OptGroup>
-          {options.map(option => (
-            <Option className="option" key={option.key} value={option.key}>
-              {option.label}
-            </Option>
-          ))}
-        </OptGroup>
-      ) : null
 
     return (
-      <AntSelect
+      <AutoComplete
         id={name}
-        showArrow={false}
+        dataSource={options}
         showSearch
-        dropdownClassName="hintInput"
+        className="hintInput"
         onSearch={this.onSearch}
-        maxTagCount={6}
         filterOption={this.filterOptions}
         notFoundContent={null}
         {...rest}
-      >
-        {optionsGroup}
-      </AntSelect>
+      />
     )
   }
 

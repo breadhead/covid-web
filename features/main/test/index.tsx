@@ -6,7 +6,7 @@ import { ButtonKind, ButtonSize } from '@app/ui/atoms/Button'
 import Checkbox from '@app/ui/atoms/Checkbox'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 import RadioButton from '@app/ui/atoms/RadioButton'
-import Select from '@app/ui/atoms/Select'
+import Select, { mapString } from '@app/ui/atoms/Select'
 import Switch from '@app/ui/atoms/Switch'
 import TextArea from '@app/ui/atoms/TextArea'
 
@@ -46,47 +46,16 @@ const testSelectOptions = [
 ]
 
 const testComboOptions = [
-  {
-    key: '1',
-    label: 'Первый пункт',
-  },
-  {
-    key: '2',
-    label: 'Второй пункт',
-  },
-  {
-    key: '3',
-    label:
-      'Третий пункт такой длинный по ширине и количеству символов, что не помещается в одну строку',
-  },
-  {
-    key: '4',
-    label: 'Четверый пункт',
-  },
-  {
-    key: '5',
-    label: 'Пепятый пункт',
-  },
-  {
-    key: '6',
-    label: 'Шестой пункт',
-  },
-  {
-    key: '7',
-    label: 'Седьмо пункт',
-  },
-  {
-    key: '8',
-    label: 'Воседьмой',
-  },
-  {
-    key: '9',
-    label: 'Девятый',
-  },
-  {
-    key: '10',
-    label: 'Десятый',
-  },
+  'Первый пункт',
+  'Второй пункт',
+  'Третий пункт такой длинный по ширине и количеству символов, что не помещается в одну строку',
+  'Четверый пункт',
+  'Пепятый пункт',
+  'Шестой пункт',
+  'Седьмо пункт',
+  'Воседьмой',
+  'Девятый',
+  'Десятый',
 ]
 
 const Test = ({ modal }: WithModalProps) => (
@@ -111,13 +80,13 @@ const Test = ({ modal }: WithModalProps) => (
       <p>Комбобокс</p>
       <Combobox
         placeholder="Выберите пункт"
-        options={testComboOptions}
+        options={testComboOptions.map(mapString)}
         name="combo2"
       />
       <br />
       <Combobox
         placeholder="Выберите пункт"
-        options={testComboOptions}
+        options={testComboOptions.map(mapString)}
         hintForEmptyValue="Начните вводить название населенного пункта и
               выберите подходящее значение из списка:"
         hint="Продолжайте вводить название, если не видите свой город:"
