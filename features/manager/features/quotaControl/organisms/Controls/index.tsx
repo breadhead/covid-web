@@ -18,6 +18,10 @@ interface Props
   nextStatus: () => void
   trelloUrl?: string
   assignedDoctor?: Doctor
+  id: string
+  editClaim: boolean
+  editAnswer: boolean
+  toQueue: boolean
 }
 
 const Controls = ({
@@ -30,6 +34,10 @@ const Controls = ({
   trelloUrl,
   allowEditing = true,
   assignedDoctor,
+  id,
+  editClaim,
+  editAnswer,
+  toQueue,
 }: Props) => (
   <div className={styles.plate}>
     <Buttons
@@ -40,6 +48,10 @@ const Controls = ({
       openBindQuota={openBindQuota}
       openCloseClaim={openCloseClaim}
       allowEditing={allowEditing}
+      id={id}
+      editClaim={editClaim}
+      editAnswer={editAnswer}
+      toQueue={toQueue}
     />
     {allowEditing && (
       <Corporate
