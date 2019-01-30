@@ -49,7 +49,7 @@ const createTreatment = ({
               text: surgical.region,
             },
             {
-              subtitle: 'Когда проходили это лечение',
+              subtitle: 'Когда делали операцию',
               text: yearMonthToString(surgical.when),
             },
             {
