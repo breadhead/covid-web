@@ -10,7 +10,8 @@ import { isModal } from '@app/features/common/modal'
 import * as yup from 'yup'
 import { withSignInModal } from '../signIn'
 
-export const MODAL_KEY = 'sign-up'
+import { MODAL_KEY } from './const'
+export { MODAL_KEY }
 
 export interface SignUpData {
   login: string
