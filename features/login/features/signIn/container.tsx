@@ -9,7 +9,8 @@ import * as yup from 'yup'
 import withSignUpModal, { WithSignUpModal } from '../signUp/withSignUpModal'
 import { getViolateState } from './selectors'
 
-export const MODAL_KEY = 'sign-in'
+import { MODAL_KEY } from './const'
+export { MODAL_KEY }
 
 const passwordRecoveryUrl = 'https://cabinet.nenaprasno.ru/restore'
 
