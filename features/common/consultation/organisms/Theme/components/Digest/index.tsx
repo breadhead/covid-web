@@ -26,8 +26,8 @@ const Digest = ({
 }: Props) => (
   <article className={cx(styles.article, customStyles.digest)}>
     <h2 className={styles.title}>Кратко о теме консультации</h2>
-    <div className={styles.content}>
-      <div className={styles.common}>
+    <div className={cx(styles.content, customStyles.container)}>
+      <div className={cx(styles.common, customStyles.info)}>
         <div className={styles.infoBlock}>
           <h3 className={styles.subtitle}>Для кого эта консультация</h3>
           <p className={styles.text}>{target}</p>
@@ -55,7 +55,7 @@ const Digest = ({
           </>
         )}
       </div>
-      <div>
+      <div className={customStyles.info}>
         <h3 className={styles.subtitle}>Заказчик</h3>
         <p className={styles.text}>{personalData.name}</p>
         <p className={styles.text}>{personalData.gender}</p>
