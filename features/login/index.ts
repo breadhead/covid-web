@@ -24,8 +24,8 @@ export {
 
 export { State, reducer } from './reducer'
 
-import { actions } from './features/user'
+import { actions, getRoles } from './features/user'
 
 const setToken = actions.setToken
 
-export { setToken }
+export { setToken, getRoles }

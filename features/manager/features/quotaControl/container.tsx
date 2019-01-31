@@ -5,11 +5,15 @@ import ClaimBoardCard from '@app/models/Claim/ClaimBoardCard'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { Doctor } from '@app/models/Users/Doctor'
+
 import React from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 
+import { getRoles } from '@app/features/login'
+import { Role } from '@app/models/Users/User'
 import { getAssignedDoctor } from '../chooseDoctor/selectors'
+import { canEditClaim } from './helpers/canEditClaim'
 import { getTrelloUrl } from './selectors'
 
 export const MODAL_KEY = 'bind-quota'
@@ -18,17 +22,15 @@ export interface ContainerProps {
   fetchClaimBoardCard: (id: string) => Promise<ClaimBoardCard>
   trelloUrl?: string
   assignedDoctor?: Doctor
+  roles: Role[]
 }
 
 const Container = (WrappedComponent: any) => {
   return class extends React.Component<ContainerProps> {
     public render() {
+      const { roles } = this.props
       const mainInfo: ListedClaim = (this.props as any).mainInfo || []
-      const editClaim = ![
-        ClaimStatus.Closed,
-        ClaimStatus.Denied,
-        ClaimStatus.DeliveredToCustomer,
-      ].includes(mainInfo.status)
+      const editClaim = canEditClaim(mainInfo.status, roles)
 
       const editAnswer = [ClaimStatus.AnswerWaiting].includes(mainInfo.status)
 
@@ -52,6 +54,7 @@ const mapState = (state: State) => ({
   assignedDoctor: getAssignedDoctor(state),
   id: getClaimId(state),
   mainInfo: getMainInfo(state),
+  roles: getRoles(state),
 })
 
 export default compose(
