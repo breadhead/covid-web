@@ -87,7 +87,7 @@ export const getNotificationsText = (info: ListedClaim): NotificationText => {
       title: `Ваша анкета принята на${NON_BREAKING_SPACE}консультацию`,
       text: `Мы будем сообщать вам о${NON_BREAKING_SPACE}ходе консультации по${NON_BREAKING_SPACE}электронной почте ${email}. Вы можете закрыть эту страницу и${NON_BREAKING_SPACE}дождаться нашего письма. В${NON_BREAKING_SPACE}среднем срок консультации — 3${NON_BREAKING_SPACE}рабочих дня.`,
     },
-    [ClaimStatus.AnswerWaiting]: {
+    [ClaimStatus.AnswerValidation]: {
       id: '9',
       image: '/static/images/expert-answered.png',
       title: `Ваша анкета принята на${NON_BREAKING_SPACE}консультацию`,

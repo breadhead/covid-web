@@ -4,8 +4,8 @@ import { Doctor } from '@app/models/Users/Doctor'
 import { WithQuotaTypeModal } from '../../../bindQuota'
 import { WithChooseDoctorModal } from '../../../chooseDoctor'
 import { WithCloseClaimModal } from '../../../closeClaim'
-import Buttons from '../../molecules/Buttons'
-import Corporate from '../../molecules/Corporate'
+import BottomRow from '../../molecules/BottomRow'
+import TopRow from '../../molecules/TopRow'
 import * as styles from './Controls.css'
 
 interface Props
@@ -24,42 +24,15 @@ interface Props
   toQueue: boolean
 }
 
-const Controls = ({
-  openBindQuota,
-  openCloseClaim,
-  openChooseDoctor,
-  allocationAvailable,
-  status,
-  nextStatus,
-  trelloUrl,
-  allowEditing = true,
-  assignedDoctor,
-  id,
-  editClaim,
-  editAnswer,
-  toQueue,
-}: Props) => (
+const Controls = (props: Props) => (
   <div className={styles.plate}>
-    <Buttons
-      trelloUrl={trelloUrl}
-      nextStatus={nextStatus}
-      status={status}
-      showBindQuota={allocationAvailable}
-      openBindQuota={openBindQuota}
-      openCloseClaim={openCloseClaim}
-      allowEditing={allowEditing}
-      id={id}
-      editClaim={editClaim}
-      editAnswer={editAnswer}
-      toQueue={toQueue}
-    />
-    {allowEditing && (
-      <Corporate
-        assignedDoctor={assignedDoctor}
-        openChooseDoctor={openChooseDoctor}
-      />
-    )}
+    <TopRow {...props} />
+    {props.allowEditing && <BottomRow {...props} />}
   </div>
 )
+
+Controls.defaultProps = {
+  allowEditing: true,
+}
 
 export default Controls
