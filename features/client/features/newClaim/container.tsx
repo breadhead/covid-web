@@ -95,6 +95,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
 
     private onFormSubmit = async (claimFields: ShortClaimFields) => {
       const request = this.createRequest(claimFields)
+
       const { id, quotaAllocated, personalData } = await this.props.createClaim(
         request as ShortClaimRequest,
       )
