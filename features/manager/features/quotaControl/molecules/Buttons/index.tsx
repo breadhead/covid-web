@@ -59,7 +59,11 @@ const Buttons = ({
             {showBindQuota && (
               <Button onClick={openBindQuota}>Выбрать квоту</Button>
             )}
-            {!!toQueue && <Button kind={ButtonKind.Extra}>В очередь</Button>}
+            {!!toQueue && (
+              <Button onClick={nextStatus} kind={ButtonKind.Extra}>
+                В очередь
+              </Button>
+            )}
             {nextAction && <Button onClick={nextStatus}>{nextAction}</Button>}
             {!closed && (
               <Button onClick={openCloseClaim} kind={ButtonKind.Extra}>
