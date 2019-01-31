@@ -5,6 +5,7 @@ import { AnyAction, compose, Dispatch } from 'redux'
 import { bindQuota as bindQuotaAction } from './actions'
 
 import { getClaimId } from '@app/features/common/consultation'
+import { getQuotaClaimId } from '@app/features/common/consultation/selectors'
 import { isModal, withModal, WithModalProps } from '@app/features/common/modal'
 import { BindQuotaRequest } from '@app/lib/api/request/BindQuotaRequest'
 
@@ -13,6 +14,7 @@ export const MODAL_KEY = 'bind-quota'
 export interface ContainerProps extends WithModalProps {
   bindQuota: (data: BindQuotaRequest) => Promise<void>
   claimId: string
+  quotaId: string
 }
 
 const Container = (WrappedComponent: any) => {
@@ -37,6 +39,7 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
 
 const mapState = (state: State) => ({
   claimId: getClaimId(state),
+  quotaId: getQuotaClaimId(state),
 })
 
 export default compose(
