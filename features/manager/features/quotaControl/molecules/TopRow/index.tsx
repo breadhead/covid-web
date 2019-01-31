@@ -1,13 +1,16 @@
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
+import { Doctor } from '@app/models/Users/Doctor'
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
 import Router from 'next/router'
 
 import Status from '../../atoms/Status'
-import * as styles from './Buttons.css'
+import { showSendToClientButton } from '../../helpers/showSendToClientButton'
+import { showChooseDoctorButton as showSendToExpertButton } from '../../helpers/showSendToExpertButton'
+import * as styles from './TopRow.css'
 interface Props {
   nextStatus: () => void
   openBindQuota: () => void
-  showBindQuota: boolean
+  allocationAvailable: boolean
   openCloseClaim: () => void
   status: ClaimStatus
   allowEditing?: boolean
@@ -16,17 +19,13 @@ interface Props {
   editClaim?: boolean
   editAnswer?: boolean
   toQueue?: boolean
+  assignedDoctor?: Doctor
+  openChooseDoctor: () => void
 }
 
-const defineNextStatusAction = (status: ClaimStatus) =>
-  (({
-    [ClaimStatus.QuestionnaireValidation]: 'Передать эксперту',
-    [ClaimStatus.AnswerWaiting]: 'Передать заказчику',
-  } as any)[status])
-
-const Buttons = ({
+const TopRow = ({
   openBindQuota,
-  showBindQuota,
+  allocationAvailable,
   openCloseClaim,
   nextStatus,
   status,
@@ -35,9 +34,10 @@ const Buttons = ({
   editClaim,
   editAnswer,
   toQueue,
+  openChooseDoctor,
+  assignedDoctor,
   id,
 }: Props) => {
-  const nextAction = defineNextStatusAction(status)
   const closed = [ClaimStatus.Closed, ClaimStatus.Denied].includes(status)
 
   return (
@@ -56,7 +56,7 @@ const Buttons = ({
         </div>
         {allowEditing && (
           <div className={styles.right}>
-            {showBindQuota && (
+            {allocationAvailable && (
               <Button onClick={openBindQuota}>Выбрать квоту</Button>
             )}
             {!!toQueue && (
@@ -64,7 +64,12 @@ const Buttons = ({
                 В очередь
               </Button>
             )}
-            {nextAction && <Button onClick={nextStatus}>{nextAction}</Button>}
+            {showSendToExpertButton(status, !!assignedDoctor) && (
+              <Button onClick={openChooseDoctor}>Передать эксперту</Button>
+            )}
+            {showSendToClientButton(status) && (
+              <Button onClick={nextStatus}>Передать заказчику</Button>
+            )}
             {!closed && (
               <Button onClick={openCloseClaim} kind={ButtonKind.Extra}>
                 Закрыть
@@ -95,4 +100,4 @@ const Buttons = ({
   )
 }
 
-export default Buttons
+export default TopRow
