@@ -8,6 +8,9 @@ import Claim from '@app/models/Claim/Claim'
 export const getQuotaClaim = (state: State) =>
   state.consultation.claimData.claim
 
+export const getQuotaClaimId = (state: State) =>
+  state.consultation.claimData.claim && state.consultation.claimData.claim.id
+
 export const getMainInfo = (state: State) =>
   state.consultation.claimData.mainInfo
 

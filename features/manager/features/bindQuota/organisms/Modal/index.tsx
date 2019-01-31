@@ -8,14 +8,15 @@ import SelectQuotaType from './SelectQuotaType'
 
 interface Props {
   onFormSubmit: (data: BindQuotaRequest) => Promise<void>
+  quotaId: string
 }
 
-const QuotaType = ({ onFormSubmit }: Props) => {
+const QuotaType = ({ onFormSubmit, quotaId }: Props) => {
   return (
     <section className={styles.popup}>
       <h1 className={styles.title}>Выберите тип квоты</h1>
 
-      <Form onSubmit={onFormSubmit as any}>
+      <Form onSubmit={onFormSubmit as any} initialValues={{ quotaId }}>
         {() => (
           <>
             <QuotasListContent
