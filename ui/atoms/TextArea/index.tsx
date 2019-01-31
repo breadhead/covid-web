@@ -33,7 +33,7 @@ const TextArea = ({
   name,
   label,
   error,
-  autosize = false,
+  autosize = true,
   disableResizeOnEnter,
   ...rest
 }: Props) => (

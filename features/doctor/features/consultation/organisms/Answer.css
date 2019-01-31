@@ -1,0 +1,7 @@
+.Answer {
+  margin-bottom: 64px;
+  margin-left: 16px;
+  @media (--smallDown) {
+    margin-bottom: 48px;
+  }
+}
