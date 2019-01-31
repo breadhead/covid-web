@@ -9,14 +9,13 @@ interface Props {
 }
 
 const ClosedButton = ({ claimId, className }: Props) => (
-  <Button className={className}>
-    <NavLink
-      href={`/client/consultation/${claimId}#expert-answers`}
-      type={NavLinkType.Nav}
-    >
-      Посмотреть ответы специалиста
-    </NavLink>
-  </Button>
+  <NavLink
+    href={`/client/consultation/${claimId}#expert-answers`}
+    type={NavLinkType.Nav}
+    className={className}
+  >
+    <Button>Посмотреть ответы специалиста</Button>
+  </NavLink>
 )
 
 export default ClosedButton

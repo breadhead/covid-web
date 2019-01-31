@@ -21,7 +21,7 @@ const STATUSES_WITH_VISIBLE_EXPERTS_BLOCK = [ClaimStatus.DeliveredToCustomer]
 
 const QuestionNotification = ({ mainInfo }: Props) =>
   STATUSES_WITH_VISIBLE_EXPERTS_BLOCK.includes(mainInfo.status) ? (
-    <article id="expert-answers" className={styles.questionNotification}>
+    <article className={styles.questionNotification}>
       <h3 className={styles.title}>
         Эксперт понятно ответил на все ваши вопросы?
       </h3>

@@ -10,7 +10,7 @@ const Donation = () => (
     <div id="donation" className={styles.donationWrapper}>
       <h2 className={styles.title}>Помочь проекту</h2>
       <div className={styles.content}>
-        <div id="nenaprasno_donation" className={styles.widget}>
+        <div className={styles.widget}>
           <DonationWidget />
         </div>
         <Info />

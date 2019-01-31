@@ -39,6 +39,10 @@
 .article {
   margin-bottom: 48px;
 
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
   @media (--smallDown) {
     margin-bottom: 24px;
   }
