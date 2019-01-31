@@ -13,7 +13,9 @@ const ContactsPage = () => (
       <title>Контакты | Просто спросить</title>
     </Head>
     <h1 className={styles.title}>Контакты</h1>
-    <YandexMap />
+    <div className={styles.mapContainer}>
+      <YandexMap />
+    </div>
     <FeedbackForm />
   </Layout>
 )
