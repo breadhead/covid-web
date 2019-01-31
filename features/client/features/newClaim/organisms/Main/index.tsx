@@ -1,7 +1,7 @@
 import { Select } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
 import ClaimTarget from '@app/models/Claim/ClaimTarget'
-import { mapEnum, mapString } from '@app/ui/atoms/Select'
+import { mapString } from '@app/ui/atoms/Select'
 import * as React from 'react'
 import { themes } from '../../../../values'
 import { ShortClaimFields } from '../ClaimForm'
@@ -32,7 +32,7 @@ const Main = ({ styles }: Props) => (
       className={styles.field}
       validate={schema.target}
       name="target"
-      options={Object.entries(ClaimTarget).map(mapEnum)}
+      options={Object.values(ClaimTarget).map(mapString)}
       placeholder="Выберите для кого консультация"
     />
 
