@@ -14,8 +14,8 @@ const renderControls = ({ quota, mainInfo: { status } }: Claim) => (
 
 const renderControlsWithAnswer = (claim: Claim) => (
   <>
-    {renderControls(claim)}
     <Answer claimId={claim.short.id} status={claim.mainInfo.status} />
+    {renderControls(claim)}
   </>
 )
 
