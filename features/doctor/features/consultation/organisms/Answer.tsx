@@ -10,7 +10,9 @@ interface Props {
 
 const Answer = ({ claimId, status }: Props) =>
   status !== ClaimStatus.DeliveredToCustomer ? (
-    <Button onClick={() => Router.push(`/doctor/answers/${claimId}`)}>
+    <Button
+      onClick={() => Router.push(`/doctor/answers/${claimId}#expert-answers`)}
+    >
       Заполнить ответ
     </Button>
   ) : null

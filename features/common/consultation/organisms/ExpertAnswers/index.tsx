@@ -33,7 +33,7 @@ const ExpertAnswers = ({ claim, renderCustomAnswer, title }: Props) => {
         {!!title && title}
         {!title && (answeredClaim ? 'Ответ эксперта' : 'Вопросы эксперту')}
       </h2>
-      <section id="#expert-answers" className={styles.expertAnswers}>
+      <section id="expert-answers" className={styles.expertAnswers}>
         {Object.entries(groups).map(([theme, questions]) => (
           <article key={theme} className={styles.article}>
             <h2 className={styles.title}>{theme}</h2>
