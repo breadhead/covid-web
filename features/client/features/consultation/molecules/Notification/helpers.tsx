@@ -81,5 +81,17 @@ export const getNotificationsText = (info: ListedClaim): NotificationText => {
       text: `Вы сможете заполнить анкету, когда Фонд профилактики рака найдет необходимые средства. Мы${NON_BREAKING_SPACE}стараемся сделать всё возможное, чтобы помочь каждому как можно скорее.
       Мы сообщим вам о${NON_BREAKING_SPACE}получении средств на${NON_BREAKING_SPACE}вашу консультацию по${NON_BREAKING_SPACE}почте ${email}.`,
     },
+    [ClaimStatus.AtTheDoctor]: {
+      id: '8',
+      image: '/static/images/expert-answered.png',
+      title: `Ваша анкета принята на${NON_BREAKING_SPACE}консультацию`,
+      text: `Мы будем сообщать вам о${NON_BREAKING_SPACE}ходе консультации по${NON_BREAKING_SPACE}электронной почте ${email}. Вы можете закрыть эту страницу и${NON_BREAKING_SPACE}дождаться нашего письма. В${NON_BREAKING_SPACE}среднем срок консультации — 3${NON_BREAKING_SPACE}рабочих дня.`,
+    },
+    [ClaimStatus.AnswerWaiting]: {
+      id: '9',
+      image: '/static/images/expert-answered.png',
+      title: `Ваша анкета принята на${NON_BREAKING_SPACE}консультацию`,
+      text: `Мы будем сообщать вам о${NON_BREAKING_SPACE}ходе консультации по${NON_BREAKING_SPACE}электронной почте ${email}. Вы можете закрыть эту страницу и${NON_BREAKING_SPACE}дождаться нашего письма. В${NON_BREAKING_SPACE}среднем срок консультации — 3${NON_BREAKING_SPACE}рабочих дня.`,
+    },
   } as NotificationMap)[status]
 }
