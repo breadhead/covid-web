@@ -18,8 +18,8 @@ const ExpertAnswers = ({ claim, renderCustomAnswer, title }: Props) => {
   const answeredClaim = answered(claim)
 
   const groups = groupQuestion([
-    ...claim.defaultQuestions,
-    ...claim.additionalQuestions.map(({ question, answer }) => ({
+    ...(claim.defaultQuestions || []),
+    ...(claim.additionalQuestions || []).map(({ question, answer }) => ({
       question: `Дополнительные вопросы: ${question}`,
       answer,
     })),

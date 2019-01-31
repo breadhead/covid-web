@@ -4,6 +4,6 @@ export default ({
   defaultQuestions,
   additionalQuestions,
 }: AnswerClaim): boolean =>
-  !![...defaultQuestions, ...additionalQuestions]
+  !![...(defaultQuestions || []), ...(additionalQuestions || [])]
     .map(({ answer }) => answer)
     .filter(Boolean).length
