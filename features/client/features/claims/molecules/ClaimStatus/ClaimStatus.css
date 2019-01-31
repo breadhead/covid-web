@@ -17,5 +17,6 @@
 
 .action {
   justify-self: flex-start;
+  white-space: nowrap !important;
 }
 

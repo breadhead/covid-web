@@ -1,8 +1,7 @@
-import Router from 'next/router'
-
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
 
+import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 import Messages from '../../atoms/Messages'
 import Point from '../../atoms/Point'
 import styles from './ClaimStatus.css'
@@ -28,13 +27,14 @@ const Status = ({ status, id, expireAt, email }: Props) => {
         subtitle={getSubtitle(status, { expireAt, email })}
       />
       {action && path && (
-        <Button
-          kind={active ? ButtonKind.Primary : ButtonKind.Secondary}
-          className={styles.action}
-          onClick={() => Router.push(path)}
-        >
-          {action}
-        </Button>
+        <NavLink type={NavLinkType.Nav} href={path}>
+          <Button
+            kind={active ? ButtonKind.Primary : ButtonKind.Secondary}
+            className={styles.action}
+          >
+            {action}
+          </Button>
+        </NavLink>
       )}
     </div>
   )
