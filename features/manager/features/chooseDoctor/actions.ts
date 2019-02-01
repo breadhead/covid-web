@@ -1,10 +1,11 @@
-import { getClaimId } from '@app/features/common/consultation'
+import { getClaimId, nextStatus } from '@app/features/common/consultation'
 import { getRoles } from '@app/features/login/features/user'
 import { ChooseDoctorRequest } from '@app/lib/api/request/ChooseDoctorRequest'
 import { ExtraArgs, State } from '@app/lib/store'
 import { Role } from '@app/models/Users/User'
 import { Dispatch } from 'redux'
 import { chooseActions, listActions } from './reducers'
+import { getAssignedDoctor } from './selectors'
 
 export const fetchDoctorsIfNeeded = () => async (
   dispatch: Dispatch<any>,
@@ -34,11 +35,21 @@ export const chooseDoctor = (data: ChooseDoctorRequest) => async (
   getState: () => State,
   { getApi }: ExtraArgs,
 ) => {
+  await dispatch(fetchDoctorsIfNeeded())
+
   const api = getApi(getState)
   dispatch(chooseActions.request())
+
+  const assignedDoctor = getAssignedDoctor(getState())
+
   try {
     await api.chooseDoctor(data)
+
     dispatch(chooseActions.success())
+
+    if (!assignedDoctor) {
+      await dispatch(nextStatus())
+    }
 
     dispatch(fetchDoctorsIfNeeded())
   } catch (error) {

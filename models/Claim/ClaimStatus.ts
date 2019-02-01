@@ -5,7 +5,7 @@ enum ClaimStatus {
   QuestionnaireWaiting = 'Ожидание анкеты',
   QuestionnaireValidation = 'Проверка анкеты',
   AtTheDoctor = 'У врача',
-  AnswerWaiting = 'Ожидание ответа',
+  AnswerValidation = 'Проверка ответа эксперта',
   DeliveredToCustomer = 'Передано заказчику',
   Denied = 'Отказ',
   QueueForQuota = 'В очереди на квоту',

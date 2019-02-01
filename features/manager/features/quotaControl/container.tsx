@@ -32,7 +32,9 @@ const Container = (WrappedComponent: any) => {
       const mainInfo: ListedClaim = (this.props as any).mainInfo || []
       const editClaim = canEditClaim(mainInfo.status, roles)
 
-      const editAnswer = [ClaimStatus.AnswerWaiting].includes(mainInfo.status)
+      const editAnswer = [ClaimStatus.AnswerValidation].includes(
+        mainInfo.status,
+      )
 
       const toQueue = [ClaimStatus.QuotaAllocation].includes(mainInfo.status)
 
