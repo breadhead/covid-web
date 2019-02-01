@@ -1,6 +1,6 @@
 import { ButtonKind } from '../ButtonKind'
 
-export const getKindClassname = (kind: ButtonKind): string =>
+export const getKindClassName = (kind: ButtonKind): string =>
   ({
     [ButtonKind.Primary]: 'primary',
     [ButtonKind.Secondary]: 'secondary',

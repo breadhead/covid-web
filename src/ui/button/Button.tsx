@@ -4,8 +4,8 @@ import React, { ReactNode } from 'react'
 import styles from './Button.css'
 import { ButtonKind } from './ButtonKind'
 import { ButtonSize } from './ButtonSize'
-import { getKindClassname } from './helpers/getKindClassname'
-import { getSizeClassname } from './helpers/getSizeClassname'
+import { getKindClassName } from './helpers/getKindClassName'
+import { getSizeClassName } from './helpers/getSizeClassName'
 
 interface Props {
   children: ReactNode
@@ -23,8 +23,8 @@ export const Button = ({
   <button
     className={cx(
       styles.button,
-      styles[getSizeClassname(size)],
-      styles[getKindClassname(kind)],
+      styles[getSizeClassName(size)],
+      styles[getKindClassName(kind)],
     )}
     onClick={onClick}
   >

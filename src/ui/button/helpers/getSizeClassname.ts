@@ -1,6 +1,6 @@
 import { ButtonSize } from '../ButtonSize'
 
-export const getSizeClassname = (size: ButtonSize): string =>
+export const getSizeClassName = (size: ButtonSize): string =>
   ({
     [ButtonSize.ExtraLarge]: 'extra-large',
     [ButtonSize.Large]: 'large',
