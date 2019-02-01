@@ -4,7 +4,8 @@ import { Dispatch } from 'redux'
 import { GENERIC_CLAIM_ERROR } from '@app/features/client/values'
 import { actions } from './reducer'
 
-const CODE_VALIDATION_ERROR = 'Проверьте правильность введённого кода'
+const CODE_VALIDATION_ERROR =
+  'Номер телефона введён неверно или на сайте возникли временные технические трудности'
 
 export const sendSms = (phone: string) => async (
   dispatch: Dispatch<any>,

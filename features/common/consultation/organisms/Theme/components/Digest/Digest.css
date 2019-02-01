@@ -1,7 +1,6 @@
 .digest {
-  max-width: 100%;
   padding-bottom: 96px;
-  margin: 0 120px 0 144px;
+  margin: 0 auto;
 
     &::after {
     position: absolute;
