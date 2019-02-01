@@ -31,7 +31,6 @@ const TopRow = ({
   status,
   trelloUrl,
   allowEditing = true,
-  editClaim,
   editAnswer,
   toQueue,
   openChooseDoctor,
@@ -79,14 +78,6 @@ const TopRow = ({
         )}
       </div>
       <div className={styles.buttons}>
-        {!!editClaim && (
-          <Button
-            onClick={() => Router.push(`/client/new-claim/${id}`)}
-            kind={ButtonKind.Extra}
-          >
-            Редактировать заявку
-          </Button>
-        )}
         {!!editAnswer && (
           <Button
             onClick={() => Router.push(`/doctor/answers/${id}`)}
