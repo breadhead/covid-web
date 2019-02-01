@@ -9,7 +9,6 @@ import Form from '@app/features/common/form/components/Form'
 import Input from '@app/features/common/form/components/Input'
 import OpenModalButton from '@app/features/login/atoms/OpenModalButton'
 import Footer from '@app/features/login/organisms/Footer'
-import LoginButton from '@app/features/main/layout/organisms/Header/atoms/LoginButton'
 import { SPACE } from '@app/lib/config'
 import { ButtonType } from '@app/ui/atoms/Button'
 import { schema } from '../../container'
@@ -55,8 +54,8 @@ const SignUp = ({ onFormSubmit, error, openSignIn }: Props) => (
           {!!error && error.code === ACCOUNT_EXISTS_STATUS && (
             <div className={styles.error}>
               У вас есть аккаунт на нашем основном сайте nenaprasno.ru,{' '}
-              <LoginButton className={styles.loginButton} />, используя те же
-              данные
+              <OpenModalButton onClick={openSignIn}>Войти</OpenModalButton>,
+              используя те же данные
             </div>
           )}
           <ButtonWithTooltip
