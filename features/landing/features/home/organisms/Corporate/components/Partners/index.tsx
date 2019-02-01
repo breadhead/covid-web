@@ -15,7 +15,7 @@ const Partners = () => (
       и{NON_BREAKING_SPACE}компаний-партнёров
     </h2>
     <p className={styles.subtitle}>
-      На 2019 год запланировано 2750 консультаций
+      На 2019 год запланировано 5000 консультаций
     </p>
     <Count />
     <PartnersList />
