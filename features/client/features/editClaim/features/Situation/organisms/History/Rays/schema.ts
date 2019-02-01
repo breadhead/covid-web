@@ -12,5 +12,5 @@ export const schema = {
     month: yup.number().required(REQUIRED),
     year: yup.number().required(REQUIRED),
   },
-  schema: yup.string().required(REQUIRED),
+  schema: yup.string(),
 }
