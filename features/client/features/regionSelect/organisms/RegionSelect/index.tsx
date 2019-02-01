@@ -2,6 +2,7 @@ import { Props } from '@app/features/client/features/regionSelect/container'
 import { Select } from '@app/features/common/form'
 import { mapString } from '@app/ui/atoms/Select'
 import Switch from '@app/ui/atoms/Switch'
+import cx from 'classnames'
 import * as React from 'react'
 import { countries } from './countries'
 import { regions } from './regions'
@@ -17,7 +18,10 @@ const RegionSelect = ({
   validate,
 }: Props) => (
   <>
-    <label htmlFor="personalData.russia" className={styles.label}>
+    <label
+      htmlFor="personalData.russia"
+      className={cx(styles.label, styles.field)}
+    >
       {textSwitch}
     </label>
     <Switch

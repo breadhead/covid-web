@@ -35,7 +35,6 @@ const Patient = ({ initial, styles }: Props) => (
       Есть установленный врачом онкологический диагноз?
     </label>
     <EmergingFormElement
-      className={styles.field}
       validate={schema.localizationPresence}
       controlType={EmergingControlTypes.Radiogroup}
       name="localizationPresence"
