@@ -29,11 +29,20 @@ const Controls = (props: Props) => (
   <>
     {!!props.editClaim && (
       <Button
-        className={styles.editClaimButton}
+        className={styles.button}
         onClick={() => Router.push(`/client/new-claim/${props.id}`)}
         kind={ButtonKind.Extra}
       >
         Редактировать заявку
+      </Button>
+    )}
+    {!!props.editAnswer && (
+      <Button
+        className={styles.button}
+        onClick={() => Router.push(`/doctor/answers/${props.id}`)}
+        kind={ButtonKind.Extra}
+      >
+        Редактировать ответ
       </Button>
     )}
     <div className={styles.plate}>
