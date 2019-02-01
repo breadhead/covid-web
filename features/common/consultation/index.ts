@@ -27,3 +27,6 @@ export const reducer = combineReducers({
 
 export { fetchQuotaClaim, fetchClaim, nextStatus } from './actions'
 export { getClaimId, getClaim, getClaimStatus } from './selectors'
+export {
+  makeQuestionGroups,
+} from './organisms/ExpertAnswers/helpers/makeQuestionGroups'

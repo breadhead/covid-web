@@ -1,7 +1,6 @@
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { Doctor } from '@app/models/Users/Doctor'
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
-import Router from 'next/router'
 
 import Status from '../../atoms/Status'
 import { showSendToClientButton } from '../../helpers/showSendToClientButton'
@@ -21,6 +20,7 @@ interface Props {
   toQueue?: boolean
   assignedDoctor?: Doctor
   openChooseDoctor: () => void
+  quotaName?: string
 }
 
 const TopRow = ({
@@ -31,11 +31,10 @@ const TopRow = ({
   status,
   trelloUrl,
   allowEditing = true,
-  editAnswer,
   toQueue,
   openChooseDoctor,
+  quotaName,
   assignedDoctor,
-  id,
 }: Props) => {
   const closed = [ClaimStatus.Closed, ClaimStatus.Denied].includes(status)
 
@@ -55,7 +54,7 @@ const TopRow = ({
         </div>
         {allowEditing && (
           <div className={styles.right}>
-            {allocationAvailable && (
+            {allocationAvailable && !quotaName && (
               <Button onClick={openBindQuota}>Выбрать квоту</Button>
             )}
             {!!toQueue && (
@@ -75,16 +74,6 @@ const TopRow = ({
               </Button>
             )}
           </div>
-        )}
-      </div>
-      <div className={styles.buttons}>
-        {!!editAnswer && (
-          <Button
-            onClick={() => Router.push(`/doctor/answers/${id}`)}
-            kind={ButtonKind.Extra}
-          >
-            Редактировать ответ
-          </Button>
         )}
       </div>
     </>

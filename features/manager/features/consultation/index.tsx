@@ -10,6 +10,7 @@ const renderControlsSubHeader = ({ mainInfo: { status } }: Claim) => (
   <Control
     status={status}
     allocationAvailable={![ClaimStatus.Denied].includes(status)}
+    allowAnswerEditing={true}
   />
 )
 const renderControlsFooter = ({ mainInfo: { status } }: Claim) => (
@@ -18,6 +19,7 @@ const renderControlsFooter = ({ mainInfo: { status } }: Claim) => (
       position={Position.Footer}
       status={status}
       allocationAvailable={![ClaimStatus.Denied].includes(status)}
+      allowAnswerEditing={true}
     />
   </div>
 )

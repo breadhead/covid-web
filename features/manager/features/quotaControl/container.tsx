@@ -1,5 +1,8 @@
 import { getClaimId } from '@app/features/common/consultation'
-import { getMainInfo } from '@app/features/common/consultation/selectors'
+import {
+  getMainInfo,
+  getQuotaName,
+} from '@app/features/common/consultation/selectors'
 import { State } from '@app/lib/store'
 import ClaimBoardCard from '@app/models/Claim/ClaimBoardCard'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
@@ -24,18 +27,20 @@ export interface ContainerProps {
   assignedDoctor?: Doctor
   roles: Role[]
   position?: Position
+  allowAnswerEditing?: boolean
 }
 
 const Container = (WrappedComponent: any) => {
   return class extends React.Component<ContainerProps> {
     public render() {
-      const { roles, position } = this.props
+      const { roles, position, allowAnswerEditing } = this.props
       const mainInfo: ListedClaim = (this.props as any).mainInfo || []
       const editClaim = canEditClaim(mainInfo.status, roles, position)
 
-      const editAnswer = [ClaimStatus.AnswerValidation].includes(
-        mainInfo.status,
-      )
+      const editAnswer =
+        ClaimStatus.AnswerValidation === mainInfo.status &&
+        position === Position.Footer &&
+        allowAnswerEditing
 
       const toQueue = [ClaimStatus.QuotaAllocation].includes(mainInfo.status)
 
@@ -58,6 +63,7 @@ const mapState = (state: State) => ({
   id: getClaimId(state),
   mainInfo: getMainInfo(state),
   roles: getRoles(state),
+  quotaName: getQuotaName(state),
 })
 
 export default compose(
