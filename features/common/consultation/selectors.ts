@@ -11,6 +11,9 @@ export const getQuotaClaim = (state: State) =>
 export const getQuotaClaimId = (state: State) =>
   state.consultation.claimData.claim && state.consultation.claimData.claim.id
 
+export const getQuotaName = (state: State) =>
+  state.consultation.claimData.claim && state.consultation.claimData.claim.name
+
 export const getMainInfo = (state: State) =>
   state.consultation.claimData.mainInfo
 

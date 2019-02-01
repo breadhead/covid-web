@@ -20,6 +20,7 @@ interface Props {
   toQueue?: boolean
   assignedDoctor?: Doctor
   openChooseDoctor: () => void
+  quotaName?: string
 }
 
 const TopRow = ({
@@ -32,6 +33,7 @@ const TopRow = ({
   allowEditing = true,
   toQueue,
   openChooseDoctor,
+  quotaName,
   assignedDoctor,
 }: Props) => {
   const closed = [ClaimStatus.Closed, ClaimStatus.Denied].includes(status)
@@ -52,7 +54,7 @@ const TopRow = ({
         </div>
         {allowEditing && (
           <div className={styles.right}>
-            {allocationAvailable && (
+            {allocationAvailable && !quotaName && (
               <Button onClick={openBindQuota}>Выбрать квоту</Button>
             )}
             {!!toQueue && (
