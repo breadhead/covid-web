@@ -62,20 +62,24 @@ const Patient = ({ initial, styles }: Props) => (
       textCountry="Страна проживания"
       textSwitch="Проживание в России?"
     />
-    <label htmlFor="personalData.age" className={styles.label}>
+    <label
+      htmlFor="personalData.age"
+      className={cx(styles.label, styles.field)}
+    >
       Возраст (полных лет)
     </label>
     <Input
-      className={styles.field}
       validate={schema.age}
       name="personalData.age"
       type={InputType.Number}
     />
-    <label htmlFor="personalData.gender" className={styles.label}>
+    <label
+      htmlFor="personalData.gender"
+      className={cx(styles.label, styles.field)}
+    >
       Пол
     </label>
     <RadioGroup
-      className={styles.field}
       validate={schema.gender}
       name="personalData.gender"
       buttons={genderRadioGroup}

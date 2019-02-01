@@ -25,18 +25,16 @@ const RegionSelect = ({
       {textSwitch}
     </label>
     <Switch
-      className={styles.field}
       name="personalData.russia"
       onChange={onChangeInRussia}
       checked={clientInRussia}
     />
     {clientInRussia && (
       <>
-        <label htmlFor={name} className={styles.label}>
+        <label htmlFor={name} className={cx(styles.label, styles.field)}>
           {textRegion}
         </label>
         <Select
-          className={styles.field}
           validate={validate}
           name={name}
           options={regions.map(mapString)}
@@ -46,11 +44,10 @@ const RegionSelect = ({
     )}
     {!clientInRussia && (
       <>
-        <label htmlFor={name} className={styles.label}>
+        <label htmlFor={name} className={cx(styles.label, styles.field)}>
           {textCountry}
         </label>
         <Select
-          className={styles.field}
           validate={validate}
           name={name}
           options={countries.map(mapString)}
