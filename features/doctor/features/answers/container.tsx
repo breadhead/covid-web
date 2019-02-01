@@ -1,3 +1,4 @@
+import { State } from '@app/lib/store'
 import Router from 'next/router'
 import * as React from 'react'
 import { connect } from 'react-redux'
@@ -6,6 +7,7 @@ import { AnyAction, Dispatch } from 'redux'
 
 import { AnswerRequest } from '@app/lib/api/request/AnswerRequest'
 
+import { getClaimStatus } from '@app/features/common/consultation'
 import { answerQuestions } from './actions'
 import { Fields, Props as FormProps } from './organisms/Answers'
 
@@ -13,7 +15,7 @@ interface OwnProps {
   sendAnswers: (request: AnswerRequest) => Promise<void>
 }
 
-type ExternalProps = Pick<FormProps, 'claim'>
+type ExternalProps = Pick<FormProps, 'claim' | 'claimStatus'>
 
 type Props = OwnProps & ExternalProps
 
@@ -46,9 +48,13 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
     dispatch(answerQuestions(request) as any),
 })
 
+const mapState = (state: State) => ({
+  claimStatus: getClaimStatus(state),
+})
+
 export default compose<FormProps, ExternalProps>(
   connect(
-    null,
+    mapState,
     mapDispatch,
   ),
   Container,

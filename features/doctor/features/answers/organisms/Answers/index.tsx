@@ -14,6 +14,7 @@ import {
 import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
 import Button from '@app/ui/atoms/Button'
 
+import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { makeFieldName } from '../../helpers/makeFieldName'
 import { makeInitialValues } from '../../helpers/makeInitialValues'
 import * as styles from './Answers.css'
@@ -27,41 +28,46 @@ export interface Fields {
 
 export interface Props {
   claim: AnswerClaim
+  claimStatus?: ClaimStatus
   onSubmit: (fields: Fields) => Promise<any>
 }
 
-const Answers = ({ claim, onSubmit }: Props) => (
-  <Form
-    onSubmit={onSubmit as any}
-    initialValues={claim && makeInitialValues(makeQuestionGroups(claim))}
-  >
-    {() => (
-      <>
-        <ExpertAnswers
-          claim={claim}
-          title="Вопросы эксперту"
-          renderCustomAnswer={(theme, { question }) => (
-            <TextArea
-              validate={yup.string().required('Обязательное поле')}
-              className={styles.textarea}
-              name={makeFieldName(theme, question)}
-            />
-          )}
-        />
-        <div className={styles.controls}>
-          <ButtonWithTooltip type={ButtonType.Submit}>
-            Отправить ответ
-          </ButtonWithTooltip>
-          <Button
-            kind={ButtonKind.Secondary}
-            onClick={() => Router.push(`/doctor/consultation/${claim.id}`)}
-          >
-            Отменить
-          </Button>
-        </div>
-      </>
-    )}
-  </Form>
-)
+const Answers = ({ claim, onSubmit, claimStatus }: Props) => {
+  const answerSent = claimStatus === ClaimStatus.AnswerValidation
+
+  return (
+    <Form
+      onSubmit={onSubmit as any}
+      initialValues={claim && makeInitialValues(makeQuestionGroups(claim))}
+    >
+      {() => (
+        <>
+          <ExpertAnswers
+            claim={claim}
+            title="Вопросы эксперту"
+            renderCustomAnswer={(theme, { question }) => (
+              <TextArea
+                validate={yup.string().required('Обязательное поле')}
+                className={styles.textarea}
+                name={makeFieldName(theme, question)}
+              />
+            )}
+          />
+          <div className={styles.controls}>
+            <ButtonWithTooltip type={ButtonType.Submit}>
+              {answerSent ? 'Сохранить изменения' : 'Отправить ответ'}
+            </ButtonWithTooltip>
+            <Button
+              kind={ButtonKind.Secondary}
+              onClick={() => Router.push(`/consultation/redirect/${claim.id}`)}
+            >
+              {answerSent ? 'Отменить изменения' : 'Сохранить изменения'}
+            </Button>
+          </div>
+        </>
+      )}
+    </Form>
+  )
+}
 
 export default Answers
