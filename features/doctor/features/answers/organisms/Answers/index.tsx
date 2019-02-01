@@ -1,6 +1,10 @@
 import Router from 'next/router'
+import * as yup from 'yup'
 
-import { ExpertAnswers } from '@app/features/common/consultation'
+import {
+  ExpertAnswers,
+  makeQuestionGroups,
+} from '@app/features/common/consultation'
 import { Form, TextArea } from '@app/features/common/form'
 import {
   ButtonKind,
@@ -10,6 +14,8 @@ import {
 import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
 import Button from '@app/ui/atoms/Button'
 
+import { makeFieldName } from '../../helpers/makeFieldName'
+import { makeInitialValues } from '../../helpers/makeInitialValues'
 import * as styles from './Answers.css'
 
 interface Answers {
@@ -22,11 +28,13 @@ export interface Fields {
 export interface Props {
   claim: AnswerClaim
   onSubmit: (fields: Fields) => Promise<any>
-  error?: string
 }
 
-const Answers = ({ claim, onSubmit, error }: Props) => (
-  <Form onSubmit={onSubmit as any}>
+const Answers = ({ claim, onSubmit }: Props) => (
+  <Form
+    onSubmit={onSubmit as any}
+    initialValues={claim && makeInitialValues(makeQuestionGroups(claim))}
+  >
     {() => (
       <>
         <ExpertAnswers
@@ -34,13 +42,14 @@ const Answers = ({ claim, onSubmit, error }: Props) => (
           title="Вопросы эксперту"
           renderCustomAnswer={(theme, { question }) => (
             <TextArea
+              validate={yup.string().required('Обязательное поле')}
               className={styles.textarea}
-              name={`answers[${theme}: ${question}]`}
+              name={makeFieldName(theme, question)}
             />
           )}
         />
         <div className={styles.controls}>
-          <ButtonWithTooltip error={error} type={ButtonType.Submit}>
+          <ButtonWithTooltip type={ButtonType.Submit}>
             Отправить ответ
           </ButtonWithTooltip>
           <Button

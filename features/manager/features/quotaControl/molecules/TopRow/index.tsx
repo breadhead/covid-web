@@ -1,7 +1,6 @@
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { Doctor } from '@app/models/Users/Doctor'
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
-import Router from 'next/router'
 
 import Status from '../../atoms/Status'
 import { showSendToClientButton } from '../../helpers/showSendToClientButton'
@@ -31,11 +30,9 @@ const TopRow = ({
   status,
   trelloUrl,
   allowEditing = true,
-  editAnswer,
   toQueue,
   openChooseDoctor,
   assignedDoctor,
-  id,
 }: Props) => {
   const closed = [ClaimStatus.Closed, ClaimStatus.Denied].includes(status)
 
@@ -75,16 +72,6 @@ const TopRow = ({
               </Button>
             )}
           </div>
-        )}
-      </div>
-      <div className={styles.buttons}>
-        {!!editAnswer && (
-          <Button
-            onClick={() => Router.push(`/doctor/answers/${id}`)}
-            kind={ButtonKind.Extra}
-          >
-            Редактировать ответ
-          </Button>
         )}
       </div>
     </>

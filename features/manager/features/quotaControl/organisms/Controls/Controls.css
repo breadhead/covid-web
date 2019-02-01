@@ -10,7 +10,10 @@
   }
 }
 
-.editClaimButton {
+.button {
+  display: inline-block !important;
+  margin-right: 12px !important;
+
   margin-bottom: 64px;
   @media (--smallDown) {
     margin-bottom: 48px;

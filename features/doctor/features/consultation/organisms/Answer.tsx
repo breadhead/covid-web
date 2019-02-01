@@ -10,7 +10,8 @@ interface Props {
 }
 
 const Answer = ({ claimId, status }: Props) =>
-  status !== ClaimStatus.DeliveredToCustomer ? (
+  status !== ClaimStatus.DeliveredToCustomer &&
+  status !== ClaimStatus.AnswerValidation ? (
     <Button
       className={styles.Answer}
       onClick={() => Router.push(`/doctor/answers/${claimId}`)}
