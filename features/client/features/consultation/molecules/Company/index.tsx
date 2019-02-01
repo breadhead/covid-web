@@ -9,8 +9,10 @@ interface Props {
   quotaClaim: QuotaClaim
 }
 
-const Company = ({ quotaClaim: { name, comment, site, logo } }: Props) =>
-  !!name ? (
+const Company = ({
+  quotaClaim: { name, comment, site, logo, publicCompany },
+}: Props) =>
+  !!name && publicCompany ? (
     <article className={styles.company}>
       {!!logo && <CompanyLogo logo={logo} site={site} name={name} />}
       <p className={styles.text}>
