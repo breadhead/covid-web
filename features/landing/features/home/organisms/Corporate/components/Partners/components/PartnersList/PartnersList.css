@@ -10,7 +10,8 @@
   }
 }
 
-.buttonWrapper {  
+.buttonWrapper { 
+  width: 176px;
   @media (--smallDown) {
     padding-right: 16px;
   }

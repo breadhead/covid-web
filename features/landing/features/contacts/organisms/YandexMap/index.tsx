@@ -34,9 +34,9 @@ class YandexMap extends React.Component {
               <p className={styles.text}>
                 <ExternalLink
                   className={styles.link}
-                  href="mailto:fond@nenaprasno.ru"
+                  href="mailto:ask@nenaprasno.ru"
                 >
-                  fond@nenaprasno.ru
+                  ask@nenaprasno.ru
                 </ExternalLink>
               </p>
               <p className={styles.text}>
