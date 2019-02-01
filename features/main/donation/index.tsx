@@ -11,7 +11,7 @@ const DonationWidget = () => (
       }}
     />
     <iframe
-      src="http://nenaprasno.ru/nenaprasno_donation/donation_form.php"
+      src="//nenaprasno.ru/nenaprasno_donation/donation_form.php"
       height="560"
       width="423"
       scrolling="no"
