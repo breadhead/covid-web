@@ -8,8 +8,19 @@ const prohibitedStatuses = [
   ClaimStatus.DeliveredToCustomer,
 ]
 
-const canEditClaim = (claimStatus: ClaimStatus, roles: Role[]) => {
-  return checkStatus(claimStatus) && checkRoles(roles)
+enum Position {
+  Footer = 'Footer',
+  Header = 'Header',
+}
+
+const canEditClaim = (
+  claimStatus: ClaimStatus,
+  roles: Role[],
+  position?: Position,
+) => {
+  return (
+    checkStatus(claimStatus) && checkRoles(roles) && checkPosition(position)
+  )
 }
 const checkRoles = (roles: Role[]) => {
   return !(roles.includes(Role.Doctor) && size(roles) === 1)
@@ -19,4 +30,6 @@ const checkStatus = (claimStatus: ClaimStatus) => {
   return !prohibitedStatuses.includes(claimStatus)
 }
 
-export { canEditClaim }
+const checkPosition = (position?: Position) => position === Position.Footer
+
+export { canEditClaim, Position }

@@ -1,6 +1,7 @@
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
-
 import { Doctor } from '@app/models/Users/Doctor'
+import Button, { ButtonKind } from '@app/ui/atoms/Button'
+import Router from 'next/router'
 import { WithQuotaTypeModal } from '../../../bindQuota'
 import { WithChooseDoctorModal } from '../../../chooseDoctor'
 import { WithCloseClaimModal } from '../../../closeClaim'
@@ -25,10 +26,21 @@ interface Props
 }
 
 const Controls = (props: Props) => (
-  <div className={styles.plate}>
-    <TopRow {...props} />
-    {props.allowEditing && <BottomRow {...props} />}
-  </div>
+  <>
+    {!!props.editClaim && (
+      <Button
+        className={styles.editClaimButton}
+        onClick={() => Router.push(`/client/new-claim/${props.id}`)}
+        kind={ButtonKind.Extra}
+      >
+        Редактировать заявку
+      </Button>
+    )}
+    <div className={styles.plate}>
+      <TopRow {...props} />
+      {props.allowEditing && <BottomRow {...props} />}
+    </div>{' '}
+  </>
 )
 
 Controls.defaultProps = {

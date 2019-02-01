@@ -4,18 +4,28 @@ import ClaimStatus from '@app/models/Claim/ClaimStatus'
 
 import Layout from '../../organisms/Layout'
 import Control from '../quotaControl'
+import { Position } from '../quotaControl/helpers/canEditClaim'
 
-const renderControls = ({ mainInfo: { status } }: Claim) => (
+const renderControlsSubHeader = ({ mainInfo: { status } }: Claim) => (
   <Control
     status={status}
     allocationAvailable={![ClaimStatus.Denied].includes(status)}
   />
 )
+const renderControlsFooter = ({ mainInfo: { status } }: Claim) => (
+  <div>
+    <Control
+      position={Position.Footer}
+      status={status}
+      allocationAvailable={![ClaimStatus.Denied].includes(status)}
+    />
+  </div>
+)
 
 const ClientConsultation = createConsultationPage(
   {
-    renderSubHeader: renderControls,
-    renderFooter: renderControls,
+    renderSubHeader: renderControlsSubHeader,
+    renderFooter: renderControlsFooter,
   },
   Layout as any,
 )
