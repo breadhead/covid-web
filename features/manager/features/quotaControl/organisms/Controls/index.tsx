@@ -23,6 +23,7 @@ interface Props
   editClaim: boolean
   editAnswer: boolean
   toQueue: boolean
+  quotaName?: string
 }
 
 const Controls = (props: Props) => (

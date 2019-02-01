@@ -1,5 +1,8 @@
 import { getClaimId } from '@app/features/common/consultation'
-import { getMainInfo } from '@app/features/common/consultation/selectors'
+import {
+  getMainInfo,
+  getQuotaName,
+} from '@app/features/common/consultation/selectors'
 import { State } from '@app/lib/store'
 import ClaimBoardCard from '@app/models/Claim/ClaimBoardCard'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
@@ -60,6 +63,7 @@ const mapState = (state: State) => ({
   id: getClaimId(state),
   mainInfo: getMainInfo(state),
   roles: getRoles(state),
+  quotaName: getQuotaName(state),
 })
 
 export default compose(
