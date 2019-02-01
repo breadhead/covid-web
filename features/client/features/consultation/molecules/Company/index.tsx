@@ -10,14 +10,15 @@ interface Props {
 }
 
 const Company = ({
-  quotaClaim: { name, comment, site, logo, publicCompany },
+  quotaClaim: { name, companyComment, site, logo, publicCompany },
 }: Props) =>
   !!name && publicCompany ? (
     <article className={styles.company}>
       {!!logo && <CompanyLogo logo={logo} site={site} name={name} />}
       <p className={styles.text}>
-        {!comment && `Средства на консультацию предоставлены компанией ${name}`}
-        {!!comment && comment}
+        {!companyComment &&
+          `Средства на консультацию предоставлены компанией ${name}`}
+        {!!companyComment && companyComment}
       </p>
     </article>
   ) : null

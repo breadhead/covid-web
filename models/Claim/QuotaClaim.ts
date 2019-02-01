@@ -6,4 +6,5 @@ export interface QuotaClaim {
   logo?: string
   site?: string
   publicCompany?: boolean
+  companyComment?: string
 }
