@@ -61,3 +61,15 @@ storiesOf('Button', module)
       </Button>
     </>
   ))
+
+storiesOf('Button/States', module).add('Disabled', () => (
+  <>
+    <Button disabled>Кнопка</Button>
+    <Button disabled kind={ButtonKind.Secondary}>
+      Кнопка
+    </Button>
+    <Button disabled kind={ButtonKind.Extra}>
+      Кнопка
+    </Button>
+  </>
+))

@@ -12,12 +12,14 @@ interface Props {
   size?: ButtonSize
   kind?: ButtonKind
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined
+  disabled?: boolean
 }
 
 export const Button = ({
   children,
   size = ButtonSize.Medium,
   kind = ButtonKind.Primary,
+  disabled = false,
   onClick,
 }: Props) => (
   <button
@@ -25,8 +27,10 @@ export const Button = ({
       styles.button,
       styles[getSizeClassName(size)],
       styles[getKindClassName(kind)],
+      disabled && styles.disabled,
     )}
     onClick={onClick}
+    disabled={disabled}
   >
     {children}
   </button>
