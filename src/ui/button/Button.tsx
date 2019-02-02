@@ -13,6 +13,7 @@ interface Props {
   kind?: ButtonKind
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void | undefined
   disabled?: boolean
+  submit?: boolean
 }
 
 export const Button = ({
@@ -20,6 +21,7 @@ export const Button = ({
   size = ButtonSize.Medium,
   kind = ButtonKind.Primary,
   disabled = false,
+  submit = false,
   onClick,
 }: Props) => (
   <button
@@ -30,6 +32,7 @@ export const Button = ({
     )}
     onClick={onClick}
     disabled={disabled}
+    type={submit ? 'submit' : 'button'}
   >
     {children}
   </button>
