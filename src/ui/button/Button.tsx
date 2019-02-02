@@ -27,7 +27,6 @@ export const Button = ({
       styles.button,
       styles[getSizeClassName(size)],
       styles[getKindClassName(kind)],
-      disabled && styles.disabled,
     )}
     onClick={onClick}
     disabled={disabled}
