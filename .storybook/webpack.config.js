@@ -16,5 +16,5 @@ module.exports = (baseConfig, env, config) => {
     rule => !rule.test.toString().includes('css$'),
   )
 
-  return withCSS({ cssModules: true }).lwebpack(config, { defaultLoaders: {} })
+  return withCSS({ cssModules: true }).webpack(config, { defaultLoaders: {} })
 }
