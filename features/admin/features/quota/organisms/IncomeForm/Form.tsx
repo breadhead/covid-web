@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { Form, Input, InputType } from '@app/features/common/form'
-import Button, { ButtonType } from '@app/ui/atoms/Button'
+import { Button } from '@front/ui/atoms/button'
 
 import styles from './Form.css'
 
@@ -23,7 +23,7 @@ const IncomeForm: React.SFC<IncomeFormProps> = ({ onFormSubmit }) => (
           label="Количество квот"
           className={styles.input}
         />
-        <Button type={ButtonType.Submit}>Добавить</Button>
+        <Button submit>Добавить</Button>
       </>
     )}
   </Form>
