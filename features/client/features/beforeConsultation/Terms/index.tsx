@@ -12,6 +12,8 @@ import NavLink, { TargetType } from '@app/ui/atoms/NavLink'
 
 import styles from './Terms.css'
 
+import { NON_BREAKING_SPACE } from '@app/lib/config'
+
 interface Fields {
   consultationTerms: boolean
   personalDataConditions: boolean
@@ -89,6 +91,9 @@ class Terms extends React.Component<Props, State> {
   }
 
   private getError = () =>
-    this.state.failed ? 'Пожалуйста, примите условия' : undefined
+    this.state.failed
+      ? `Пожалуйста, подтвердите своё согласие с${NON_BREAKING_SPACE} условиями предоставления консультации`
+      : undefined
 }
+
 export default Terms
