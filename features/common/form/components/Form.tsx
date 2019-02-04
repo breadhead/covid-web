@@ -4,13 +4,13 @@ import {
 } from '@breadhead/form-saver'
 import React, { Component, createRef } from 'react'
 import { Form as FinalForm, FormProps, FormSpy } from 'react-final-form'
-
 import { FORM_ERROR_CLASSNAME } from '../../formHOCs/withFinalForm'
 import WithScrollToInvalid from '../../formHOCs/withScrollToInvalid'
 
 interface ChildrenPropsArgs {
   removeSectionFromState: RemoveSection
   values: any
+  changeField: (name: string, value?: any) => void
 }
 
 export type RemoveSection = (key: number, name: string) => () => void
@@ -70,6 +70,7 @@ class Form extends Component<Props> {
               )}
               {children({
                 removeSectionFromState: this.removeSection(form.change, values),
+                changeField: form.change,
                 values,
               })}
             </form>
