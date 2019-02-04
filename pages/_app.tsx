@@ -16,6 +16,7 @@ import { createSizeAction, listenResize } from 'redux-windowsize'
 
 import '@app/ui/config.css?CSSModulesDisable'
 
+import { Analitics } from '@app/features/common/analytics'
 import { set as setQuery } from '@app/features/common/browserQuery'
 import { setToken } from '@app/features/login'
 import NotFound, { getFound } from '@app/features/main/notFound'
@@ -155,6 +156,7 @@ class OncohelpWeb extends App<Props> {
             <>
               {notFound ? <NotFound /> : <Component {...pageProps} />}
               <Modal />
+              <Analitics />
             </>
           </Provider>
         </Container>
