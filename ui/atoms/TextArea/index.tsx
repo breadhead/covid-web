@@ -28,30 +28,46 @@ const onEnterPress = (disableResizeOnEnter: boolean) => (e: any) => {
   }
 }
 
-const TextArea = ({
-  className,
-  name,
-  label,
-  error,
-  autosize = true,
-  disableResizeOnEnter,
-  ...rest
-}: Props) => (
-  <>
-    {label && (
-      <label className="textareaLabel" htmlFor={name}>
-        {label}
-      </label>
-    )}
-    <AntInput.TextArea
-      name={name}
-      id={name}
-      className={cx('textarea', className, error && styles.error)}
-      autosize={autosize}
-      onKeyDown={onEnterPress(disableResizeOnEnter || false)}
-      {...rest}
-    />
-  </>
-)
+class TextArea extends React.Component<Props> {
+  public static defaultProps = { autosize: true }
 
+  public state = {
+    mount: false,
+  }
+
+  public componentDidMount() {
+    this.setState({ mount: true })
+  }
+
+  public render() {
+    const {
+      className,
+      name,
+      label,
+      error,
+      autosize,
+      disableResizeOnEnter,
+      ...rest
+    } = this.props
+    const { mount } = this.state
+    return (
+      <>
+        {label && (
+          <label className="textareaLabel" htmlFor={name}>
+            {label}
+          </label>
+        )}
+        <AntInput.TextArea
+          key={`${mount}`}
+          name={name}
+          id={name}
+          className={cx('textarea', className, error && styles.error)}
+          autosize={autosize}
+          onKeyDown={onEnterPress(disableResizeOnEnter || false)}
+          {...rest}
+        />
+      </>
+    )
+  }
+}
 export default TextArea
