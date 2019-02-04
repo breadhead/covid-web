@@ -14,3 +14,11 @@
     align-items: flex-start;
   }
 }
+
+.error {
+  position: absolute;
+  z-index: 5;
+  margin-top: -11px;
+  font: var(--text14-20);
+  color: var(--color-danger);
+}
