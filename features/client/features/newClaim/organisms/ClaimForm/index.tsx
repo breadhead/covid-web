@@ -51,11 +51,11 @@ const ClaimForm = ({ initial, onSubmit, error, loading }: Props) => {
         ...initial,
       }}
     >
-      {() => (
+      {({ values }) => (
         <>
           <Contacts styles={styles} initial={initial} />
           <Main styles={styles} initial={initial} />
-          <Patient styles={styles} initial={initial} />
+          <Patient values={values} styles={styles} initial={initial} />
           <Footer error={error} loading={loading} styles={styles} />
         </>
       )}
