@@ -2,7 +2,6 @@ const withCSS = require('next-css-unpluggable')
 const withPlugins = require('next-compose-plugins')
 const withTypescript = require('@zeit/next-typescript')
 const withLess = require('@zeit/next-less')
-const withOptimizedImages = require('next-optimized-images')
 const lessToJS = require('less-vars-to-js')
 const fs = require('fs')
 const path = require('path')
@@ -22,7 +21,6 @@ if (typeof require !== 'undefined') {
 module.exports = withPlugins(
   [
     [withTypescript],
-    [withOptimizedImages],
     [
       withLess,
       {
