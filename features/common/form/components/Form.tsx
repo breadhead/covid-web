@@ -10,6 +10,7 @@ import WithScrollToInvalid from '../../formHOCs/withScrollToInvalid'
 
 interface ChildrenPropsArgs {
   removeSectionFromState: RemoveSection
+  values: any
 }
 
 export type RemoveSection = (key: number, name: string) => () => void
@@ -69,6 +70,7 @@ class Form extends Component<Props> {
               )}
               {children({
                 removeSectionFromState: this.removeSection(form.change, values),
+                values,
               })}
             </form>
           )}

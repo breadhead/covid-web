@@ -14,6 +14,7 @@ import { mapString } from '@app/ui/atoms/Select'
 import cx from 'classnames'
 import * as React from 'react'
 import { ShortClaimFields } from '../ClaimForm'
+import { diagnosisVisible } from './diagnosisVisible'
 import { schema } from './schema'
 
 const genderRadioGroup = Object.entries(Gender).map(([id, value]) => ({
@@ -24,35 +25,40 @@ const genderRadioGroup = Object.entries(Gender).map(([id, value]) => ({
 interface Props {
   styles: StylesType
   initial: Partial<ShortClaimFields>
+  values: Partial<ShortClaimFields>
 }
-const Patient = ({ initial, styles }: Props) => (
+const Patient = ({ initial, styles, values }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>
       Дальше указывайте только данные о том человеке, которого нужно
       проконсультировать
     </h2>
-    <label htmlFor="diagnosis" className={styles.label}>
-      Есть установленный врачом онкологический диагноз?
-    </label>
-    <EmergingFormElement
-      validate={schema.localizationPresence}
-      controlType={EmergingControlTypes.Radiogroup}
-      name="localizationPresence"
-      defaultVisible={initial.localizationPresence}
-    >
-      <label
-        htmlFor="localization"
-        className={cx(styles.label, styles.emergingLabel)}
-      >
-        Локализация
-      </label>
-      <ComboBox
-        validate={schema.localization}
-        name="localization"
-        options={localizations.map(mapString)}
-        placeholder="Выберите локализацию"
-      />
-    </EmergingFormElement>
+    {diagnosisVisible(values.theme) && (
+      <>
+        <label htmlFor="diagnosis" className={styles.label}>
+          Есть установленный врачом онкологический диагноз?
+        </label>
+        <EmergingFormElement
+          validate={schema.localizationPresence}
+          controlType={EmergingControlTypes.Radiogroup}
+          name="localizationPresence"
+          defaultVisible={initial.localizationPresence}
+        >
+          <label
+            htmlFor="localization"
+            className={cx(styles.label, styles.emergingLabel)}
+          >
+            Локализация
+          </label>
+          <ComboBox
+            validate={schema.localization}
+            name="localization"
+            options={localizations.map(mapString)}
+            placeholder="Выберите локализацию"
+          />
+        </EmergingFormElement>
+      </>
+    )}
     <RegionSelect
       name="personalData.region"
       region={initial && initial.personalData && initial.personalData.region}
