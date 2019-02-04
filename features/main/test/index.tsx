@@ -25,6 +25,8 @@ import Combobox from '@app/ui/molecules/Combobox'
 import HintInput from '@app/ui/molecules/HintInput'
 import FormTest from './FormTest'
 
+import { Icon } from '@front/ui/atoms/icon/Icon'
+
 const testSelectOptions = [
   {
     key: '1',
@@ -60,6 +62,7 @@ const testComboOptions = [
 
 const Test = ({ modal }: WithModalProps) => (
   <Layout>
+    <Icon />
     <h1 style={{ font: 'var(--title-extra)' }}>components preview page</h1>
     <div style={{ paddingLeft: '5%', textAlign: 'left' }}>
       <FormTest />
