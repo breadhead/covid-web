@@ -4,6 +4,7 @@ import React, { ReactNode } from 'react'
 import styles from './Button.css'
 import { ButtonKind } from './ButtonKind'
 import { ButtonSize } from './ButtonSize'
+import { getButtonType } from './helpers/getButtonType'
 import { getKindClassName } from './helpers/getKindClassName'
 import { getSizeClassName } from './helpers/getSizeClassName'
 
@@ -32,7 +33,7 @@ export const Button = ({
     )}
     onClick={onClick}
     disabled={disabled}
-    type={submit ? 'submit' : 'button'}
+    type={getButtonType(submit)}
   >
     {children}
   </button>
