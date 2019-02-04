@@ -4,7 +4,7 @@ import * as styles from './Intro.css'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import Button, { ButtonKind } from '@app/ui/atoms/Button'
 import IconCustom from '@app/ui/atoms/IconCustom'
-import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
+import NavLink, { NavLinkType, TargetType } from '@app/ui/atoms/NavLink'
 import StartConsultationButton from '../../../../molecules/StartConsultationButton'
 
 const Intro = () => (
@@ -17,7 +17,13 @@ const Intro = () => (
       <p className={styles.status}>
         Проект фонда <br /> профилактики рака
       </p>
-      <IconCustom className={styles.logo} name="foundation-logo" />
+      <NavLink
+        type={NavLinkType.Nav}
+        href="https://nenaprasno.ru"
+        target={TargetType.Blank}
+      >
+        <IconCustom className={styles.logo} name="foundation-logo" />
+      </NavLink>
     </div>
     <div className={styles.buttons}>
       <StartConsultationButton className={styles.startButton}>

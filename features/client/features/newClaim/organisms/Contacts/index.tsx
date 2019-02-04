@@ -19,13 +19,12 @@ const Contacts = ({ styles }: Props) => (
         Вы можете не указывать свою фамилию, если не хотите
       </span>
     </label>
-    <Input
-      className={styles.field}
-      validate={schema.name}
-      name="personalData.name"
-    />
+    <Input validate={schema.name} name="personalData.name" />
 
-    <label htmlFor="personalData.email" className={styles.label}>
+    <label
+      htmlFor="personalData.email"
+      className={cx(styles.label, styles.field)}
+    >
       Электронная почта.
       <span className={styles.secondaryText}>
         {' '}
@@ -33,7 +32,6 @@ const Contacts = ({ styles }: Props) => (
       </span>
     </label>
     <Input
-      className={styles.field}
       validate={schema.email}
       name="personalData.email"
       type={InputType.Email}
@@ -41,7 +39,7 @@ const Contacts = ({ styles }: Props) => (
     />
     <label
       htmlFor="personalData.phone"
-      className={cx(styles.label, styles.emergingLabel)}
+      className={cx(styles.label, styles.emergingLabel, styles.field)}
     >
       Контактный телефон.
       <span className={styles.secondaryText}>

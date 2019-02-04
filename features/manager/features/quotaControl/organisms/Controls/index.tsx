@@ -1,6 +1,7 @@
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
-
 import { Doctor } from '@app/models/Users/Doctor'
+import Button, { ButtonKind } from '@app/ui/atoms/Button'
+import Router from 'next/router'
 import { WithQuotaTypeModal } from '../../../bindQuota'
 import { WithChooseDoctorModal } from '../../../chooseDoctor'
 import { WithCloseClaimModal } from '../../../closeClaim'
@@ -22,13 +23,34 @@ interface Props
   editClaim: boolean
   editAnswer: boolean
   toQueue: boolean
+  quotaName?: string
 }
 
 const Controls = (props: Props) => (
-  <div className={styles.plate}>
-    <TopRow {...props} />
-    {props.allowEditing && <BottomRow {...props} />}
-  </div>
+  <>
+    {!!props.editClaim && (
+      <Button
+        className={styles.button}
+        onClick={() => Router.push(`/client/new-claim/${props.id}`)}
+        kind={ButtonKind.Extra}
+      >
+        Редактировать заявку
+      </Button>
+    )}
+    {!!props.editAnswer && (
+      <Button
+        className={styles.button}
+        onClick={() => Router.push(`/doctor/answers/${props.id}`)}
+        kind={ButtonKind.Extra}
+      >
+        Редактировать ответ
+      </Button>
+    )}
+    <div className={styles.plate}>
+      <TopRow {...props} />
+      {props.allowEditing && <BottomRow {...props} />}
+    </div>{' '}
+  </>
 )
 
 Controls.defaultProps = {

@@ -6,7 +6,7 @@ import * as styles from './ExpertAnswers.css'
 
 import answered from './answered'
 import Footer from './components/Footer'
-import groupQuestion from './groupQuestions'
+import { makeQuestionGroups } from './helpers/makeQuestionGroups'
 
 interface Props {
   claim: AnswerClaim
@@ -17,13 +17,7 @@ interface Props {
 const ExpertAnswers = ({ claim, renderCustomAnswer, title }: Props) => {
   const answeredClaim = answered(claim)
 
-  const groups = groupQuestion([
-    ...(claim.defaultQuestions || []),
-    ...(claim.additionalQuestions || []).map(({ question, answer }) => ({
-      question: `Дополнительные вопросы: ${question}`,
-      answer,
-    })),
-  ])
+  const groups = makeQuestionGroups(claim)
 
   const questionsAvailable = Object.keys(groups).length > 0
 
@@ -33,7 +27,10 @@ const ExpertAnswers = ({ claim, renderCustomAnswer, title }: Props) => {
         {!!title && title}
         {!title && (answeredClaim ? 'Ответ эксперта' : 'Вопросы эксперту')}
       </h2>
-      <section id="expert-answers" className={styles.expertAnswers}>
+      <section
+        id={answeredClaim ? 'expert-answers' : undefined}
+        className={styles.expertAnswers}
+      >
         {Object.entries(groups).map(([theme, questions]) => (
           <article key={theme} className={styles.article}>
             <h2 className={styles.title}>{theme}</h2>

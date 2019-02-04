@@ -6,7 +6,7 @@ const Count = () => (
   <div className={styles.countWrapper}>
     <div className={styles.count}>
       <div className={styles.countItem}>
-        <p className={styles.number}>64</p>
+        <p className={styles.number}>0</p>
         <p className={styles.label}>Проведено</p>
       </div>
       <div className={styles.countItem}>

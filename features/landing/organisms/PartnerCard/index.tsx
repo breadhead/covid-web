@@ -8,7 +8,7 @@ import { NON_BREAKING_SPACE } from '@app/lib/config'
 export interface PartnerCardInterface {
   img: string
   label: string
-  sum: string
+  sum?: string
 }
 
 interface Props {
@@ -24,10 +24,12 @@ const PartnerCard = ({ card, className }: Props) => {
         <img className={styles.logo} src={img} alt={label} />
       </div>
       <p className={styles.label}>{label}</p>
-      <p className={styles.sum}>
-        {sum}
-        {NON_BREAKING_SPACE}₽
-      </p>
+      {!!sum && (
+        <p className={styles.sum}>
+          {sum}
+          {NON_BREAKING_SPACE}₽
+        </p>
+      )}
     </article>
   )
 }

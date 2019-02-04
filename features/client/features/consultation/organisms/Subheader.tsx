@@ -14,12 +14,14 @@ interface Props {
   mainInfo: ListedClaim
 }
 
-const Subheader = ({ quotaClaim, mainInfo }: Props) => (
-  <>
-    <Company quotaClaim={quotaClaim} />
-    <Notification info={mainInfo} />
-  </>
-)
+const Subheader = ({ quotaClaim, mainInfo }: Props) => {
+  return (
+    <>
+      <Company quotaClaim={quotaClaim} />
+      <Notification info={mainInfo} />
+    </>
+  )
+}
 
 const mapState = (state: State) => ({
   mainInfo: getClientInfo(state),

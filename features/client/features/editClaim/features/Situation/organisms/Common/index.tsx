@@ -101,12 +101,11 @@ const Common = ({
                   />
                   <label
                     htmlFor={`relativesDiseases.${key}.relative`}
-                    className={styles.label}
+                    className={cx(styles.label, styles.field)}
                   >
                     Кто из родственников
                   </label>
                   <Select
-                    className={styles.field}
                     name={`relativesDiseases.${key}.relative`}
                     validate={schema.relativesDiseases}
                     options={relatives.map(mapString)}
@@ -115,12 +114,12 @@ const Common = ({
                     className={cx(
                       styles.label,
                       styles.labelInAddFieldContainer,
+                      styles.field,
                     )}
                   >
                     Локализация опухоли
                   </label>
                   <Select
-                    className={styles.field}
                     name={`relativesDiseases.${key}.localization`}
                     validate={schema.localization}
                     options={localizations.map(mapString)}
@@ -130,6 +129,7 @@ const Common = ({
                     className={cx(
                       styles.label,
                       styles.labelInAddFieldContainer,
+                      styles.field,
                     )}
                   >
                     Возраст, в котором был установлен диагноз

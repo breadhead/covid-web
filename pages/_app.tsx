@@ -16,6 +16,7 @@ import { createSizeAction, listenResize } from 'redux-windowsize'
 
 import '@app/ui/config.css?CSSModulesDisable'
 
+import { Analitics } from '@app/features/common/analytics'
 import { set as setQuery } from '@app/features/common/browserQuery'
 import { setToken } from '@app/features/login'
 import NotFound, { getFound } from '@app/features/main/notFound'
@@ -61,7 +62,7 @@ class OncohelpWeb extends App<Props> {
     const authViolate = getViolateState(this.props.reduxStore.getState())
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
-      Router.push('/')
+      Router.push('/?sign-in')
     }
 
     this.props.reduxStore.dispatch(setQuery(this.props.router.query || {}))
@@ -88,12 +89,74 @@ class OncohelpWeb extends App<Props> {
             />
             <meta name="keywords" content={keywords.join(', ')} />
             <meta name="description" content={description} />
+            <link
+              rel="apple-touch-icon"
+              sizes="180x180"
+              href="/static/images/favicons/apple-touch-icon.png"
+            />
+            <link
+              rel="icon"
+              type="image/png"
+              sizes="32x32"
+              href="/static/images/favicons/favicon-32x32.png"
+            />
+            <link
+              rel="icon"
+              type="image/png"
+              sizes="16x16"
+              href="/static/images/favicons/favicon-16x16.png"
+            />
+            <link
+              rel="manifest"
+              href="/static/images/favicons/site.webmanifest"
+            />
+            <link
+              rel="mask-icon"
+              href="/static/images/favicons/safari-pinned-tab.svg"
+              color="#ffc40d"
+            />
+            <meta name="msapplication-TileColor" content="#ffc40d" />
+            <meta name="theme-color" content="#ffffff" />
+            <meta
+              property="og:title"
+              content="Справочная служба | Просто спросить"
+            />
+            <meta property="og:site_name" content="ask.nenaprasno.ru" />
+            <meta property="og:url" content="http://ask.nenaprasno.ru" />
+            <meta
+              property="og:description"
+              content="Просто спросить — справочная служба для онкологических пациентов и их близких"
+            />
+            <meta property="og:type" content="website" />
+            <meta
+              property="og:image"
+              content="/static/images/prosto-sprosit_facebook-post.jpg"
+            />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta
+              name="twitter:title"
+              content="Справочная служба | Просто спросить"
+            />
+            <meta
+              name="twitter:description"
+              content="Просто спросить — справочная служба для онкологических пациентов и их близких"
+            />
+            <meta
+              name="twitter:image"
+              content="/static/images/prosto-sprosit_facebook-post.jpg"
+            />
+            <meta
+              name="twitter:image:alt"
+              content="Справочная служба | Просто спросить"
+            />
+            <meta property="fb:app_id" content="306467899461959" />
           </Head>
           <Sprite />
           <Provider store={reduxStore}>
             <>
               {notFound ? <NotFound /> : <Component {...pageProps} />}
               <Modal />
+              <Analitics />
             </>
           </Provider>
         </Container>

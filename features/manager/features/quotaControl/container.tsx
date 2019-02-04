@@ -1,5 +1,8 @@
 import { getClaimId } from '@app/features/common/consultation'
-import { getMainInfo } from '@app/features/common/consultation/selectors'
+import {
+  getMainInfo,
+  getQuotaName,
+} from '@app/features/common/consultation/selectors'
 import { State } from '@app/lib/store'
 import ClaimBoardCard from '@app/models/Claim/ClaimBoardCard'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
@@ -13,7 +16,7 @@ import { compose } from 'redux'
 import { getRoles } from '@app/features/login'
 import { Role } from '@app/models/Users/User'
 import { getAssignedDoctor } from '../chooseDoctor/selectors'
-import { canEditClaim } from './helpers/canEditClaim'
+import { canEditClaim, Position } from './helpers/canEditClaim'
 import { getTrelloUrl } from './selectors'
 
 export const MODAL_KEY = 'bind-quota'
@@ -23,18 +26,21 @@ export interface ContainerProps {
   trelloUrl?: string
   assignedDoctor?: Doctor
   roles: Role[]
+  position?: Position
+  allowAnswerEditing?: boolean
 }
 
 const Container = (WrappedComponent: any) => {
   return class extends React.Component<ContainerProps> {
     public render() {
-      const { roles } = this.props
+      const { roles, position, allowAnswerEditing } = this.props
       const mainInfo: ListedClaim = (this.props as any).mainInfo || []
-      const editClaim = canEditClaim(mainInfo.status, roles)
+      const editClaim = canEditClaim(mainInfo.status, roles, position)
 
-      const editAnswer = [ClaimStatus.AnswerValidation].includes(
-        mainInfo.status,
-      )
+      const editAnswer =
+        ClaimStatus.AnswerValidation === mainInfo.status &&
+        position === Position.Footer &&
+        allowAnswerEditing
 
       const toQueue = [ClaimStatus.QuotaAllocation].includes(mainInfo.status)
 
@@ -57,6 +63,7 @@ const mapState = (state: State) => ({
   id: getClaimId(state),
   mainInfo: getMainInfo(state),
   roles: getRoles(state),
+  quotaName: getQuotaName(state),
 })
 
 export default compose(

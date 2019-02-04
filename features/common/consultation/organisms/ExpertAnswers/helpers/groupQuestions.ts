@@ -2,7 +2,7 @@ import { flow, groupBy, mapValues } from 'lodash'
 
 import { Question } from '@app/models/Claim/AnswerClaim'
 
-interface GroupedQuestions {
+export interface GroupedQuestions {
   [key: string]: Question[]
 }
 

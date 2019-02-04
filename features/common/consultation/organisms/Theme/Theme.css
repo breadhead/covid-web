@@ -68,5 +68,6 @@
 
 .subtitle {
   margin: 0 0 8px 0;
-  font: var(--title-bold);
+  font: var(--text16-24);
+  font-weight: 500;
 }
