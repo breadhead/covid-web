@@ -7,14 +7,18 @@
   transform: translateX(-50%);
 
   @media (--smallDown) {
-    padding: 32px 0;
-    margin-bottom: -56px;
+    padding: 40px 0 80px;
+    margin-bottom: -48px;
   }
 }
 
 .title {
   margin-bottom: 48px;
   font: var(--title-regular);
+
+  @media (--smallDown) {
+    margin-bottom: 16px;
+  }
 }
 
 .content {
@@ -23,7 +27,8 @@
   justify-content: center;
 
   @media (--smallDown) {
-    flex-direction: column;
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
 
@@ -32,6 +37,5 @@
 
   @media (--smallDown) {
     margin-right: 0;
-    margin-bottom: 32px;
   }
 }

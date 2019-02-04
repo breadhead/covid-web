@@ -1,6 +1,6 @@
 .step {
   @media (--smallDown) {
-    margin-bottom: 16px;
+    margin-bottom: 32px;
 
     &:last-of-type {
       margin-bottom: 0;
@@ -9,11 +9,12 @@
 }
 
 .text {
+  margin-bottom: 0;
   white-space: pre-line;
 }
 
 .img {
   width: 176px;
   height: 192px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
