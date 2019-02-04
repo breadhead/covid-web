@@ -22,7 +22,7 @@ const Header = ({ id, createdAt, newMessage, target, number }: Props) => (
     >
       <div className={styles.titleWrapper}>
         <h2 className={styles.title}>
-          {formatDate(createdAt)} {number}
+          {formatDate(createdAt)} №{number}
         </h2>
         <IconCustom
           name="24x24_arrow-big-back"

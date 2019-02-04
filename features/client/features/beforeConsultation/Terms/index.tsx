@@ -3,14 +3,20 @@ import * as React from 'react'
 import {
   ButtonSize,
   ButtonType,
-  ButtonWithTooltip,
   Checkbox,
   Form,
 } from '@app/features/common/form'
+import Button from '@app/ui/atoms/Button'
+
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 import NavLink, { TargetType } from '@app/ui/atoms/NavLink'
 
 import styles from './Terms.css'
+
+import transitionStyles from '@app/features/common/formHOCs/withTooltip/transitionStyles.css'
+
+import { NON_BREAKING_SPACE } from '@app/lib/config'
 
 interface Fields {
   consultationTerms: boolean
@@ -31,6 +37,7 @@ class Terms extends React.Component<Props, State> {
   } as State
 
   public render() {
+    const error = this.getError()
     return (
       <Form onSubmit={this.onSubmit as any}>
         {() => (
@@ -62,14 +69,24 @@ class Terms extends React.Component<Props, State> {
                 условиями пользовательского соглашения
               </NavLink>
             </Checkbox>
-            <ButtonWithTooltip
-              error={this.getError()}
+            <TransitionGroup component={null}>
+              {!!error && (
+                <CSSTransition
+                  key={error}
+                  timeout={300}
+                  classNames={transitionStyles}
+                >
+                  <div className={styles.error}>{error}</div>
+                </CSSTransition>
+              )}
+            </TransitionGroup>
+            <Button
               type={ButtonType.Submit}
               className={styles.button}
               size={ButtonSize.ExtraLarge}
             >
               Начать консультацию
-            </ButtonWithTooltip>
+            </Button>
           </>
         )}
       </Form>
@@ -89,6 +106,9 @@ class Terms extends React.Component<Props, State> {
   }
 
   private getError = () =>
-    this.state.failed ? 'Пожалуйста, примите условия' : undefined
+    this.state.failed
+      ? `Пожалуйста, подтвердите своё согласие с${NON_BREAKING_SPACE} условиями предоставления консультации`
+      : undefined
 }
+
 export default Terms
