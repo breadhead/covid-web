@@ -1,9 +1,4 @@
-import Document, {
-  Head,
-  Main,
-  NextDocumentContext,
-  NextScript,
-} from 'next/document'
+import Document, { Main, NextDocumentContext, NextScript } from 'next/document'
 import sprite from 'svg-sprite-loader/runtime/sprite.build'
 
 interface Props {
@@ -24,7 +19,6 @@ export default class MyDocument extends Document<Props> {
   public render() {
     return (
       <html>
-        <Head>{/* your head if needed */}</Head>
         <body>
           <div dangerouslySetInnerHTML={{ __html: this.props.spriteContent }} />
           <Main />
