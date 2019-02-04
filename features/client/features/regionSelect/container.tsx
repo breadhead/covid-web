@@ -15,6 +15,7 @@ interface ContainerProps {
   textRegion: string
   textCountry: string
   textSwitch: string
+  changeField: (name: string, value?: any) => void
 }
 
 export interface Props extends ContainerProps {
@@ -44,8 +45,10 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
       }
     }
 
-    private onChangeInRussia = (value: boolean) =>
+    private onChangeInRussia = (value: boolean) => {
       this.setState({ clientInRussia: value })
+      this.props.changeField(this.props.name, undefined)
+    }
   }
 }
 

@@ -47,15 +47,18 @@ const ClaimForm = ({ initial, onSubmit, error, loading }: Props) => {
     <Form
       onSubmit={onSubmit as any}
       className={styles.ClaimForm}
-      initialValues={{
-        ...initial,
-      }}
+      initialValues={{ ...initial }}
     >
-      {({ values }) => (
+      {({ values, changeField }) => (
         <>
           <Contacts styles={styles} initial={initial} />
           <Main styles={styles} initial={initial} />
-          <Patient values={values} styles={styles} initial={initial} />
+          <Patient
+            changeField={changeField}
+            values={values}
+            styles={styles}
+            initial={initial}
+          />
           <Footer error={error} loading={loading} styles={styles} />
         </>
       )}
