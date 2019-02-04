@@ -47,6 +47,10 @@
 .button.button.button {
     padding: 16px 36px;
     font: var(--text18-28);
+
+    @media (--smallDown) {
+      width: 100%;
+    }
 }
 
 .buttonsItem.buttonsItem {
@@ -74,8 +78,16 @@
   font: var(--text18-28) !important;
 
   @media (--smallDown) {
+    width: 100%;
     margin-right: 0;
     margin-bottom: 16px;
+    white-space: nowrap;
+  }
+}
+
+.buttonContainer {
+  @media (--smallDown) {
+    width: 100%;
   }
 }
 

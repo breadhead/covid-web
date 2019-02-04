@@ -55,3 +55,10 @@
     margin-bottom: 24px;
   }
 }
+
+.button.button.button.button {
+  @media (--smallDown) {
+    padding: 17px 36px;
+    font: var(--text18-28)
+  }
+}

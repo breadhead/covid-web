@@ -21,7 +21,10 @@ const Partners = () => (
     <NavLink className={styles.link} href="/partners">
       Посмотреть всех партнёров
     </NavLink>
-    <StartConsultationButton className={styles.button}>
+    <StartConsultationButton
+      containerClassName={styles.buttonContainer}
+      className={styles.button}
+    >
       Начать консультацию
     </StartConsultationButton>
   </article>

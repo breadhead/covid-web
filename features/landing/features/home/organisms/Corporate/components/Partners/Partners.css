@@ -27,6 +27,13 @@
   margin: 40px auto 0 auto !important;
 
   @media (--smallDown) {
+    width: calc(100% - 32px);
     margin: 24px auto 0 auto !important;
+  }
+}
+
+.buttonContainer {
+  @media (--smallDown) {
+    width: calc(100% - 32px);
   }
 }
