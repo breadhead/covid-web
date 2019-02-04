@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 
+import Button, { ButtonKind, ButtonSize } from '@app/ui/atoms/Button'
 import NavLink from '@app/ui/atoms/NavLink'
-import { Button, ButtonKind, ButtonSize } from '@front/ui/atoms/button'
 
 import styles from './Header.css'
 
