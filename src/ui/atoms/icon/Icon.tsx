@@ -1,3 +1,9 @@
-import My from './resources/found.svg?sprite'
+import My from './resources/fund.svg?sprite'
 
-export const Icon = () => <My />
+import { IconType } from './IconType'
+
+interface Props {
+  type?: IconType
+}
+
+export const Icon = ({ type }: Props) => <My className={type} />
