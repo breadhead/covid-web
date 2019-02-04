@@ -1,13 +1,13 @@
 enum ClaimStatus {
   Draft = 'Черновик',
-  Closed = 'Закрыта',
+  Closed = 'Закрыта успешно',
   QuotaAllocation = 'Распределение квоты',
   QuestionnaireWaiting = 'Ожидание анкеты',
   QuestionnaireValidation = 'Проверка анкеты',
   AtTheDoctor = 'У врача',
   AnswerValidation = 'Проверка ответа эксперта',
   DeliveredToCustomer = 'Передано заказчику',
-  Denied = 'Отказ',
+  Denied = 'Закрыта неуспешно',
   QueueForQuota = 'В очереди на квоту',
 }
 
