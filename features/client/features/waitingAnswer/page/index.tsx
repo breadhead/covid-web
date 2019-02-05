@@ -1,6 +1,8 @@
 import * as React from 'react'
 import * as styles from './WaitingAnswer.css'
 
+import Head from 'next/head'
+
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 
 import { FooterTheme } from '@app/ui/organisms/Footer'
@@ -14,6 +16,9 @@ export interface Props {
 
 const WaitingAnswer = ({ email }: Props) => (
   <Layout footerTheme={FooterTheme.White} pageClassName={styles.layout}>
+    <Head>
+      <title>Дождитесь ответа нашего сотрудника | Просто спросить</title>
+    </Head>
     <ProgressBar className={styles.progressBar} steps={progressBarSteps} />
     <div className={styles.logo}>
       <img className={styles.image} src="/static/images/waiting.png" />

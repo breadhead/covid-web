@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import Head from 'next/head'
+
 import cx from 'classnames'
 
 import * as styles from './Consultation.css'
@@ -73,6 +75,9 @@ class Consultation extends React.Component<Props, State> {
       >
         <div className={styles.layoutWrapper}>
           <Layout>
+            <Head>
+              <title>Ваша заявка | Просто спросить</title>
+            </Head>
             <OpenChatButton
               haveNewMessage={haveNewMessage}
               onClick={this.openChat}

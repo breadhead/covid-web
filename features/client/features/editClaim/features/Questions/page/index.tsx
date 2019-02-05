@@ -2,6 +2,8 @@ import * as React from 'react'
 
 import ClaimForm from '../organisms/Form'
 
+import Head from 'next/head'
+
 import Layout from '@app/features/client/organisms/ClaimFormLayout'
 import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
 import { ClaimData } from '../types'
@@ -22,6 +24,9 @@ const ClaimPage = ({
   initialFields,
 }: Props) => (
   <Layout step={3} title="Отметьте вопросы, которые хотите задать эксперту">
+    <Head>
+      <title>Задайте вопросы | Просто спросить</title>
+    </Head>
     <ClaimForm
       claimData={claimData}
       error={error}
