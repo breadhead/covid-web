@@ -1,10 +1,10 @@
+import { themes } from '@app/features/client'
 import { Select } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
 import ClaimTarget from '@app/models/Claim/ClaimTarget'
 import { mapString } from '@app/ui/atoms/Select'
 import cx from 'classnames'
 import * as React from 'react'
-import { themes } from '../../../../values'
 import { ShortClaimFields } from '../ClaimForm'
 import { schema } from './schema'
 
