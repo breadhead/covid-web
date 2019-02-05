@@ -3,6 +3,7 @@ import { State } from '@app/lib/store'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'recompose'
+import { Omit } from 'utility-types'
 import { getStepsFactory } from './helpers/getSteps'
 import { Props as ComponentProps } from './organisms/ProgressBar'
 import stepNames from './steps'
@@ -10,17 +11,19 @@ import stepNames from './steps'
 export enum ProgressBarKind {
   Client = 'Client',
   Disabled = 'Disabled',
+  Manager = 'Manager',
 }
 
 interface Props {
-  step: number
+  className?: string
+  step?: number
   query?: any
-  stepNames: string[]
+  stepNames?: string[]
   kind: ProgressBarKind
 }
 
 const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => ({
-  step,
+  step = 0,
   query,
   kind,
   ...rest
@@ -36,8 +39,7 @@ const mapState = (state: State) => ({
   query: getQuery(state),
 })
 
-// TODO: fix types
-export default compose<any, any>(
+export default compose<ComponentProps, Omit<Props, 'query'>>(
   connect(mapState),
   Container,
 )

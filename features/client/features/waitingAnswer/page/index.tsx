@@ -18,7 +18,6 @@ const WaitingAnswer = ({ email }: Props) => (
       stepNames={progressBarSteps}
       kind={ProgressBarKind.Disabled}
       className={styles.progressBar}
-      steps={progressBarSteps}
     />
     <div className={styles.logo}>
       <img className={styles.image} src="/static/images/waiting.png" />
