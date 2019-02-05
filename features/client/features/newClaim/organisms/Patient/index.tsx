@@ -30,10 +30,12 @@ interface Props {
 }
 const Patient = ({ initial, styles, values, changeField }: Props) => (
   <article className={styles.article}>
-    <h2 className={styles.title}>
-      Дальше указывайте только данные о том человеке, которого нужно
-      проконсультировать
-    </h2>
+    {!!values.target && values.target !== 'Для себя' && (
+      <h2 className={styles.title}>
+        Дальше указывайте только данные о том человеке, которого нужно
+        проконсультировать
+      </h2>
+    )}
     {diagnosisVisible(values.theme) && (
       <>
         <label htmlFor="diagnosis" className={styles.label}>
