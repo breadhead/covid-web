@@ -1,4 +1,4 @@
-import { themes } from '@app/features/client'
+import { themes } from '@app/features/client/values'
 import { Select } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
 import ClaimTarget from '@app/models/Claim/ClaimTarget'
