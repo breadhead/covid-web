@@ -10,19 +10,25 @@ import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 interface Props {
   children: string
   token?: string
-  className?: any
+  className?: string
+  containerClassName?: string
   size?: ButtonSize
 }
 
 const StartConsultationButton = ({
   token,
   className,
+  containerClassName,
   size,
   openSignUp,
   children,
 }: Props & any) =>
   !!token ? (
-    <NavLink type={NavLinkType.Nav} href="/client/rules">
+    <NavLink
+      className={containerClassName}
+      type={NavLinkType.Nav}
+      href="/client/rules"
+    >
       <Button size={size} className={className} kind={ButtonKind.Primary}>
         {children}
       </Button>

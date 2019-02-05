@@ -20,7 +20,7 @@
   @media (--smallDown) {
     flex-direction: column;
     width: 100vw;
-    padding: 32px 16px;
+    padding: 40px 16px 48px 16px;
     margin-left: 0;
   }
 }
@@ -33,18 +33,26 @@
   text-align: left;
 
   @media (--smallDown) {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
 }
 
 .title {
   margin-bottom: 24px;
   font: var(--title-regular);
+
+  @media (--smallDown) {
+    margin-bottom: 16px;
+  }
 }
 
 .text {
   margin-bottom: 24px;
   font: var(--text18-28);
+
+  @media (--smallDown) {
+    margin-bottom: 16px;
+  }
 }
 
 .link.link.link {

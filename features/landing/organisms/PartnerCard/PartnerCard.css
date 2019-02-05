@@ -5,7 +5,8 @@
   width: 176px;
 
   @media (--smallDown) {
-    margin-right: 32px;
+    width: 120px;
+    margin-right: 40px;
 
     &:first-of-type {
       padding-left: 16px;
@@ -13,7 +14,7 @@
   }
 
   @media (--xxsmallDown) {
-    margin-right: 16px;
+    margin-right: 40px;
   }
 }
 

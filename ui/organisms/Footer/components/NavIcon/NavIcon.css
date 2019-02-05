@@ -8,3 +8,9 @@
       display: inline-block;
     }
 }
+
+.long {
+    @media (--mediumDown) {
+      display: inline-block;
+    }
+}
