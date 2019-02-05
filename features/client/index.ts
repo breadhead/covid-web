@@ -12,7 +12,7 @@ import {
   State as ClaimsState,
 } from './features/claims'
 
-export { default as NewClaim } from './features/newClaim'
+export { default as NewClaim } from './features/claim/newClaim'
 import {
   reducer as newClaimReducer,
   State as NewClaimState,

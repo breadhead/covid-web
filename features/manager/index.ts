@@ -21,6 +21,12 @@ import {
   State as CloseClaimState,
 } from './features/closeClaim'
 
+export { default as NewClaim } from './features/claim/newClaim'
+import {
+  reducer as newClaimReducer,
+  State as NewClaimState,
+} from '../common/claim/newClaim'
+
 import {
   reducer as chooseDoctorReducer,
   State as ChooseDoctorState,
@@ -31,6 +37,7 @@ export interface State {
   quotaControl: QuotaControlState
   closeClaim: CloseClaimState
   chooseDoctor: ChooseDoctorState
+  newClaim: NewClaimState
 }
 
 export const reducer = combineReducers({
@@ -38,4 +45,5 @@ export const reducer = combineReducers({
   quotaControl: quotaControlReducer,
   closeClaim: closeClaimReducer,
   chooseDoctor: chooseDoctorReducer,
+  newClaim: newClaimReducer,
 } as any)
