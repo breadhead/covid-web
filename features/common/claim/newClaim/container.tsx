@@ -8,7 +8,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, Dispatch } from 'redux'
 import { createClaim, fetchShortClaim } from './actions'
-import { ShortClaimFields } from './organisms/ClaimForm'
+import { FooterType, ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
 import { getLoading, getNewClaimError } from './selectors'
 
@@ -29,6 +29,7 @@ interface Query {
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
   layout: React.ComponentType,
+  footer: FooterType,
 ) => {
   return connect(
     mapState,
@@ -56,7 +57,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       }
 
       public render() {
-        const { error, loading, shortClaim } = this.props
+        const { error, loading, shortClaim, id } = this.props
 
         const initialFields = this.getInitialFields(shortClaim)
         const Layout = layout
@@ -64,10 +65,12 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
         return (
           <Layout>
             <WrappedComponent
+              id={id}
               error={error}
               loading={loading}
               initialFields={initialFields}
               onFormSubmit={this.onFormSubmit}
+              footer={footer}
             />
           </Layout>
         )

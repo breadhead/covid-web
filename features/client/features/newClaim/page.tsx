@@ -1,7 +1,8 @@
-import createNewClaim from '@app/features/common/claim/newClaim'
+import createNewClaim, { FooterType } from '@app/features/common/claim/newClaim'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import * as React from 'react'
 import ClaimFormLayout from '../../organisms/ClaimFormLayout'
+import Footer from './organisms/Footer'
 interface LayoutProps {
   children: React.ReactNode
 }
@@ -15,4 +16,9 @@ const Layout = ({ children }: LayoutProps) => (
     {children}
   </ClaimFormLayout>
 )
-export default createNewClaim(Layout as any)
+
+const footer: FooterType = (error, loading, styles) => (
+  <Footer error={error} loading={loading} styles={styles} />
+)
+
+export default createNewClaim(Layout as any, footer)

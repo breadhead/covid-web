@@ -1,11 +1,13 @@
 import * as React from 'react'
-import ClaimForm, { ShortClaimFields } from './organisms/ClaimForm'
+import ClaimForm, { FooterType, ShortClaimFields } from './organisms/ClaimForm'
 
 export interface Props {
   onFormSubmit: (claimFields: ShortClaimFields) => Promise<void>
   error: false | string
   initialFields: Partial<ShortClaimFields>
   loading: boolean
+  footer: FooterType
+  id: string
 }
 
 const ClaimPage: React.StatelessComponent<Props> = ({
@@ -13,13 +15,17 @@ const ClaimPage: React.StatelessComponent<Props> = ({
   onFormSubmit,
   error,
   loading,
+  footer,
+  id,
 }) => {
   return (
     <ClaimForm
+      id={id}
       initial={initialFields}
       error={error}
       onSubmit={onFormSubmit}
       loading={loading}
+      footer={footer}
     />
   )
 }
