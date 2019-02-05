@@ -25,9 +25,15 @@ interface Props {
   styles: StylesType
   initial: Partial<SituationClaimFields>
   removeSectionFromState: RemoveSection
+  changeField: (name: string, value?: any) => void
 }
 
-const EmergingForm = ({ styles, initial, removeSectionFromState }: Props) => (
+const EmergingForm = ({
+  styles,
+  initial,
+  removeSectionFromState,
+  changeField,
+}: Props) => (
   <>
     <h3 className={styles.subtitle}>Лекарственное лечение</h3>
     <EmergingFormElement
@@ -53,6 +59,7 @@ const EmergingForm = ({ styles, initial, removeSectionFromState }: Props) => (
                 }
               />
               <RegionSelect
+                changeField={changeField}
                 name={`medicalsTreatments.${key}.region`}
                 styles={styles}
                 textRegion="Регион, где проходили лечение"
