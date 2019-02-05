@@ -1,9 +1,8 @@
 import * as React from 'react'
 
+import ProgressBar from '@app/features/common/progressBar'
 import Layout from '../Layout'
 import * as styles from './Layout.css'
-
-import ProgressBar from '../../features/progressBar'
 
 export interface Props {
   step: number

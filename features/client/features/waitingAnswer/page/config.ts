@@ -1,4 +1,4 @@
-import { StepPointerType } from '@app/features/client/features/progressBar/molecule/StepPointer'
+import { StepPointerType } from '@app/features/common/progressBar'
 
 export const progressBarSteps = [
   {
