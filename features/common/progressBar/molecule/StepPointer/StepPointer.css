@@ -35,7 +35,7 @@
   &:hover {
     color: var(--color-primary);
     border-color: var(--color-primary);
-  } 
+  }
 }
 
 .success {
@@ -53,21 +53,25 @@
 }
 
 .disabled {
-  color: #9F9FA8;
+  color: #9f9fa8;
   background-color: inherit;
   border: 1px solid rgba(21, 24, 51, 0.2);
   fill: rgba(21, 24, 51, 0.2);
 
   &:hover {
-    color: #9F9FA8;
+    color: #9f9fa8;
     cursor: auto;
     border: 1px solid rgba(21, 24, 51, 0.2);
     fill: rgba(21, 24, 51, 0.2);
   }
 }
 
+.stroked {
+  border: 1px solid rgba(21, 24, 51, 1);
+}
+
 .titleDisabled {
-  color: #9F9FA8;
+  color: #9f9fa8;
 }
 
 .successIcon {

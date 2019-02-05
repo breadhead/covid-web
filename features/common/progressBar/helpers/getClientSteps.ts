@@ -1,11 +1,8 @@
 import { StepPointerModel, StepPointerType } from '../molecule/StepPointer'
+import { clientSteps } from '../steps'
 
-export function getClientSteps(
-  stepNames: string[],
-  id: string,
-  current: number,
-) {
-  return stepNames.map(
+export function getClientSteps(id: string, current: number) {
+  return clientSteps.map(
     (name, index): StepPointerModel => {
       const href = defineHref(index, id)
       return {

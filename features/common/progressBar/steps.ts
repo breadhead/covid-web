@@ -1,7 +1,8 @@
-const steps: string[] = [
-  'Заполните заявку',
-  'Опишите ситуацию',
-  'Задайте вопросы',
+const clientSteps = ['Заполните заявку', 'Опишите ситуацию', 'Задайте вопросы']
+const managerSteps = [
+  'Короткая заявка',
+  'Медицинские данные',
+  'Вопросы к эксперту',
 ]
 
-export default steps
+export { clientSteps, managerSteps }

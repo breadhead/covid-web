@@ -10,6 +10,7 @@ export enum StepPointerType {
   Empty = 'empty',
   Full = 'full',
   Success = 'success',
+  Stroked = 'stroked',
 }
 
 export interface StepPointerModel {

@@ -6,7 +6,6 @@ import { compose } from 'recompose'
 import { Omit } from 'utility-types'
 import { getStepsFactory } from './helpers/getSteps'
 import { Props as ComponentProps } from './organisms/ProgressBar'
-import stepNames from './steps'
 
 export enum ProgressBarKind {
   Client = 'Client',
@@ -30,7 +29,7 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => ({
 }: Props) => {
   const current = step - 1
   const id = query && query.id
-  const steps = getStepsFactory(kind)(stepNames, id, current)
+  const steps = getStepsFactory(kind)(id, current)
 
   return <WrappedComponent steps={steps} {...rest} />
 }
