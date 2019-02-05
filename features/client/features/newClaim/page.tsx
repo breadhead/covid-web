@@ -1,4 +1,5 @@
 import { NON_BREAKING_SPACE } from '@app/lib/config'
+import Head from 'next/head'
 import * as React from 'react'
 import Layout from '../../organisms/ClaimFormLayout'
 import ClaimForm, { ShortClaimFields } from './organisms/ClaimForm'
@@ -22,6 +23,9 @@ const ClaimPage: React.StatelessComponent<Props> = ({
       title="Заполните заявку"
       info={`Личные данные будут использованы только для${NON_BREAKING_SPACE}консультации.`}
     >
+      <Head>
+        <title>Заполните заявку | Просто спросить</title>
+      </Head>
       <ClaimForm
         initial={initialFields}
         error={error}

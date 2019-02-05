@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import Head from 'next/head'
+
 import cx from 'classnames'
 
 export { default as notFoundMiddleware } from './notFoundMiddleware'
@@ -16,6 +18,9 @@ import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 
 const NotFound = () => (
   <>
+    <Head>
+      <title>Такой страницы не существует | Просто спросить</title>
+    </Head>
     <NavLink href="/" type={NavLinkType.Nav}>
       <IconCustom
         className={cx(styles.desktopLogo, styles.logo)}

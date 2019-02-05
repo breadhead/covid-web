@@ -1,6 +1,8 @@
 import * as React from 'react'
 import * as styles from './FormFinish.css'
 
+import Head from 'next/head'
+
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 
 import { FooterTheme } from '@app/ui/organisms/Footer'
@@ -12,6 +14,9 @@ export interface Props {
 
 const FormFinish = ({ email }: Props) => (
   <Layout pageClassName={styles.formFinish} footerTheme={FooterTheme.White}>
+    <Head>
+      <title>Спасибо! Мы получили вашу заявку | Просто спросить</title>
+    </Head>
     <div className={styles.logo}>
       <img className={styles.image} src="/static/images/2-step.png" />
     </div>
