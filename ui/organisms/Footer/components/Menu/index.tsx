@@ -39,7 +39,7 @@ const Menu = ({ long }: Props) => {
           className={styles.link}
         >
           {title}
-          <NavIcon />
+          <NavIcon long={!!long} />
         </NavLink>
       ))}
     </nav>

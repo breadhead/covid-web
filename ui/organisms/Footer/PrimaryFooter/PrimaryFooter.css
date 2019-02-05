@@ -13,10 +13,15 @@
 
 .top {
   margin-bottom: 40px;
+
+  @media (--mediumDown) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-.logo {
-    @media (--mediumDown) {
-    display: none;
+.logoWrapper {
+  @media (--mediumDown) {
+    margin-bottom: 16px;
   }
 }
