@@ -3,7 +3,7 @@ import * as styles from './WaitingAnswer.css'
 
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 
-import { CustomProgressBar } from '@app/features/common/progressBar'
+import ProgressBar, { ProgressBarKind } from '@app/features/common/progressBar'
 import { FooterTheme } from '@app/ui/organisms/Footer'
 import Layout from '../../../organisms/Layout'
 import { progressBarSteps } from './config'
@@ -14,7 +14,9 @@ export interface Props {
 
 const WaitingAnswer = ({ email }: Props) => (
   <Layout footerTheme={FooterTheme.White} pageClassName={styles.layout}>
-    <CustomProgressBar
+    <ProgressBar
+      stepNames={progressBarSteps}
+      kind={ProgressBarKind.Disabled}
       className={styles.progressBar}
       steps={progressBarSteps}
     />

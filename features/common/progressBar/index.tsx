@@ -1,6 +1,8 @@
 import Container from './container'
 import ProgressBar from './organisms/ProgressBar'
-export { StepPointerType } from './molecule/StepPointer'
+
+export { getClientSteps } from './helpers/getClientSteps'
+export { getDisabledSteps } from './helpers/getDisabledSteps'
 
 export default Container(ProgressBar)
-export { default as CustomProgressBar } from './organisms/ProgressBar'
+export { ProgressBarKind } from './container'

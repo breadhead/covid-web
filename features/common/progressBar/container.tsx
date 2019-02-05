@@ -1,75 +1,43 @@
-import Router from 'next/router'
+import { getQuery } from '@app/features/common/browserQuery'
+import { State } from '@app/lib/store'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'recompose'
-
-import { getQuery } from '@app/features/common/browserQuery'
-import { State } from '@app/lib/store'
-
-import { StepPointerModel, StepPointerType } from './molecule/StepPointer'
+import { getStepsFactory } from './helpers/getSteps'
 import { Props as ComponentProps } from './organisms/ProgressBar'
 import stepNames from './steps'
+
+export enum ProgressBarKind {
+  Client = 'Client',
+  Disabled = 'Disabled',
+}
 
 interface Props {
   step: number
   query?: any
+  stepNames: string[]
+  kind: ProgressBarKind
 }
-
-const defineType = (index: number, current: number) => {
-  if (index < current) {
-    return StepPointerType.Success
-  }
-  if (index === current) {
-    return StepPointerType.Full
-  }
-
-  return StepPointerType.Empty
-}
-
-const defineHref = (index: number, id?: string): undefined | string => {
-  if (!id) {
-    return undefined
-  }
-
-  return [
-    `/client/new-claim/${id}`,
-    `/client/claim/${id}/situation`,
-    `/client/claim/${id}/questions`,
-  ][index]
-}
-
-const defineDisabled = (index: number, current: number) => index > current
 
 const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => ({
   step,
   query,
+  kind,
+  ...rest
 }: Props) => {
   const current = step - 1
+  const id = query && query.id
+  const steps = getStepsFactory(kind)(stepNames, id, current)
 
-  const id: string | undefined = query && query.id
-
-  const steps = stepNames.map(
-    (name, index): StepPointerModel => {
-      const href = defineHref(index, id)
-      const onClick = href ? () => Router.push(href) : () => null
-
-      return {
-        title: name,
-        type: defineType(index, current),
-        disabled: defineDisabled(index, current),
-        onClick,
-      }
-    },
-  )
-
-  return <WrappedComponent steps={steps} />
+  return <WrappedComponent steps={steps} {...rest} />
 }
 
 const mapState = (state: State) => ({
   query: getQuery(state),
 })
 
-export default compose<ComponentProps, Pick<Props, 'step'>>(
+// TODO: fix types
+export default compose<any, any>(
   connect(mapState),
   Container,
 )

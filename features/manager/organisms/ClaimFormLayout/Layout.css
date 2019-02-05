@@ -1,0 +1,40 @@
+.claimPage {
+  padding: 8px 0 0;
+  font: var(--text16-24);
+  text-align: center;
+  background-color: var(--background-color);
+
+  @media (--mediumSecondDown) {
+    padding: 0 24px 0;
+  }
+
+  @media (--smallDown) {
+    padding: 0 16px 0;
+    font: var(--text14-20);
+  }
+
+  @media (--xsmallDown) {
+    padding: 0;
+  }
+}
+
+.title {
+  margin: 48px auto 8px;
+  font: var(--title-regular);
+
+  @media (--smallDown) {
+    padding: 0 16px;
+    margin: 24px auto 8px;
+  }
+}
+
+
+.infoText {
+  margin: 0 0 32px 0;
+  color: #82839B;
+
+  @media (--smallDown) {
+    padding: 0 16px;
+    margin: 0 0 24px 0;
+  }
+}

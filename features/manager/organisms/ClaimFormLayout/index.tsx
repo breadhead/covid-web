@@ -1,8 +1,9 @@
 import * as React from 'react'
 
-import ProgressBar from '@app/features/common/progressBar'
-import { ProgressBarKind } from '@app/features/common/progressBar/container'
+// import ProgressBar from '@app/features/common/progressBar'
+// import ProgressBar from '@app/features/common/progressBar'
 import Layout from '../Layout'
+// import { progressBarSteps } from './config'
 import * as styles from './Layout.css'
 
 export interface Props {
@@ -13,7 +14,6 @@ export interface Props {
 }
 
 const ClaimFormLayout: React.StatelessComponent<Props> = ({
-  step,
   title,
   info,
   children,
@@ -21,7 +21,7 @@ const ClaimFormLayout: React.StatelessComponent<Props> = ({
   return (
     <Layout>
       <main className={styles.claimPage}>
-        <ProgressBar kind={ProgressBarKind.Client} step={step} />
+        {/* <ProgressBar steps={progressBarSteps} step={step} /> */}
         {title && <h1 className={styles.title}>{title}</h1>}
         {info && <p className={styles.infoText}>{info}</p>}
         {children}

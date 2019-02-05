@@ -7,13 +7,14 @@ import Container, { PageProps } from './container'
 import Terms from './Terms'
 import TextList from './TextList'
 
-import { CustomProgressBar } from '@app/features/common/progressBar'
+import ProgressBar, { ProgressBarKind } from '@app/features/common/progressBar'
 import { progressBarSteps, statements } from './config'
 const BeforeConsultation: React.SFC<PageProps> = ({ next }) => (
   <Layout>
-    <CustomProgressBar
+    <ProgressBar
+      stepNames={progressBarSteps}
+      kind={ProgressBarKind.Disabled}
       className={styles.progressBar}
-      steps={progressBarSteps}
     />
     <img className={styles.logo} src="/static/images/answers.png" />
     <h1 className={styles.title}>
