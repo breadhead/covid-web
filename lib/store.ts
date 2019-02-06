@@ -94,7 +94,6 @@ import {
 } from '@app/features/landing/features/contacts/organisms/FeedbackForm'
 
 import ApiClient from './api/ApiClient'
-import ApiClientFactory from './api/ApiClientFactory'
 import factory from './api/apiFactory'
 
 export interface State {
@@ -150,7 +149,6 @@ export const initializeStore = (initialState?: State) =>
         unauthorizedMiddleware,
         notFoundMiddleware,
         thunk.withExtraArgument({
-          api: ApiClientFactory.getApiClient(),
           getApi: getState => factory(getToken(getState())),
         } as ExtraArgs),
       ),

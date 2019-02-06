@@ -13,7 +13,7 @@ const Login = () => (
     <StartConsultationButton
       className={cx(styles.button, styles.startConsultationButton)}
     >
-      Просто спросить
+      Начать консультацию
     </StartConsultationButton>
   </div>
 )

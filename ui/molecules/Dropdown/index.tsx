@@ -5,7 +5,7 @@ import * as styles from './Dropdown.css'
 
 import { SPACE } from '@app/lib/config'
 import IconCustom from '@app/ui/atoms/IconCustom'
-import NavLink from '@app/ui/atoms/NavLink'
+import NavLink, { TargetType } from '@app/ui/atoms/NavLink'
 
 export enum DropdownPositions {
   Left = 'left',
@@ -21,7 +21,11 @@ const Dropdown = ({ signOut, position = DropdownPositions.Left }: Props) => (
   <div className={styles.dropdown}>
     <IconCustom className={styles.icon} name="24x24_user" />
     <div className={cx(styles.menu, styles[position])}>
-      <NavLink href="https://nenaprasno.ru/" className={styles.menuItem}>
+      <NavLink
+        target={TargetType.Blank}
+        href="https://cabinet.nenaprasno.ru"
+        className={styles.menuItem}
+      >
         Личный кабинет на{SPACE}
         <span className={styles.link}>nenaprasno.ru</span>
       </NavLink>

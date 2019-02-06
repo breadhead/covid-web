@@ -1,6 +1,8 @@
 import * as React from 'react'
 import * as styles from './BeforeConsultation.css'
 
+import Head from 'next/head'
+
 import Layout from '../../organisms/Layout'
 
 import ProgressBar from '../progressBar/organisms/ProgressBar'
@@ -12,6 +14,9 @@ import { progressBarSteps, statements } from './config'
 
 const BeforeConsultation: React.SFC<PageProps> = ({ next }) => (
   <Layout>
+    <Head>
+      <title>Условия консультации | Просто спросить</title>
+    </Head>
     <ProgressBar className={styles.progressBar} steps={progressBarSteps} />
     <img className={styles.logo} src="/static/images/answers.png" />
     <h1 className={styles.title}>

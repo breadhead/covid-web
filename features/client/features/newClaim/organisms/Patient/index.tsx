@@ -26,13 +26,16 @@ interface Props {
   styles: StylesType
   initial: Partial<ShortClaimFields>
   values: Partial<ShortClaimFields>
+  changeField: (name: string, value?: any) => void
 }
-const Patient = ({ initial, styles, values }: Props) => (
+const Patient = ({ initial, styles, values, changeField }: Props) => (
   <article className={styles.article}>
-    <h2 className={styles.title}>
-      Дальше указывайте только данные о том человеке, которого нужно
-      проконсультировать
-    </h2>
+    {!!values.target && values.target !== 'Для себя' && (
+      <h2 className={styles.title}>
+        Дальше указывайте только данные о том человеке, которого нужно
+        проконсультировать
+      </h2>
+    )}
     {diagnosisVisible(values.theme) && (
       <>
         <label htmlFor="diagnosis" className={styles.label}>
@@ -67,6 +70,7 @@ const Patient = ({ initial, styles, values }: Props) => (
       textRegion="Регион проживания"
       textCountry="Страна проживания"
       textSwitch="Проживание в России?"
+      changeField={changeField}
     />
     <label
       htmlFor="personalData.age"

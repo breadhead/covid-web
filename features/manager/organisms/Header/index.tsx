@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import Logo from '@app/ui/atoms/Logo'
 
-import Menu from '../Menu'
+import Menu from '@app/features/manager/features/menu'
 
 import * as styles from './Header.css'
 

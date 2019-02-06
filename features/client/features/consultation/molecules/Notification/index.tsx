@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import * as styles from './Notification.css'
 
+import Claim from '@app/models/Claim/Claim'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import ExternalLink from '@app/ui/molecules/ExternalLink'
 import NotificationButton from '../NotificationButton'
@@ -9,9 +10,10 @@ import { getNotificationsText } from './helpers'
 
 interface Props {
   info: ListedClaim
+  claim: Claim
 }
 
-const Notification = ({ info }: Props) => {
+const Notification = ({ info, claim }: Props) => {
   const content = getNotificationsText(info)
   const { image, title } = content
   return (
@@ -34,7 +36,7 @@ const Notification = ({ info }: Props) => {
         )}
       </div>
       {!!content.button && (
-        <NotificationButton info={info} type={content.button} />
+        <NotificationButton info={info} type={content.button} claim={claim} />
       )}
     </article>
   )

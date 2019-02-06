@@ -34,7 +34,7 @@ const ClaimForm = ({
       saveOnBlur={saveSituationClaimDraft(claimData.id)}
       saveDebounced={saveSituationClaimDraft(claimData.id)}
     >
-      {({ removeSectionFromState }) => (
+      {({ removeSectionFromState, changeField }) => (
         <>
           <Common
             removeSectionFromState={removeSectionFromState}
@@ -46,6 +46,7 @@ const ClaimForm = ({
             <>
               <Health claimData={claimData} styles={styles} />
               <History
+                changeField={changeField}
                 removeSectionFromState={removeSectionFromState}
                 initial={initial}
                 claimData={claimData}

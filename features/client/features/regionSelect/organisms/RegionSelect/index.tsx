@@ -1,9 +1,9 @@
-import { Props } from '@app/features/client/features/regionSelect/container'
-import { Select } from '@app/features/common/form'
+import { ComboBox } from '@app/features/common/form'
 import { mapString } from '@app/ui/atoms/Select'
 import Switch from '@app/ui/atoms/Switch'
 import cx from 'classnames'
 import * as React from 'react'
+import { Props } from '../../container'
 import { countries } from './countries'
 import { regions } from './regions'
 
@@ -34,11 +34,15 @@ const RegionSelect = ({
         <label htmlFor={name} className={cx(styles.label, styles.field)}>
           {textRegion}
         </label>
-        <Select
+        <ComboBox
+          validateOnBlur={false}
           validate={validate}
           name={name}
           options={regions.map(mapString)}
-          placeholder={'Выберите регион'}
+          placeholder="Выберите регион"
+          hintForEmptyValue="Начните вводить название региона и
+            выберите подходящее значение из списка:"
+          hint="Продолжайте вводить название, если не видите свой регион:"
         />
       </>
     )}
@@ -47,11 +51,14 @@ const RegionSelect = ({
         <label htmlFor={name} className={cx(styles.label, styles.field)}>
           {textCountry}
         </label>
-        <Select
+        <ComboBox
           validate={validate}
           name={name}
           options={countries.map(mapString)}
           placeholder="Выберите страну"
+          hintForEmptyValue="Начните вводить название страны и
+            выберите подходящее значение из списка:"
+          hint="Продолжайте вводить название, если не видите свою страну:"
         />
       </>
     )}

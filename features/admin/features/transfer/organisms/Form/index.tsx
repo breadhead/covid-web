@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { Form, Input, InputType, Select } from '@app/features/common/form'
-import { Button } from '@front/ui/atoms/button'
+import Button, { ButtonType } from '@app/ui/atoms/Button'
 
 import Container from '../../container'
 import StrippedQuota from '../../helpers/StrippedQuota'
@@ -30,7 +30,7 @@ const TransferForm = ({ onFormSubmit, quotas }: Props) => (
         />
         <Input name="count" type={InputType.Number} label="Количество квот" />
 
-        <Button submit>Перевести</Button>
+        <Button type={ButtonType.Submit}>Перевести</Button>
       </>
     )}
   </Form>

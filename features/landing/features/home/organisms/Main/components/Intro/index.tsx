@@ -26,10 +26,17 @@ const Intro = () => (
       </NavLink>
     </div>
     <div className={styles.buttons}>
-      <StartConsultationButton className={styles.startButton}>
+      <StartConsultationButton
+        containerClassName={styles.buttonContainer}
+        className={styles.startButton}
+      >
         Начать консультацию
       </StartConsultationButton>
-      <NavLink type={NavLinkType.Nav} href="#donation">
+      <NavLink
+        className={styles.buttonContainer}
+        type={NavLinkType.Nav}
+        href="#donation"
+      >
         <Button className={styles.button} kind={ButtonKind.Secondary}>
           Помочь проекту
         </Button>
