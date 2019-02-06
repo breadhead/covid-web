@@ -12,7 +12,8 @@
     "types": "tsc",
     "pretty": "prettier --write \"{,!(.next|out)/**/}*.{ts,tsx,js}\"",
     "test": "jest",
-    "circular": "madge --circular --extensions ts ./"
+    "circular": "madge --circular --extensions ts ./",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
     "@breadhead/form-saver": "^1.0.3",
@@ -94,8 +95,10 @@
     "@types/storybook__addon-actions": "^3.4.1",
     "@types/storybook__react": "^4.0.0",
     "@types/yup": "^0.26.0",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.5",
     "babel-plugin-module-resolver": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
     "enzyme": "^3.7.0",
@@ -113,6 +116,7 @@
     "postcss-normalize": "^7.0.1",
     "postcss-preset-env": "^6.3.0",
     "prettier": "^1.15.3",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "stylelint": "^9.7.1",
     "stylelint-config-recess-order": "^2.0.0",
     "stylelint-config-recommended": "^2.1.0",
