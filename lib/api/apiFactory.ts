@@ -6,6 +6,7 @@ import RealApiClient from './RealApiClient'
 const { publicRuntimeConfig } = getConfig()
 
 type Factory = (token: string) => ApiClient
+
 const factory: Factory = token =>
   new RealApiClient(publicRuntimeConfig.backUrl, token)
 
