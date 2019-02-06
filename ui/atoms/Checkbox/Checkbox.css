@@ -4,8 +4,8 @@
   transition: border-color 0.2s ease; 
 
   &::after {
-    left: 4px;
     top: 7px;
+    left: 4px;
   }
 }
 
