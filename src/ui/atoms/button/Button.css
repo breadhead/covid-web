@@ -13,12 +13,12 @@
   background-color: var(--color-primary);
   box-shadow: inset 0 1px 1px 0.5px rgba(255,255,255,0.1), 0 3px 6px 0 rgba(60,84,238,0.2);
 
-  &:hover, &:focus {
+  &:hover:enabled, &:focus:enabled {
     background-color: #354AD4;
     box-shadow: inset 0 1px 1px 0.5px rgba(255,255,255,0.1), 0 1px 3px 0 rgba(60,84,238,0.1);
   }
 
-  &:active {
+  &:active:enabled {
     background-color: #2F41BA;
     box-shadow: none;
   }
@@ -28,11 +28,11 @@
   color: var(--color-link);
   border: 1px solid rgba(60,84,238, 0.65);
 
-  &:hover, &:focus {
+  &:hover:enabled, &:focus:enabled {
     border-color: var(--color-primary);
   }
 
-  &:active {
+  &:active:enabled {
     background-color: rgba(60,84,238,0.08);
   }
 }
@@ -43,11 +43,11 @@
   border: 1px solid #DCDCE7;
   box-shadow: inset 0 1px 1px 0.5px rgba(255,255,255,0.25), 0 1px 2px 0 rgba(0,0,0,0.04);
 
-  &:hover, &:focus {
+  &:hover:enabled, &:focus:enabled {
     background-color: #DCDCE7;
   }
 
-  &:active {
+  &:active:enabled {
     background-color: #D0D0DB;
     box-shadow: inset 0 1px 3px 0 rgba(21,24,51,0.1);
   }
