@@ -22,7 +22,12 @@ if (typeof require !== 'undefined') {
 module.exports = withPlugins(
   [
     [withTypescript],
-    [withOptimizedImages],
+    [
+      withOptimizedImages,
+      {
+        optimizeImages: false,
+      },
+    ],
     [
       withLess,
       {
