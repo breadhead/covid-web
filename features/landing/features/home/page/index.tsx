@@ -2,7 +2,6 @@ import Head from 'next/head'
 import * as React from 'react'
 import * as styles from './Home.css'
 
-import { withModal } from '@app/features/common/modal'
 import Layout from '@app/features/main/layout'
 import Corporate from '../organisms/Corporate'
 import Donation from '../organisms/Donation'
@@ -10,12 +9,8 @@ import Experts from '../organisms/Experts'
 import Main from '../organisms/Main'
 import { useAuthModalByUrl } from './useAuthModalByUrl'
 
-interface Props {
-  modal: any
-}
-
-const LandingPage = ({ modal: { open } }: Props) => {
-  useAuthModalByUrl(open)
+const LandingPage = () => {
+  useAuthModalByUrl()
 
   return (
     <Layout className={styles.main}>
@@ -30,4 +25,4 @@ const LandingPage = ({ modal: { open } }: Props) => {
   )
 }
 
-export default withModal(LandingPage)
+export default LandingPage

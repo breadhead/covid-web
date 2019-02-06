@@ -12736,6 +12736,11 @@ redux-devtools-extension@^2.13.2:
   resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.5.tgz#3ff34f7227acfeef3964194f5f7fc2765e5c5a39"
   integrity sha512-QQ9BRy77oURHMdGys9rfQcCQDzXZ1T4oW+eUyE5Cg7DNVau69HJzc4YNDMOmpi0Dzpi1zOQgQ2rUpgJta4Lfqg==
 
+redux-react-hook@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/redux-react-hook/-/redux-react-hook-3.0.4.tgz#6fc5cbb7c6ad6388185aea7d63ff230196cb6bfc"
+  integrity sha512-IOLYfIHSp2wK+SULGSk5K8iAkBh3g9VOAJn9rEP587IWlrsBG5oq9dA1AgWT3FUWsTxYVL0LZVJIBIN3Kj7u8Q==
+
 redux-symbiote@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/redux-symbiote/-/redux-symbiote-2.6.0.tgz#a43f7261186623ce084e03cf522613fcb281e8bb"
