@@ -822,6 +822,11 @@
   resolved "https://registry.yarnpkg.com/@breadhead/thunk-error/-/thunk-error-1.0.3.tgz#74d3edbcad31a453cd1a81ec1a47506031003e33"
   integrity sha512-oq4y1a7gFG9nU0kMkTEgZQBslD36BUS/B3+sY0fNkBrUADtV7S2WAQK9d4vkIUqoZ6IVrA9rYn7K6wlOMTe2wg==
 
+"@breadhead/validate-phone@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@breadhead/validate-phone/-/validate-phone-1.0.0.tgz#2602098b77c9892048885126c02d8df54127846e"
+  integrity sha512-UJ3RlVzMvkyRKzPaA7p+jNOOjH/u4K2kr4Ia296910mZ6shwbfWihfgfL5wwAgSz0qne0kYKXYc1OUwF1Jr+Rg==
+
 "@breadhead/with-scroll-lock@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@breadhead/with-scroll-lock/-/with-scroll-lock-1.0.0.tgz#30a26b202077b6ee54bd2ff62bbd51c072d480c9"
