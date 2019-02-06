@@ -17,7 +17,7 @@ const Logo = ({ src, name }: { src: string; name?: string }) => (
 
 const CompanyLogo = ({ logo, site, name }: Props) => {
   return !!site ? (
-    <ExternalLink href={site}>
+    <ExternalLink className={styles.logoWrapper} href={site}>
       <Logo src={logo} name={name} />
     </ExternalLink>
   ) : (
