@@ -1,7 +1,7 @@
 const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin')
 const withCSS = require('next-css-unpluggable')
 
-module.exports = (baseConfig, env, config) => {
+module.exports = (baseConfig, environment, config) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
     use: [

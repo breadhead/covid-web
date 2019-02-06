@@ -76,7 +76,6 @@
     "@commitlint/config-conventional": "^7.3.1",
     "@solid-soda/tslint-config": "^2.5.3",
     "@storybook/addon-actions": "^4.1.11",
-    "@storybook/addon-console": "^1.1.0",
     "@storybook/addon-links": "^4.1.11",
     "@storybook/addon-viewport": "^4.1.11",
     "@storybook/react": "^4.1.11",
