@@ -31,7 +31,7 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
       const completeData = {
         claimId: id,
         answers: Object.entries(fields)
-          .filter(([_, ansewer]) => !!ansewer)
+          .filter(([_, answer]) => !!answer)
           .map(([question, answer]) => ({
             question: question
               .replace('Дополнительные вопросы: ', '')
