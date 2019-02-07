@@ -1,10 +1,6 @@
 import { combineReducers } from 'redux'
 
 export { Situation, Questions } from './features/editClaim'
-import {
-  reducer as editClaimReducer,
-  State as EditClaimState,
-} from './features/editClaim'
 
 export { default as Claims } from './features/claims'
 import {
@@ -24,12 +20,10 @@ export { default as FormFinish } from './features/formFinish'
 
 export interface State {
   claims: ClaimsState
-  editClaim: EditClaimState
 }
 
 export const reducer = combineReducers({
   claims: claimReducer,
-  editClaim: editClaimReducer,
 } as any)
 
 export { themes } from './values'
