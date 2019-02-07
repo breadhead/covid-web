@@ -40,6 +40,10 @@
   &::after {
     left: 62px;
   }
+
+  &:hover, &:focus {
+    background-color: #354AD4;
+  }
 }
 
 .unchecked {
@@ -51,6 +55,10 @@
 
   &::after {
     left: 8px
+  }
+
+  &:hover, &:focus {
+    background-color: #DCDCE7;
   }
 }
 

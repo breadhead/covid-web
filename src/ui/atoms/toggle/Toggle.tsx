@@ -1,5 +1,7 @@
 import cx from 'classnames'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+
+import { usePressEnter } from '@front/hooks/usePressEnter'
 
 import { getCheckedClassName } from './helpers/getCheckedClassName'
 import { getCheckedText } from './helpers/getCheckedText'
@@ -13,19 +15,23 @@ interface Props {
 
 export const Toggle = ({ onChange, value }: Props) => {
   const [checked, setChecked] = useState(value || false)
-
+  const ref = useRef<HTMLDivElement>(null)
   const handleChange = useHandleChange(checked, setChecked, value, onChange)
+
+  usePressEnter(ref, handleChange)
 
   return (
     <div
-      className={cx(styles.container, styles[getCheckedClassName(checked)])}
+      ref={ref}
+      tabIndex={0}
       onClick={handleChange}
+      className={cx(styles.container, styles[getCheckedClassName(checked)])}
     >
       <input
-        className={styles.checkbox}
+        readOnly
         type="checkbox"
         checked={checked}
-        readOnly
+        className={styles.checkbox}
       />
       {getCheckedText(checked)}
     </div>
