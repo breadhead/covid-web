@@ -1,12 +1,16 @@
 .container {
+  --animation-duration: 0.3s;
+
   display: block;
-  width: 96px;
+  width: 94px;
   height: 40px;
   margin: 0;
   cursor: pointer;
   border-radius: 22px;
+  transition: background-color var(--animation-duration);
 
   &::after {
+    position: absolute;
     display: inline-block;
     width: 36px;
     height: 36px;
@@ -15,6 +19,7 @@
     background-color: #fff;
     border-radius: 50%;
     box-shadow: 0 0.5px 1px 0 rgba(21,24,51,0.08), 0 1px 3px 0 rgba(21,24,51,0.16);
+    transition: left var(--animation-duration);
   }
 }
 
@@ -22,7 +27,7 @@
   background-color: #3C54EE;
 
   &::after {
-    float: right;
+    left: 62px;
   }
 }
 
@@ -30,7 +35,7 @@
   background-color: #E8E9F2;
 
   &::after {
-    float: left;
+    left: 8px
   }
 }
 
