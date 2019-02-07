@@ -5,19 +5,22 @@ import Head from 'next/head'
 
 import Layout from '../../organisms/Layout'
 
-import ProgressBar from '../progressBar/organisms/ProgressBar'
 import Container, { PageProps } from './container'
 import Terms from './Terms'
 import TextList from './TextList'
 
+import ProgressBar, { ProgressBarKind } from '@app/features/common/progressBar'
 import { progressBarSteps, statements } from './config'
-
 const BeforeConsultation: React.SFC<PageProps> = ({ next }) => (
   <Layout>
     <Head>
       <title>Условия консультации | Просто спросить</title>
     </Head>
-    <ProgressBar className={styles.progressBar} steps={progressBarSteps} />
+    <ProgressBar
+      stepNames={progressBarSteps}
+      kind={ProgressBarKind.Disabled}
+      className={styles.progressBar}
+    />
     <img className={styles.logo} src="/static/images/answers.png" />
     <h1 className={styles.title}>
       Пожалуйста, прочитайте этот текст перед началом консультации

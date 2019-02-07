@@ -31,7 +31,7 @@ const Controls = (props: Props) => (
     {!!props.editClaim && (
       <Button
         className={styles.button}
-        onClick={() => Router.push(`/client/new-claim/${props.id}`)}
+        onClick={() => Router.push(`/manager/new-claim/${props.id}`)}
         kind={ButtonKind.Extra}
       >
         Редактировать заявку

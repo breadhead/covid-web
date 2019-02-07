@@ -1,4 +1,4 @@
-import { fetchShortClaim } from '@app/features/client/features/newClaim'
+import { fetchShortClaim } from '@app/features/common/claim/newClaim'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'

@@ -1,22 +1,9 @@
-import { StepPointerType } from '@app/features/client/features/progressBar/molecule/StepPointer'
 import { NON_BREAKING_HYPHEN, NON_BREAKING_SPACE } from '@app/lib/config'
 
 export const progressBarSteps = [
-  {
-    title: 'Заполните заявку',
-    type: StepPointerType.Empty,
-    disabled: true,
-  },
-  {
-    title: 'Опишите ситуацию',
-    type: StepPointerType.Empty,
-    disabled: true,
-  },
-  {
-    title: 'Задайте вопросы',
-    type: StepPointerType.Empty,
-    disabled: true,
-  },
+  'Заполните заявку',
+  'Опишите ситуацию',
+  'Задайте вопросы',
 ]
 
 export const statements = [

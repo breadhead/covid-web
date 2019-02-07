@@ -5,9 +5,9 @@ import Head from 'next/head'
 
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 
+import ProgressBar, { ProgressBarKind } from '@app/features/common/progressBar'
 import { FooterTheme } from '@app/ui/organisms/Footer'
 import Layout from '../../../organisms/Layout'
-import ProgressBar from '../../progressBar/organisms/ProgressBar'
 import { progressBarSteps } from './config'
 
 export interface Props {
@@ -19,7 +19,11 @@ const WaitingAnswer = ({ email }: Props) => (
     <Head>
       <title>Дождитесь ответа нашего сотрудника | Просто спросить</title>
     </Head>
-    <ProgressBar className={styles.progressBar} steps={progressBarSteps} />
+    <ProgressBar
+      stepNames={progressBarSteps}
+      kind={ProgressBarKind.Disabled}
+      className={styles.progressBar}
+    />
     <div className={styles.logo}>
       <img className={styles.image} src="/static/images/waiting.png" />
     </div>

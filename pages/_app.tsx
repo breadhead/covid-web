@@ -23,6 +23,7 @@ import { canUseDOM } from '@app/lib/helpers/canUseDOM'
 import registerModals from '@app/lib/register-modals'
 import { AppContext } from '@app/lib/server-types'
 
+import { currentUser } from '@app/features/login/features/user'
 import { description, keywords } from './SEO'
 
 interface Props {
@@ -36,12 +37,13 @@ Router.events.on('routeChangeComplete', () => {
 })
 
 class OncohelpWeb extends App<Props> {
-  public static getInitialProps(context: NextAppContext) {
+  public static async getInitialProps(context: NextAppContext) {
     const ctx: AppContext = context.ctx as any
     if (ctx.req) {
       const token: string = (ctx.req as any).cookies.token
       if (token) {
         ctx.reduxStore.dispatch(setToken(token))
+        await ctx.reduxStore.dispatch(currentUser() as any) // it's important to dispatch this action after token is set to omit 401 infinite loop
       }
     }
 

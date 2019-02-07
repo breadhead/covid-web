@@ -5,7 +5,6 @@ import { ShortClaimFields } from '../ClaimForm'
 import Contacts from '../Contacts'
 import Main from '../Main'
 import Patient from '../Patient'
-import Footer from './../Footer'
 import * as styles from './ClaimForm.css'
 
 interface Company {
@@ -40,9 +39,25 @@ interface Props {
   error: false | string
   initial: Partial<ShortClaimFields>
   loading: boolean
+  footer: FooterType
+  id: string
 }
 
-const ClaimForm = ({ initial, onSubmit, error, loading }: Props) => {
+type FooterType = (
+  error: false | string,
+  loading: boolean,
+  styles: any,
+  id: string,
+) => React.ReactNode
+
+const ClaimForm = ({
+  initial,
+  onSubmit,
+  error,
+  loading,
+  id,
+  footer,
+}: Props) => {
   return (
     <Form
       onSubmit={onSubmit as any}
@@ -53,17 +68,19 @@ const ClaimForm = ({ initial, onSubmit, error, loading }: Props) => {
         <>
           <Contacts styles={styles} initial={initial} />
           <Main styles={styles} initial={initial} />
+
           <Patient
             changeField={changeField}
             values={values}
             styles={styles}
             initial={initial}
           />
-          <Footer error={error} loading={loading} styles={styles} />
+          {footer(error, loading, styles, id)}
         </>
       )}
     </Form>
   )
 }
 
+export { FooterType }
 export default ClaimForm

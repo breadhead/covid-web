@@ -1,3 +1,4 @@
+import Router from 'next/router'
 import * as React from 'react'
 import * as styles from './StepPointer.css'
 
@@ -9,6 +10,7 @@ export enum StepPointerType {
   Empty = 'empty',
   Full = 'full',
   Success = 'success',
+  Stroked = 'stroked',
 }
 
 export interface StepPointerModel {
@@ -16,6 +18,7 @@ export interface StepPointerModel {
   type: StepPointerType
   disabled?: boolean
   onClick?: () => void
+  href?: string
 }
 
 interface Props {
@@ -25,7 +28,7 @@ interface Props {
 }
 
 const StepPointer = ({ step, index, className }: Props) => {
-  const { type, title, disabled, onClick } = step
+  const { type, title, disabled, href = '' } = step
 
   const currentContent =
     type === StepPointerType.Success ? (
@@ -40,14 +43,17 @@ const StepPointer = ({ step, index, className }: Props) => {
     disabled && styles.disabled,
   )
 
-  const clickHandler = !disabled ? onClick : () => null
-
   return (
     <div className={className}>
       <p className={cx(styles.title, disabled && styles.titleDisabled)}>
         {title}
       </p>
-      <div className={currentClassName} onClick={clickHandler}>
+      <div
+        className={currentClassName}
+        onClick={() => {
+          Router.push(href)
+        }}
+      >
         {currentContent}
       </div>
     </div>
