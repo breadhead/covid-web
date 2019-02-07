@@ -17,7 +17,7 @@ const ChatWrapper = React.forwardRef<HTMLDivElement, Props>(
     return messages.length === 0 ? (
       <EmptyWindow text={EmptyWindowText} />
     ) : (
-      <div className={styles.chatWrapper} ref={ref}>
+      <div className={styles.chatWrapper} ref={ref!}>
         {messages.map(message => (
           <Message key={message.id} message={message} />
         ))}
