@@ -6,7 +6,7 @@ import { actions } from './reducer'
 export const useSpecificModal = (key: string) => {
   const dispatch = useDispatch()
 
-  const open = useCallback(() => dispatch(actions.open(key)), [])
+  const open = useCallback(() => dispatch(actions.open(key)), [key])
 
   const close = useCallback(() => dispatch(actions.close()), [])
 
