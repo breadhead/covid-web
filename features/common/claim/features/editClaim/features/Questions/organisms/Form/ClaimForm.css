@@ -1,15 +1,14 @@
 .ClaimForm {
   position: relative;
   max-width: 800px;
-  padding: 0 0 40px 0;
-  margin: 32px auto 0 auto;
+  padding: 0;
+  margin: 0 auto;
+  margin-top: 40px;
   text-align: left;
-  background-color: #fff;
-  box-shadow: 0 1px 3px 0 rgba(21, 24, 51, 0.2);
 
   @media (--smallDown) {
-    padding: 0 0 32px 0;
-    margin: 24px auto 0 auto;
+    padding: 0;
+    margin-top: 24px;
   }
 }
 
@@ -35,6 +34,8 @@
   position: relative;
   padding: 48px 160px 56px 160px;
   font: var(--text16-24);
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(21, 24, 51, 0.2);
 
   &::after {
     position: absolute;
@@ -62,7 +63,6 @@
     }
   }
 }
-
 
 .label {
   position: relative;
@@ -152,8 +152,15 @@
   fill: var(--color-primary);
   transform: rotate(180deg);
 }
+.iconForward {
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+  fill: var(--color-primary);
+}
 
-.footerBack {
+.footerBack,
+.footerForward {
   display: flex;
   align-items: center;
   margin-top: 104px;
@@ -162,7 +169,6 @@
     margin-top: 96px;
   }
 }
-
 .emergeField {
   & .label:first-child {
     margin-top: 0;
@@ -179,12 +185,11 @@
 }
 
 .footer {
-  padding: 48px 160px 0 160px;
   &::after {
     display: none;
   }
 
   @media (--smallDown) {
-    padding: 32px 20px 0;
+    padding: 32px 20px 32px 20px;
   }
 }

@@ -11,6 +11,8 @@ import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import routes from '@app/routes'
 
 import { fetchShortClaim } from '@app/features/common/claim/features/newClaim'
+import { getRoles } from '@app/features/login'
+import { Role } from '@app/models/Users/User'
 import {
   createSituationClaim as createSituationClaimAction,
   fetchSituationClaim,
@@ -77,9 +79,18 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
         const request = this.createRequest(fields, shortClaim.id)
         const { id } = await createSituationClaim(request)
 
-        const { error } = this.props
+        const { error, roles } = this.props
+        if (!error) {
+          this.redirect(id, roles)
+        }
+      }
 
-        this.redirectIfNeeded(id, error)
+      private redirect(id: string, roles: Role[]) {
+        if (roles.includes(Role.Client)) {
+          Router.pushRoute(`/client/claim/${id}/questions`)
+        } else if (roles.includes(Role.CaseManager)) {
+          Router.pushRoute(`/manager/consultation/${id}`)
+        }
       }
 
       private getInitialFields = (claim: SituationClaim) => {
@@ -123,12 +134,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
 
         return { ...fields, id, otherFiles: fields.otherFiles || [] }
       }
-
-      private redirectIfNeeded(id: string, error: false | string) {
-        if (!error) {
-          Router.pushRoute(`/client/claim/${id}/questions`)
-        }
-      }
     },
   )
 }
@@ -136,6 +141,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
 const mapState = (state: State) => ({
   error: getSituationError(state),
   loading: getSituationLoading(state),
+  roles: getRoles(state),
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({

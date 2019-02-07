@@ -8,6 +8,8 @@ import { AnyAction, Dispatch } from 'redux'
 
 import routes from '@app/routes'
 
+import { getRoles } from '@app/features/login'
+import { Role } from '@app/models/Users/User'
 import { createQuestionsClaim as createQuestionsClaimAction } from './actions'
 import { getQuestionsClaimDraft } from './localStorage'
 import { FooterType } from './organisms/Form'
@@ -91,16 +93,25 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
         }
         const claim = await createQuestionsClaim(request)
 
-        const { error } = this.props
-        this.redirectIfNeeded(shortClaim.personalData.email, error)
+        const {
+          error,
+          roles,
+          claimData: { id },
+        } = this.props
+
+        if (!error) {
+          this.redirect(shortClaim.personalData.email, id, roles)
+        }
         return claim
       }
 
-      private redirectIfNeeded(email: string = '', error: false | string) {
-        if (!error) {
+      private redirect(email: string = '', id: string, roles: Role[]) {
+        if (roles.includes(Role.Client)) {
           Router.pushRoute(
             `/client/claim/form-finish/${encodeURIComponent(email)}`,
           )
+        } else if (roles.includes(Role.CaseManager)) {
+          Router.pushRoute(`/manager/consultation/${id}`)
         }
       }
     },
@@ -110,6 +121,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
 const mapState = (state: State) => ({
   error: getQuestionsError(state),
   loading: getQuestionsLoading(state),
+  roles: getRoles(state),
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
