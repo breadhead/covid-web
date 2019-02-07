@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-import { getSituationClaim } from '@app/features/client/features/editClaim/features/Situation'
+import { getSituationClaim } from '@app/features/common/claim/features/editClaim/features/Situation'
 import { getShortClaim } from '@app/features/common/claim/features/newClaim/selectors'
 import { State } from '@app/lib/store'
 import Claim from '@app/models/Claim/Claim'

@@ -1,6 +1,1 @@
-import Container from './container'
-import Page from './page'
-
-export default Container(Page)
-
-export { reducer, State } from './reducer'
+export { Questions } from '@app/features/common/claim/features/editClaim'
