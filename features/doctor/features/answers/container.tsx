@@ -30,10 +30,14 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
       const { id } = claim
       const completeData = {
         claimId: id,
-        answers: Object.entries(fields).map(([question, answer]) => ({
-          question: question.replace('Дополнительные вопросы: ', ''),
-          answer,
-        })),
+        answers: Object.entries(fields)
+          .filter(([_, ansewer]) => !!ansewer)
+          .map(([question, answer]) => ({
+            question: question
+              .replace('Дополнительные вопросы: ', '')
+              .replace(//g, '.'),
+            answer,
+          })),
       }
 
       await sendAnswers(completeData)
