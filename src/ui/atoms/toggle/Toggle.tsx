@@ -32,6 +32,8 @@ export const Toggle = ({ onChange, value, disabled = false }: Props) => {
     <div
       ref={ref}
       tabIndex={0}
+      role="checkbox"
+      aria-checked={checked}
       onClick={handleChange}
       className={cx(
         styles.container,
@@ -39,12 +41,6 @@ export const Toggle = ({ onChange, value, disabled = false }: Props) => {
         styles[getDisabledClassName(disabled)],
       )}
     >
-      <input
-        readOnly
-        type="checkbox"
-        checked={checked}
-        className={styles.checkbox}
-      />
       {getCheckedText(checked)}
     </div>
   )
