@@ -1,6 +1,8 @@
 import * as React from 'react'
 import * as styles from './BeforeConsultation.css'
 
+import Head from 'next/head'
+
 import Layout from '../../organisms/Layout'
 
 import Container, { PageProps } from './container'
@@ -11,6 +13,9 @@ import ProgressBar, { ProgressBarKind } from '@app/features/common/progressBar'
 import { progressBarSteps, statements } from './config'
 const BeforeConsultation: React.SFC<PageProps> = ({ next }) => (
   <Layout>
+    <Head>
+      <title>Условия консультации | Просто спросить</title>
+    </Head>
     <ProgressBar
       stepNames={progressBarSteps}
       kind={ProgressBarKind.Disabled}

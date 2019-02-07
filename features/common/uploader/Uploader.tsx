@@ -1,21 +1,22 @@
 import { head } from 'lodash'
 import * as React from 'react'
 
-import ApiClientFactory from '@app/lib/api/ApiClientFactory'
 import Button, { ButtonType } from '@app/ui/atoms/Button'
 
+import { getToken } from '@app/features/login'
+import factory from '@app/lib/api/apiFactory'
+import { connect } from 'react-redux'
 import * as styles from './Uploader.css'
 
 interface Props {
   onUploaded?: (url: string) => void
   id?: string
+  token: string
 }
 
 interface State {
   path: string | null
 }
-
-const apiClient = ApiClientFactory.getApiClient()
 
 class Uploader extends React.Component<Props, State> {
   public state = {
@@ -50,11 +51,16 @@ class Uploader extends React.Component<Props, State> {
       return
     }
 
-    const { onUploaded } = this.props
+    const { onUploaded, token } = this.props
+    const apiClient = factory(token)
     const { path } = await apiClient.uploadFile(file)
 
     this.setState({ path }, () => onUploaded && onUploaded(path))
   }
 }
 
-export default Uploader
+const mapState = (state: any) => ({
+  token: getToken(state),
+})
+
+export default connect(mapState)(Uploader)

@@ -1,12 +1,10 @@
 import Modal from '@app/features/common/modal'
 import { authViolateStatus, getViolateState } from '@app/features/login'
-import ApiClientFactory from '@app/lib/api/ApiClientFactory'
 import { Store } from '@app/lib/store'
 import withReduxStore from '@app/lib/with-redux-store'
 import '@app/ui/antd-styles.less'
 import Sprite from '@app/ui/atoms/Sprite'
 
-import Cookie from 'js-cookie'
 import App, { Container, NextAppContext } from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
@@ -42,7 +40,6 @@ class OncohelpWeb extends App<Props> {
     if (ctx.req) {
       const token: string = (ctx.req as any).cookies.token
       if (token) {
-        ApiClientFactory.getApiClient().token = token
         ctx.reduxStore.dispatch(setToken(token))
       }
     }
@@ -53,12 +50,6 @@ class OncohelpWeb extends App<Props> {
   }
 
   public componentDidMount() {
-    const token = Cookie.get('token')
-
-    if (token) {
-      ApiClientFactory.getApiClient().token = token
-    }
-
     const authViolate = getViolateState(this.props.reduxStore.getState())
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))

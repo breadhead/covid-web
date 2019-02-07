@@ -9,7 +9,7 @@ export const progressBarSteps = [
 export const statements = [
   {
     id: '1',
-    text: `Консультация в${NON_BREAKING_SPACE}сервисе Фонда профилактики рака “Просто${NON_BREAKING_SPACE}спросить” (далее Сервис)  не${NON_BREAKING_SPACE}является медицинской услугой, эксперты Сервиса не${NON_BREAKING_SPACE}ставят диагноз и${NON_BREAKING_SPACE}не${NON_BREAKING_SPACE}назначают лечение — это возможно только при личном посещении врача и${NON_BREAKING_SPACE}только в${NON_BREAKING_SPACE}медицинском учреждении. Эксперты Сервиса предоставляют только справочную информацию по${NON_BREAKING_SPACE}заболеванию, методам лечения, побочным эффектам, осложнениям и${NON_BREAKING_SPACE}т.д.`,
+    text: `Консультация в${NON_BREAKING_SPACE}сервисе Фонда профилактики рака «Просто${NON_BREAKING_SPACE}спросить» (далее Сервис)  не${NON_BREAKING_SPACE}является медицинской услугой, эксперты Сервиса не${NON_BREAKING_SPACE}ставят диагноз и${NON_BREAKING_SPACE}не${NON_BREAKING_SPACE}назначают лечение — это возможно только при личном посещении врача и${NON_BREAKING_SPACE}только в${NON_BREAKING_SPACE}медицинском учреждении. Эксперты Сервиса предоставляют только справочную информацию по${NON_BREAKING_SPACE}заболеванию, методам лечения, побочным эффектам, осложнениям и${NON_BREAKING_SPACE}т.д.`,
   },
   {
     id: '2',

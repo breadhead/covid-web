@@ -23,4 +23,5 @@
 
 .button.button.startConsultationButton {
   margin-right: 0;
+  white-space: nowrap;
 }

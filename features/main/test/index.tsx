@@ -23,6 +23,7 @@ import Input from '@app/ui/atoms/Input'
 import TimePicker from '@app/ui/atoms/TimePicker'
 import Combobox from '@app/ui/molecules/Combobox'
 import HintInput from '@app/ui/molecules/HintInput'
+import { Icon } from '@front/ui/atoms/icon/Icon'
 import FormTest from './FormTest'
 
 const testSelectOptions = [
@@ -60,6 +61,7 @@ const testComboOptions = [
 
 const Test = ({ modal }: WithModalProps) => (
   <Layout>
+    <Icon />
     <h1 style={{ font: 'var(--title-extra)' }}>components preview page</h1>
     <div style={{ paddingLeft: '5%', textAlign: 'left' }}>
       <FormTest />

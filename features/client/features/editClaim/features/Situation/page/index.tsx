@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import Head from 'next/head'
+
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 
 import Layout from '@app/features/client/organisms/ClaimFormLayout'
@@ -30,6 +32,9 @@ const SituationPage = ({
     словами. Сотрудники Фонда свяжутся с${NON_BREAKING_SPACE}вами, если будут
     необходимы дополнительные данные.`}
     >
+      <Head>
+        <title>Условия консультации | Просто спросить</title>
+      </Head>
       <ClaimForm
         initial={initialFields}
         error={error}
