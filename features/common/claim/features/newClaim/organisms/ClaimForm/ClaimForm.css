@@ -105,7 +105,8 @@
   fill: var(--color-primary);
 }
 
-.footerBack {
+.footerBack,
+.footerForward {
   display: flex;
   align-items: center;
   margin-top: 104px;
