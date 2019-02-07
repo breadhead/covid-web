@@ -1,0 +1,20 @@
+.footer {
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  margin-bottom: 42px;
+  box-shadow: 0 1px 0px 0 rgba(21, 24, 51, 0.2);
+}
+
+.footerBack {
+  margin-top: 0;
+
+  margin-left: auto;
+}
