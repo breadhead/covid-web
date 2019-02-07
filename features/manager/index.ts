@@ -21,7 +21,7 @@ import {
   State as CloseClaimState,
 } from './features/closeClaim'
 
-export { default as NewClaim } from './features/claim/newClaim'
+export { NewClaim, Situation } from './features/claim'
 
 import {
   reducer as chooseDoctorReducer,

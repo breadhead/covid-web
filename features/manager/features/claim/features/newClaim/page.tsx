@@ -1,9 +1,9 @@
 import createNewClaim, {
   FooterType,
 } from '@app/features/common/claim/features/newClaim'
+import ClaimFormLayout from '@app/features/manager/organisms/ClaimFormLayout'
 import Head from 'next/head'
 import * as React from 'react'
-import ClaimFormLayout from '../../../organisms/ClaimFormLayout'
 import Footer from './organisms/Footer'
 interface LayoutProps {
   children: React.ReactNode
