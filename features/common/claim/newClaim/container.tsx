@@ -1,8 +1,10 @@
 import { set } from '@app/features/common/browserQuery'
+import { getRoles } from '@app/features/login'
 import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { Role } from '@app/models/Users/User'
 import routes from '@app/routes'
 import * as React from 'react'
 import { connect } from 'react-redux'
@@ -118,24 +120,31 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
 
         const { email } = personalData
 
-        const { error } = this.props
+        const { error, roles } = this.props
 
-        this.redirectIfNeeded(error, quotaAllocated, id, email)
+        if (!error) {
+          this.redirect(quotaAllocated, id, email, roles)
+        }
+
+        if (quotaAllocated) {
+          this.props.setIdInQuery(id)
+        }
       }
 
-      private redirectIfNeeded(
-        error: false | string,
+      private redirect(
         quotaAllocated: boolean,
         id: string,
         email: string | undefined,
+        roles: Role[],
       ) {
-        if (!error) {
+        if (roles.includes(Role.Client)) {
           if (quotaAllocated) {
             Router.pushRoute(`/client/claim/${id}/situation`)
-            this.props.setIdInQuery(id)
           } else if (email) {
             Router.pushRoute(`/client/claim/wait/${encodeURIComponent(email)}`)
           }
+        } else if (roles.includes(Role.CaseManager)) {
+          Router.pushRoute(`/manager/consultation/${id}`)
         }
       }
     },
@@ -145,6 +154,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
 const mapState = (state: State) => ({
   error: getNewClaimError(state),
   loading: getLoading(state),
+  roles: getRoles(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
