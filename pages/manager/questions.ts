@@ -1,1 +1,1 @@
-export { Questions as default } from '@app/features/common/claim'
+export { createQuestionsClaim as default } from '@app/features/common/claim'
