@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import ProgressBar from '@app/features/common/progressBar'
-import { ProgressBarKind } from '@app/features/common/progressBar/container'
+import { ProgressBarKind } from '@app/features/common/progressBar'
 import Layout from '../Layout'
 import * as styles from './Layout.css'
 

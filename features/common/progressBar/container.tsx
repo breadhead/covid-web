@@ -4,14 +4,8 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'recompose'
 import { Omit } from 'utility-types'
-import { getStepsFactory } from './helpers/getSteps'
+import { getStepsFactory, ProgressBarKind } from './helpers/getSteps'
 import { Props as ComponentProps } from './organisms/ProgressBar'
-
-export enum ProgressBarKind {
-  Client = 'Client',
-  Disabled = 'Disabled',
-  Manager = 'Manager',
-}
 
 interface Props {
   className?: string

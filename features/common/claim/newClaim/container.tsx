@@ -16,15 +16,6 @@ import { getLoading, getNewClaimError } from './selectors'
 
 const Router = routes.Router
 
-// interface Props {
-//   createClaim: (request: ShortClaimRequest) => Promise<ShortClaim>
-//   setIdInQuery: (id: string) => void
-//   error: false | string
-//   loading: boolean
-//   shortClaim?: ShortClaim
-//   id: string
-// }
-
 interface Query {
   id?: string
 }
