@@ -2,6 +2,7 @@ import cx from 'classnames'
 import { useState } from 'react'
 
 import { getCheckedClassName } from './helpers/getCheckedClassName'
+import { getCheckedText } from './helpers/getCheckedText'
 import * as styles from './Toggle.css'
 import { useHandleChange } from './useHandleChange'
 
@@ -26,6 +27,7 @@ export const Toggle = ({ onChange, value }: Props) => {
         checked={checked}
         readOnly
       />
+      {getCheckedText(checked)}
     </div>
   )
 }

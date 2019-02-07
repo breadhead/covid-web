@@ -1,20 +1,27 @@
 .container {
   --animation-duration: 0.3s;
+  --height: 40px;
+  --radius: 22px;
+  --toggle-size: 36px;
 
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 94px;
-  height: 40px;
+  height: var(--height);
   margin: 0;
+  font: var(--text16-24);
   cursor: pointer;
-  border-radius: 22px;
+  user-select: none;
+  border-radius: var(--radius);
   transition: background-color var(--animation-duration);
 
   &::after {
     position: absolute;
     display: inline-block;
-    width: 36px;
-    height: 36px;
-    margin: 2px;
+    width: var(--toggle-size);
+    height: var(--toggle-size);
+    margin: 0 2px;
     content: "";
     background-color: #fff;
     border-radius: 50%;
@@ -24,7 +31,11 @@
 }
 
 .checked {
-  background-color: #3C54EE;
+  padding-right: var(--height);
+  padding-left: var(--radius);
+  color: #fff;
+  text-align: left;
+  background-color: var(--color-primary);
 
   &::after {
     left: 62px;
@@ -32,7 +43,11 @@
 }
 
 .unchecked {
-  background-color: #E8E9F2;
+  padding-right: var(--radius);
+  padding-left: var(--height);
+  color: var(--color-text-primary);
+  text-align: right;
+  background-color: var(--color-inactive);
 
   &::after {
     left: 8px
@@ -40,5 +55,5 @@
 }
 
 .checkbox {
-  opacity: 0;
+  display: none;
 }
