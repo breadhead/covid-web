@@ -8,3 +8,5 @@ export { reducer, State } from './reducer'
 export { fetchSituationClaim } from './actions'
 
 export { getSituationClaim } from './selectors'
+
+export { FooterType } from './organisms/Form'

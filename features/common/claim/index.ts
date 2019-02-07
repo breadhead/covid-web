@@ -9,7 +9,12 @@ import {
 } from './features/newClaim'
 
 export { default as NewClaim } from './features/newClaim'
-export { Situation, Questions, fetchSituationClaim } from './features/editClaim'
+export {
+  createSituationClaim,
+  Questions,
+  fetchSituationClaim,
+  FooterType,
+} from './features/editClaim'
 
 export interface State {
   newClaim: NewClaimState

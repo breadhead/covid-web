@@ -7,17 +7,25 @@ import { themeNamesMap } from '@app/features/client/values'
 import { saveSituationClaimDraft } from '../../localStorage'
 import { ClaimData, SituationClaimFields } from '../../types'
 import Common from '../Common'
-import Footer from '../Footer'
 import Health from '../Health'
 import History from '../History'
 import Survey from '../Survey'
+
 interface Props {
   onFormSubmit: (fields: SituationClaimFields) => Promise<void>
   claimData: ClaimData
   error: false | string
   initial: Partial<SituationClaimFields>
   loading?: boolean
+  footer: FooterType
 }
+
+type FooterType = (
+  error: false | string,
+  loading: boolean,
+  styles: any,
+  id: string,
+) => React.ReactNode
 
 const ClaimForm = ({
   onFormSubmit,
@@ -25,6 +33,7 @@ const ClaimForm = ({
   error,
   loading,
   initial,
+  footer,
 }: Props) => {
   return (
     <Form
@@ -60,12 +69,7 @@ const ClaimForm = ({
             claimData={claimData}
             styles={styles}
           />
-          <Footer
-            error={error}
-            loading={loading}
-            styles={styles}
-            id={claimData.id}
-          />
+          {footer(error, loading!, styles, claimData.id)}
         </>
       )}
     </Form>
@@ -73,3 +77,4 @@ const ClaimForm = ({
 }
 
 export default ClaimForm
+export { FooterType }

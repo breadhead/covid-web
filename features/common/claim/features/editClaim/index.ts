@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux'
 
-export { default as Situation, fetchSituationClaim } from './features/Situation'
+export {
+  default as createSituationClaim,
+  fetchSituationClaim,
+  FooterType,
+} from './features/Situation'
 export { default as Questions } from './features/Questions'
 import {
   reducer as questionsReducer,
