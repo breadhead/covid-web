@@ -11,7 +11,7 @@ import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import routes from '@app/routes'
 
-import { fetchShortClaim } from '../../../../../common/claim/newClaim'
+import { fetchShortClaim } from '../../../../../common/claim/features/newClaim'
 import {
   createSituationClaim as createSituationClaimAction,
   fetchSituationClaim,

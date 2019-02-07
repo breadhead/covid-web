@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux'
 
 import { fetchSituationClaim } from '@app/features/client/features/editClaim'
-import { fetchShortClaim } from '@app/features/common/claim/newClaim'
+import { fetchShortClaim } from '@app/features/common/claim/features/newClaim'
 import { ExtraArgs, State } from '@app/lib/store'
 
 import { actions as claimDataActions } from './reducers/claimData'

@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect'
 
 import { getSituationClaim } from '@app/features/client/features/editClaim/features/Situation'
-import { getShortClaim } from '@app/features/common/claim/newClaim/selectors'
+import { getShortClaim } from '@app/features/common/claim/features/newClaim/selectors'
 import { State } from '@app/lib/store'
 import Claim from '@app/models/Claim/Claim'
 
@@ -23,7 +23,7 @@ export const getClaimStatus = createSelector(
 )
 
 export const getClaimId = (state: State) =>
-  state.client.newClaim.claim && state.client.newClaim.claim.id
+  state.claim.newClaim.claim && state.claim.newClaim.claim.id
 
 const getQuestionClaim = (state: State) =>
   state.consultation.claimData.questions

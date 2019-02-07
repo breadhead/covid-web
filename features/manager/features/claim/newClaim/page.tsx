@@ -1,4 +1,6 @@
-import createNewClaim, { FooterType } from '@app/features/common/claim/newClaim'
+import createNewClaim, {
+  FooterType,
+} from '@app/features/common/claim/features/newClaim'
 import Head from 'next/head'
 import * as React from 'react'
 import ClaimFormLayout from '../../../organisms/ClaimFormLayout'

@@ -13,10 +13,6 @@ import {
 } from './features/claims'
 
 export { default as NewClaim } from './features/claim/newClaim'
-import {
-  reducer as newClaimReducer,
-  State as NewClaimState,
-} from '../common/claim/newClaim'
 
 export { default as WaitingPage } from './features/waitingAnswer'
 
@@ -28,13 +24,11 @@ export { default as FormFinish } from './features/formFinish'
 
 export interface State {
   claims: ClaimsState
-  newClaim: NewClaimState
   editClaim: EditClaimState
 }
 
 export const reducer = combineReducers({
   claims: claimReducer,
-  newClaim: newClaimReducer,
   editClaim: editClaimReducer,
 } as any)
 
