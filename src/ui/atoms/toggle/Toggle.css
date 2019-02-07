@@ -1,0 +1,39 @@
+.container {
+  display: block;
+  width: 96px;
+  height: 40px;
+  margin: 0;
+  cursor: pointer;
+  border-radius: 22px;
+
+  &::after {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin: 2px;
+    content: "";
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0.5px 1px 0 rgba(21,24,51,0.08), 0 1px 3px 0 rgba(21,24,51,0.16);
+  }
+}
+
+.checked {
+  background-color: #3C54EE;
+
+  &::after {
+    float: right;
+  }
+}
+
+.unchecked {
+  background-color: #E8E9F2;
+
+  &::after {
+    float: left;
+  }
+}
+
+.checkbox {
+  opacity: 0;
+}
