@@ -5,18 +5,26 @@ import { usePressEnter } from '@front/hooks/usePressEnter'
 
 import { getCheckedClassName } from './helpers/getCheckedClassName'
 import { getCheckedText } from './helpers/getCheckedText'
+import { getDisabledClassName } from './helpers/getDisabledClassName'
 import * as styles from './Toggle.css'
 import { useHandleChange } from './useHandleChange'
 
 interface Props {
   onChange?: (value: boolean) => void
   value?: boolean
+  disabled?: boolean
 }
 
-export const Toggle = ({ onChange, value }: Props) => {
+export const Toggle = ({ onChange, value, disabled = false }: Props) => {
   const [checked, setChecked] = useState(value || false)
   const ref = useRef<HTMLDivElement>(null)
-  const handleChange = useHandleChange(checked, setChecked, value, onChange)
+  const handleChange = useHandleChange(
+    checked,
+    setChecked,
+    value,
+    onChange,
+    disabled,
+  )
 
   usePressEnter(ref, handleChange)
 
@@ -25,7 +33,11 @@ export const Toggle = ({ onChange, value }: Props) => {
       ref={ref}
       tabIndex={0}
       onClick={handleChange}
-      className={cx(styles.container, styles[getCheckedClassName(checked)])}
+      className={cx(
+        styles.container,
+        styles[getCheckedClassName(checked)],
+        styles[getDisabledClassName(disabled)],
+      )}
     >
       <input
         readOnly

@@ -5,21 +5,30 @@ export const useHandleChange = (
   setInternalValue: (v: boolean) => void,
   externalValue?: boolean,
   setExternalValue?: (v: boolean) => void,
+  disabled: boolean = false,
 ) => {
   return useCallback(
     () => {
-      const newValue = !internalValue
+      if (!disabled) {
+        const newValue = !internalValue
 
-      if (setExternalValue) {
-        setExternalValue(newValue)
-      }
+        if (setExternalValue) {
+          setExternalValue(newValue)
+        }
 
-      if (externalValue !== undefined) {
-        setInternalValue(externalValue)
-      } else {
-        setInternalValue(newValue)
+        if (externalValue !== undefined) {
+          setInternalValue(externalValue)
+        } else {
+          setInternalValue(newValue)
+        }
       }
     },
-    [internalValue, setInternalValue, externalValue, setExternalValue],
+    [
+      internalValue,
+      setInternalValue,
+      externalValue,
+      setExternalValue,
+      disabled,
+    ],
   )
 }

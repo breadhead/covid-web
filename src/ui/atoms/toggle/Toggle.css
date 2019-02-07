@@ -41,7 +41,7 @@
     left: 62px;
   }
 
-  &:hover, &:focus {
+  &:hover:not(.disabled), &:focus:not(.disabled) {
     background-color: #354AD4;
   }
 }
@@ -57,11 +57,15 @@
     left: 8px
   }
 
-  &:hover, &:focus {
+  &:hover:not(.disabled), &:focus:not(.disabled) {
     background-color: #DCDCE7;
   }
 }
 
 .checkbox {
   display: none;
+}
+
+.disabled {
+  opacity: 0.4;
 }
