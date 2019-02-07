@@ -21,7 +21,7 @@ import {
   State as CloseClaimState,
 } from './features/closeClaim'
 
-export { NewClaim, Situation } from './features/claim'
+export { NewClaim, Situation, Questions } from './features/claim'
 
 import {
   reducer as chooseDoctorReducer,

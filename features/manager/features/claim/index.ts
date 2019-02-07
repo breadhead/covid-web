@@ -1,2 +1,2 @@
 export { default as NewClaim } from './features/newClaim'
-export { Situation } from './features/editClaim'
+export { Situation, Questions } from './features/editClaim'
