@@ -10,6 +10,7 @@ import Head from 'next/head'
 import Router from 'next/router'
 import React, { Component as ReactComponent } from 'react'
 import { Provider } from 'react-redux'
+import { StoreContext } from 'redux-react-hook'
 import { createSizeAction, listenResize } from 'redux-windowsize'
 
 import '@app/ui/config.css?CSSModulesDisable'
@@ -146,11 +147,11 @@ class OncohelpWeb extends App<Props> {
           </Head>
           <Sprite />
           <Provider store={reduxStore}>
-            <>
+            <StoreContext.Provider value={reduxStore}>
               {notFound ? <NotFound /> : <Component {...pageProps} />}
               <Modal />
               <Analitics />
-            </>
+            </StoreContext.Provider>
           </Provider>
         </Container>
       )

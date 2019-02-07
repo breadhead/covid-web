@@ -39,7 +39,7 @@
 
 .extra {
   color: var(--color-text-primary);
-  background-color: #E8E9F2;
+  background-color: var(--color-inactive);
   border: 1px solid #DCDCE7;
   box-shadow: inset 0 1px 1px 0.5px rgba(255,255,255,0.25), 0 1px 2px 0 rgba(0,0,0,0.04);
 
