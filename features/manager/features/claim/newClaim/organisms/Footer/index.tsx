@@ -29,7 +29,7 @@ const Footer = ({ styles: parentStyles, error, loading, id }: Props) => {
     >
       <div className={styles.links}>
         <div className={cx(parentStyles.footerBack, styles.footerBack)}>
-          <NavLink href={`/manager/${id}/situation`}>
+          <NavLink href={`/manager/claim/${id}/situation`}>
             Медицинские данные
           </NavLink>
           <IconCustom
