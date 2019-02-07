@@ -6,7 +6,7 @@ import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
 import { ClaimData } from '../types'
 
 export interface Props {
-  onFormSubmit: (fields: QuestionsClaim) => Promise<QuestionsClaim>
+  onFormSubmit: (fields: QuestionsClaim) => Promise<void>
   error: false | string
   loading: boolean
   claimData: ClaimData

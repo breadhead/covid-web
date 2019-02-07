@@ -9,7 +9,7 @@ import { ClaimData, QuestionsCategories } from '../../types'
 import AdditionalQuestions from '../AdditionalQuestions'
 import Questions from '../Questions'
 interface Props {
-  onFormSubmit: (fields: QuestionsClaim) => Promise<QuestionsClaim>
+  onFormSubmit: (fields: QuestionsClaim) => Promise<void>
   claimData: ClaimData
   error: false | string
   initial: Partial<QuestionsClaim>

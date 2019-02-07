@@ -163,10 +163,10 @@
 .footerForward {
   display: flex;
   align-items: center;
-  margin-top: 104px;
+  margin-top: 48px;
 
   @media (--smallDown) {
-    margin-top: 96px;
+    margin-top: 32px;
   }
 }
 .emergeField {

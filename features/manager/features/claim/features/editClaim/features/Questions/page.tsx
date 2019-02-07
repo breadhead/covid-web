@@ -16,8 +16,8 @@ const Layout = ({ children }: LayoutProps) => (
   </ClaimFormLayout>
 )
 
-const footer: FooterType = (error, loading, styles) => (
-  <Footer error={error} loading={loading} styles={styles} />
+const footer: FooterType = (error, loading, styles, id) => (
+  <Footer error={error} loading={loading} styles={styles} id={id} />
 )
 
 export default createQuestionsClaim(Layout as any, footer)

@@ -1,4 +1,3 @@
-import { fetchShortClaim } from '@app/features/common/claim/features/newClaim'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
@@ -8,6 +7,7 @@ import { AnyAction, Dispatch } from 'redux'
 
 import routes from '@app/routes'
 
+import { fetchClaim } from '@app/features/common/consultation'
 import { getRoles } from '@app/features/login'
 import { Role } from '@app/models/Users/User'
 import { createQuestionsClaim as createQuestionsClaimAction } from './actions'
@@ -38,7 +38,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       public static async getInitialProps(context: AppContext<Query>) {
         const { id } = context.query
 
-        const shortClaim = await context.reduxStore.dispatch(fetchShortClaim(
+        const { shortClaim } = await context.reduxStore.dispatch(fetchClaim(
           id,
         ) as any)
         return {
@@ -91,14 +91,13 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
           defaultQuestions: defaultQuestions && Object.keys(defaultQuestions),
           id: shortClaim.id,
         }
-        const claim = await createQuestionsClaim(request)
+        await createQuestionsClaim(request)
 
         const { error, roles } = this.props
 
         if (!error) {
           this.redirect(shortClaim.personalData.email, shortClaim.id, roles)
         }
-        return claim
       }
 
       private redirect(email: string = '', id: string, roles: Role[]) {
