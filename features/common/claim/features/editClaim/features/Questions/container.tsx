@@ -93,14 +93,10 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
         }
         const claim = await createQuestionsClaim(request)
 
-        const {
-          error,
-          roles,
-          claimData: { id },
-        } = this.props
+        const { error, roles } = this.props
 
         if (!error) {
-          this.redirect(shortClaim.personalData.email, id, roles)
+          this.redirect(shortClaim.personalData.email, shortClaim.id, roles)
         }
         return claim
       }
