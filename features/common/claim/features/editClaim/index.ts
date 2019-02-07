@@ -5,7 +5,7 @@ export {
   fetchSituationClaim,
   FooterType,
 } from './features/Situation'
-export { default as Questions } from './features/Questions'
+export { default as createQuestionsClaim } from './features/Questions'
 import {
   reducer as questionsReducer,
   State as QuestionsState,

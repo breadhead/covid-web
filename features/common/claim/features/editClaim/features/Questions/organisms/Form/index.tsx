@@ -7,15 +7,22 @@ import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
 import { saveQuestionsClaimDraft } from '../../localStorage'
 import { ClaimData, QuestionsCategories } from '../../types'
 import AdditionalQuestions from '../AdditionalQuestions'
-import Footer from '../Footer'
 import Questions from '../Questions'
 interface Props {
-  onFormSubmit: (fields: QuestionsClaim) => Promise<QuestionsClaim>
+  onFormSubmit: (fields: QuestionsClaim) => Promise<void>
   claimData: ClaimData
   error: false | string
   initial: Partial<QuestionsClaim>
   loading: boolean
+  footer: FooterType
 }
+
+type FooterType = (
+  error: false | string,
+  loading: boolean,
+  styles: any,
+  id: string,
+) => React.ReactNode
 
 const ClaimForm = ({
   onFormSubmit,
@@ -23,6 +30,7 @@ const ClaimForm = ({
   error,
   loading,
   initial,
+  footer,
 }: Props) => {
   return (
     <Form
@@ -45,12 +53,7 @@ const ClaimForm = ({
             criterion={claimData.target}
           />
           <AdditionalQuestions styles={styles} />
-          <Footer
-            loading={loading}
-            error={error}
-            styles={styles}
-            id={claimData.id}
-          />
+          {footer(error, loading!, styles, claimData.id)}
         </>
       )}
     </Form>
@@ -58,3 +61,4 @@ const ClaimForm = ({
 }
 
 export default ClaimForm
+export { FooterType }

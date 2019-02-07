@@ -11,7 +11,7 @@ import {
 export { default as NewClaim } from './features/newClaim'
 export {
   createSituationClaim,
-  Questions,
+  createQuestionsClaim,
   fetchSituationClaim,
   FooterType,
 } from './features/editClaim'
