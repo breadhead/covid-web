@@ -11,6 +11,11 @@ import windowSize, { REDUCER_KEY } from 'redux-windowsize'
 export type Store = ReduxStore<State>
 
 import {
+  reducer as claimReducer,
+  State as ClaimState,
+} from '@app/features/common/claim'
+
+import {
   notFoundMiddleware,
   reducer as notFoundReducer,
   State as NotFoundState,
@@ -113,6 +118,7 @@ export interface State {
   feedback: SendFeedbackState
   doctor: DoctorState
   notFound: NotFoundState
+  claim: ClaimState
 }
 
 const reducer = combineReducers({
@@ -133,6 +139,7 @@ const reducer = combineReducers({
   feedback: sendFeedbackReducer,
   doctor: doctorReducer,
   notFound: notFoundReducer,
+  claim: claimReducer,
 } as any)
 
 export interface ExtraArgs {
