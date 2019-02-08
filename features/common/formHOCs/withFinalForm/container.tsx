@@ -45,7 +45,7 @@ const withFinalForm = <T extends WrappedProps>(
       ) => {
         const shouldValidate = getShouldValidate({
           ...meta,
-          eagerValidation: validateOnBlur,
+          eagerValidation: !validateOnBlur,
         })
 
         const error = shouldValidate

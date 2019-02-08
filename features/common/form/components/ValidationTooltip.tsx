@@ -6,6 +6,8 @@ interface TooltipProps {
   name: string
 }
 
-const Test = ({ className }: TooltipProps) => <div className={className} />
+const ValidationTooltip = ({ className }: TooltipProps) => (
+  <div className={className} />
+)
 
-export default withEnchancers()(Test as any) as any
+export default withEnchancers()(ValidationTooltip as any) as any

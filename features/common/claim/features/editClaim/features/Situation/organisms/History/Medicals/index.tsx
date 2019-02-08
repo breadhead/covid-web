@@ -5,6 +5,7 @@ import RegionSelect from '@app/features/client/features/regionSelect'
 
 import {
   ComboClinic,
+  DateValidationTooltip,
   EmergingControlTypes,
   EmergingFormElement,
   Input,
@@ -18,8 +19,8 @@ import AddFieldContainer, {
   SectionDivider,
   SectionHeader,
 } from '@app/ui/organisms/AddFieldContainer'
+
 import { SituationClaimFields } from '../../../types'
-import Test from './Test'
 
 interface Props {
   styles: StylesType
@@ -115,19 +116,7 @@ const EmergingForm = ({
                   )}
                 />
               </div>
-              <Test
-                name="test"
-                validateOnBlur={false}
-                // validateCb={(_: any, values: any) => {
-                // const { end, when } = values.medicalsTreatments[key] || {}
-                // const datesValid = validateDates(when, end)
-                // if (!datesValid) {
-                //   throw new Error(
-                //     'Дата окончания не может быть раньше, чем дата начала лечения',
-                //   )
-                // }
-                // }}
-              />
+              <DateValidationTooltip path={`medicalsTreatments.${key}`} />
               <label
                 htmlFor={`medicalsTreatments.${key}.clinic`}
                 className={styles.label}
