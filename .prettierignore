@@ -1,2 +1,2 @@
 // Due to prettier bug with JSX with `//`
-src/ui/molecules/clickableText/__dev__/ClickableText.stories.tsx
+src/ui/molecules/clickable-text/__dev__/ClickableText.stories.tsx

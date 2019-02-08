@@ -2,7 +2,7 @@ import cx from 'classnames'
 import * as React from 'react'
 
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
-import { ClickableText } from '@front/ui/molecules/clickableText'
+import { ClickableText } from '@front/ui/molecules/clickable-text'
 
 import * as styles from './Message.css'
 

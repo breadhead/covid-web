@@ -1,9 +1,12 @@
 import { useCallback, useMemo } from 'react'
 
-import { createRenderLink } from './createRenderLink'
+import { ExternalLink } from '@front/ui/atoms/extarnal-link'
+
 import { findUrls } from './helpers/findUrls'
 import { isUrl } from './helpers/isUrl'
+import { normalizeUrl } from './helpers/normalizeUrl'
 import { splitText } from './helpers/splitText'
+import { truncateUrl } from './helpers/truncateUrl'
 
 interface Props {
   className?: string
@@ -29,9 +32,14 @@ export const ClickableText = ({
     [children],
   )
 
-  const renderLink = useCallback(createRenderLink(linkClassName), [
-    linkClassName,
-  ])
+  const renderLink = useCallback(
+    (url: string) => (
+      <ExternalLink className={linkClassName} href={normalizeUrl(url)}>
+        {truncateUrl(url)}
+      </ExternalLink>
+    ),
+    [linkClassName],
+  )
 
   return (
     <span className={className}>

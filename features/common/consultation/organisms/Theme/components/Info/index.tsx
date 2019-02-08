@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { StylesType } from '@app/lib/config'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
-import { ClickableText } from '@front/ui/molecules/clickableText'
+import { ClickableText } from '@front/ui/molecules/clickable-text'
 
 import claimToInfoBlocks from './helpers/claimToInfoBlocks'
 import { Article } from './helpers/types'

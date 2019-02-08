@@ -3,8 +3,7 @@ import React from 'react'
 
 import { ClickableText } from '../ClickableText'
 
-// prettier-ignore
-storiesOf('atoms/ClickableText', module)
+storiesOf('molecules/ClickableText', module)
   .add('without links', () => <ClickableText>Simple text</ClickableText>)
   .add('with one link', () => <ClickableText>Hello, check google.com</ClickableText>)
   .add('with many links', () => <ClickableText>Hello, check google.com and https://breadhead.ru</ClickableText>)
