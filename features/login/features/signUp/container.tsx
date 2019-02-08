@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 
 import { isModal } from '@app/features/common/modal'
-import * as yup from 'yup'
+
 import { withSignInModal } from '../signIn'
 
 import { MODAL_KEY } from './const'
@@ -23,20 +23,6 @@ interface Props {
   signUp: (signUpData: SignUpData) => any
   onFormSubmit: () => Promise<any>
   error?: SignUpError
-}
-
-export const schema = {
-  login: yup
-    .string()
-    .email('Введите email')
-    .required('Обязательное поле'),
-  password: yup
-    .string()
-    .min(3, 'Пароль должен быть длиннее 2 символов')
-    .required('Пароль должен быть длиннее 2 символов'),
-  confirm: yup // TODO find a way to validate it being similar to password, oneOf([yup.ref]) doesn't work here
-    .string()
-    .required('Подтвердите пароль'),
 }
 
 const Container = (WrappedComponent: React.ComponentType<Props>) => {

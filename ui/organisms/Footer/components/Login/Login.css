@@ -1,6 +1,10 @@
 .buttons {
   display: flex;
   white-space: nowrap;
+
+  @media (--xxsmallDown) {
+    flex-direction: column;
+  }
 }
 
 .logo {
@@ -19,9 +23,18 @@
   align-self: flex-start;
   margin-right: 12px;
   white-space: nowrap;
+
+  @media (--xxsmallDown) {
+    width: 100%;
+    margin: 0 0 12px 0;
+  }
 }
 
 .button.button.startConsultationButton {
   margin-right: 0;
   white-space: nowrap;
+
+  @media (--xxsmallDown) {
+    margin: 0;
+  }
 }
