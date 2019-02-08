@@ -12,7 +12,7 @@ describe('schema validation works', () => {
     const values = { email: '' }
     const value = ''
 
-    expect(validator(value, schema, values, validateCb)).toBe(
+    expect(validator({ value, schema, values, validateCb })).toBe(
       'обязательное поле',
     )
   })
@@ -20,14 +20,16 @@ describe('schema validation works', () => {
     const values = { email: 'wrong' }
     const value = 'wrong'
 
-    expect(validator(value, schema, values, validateCb)).toBe('введите email')
+    expect(validator({ value, schema, values, validateCb })).toBe(
+      'введите email',
+    )
   })
 
   test('should return undefined if value is email', () => {
     const values = { email: 'correct@correct.correct' }
     const value = 'correct@correct.correct'
 
-    expect(validator(value, schema, values, validateCb)).toBe(undefined)
+    expect(validator({ value, schema, values, validateCb })).toBe(undefined)
   })
 })
 
@@ -46,13 +48,13 @@ describe('callback validation with schema works', () => {
     const values = { email: 'email@email.email', confirm: 'email@email.email' }
     const value = 'email@email.email'
 
-    expect(validator(value, schema, values, validateCb)).toBe(undefined)
+    expect(validator({ value, schema, values, validateCb })).toBe(undefined)
   })
   test('should return error if values of email and confirm are different', () => {
     const values = { email: 'email@email.email', confirm: 'wrong@wrong.wrong' }
     const value = 'wrong@wrong.wrong'
 
-    expect(validator(value, schema, values, validateCb)).toBe(
+    expect(validator({ value, schema, values, validateCb })).toBe(
       'пароли должны совпадать',
     )
   })

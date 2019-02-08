@@ -4,7 +4,6 @@ import { Omit } from 'utility-types'
 import { getShouldValidate } from './helpers/getShouldValidate'
 import { Schema, ValidateCb, validator } from './helpers/validator'
 
-const validateCbPlaceholder = () => undefined
 interface OwnProps {
   name: string
   type?: string
@@ -26,11 +25,12 @@ const withFinalForm = <T extends WrappedProps>(
   type,
   validate: schema,
   validateOnBlur = true,
-  validateCb = validateCbPlaceholder,
+  validateCb,
   ...rest
 }: Omit<T, keyof InputProps> & OwnProps) => {
   const validateField = schema
-    ? (value: any, values: any) => validator(value, schema, values, validateCb)
+    ? (value: any, values: any) =>
+        validator({ value, schema, values, validateCb })
     : undefined
   return (
     <Field
