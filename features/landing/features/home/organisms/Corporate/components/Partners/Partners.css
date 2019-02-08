@@ -23,7 +23,6 @@
 
 .button.button.button {
   display: block !important;
-  padding: 16px 36px !important;
   margin: 40px auto 0 auto !important;
 
   @media (--smallDown) {
