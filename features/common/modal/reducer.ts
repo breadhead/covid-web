@@ -1,22 +1,21 @@
-import { Action } from 'redux'
-import { createSymbiote } from 'redux-symbiote'
+import { ClearAction, createClearRedux } from 'redux-clear'
 
 export const EMPTY_MODAL = 'empty'
 
 type State = string
 
 interface Actions {
-  open(modal: string): Action
-  close(): Action
+  open: ClearAction<[string]>
+  close: ClearAction
 }
 
-const { actions, reducer } = createSymbiote<State, Actions>(
-  EMPTY_MODAL,
+const { actions, reducer } = createClearRedux<State, Actions>(
   {
-    open: (_, modal) => modal,
-    close: () => EMPTY_MODAL,
+    open: () => key => key,
+    close: () => () => EMPTY_MODAL,
   },
-  'modal',
+  EMPTY_MODAL,
+  'modals',
 )
 
 export { State, reducer, Actions, actions }
