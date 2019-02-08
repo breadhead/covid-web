@@ -3,6 +3,7 @@ import * as styles from './Navigation.css'
 
 import cx from 'classnames'
 
+import Menu from '@app/features/client/features/menu/organisms/Menu'
 import IconCustom from '@app/ui/atoms/IconCustom'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 import LoginButton from '../../atoms/LoginButton'
@@ -36,7 +37,11 @@ const Navigation = ({ className, hide, showLoginButton }: Props) => (
       Помочь проекту
       <NavIcon />
     </NavLink>
-    {showLoginButton ? <LoginButton>Войти</LoginButton> : <div>LOGGED IN</div>}
+    {showLoginButton ? (
+      <LoginButton>Войти</LoginButton>
+    ) : (
+      <Menu className={styles.loginMenu} signOut={() => null} />
+    )}
   </nav>
 )
 
