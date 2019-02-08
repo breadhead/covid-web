@@ -2,12 +2,14 @@ import * as React from 'react'
 import { Field, FieldRenderProps } from 'react-final-form'
 import { Omit } from 'utility-types'
 import { getShouldValidate } from './helpers/getShouldValidate'
-import { Schema, validator } from './helpers/validator'
+import { Schema, ValidateCb, validator } from './helpers/validator'
 
+const validateCbPlaceholder = () => undefined
 interface OwnProps {
   name: string
   type?: string
   validate?: Schema
+  validateCb?: ValidateCb
   validateOnBlur?: boolean
 }
 
@@ -24,10 +26,12 @@ const withFinalForm = <T extends WrappedProps>(
   type,
   validate,
   validateOnBlur = true,
+  validateCb = validateCbPlaceholder,
   ...rest
 }: Omit<T, keyof InputProps> & OwnProps) => {
   const validateField = validate
-    ? (value: any) => validator(value, validate)
+    ? (value: any, values: any) =>
+        validator(value, validate, values, validateCb)
     : undefined
   return (
     <Field

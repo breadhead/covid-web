@@ -50,6 +50,11 @@ const SignUp = ({ onFormSubmit, error, openSignIn }: Props) => (
             name="confirm"
             type={InputType.Password}
             validate={schema.confirm}
+            validateCb={(value: any, values: any) => {
+              if (value !== values.password) {
+                throw new Error('Пароли должны совпадать')
+              }
+            }}
           />
           {!!error && error.code === ACCOUNT_EXISTS_STATUS && (
             <div className={styles.error}>
