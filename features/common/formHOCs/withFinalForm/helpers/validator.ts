@@ -1,10 +1,10 @@
 import * as yup from 'yup'
 
-type Schema = yup.Schema<any>
+export type Schema = yup.Schema<any>
 
-type ValidateCb = (value: any, values: object) => string | undefined
+export type ValidateCb = (value: any, values: object) => void
 
-type Validator = (
+export type Validator = (
   value: any,
   schema: Schema,
   values: any,
@@ -20,4 +20,4 @@ const validator: Validator = (value, schema, values, validateCb) => {
   }
 }
 
-export { Validator, Schema, validator, ValidateCb }
+export { validator }
