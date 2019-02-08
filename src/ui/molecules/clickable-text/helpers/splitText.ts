@@ -1,6 +1,5 @@
 import escapeStringRegexp from 'escape-string-regexp'
-
-import { flatten } from '@front/helpers/flatten'
+import { flatten } from 'lodash'
 
 const createDelimiterRegExp = (delimiter: string): RegExp =>
   new RegExp(`(${escapeStringRegexp(delimiter)})`, 'g')
