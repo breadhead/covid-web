@@ -27,9 +27,7 @@ const Message = ({ message }: Props) => {
       }
     >
       {!!author && <p className={styles.author}>{author}</p>}
-      <p className={styles.content}>
-        <ClickableText>{content}</ClickableText>
-      </p>
+      <ClickableText className={styles.content}>{content}</ClickableText>
       <p className={styles.sendingTime}>{getFormattedDate(date)}</p>
     </article>
   )
