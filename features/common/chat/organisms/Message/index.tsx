@@ -2,6 +2,7 @@ import cx from 'classnames'
 import * as React from 'react'
 
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
+import { ClickableText } from '@front/ui/molecules/clickable-text'
 
 import * as styles from './Message.css'
 
@@ -26,7 +27,7 @@ const Message = ({ message }: Props) => {
       }
     >
       {!!author && <p className={styles.author}>{author}</p>}
-      <p className={styles.content}>{content}</p>
+      <ClickableText className={styles.content}>{content}</ClickableText>
       <p className={styles.sendingTime}>{getFormattedDate(date)}</p>
     </article>
   )
