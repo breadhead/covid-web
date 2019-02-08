@@ -13,9 +13,10 @@ interface Props {
   className?: string
   hide?: () => void
   showLoginButton?: boolean
+  signOut: () => void
 }
 
-const Navigation = ({ className, hide, showLoginButton }: Props) => (
+const Navigation = ({ className, hide, showLoginButton, signOut }: Props) => (
   <nav className={cx(styles.menu, className)}>
     <button className={styles.closeButton} onClick={hide}>
       закрыть меню
@@ -40,7 +41,7 @@ const Navigation = ({ className, hide, showLoginButton }: Props) => (
     {showLoginButton ? (
       <LoginButton>Войти</LoginButton>
     ) : (
-      <Menu className={styles.loginMenu} signOut={() => null} />
+      <Menu className={styles.loginMenu} signOut={signOut} />
     )}
   </nav>
 )

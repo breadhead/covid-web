@@ -20,12 +20,17 @@ const ANIMATION_STYLES: AnimationStyles = {
 interface Props {
   isVisible: boolean
   hide: () => void
+  signOut: () => void
 }
 
-const Menu = ({ isVisible, hide }: Props) => (
+const Menu = ({ isVisible, hide, signOut }: Props) => (
   <Transition in={isVisible} timeout={{ enter: 0, exit: 250 }} unmountOnExit>
     {(status: string) => (
-      <Navigation className={ANIMATION_STYLES[status]} hide={hide} />
+      <Navigation
+        signOut={signOut}
+        className={ANIMATION_STYLES[status]}
+        hide={hide}
+      />
     )}
   </Transition>
 )
