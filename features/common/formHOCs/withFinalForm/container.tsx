@@ -24,14 +24,13 @@ const withFinalForm = <T extends WrappedProps>(
 ) => ({
   name,
   type,
-  validate,
+  validate: schema,
   validateOnBlur = true,
   validateCb = validateCbPlaceholder,
   ...rest
 }: Omit<T, keyof InputProps> & OwnProps) => {
-  const validateField = validate
-    ? (value: any, values: any) =>
-        validator(value, validate, values, validateCb)
+  const validateField = schema
+    ? (value: any, values: any) => validator(value, schema, values, validateCb)
     : undefined
   return (
     <Field
