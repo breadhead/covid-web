@@ -13,13 +13,13 @@ import {
   SelectYears,
   TextArea,
 } from '@app/features/common/form'
-
 import { SPACE, StylesType } from '@app/lib/config'
 import AddFieldContainer, {
   SectionDivider,
   SectionHeader,
 } from '@app/ui/organisms/AddFieldContainer'
 import { SituationClaimFields } from '../../../types'
+import Test from './Test'
 
 interface Props {
   styles: StylesType
@@ -105,6 +105,7 @@ const EmergingForm = ({
                     styles.historyComboWrapper,
                   )}
                 />
+
                 <SelectYears
                   name={`medicalsTreatments.${key}.end.year`}
                   placeholder="Год"
@@ -114,6 +115,19 @@ const EmergingForm = ({
                   )}
                 />
               </div>
+              <Test
+                name="test"
+                validateOnBlur={false}
+                // validateCb={(_: any, values: any) => {
+                // const { end, when } = values.medicalsTreatments[key] || {}
+                // const datesValid = validateDates(when, end)
+                // if (!datesValid) {
+                //   throw new Error(
+                //     'Дата окончания не может быть раньше, чем дата начала лечения',
+                //   )
+                // }
+                // }}
+              />
               <label
                 htmlFor={`medicalsTreatments.${key}.clinic`}
                 className={styles.label}

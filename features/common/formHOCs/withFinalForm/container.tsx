@@ -28,10 +28,11 @@ const withFinalForm = <T extends WrappedProps>(
   validateCb,
   ...rest
 }: Omit<T, keyof InputProps> & OwnProps) => {
-  const validateField = schema
-    ? (value: any, values: any) =>
-        validator({ value, schema, values, validateCb })
-    : undefined
+  const validateField =
+    schema || validateCb
+      ? (value: any, values: any) =>
+          validator({ value, schema, values, validateCb })
+      : undefined
   return (
     <Field
       validateOnBlur={validateOnBlur}
@@ -42,7 +43,11 @@ const withFinalForm = <T extends WrappedProps>(
       {(
         { input, meta }: any, // TODO: remove any and fix type incompatibility
       ) => {
-        const shouldValidate = getShouldValidate(meta)
+        const shouldValidate = getShouldValidate({
+          ...meta,
+          eagerValidation: validateOnBlur,
+        })
+
         const error = shouldValidate
           ? meta.submitError || meta.error
           : undefined
