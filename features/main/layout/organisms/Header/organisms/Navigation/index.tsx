@@ -11,9 +11,10 @@ import NavIcon from '../../atoms/NavIcon'
 interface Props {
   className?: string
   hide?: () => void
+  showLoginButton?: boolean
 }
 
-const Navigation = ({ className, hide }: Props) => (
+const Navigation = ({ className, hide, showLoginButton }: Props) => (
   <nav className={cx(styles.menu, className)}>
     <button className={styles.closeButton} onClick={hide}>
       закрыть меню
@@ -35,7 +36,7 @@ const Navigation = ({ className, hide }: Props) => (
       Помочь проекту
       <NavIcon />
     </NavLink>
-    <LoginButton>Войти</LoginButton>
+    {showLoginButton ? <LoginButton>Войти</LoginButton> : <div>LOGGED IN</div>}
   </nav>
 )
 
