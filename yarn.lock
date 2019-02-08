@@ -9719,6 +9719,11 @@ nanoid@^2.0.0:
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-2.0.0.tgz#e1ab4a4b024a38d15531ba34a712a201540de639"
   integrity sha512-SG2qscLE3iM4C0CNzGrsAojJHSVHMS1J8NnvJ31P1lH8P0hGHOiafmniNJz6w6q7vuoDlV7RdySlJgtqkFEVtQ==
 
+nanoid@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-2.0.1.tgz#deb55cac196e3f138071911dabbc3726eb048864"
+  integrity sha512-k1u2uemjIGsn25zmujKnotgniC/gxQ9sdegdezeDiKdkDW56THUMqlz3urndKCXJxA6yPzSZbXx/QCMe/pxqsA==
+
 nanomatch@^1.2.1, nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
@@ -12730,6 +12735,13 @@ redent@^2.0.0:
   dependencies:
     indent-string "^3.0.0"
     strip-indent "^2.0.0"
+
+redux-clear@^1.0.0:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/redux-clear/-/redux-clear-1.0.2.tgz#1a9b5800026f49da89bd347d775a2af3a42d417b"
+  integrity sha512-Y4ZV3QEaefdwZlXzMl6TMAmQiRY85BquCeYgEjSlOE8s+58Wq49KxwGltj/NUs8qSNHG2iZhm6wQD3fHf1fo2A==
+  dependencies:
+    nanoid "^2.0.1"
 
 redux-devtools-extension@^2.13.2:
   version "2.13.5"

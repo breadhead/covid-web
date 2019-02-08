@@ -1,18 +1,17 @@
-import { Action } from 'redux'
-import { createSymbiote } from 'redux-symbiote'
+import { ClearAction, createClearRedux } from 'redux-clear'
 
 type State = object
 
 interface Actions {
-  set(query: State): Action
+  set: ClearAction<[object]>
 }
 
-const { actions, reducer } = createSymbiote<State, Actions>(
-  {},
+const { actions, reducer } = createClearRedux<State, Actions>(
   {
-    set: (_, query) => query,
+    set: () => query => query,
   },
-  'browser/query',
+  {},
+  'browser-query',
 )
 
 export { State, reducer, Actions, actions }
