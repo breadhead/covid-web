@@ -42,8 +42,8 @@ export const ClickableText = ({
   )
 
   return (
-    <span className={className}>
+    <p className={className}>
       {pieces.map(piece => (isUrl(piece) ? renderLink(piece) : piece))}
-    </span>
+    </p>
   )
 }
