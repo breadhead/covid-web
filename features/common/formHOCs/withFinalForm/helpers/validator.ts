@@ -2,7 +2,7 @@ import * as yup from 'yup'
 
 type Schema = yup.Schema<any>
 
-type ValidateCb = (value: any, values: any) => string | undefined
+type ValidateCb = (value: any, values: object) => string | undefined
 
 type Validator = (
   value: any,

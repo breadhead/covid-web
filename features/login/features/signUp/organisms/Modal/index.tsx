@@ -11,7 +11,7 @@ import OpenModalButton from '@app/features/login/atoms/OpenModalButton'
 import Footer from '@app/features/login/organisms/Footer'
 import { SPACE } from '@app/lib/config'
 import { ButtonType } from '@app/ui/atoms/Button'
-import { schema } from '../../container'
+import { confirmCb, schema } from './schema'
 
 interface Props {
   onFormSubmit: () => Promise<any>
@@ -50,11 +50,7 @@ const SignUp = ({ onFormSubmit, error, openSignIn }: Props) => (
             name="confirm"
             type={InputType.Password}
             validate={schema.confirm}
-            validateCb={(value: any, values: any) => {
-              if (value !== values.password) {
-                throw new Error('Пароли должны совпадать')
-              }
-            }}
+            validateCb={confirmCb}
           />
           {!!error && error.code === ACCOUNT_EXISTS_STATUS && (
             <div className={styles.error}>
