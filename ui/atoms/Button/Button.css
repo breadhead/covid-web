@@ -40,8 +40,7 @@
 .ant-btn-secondary.ant-btn-secondary {
   color: var(--color-link);
   background-color: #ffffff;
-  border: 1px solid rgba(60,84,238, 0.65);
-  
+  box-shadow: inset 0px 0px 0px 1px rgba(60,84,238, 0.65);
 
   &:hover, &:focus {
     color: var(--color-link);
@@ -95,27 +94,34 @@
 
 .ant-btn-xl.ant-btn-xl {
   max-width: 300px;
-  padding: 17px 36px 19px 36px;
-  font: var(--text18-28);
+  padding: 17px 36px 19px 36px !important;
+  font: var(--text18-28) !important;
   border-radius: 8px;
+
+  @media (--smallDown) {
+    padding: 11px 28px 13px 28px !important;
+    font: var(--text16-24) !important;
+    line-height: 24px !important;
+  }
 }
 
 .ant-btn-l.ant-btn-l {
   max-width: 300px;
-  padding: 11px 28px 13px 28px;
-  font: var(--text16-24);
+  padding: 11px 28px 13px 28px !important;
+  font: var(--text16-24) !important;
   border-radius: 6px;
 }
 
 .ant-btn-m.ant-btn-m {
-  padding: 8px 20px;
-  font: var(--text16-24);
+  padding: 8px 20px !important;
+  font: var(--text16-24) !important;
+  line-height: 24px !important;
   border-radius: 6px;
 }
 
 .ant-btn-s.ant-btn-s {
-  padding: 5px 16px 7px 16px;
-  font: var(--text14-20);
+  padding: 5px 16px 7px 16px !important;
+  font: var(--text14-20) !important;
   border-radius: 4px;
 }
 

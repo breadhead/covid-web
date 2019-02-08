@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { StylesType } from '@app/lib/config'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
+import { ClickableText } from '@front/ui/molecules/clickable-text'
 
 import claimToInfoBlocks from './helpers/claimToInfoBlocks'
 import { Article } from './helpers/types'
@@ -14,7 +15,7 @@ interface Props {
 const createRenderFlat = (styles: any) => (article: Article) => (
   <div className={styles.infoBlock} key={article.subtitle}>
     <h3 className={styles.subtitle}>{article.subtitle}</h3>
-    <p className={styles.text}>{article.text}</p>
+    <ClickableText className={styles.text}>{article.text}</ClickableText>
   </div>
 )
 

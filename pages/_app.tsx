@@ -14,6 +14,7 @@ import { StoreContext } from 'redux-react-hook'
 import { createSizeAction, listenResize } from 'redux-windowsize'
 
 import '@app/ui/config.css?CSSModulesDisable'
+import '@front/ui/config.css?CSSModulesDisable'
 
 import { Analitics } from '@app/features/common/analytics'
 import { set as setQuery } from '@app/features/common/browserQuery'
