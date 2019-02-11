@@ -5,6 +5,7 @@ import RegionSelect from '@app/features/client/features/regionSelect'
 
 import {
   ComboClinic,
+  DateValidationTooltip,
   EmergingControlTypes,
   EmergingFormElement,
   Input,
@@ -13,12 +14,12 @@ import {
   SelectYears,
   TextArea,
 } from '@app/features/common/form'
-
 import { SPACE, StylesType } from '@app/lib/config'
 import AddFieldContainer, {
   SectionDivider,
   SectionHeader,
 } from '@app/ui/organisms/AddFieldContainer'
+
 import { SituationClaimFields } from '../../../types'
 
 interface Props {
@@ -105,6 +106,7 @@ const EmergingForm = ({
                     styles.historyComboWrapper,
                   )}
                 />
+
                 <SelectYears
                   name={`medicalsTreatments.${key}.end.year`}
                   placeholder="Год"
@@ -114,6 +116,7 @@ const EmergingForm = ({
                   )}
                 />
               </div>
+              <DateValidationTooltip path={`medicalsTreatments.${key}`} />
               <label
                 htmlFor={`medicalsTreatments.${key}.clinic`}
                 className={styles.label}

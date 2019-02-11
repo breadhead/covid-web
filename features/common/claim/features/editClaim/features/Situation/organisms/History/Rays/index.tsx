@@ -4,6 +4,7 @@ import * as React from 'react'
 
 import {
   ComboClinic,
+  DateValidationTooltip,
   EmergingControlTypes,
   EmergingFormElement,
   Input,
@@ -132,6 +133,7 @@ const EmergingForm = ({
                   )}
                 />
               </div>
+              <DateValidationTooltip path={`radiationTreatments.${key}`} />
               <label
                 htmlFor={`radiationTreatments.${key}.schema`}
                 className={styles.label}
