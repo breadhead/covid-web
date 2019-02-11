@@ -13,10 +13,14 @@ import { Role } from '@app/models/Users/User'
 import { createQuestionsClaim as createQuestionsClaimAction } from './actions'
 import { getQuestionsClaimDraft } from './localStorage'
 import { FooterType } from './organisms/Form'
-import { Props as PageProps } from './page'
+import { DefaultQuestion, FormFields, Props as PageProps } from './page'
+import { actions } from './reducer'
 import { getQuestionsError, getQuestionsLoading } from './selectors'
 
 const Router = routes.Router
+
+const REQUEST_VALIDATION_ERROR =
+  'Пожалуйста, выберите хотя бы один вопрос или напишите свой'
 
 interface Query {
   id: string
@@ -80,24 +84,58 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       private getIntialValues = () =>
         getQuestionsClaimDraft(this.props.shortClaim.id)
 
-      private onFormSubmit = async ({
+      private onFormSubmit = async (fields: FormFields) => {
+        const {
+          createQuestionsClaim,
+          shortClaim,
+          setQuestionsClaimError,
+        } = this.props
+
+        const request = this.createRequest(fields, shortClaim.id)
+
+        const requestValid = this.validateRequest(request)
+
+        if (requestValid) {
+          setQuestionsClaimError(false)
+
+          await createQuestionsClaim(request)
+
+          const { error, roles } = this.props
+
+          if (!error) {
+            this.redirect(shortClaim.personalData.email, shortClaim.id, roles)
+          }
+          return
+        }
+
+        return setQuestionsClaimError(REQUEST_VALIDATION_ERROR)
+      }
+
+      private filterDefaultQuestions = (questions: DefaultQuestion[]) =>
+        Object.entries(questions)
+          .filter(([_, value]) => !!value)
+          .map(([question]) => question)
+
+      private createRequest(
+        { defaultQuestions, additionalQuestions }: FormFields,
+        id: string,
+      ) {
+        return {
+          additionalQuestions: additionalQuestions || [],
+          defaultQuestions: defaultQuestions
+            ? this.filterDefaultQuestions(defaultQuestions)
+            : [],
+          id,
+        }
+      }
+
+      private validateRequest = ({
         defaultQuestions,
-        ...rest
+        additionalQuestions,
       }: QuestionsClaim) => {
-        const { createQuestionsClaim, shortClaim } = this.props
-
-        const request = {
-          ...rest,
-          defaultQuestions: defaultQuestions && Object.keys(defaultQuestions),
-          id: shortClaim.id,
-        }
-        await createQuestionsClaim(request)
-
-        const { error, roles } = this.props
-
-        if (!error) {
-          this.redirect(shortClaim.personalData.email, shortClaim.id, roles)
-        }
+        return !![...defaultQuestions, ...additionalQuestions].find(
+          question => !!question,
+        )
       }
 
       private redirect(email: string = '', id: string, roles: Role[]) {
@@ -122,6 +160,7 @@ const mapState = (state: State) => ({
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   createQuestionsClaim: (questionsClaim: QuestionsClaim) =>
     dispatch(createQuestionsClaimAction(questionsClaim) as any),
+  setQuestionsClaimError: (error: string) => dispatch(actions.error(error)),
 })
 
 export default Container
