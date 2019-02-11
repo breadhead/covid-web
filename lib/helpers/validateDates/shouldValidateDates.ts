@@ -1,4 +1,4 @@
-import { DateInterface } from './getDateInSeconds'
+import { DateInterface } from './types'
 
 const shouldValidateDates = (date1: DateInterface, date2: DateInterface) => {
   const datesArePresent = !!(

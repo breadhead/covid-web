@@ -1,7 +1,7 @@
 import { checkForFutureDatesError } from './checkForFutureDate'
 import { compareDates } from './compareDates'
-import { DateInterface, getDateInSeconds } from './getDateInSeconds'
-import { Validator } from './types'
+import { getDateInSeconds } from './getDateInSeconds'
+import { DateInterface, Validator } from './types'
 
 const validateDates = (validators: Validator[]) => (
   date1: DateInterface,

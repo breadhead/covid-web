@@ -1,5 +1,5 @@
-import { DateInterface } from '../getDateInSeconds'
 import { shouldValidateDates } from '../shouldValidateDates'
+import { DateInterface } from '../types'
 
 describe('shouldValidateDates works', () => {
   test('should return true if dates are correct', () => {

@@ -1,12 +1,6 @@
 import dayjs from 'dayjs'
 import { getDateString } from './getDateString'
-type DateType = number | string
-
-export interface DateInterface {
-  year: DateType
-  month: DateType
-  day?: DateType
-}
+import { DateInterface } from './types'
 
 const getDateInSeconds = (date: DateInterface) => {
   return dayjs(getDateString(date)).valueOf()
