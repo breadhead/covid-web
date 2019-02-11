@@ -41,87 +41,107 @@ const createTreatment = ({
       },
       {
         subtitle: 'Хирургическое лечение',
-        children: surgicalTreatments.map(surgical => ({
-          subtitle: surgical.clinic,
-          children: [
-            {
-              subtitle: 'Регион, где проходили лечение',
-              text: surgical.region,
-            },
-            {
-              subtitle: 'Когда делали операцию',
-              text: yearMonthToString(surgical.when),
-            },
-            {
-              subtitle: 'ФИО врача',
-              text: surgical.doctor,
-            },
-            {
-              subtitle: 'Суть операции',
-              text: surgical.surgery,
-            },
-          ],
-        })),
+        children: surgicalTreatments.map(surgical => {
+          const { clinic, region, when, doctor, surgery } = surgical
+
+          return {
+            subtitle: clinic,
+            children: [
+              {
+                subtitle: region && 'Регион, где проходили лечение',
+                text: region,
+              },
+              {
+                subtitle: when && 'Когда делали операцию',
+                text: yearMonthToString(when),
+              },
+              {
+                subtitle: doctor && 'ФИО врача',
+                text: doctor,
+              },
+              {
+                subtitle: surgery && 'Суть операции',
+                text: surgery,
+              },
+            ],
+          }
+        }),
       },
       {
         subtitle: 'Лекарственное лечение',
-        children: medicalsTreatments.map(medical => ({
-          subtitle: medical.clinic,
-          children: [
-            {
-              subtitle: 'Регион, где проходили лечение',
-              text: medical.region,
-            },
-            {
-              subtitle: 'Когда начали это лечение',
-              text: yearMonthToString(medical.when),
-            },
-            {
-              subtitle: 'Когда закончили это лечение',
-              text: yearMonthToString(medical.end),
-            },
-            {
-              subtitle: 'ФИО врача',
-              text: medical.doctor,
-            },
-            {
-              subtitle: 'Количество циклов лекарственного лечения',
-              text: medical.cyclesCount,
-            },
-            {
-              subtitle: 'Схема лечения',
-              text: medical.schema,
-            },
-          ],
-        })),
+        children: medicalsTreatments.map(medical => {
+          const {
+            clinic,
+            region,
+            when,
+            end,
+            doctor,
+            cyclesCount,
+            schema,
+          } = medical
+
+          return {
+            subtitle: clinic,
+            children: [
+              {
+                subtitle: region && 'Регион, где проходили лечение',
+                text: region,
+              },
+              {
+                subtitle: when && 'Когда начали это лечение',
+                text: yearMonthToString(when),
+              },
+              {
+                subtitle: end && 'Когда закончили это лечение',
+                text: yearMonthToString(end),
+              },
+              {
+                subtitle: doctor && 'ФИО врача',
+                text: doctor,
+              },
+              {
+                subtitle:
+                  cyclesCount && 'Количество циклов лекарственного лечения',
+                text: cyclesCount,
+              },
+              {
+                subtitle: schema && 'Схема лечения',
+                text: schema,
+              },
+            ],
+          }
+        }),
       },
       {
         subtitle: 'Лучевая терапия',
-        children: radiationTreatments.map(radioation => ({
-          subtitle: radioation.clinic,
-          children: [
-            {
-              subtitle: 'В каком городе?',
-              text: radioation.region,
-            },
-            {
-              subtitle: 'В каком городе?',
-              text: radioation.region,
-            },
-            {
-              subtitle: 'Период лечения',
-              text: yearMonthToString(radioation.when),
-            },
-            {
-              subtitle: 'Когда закончили это лечение',
-              text: yearMonthToString(radioation.end),
-            },
-            {
-              subtitle: 'Схема лечения',
-              text: radioation.schema,
-            },
-          ],
-        })),
+        children: radiationTreatments.map(radioation => {
+          const { clinic, region, when, end, schema } = radioation
+          return {
+            subtitle: clinic,
+            children: [
+              {
+                subtitle: region && 'В каком городе?',
+                text: region,
+              },
+              {
+                subtitle: region && 'В каком городе?',
+                text: region,
+              },
+              {
+                subtitle: when && 'Период лечения',
+                text: yearMonthToString(when),
+              },
+              {
+                subtitle: end && 'Когда закончили это лечение',
+                text: yearMonthToString(end),
+              },
+              {
+                subtitle: schema && 'Схема лечения',
+                text: schema,
+              },
+            ],
+          }
+        }),
       },
     ],
   },
