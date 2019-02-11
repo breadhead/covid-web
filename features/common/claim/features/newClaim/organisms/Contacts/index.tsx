@@ -1,5 +1,5 @@
 import { Input, InputType, PhoneInput } from '@app/features/common/form'
-import { StylesType } from '@app/lib/config'
+import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
 import cx from 'classnames'
 import * as React from 'react'
 import { ShortClaimFields } from '../ClaimForm'
@@ -28,7 +28,9 @@ const Contacts = ({ styles }: Props) => (
       Электронная почта.
       <span className={styles.secondaryText}>
         {' '}
-        Будем присылать вам уведомления о ходе консультации.
+        Будем присылать вам уведомления{NON_BREAKING_SPACE}о ходе консультации.
+        Пожалуйста, регулярно проверяйте почту до{NON_BREAKING_SPACE}окончания
+        консультации
       </span>
     </label>
     <Input
