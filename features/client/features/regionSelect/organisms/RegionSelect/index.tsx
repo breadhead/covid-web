@@ -35,7 +35,6 @@ const RegionSelect = ({
           {textRegion}
         </label>
         <ComboBox
-          validateOnBlur={false}
           validate={validate}
           name={name}
           options={regions.map(mapString)}

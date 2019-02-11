@@ -116,7 +116,18 @@ const EmergingForm = ({
                   )}
                 />
               </div>
-              <DateValidationTooltip path={`medicalsTreatments.${key}`} />
+              <DateValidationTooltip
+                paths={[
+                  {
+                    year: `medicalsTreatments.${key}.when.year`,
+                    month: `medicalsTreatments.${key}.when.month`,
+                  },
+                  {
+                    year: `medicalsTreatments.${key}.end.year`,
+                    month: `medicalsTreatments.${key}.end.month`,
+                  },
+                ]}
+              />
               <label
                 htmlFor={`medicalsTreatments.${key}.clinic`}
                 className={styles.label}
