@@ -63,5 +63,8 @@ export const MockMessages = [
   },
 ]
 
-export const EmptyWindowText = `Здесь появятся сообщения, если куратору вашей заявки или специалисту потребуется
-${NON_BREAKING_SPACE}задать вам вопрос`
+export const EmptyWindowText = {
+  ['client']: `Здесь появятся сообщения, если куратору вашей заявки или специалисту потребуется${NON_BREAKING_SPACE}задать вам вопрос`,
+  ['case-manager']: 'Сообщений нет',
+  ['doctor']: 'Сообщений нет',
+} as any
