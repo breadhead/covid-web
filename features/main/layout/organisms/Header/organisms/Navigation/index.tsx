@@ -3,17 +3,19 @@ import * as styles from './Navigation.css'
 
 import cx from 'classnames'
 
-import Menu from '@app/features/client/features/menu/organisms/Menu'
+import { default as ClientMenu } from '@app/features/client/features/menu/organisms/Menu'
 import IconCustom from '@app/ui/atoms/IconCustom'
 import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
+import MediaQuery, { Query } from '@app/ui/molecules/MediaQuery'
 import LoginButton from '../../atoms/LoginButton'
 import NavIcon from '../../atoms/NavIcon'
+import SignInLoginMenu from '../SignInMobileMenu'
 
 interface Props {
-  className?: string
-  hide?: () => void
   showLoginButton?: boolean
   signOut: () => void
+  className?: string
+  hide?: () => void
 }
 
 const Navigation = ({ className, hide, showLoginButton, signOut }: Props) => (
@@ -38,10 +40,17 @@ const Navigation = ({ className, hide, showLoginButton, signOut }: Props) => (
       Помочь проекту
       <NavIcon />
     </NavLink>
-    {showLoginButton ? (
-      <LoginButton>Войти</LoginButton>
+    {!!showLoginButton ? (
+      <LoginButton className={styles.loginButton}>Войти</LoginButton>
     ) : (
-      <Menu className={styles.loginMenu} signOut={signOut} />
+      <>
+        <MediaQuery query={Query.FromExtraLarge}>
+          <ClientMenu className={styles.loginMenu} signOut={signOut} />
+        </MediaQuery>
+        <MediaQuery query={Query.ToExtraLarge}>
+          <SignInLoginMenu signOut={signOut} />
+        </MediaQuery>
+      </>
     )}
   </nav>
 )
