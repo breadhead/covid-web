@@ -84,3 +84,9 @@
     margin-top: 24px;
   }
 }
+
+.mobileMenuWrapper {
+  @media (--smallDown) {
+    width: 100%;
+  }
+}

@@ -9,7 +9,7 @@ import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
 import MediaQuery, { Query } from '@app/ui/molecules/MediaQuery'
 import LoginButton from '../../atoms/LoginButton'
 import NavIcon from '../../atoms/NavIcon'
-import SignInLoginMenu from '../SignInMobileMenu'
+import SignInMobileMenu from '../SignInMobileMenu'
 
 interface Props {
   showLoginButton?: boolean
@@ -47,8 +47,11 @@ const Navigation = ({ className, hide, showLoginButton, signOut }: Props) => (
         <MediaQuery query={Query.FromExtraLarge}>
           <ClientMenu className={styles.loginMenu} signOut={signOut} />
         </MediaQuery>
-        <MediaQuery query={Query.ToExtraLarge}>
-          <SignInLoginMenu signOut={signOut} />
+        <MediaQuery
+          className={styles.mobileMenuWrapper}
+          query={Query.ToExtraLarge}
+        >
+          <SignInMobileMenu signOut={signOut} />
         </MediaQuery>
       </>
     )}

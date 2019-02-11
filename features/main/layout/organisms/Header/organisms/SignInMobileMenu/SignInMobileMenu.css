@@ -9,10 +9,21 @@
   justify-content: space-between;
   padding: 11px 0 12px 0;
   margin-right: 0;
-  color: var(--text-color-primary);
+  color: var(--text-color-primary) !important;
+  cursor: pointer;
   border-bottom: 1px solid var(--divider-color) !important;
+
+  &:hover {
+    color:  var(--color-link) !important;
+
+    & svg {
+      fill:  var(--color-link);
+    }
+  }
+
 }
 
 .signOutButton {
-  padding: 0;
+  background-color: transparent;
+  border: none;
 }

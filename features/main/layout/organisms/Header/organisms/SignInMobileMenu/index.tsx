@@ -23,12 +23,10 @@ const SignInMobileMenu = ({ signOut }: Props) => (
       Личный кабинет
       <NavIcon />
     </NavLink>
-    <NavLink href="" className={styles.menuItem}>
-      <button className={styles.signOutButton} onClick={signOut}>
-        Выйти
-      </button>
+    <div className={styles.menuItem} onClick={signOut}>
+      Выйти
       <NavIcon />
-    </NavLink>
+    </div>
   </>
 )
 
