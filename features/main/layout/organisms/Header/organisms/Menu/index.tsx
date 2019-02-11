@@ -7,9 +7,10 @@ import Menu from './Menu'
 
 interface Props {
   signOut: () => void
+  showLoginButton: boolean
 }
 
-const Container = ({ signOut }: Props) => {
+const Container = ({ signOut, showLoginButton }: Props) => {
   const [menuOpened, setOpened] = useState(false)
 
   const show = useCallback(() => setOpened(true), [])
@@ -19,7 +20,12 @@ const Container = ({ signOut }: Props) => {
     <>
       <Overlay isVisible={menuOpened} onClick={hide} />
       <BurgerButton show={show} />
-      <Menu signOut={signOut} hide={hide} isVisible={menuOpened} />
+      <Menu
+        showLoginButton={showLoginButton}
+        signOut={signOut}
+        hide={hide}
+        isVisible={menuOpened}
+      />
     </>
   )
 }

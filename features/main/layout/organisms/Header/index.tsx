@@ -22,7 +22,7 @@ const Header = ({ token }: Props) => {
       <header className={styles.header}>
         <Logo wrapperClassName={styles.logo} />
         <MediaQuery query={Query.ToExtraLarge}>
-          <Menu signOut={signOut} />
+          <Menu signOut={signOut} showLoginButton={token.length === 0} />
         </MediaQuery>
         <MediaQuery query={Query.FromExtraLarge}>
           <Navigation signOut={signOut} showLoginButton={token.length === 0} />

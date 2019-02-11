@@ -17,7 +17,7 @@ interface Props {
 }
 
 const MediaQuery = ({ children, query }: Props) => (
-  <span className={styles[query]}>{children}</span>
+  <div className={styles[query]}>{children}</div>
 )
 
 export default MediaQuery
