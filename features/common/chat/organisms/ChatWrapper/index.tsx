@@ -9,12 +9,13 @@ import Message from '../Message'
 
 interface Props {
   messages: ChatMessage[]
+  role: string
 }
 
 const ChatWrapper = React.forwardRef<HTMLDivElement, Props>(
-  ({ messages }: Props, ref) => {
+  ({ messages, role }: Props, ref) => {
     return messages.length === 0 ? (
-      <EmptyWindow />
+      <EmptyWindow role={role} />
     ) : (
       <div className={styles.chatWrapper} ref={ref!}>
         {messages.map(message => (

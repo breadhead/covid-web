@@ -5,7 +5,7 @@ import * as styles from './EmptyWindow.css'
 import { EmptyWindowText } from '../../page/config'
 
 interface Props {
-  role?: string
+  role: string
 }
 
 const EmptyWindow = ({ role = 'client' }: Props) => (
