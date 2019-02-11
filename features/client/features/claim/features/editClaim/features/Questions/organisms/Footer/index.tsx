@@ -10,6 +10,7 @@ import {
 import { StylesType } from '@app/lib/config'
 import IconCustom from '@app/ui/atoms/IconCustom'
 import NavLink from '@app/ui/atoms/NavLink'
+import { isString } from 'lodash'
 
 interface Props {
   styles: StylesType
@@ -21,7 +22,11 @@ interface Props {
 const ERROR_MESSAGE = 'Произошла ошибка'
 
 const Footer = ({ styles, error, loading, id }: Props) => {
-  const errorMessage = error ? ERROR_MESSAGE : undefined
+  const errorMessage = isString(error)
+    ? error
+    : !!error
+    ? ERROR_MESSAGE
+    : undefined
 
   return (
     <footer className={cx(styles.article, styles.footer)}>
