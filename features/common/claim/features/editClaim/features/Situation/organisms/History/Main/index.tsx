@@ -1,7 +1,11 @@
 import cx from 'classnames'
 import * as React from 'react'
 
-import { SelectMonths, SelectYears } from '@app/features/common/form'
+import {
+  DateValidationTooltip,
+  SelectMonths,
+  SelectYears,
+} from '@app/features/common/form'
 
 import { MOBILE_WIDTH, SPACE, StylesType } from '@app/lib/config'
 import { ClaimData } from '../../../types'
@@ -38,6 +42,14 @@ const Main = ({ width, styles, claimData }: Props) => (
             className={cx(styles.historyCombo, styles.historyComboWrapper)}
           />
         </div>
+        <DateValidationTooltip
+          paths={[
+            {
+              year: `diagnosisDate.year`,
+              month: `diagnosisDate.month`,
+            },
+          ]}
+        />
       </>
     )}
   </>

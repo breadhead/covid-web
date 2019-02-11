@@ -2,10 +2,11 @@ import dayjs from 'dayjs'
 import { ErrorCode } from './erorCodes'
 import { Validator } from './types'
 
-const checkForFutureDatesError: Validator = (date1, date2) => {
+const checkForFutureDateError: Validator = (dates: number[]) => {
   const now = dayjs().valueOf()
-  const noFutureDate = date1 <= now && date2 <= now
+
+  const noFutureDate = dates.every(date => date <= now)
   return noFutureDate ? undefined : ErrorCode.FutureDate
 }
 
-export { checkForFutureDatesError }
+export { checkForFutureDateError }
