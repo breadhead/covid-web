@@ -1,4 +1,4 @@
-import { Input, InputType, PhoneInput } from '@app/features/common/form'
+import { Input, InputType } from '@app/features/common/form'
 import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
 import cx from 'classnames'
 import * as React from 'react'
@@ -46,10 +46,16 @@ const Contacts = ({ styles }: Props) => (
       Контактный телефон.
       <span className={styles.secondaryText}>
         {' '}
-        Необязательно, но так нам будет проще и быстрее связаться с вами.
+        Не{NON_BREAKING_SPACE}будем звонить лишний раз, только по
+        {NON_BREAKING_SPACE}важным вопросам в{NON_BREAKING_SPACE}ходе
+        консультации
       </span>
     </label>
-    <PhoneInput id="personalData.phone" name="personalData.phone" />
+    <Input
+      validate={schema.phone}
+      name="personalData.phone"
+      type={InputType.Phone}
+    />
   </article>
 )
 
