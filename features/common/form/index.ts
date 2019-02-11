@@ -1,3 +1,9 @@
+export {
+  default as DateValidationTooltip,
+} from './components/DateValidationTooltip'
+
+export { default as ValidationTooltip } from './components/ValidationTooltip'
+
 export { default as ComboBox } from './components/ComboBox'
 export {
   default as EmergingFormElement,

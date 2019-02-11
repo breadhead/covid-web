@@ -41,4 +41,15 @@ describe('getShouldValidate', () => {
       }),
     ).toBe(false)
   })
+  test('should return if eager validation is true', () => {
+    expect(
+      getShouldValidate({
+        eagerValidation: true,
+        active: false,
+        submitFailed: false,
+        touched: false,
+        pristine: true,
+      }),
+    ).toBe(true)
+  })
 })
