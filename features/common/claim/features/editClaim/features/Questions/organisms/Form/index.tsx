@@ -5,11 +5,12 @@ import { Form } from '@app/features/common/form'
 import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
 
 import { saveQuestionsClaimDraft } from '../../localStorage'
+import { FormFields } from '../../page'
 import { ClaimData, QuestionsCategories } from '../../types'
 import AdditionalQuestions from '../AdditionalQuestions'
 import Questions from '../Questions'
 interface Props {
-  onFormSubmit: (fields: QuestionsClaim) => Promise<void>
+  onFormSubmit: (fields: FormFields) => Promise<void>
   claimData: ClaimData
   error: false | string
   initial: Partial<QuestionsClaim>

@@ -17,7 +17,7 @@ export const createQuestionsClaim = (claimRequest: QuestionsClaim) => async (
     dispatch(actions.success(claim))
     return claim
   } catch (error) {
-    dispatch(actions.error(error.message))
+    dispatch(actions.error(true))
     throw error
   }
 }
