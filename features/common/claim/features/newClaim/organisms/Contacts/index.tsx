@@ -28,7 +28,9 @@ const Contacts = ({ styles }: Props) => (
       Электронная почта.
       <span className={styles.secondaryText}>
         {' '}
-        Будем присылать вам уведомления о ходе консультации.
+        Будем присылать вам уведомления{NON_BREAKING_SPACE}о ходе консультации.
+        Пожалуйста, регулярно проверяйте почту до{NON_BREAKING_SPACE}окончания
+        консультации
       </span>
     </label>
     <Input
