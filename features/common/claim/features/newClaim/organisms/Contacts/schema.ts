@@ -11,4 +11,8 @@ export const schema = {
     .string()
     .email('Введите email')
     .required(REQUIRED),
+  phone: yup
+    .string()
+    .min(1, REQUIRED)
+    .required(REQUIRED),
 }
