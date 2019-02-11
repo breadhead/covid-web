@@ -10,24 +10,13 @@
 }
 
 .number {
+  margin-right: 16px;
   font: var(--title-bold);
 }
 
 .title {
   margin: 0 16px 0 0;
   font: var(--title-regular);
-}
-
-.icons {
-  margin-left: auto;
-}
-
-.icon {
-  margin-right: 32px;
-
-  &:last-of-type {
-    margin-right: 0;
-  }
 }
 
 .printButton {
@@ -39,4 +28,15 @@
 .button {
   background-color: transparent;
   border: none;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-link);
+}
+
+.linkWrapper {
+  display: flex;
+  align-items: center;
 }
