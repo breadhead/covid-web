@@ -1,6 +1,8 @@
 import React from 'react'
 import * as styles from './MediaQuery.css'
 
+import cx from 'classnames'
+
 export enum Query {
   FromSmall = 'FromSmall',
   FromMedium = 'FromMedium',
@@ -14,10 +16,11 @@ export enum Query {
 interface Props {
   children: React.ReactNode
   query: Query
+  className?: string
 }
 
-const MediaQuery = ({ children, query }: Props) => (
-  <span className={styles[query]}>{children}</span>
+const MediaQuery = ({ children, query, className }: Props) => (
+  <div className={cx(styles[query], className)}>{children}</div>
 )
 
 export default MediaQuery
