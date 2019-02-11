@@ -1,9 +1,19 @@
 import {
+  ErrorCode,
   shouldValidateDates,
   validateDates,
 } from '@app/lib/helpers/validateDates'
 import { get } from 'lodash'
 import ValidationTooltip from './ValidationTooltip'
+
+const errorMessagesMap = {
+  [ErrorCode.MixedDateOrder]:
+    'Дата окончания не может быть раньше, чем дата начала лечения',
+  [ErrorCode.FutureDate]: 'Нельзя выбирать даты в будущем',
+}
+
+const pickErrorMessage = (errorMessages: any, errorCode?: ErrorCode) =>
+  errorCode ? errorMessages[errorCode] : undefined
 
 const validationCb = (path: string) => (_: any, values: any) => {
   const { when, end } = get(values, path) || {
@@ -12,10 +22,10 @@ const validationCb = (path: string) => (_: any, values: any) => {
   }
 
   if (shouldValidateDates(when, end)) {
-    if (!validateDates(when, end)) {
-      throw new Error(
-        'Дата окончания не может быть раньше, чем дата начала лечения',
-      )
+    const errorCode = validateDates(when, end)
+    const errorMessage = pickErrorMessage(errorMessagesMap, errorCode)
+    if (errorMessage) {
+      throw new Error(errorMessage)
     }
   }
 }
