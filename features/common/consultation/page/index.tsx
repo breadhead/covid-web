@@ -15,6 +15,7 @@ import Chat from '@app/features/common/chat'
 
 import { getRoles } from '@app/features/login'
 import { State as AppState } from '@app/lib/store'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { Role } from '@app/models/Users/User'
 import { connect } from 'react-redux'
 import { compose } from 'recompose'
@@ -22,6 +23,7 @@ import OpenChatButton from '../atoms/OpenChatButton'
 import ExpertAnswers from '../organisms/ExpertAnswers'
 import Header from '../organisms/Header'
 import Theme from '../organisms/Theme'
+import { getMainInfo } from '../selectors'
 interface State {
   isChatOpen: boolean
   haveNewMessage: boolean
@@ -36,6 +38,7 @@ export interface Props {
   layout: React.ComponentType
   hideAnswers?: boolean
   roles: Role[]
+  mainInfo: ListedClaim
 }
 
 class Consultation extends React.Component<Props & any, State> {
@@ -68,6 +71,7 @@ class Consultation extends React.Component<Props & any, State> {
       claim,
       hideAnswers,
       roles,
+      mainInfo,
     } = this.props
 
     const Layout = layout
@@ -87,7 +91,11 @@ class Consultation extends React.Component<Props & any, State> {
               haveNewMessage={haveNewMessage}
               onClick={this.openChat}
             />
-            <Header role={roles[0]} claimNumber={claim.mainInfo.number} />
+            <Header
+              id={mainInfo.id}
+              role={roles[0]}
+              claimNumber={claim.mainInfo.number}
+            />
             {renderSubHeader && renderSubHeader(claim)}
             <Theme shortClaim={claim.short} situationClaim={claim.situation} />
             {!hideAnswers && <ExpertAnswers claim={claim.questions} />}
@@ -121,6 +129,7 @@ class Consultation extends React.Component<Props & any, State> {
 
 const mapState = (state: AppState) => ({
   roles: getRoles(state),
+  mainInfo: getMainInfo(state),
 })
 
 export default compose(
