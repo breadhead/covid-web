@@ -48,6 +48,11 @@ module.exports = nextRoutes()
   .add('manager-edit-new-claim', '/manager/new-claim/:id', 'manager/new-claim')
   .add('manager-situation', '/manager/claim/:id/situation', 'manager/situation')
   .add('manager-questions', '/manager/claim/:id/questions', 'manager/questions')
+  .add(
+    'manager-client-claims',
+    '/manager/client/:id/claims',
+    'manager/client-claims',
+  )
 
   // doctor
   .add('doctor-consultation', '/doctor/consultation/:id', 'doctor/consultation')
