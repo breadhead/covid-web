@@ -8,9 +8,8 @@ import * as styles from './Consultation.css'
 
 import { WindowSize } from '@app/features/common/windowSize/selector'
 import withWindowSize from '@app/features/common/windowSize/withWindowSize'
-import Claim from '@app/models/Claim/Claim'
-
 import { CHAT_DEFAULT_OPEN_WIDTH } from '@app/lib/config'
+import Claim from '@app/models/Claim/Claim'
 
 import Chat from '@app/features/common/chat'
 
