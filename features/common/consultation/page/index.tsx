@@ -39,6 +39,7 @@ export interface Props {
   hideAnswers?: boolean
   roles: Role[]
   mainInfo: ListedClaim
+  authorLogin: string
 }
 
 class Consultation extends React.Component<Props & any, State> {

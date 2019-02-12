@@ -17,6 +17,7 @@ interface CompanyData {
 
 export interface ShortClaim {
   id: string
+  authorLogin?: string
   personalData: PersonalData
   localization?: string
   theme: string

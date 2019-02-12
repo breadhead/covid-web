@@ -22,6 +22,9 @@ export const getClaimStatus = createSelector(
   mainInfo => mainInfo && mainInfo.status,
 )
 
+export const getAuthorLogin = (state: State) =>
+  state.claim.newClaim.claim && state.claim.newClaim.claim.authorLogin
+
 export const getClaimId = (state: State) =>
   state.claim.newClaim.claim && state.claim.newClaim.claim.id
 

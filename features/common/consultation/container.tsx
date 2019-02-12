@@ -9,9 +9,10 @@ import { currentUser } from '@app/features/login/features/user'
 import { fetchDoctorsIfNeeded } from '@app/features/manager/features/chooseDoctor'
 import { fetchClaim } from './actions'
 import { Props as PageProps } from './page'
-import { getClaim } from './selectors'
+import { getAuthorLogin, getClaim } from './selectors'
 interface Query {
   id: string
+  authorLogin: string
 }
 
 type Props = PageProps
@@ -55,6 +56,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
 
 const mapState = (state: State) => ({
   claim: getClaim(state),
+  authorLogin: getAuthorLogin(state),
 })
 
 export default Container
