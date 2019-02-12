@@ -1,3 +1,4 @@
-import ClientClaims from './page'
+import Container from './container'
+import Page from './page'
 
-export default ClientClaims
+export default Container(Page)

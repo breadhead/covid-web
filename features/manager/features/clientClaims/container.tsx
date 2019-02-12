@@ -1,30 +1,51 @@
-// import React from 'react'
-// import { connect } from 'react-redux'
-// import { AnyAction, Dispatch } from 'redux'
+import * as React from 'react'
 
-// const Container = (WrappedComponent: any) => {
-//   return class extends React.Component<any> {
-//     public render() {
-//       return (
-//         <WrappedComponent {...this.props} />
-//       )
-//     }
-//     private onFormSubmit = async (data: Omit<CloseClaimRequest, 'id'>) => {
-//       const { closeClaim, claimId, modal } = this.props
-//       const completeData = { ...data, id: claimId }
-//       await closeClaim(completeData)
-//       modal.close()
-//     }
-//   }
-// }
+import {
+  getAuthorLogin,
+  getClientClaimsList,
+} from '@app/features/common/consultation/selectors'
+import { State } from '@app/lib/store'
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { connect } from 'react-redux'
 
-// const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
-//   closeClaim: (data: CloseClaimRequest) =>
-//     dispatch(closeClaimAction(data) as any),
-// })
+import { getClientClaims } from '@app/features/common/consultation/actions'
+import { AnyAction, compose, Dispatch } from 'redux'
+import { getBrowserQuery } from './selectors'
+interface Props {
+  getListOfClientClaims: (login: string) => Promise<any>
+  clientClaims: ShortClaim[]
+  authorLogin: string
+  browserQuery: any
+}
 
-// const mapState = (state: State) => ({
-//   claimId: getClaimId(state),
-// })
+const Container = (WrappedComponent: React.ComponentType<Props>) => {
+  return class extends React.Component<Props> {
+    public componentDidMount() {
+      const { authorLogin, browserQuery } = this.props
+      this.props.getListOfClientClaims(authorLogin || browserQuery.id)
+    }
 
-// export default connect(mapState, mapDispatch)(Container) as any
+    public render() {
+      return <WrappedComponent {...this.props} />
+    }
+  }
+}
+
+const mapState = (state: State) => ({
+  clientClaims: getClientClaimsList(state),
+  authorLogin: getAuthorLogin(state),
+  browserQuery: getBrowserQuery(state),
+})
+
+const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
+  getListOfClientClaims: (login: string) =>
+    dispatch(getClientClaims(login) as any),
+})
+
+export default compose(
+  connect(
+    mapState,
+    mapDispatch,
+  ),
+  Container,
+)

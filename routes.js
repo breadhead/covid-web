@@ -42,7 +42,7 @@ module.exports = nextRoutes()
   // manager
   .add(
     'manager-consultation',
-    '/manager/consultation/:id',
+    '/manager/consultation/:clientLogin',
     '/manager/consultation',
   )
   .add('manager-edit-new-claim', '/manager/new-claim/:id', 'manager/new-claim')

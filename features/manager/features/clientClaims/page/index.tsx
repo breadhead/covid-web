@@ -1,5 +1,12 @@
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import * as React from 'react'
 
-const ClientClaims = () => <div>client claims</div>
+export interface Props {
+  clientClaims: ShortClaim[] | undefined
+}
+
+const ClientClaims = ({  }: Props) => {
+  return <div>client claims</div>
+}
 
 export default ClientClaims
