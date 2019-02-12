@@ -13,18 +13,12 @@ import Claim from '@app/models/Claim/Claim'
 
 import Chat from '@app/features/common/chat'
 
-import { getRoles } from '@app/features/login'
-import { State as AppState } from '@app/lib/store'
-import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { Role } from '@app/models/Users/User'
-import { connect } from 'react-redux'
-import { compose } from 'recompose'
 import OpenChatButton from '../atoms/OpenChatButton'
 import ExpertAnswers from '../organisms/ExpertAnswers'
 import Header from '../organisms/Header'
 import Theme from '../organisms/Theme'
-import { getMainInfo } from '../selectors'
 interface State {
   isChatOpen: boolean
   haveNewMessage: boolean
@@ -39,10 +33,10 @@ export interface Props {
   layout: React.ComponentType
   hideAnswers?: boolean
   roles: Role[]
-  mainInfo: ListedClaim
   authorLogin: string
   clientClaims: ShortClaim[]
   getListOfClientClaims: (login: string) => Promise<any>
+  clientClaimsCount?: number
 }
 
 class Consultation extends React.Component<Props & any, State> {
@@ -75,7 +69,8 @@ class Consultation extends React.Component<Props & any, State> {
       claim,
       hideAnswers,
       roles,
-      mainInfo,
+      clientClaimsCount,
+      authorLogin,
     } = this.props
     const Layout = layout
 
@@ -95,9 +90,10 @@ class Consultation extends React.Component<Props & any, State> {
               onClick={this.openChat}
             />
             <Header
-              id={mainInfo.id}
+              id={authorLogin}
               role={roles[0]}
               claimNumber={claim.mainInfo.number}
+              clientClaimsCount={clientClaimsCount}
             />
             {renderSubHeader && renderSubHeader(claim)}
             <Theme shortClaim={claim.short} situationClaim={claim.situation} />
@@ -130,12 +126,4 @@ class Consultation extends React.Component<Props & any, State> {
   }
 }
 
-const mapState = (state: AppState) => ({
-  roles: getRoles(state),
-  mainInfo: getMainInfo(state),
-})
-
-export default compose(
-  withWindowSize,
-  connect(mapState),
-)(Consultation) as any
+export default withWindowSize(Consultation) as any

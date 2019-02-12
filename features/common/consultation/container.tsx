@@ -5,9 +5,10 @@ import { fetchClaimBoardCard } from '@app/features/manager/features/quotaControl
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 
-import { currentUser } from '@app/features/login/features/user'
+import { currentUser, getRoles } from '@app/features/login/features/user'
 import { fetchDoctorsIfNeeded } from '@app/features/manager/features/chooseDoctor'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { Role } from '@app/models/Users/User'
 import { AnyAction, Dispatch } from 'redux'
 import { fetchClaim, getClientClaims } from './actions'
 import { Props as PageProps } from './page'
@@ -15,6 +16,7 @@ import { getAuthorLogin, getClaim, getClientClaimsList } from './selectors'
 interface Query {
   id: string
   authorLogin: string
+  roles: Role[]
   clientClaims: ShortClaim[]
   getListOfClientClaims: (login: string) => Promise<any>
 }
@@ -49,7 +51,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
     }
 
     public render() {
-      const { claim } = this.props
+      const { claim, clientClaims } = this.props
 
       if (!claim) {
         return null
@@ -61,6 +63,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
           {...additionalProps}
           claim={claim}
           layout={layout}
+          clientClaimsCount={clientClaims && clientClaims.length}
         />
       )
     }
@@ -70,6 +73,7 @@ const mapState = (state: State) => ({
   claim: getClaim(state),
   authorLogin: getAuthorLogin(state),
   clientClaims: getClientClaimsList(state),
+  roles: getRoles(state),
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({

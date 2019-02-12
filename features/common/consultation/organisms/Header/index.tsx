@@ -10,15 +10,18 @@ interface Props {
   claimNumber: number
   role: string
   id: string
+  clientClaimsCount?: number
 }
 
-const Header = ({ claimNumber, role, id }: Props) => (
+const Header = ({ claimNumber, role, id, clientClaimsCount }: Props) => (
   <header className={styles.header}>
     <h1 className={styles.title}>Консультация</h1>
     <span className={styles.number}>{claimNumber}</span>
     {role === Role.CaseManager && (
       <div className={styles.linkWrapper}>
-        <NavLink href={`/manager/client/${id}/claims`}>Ещё 8</NavLink>
+        <NavLink href={`/manager/client/${id}/claims`}>
+          Ещё {clientClaimsCount}
+        </NavLink>
         <IconCustom className={styles.icon} name="24x24_arrow-small_right" />
       </div>
     )}
