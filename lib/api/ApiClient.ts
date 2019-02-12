@@ -66,4 +66,5 @@ export default interface ApiClient {
   sendChatMessage(claimId: string, message: ChatMessage): Promise<ChatMessage>
   messages(claimId: string): Promise<ChatMessage[]>
   sendFeedback(feedbackFields: any): Promise<any>
+  getClaimsListForClient(query: any): Promise<any>
 }
