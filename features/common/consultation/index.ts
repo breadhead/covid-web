@@ -30,3 +30,8 @@ export { getClaimId, getClaim, getClaimStatus } from './selectors'
 export {
   makeQuestionGroups,
 } from './organisms/ExpertAnswers/helpers/makeQuestionGroups'
+
+export {
+  State as ClientClaimsState,
+  reducer as clientClaimsReducer,
+} from './reducers/clientClaims'

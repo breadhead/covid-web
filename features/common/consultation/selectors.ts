@@ -17,6 +17,9 @@ export const getQuotaName = (state: State) =>
 export const getMainInfo = (state: State) =>
   state.consultation.claimData.mainInfo
 
+export const getClientClaimsList = (state: State) =>
+  state && state.clientClaim && state.clientClaim.clientClaims
+
 export const getClaimStatus = createSelector(
   getMainInfo,
   mainInfo => mainInfo && mainInfo.status,

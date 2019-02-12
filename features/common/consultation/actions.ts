@@ -5,6 +5,7 @@ import { ExtraArgs, State } from '@app/lib/store'
 
 import { fetchSituationClaim } from '../claim'
 import { actions as claimDataActions } from './reducers/claimData'
+import { actions as clientClaimsActions } from './reducers/clientClaims'
 import { actions as nextStatusActions } from './reducers/nextStatus'
 import { getClaimId } from './selectors'
 
@@ -63,6 +64,22 @@ export const nextStatus = () => async (
     dispatch(nextStatusActions.success())
   } catch (error) {
     dispatch(nextStatusActions.error(error.message))
+    throw error
+  }
+}
+
+export const getClientClaims = (login: string) => async (
+  dispatch: Dispatch<any>,
+  getState: () => State,
+  { getApi }: ExtraArgs,
+) => {
+  const api = getApi(getState)
+  dispatch(clientClaimsActions.request())
+  try {
+    const clientClaims = await api.getClaimsListForClient(login)
+    dispatch(clientClaimsActions.success(clientClaims))
+  } catch (error) {
+    dispatch(clientClaimsActions.error(error.message))
     throw error
   }
 }

@@ -16,6 +16,7 @@ import Chat from '@app/features/common/chat'
 import { getRoles } from '@app/features/login'
 import { State as AppState } from '@app/lib/store'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { Role } from '@app/models/Users/User'
 import { connect } from 'react-redux'
 import { compose } from 'recompose'
@@ -40,6 +41,8 @@ export interface Props {
   roles: Role[]
   mainInfo: ListedClaim
   authorLogin: string
+  clientClaims: ShortClaim[]
+  getListOfClientClaims: (login: string) => Promise<any>
 }
 
 class Consultation extends React.Component<Props & any, State> {
@@ -74,7 +77,6 @@ class Consultation extends React.Component<Props & any, State> {
       roles,
       mainInfo,
     } = this.props
-
     const Layout = layout
 
     return (
