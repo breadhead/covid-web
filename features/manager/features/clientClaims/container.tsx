@@ -11,20 +11,22 @@ import { compose } from 'redux'
 
 interface Query {
   authorLogin: string
+  from: string
 }
 interface Props {
   getListOfClientClaims: (login: string) => Promise<any>
   clientClaims: ListedClaim[]
   authorLogin: string
+  currentClaimId: string
 }
 
 const Container = (WrappedComponent: React.ComponentType<Props>) => {
   return class extends React.Component<Props> {
     public static async getInitialProps(context: AppContext<Query>) {
-      const { authorLogin } = context.query
+      const { authorLogin, from } = context.query
       await context.reduxStore.dispatch(getClientClaims(authorLogin) as any)
 
-      return { authorLogin }
+      return { authorLogin, currentClaimId: from }
     }
 
     public render() {
