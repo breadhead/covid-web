@@ -4,10 +4,11 @@ import * as styles from './ClientClaims.css'
 
 import { Layout } from '@app/features/manager'
 
-import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import Claims from '@app/features/client/features/claims/organisms/Claims'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 
 export interface Props {
-  clientClaims: ShortClaim[]
+  clientClaims: ListedClaim[]
   authorLogin: string
 }
 
@@ -17,6 +18,7 @@ const ClientClaims = ({ clientClaims, authorLogin }: Props) => (
       <h1 className={styles.title}>{clientClaims.length} консультации</h1>
       <p className={styles.authorLogin}>{authorLogin}</p>
     </header>
+    <Claims claims={clientClaims} />
   </Layout>
 )
 

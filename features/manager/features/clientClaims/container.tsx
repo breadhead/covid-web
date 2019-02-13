@@ -2,11 +2,11 @@ import * as React from 'react'
 
 import { getClientClaimsList } from '@app/features/common/consultation/selectors'
 import { State } from '@app/lib/store'
-import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { connect } from 'react-redux'
 
 import { getClientClaims } from '@app/features/common/consultation/actions'
 import { AppContext } from '@app/lib/server-types'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { compose } from 'redux'
 
 interface Query {
@@ -14,7 +14,7 @@ interface Query {
 }
 interface Props {
   getListOfClientClaims: (login: string) => Promise<any>
-  clientClaims: ShortClaim[]
+  clientClaims: ListedClaim[]
   authorLogin: string
 }
 
