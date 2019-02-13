@@ -28,3 +28,20 @@
 .authorLogin {
   margin: 0;
 }
+
+.linkWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+
+  @media (--smallDown) {
+    margin-bottom: 16px;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-link);
+  transform: rotate(180deg);
+}
