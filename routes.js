@@ -50,7 +50,7 @@ module.exports = nextRoutes()
   .add('manager-questions', '/manager/claim/:id/questions', 'manager/questions')
   .add(
     'manager-client-claims',
-    '/manager/client/:clientLogin/claims',
+    '/manager/client/:authorLogin/claims',
     'manager/client-claims',
   )
 
