@@ -65,10 +65,8 @@ export const MockMessages = [
 ]
 
 export const EmptyWindowText = {
-  [`${Role.Admin}`]: ' Сообщений нет админ тест',
-  [`${
-    Role.Client
-  }`]: `Здесь появятся сообщения, если куратору вашей заявки или специалисту потребуется${NON_BREAKING_SPACE}задать вам вопрос`,
-  [`${Role.CaseManager}`]: 'Сообщений нет',
-  [`${Role.Doctor}`]: 'Сообщений нет',
+  [Role.Admin]: '',
+  [Role.Client]: `Здесь появятся сообщения, если куратору вашей заявки или специалисту потребуется${NON_BREAKING_SPACE}задать вам вопрос`,
+  [Role.CaseManager]: 'Сообщений нет',
+  [Role.Doctor]: 'Сообщений нет',
 } as any

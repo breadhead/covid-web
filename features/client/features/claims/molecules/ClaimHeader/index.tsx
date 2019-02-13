@@ -4,7 +4,7 @@ import Router from 'next/router'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import IconCustom from '@app/ui/atoms/IconCustom'
 
-import NewMessageBage from '../../atoms/NewMessageBage'
+import NewMessageBadge from '../../atoms/NewMessageBage'
 import formatDate from '../../helpers/formatDate'
 import styles from './ClaimHeader.css'
 
@@ -32,7 +32,7 @@ const Header = ({ id, createdAt, newMessage, target, number }: Props) => (
           className={cx(styles.arrow, styles.hoverArrow)}
         />
       </div>
-      <NewMessageBage available={newMessage} />
+      <NewMessageBadge available={newMessage} />
       <small className={styles.for}>{target}</small>
     </div>
   </header>

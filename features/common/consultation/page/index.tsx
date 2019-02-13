@@ -35,11 +35,11 @@ export interface Props {
   clientClaims: ShortClaim[]
   getListOfClientClaims: (login: string) => Promise<any>
   authorLogin: string
-  clientClaimsCount?: number
+  clientClaimsCount: number
   hideAnswers?: boolean
 }
 
-class Consultation extends React.Component<Props & any, State> {
+class Consultation extends React.Component<Props, State> {
   public state = {
     isChatOpen: true,
     chatOpensOnce: false,
