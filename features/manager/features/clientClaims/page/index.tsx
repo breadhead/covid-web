@@ -5,6 +5,7 @@ import * as styles from './ClientClaims.css'
 import { Layout } from '@app/features/manager'
 
 import Claims from '@app/features/client/features/claims/organisms/Claims'
+import { getDeclensionedWord } from '@app/features/common/helpers'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import IconCustom from '@app/ui/atoms/IconCustom'
 import NavLink from '@app/ui/atoms/NavLink'
@@ -28,7 +29,9 @@ const ClientClaims = ({ clientClaims, authorLogin, currentClaimId }: Props) => (
       )}
     </div>
     <header className={styles.header}>
-      <h1 className={styles.title}>{clientClaims.length} консультации</h1>
+      <h1 className={styles.title}>
+        {clientClaims.length} {getDeclensionedWord(clientClaims.length)}
+      </h1>
       <p className={styles.authorLogin}>{authorLogin}</p>
     </header>
     <Claims claims={clientClaims} />
