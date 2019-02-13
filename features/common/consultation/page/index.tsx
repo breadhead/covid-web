@@ -31,12 +31,12 @@ export interface Props {
   renderSubHeader?: (claim: Claim) => React.ReactNode
   renderFooter?: (claim: Claim) => React.ReactNode
   layout: React.ComponentType
-  hideAnswers?: boolean
   roles: Role[]
-  authorLogin: string
   clientClaims: ShortClaim[]
   getListOfClientClaims: (login: string) => Promise<any>
+  authorLogin: string
   clientClaimsCount?: number
+  hideAnswers?: boolean
 }
 
 class Consultation extends React.Component<Props & any, State> {
@@ -90,10 +90,11 @@ class Consultation extends React.Component<Props & any, State> {
               onClick={this.openChat}
             />
             <Header
-              id={authorLogin}
               role={roles[0]}
               claimNumber={claim.mainInfo.number}
               clientClaimsCount={clientClaimsCount}
+              claimId={claim.mainInfo.id}
+              authorLogin={authorLogin}
             />
             {renderSubHeader && renderSubHeader(claim)}
             <Theme shortClaim={claim.short} situationClaim={claim.situation} />

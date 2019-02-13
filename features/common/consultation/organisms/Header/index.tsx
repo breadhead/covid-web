@@ -9,11 +9,18 @@ import NavLink from '@app/ui/atoms/NavLink'
 interface Props {
   claimNumber: number
   role: string
-  id: string
+  authorLogin: string
+  claimId?: string
   clientClaimsCount: number
 }
 
-const Header = ({ claimNumber, role, id, clientClaimsCount }: Props) => (
+const Header = ({
+  claimNumber,
+  role,
+  authorLogin,
+  clientClaimsCount,
+  claimId,
+}: Props) => (
   <header className={styles.header}>
     <h1 className={styles.title}>Консультация</h1>
     <span className={styles.number}>{claimNumber}</span>
@@ -21,7 +28,10 @@ const Header = ({ claimNumber, role, id, clientClaimsCount }: Props) => (
       <div className={styles.linkWrapper}>
         {clientClaimsCount > 1 && (
           <>
-            <NavLink href={`/manager/client/${id}/claims`}>
+            <NavLink
+              href={`/manager/client/${authorLogin}/claims${claimId &&
+                `?from=${claimId}`}`}
+            >
               Ещё {clientClaimsCount}
             </NavLink>
             <IconCustom
