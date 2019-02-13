@@ -13,7 +13,11 @@ export interface Props {
 }
 
 const FormFinish = ({ email }: Props) => (
-  <Layout pageClassName={styles.formFinish} footerTheme={FooterTheme.White}>
+  <Layout
+    headerClassName={styles.mainHeader}
+    pageClassName={styles.formFinish}
+    footerTheme={FooterTheme.White}
+  >
     <Head>
       <title>Спасибо! Мы получили вашу заявку | Просто спросить</title>
     </Head>
