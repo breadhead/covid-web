@@ -12,6 +12,7 @@
 .number {
   margin-right: 16px;
   font: var(--title-bold);
+  font-size: 28px;
 }
 
 .title {
