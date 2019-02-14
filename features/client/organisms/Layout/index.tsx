@@ -10,12 +10,19 @@ interface Props {
   children: React.ReactNode
   className?: string
   pageClassName?: string
+  headerClassName?: string
   footerTheme?: FooterTheme
 }
 
-const Layout = ({ children, className, pageClassName, footerTheme }: Props) => (
+const Layout = ({
+  children,
+  className,
+  pageClassName,
+  headerClassName,
+  footerTheme,
+}: Props) => (
   <>
-    <Header className={pageClassName} />
+    <Header className={headerClassName} />
 
     <Container pageClassName={cx(styles.page, pageClassName)}>
       {(containerClassName: string) => (

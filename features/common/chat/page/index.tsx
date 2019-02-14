@@ -10,6 +10,7 @@ import { ButtonType } from '@app/ui/atoms/Button'
 import IconCustom from '@app/ui/atoms/IconCustom'
 
 import { getRoles } from '@app/features/login'
+import { Role } from '@app/models/Users/User'
 import { connect } from 'react-redux'
 import ChatWrapper from '../organisms/ChatWrapper'
 import Header from '../organisms/Header'
@@ -27,7 +28,7 @@ export interface Props {
   onTextAreaFocus: () => void
   forwardedRef: React.Ref<HTMLDivElement>
   muted: boolean
-  roles: string[]
+  roles: Role[]
 }
 
 const Chat = ({

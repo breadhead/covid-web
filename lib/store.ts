@@ -98,6 +98,11 @@ import {
   State as SendFeedbackState,
 } from '@app/features/landing/features/contacts/organisms/FeedbackForm'
 
+import {
+  clientClaimsReducer,
+  ClientClaimsState,
+} from '@app/features/common/consultation'
+
 import ApiClient from './api/ApiClient'
 import factory from './api/apiFactory'
 
@@ -119,6 +124,7 @@ export interface State {
   doctor: DoctorState
   notFound: NotFoundState
   claim: ClaimState
+  clientClaim: ClientClaimsState
 }
 
 const reducer = combineReducers({
@@ -140,6 +146,7 @@ const reducer = combineReducers({
   doctor: doctorReducer,
   notFound: notFoundReducer,
   claim: claimReducer,
+  clientClaim: clientClaimsReducer,
 } as any)
 
 export interface ExtraArgs {

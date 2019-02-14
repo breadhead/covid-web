@@ -6,7 +6,7 @@ import { AppContext } from '@app/lib/server-types'
 import { Role } from '@app/models/Users/User'
 
 interface Props {
-  roles: string[]
+  roles: Role[]
   id: string
 }
 

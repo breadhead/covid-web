@@ -6,7 +6,7 @@ import Subheader from './organisms/Subheader'
 
 const ClientConsultation = createConsultationPage(
   {
-    renderSubHeader: ({ quota }) => <Subheader quotaClaim={quota} />,
+    renderSubHeader: ({ quota }: any) => <Subheader quotaClaim={quota} />,
     renderFooter: () => <QuestionNotification />,
   },
   Layout as any,

@@ -1,4 +1,5 @@
 import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { Role } from '@app/models/Users/User'
 
 export const MockMessages = [
   {
@@ -64,8 +65,8 @@ export const MockMessages = [
 ]
 
 export const EmptyWindowText = {
-  ['admin']: ' Сообщений нет админ тест',
-  ['client']: `Здесь появятся сообщения, если куратору вашей заявки или специалисту потребуется${NON_BREAKING_SPACE}задать вам вопрос`,
-  ['case-manager']: 'Сообщений нет',
-  ['doctor']: 'Сообщений нет',
+  [Role.Admin]: '',
+  [Role.Client]: `Здесь появятся сообщения, если куратору вашей заявки или специалисту потребуется${NON_BREAKING_SPACE}задать вам вопрос`,
+  [Role.CaseManager]: 'Сообщений нет',
+  [Role.Doctor]: 'Сообщений нет',
 } as any

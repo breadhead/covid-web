@@ -227,4 +227,9 @@ export default class RealApiClient implements ApiClient {
       .get(`/chat/${claimId}`)
       .then(response => response.data as ChatMessage[])
       .then(messages => messages.map(tapDate))
+
+  public getClaimsListForClient = (login: string) =>
+    this.axiosInstance
+      .get(`/claims/manager/client`, { params: { login } })
+      .then(response => response.data as ShortClaim[])
 }
