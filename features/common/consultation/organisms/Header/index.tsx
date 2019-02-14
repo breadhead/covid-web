@@ -23,7 +23,7 @@ const Header = ({
 }: Props) => (
   <header className={styles.header}>
     <h1 className={styles.title}>Консультация</h1>
-    <span className={styles.number}>{claimNumber}</span>
+    <span className={styles.number}>№{claimNumber}</span>
     {role === Role.CaseManager && (
       <div className={styles.linkWrapper}>
         {clientClaimsCount > 1 && (
