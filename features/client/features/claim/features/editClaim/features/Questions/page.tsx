@@ -10,7 +10,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => (
   <ClaimFormLayout
     step={3}
-    title="Отметьте вопросы, которые хотите задать эксперту"
+    title="Отметьте не более 5 вопросов, которые хотите задать эксперту"
   >
     <Head>
       <title>Задайте вопросы | Просто спросить</title>
