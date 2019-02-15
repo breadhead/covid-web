@@ -115,3 +115,8 @@
     margin-top: 32px;
   }
 }
+
+.hint {
+  margin-top: 8px;
+  color: #82839b;
+}

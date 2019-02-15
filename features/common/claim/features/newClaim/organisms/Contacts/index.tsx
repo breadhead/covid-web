@@ -56,6 +56,7 @@ const Contacts = ({ styles }: Props) => (
       name="personalData.phone"
       type={InputType.Phone}
     />
+    <p className={styles.hint}>Например для России: +7-333-333-22-22</p>
   </article>
 )
 
