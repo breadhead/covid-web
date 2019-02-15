@@ -1,5 +1,6 @@
 import ClaimFormLayout from '@app/features/client/organisms/ClaimFormLayout'
 import { createQuestionsClaim, FooterType } from '@app/features/common/claim'
+import { MAX_QUESTIONS_COUNT } from '@app/features/common/form/components/QuestionsValidationTooltip/validateCb'
 import Head from 'next/head'
 import * as React from 'react'
 import Footer from './organisms/Footer'
@@ -10,7 +11,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => (
   <ClaimFormLayout
     step={3}
-    title="Отметьте не более 5 вопросов, которые хотите задать эксперту"
+    title={`Отметьте не более ${MAX_QUESTIONS_COUNT} вопросов, которые хотите задать эксперту`}
   >
     <Head>
       <title>Задайте вопросы | Просто спросить</title>
