@@ -14,6 +14,8 @@ export const themeNamesMap = {
   others: 'Другое',
 }
 
+export const hiddenThemes = [themeNamesMap.heredity]
+
 const themesAndQuestions: QuestionsMap = {
   [themeNamesMap.heredity]: [
     {
@@ -123,7 +125,10 @@ const themesAndQuestions: QuestionsMap = {
   ],
 }
 
-export const themes = Object.values(themeNamesMap)
+export const themes = Object.values(themeNamesMap).filter(
+  theme => !hiddenThemes.includes(theme),
+)
+
 export const getThemeQuestions = (theme: string) => themesAndQuestions[theme]
 
 const targetQuestions: QuestionsMap = {
