@@ -54,7 +54,7 @@ const Survey = ({
                 removeSection(removeSectionFromState(key, 'otherFiles'))
               }
             />
-            <FormFileInput name={`dischargeFile.${key}`} />
+            <FormFileInput name={`dischargeFile${key}`} />
             <SectionDivider />
           </React.Fragment>
         ))
@@ -82,7 +82,7 @@ const Survey = ({
               Название исследования
             </label>
             <Input name={`otherFiles.${key}.title`} />
-            <FormFileInput name={`dischargeFile${key}`} />
+            <FormFileInput name={`otherFile${key}mm`} />
             <SectionDivider />
           </React.Fragment>
         ))

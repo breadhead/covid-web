@@ -1,4 +1,23 @@
-.container {
-  border-radius: 5px;
-  box-shadow: 0 0 0 1px #d9d9d9;
+.fileInput {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.fileLabel {
+  position: relative;
+  display: inline-block;
+  max-width: 116px;
+  padding: 8px 20px;
+  margin-top: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 1px 0.5px rgba(255, 255, 255, 0.1), 0 3px 8px rgba(60, 84, 238, 0.2);
+
+  &:hover {
+    background-color: darken(#f15d22, 10%);
+  }
 }

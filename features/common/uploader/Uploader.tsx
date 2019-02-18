@@ -1,8 +1,6 @@
 import { head } from 'lodash'
 import * as React from 'react'
 
-import Button, { ButtonType } from '@app/ui/atoms/Button'
-
 import { getToken } from '@app/features/login'
 import factory from '@app/lib/api/apiFactory'
 import { connect } from 'react-redux'
@@ -16,11 +14,15 @@ interface Props {
 
 interface State {
   path: string | null
+  currentFiles: any
+  file: any
 }
 
 class Uploader extends React.Component<Props, State> {
   public state = {
     path: null,
+    currentFiles: [],
+    file: '',
   } as State
 
   private fileInput: React.RefObject<HTMLInputElement> = React.createRef()
@@ -30,17 +32,23 @@ class Uploader extends React.Component<Props, State> {
     const { path } = this.state
 
     return (
-      <div className={styles.container}>
-        <input type="file" ref={this.fileInput} id={id} />
-        <Button onClick={this.onClick} type={ButtonType.Button}>
+      <>
+        <label className={styles.fileLabel} htmlFor={id}>
+          <input
+            onChange={this.onChange}
+            className={styles.fileInput}
+            type="file"
+            ref={this.fileInput}
+            id={id}
+          />
           Загрузить
-        </Button>
+        </label>
         {path && <p>{path}</p>}
-      </div>
+      </>
     )
   }
 
-  private onClick = async () => {
+  private onChange = async () => {
     if (!this.fileInput.current) {
       return
     }
@@ -55,6 +63,7 @@ class Uploader extends React.Component<Props, State> {
     const apiClient = factory(token)
     const { path } = await apiClient.uploadFile(file)
 
+    this.setState({ currentFiles: this.fileInput.current.files, file })
     this.setState({ path }, () => onUploaded && onUploaded(path))
   }
 }
