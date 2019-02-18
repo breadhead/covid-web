@@ -4,6 +4,7 @@ import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import Gender from '@app/models/Gender'
 import { Role } from '@app/models/Users/User'
 import routes from '@app/routes'
 import * as React from 'react'
@@ -12,7 +13,7 @@ import { AnyAction, Dispatch } from 'redux'
 import { createClaim, fetchShortClaim } from './actions'
 import { FooterType, ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
-import { getLoading, getNewClaimError } from './selectors'
+import { getLoading, getNewClaimError, getSmsPhone } from './selectors'
 
 const Router = routes.Router
 
@@ -70,6 +71,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       }
 
       private getInitialFields = (claim?: ShortClaim) => {
+        const { smsPhone } = this.props
         if (!!claim) {
           return {
             ...claim,
@@ -77,8 +79,18 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
             companyPresence: !!claim.company,
           }
         }
+
         return {
           companyPresence: false,
+          personalData: {
+            name: '',
+            region: '',
+            age: NaN,
+            // TODO: не получилось прокинуть null
+            gender: Gender.Female,
+            email: '',
+            phone: smsPhone,
+          },
         }
       }
 
@@ -146,6 +158,7 @@ const mapState = (state: State) => ({
   error: getNewClaimError(state),
   loading: getLoading(state),
   roles: getRoles(state),
+  smsPhone: getSmsPhone(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
