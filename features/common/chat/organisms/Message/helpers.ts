@@ -1,11 +1,4 @@
-export const getFormattedDate = (date: Date) => {
-  const minutes = addZeroToValue(date.getMinutes())
-  const currentTime = `${date.getHours()}:${minutes}`
+import dayjs from 'dayjs'
 
-  const month = addZeroToValue(date.getMonth() + 1)
-  const currentDate = `${date.getDate()}.${month}.${date.getFullYear()}`
-  return `${currentTime} ${currentDate}`
-}
-
-const addZeroToValue = (value: number) =>
-  `${value}`.length < 2 ? `0${value}` : value
+export const getFormattedDate = (date: Date) =>
+  dayjs(date).format('HH:mm DD.MM.YYYY')
