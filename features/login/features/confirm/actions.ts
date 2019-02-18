@@ -14,9 +14,9 @@ export const sendSms = (phone: string) => async (
 ) => {
   const api = getApi(getState)
   dispatch(actions.sendSms.request())
-
   try {
     await api.sendSms(phone)
+    dispatch(actions.smsPhone.addPhone(phone))
     dispatch(actions.sendSms.success())
   } catch (error) {
     dispatch(actions.sendSms.error(GENERIC_CLAIM_ERROR))
