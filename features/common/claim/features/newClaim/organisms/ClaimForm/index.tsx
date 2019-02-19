@@ -1,6 +1,7 @@
 import { Form } from '@app/features/common/form'
 import Gender from '@app/models/Gender'
 import * as React from 'react'
+import { DeepPartial } from 'utility-types'
 import { ShortClaimFields } from '../ClaimForm'
 import Contacts from '../Contacts'
 import Main from '../Main'
@@ -18,7 +19,7 @@ interface PersonalData {
   age: number
   gender: Gender
   email?: string
-  phone?: string | null
+  phone?: string
 }
 
 export interface ShortClaimFields {
@@ -37,7 +38,7 @@ export interface ShortClaimFields {
 interface Props {
   onSubmit: (claimFields: ShortClaimFields) => Promise<void>
   error: false | string
-  initial: Partial<ShortClaimFields>
+  initial: DeepPartial<ShortClaimFields>
   loading: boolean
   footer: FooterType
   id: string

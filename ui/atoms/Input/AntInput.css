@@ -25,3 +25,8 @@
 .ant-form-item {
   margin: 0;
 }
+
+.ant-input-group-addon {
+  background-color: transparent !important;
+  border: none !important;
+}

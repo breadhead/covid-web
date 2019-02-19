@@ -1,10 +1,12 @@
 import * as React from 'react'
 import ClaimForm, { FooterType, ShortClaimFields } from './organisms/ClaimForm'
 
+import { DeepPartial } from 'utility-types'
+
 export interface Props {
   onFormSubmit: (claimFields: ShortClaimFields) => Promise<void>
   error: false | string
-  initialFields: Partial<ShortClaimFields>
+  initialFields: DeepPartial<ShortClaimFields>
   loading: boolean
   footer: FooterType
   id: string

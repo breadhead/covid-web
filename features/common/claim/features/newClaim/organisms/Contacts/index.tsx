@@ -2,12 +2,13 @@ import { Input, InputType } from '@app/features/common/form'
 import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
 import cx from 'classnames'
 import * as React from 'react'
+import { DeepPartial } from 'utility-types'
 import { ShortClaimFields } from '../ClaimForm'
 import { schema } from './schema'
 
 interface Props {
   styles: StylesType
-  initial: Partial<ShortClaimFields>
+  initial: DeepPartial<ShortClaimFields>
 }
 const Contacts = ({ styles }: Props) => (
   <article className={styles.article}>

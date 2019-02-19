@@ -13,6 +13,7 @@ import Gender from '@app/models/Gender'
 import { mapString } from '@app/ui/atoms/Select'
 import cx from 'classnames'
 import * as React from 'react'
+import { DeepPartial } from 'utility-types'
 import { ShortClaimFields } from '../ClaimForm'
 import { diagnosisVisible } from './diagnosisVisible'
 import { schema } from './schema'
@@ -24,8 +25,8 @@ const genderRadioGroup = Object.entries(Gender).map(([id, value]) => ({
 
 interface Props {
   styles: StylesType
-  initial: Partial<ShortClaimFields>
-  values: Partial<ShortClaimFields>
+  initial: DeepPartial<ShortClaimFields>
+  values: DeepPartial<ShortClaimFields>
   changeField: (name: string, value?: any) => void
 }
 const Patient = ({ initial, styles, values, changeField }: Props) => (
