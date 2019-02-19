@@ -9,6 +9,7 @@ enum ClaimStatus {
   DeliveredToCustomer = 'Передано заказчику',
   Denied = 'Закрыта неуспешно',
   QueueForQuota = 'В очереди на квоту',
+  ClosedWithoutAnswer = 'Не требует ответа эксперта',
 }
 
 export default ClaimStatus

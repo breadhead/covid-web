@@ -15,6 +15,7 @@ const titlesMap: TitlesMap = {
   [ClaimStatus.Denied]: 'Вам отказано в консультации',
   [ClaimStatus.QueueForQuota]:
     'Ваша заявка в очереди на бесплатную консультацию',
+  [ClaimStatus.ClosedWithoutAnswer]: 'Заявка не требует ответа эксперта',
 }
 
 export default (status: ClaimStatus): string => titlesMap[status] || ''
