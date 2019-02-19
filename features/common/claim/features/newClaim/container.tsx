@@ -5,7 +5,6 @@ import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
-import Gender from '@app/models/Gender'
 import { Role } from '@app/models/Users/User'
 import routes from '@app/routes'
 import * as React from 'react'
@@ -83,15 +82,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
 
         return {
           companyPresence: false,
-          personalData: {
-            name: '',
-            region: '',
-            age: NaN,
-            // TODO: не получилось прокинуть null
-            gender: Gender.Female,
-            email: '',
-            phone: smsPhone,
-          },
+          personalData: { phone: smsPhone },
         }
       }
 
