@@ -1,6 +1,6 @@
 import { set } from '@app/features/common/browserQuery'
 import { getRoles } from '@app/features/login'
-import { getSmsPhone } from '@app/features/login/features/confirm/reducer/selectors'
+import { getSmsPhone } from '@app/features/login/features/confirm'
 import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
