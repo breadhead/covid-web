@@ -1,5 +1,6 @@
 import { set } from '@app/features/common/browserQuery'
 import { getRoles } from '@app/features/login'
+import { getSmsPhone } from '@app/features/login/features/confirm/reducer/selectors'
 import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
@@ -13,7 +14,7 @@ import { AnyAction, Dispatch } from 'redux'
 import { createClaim, fetchShortClaim } from './actions'
 import { FooterType, ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
-import { getLoading, getNewClaimError, getSmsPhone } from './selectors'
+import { getLoading, getNewClaimError } from './selectors'
 
 const Router = routes.Router
 
