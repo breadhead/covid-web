@@ -2,7 +2,6 @@ import { validate } from '@breadhead/validate-phone'
 import React from 'react'
 
 import { Form, Input } from '@app/features/common/form'
-import { InputType } from '@app/features/common/form'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import Button, { ButtonType } from '@app/ui/atoms/Button'
 import Icon, { IconColor, IconType } from '@app/ui/atoms/Icon'
@@ -34,7 +33,6 @@ class SendSms extends React.Component<Props, LocalState> {
           <>
             <Input
               name="phone"
-              type={InputType.Number}
               label="Номер вашего телефона"
               defaultValue="+7"
               className={styles.inputWrapper}
@@ -61,7 +59,7 @@ class SendSms extends React.Component<Props, LocalState> {
   private onSubmit = (phone: string) => {
     const { send } = this.props
 
-    const realPhone = phone.replace(/^8/, '7')
+    const realPhone = phone.replace(/^8/, '7').replace(/[^0-9]/g, '')
     const { valid } = validate(realPhone)
     if (!valid) {
       return this.setState({ validationError: 'Ошибка в номере телефона' })
