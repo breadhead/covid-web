@@ -46,9 +46,9 @@ const Contacts = ({ styles }: Props) => (
     >
       Контактный телефон.
       <span className={styles.secondaryText}>
-        {' '}
-        Не{NON_BREAKING_SPACE}будем звонить лишний раз, только по
-        {NON_BREAKING_SPACE}важным вопросам в{NON_BREAKING_SPACE}ходе
+        +7{NON_BREAKING_SPACE}(000){NON_BREAKING_SPACE}000-00-00, если вы
+        {NON_BREAKING_SPACE}живёте в{NON_BREAKING_SPACE}России. Позвоним только
+        по{NON_BREAKING_SPACE}важным вопросам в{NON_BREAKING_SPACE}ходе
         консультации
       </span>
     </label>
