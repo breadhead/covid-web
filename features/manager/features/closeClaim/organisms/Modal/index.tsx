@@ -10,6 +10,7 @@ import {
 import Button, { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
 import { RadioButtonStyles } from '@app/ui/molecules/RadioGroup'
 
+import { SectionDivider } from '@app/ui/organisms/AddFieldContainer'
 import closeTypeTitle from './closeTypeTitle'
 import styles from './Modal.css'
 
@@ -66,6 +67,7 @@ class QuotaType extends React.Component<Props> {
                 name="type"
                 defaultValue={initial.type}
               />
+              <SectionDivider />
               <RadioGroup
                 className={styles.radioBlock}
                 radioStyle={RadioButtonStyles.Radio}
