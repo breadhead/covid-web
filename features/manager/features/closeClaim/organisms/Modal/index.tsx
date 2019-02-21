@@ -40,6 +40,7 @@ const deallocateQuotaTypes = [
 const initial = {
   type: CloseType.Successful,
   deallocateQuota: false,
+  comment: '',
 }
 
 const typesWithComment = [CloseType.Refuse, CloseType.NoContact]
@@ -77,7 +78,7 @@ class QuotaType extends React.Component<Props> {
               />
               {typesWithComment.includes(values.values.type) && (
                 <div className={styles.comment}>
-                  <TextArea name="closeConsultationComment" />
+                  <TextArea name="comment" />
                 </div>
               )}
               <Button
