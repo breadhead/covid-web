@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Omit } from 'utility-types'
 
-import { RadioGroup } from '@app/features/common/form'
+import { RadioGroup, TextArea } from '@app/features/common/form'
 import Form from '@app/features/common/form/components/Form'
 import {
   CloseClaimRequest,
@@ -41,43 +41,56 @@ const initial = {
   deallocateQuota: false,
 }
 
-const QuotaType = ({ onFormSubmit }: Props) => (
-  <Form
-    onSubmit={onFormSubmit as any}
-    initialValues={initial}
-    className={styles.form}
-  >
-    {() => (
-      <>
-        <div className={styles.container}>
-          <h1 className={styles.title}>Закрыть консультацию</h1>
+const typesWithComment = [CloseType.Refuse, CloseType.NoContact]
+class QuotaType extends React.Component<Props> {
+  public state = {
+    chosen: '',
+  }
+  public render() {
+    const { onFormSubmit } = this.props
+    return (
+      <Form
+        onSubmit={onFormSubmit as any}
+        initialValues={initial}
+        className={styles.form}
+      >
+        {(values: any) => (
+          <>
+            <div className={styles.container}>
+              <h1 className={styles.title}>Закрыть консультацию</h1>
 
-          <RadioGroup
-            className={styles.radioBlock}
-            radioStyle={RadioButtonStyles.Radio}
-            buttons={closeTypes}
-            name="type"
-            defaultValue={initial.type}
-          />
-          <RadioGroup
-            className={styles.radioBlock}
-            radioStyle={RadioButtonStyles.Radio}
-            buttons={deallocateQuotaTypes}
-            name="deallocateQuota"
-            defaultValue={initial.deallocateQuota}
-          />
-
-          <Button
-            className={styles.submit}
-            size={ButtonSize.Large}
-            type={ButtonType.Submit}
-          >
-            Применить
-          </Button>
-        </div>
-      </>
-    )}
-  </Form>
-)
+              <RadioGroup
+                className={styles.radioBlock}
+                radioStyle={RadioButtonStyles.Radio}
+                buttons={closeTypes}
+                name="type"
+                defaultValue={initial.type}
+              />
+              <RadioGroup
+                className={styles.radioBlock}
+                radioStyle={RadioButtonStyles.Radio}
+                buttons={deallocateQuotaTypes}
+                name="deallocateQuota"
+                defaultValue={initial.deallocateQuota}
+              />
+              {typesWithComment.includes(values.values.type) && (
+                <div className={styles.comment}>
+                  <TextArea name="closeConsultationComment" />
+                </div>
+              )}
+              <Button
+                className={styles.submit}
+                size={ButtonSize.Large}
+                type={ButtonType.Submit}
+              >
+                Применить
+              </Button>
+            </div>
+          </>
+        )}
+      </Form>
+    )
+  }
+}
 
 export default QuotaType
