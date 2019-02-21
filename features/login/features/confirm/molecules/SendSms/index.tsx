@@ -67,18 +67,18 @@ class SendSms extends React.Component<Props, LocalState> {
     const { send } = this.props
     const realPhone = phone.replace(/[^0-9]/g, '').replace(/^8/, '7')
 
-    if (realPhone.length < 11) {
-      return this.setState({ validationError: 'Недостаточно символов' })
-    }
-    if (realPhone.length > 11) {
-      return this.setState({ validationError: 'Слишком длинный номер' })
-    }
-
     const { valid } = validate(realPhone)
     if (!valid) {
+      if (realPhone.length < 11) {
+        return this.setState({ validationError: 'Недостаточно символов' })
+      }
+      if (realPhone.length > 11) {
+        return this.setState({ validationError: 'Слишком длинный номер' })
+      }
       return this.setState({ validationError: 'Ошибка в номере телефона' })
     }
 
+    this.setState({ validationError: undefined })
     return send(realPhone)
   }
 }
