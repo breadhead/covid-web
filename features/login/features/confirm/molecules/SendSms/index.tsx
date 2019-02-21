@@ -31,9 +31,16 @@ class SendSms extends React.Component<Props, LocalState> {
       <Form onSubmit={({ phone }: any) => this.onSubmit(phone)}>
         {() => (
           <>
+            <label htmlFor="phone">
+              Номер вашего телефона.
+              <p className={styles.secondaryText}>
+                Например, +7{NON_BREAKING_SPACE}(000){NON_BREAKING_SPACE}
+                000-00-00, если вы{NON_BREAKING_SPACE}живёте в
+                {NON_BREAKING_SPACE}России.
+              </p>
+            </label>
             <Input
               name="phone"
-              label="Номер вашего телефона"
               defaultValue="+7"
               className={styles.inputWrapper}
               required
@@ -58,16 +65,21 @@ class SendSms extends React.Component<Props, LocalState> {
 
   private onSubmit = (phone: string) => {
     const { send } = this.props
+    const realPhone = phone.replace(/[^0-9]/g, '').replace(/^8/, '7')
 
-    const realPhone = phone.replace(/^8/, '7').replace(/[^0-9]/g, '')
+    if (realPhone.length < 11) {
+      return this.setState({ validationError: 'Недостаточно символов' })
+    }
+    if (realPhone.length > 11) {
+      return this.setState({ validationError: 'Слишком длинный номер' })
+    }
+
     const { valid } = validate(realPhone)
     if (!valid) {
       return this.setState({ validationError: 'Ошибка в номере телефона' })
     }
 
-    this.setState({ validationError: undefined })
-
-    return send(phone)
+    return send(realPhone)
   }
 }
 
