@@ -12,10 +12,19 @@ import { RadioButtonStyles } from '@app/ui/molecules/RadioGroup'
 
 import { SectionDivider } from '@app/ui/organisms/AddFieldContainer'
 import closeTypeTitle from './closeTypeTitle'
+import { NO_CONTACT_COMMENT_TEXT, REFUSE_COMMENT_TEXT } from './config'
 import styles from './Modal.css'
 
 interface Props {
   onFormSubmit: (data: Omit<CloseClaimRequest, 'id'>) => Promise<void>
+}
+
+interface InitialValues {
+  type: CloseType
+  deallocateQuota: boolean
+  refuseComment: string
+  noContactComment: string
+  comment: string
 }
 
 const closeTypes = Object.values(CloseType).map(closeType => ({
@@ -40,23 +49,30 @@ const deallocateQuotaTypes = [
 const initial = {
   type: CloseType.Successful,
   deallocateQuota: false,
-  comment: '',
+  refuseComment: REFUSE_COMMENT_TEXT,
+  noContactComment: NO_CONTACT_COMMENT_TEXT,
 }
+const QuotaType = ({ onFormSubmit }: Props) => {
+  const onSubmit = (values: InitialValues) => {
+    const currentValues = values
+    if (currentValues.type === CloseType.Refuse) {
+      currentValues.comment = values.refuseComment
+    }
+    if (currentValues.type === CloseType.NoContact) {
+      currentValues.comment = values.noContactComment
+    }
 
-const typesWithComment = [CloseType.Refuse, CloseType.NoContact]
-class QuotaType extends React.Component<Props> {
-  public state = {
-    chosen: '',
+    onFormSubmit(currentValues)
   }
-  public render() {
-    const { onFormSubmit } = this.props
-    return (
-      <Form
-        onSubmit={onFormSubmit as any}
-        initialValues={initial}
-        className={styles.form}
-      >
-        {(values: any) => (
+  return (
+    <Form
+      onSubmit={onSubmit as any}
+      initialValues={initial}
+      className={styles.form}
+    >
+      {values => {
+        const currentCloseType = values.values.type
+        return (
           <>
             <div className={styles.container}>
               <h1 className={styles.title}>Закрыть консультацию</h1>
@@ -76,11 +92,16 @@ class QuotaType extends React.Component<Props> {
                 name="deallocateQuota"
                 defaultValue={initial.deallocateQuota}
               />
-              {typesWithComment.includes(values.values.type) && (
+              {currentCloseType === CloseType.Refuse ? (
                 <div className={styles.comment}>
-                  <TextArea name="comment" />
+                  <TextArea name="refuseComment" />
                 </div>
-              )}
+              ) : null}
+              {currentCloseType === CloseType.NoContact ? (
+                <div className={styles.comment}>
+                  <TextArea name="noContactComment" />
+                </div>
+              ) : null}
               <Button
                 className={styles.submit}
                 size={ButtonSize.Large}
@@ -90,10 +111,10 @@ class QuotaType extends React.Component<Props> {
               </Button>
             </div>
           </>
-        )}
-      </Form>
-    )
-  }
+        )
+      }}
+    </Form>
+  )
 }
 
 export default QuotaType
