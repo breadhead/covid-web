@@ -12742,9 +12742,9 @@ redent@^2.0.0:
     strip-indent "^2.0.0"
 
 redux-clear@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/redux-clear/-/redux-clear-1.0.2.tgz#1a9b5800026f49da89bd347d775a2af3a42d417b"
-  integrity sha512-Y4ZV3QEaefdwZlXzMl6TMAmQiRY85BquCeYgEjSlOE8s+58Wq49KxwGltj/NUs8qSNHG2iZhm6wQD3fHf1fo2A==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/redux-clear/-/redux-clear-1.0.3.tgz#7881e8c7157f81e8a21866a946cd87dcfcc6ce49"
+  integrity sha512-9iRFRcHvCrjpp+3cwVhxookErW8vHgfnFDmvd8VEUUqKXRaHc8VXs66USv4V2jqNxHaAZ1hg164Bk04EE9RBmg==
   dependencies:
     nanoid "^2.0.1"
 
