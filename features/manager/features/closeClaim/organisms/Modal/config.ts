@@ -41,7 +41,7 @@ const deallocateQuotaTypes = [
   },
 ]
 
-const typesWithComment = [CloseType.Refuse, CloseType.NoContact]
+const refuseTypes = [CloseType.Refuse, CloseType.NoContact]
 
 const addCommentFieldToValues = (values: InitialValues) => {
   const currentValues = values
@@ -60,5 +60,5 @@ export {
   initial,
   closeTypes,
   deallocateQuotaTypes,
-  typesWithComment,
+  refuseTypes,
 }

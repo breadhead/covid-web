@@ -7,17 +7,17 @@ import {
   CloseClaimRequest,
   CloseType,
 } from '@app/lib/api/request/CloseClaimRequest'
-import Button, { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
 import { RadioButtonStyles } from '@app/ui/molecules/RadioGroup'
 
 import { SectionDivider } from '@app/ui/organisms/AddFieldContainer'
+import SubmitButton from '../../atoms/Button'
 import {
   addCommentFieldToValues,
   closeTypes,
   deallocateQuotaTypes,
   initial,
   InitialValues,
-  typesWithComment,
+  refuseTypes,
 } from './config'
 import styles from './Modal.css'
 
@@ -59,7 +59,7 @@ const QuotaType = ({ onFormSubmit }: Props) => {
                 name="deallocateQuota"
                 defaultValue={initial.deallocateQuota}
               />
-              {typesWithComment.includes(currentCloseType) && (
+              {refuseTypes.includes(currentCloseType) && (
                 <div className={styles.comment}>
                   <TextArea
                     name={
@@ -70,13 +70,9 @@ const QuotaType = ({ onFormSubmit }: Props) => {
                   />
                 </div>
               )}
-              <Button
-                className={styles.submit}
-                size={ButtonSize.Large}
-                type={ButtonType.Submit}
-              >
+              <SubmitButton currentCloseType={currentCloseType}>
                 Применить
-              </Button>
+              </SubmitButton>
             </div>
           </>
         )
