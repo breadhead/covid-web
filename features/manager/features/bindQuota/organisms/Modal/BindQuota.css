@@ -1,14 +1,13 @@
 .popup {
-  width: 100%;
+  width: 688px;
   height: 100%;
   padding: 0 24px;
   background-color: #fff;
   border: none;
-  width: 688px;
 
   @media (--smallDown) {
-    padding: 0 16px;
     width: 100%;
+    padding: 0 16px;
   }
 }
 
