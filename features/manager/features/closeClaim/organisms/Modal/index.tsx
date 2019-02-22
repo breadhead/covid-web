@@ -52,8 +52,16 @@ const initial = {
   refuseComment: REFUSE_COMMENT_TEXT,
   noContactComment: NO_CONTACT_COMMENT_TEXT,
 }
+
+const typesWithComment = [CloseType.Refuse, CloseType.NoContact]
+
 const QuotaType = ({ onFormSubmit }: Props) => {
   const onSubmit = (values: InitialValues) => {
+    const currentValues = addCommentFieldToValues(values)
+    onFormSubmit(currentValues)
+  }
+
+  const addCommentFieldToValues = (values: InitialValues) => {
     const currentValues = values
     if (currentValues.type === CloseType.Refuse) {
       currentValues.comment = values.refuseComment
@@ -61,8 +69,7 @@ const QuotaType = ({ onFormSubmit }: Props) => {
     if (currentValues.type === CloseType.NoContact) {
       currentValues.comment = values.noContactComment
     }
-
-    onFormSubmit(currentValues)
+    return currentValues
   }
   return (
     <Form
@@ -92,16 +99,17 @@ const QuotaType = ({ onFormSubmit }: Props) => {
                 name="deallocateQuota"
                 defaultValue={initial.deallocateQuota}
               />
-              {currentCloseType === CloseType.Refuse ? (
+              {typesWithComment.includes(currentCloseType) && (
                 <div className={styles.comment}>
-                  <TextArea name="refuseComment" />
+                  <TextArea
+                    name={
+                      currentCloseType === CloseType.NoContact
+                        ? 'noContactComment'
+                        : 'refuseComment'
+                    }
+                  />
                 </div>
-              ) : null}
-              {currentCloseType === CloseType.NoContact ? (
-                <div className={styles.comment}>
-                  <TextArea name="noContactComment" />
-                </div>
-              ) : null}
+              )}
               <Button
                 className={styles.submit}
                 size={ButtonSize.Large}
