@@ -20,11 +20,12 @@ const mapState = (state: State) => ({
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
-  closeClaim: (id: string) =>
+  closeClaim: (id: string, comment: string) =>
     dispatch(closeClaim({
       id,
       type: CloseType.Successful,
       deallocateQuota: false,
+      comment,
     }) as any),
   refetchClaim: (id: string) => dispatch(fetchClaim(id) as any),
 })

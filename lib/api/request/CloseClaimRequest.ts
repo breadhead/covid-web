@@ -10,4 +10,5 @@ export interface CloseClaimRequest {
   id: string
   type: CloseType
   deallocateQuota: boolean
+  comment: string
 }

@@ -54,27 +54,32 @@ class Form extends Component<Props> {
     return (
       <section className={className}>
         <FinalForm
-          render={({ values, form, submitFailed, handleSubmit, valid }) => (
-            <form
-              onKeyDown={this.onEnterPress}
-              ref={this.formRef}
-              onSubmit={this.onSubmit(form.reset, handleSubmit, valid)}
-            >
-              {!!saveDebounced && <DebouncedSaver save={saveDebounced} />}
-              {!!saveOnBlur && <BlurSaver save={saveOnBlur} />}
-              {scrollToInvalid && (
-                <WithScrollToInvalid
-                  formErrorClassName={FORM_ERROR_CLASSNAME}
-                  submitFailed={submitFailed}
-                />
-              )}
-              {children({
-                removeSectionFromState: this.removeSection(form.change, values),
-                changeField: form.change,
-                values,
-              })}
-            </form>
-          )}
+          render={({ values, form, submitFailed, handleSubmit, valid }) => {
+            return (
+              <form
+                onKeyDown={this.onEnterPress}
+                ref={this.formRef}
+                onSubmit={this.onSubmit(form.reset, handleSubmit, valid)}
+              >
+                {!!saveDebounced && <DebouncedSaver save={saveDebounced} />}
+                {!!saveOnBlur && <BlurSaver save={saveOnBlur} />}
+                {scrollToInvalid && (
+                  <WithScrollToInvalid
+                    formErrorClassName={FORM_ERROR_CLASSNAME}
+                    submitFailed={submitFailed}
+                  />
+                )}
+                {children({
+                  removeSectionFromState: this.removeSection(
+                    form.change,
+                    values,
+                  ),
+                  changeField: form.change,
+                  values,
+                })}
+              </form>
+            )
+          }}
           {...rest}
         />
       </section>
