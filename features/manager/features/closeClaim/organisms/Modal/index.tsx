@@ -11,49 +11,19 @@ import Button, { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
 import { RadioButtonStyles } from '@app/ui/molecules/RadioGroup'
 
 import { SectionDivider } from '@app/ui/organisms/AddFieldContainer'
-import closeTypeTitle from './closeTypeTitle'
-import { NO_CONTACT_COMMENT_TEXT, REFUSE_COMMENT_TEXT } from './config'
+import {
+  addCommentFieldToValues,
+  closeTypes,
+  deallocateQuotaTypes,
+  initial,
+  InitialValues,
+  typesWithComment,
+} from './config'
 import styles from './Modal.css'
 
 interface Props {
   onFormSubmit: (data: Omit<CloseClaimRequest, 'id'>) => Promise<void>
 }
-
-interface InitialValues {
-  type: CloseType
-  deallocateQuota: boolean
-  refuseComment: string
-  noContactComment: string
-  comment: string
-}
-
-const closeTypes = Object.values(CloseType).map(closeType => ({
-  id: closeType,
-  value: closeType,
-  text: closeTypeTitle(closeType),
-}))
-
-const deallocateQuotaTypes = [
-  {
-    id: 'no',
-    value: false,
-    text: 'Оставить квоту',
-  },
-  {
-    id: 'yes',
-    value: true,
-    text: 'Снять квоту',
-  },
-]
-
-const initial = {
-  type: CloseType.Successful,
-  deallocateQuota: false,
-  refuseComment: REFUSE_COMMENT_TEXT,
-  noContactComment: NO_CONTACT_COMMENT_TEXT,
-}
-
-const typesWithComment = [CloseType.Refuse, CloseType.NoContact]
 
 const QuotaType = ({ onFormSubmit }: Props) => {
   const onSubmit = (values: InitialValues) => {
@@ -61,16 +31,6 @@ const QuotaType = ({ onFormSubmit }: Props) => {
     onFormSubmit(currentValues)
   }
 
-  const addCommentFieldToValues = (values: InitialValues) => {
-    const currentValues = values
-    if (currentValues.type === CloseType.Refuse) {
-      currentValues.comment = values.refuseComment
-    }
-    if (currentValues.type === CloseType.NoContact) {
-      currentValues.comment = values.noContactComment
-    }
-    return currentValues
-  }
   return (
     <Form
       onSubmit={onSubmit as any}
