@@ -4,9 +4,11 @@
   padding: 0 24px;
   background-color: #fff;
   border: none;
+  width: 688px;
 
   @media (--smallDown) {
     padding: 0 16px;
+    width: 100%;
   }
 }
 
@@ -22,7 +24,7 @@
 .secondaryText {
   margin: 0 0 24px 0;
   font: var(--text14-20);
-  color: #82839B;
+  color: #82839b;
 }
 
 .link.link {
