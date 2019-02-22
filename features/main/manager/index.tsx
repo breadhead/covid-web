@@ -6,8 +6,7 @@ import Layout from '../layout'
 
 const DoctorPage = () => (
   <Layout footerType={FooterType.Secondary}>
-    <div>Консультация в работе у врача</div>
-    <h1>Кратко о теме консультации</h1>
+    <h1>Привет! Вы успешно авторизованы</h1>
   </Layout>
 )
 

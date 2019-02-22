@@ -35,7 +35,6 @@
     border-top: 1px solid var(--divider-color);
 
     &:last-of-type {
-      margin-bottom: 24px;
       border-bottom: 1px solid var(--divider-color);
     }
 
@@ -71,4 +70,23 @@
 .NavIcon {
   width: 24px;
   height: 24px;
+}
+
+.loginMenu {
+  & a {
+    padding: 36px 0;
+  }
+} 
+
+.loginButton {
+
+  @media (--smallDown) {
+    margin-top: 24px;
+  }
+}
+
+.mobileMenuWrapper {
+  @media (--smallDown) {
+    width: 100%;
+  }
 }

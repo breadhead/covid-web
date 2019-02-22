@@ -5,8 +5,18 @@ import ClaimForm, { FooterType } from '../organisms/Form'
 import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
 import { ClaimData } from '../types'
 
+export interface DefaultQuestion {
+  [key: string]: string
+}
+
+export interface FormFields {
+  id: string
+  defaultQuestions?: DefaultQuestion[]
+  additionalQuestions?: string[]
+}
+
 export interface Props {
-  onFormSubmit: (fields: QuestionsClaim) => Promise<void>
+  onFormSubmit: (fields: FormFields) => Promise<void>
   error: false | string
   loading: boolean
   claimData: ClaimData

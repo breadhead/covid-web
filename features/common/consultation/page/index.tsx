@@ -8,17 +8,17 @@ import * as styles from './Consultation.css'
 
 import { WindowSize } from '@app/features/common/windowSize/selector'
 import withWindowSize from '@app/features/common/windowSize/withWindowSize'
-import Claim from '@app/models/Claim/Claim'
-
 import { CHAT_DEFAULT_OPEN_WIDTH } from '@app/lib/config'
+import Claim from '@app/models/Claim/Claim'
 
 import Chat from '@app/features/common/chat'
 
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { Role } from '@app/models/Users/User'
 import OpenChatButton from '../atoms/OpenChatButton'
 import ExpertAnswers from '../organisms/ExpertAnswers'
 import Header from '../organisms/Header'
 import Theme from '../organisms/Theme'
-
 interface State {
   isChatOpen: boolean
   haveNewMessage: boolean
@@ -31,6 +31,11 @@ export interface Props {
   renderSubHeader?: (claim: Claim) => React.ReactNode
   renderFooter?: (claim: Claim) => React.ReactNode
   layout: React.ComponentType
+  roles: Role[]
+  clientClaims: ShortClaim[]
+  getListOfClientClaims: (login: string) => Promise<any>
+  authorLogin: string
+  clientClaimsCount: number
   hideAnswers?: boolean
 }
 
@@ -63,8 +68,10 @@ class Consultation extends React.Component<Props, State> {
       layout,
       claim,
       hideAnswers,
+      roles,
+      clientClaimsCount,
+      authorLogin,
     } = this.props
-
     const Layout = layout
 
     return (
@@ -82,7 +89,13 @@ class Consultation extends React.Component<Props, State> {
               haveNewMessage={haveNewMessage}
               onClick={this.openChat}
             />
-            <Header claimNumber={claim.mainInfo.number} />
+            <Header
+              role={roles[0]}
+              claimNumber={claim.mainInfo.number}
+              clientClaimsCount={clientClaimsCount}
+              claimId={claim.mainInfo.id}
+              authorLogin={authorLogin}
+            />
             {renderSubHeader && renderSubHeader(claim)}
             <Theme shortClaim={claim.short} situationClaim={claim.situation} />
             {!hideAnswers && <ExpertAnswers claim={claim.questions} />}
@@ -114,4 +127,4 @@ class Consultation extends React.Component<Props, State> {
   }
 }
 
-export default withWindowSize(Consultation)
+export default withWindowSize(Consultation) as any

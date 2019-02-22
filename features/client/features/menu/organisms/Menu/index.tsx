@@ -6,10 +6,11 @@ import * as styles from './Menu.css'
 
 interface Props {
   signOut: () => void
+  className?: string
 }
 
-const Menu = ({ signOut }: Props) => (
-  <nav className={styles.menu}>
+const Menu = ({ signOut, className }: Props) => (
+  <nav className={cx(styles.menu, className)}>
     <NavLink
       className={cx(styles.menuItem, styles.consultation)}
       type={NavLinkType.Nav}

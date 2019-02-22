@@ -1,13 +1,11 @@
-import { FieldRenderProps } from 'react-final-form'
-
-type Meta = Pick<FieldRenderProps, 'meta'>['meta']
 export const getShouldValidate = ({
   active,
   submitFailed,
   touched,
   pristine,
-}: Meta) => {
-  if (submitFailed) {
+  eagerValidation,
+}: any) => {
+  if (submitFailed || eagerValidation) {
     return true
   } else if (active) {
     return false

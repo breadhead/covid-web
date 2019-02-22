@@ -5,7 +5,12 @@ import Overlay from '@app/ui/molecules/Overlay'
 import BurgerButton from '../../atoms/BurgerButton'
 import Menu from './Menu'
 
-const Container = () => {
+interface Props {
+  signOut: () => void
+  showLoginButton: boolean
+}
+
+const Container = ({ signOut, showLoginButton }: Props) => {
   const [menuOpened, setOpened] = useState(false)
 
   const show = useCallback(() => setOpened(true), [])
@@ -15,7 +20,12 @@ const Container = () => {
     <>
       <Overlay isVisible={menuOpened} onClick={hide} />
       <BurgerButton show={show} />
-      <Menu hide={hide} isVisible={menuOpened} />
+      <Menu
+        showLoginButton={showLoginButton}
+        signOut={signOut}
+        hide={hide}
+        isVisible={menuOpened}
+      />
     </>
   )
 }

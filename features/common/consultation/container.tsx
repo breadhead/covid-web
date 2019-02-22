@@ -5,13 +5,20 @@ import { fetchClaimBoardCard } from '@app/features/manager/features/quotaControl
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 
-import { currentUser } from '@app/features/login/features/user'
+import { currentUser, getRoles } from '@app/features/login/features/user'
 import { fetchDoctorsIfNeeded } from '@app/features/manager/features/chooseDoctor'
-import { fetchClaim } from './actions'
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { Role } from '@app/models/Users/User'
+import { AnyAction, Dispatch } from 'redux'
+import { fetchClaim, getClientClaims } from './actions'
 import { Props as PageProps } from './page'
-import { getClaim } from './selectors'
+import { getAuthorLogin, getClaim, getClientClaimsList } from './selectors'
 interface Query {
   id: string
+  authorLogin: string
+  roles: Role[]
+  clientClaims: ShortClaim[]
+  getListOfClientClaims: (login: string) => Promise<any>
 }
 
 type Props = PageProps
@@ -20,7 +27,10 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
   additionalProps: Partial<PageProps>,
   layout: React.ComponentType,
 ) =>
-  connect(mapState)(class extends React.Component<Props> {
+  connect(
+    mapState,
+    mapDispatch,
+  )(class extends React.Component<Props> {
     public static async getInitialProps({
       reduxStore,
       query,
@@ -32,11 +42,16 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
         .catch(() => null) // .catch for roles without access to trello
 
       await reduxStore.dispatch(fetchDoctorsIfNeeded() as any)
+
       return { roles: user.roles }
     }
 
+    public componentDidMount() {
+      this.props.getListOfClientClaims(this.props.authorLogin)
+    }
+
     public render() {
-      const { claim } = this.props
+      const { claim, clientClaims } = this.props
 
       if (!claim) {
         return null
@@ -48,6 +63,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
           {...additionalProps}
           claim={claim}
           layout={layout}
+          clientClaimsCount={clientClaims && clientClaims.length}
         />
       )
     }
@@ -55,6 +71,14 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
 
 const mapState = (state: State) => ({
   claim: getClaim(state),
+  authorLogin: getAuthorLogin(state),
+  clientClaims: getClientClaimsList(state),
+  roles: getRoles(state),
 })
 
-export default Container
+const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
+  getListOfClientClaims: (login: string) =>
+    dispatch(getClientClaims(login) as any),
+})
+
+export default Container as any

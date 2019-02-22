@@ -21,3 +21,9 @@
 .button {
   margin-right: 16px;
 }
+
+.secondaryText {
+  margin: 0 0 8px 0;
+  font: var(--text14-20);
+  color: #82839b;
+}

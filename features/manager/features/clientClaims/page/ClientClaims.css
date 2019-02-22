@@ -1,0 +1,47 @@
+.clientClaims {
+  @media (--smallDown) {
+    padding: 0 16px;
+  }
+}
+
+.title {
+  margin: 0;
+  font: var(--title-regular);
+
+  @media (--smallDown) {
+    margin-bottom: 8px;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  @media (--smallDown) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.authorLogin {
+  margin: 0;
+}
+
+.linkWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+
+  @media (--smallDown) {
+    margin-bottom: 16px;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-link);
+  transform: rotate(180deg);
+}

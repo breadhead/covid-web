@@ -3,4 +3,4 @@ import Page from './page'
 
 export default Container(Page)
 
-export { reducer, State } from './reducer'
+export { reducer, State, actions } from './reducer'

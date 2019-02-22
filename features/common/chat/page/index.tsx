@@ -4,10 +4,14 @@ import * as styles from './Chat.css'
 import cx from 'classnames'
 
 import { Form, TextArea } from '@app/features/common/form'
+import { State as AppState } from '@app/lib/store'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import { ButtonType } from '@app/ui/atoms/Button'
 import IconCustom from '@app/ui/atoms/IconCustom'
 
+import { getRoles } from '@app/features/login'
+import { Role } from '@app/models/Users/User'
+import { connect } from 'react-redux'
 import ChatWrapper from '../organisms/ChatWrapper'
 import Header from '../organisms/Header'
 
@@ -24,6 +28,7 @@ export interface Props {
   onTextAreaFocus: () => void
   forwardedRef: React.Ref<HTMLDivElement>
   muted: boolean
+  roles: Role[]
 }
 
 const Chat = ({
@@ -35,6 +40,7 @@ const Chat = ({
   onTextAreaFocus,
   forwardedRef,
   muted,
+  roles,
 }: Props) => {
   const shouldHide = !opensOnce || !isOpen
   return (
@@ -43,7 +49,7 @@ const Chat = ({
         <Header onCloseButtonClick={closeChat} />
       </div>
       <div className={styles.messageWrapper}>
-        <ChatWrapper ref={forwardedRef} messages={messages} />
+        <ChatWrapper role={roles[0]} ref={forwardedRef} messages={messages} />
       </div>
       <Form
         onSubmit={onSubmit as any}
@@ -76,4 +82,8 @@ const Chat = ({
   )
 }
 
-export default Chat
+const mapState = (state: AppState) => ({
+  roles: getRoles(state),
+})
+
+export default connect(mapState)(Chat) as any
