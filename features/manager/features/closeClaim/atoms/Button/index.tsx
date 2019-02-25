@@ -21,11 +21,14 @@ const SubmitButton = ({
   className,
   values,
 }: Props & WithModalProps) => {
-  const openConfirmModal = () => {
-    const currentValues = addCommentFieldToValues(values)
-    saveCurrentCloseData(currentValues)
-    modal.open(REFUSE_CONFIRM_MODAL)
-  }
+  const openConfirmModal = React.useCallback(
+    () => {
+      const currentValues = addCommentFieldToValues(values)
+      saveCurrentCloseData(currentValues)
+      modal.open(REFUSE_CONFIRM_MODAL)
+    },
+    [values],
+  )
   return (
     <Button
       className={className}
