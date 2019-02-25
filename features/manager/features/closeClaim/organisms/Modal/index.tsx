@@ -43,7 +43,6 @@ const QuotaType = ({ onFormSubmit }: Props) => {
           <>
             <div className={styles.container}>
               <h1 className={styles.title}>Закрыть консультацию</h1>
-
               <RadioGroup
                 className={styles.radioBlock}
                 radioStyle={RadioButtonStyles.Radio}
