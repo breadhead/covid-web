@@ -8,7 +8,8 @@ export {
   WithCloseClaimModal,
 } from './withCloseClaimModal'
 
-export { State, reducer } from './reducer'
+export { State } from './reducers'
+export { reducer } from './reducers'
 
 export { MODAL_KEY } from './container'
 

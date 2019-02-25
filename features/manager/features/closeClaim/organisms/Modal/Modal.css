@@ -28,3 +28,7 @@
 .comment {
   margin-bottom: 24px;
 }
+
+.button {
+  align-self: flex-end;
+}

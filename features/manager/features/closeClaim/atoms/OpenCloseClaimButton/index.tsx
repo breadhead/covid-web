@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import Button from '@app/ui/atoms/Button'
+import Button, { ButtonType } from '@app/ui/atoms/Button'
 import { withCloseClaimModal } from '../..'
 import { WithCloseClaimModal } from '../../withCloseClaimModal'
 
@@ -14,6 +14,7 @@ class OpenCloseClaimButton extends React.Component<Props> {
     const { children, className, ...rest } = this.props
     return (
       <Button
+        type={ButtonType.Button}
         className={className}
         onClick={this.props.openCloseClaim}
         {...rest}

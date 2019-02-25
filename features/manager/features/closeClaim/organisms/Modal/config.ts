@@ -20,6 +20,7 @@ const initial = {
   deallocateQuota: false,
   refuseComment: REFUSE_COMMENT_TEXT,
   noContactComment: NO_CONTACT_COMMENT_TEXT,
+  comment: REFUSE_COMMENT_TEXT,
 }
 
 const closeTypes = Object.values(CloseType).map(closeType => ({
@@ -51,6 +52,7 @@ const addCommentFieldToValues = (values: InitialValues) => {
   if (currentValues.type === CloseType.NoContact) {
     currentValues.comment = values.noContactComment
   }
+
   return currentValues
 }
 
