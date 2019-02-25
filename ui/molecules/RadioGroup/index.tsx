@@ -5,6 +5,7 @@ import cx from 'classnames'
 
 import { Radio } from 'antd'
 
+import { NON_BREAKING_SPACE } from '@app/lib/config'
 import './ButtonStyle.css?CSSModulesDisable'
 import Button from './ButtonVariant'
 import './RadioStyle.css?CSSModulesDisable'
@@ -47,6 +48,8 @@ const RadioGroup = ({
         {buttons.map(button => (
           <Radio key={button.id} name={name} value={button.value} {...rest}>
             {button.component || button.text || button.value}
+            {NON_BREAKING_SPACE}
+            {button.count && <span className="count">{button.count}</span>}
           </Radio>
         ))}
       </AntRadioGroup>
