@@ -10,7 +10,9 @@ type GroupQuestion = (questions: Question[]) => GroupedQuestions
 const groupQuestion: GroupQuestion = flow([
   (questions: Question[]) =>
     questions.map(question => {
-      const [theme, text] = question.question.split(':').map(s => s.trim())
+      const [rawTheme, ...textPieces] = question.question.split(':')
+      const theme = rawTheme.trim()
+      const text = textPieces.join(':').trim()
       return {
         theme,
         data: { ...question, question: text },
