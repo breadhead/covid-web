@@ -4,11 +4,7 @@ import * as styles from './RefuseModal.css'
 import Form from '@app/features/common/form/components/Form'
 import { isModal, WithModalProps } from '@app/features/common/modal'
 import { CloseClaimRequest } from '@app/lib/api/request/CloseClaimRequest'
-import Button, {
-  ButtonKind,
-  ButtonSize,
-  ButtonType,
-} from '@app/ui/atoms/Button'
+import Button, { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
 import { closeClaim as closeClaimAction } from '../../actions'
@@ -44,11 +40,7 @@ const RefuseModal = ({ closeClaim, claimId, claimData }: Props) => {
             Вы действительно хотите сменить статус на «Отказано»?
           </h1>
           <div className={styles.buttons}>
-            <OpenCloseClaimButton
-              className={styles.cancel}
-              size={ButtonSize.Large}
-              kind={ButtonKind.Secondary}
-            >
+            <OpenCloseClaimButton className={styles.cancel}>
               Отмена
             </OpenCloseClaimButton>
             <Button type={ButtonType.Submit} size={ButtonSize.Large}>

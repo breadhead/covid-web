@@ -1,28 +1,39 @@
 import * as React from 'react'
 
-import Button, { ButtonType } from '@app/ui/atoms/Button'
-import { withCloseClaimModal } from '../..'
-import { WithCloseClaimModal } from '../../withCloseClaimModal'
-
-interface Props extends WithCloseClaimModal {
+import { useModal } from '@app/features/common/modal'
+import { MODAL_KEY as CLOSE_CLAIM_MODAL } from '@app/features/manager/features/closeClaim'
+import Button, {
+  ButtonKind,
+  ButtonSize,
+  ButtonType,
+} from '@app/ui/atoms/Button'
+interface Props {
   className: string
   children?: React.ReactNode
 }
 
-class OpenCloseClaimButton extends React.Component<Props> {
-  public render() {
-    const { children, className, ...rest } = this.props
-    return (
-      <Button
-        type={ButtonType.Button}
-        className={className}
-        onClick={this.props.openCloseClaim}
-        {...rest}
-      >
-        {children}
-      </Button>
-    )
-  }
+const OpenCloseClaimButton = ({ children, className, ...rest }: Props) => {
+  const { open } = useModal()
+
+  const openCloseClaimModal = React.useCallback(
+    () => {
+      open(CLOSE_CLAIM_MODAL)
+    },
+    [open],
+  )
+
+  return (
+    <Button
+      type={ButtonType.Button}
+      className={className}
+      onClick={openCloseClaimModal}
+      size={ButtonSize.Large}
+      kind={ButtonKind.Secondary}
+      {...rest}
+    >
+      {children}
+    </Button>
+  )
 }
 
-export default withCloseClaimModal(OpenCloseClaimButton) as any
+export default OpenCloseClaimButton

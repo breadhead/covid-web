@@ -27,7 +27,7 @@ const SubmitButton = ({
       saveCurrentCloseData(currentValues)
       open(REFUSE_CONFIRM_MODAL)
     },
-    [values, saveCurrentCloseData],
+    [values, saveCurrentCloseData, open],
   )
   return (
     <Button
