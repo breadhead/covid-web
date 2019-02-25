@@ -1,11 +1,12 @@
 .popup {
-  width: 100%;
+  width: 688px;
   height: 100%;
   padding: 0 24px;
   background-color: #fff;
   border: none;
 
   @media (--smallDown) {
+    width: 100%;
     padding: 0 16px;
   }
 }
@@ -22,7 +23,7 @@
 .secondaryText {
   margin: 0 0 24px 0;
   font: var(--text14-20);
-  color: #82839B;
+  color: #82839b;
 }
 
 .link.link {

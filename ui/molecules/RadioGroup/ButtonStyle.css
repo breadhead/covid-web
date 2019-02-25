@@ -63,3 +63,7 @@
     line-height: 0;
   }
 }
+
+.count {
+  font-weight: 500;
+}
