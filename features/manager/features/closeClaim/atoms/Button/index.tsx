@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { withModal, WithModalProps } from '@app/features/common/modal'
+import { useModal } from '@app/features/common/modal'
 import Button, { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
 import {
   addCommentFieldToValues,
@@ -15,19 +15,19 @@ interface Props {
 }
 
 const SubmitButton = ({
-  modal,
   children,
   saveCurrentCloseData,
   className,
   values,
-}: Props & WithModalProps) => {
+}: Props) => {
+  const { open } = useModal()
   const openConfirmModal = React.useCallback(
     () => {
       const currentValues = addCommentFieldToValues(values)
       saveCurrentCloseData(currentValues)
-      modal.open(REFUSE_CONFIRM_MODAL)
+      open(REFUSE_CONFIRM_MODAL)
     },
-    [values],
+    [values, saveCurrentCloseData],
   )
   return (
     <Button
@@ -41,4 +41,4 @@ const SubmitButton = ({
   )
 }
 
-export default withModal(SubmitButton)
+export default SubmitButton
