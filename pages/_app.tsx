@@ -57,6 +57,7 @@ class OncohelpWeb extends App<Props> {
     const authViolate = getViolateState(this.props.reduxStore.getState())
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
+      this.props.reduxStore.dispatch(setToken(''))
       Router.push('/?sign-in')
     }
 

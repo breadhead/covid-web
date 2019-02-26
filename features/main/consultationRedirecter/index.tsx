@@ -19,22 +19,26 @@ class ConsultationRedirecter extends React.Component<Props> {
   public static async getInitialProps(ctx: AppContext<Query>) {
     const { id } = ctx.query
 
-    const { roles } = await ctx.reduxStore.dispatch(currentUser() as any)
+    try {
+      const { roles } = await ctx.reduxStore.dispatch(currentUser() as any)
 
-    const createUrl = (path: string) => `/${path}/consultation/${id}`
-    const redirect = (path: string) =>
-      pushRoute(createUrl(path), Option.of(ctx))
+      const createUrl = (path: string) => `/${path}/consultation/${id}`
+      const redirect = (path: string) =>
+        pushRoute(createUrl(path), Option.of(ctx))
 
-    if (roles.includes(Role.Client)) {
-      return redirect('client')
-    }
+      if (roles.includes(Role.Client)) {
+        redirect('client')
+      }
 
-    if (roles.includes(Role.CaseManager)) {
-      return redirect('manager')
-    }
+      if (roles.includes(Role.CaseManager)) {
+        redirect('manager')
+      }
 
-    if (roles.includes(Role.Doctor)) {
-      return redirect('doctor')
+      if (roles.includes(Role.Doctor)) {
+        redirect('doctor')
+      }
+    } catch (e) {
+      pushRoute('/?sign-in', Option.of(ctx))
     }
 
     return {}
