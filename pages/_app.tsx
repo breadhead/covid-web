@@ -18,7 +18,7 @@ import '@front/ui/config.css?CSSModulesDisable'
 
 import { Analitics } from '@app/features/common/analytics'
 import { set as setQuery } from '@app/features/common/browserQuery'
-import { setToken } from '@app/features/login'
+import { setToken, setWantTo } from '@app/features/login'
 import NotFound, { getFound } from '@app/features/main/notFound'
 import { canUseDOM } from '@app/lib/helpers/canUseDOM'
 import registerModals from '@app/lib/register-modals'
@@ -55,12 +55,17 @@ class OncohelpWeb extends App<Props> {
 
   public componentDidMount() {
     const authViolate = getViolateState(this.props.reduxStore.getState())
+
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
       this.props.reduxStore.dispatch(setToken(''))
-      Router.push('/?sign-in')
+      Router.push(`/?sign-in?wantTo=${this.props.router.asPath}`)
     }
+    const wantTo =
+      (this.props.router.query && this.props.router.query['sign-in?wantTo']) ||
+      ''
 
+    this.props.reduxStore.dispatch(setWantTo(wantTo as string))
     this.props.reduxStore.dispatch(setQuery(this.props.router.query || {}))
   }
 

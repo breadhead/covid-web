@@ -7,7 +7,7 @@ import { login } from './actions'
 import { isModal } from '@app/features/common/modal'
 import * as yup from 'yup'
 import withSignUpModal, { WithSignUpModal } from '../signUp/withSignUpModal'
-import { getViolateState } from './selectors'
+import { getViolateState, getWantTo } from './selectors'
 
 import { MODAL_KEY } from './const'
 export { MODAL_KEY }
@@ -17,6 +17,7 @@ const passwordRecoveryUrl = 'https://cabinet.nenaprasno.ru/restore'
 export interface Credentials {
   login: string
   password: string
+  wantTo: string
 }
 
 interface Props extends ContainerProps {
@@ -27,6 +28,7 @@ interface ContainerProps extends WithSignUpModal {
   login: (credentials: Credentials) => any
   onFormSubmit: () => Promise<any>
   violateState?: boolean
+  wantTo: string
 }
 
 export const schema = {
@@ -53,8 +55,9 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
     }
 
     private onFormSubmit = async (credentials: Credentials) => {
+      const { violateState, wantTo } = this.props
+      credentials.wantTo = wantTo
       await this.props.login(credentials)
-      const { violateState } = this.props
       if (violateState) {
         return {
           login: 'Неверный логин или пароль',
@@ -67,11 +70,16 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
 
 const mapState = (state: State) => ({
   violateState: getViolateState(state),
+  wantTo: getWantTo(state),
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   login: (credentials: Credentials) =>
-    dispatch(login(credentials.login, credentials.password) as any),
+    dispatch(login(
+      credentials.login,
+      credentials.password,
+      credentials.wantTo,
+    ) as any),
 })
 
 export default compose(

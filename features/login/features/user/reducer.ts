@@ -5,16 +5,19 @@ import { createSymbiote } from 'redux-symbiote'
 interface State {
   token: string
   roles: Role[]
+  wantTo: string
 }
 
 interface Actions {
   setToken(token: string): Action
   setUser(roles: Role[]): Action
+  setWantTo(wantTo: string): Action
 }
 
 const initialState: State = {
   token: '',
   roles: [],
+  wantTo: '',
 }
 
 const { actions, reducer } = createSymbiote<State, Actions>(
@@ -27,6 +30,10 @@ const { actions, reducer } = createSymbiote<State, Actions>(
     setUser: (state, roles: Role[]) => ({
       ...state,
       roles,
+    }),
+    setWantTo: (state, wantTo: string) => ({
+      ...state,
+      wantTo,
     }),
   },
   'user',

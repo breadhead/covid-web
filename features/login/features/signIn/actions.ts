@@ -1,11 +1,18 @@
 import { ExtraArgs, State } from '@app/lib/store'
+import routes from '@app/routes'
 import { Dispatch } from 'redux'
 import redirectUser from '../redirect'
 import { actions as userActions } from '../user'
 import { setCookie } from './helpers/setAuthToken'
 import { actions } from './reducer'
 
-export const login = (username: string, password: string) => async (
+const Router = routes.Router
+
+export const login = (
+  username: string,
+  password: string,
+  wantTo: string,
+) => async (
   dispatch: Dispatch<any>,
   getState: () => State,
   { getApi }: ExtraArgs,
@@ -17,9 +24,11 @@ export const login = (username: string, password: string) => async (
 
     setCookie(token)
     dispatch(userActions.setToken(token))
-
-    redirectUser(roles)
-
+    if (wantTo.length > 0) {
+      Router.push(wantTo)
+    } else {
+      redirectUser(roles)
+    }
     return dispatch(actions.success(token))
   } catch (error) {
     dispatch(actions.error(error.message))
