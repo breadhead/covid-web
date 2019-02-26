@@ -115,25 +115,25 @@ const createTreatment = ({
       {
         subtitle: 'Лучевая терапия',
         children: radiationTreatments.map(radioation => {
-          const { clinic, region, when, end, schema } = radioation
+          const { clinic, region, when, end, schema, doctor } = radioation
           return {
             subtitle: clinic,
             children: [
               {
-                subtitle: region && 'В каком городе?',
+                subtitle: region && 'Регион, где проходили лечение',
                 text: region,
               },
               {
-                subtitle: region && 'В каком городе?',
-                text: region,
-              },
-              {
-                subtitle: when && 'Период лечения',
+                subtitle: when && 'Когда начали это лечение',
                 text: yearMonthToString(when),
               },
               {
                 subtitle: end && 'Когда закончили это лечение',
                 text: yearMonthToString(end),
+              },
+              {
+                subtitle: doctor && 'ФИО врача',
+                text: doctor,
               },
               {
                 subtitle: schema && 'Схема лечения',
