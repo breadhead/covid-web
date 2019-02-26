@@ -1,6 +1,6 @@
 import ValidationTooltip from '../ValidationTooltip'
+import * as styles from './QuestionsValidationTooltip.css'
 import { validateCb } from './validateCb'
-
 interface Props {
   name: string
 }
@@ -10,6 +10,7 @@ const QuestionsValidationTooltip = ({ name }: Props) => (
     name={name}
     validateOnBlur={false}
     validateCb={validateCb}
+    className={styles.tooltip}
   />
 )
 
