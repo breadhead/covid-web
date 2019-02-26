@@ -4,7 +4,7 @@ import {
   getTargetQuestions,
   getThemeQuestions,
 } from '@app/features/client/values'
-import { Checkbox, QuestionsValidationTooltip } from '@app/features/common/form'
+import { Checkbox } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
 import { Question } from '@app/models/Claim/QuestionsClaim'
 import { QuestionsCategories } from '../../types'
@@ -43,7 +43,6 @@ const Questions = ({ styles, category, criterion }: Props) => {
                 <span className={styles.checkboxLabel}>{question}</span>
               </Checkbox>
             ))}
-            <QuestionsValidationTooltip name="questionsCount" />
           </article>
         ))}
     </>

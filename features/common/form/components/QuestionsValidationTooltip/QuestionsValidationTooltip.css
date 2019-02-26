@@ -1,0 +1,5 @@
+.tooltip + div {
+  margin-top: -1px !important;
+  text-align: center;
+  background-color: #fff;
+}

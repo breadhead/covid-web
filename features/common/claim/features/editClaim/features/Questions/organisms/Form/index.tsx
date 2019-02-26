@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as styles from './ClaimForm.css'
 
-import { Form } from '@app/features/common/form'
+import { Form, QuestionsValidationTooltip } from '@app/features/common/form'
 import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
 
 import { saveQuestionsClaimDraft } from '../../localStorage'
@@ -53,6 +53,7 @@ const ClaimForm = ({
             category={QuestionsCategories.target}
             criterion={claimData.target}
           />
+          <QuestionsValidationTooltip name="questionsCount" />
           <AdditionalQuestions styles={styles} />
           {footer(error, loading!, styles, claimData.id)}
         </>
