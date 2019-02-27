@@ -21,9 +21,10 @@ const linksLong = [
 
 interface Props {
   long?: boolean
+  targetType?: TargetType
 }
 
-const Menu = ({ long }: Props) => {
+const Menu = ({ long, targetType }: Props) => {
   const links = !!long ? linksLong : linksShort
 
   const styles = !!long ? stylesLong : stylesShort
@@ -32,7 +33,7 @@ const Menu = ({ long }: Props) => {
     <nav className={styles.menu}>
       {links.map(({ title, href }) => (
         <NavLink
-          target={TargetType.Blank}
+          target={targetType}
           key={title}
           type={NavLinkType.Nav}
           href={href}
