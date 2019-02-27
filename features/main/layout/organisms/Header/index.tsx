@@ -13,19 +13,22 @@ import Navigation from './organisms/Navigation'
 
 interface Props {
   token: string
-  signOut: () => void
+  signOutOfApp: () => void
 }
 
-const Header = ({ token }: Props) => {
+const Header = ({ token, signOutOfApp }: Props) => {
   return (
     <div className={styles.headerWrapper}>
       <header className={styles.header}>
         <Logo wrapperClassName={styles.logo} />
         <MediaQuery query={Query.ToExtraLarge}>
-          <Menu signOut={signOut} showLoginButton={token.length === 0} />
+          <Menu signOut={signOutOfApp} showLoginButton={token.length === 0} />
         </MediaQuery>
         <MediaQuery query={Query.FromExtraLarge}>
-          <Navigation signOut={signOut} showLoginButton={token.length === 0} />
+          <Navigation
+            signOut={signOutOfApp}
+            showLoginButton={token.length === 0}
+          />
         </MediaQuery>
       </header>
     </div>
@@ -37,7 +40,7 @@ const mapState = (state: State) => ({
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
-  signOut: () => dispatch(signOut() as any),
+  signOutOfApp: () => dispatch(signOut() as any),
 })
 
 export default connect(
