@@ -6,7 +6,12 @@ export enum Condition {
   signUp = 'signUp',
 }
 
-export default (roles: Role[], condition?: Condition) => {
+export default (roles: Role[], wantTo?: string, condition?: Condition) => {
+  if (wantTo && wantTo.length > 0) {
+    Router.push(wantTo)
+    return
+  }
+
   if (roles.includes(Role.Admin)) {
     Router.push('/admin')
   } else if (roles.includes(Role.Client)) {
