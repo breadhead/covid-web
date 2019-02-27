@@ -40,8 +40,6 @@ Router.events.on('routeChangeComplete', () => {
 })
 
 class OncohelpWeb extends App<Props> {
-  public static isSecure = true // ???
-
   public static async getInitialProps(context: NextAppContext) {
     const ctx: AppContext = context.ctx as any
     if (ctx.req) {
