@@ -23,6 +23,8 @@ interface Props {
 
 const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
   return class extends React.Component<Props> {
+    public static isSecure = true
+
     public render() {
       return (
         <WrappedComponent
