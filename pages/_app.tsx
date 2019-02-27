@@ -4,6 +4,7 @@ import { Store } from '@app/lib/store'
 import withReduxStore from '@app/lib/with-redux-store'
 import '@app/ui/antd-styles.less'
 import Sprite from '@app/ui/atoms/Sprite'
+import { Option } from 'tsoption'
 
 import App, { Container, NextAppContext } from 'next/app'
 import Head from 'next/head'
@@ -24,7 +25,8 @@ import { canUseDOM } from '@app/lib/helpers/canUseDOM'
 import registerModals from '@app/lib/register-modals'
 import { AppContext } from '@app/lib/server-types'
 
-import { currentUser } from '@app/features/login/features/user'
+import { currentUser, getToken } from '@app/features/login/features/user'
+import { pushRoute } from '@app/features/routing/pushRoute'
 import { description, keywords } from './SEO'
 
 interface Props {
@@ -38,6 +40,8 @@ Router.events.on('routeChangeComplete', () => {
 })
 
 class OncohelpWeb extends App<Props> {
+  public static isSecure = true // ???
+
   public static async getInitialProps(context: NextAppContext) {
     const ctx: AppContext = context.ctx as any
     if (ctx.req) {
@@ -49,12 +53,19 @@ class OncohelpWeb extends App<Props> {
     }
 
     registerModals()
+    const isSecure = (context.Component as any).isSecure
+    const loggedIn = getToken(ctx.reduxStore.getState()).length > 0
+
+    if (isSecure && !loggedIn) {
+      await pushRoute('/?sign-in', Option.of(ctx))
+    }
 
     return App.getInitialProps(context)
   }
 
   public componentDidMount() {
     const authViolate = getViolateState(this.props.reduxStore.getState())
+
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
       this.props.reduxStore.dispatch(setToken(''))
