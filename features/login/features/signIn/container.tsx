@@ -24,7 +24,7 @@ interface Props extends ContainerProps {
 }
 
 interface ContainerProps extends WithSignUpModal {
-  login: (credentials: Credentials) => any
+  login: (credentials: Credentials, wantTo: string) => any
   onFormSubmit: () => Promise<any>
   violateState?: boolean
 }
@@ -53,8 +53,9 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
     }
 
     private onFormSubmit = async (credentials: Credentials) => {
-      await this.props.login(credentials)
       const { violateState } = this.props
+      const wantTo = `${window.location.search}`.replace('?sign-in?wantTo=', '')
+      await this.props.login(credentials, wantTo)
       if (violateState) {
         return {
           login: 'Неверный логин или пароль',
@@ -70,8 +71,8 @@ const mapState = (state: State) => ({
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
-  login: (credentials: Credentials) =>
-    dispatch(login(credentials.login, credentials.password) as any),
+  login: (credentials: Credentials, wantTo: string) =>
+    dispatch(login(credentials.login, credentials.password, wantTo) as any),
 })
 
 export default compose(
