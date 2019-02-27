@@ -7,21 +7,24 @@ export enum Condition {
 }
 
 export default (roles: Role[], wantTo?: string, condition?: Condition) => {
+  if (wantTo && wantTo.length > 0) {
+    Router.push(wantTo)
+    return
+  }
+
   if (roles.includes(Role.Admin)) {
     Router.push('/admin')
   } else if (roles.includes(Role.Client)) {
-    redirectUser(condition, wantTo)
+    redirectUser(condition)
   } else if (roles.includes(Role.CaseManager)) {
     Router.push('/manager')
   } else if (roles.includes(Role.Doctor)) {
     Router.push('/doctor')
   }
 }
-const redirectUser = (condition?: Condition, wantTo?: string) => {
+const redirectUser = (condition?: Condition) => {
   if (condition === Condition.signUp) {
     Router.push('/client/before-consultation')
-  } else if (wantTo && wantTo.length > 0) {
-    Router.push(wantTo)
   } else {
     Router.push('/client')
   }
