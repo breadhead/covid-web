@@ -9,7 +9,7 @@ import {
 } from '@app/lib/api/request/CloseClaimRequest'
 import { RadioButtonStyles } from '@app/ui/molecules/RadioGroup'
 
-import Button from '@app/ui/atoms/Button'
+import Button, { ButtonType } from '@app/ui/atoms/Button'
 import { SectionDivider } from '@app/ui/organisms/AddFieldContainer'
 import SubmitButton from '../../atoms/Button'
 import {
@@ -80,7 +80,9 @@ const Modal = ({ onFormSubmit, saveCloseData }: Props) => {
                   Применить
                 </SubmitButton>
               ) : (
-                <Button className={styles.button}>Применить</Button>
+                <Button type={ButtonType.Submit} className={styles.button}>
+                  Применить
+                </Button>
               )}
             </div>
           </>
