@@ -1,6 +1,6 @@
 import store from 'store2'
 
-const DEFAULT_ID = 'draft'
+export const DEFAULT_ID = 'draft'
 
 const getKey = (id: string) => `new_claim_${id}`
 
