@@ -42,16 +42,26 @@ const Footer = ({
         Продолжить
       </ButtonWithTooltip>
       {showDraftNotification && (
-        <div className={styles.draftNotification}>
-          Ваши данные сохранены в черновике
+        <div className={styles.draftContainer}>
+          <IconCustom
+            className={styles.iconSuccess}
+            name="24x24_success_green"
+          />
+          <span className={styles.draftNotification}>
+            Ваши данные сохранены в черновике
+          </span>
         </div>
       )}
       <div className={styles.footerBack}>
-        <IconCustom
-          className={styles.iconBack}
-          name="24x24_arrow-small_right"
-        />
-        <NavLink href={`/client/new-claim/${id}`}>Вернуться назад</NavLink>
+        {!!id && (
+          <>
+            <IconCustom
+              className={styles.iconBack}
+              name="24x24_arrow-small_right"
+            />
+            <NavLink href={`/client/new-claim/${id}`}>Вернуться назад</NavLink>
+          </>
+        )}
       </div>
     </footer>
   )
