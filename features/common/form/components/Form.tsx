@@ -22,6 +22,7 @@ interface OwnProps {
   preventDefault?: boolean
   scrollToInvalid?: boolean
   saveDebounced?: (fields: any) => Promise<any>
+  debounce?: number
   saveOnBlur?: (fields: any) => Promise<any>
   children: (childrenPropsArgs: ChildrenPropsArgs) => React.ReactNode
 }
@@ -47,6 +48,7 @@ class Form extends Component<Props> {
       resetAfterSubmit,
       scrollToInvalid,
       saveDebounced,
+      debounce,
       saveOnBlur,
       ...rest
     } = this.props
@@ -61,7 +63,9 @@ class Form extends Component<Props> {
                 ref={this.formRef}
                 onSubmit={this.onSubmit(form.reset, handleSubmit, valid)}
               >
-                {!!saveDebounced && <DebouncedSaver save={saveDebounced} />}
+                {!!saveDebounced && (
+                  <DebouncedSaver debounce={debounce} save={saveDebounced} />
+                )}
                 {!!saveOnBlur && <BlurSaver save={saveOnBlur} />}
                 {scrollToInvalid && (
                   <WithScrollToInvalid

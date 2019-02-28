@@ -65,6 +65,7 @@ const ClaimForm = ({
       onSubmit={onSubmit as any}
       className={styles.ClaimForm}
       saveDebounced={saveNewClaimDraft(id)}
+      debounce={2000}
       initialValues={{ ...initial }}
     >
       {({ values, changeField }) => (
