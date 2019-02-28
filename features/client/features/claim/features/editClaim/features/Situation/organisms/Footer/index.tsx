@@ -16,12 +16,20 @@ interface Props {
   error: false | string
   loading?: boolean
   id: string
+  showDraftNotification?: boolean
 }
 
 const ERROR_MESSAGE = 'Произошла ошибка, попробуйте еще раз'
 
-const Footer = ({ styles, error, loading, id }: Props) => {
+const Footer = ({
+  styles,
+  error,
+  loading,
+  id,
+  showDraftNotification,
+}: Props) => {
   const errorMessage = error ? ERROR_MESSAGE : undefined
+
   return (
     <footer className={cx(styles.article, styles.footer)}>
       <ButtonWithTooltip
@@ -33,6 +41,11 @@ const Footer = ({ styles, error, loading, id }: Props) => {
       >
         Продолжить
       </ButtonWithTooltip>
+      {showDraftNotification && (
+        <div className={styles.draftNotification}>
+          Ваши данные сохранены в черновике
+        </div>
+      )}
       <div className={styles.footerBack}>
         <IconCustom
           className={styles.iconBack}

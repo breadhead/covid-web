@@ -1,3 +1,4 @@
+import Footer from '@app/features/client/features/claim/features/editClaim/features/Situation/organisms/Footer'
 import { Form } from '@app/features/common/form'
 import Gender from '@app/models/Gender'
 import * as React from 'react'
@@ -50,22 +51,22 @@ type FooterType = (
   loading: boolean,
   styles: any,
   id: string,
+  showDraftNotification?: boolean,
 ) => React.ReactNode
 
-const ClaimForm = ({
-  initial,
-  onSubmit,
-  error,
-  loading,
-  id,
-  footer,
-}: Props) => {
+const ClaimForm = ({ initial, onSubmit, error, loading, id }: Props) => {
+  const [showDraftNotification, setDraftNotification] = React.useState(false)
+
+  const saveDebouncedValues = (fields: any) => {
+    setDraftNotification(true)
+    return Promise.resolve(saveNewClaimDraft(id, fields))
+  }
+
   return (
     <Form
       onSubmit={onSubmit as any}
       className={styles.ClaimForm}
-      saveDebounced={saveNewClaimDraft(id)}
-      debounce={2000}
+      saveDebounced={saveDebouncedValues}
       initialValues={{ ...initial }}
     >
       {({ values, changeField }) => (
@@ -79,7 +80,13 @@ const ClaimForm = ({
             styles={styles}
             initial={initial}
           />
-          {footer(error, loading, styles, id)}
+          <Footer
+            styles={styles}
+            error={error}
+            id={id}
+            loading={loading}
+            showDraftNotification={showDraftNotification}
+          />
         </>
       )}
     </Form>
