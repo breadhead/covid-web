@@ -8,7 +8,7 @@ export enum Condition {
 
 export default (roles: Role[], wantTo?: string, condition?: Condition) => {
   if (wantTo && wantTo.length > 0) {
-    Router.push(wantTo)
+    Router.push(encodeURIComponent(wantTo))
     return
   }
 
