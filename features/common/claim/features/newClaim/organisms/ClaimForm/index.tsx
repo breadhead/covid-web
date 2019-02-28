@@ -1,6 +1,7 @@
 import { Form } from '@app/features/common/form'
 import Gender from '@app/models/Gender'
 import * as React from 'react'
+import { useCallback, useState } from 'react'
 import { DeepPartial } from 'utility-types'
 import { saveNewClaimDraft } from '../../localStorage'
 import { ShortClaimFields } from '../ClaimForm'
@@ -61,10 +62,12 @@ const ClaimForm = ({
   id,
   footer,
 }: Props) => {
-  const [showDraftNotification, setDraftNotification] = React.useState(false)
+  const [showDraftNotification, setDraftNotification] = useState(false)
+
+  const setNotification = useCallback(() => setDraftNotification(true), [])
 
   const saveDebouncedValues = (fields: any) => {
-    setDraftNotification(true)
+    setNotification()
     return Promise.resolve(saveNewClaimDraft(id, fields))
   }
 
