@@ -2,6 +2,7 @@ import { Form } from '@app/features/common/form'
 import Gender from '@app/models/Gender'
 import * as React from 'react'
 import { DeepPartial } from 'utility-types'
+import { saveNewClaimDraft } from '../../localStorage'
 import { ShortClaimFields } from '../ClaimForm'
 import Contacts from '../Contacts'
 import Main from '../Main'
@@ -63,6 +64,7 @@ const ClaimForm = ({
     <Form
       onSubmit={onSubmit as any}
       className={styles.ClaimForm}
+      saveDebounced={saveNewClaimDraft(id)}
       initialValues={{ ...initial }}
     >
       {({ values, changeField }) => (
