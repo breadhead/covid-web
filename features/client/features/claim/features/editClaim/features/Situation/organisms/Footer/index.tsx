@@ -15,7 +15,7 @@ interface Props {
   styles: StylesType
   error: false | string
   loading?: boolean
-  id: string
+  id?: string
   showDraftNotification?: boolean
 }
 
