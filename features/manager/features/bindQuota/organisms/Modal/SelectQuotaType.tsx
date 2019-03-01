@@ -13,8 +13,8 @@ const SelectQuotaType = ({ quotas = [{}], ...rest }: any) => {
       id: quota.id,
       value: quota.id,
       text: quota.name,
+      count: quota.count,
     }))
-
   return (
     <RadioGroup
       radioStyle={RadioButtonStyles.Radio}

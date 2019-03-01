@@ -22,7 +22,7 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
     error: false,
     fetching: false,
   }),
-  'manager/bind-quota',
+  'manager/close-claim',
 )
 
 export { State, reducer, Actions, actions }

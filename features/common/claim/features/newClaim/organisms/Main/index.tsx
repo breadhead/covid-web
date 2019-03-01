@@ -5,12 +5,13 @@ import ClaimTarget from '@app/models/Claim/ClaimTarget'
 import { mapString } from '@app/ui/atoms/Select'
 import cx from 'classnames'
 import * as React from 'react'
+import { DeepPartial } from 'utility-types'
 import { ShortClaimFields } from '../ClaimForm'
 import { schema } from './schema'
 
 interface Props {
   styles: StylesType
-  initial: Partial<ShortClaimFields>
+  initial: DeepPartial<ShortClaimFields>
 }
 
 const Main = ({ styles }: Props) => (

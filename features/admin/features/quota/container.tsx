@@ -20,6 +20,8 @@ interface Query {
 }
 const Container = (WrappedComponent: React.ComponentType<Props>) => {
   return class extends React.Component<Props> {
+    public static isSecure = true
+
     public static async getInitialProps(context: AppContext & Query) {
       await context.reduxStore.dispatch(fetchQuota(context.query.id) as any)
       return {}

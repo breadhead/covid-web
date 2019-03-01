@@ -47,6 +47,7 @@ const TopRow = ({
             <Button
               onClick={() => window.open(trelloUrl, '_blank')}
               kind={ButtonKind.Extra}
+              className={styles.button}
             >
               Trello
             </Button>
@@ -55,21 +56,35 @@ const TopRow = ({
         {allowEditing && (
           <div className={styles.right}>
             {allocationAvailable && !quotaName && (
-              <Button onClick={openBindQuota}>Выбрать квоту</Button>
+              <Button className={styles.button} onClick={openBindQuota}>
+                Выбрать квоту
+              </Button>
             )}
             {!!toQueue && (
-              <Button onClick={nextStatus} kind={ButtonKind.Extra}>
+              <Button
+                className={styles.button}
+                onClick={nextStatus}
+                kind={ButtonKind.Extra}
+              >
                 В очередь
               </Button>
             )}
             {showSendToExpertButton(status, !!assignedDoctor) && (
-              <Button onClick={openChooseDoctor}>Передать эксперту</Button>
+              <Button className={styles.button} onClick={openChooseDoctor}>
+                Передать эксперту
+              </Button>
             )}
             {showSendToClientButton(status) && (
-              <Button onClick={nextStatus}>Передать заказчику</Button>
+              <Button className={styles.button} onClick={nextStatus}>
+                Передать заказчику
+              </Button>
             )}
             {!closed && (
-              <Button onClick={openCloseClaim} kind={ButtonKind.Extra}>
+              <Button
+                className={styles.button}
+                onClick={openCloseClaim}
+                kind={ButtonKind.Extra}
+              >
                 Закрыть
               </Button>
             )}

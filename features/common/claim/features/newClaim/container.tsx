@@ -1,15 +1,18 @@
 import { set } from '@app/features/common/browserQuery'
 import { getRoles } from '@app/features/login'
+import { getSmsPhone } from '@app/features/login/features/confirm'
 import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { Role } from '@app/models/Users/User'
 import routes from '@app/routes'
+import nanomerge from 'nanomerge'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, Dispatch } from 'redux'
 import { createClaim, fetchShortClaim } from './actions'
+import { DEFAULT_ID, getNewClaimDraft } from './localStorage'
 import { FooterType, ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
 import { getLoading, getNewClaimError } from './selectors'
@@ -70,16 +73,27 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       }
 
       private getInitialFields = (claim?: ShortClaim) => {
+        const draft = getNewClaimDraft((!!claim && claim.id) || DEFAULT_ID)
+
+        const { smsPhone } = this.props
         if (!!claim) {
-          return {
-            ...claim,
-            localizationPresence: !!claim.localization,
-            companyPresence: !!claim.company,
-          }
+          return nanomerge(
+            {
+              ...claim,
+              localizationPresence: !!claim.localization,
+              companyPresence: !!claim.company,
+            },
+            draft,
+          )
         }
-        return {
-          companyPresence: false,
-        }
+
+        return nanomerge(
+          {
+            companyPresence: false,
+            personalData: { phone: smsPhone },
+          },
+          draft,
+        )
       }
 
       private createRequest = (claimFields: ShortClaimFields) => {
@@ -146,6 +160,7 @@ const mapState = (state: State) => ({
   error: getNewClaimError(state),
   loading: getLoading(state),
   roles: getRoles(state),
+  smsPhone: getSmsPhone(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({

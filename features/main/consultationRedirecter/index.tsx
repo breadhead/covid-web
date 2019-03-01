@@ -1,7 +1,8 @@
-import Router from 'next/router'
 import * as React from 'react'
+import { Option } from 'tsoption'
 
 import { currentUser } from '@app/features/login/features/user'
+import { pushRoute } from '@app/features/routing/pushRoute'
 import { AppContext } from '@app/lib/server-types'
 import { Role } from '@app/models/Users/User'
 
@@ -15,39 +16,32 @@ interface Query {
 }
 
 class ConsultationRedirecter extends React.Component<Props> {
-  public static async getInitialProps({
-    query,
-    reduxStore,
-  }: AppContext<Query>) {
-    const { id } = query
+  public static async getInitialProps(ctx: AppContext<Query>) {
+    const { id } = ctx.query
 
-    const user = await reduxStore.dispatch(currentUser() as any)
+    try {
+      const { roles } = await ctx.reduxStore.dispatch(currentUser() as any)
 
-    return {
-      roles: user.roles,
-      id,
-    }
-  }
+      const createUrl = (path: string) => `/${path}/consultation/${id}`
+      const redirect = (path: string) =>
+        pushRoute(createUrl(path), Option.of(ctx))
 
-  public componentDidMount() {
-    const { id, roles } = this.props
+      if (roles.includes(Role.Client)) {
+        redirect('client')
+      }
 
-    const createUrl = (path: string) => `/${path}/consultation/${id}`
-    const redirect = (path: string) => Router.push(createUrl(path))
+      if (roles.includes(Role.CaseManager)) {
+        redirect('manager')
+      }
 
-    if (roles.includes(Role.Client)) {
-      return redirect('client')
-    }
-
-    if (roles.includes(Role.CaseManager)) {
-      return redirect('manager')
+      if (roles.includes(Role.Doctor)) {
+        redirect('doctor')
+      }
+    } catch (e) {
+      pushRoute('/?sign-in', Option.of(ctx))
     }
 
-    if (roles.includes(Role.Doctor)) {
-      return redirect('doctor')
-    }
-
-    return Router.push('/')
+    return {}
   }
 
   public render() {

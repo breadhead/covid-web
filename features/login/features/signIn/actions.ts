@@ -5,7 +5,11 @@ import { actions as userActions } from '../user'
 import { setCookie } from './helpers/setAuthToken'
 import { actions } from './reducer'
 
-export const login = (username: string, password: string) => async (
+export const login = (
+  username: string,
+  password: string,
+  wantTo: string,
+) => async (
   dispatch: Dispatch<any>,
   getState: () => State,
   { getApi }: ExtraArgs,
@@ -18,8 +22,7 @@ export const login = (username: string, password: string) => async (
     setCookie(token)
     dispatch(userActions.setToken(token))
 
-    redirectUser(roles)
-
+    redirectUser(roles, wantTo)
     return dispatch(actions.success(token))
   } catch (error) {
     dispatch(actions.error(error.message))

@@ -29,9 +29,9 @@ const Dropdown = ({ signOut, position = DropdownPositions.Left }: Props) => (
         Личный кабинет на{SPACE}
         <span className={styles.link}>nenaprasno.ru</span>
       </NavLink>
-      <NavLink href="" className={styles.menuItem}>
-        <div onClick={signOut}>Выйти</div>
-      </NavLink>
+      <div onClick={signOut} className={styles.menuItem}>
+        Выйти
+      </div>
     </div>
   </div>
 )

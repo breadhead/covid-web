@@ -28,7 +28,7 @@ const Select = ({
   <div className={className}>
     {label && <label htmlFor={name}>{label}</label>}
     <AntSelect
-      value={value || undefined}
+      value={`${value}` || undefined}
       id={name}
       {...rest}
       className={error && 'error'}

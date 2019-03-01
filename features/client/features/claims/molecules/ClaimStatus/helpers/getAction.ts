@@ -13,6 +13,7 @@ const actionsMap: ActionsMap = {
   [ClaimStatus.QuestionnaireValidation]: undefined,
   [ClaimStatus.Denied]: undefined,
   [ClaimStatus.QueueForQuota]: undefined,
+  [ClaimStatus.ClosedWithoutAnswer]: 'Не требует ответа эксперта',
 }
 
 export default (status: ClaimStatus): string | undefined => actionsMap[status]
