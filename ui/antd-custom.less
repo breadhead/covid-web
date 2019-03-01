@@ -1,18 +1,18 @@
 // COLORS
-@primary-color: #3C54EE; // primary color for all components
-@link-color: #2D47EA; // link color
-@success-color: #19CD92; // success state color
-@error-color: #F11635; // error state color
+@primary-color: #3c54ee; // primary color for all components
+@link-color: #2d47ea; // link color
+@success-color: #19cd92; // success state color
+@error-color: #f11635; // error state color
 @background-color-light : hsv(0, 0, 98%); // background of header and selected item
 @background-color-base : hsv(0, 0, 96%); // Default grey background color
 // FONTS
-@heading-color          : var(--text-color-primary);
-@text-color             : var(--text-color-primary);
-@text-color-secondary   : #82839B;
+@heading-color : var(--text-color-primary);
+@text-color : var(--text-color-primary);
+@text-color-secondary : #82839B;
 @font-size-base: 16px; // major text font size
 //OTHER
-@border-radius-base     : 8px;
-@border-radius-sm       : 4px;
+@border-radius-base : 8px;
+@border-radius-sm : 4px;
 // STATES
 // Disabled
 @disabled-color : fade(#000, 25%);
@@ -28,4 +28,16 @@
 
 .ant-form-vertical .ant-form-item {
   padding: 0;
+}
+
+.ant-notification-notice {
+  padding: 12px 16px;
+}
+.ant-notification-notice-close {
+  top: 12px;
+}
+
+.ant-notification-notice-message {
+  margin-bottom: 0;
+  font: var(--text16-24);
 }

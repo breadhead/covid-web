@@ -1,7 +1,9 @@
 import { Form } from '@app/features/common/form'
 import Gender from '@app/models/Gender'
 import * as React from 'react'
+import { useCallback, useState } from 'react'
 import { DeepPartial } from 'utility-types'
+import { saveNewClaimDraft } from '../../localStorage'
 import { ShortClaimFields } from '../ClaimForm'
 import Contacts from '../Contacts'
 import Main from '../Main'
@@ -49,6 +51,7 @@ type FooterType = (
   loading: boolean,
   styles: any,
   id: string,
+  showDraftNotification: boolean,
 ) => React.ReactNode
 
 const ClaimForm = ({
@@ -59,10 +62,21 @@ const ClaimForm = ({
   id,
   footer,
 }: Props) => {
+  const [showDraftNotification, setDraftNotification] = useState(false)
+
+  const saveDebouncedValues = useCallback(
+    async fields => {
+      setDraftNotification(true)
+      saveNewClaimDraft(id, fields)
+    },
+    [id],
+  )
+
   return (
     <Form
       onSubmit={onSubmit as any}
       className={styles.ClaimForm}
+      saveDebounced={saveDebouncedValues}
       initialValues={{ ...initial }}
     >
       {({ values, changeField }) => (
@@ -76,7 +90,7 @@ const ClaimForm = ({
             styles={styles}
             initial={initial}
           />
-          {footer(error, loading, styles, id)}
+          {footer(error, loading, styles, id, showDraftNotification)}
         </>
       )}
     </Form>
