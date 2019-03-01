@@ -41,14 +41,21 @@ const RadioGroupElement = ({
   defaultChecked,
   value,
   ...rest
-}: Props) => (
-  <RadioGroup
-    name={name}
-    buttons={radioButtons}
-    onChange={onChange}
-    value={getValue(value)}
-    {...rest}
-  />
-)
+}: Props) => {
+  const currentValue = getValue(value)
+  return (
+    <>
+      {currentValue && (
+        <RadioGroup
+          name={name}
+          buttons={radioButtons}
+          onChange={onChange}
+          value={currentValue}
+          {...rest}
+        />
+      )}
+    </>
+  )
+}
 
 export default RadioGroupElement
