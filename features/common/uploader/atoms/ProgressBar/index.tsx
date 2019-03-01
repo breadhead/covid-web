@@ -6,13 +6,9 @@ interface Props {
 }
 
 const ProgressBar = ({ percentage = 0 }: Props) => (
-  <>
-    {percentage > 0 && (
-      <div className={styles.progressBar}>
-        <div className={styles.filler} style={{ width: `${percentage}%` }} />
-      </div>
-    )}
-  </>
+  <div className={styles.progressBar}>
+    <div className={styles.filler} style={{ width: `${percentage}%` }} />
+  </div>
 )
 
 export default ProgressBar
