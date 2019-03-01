@@ -37,6 +37,7 @@ export interface Props {
   authorLogin: string
   clientClaimsCount: number
   hideAnswers?: boolean
+  openMessage: boolean
 }
 
 class Consultation extends React.Component<Props, State> {
@@ -117,8 +118,8 @@ class Consultation extends React.Component<Props, State> {
     this.setState({ isChatOpen: true, chatOpensOnce: true })
 
   private toggleChatOpening = (width: number) => {
-    const needOpen = width > CHAT_DEFAULT_OPEN_WIDTH
-
+    const { openMessage } = this.props
+    const needOpen = width > CHAT_DEFAULT_OPEN_WIDTH || openMessage
     if (needOpen) {
       this.openChat()
     } else {

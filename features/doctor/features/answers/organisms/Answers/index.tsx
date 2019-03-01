@@ -61,7 +61,7 @@ const Answers = ({ claim, onSubmit, claimStatus }: Props) => {
               kind={ButtonKind.Secondary}
               onClick={() => Router.push(`/consultation/redirect/${claim.id}`)}
             >
-              {answerSent ? 'Отменить изменения' : 'Сохранить изменения'}
+              Отменить изменения
             </Button>
           </div>
         </>

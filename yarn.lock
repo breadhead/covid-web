@@ -12742,9 +12742,9 @@ redent@^2.0.0:
     strip-indent "^2.0.0"
 
 redux-clear@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/redux-clear/-/redux-clear-1.0.2.tgz#1a9b5800026f49da89bd347d775a2af3a42d417b"
-  integrity sha512-Y4ZV3QEaefdwZlXzMl6TMAmQiRY85BquCeYgEjSlOE8s+58Wq49KxwGltj/NUs8qSNHG2iZhm6wQD3fHf1fo2A==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/redux-clear/-/redux-clear-1.0.3.tgz#7881e8c7157f81e8a21866a946cd87dcfcc6ce49"
+  integrity sha512-9iRFRcHvCrjpp+3cwVhxookErW8vHgfnFDmvd8VEUUqKXRaHc8VXs66USv4V2jqNxHaAZ1hg164Bk04EE9RBmg==
   dependencies:
     nanoid "^2.0.1"
 
@@ -15015,10 +15015,10 @@ utila@^0.4.0, utila@~0.4:
   resolved "https://registry.yarnpkg.com/utila/-/utila-0.4.0.tgz#8a16a05d445657a3aea5eecc5b12a4fa5379772c"
   integrity sha1-ihagXURWV6Oupe7MWxKk+lN5dyw=
 
-utility-types@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/utility-types/-/utility-types-2.1.0.tgz#0c78fc9f7eb424d14302222b4ddd13fdb17f44ab"
-  integrity sha512-/nP2gqavggo6l38rtQI/CdeV+2fmBGXVvHgj9kV2MAnms3TIi77Mz9BtapPFI0+GZQCqqom0vACQ+VlTTaCovw==
+utility-types@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/utility-types/-/utility-types-3.4.1.tgz#3caa1d207eac873f989bf8c92cf3e8c539045c61"
+  integrity sha512-GyH068kJf7c4vhfqj4aCM5X+TeV8jG2iPFLimpGpnQ7dvKfogZOHfiYxMww/nGEfMm/bEmnVbeZGO1see1OVKg==
 
 utils-merge@1.0.1:
   version "1.0.1"

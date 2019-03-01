@@ -10,4 +10,5 @@
 
 .textarea {
   margin-bottom: 12px;
+  white-space: pre-line;
 }

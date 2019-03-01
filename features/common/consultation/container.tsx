@@ -19,6 +19,7 @@ interface Query {
   roles: Role[]
   clientClaims: ShortClaim[]
   getListOfClientClaims: (login: string) => Promise<any>
+  openMessage: string
 }
 
 type Props = PageProps
@@ -42,8 +43,10 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
         .catch(() => null) // .catch for roles without access to trello
 
       await reduxStore.dispatch(fetchDoctorsIfNeeded() as any)
-
-      return { roles: user.roles }
+      return {
+        roles: user.roles,
+        openMessage: query.hasOwnProperty('openMessage'),
+      }
     }
 
     public componentDidMount() {

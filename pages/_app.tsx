@@ -4,6 +4,7 @@ import { Store } from '@app/lib/store'
 import withReduxStore from '@app/lib/with-redux-store'
 import '@app/ui/antd-styles.less'
 import Sprite from '@app/ui/atoms/Sprite'
+import { Option } from 'tsoption'
 
 import App, { Container, NextAppContext } from 'next/app'
 import Head from 'next/head'
@@ -24,7 +25,8 @@ import { canUseDOM } from '@app/lib/helpers/canUseDOM'
 import registerModals from '@app/lib/register-modals'
 import { AppContext } from '@app/lib/server-types'
 
-import { currentUser } from '@app/features/login/features/user'
+import { currentUser, getToken } from '@app/features/login/features/user'
+import { pushRoute } from '@app/features/routing/pushRoute'
 import { description, keywords } from './SEO'
 
 interface Props {
@@ -49,15 +51,26 @@ class OncohelpWeb extends App<Props> {
     }
 
     registerModals()
+    const isSecure = (context.Component as any).isSecure
+    const loggedIn = getToken(ctx.reduxStore.getState()).length > 0
+
+    if (isSecure && !loggedIn) {
+      await pushRoute('/?sign-in', Option.of(ctx))
+    }
 
     return App.getInitialProps(context)
   }
 
   public componentDidMount() {
     const authViolate = getViolateState(this.props.reduxStore.getState())
+
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
-      Router.push('/?sign-in')
+      this.props.reduxStore.dispatch(setToken(''))
+      Router.push(
+        `/?sign-in?wantTo=${decodeURIComponent(this.props.router
+          .asPath as string)}`,
+      )
     }
 
     this.props.reduxStore.dispatch(setQuery(this.props.router.query || {}))
@@ -84,6 +97,7 @@ class OncohelpWeb extends App<Props> {
             />
             <meta name="keywords" content={keywords.join(', ')} />
             <meta name="description" content={description} />
+            <link rel="canonical" href="https://ask.nenaprasno.ru" />
             <link
               rel="apple-touch-icon"
               sizes="180x180"
@@ -125,7 +139,18 @@ class OncohelpWeb extends App<Props> {
             <meta property="og:type" content="website" />
             <meta
               property="og:image"
-              content="/static/images/prosto-sprosit_facebook-post.jpg"
+              content="http://i.ibb.co/HYSBLj3/prosto-sprosit-facebook-post.jpg"
+            />
+            <meta
+              property="og:image:secure_url"
+              content="https://i.ibb.co/HYSBLj3/prosto-sprosit-facebook-post.jpg"
+            />
+            <meta property="og:image:type" content="image/jpeg" />
+            <meta property="og:image:width" content="600" />
+            <meta property="og:image:height" content="315" />
+            <meta
+              property="og:image:alt"
+              content="Просто спросить — справочная служба для онкологических пациентов и их близких"
             />
             <meta name="twitter:card" content="summary_large_image" />
             <meta
@@ -144,7 +169,7 @@ class OncohelpWeb extends App<Props> {
               name="twitter:image:alt"
               content="Справочная служба | Просто спросить"
             />
-            <meta property="fb:app_id" content="306467899461959" />
+            <meta property="fb:306467899461959" content="306467899461959" />
           </Head>
           <Sprite />
           <Provider store={reduxStore}>

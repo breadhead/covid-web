@@ -9,6 +9,8 @@ import TransferForm from '../organisms/Form'
 import styles from './Page.css'
 
 class Page extends React.Component {
+  public static isSecure = true
+
   public static async getInitialProps(context: AppContext) {
     await context.reduxStore.dispatch(fetchQuotas() as any)
     return {}

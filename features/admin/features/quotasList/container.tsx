@@ -32,6 +32,8 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => {
     >,
     ComponentState
   > {
+    public static isSecure = true
+
     public static async getInitialProps(context: AppContext) {
       await context.reduxStore.dispatch(fetchQuotas() as any)
       return {}

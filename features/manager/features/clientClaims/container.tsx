@@ -22,6 +22,8 @@ interface Props {
 
 const Container = (WrappedComponent: React.ComponentType<Props>) => {
   return class extends React.Component<Props> {
+    public static isSecure = true
+
     public static async getInitialProps(context: AppContext<Query>) {
       const { authorLogin, from } = context.query
       await context.reduxStore.dispatch(getClientClaims(authorLogin) as any)

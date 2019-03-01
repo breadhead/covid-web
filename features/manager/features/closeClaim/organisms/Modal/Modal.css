@@ -1,10 +1,15 @@
 .form {
-  padding: 48px 80px 56px 80px;
+  padding: 8px 64px 40px 64px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
+  width: 560px;
+
+  @media (--smallDown) {
+    width: 100%;
+  }
 }
 
 .title {
@@ -16,10 +21,14 @@
   padding: 24px 0;
 
   &:not(:last-of-type) {
-    border-bottom: 1px solid rgba(21,24,51,0.12);
+    border-bottom: 1px solid rgba(21, 24, 51, 0.12);
   }
 }
 
-.submit {
+.comment {
+  margin-bottom: 24px;
+}
+
+.button {
   align-self: flex-end;
 }
