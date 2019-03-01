@@ -104,7 +104,6 @@
 
 .historyComboWrapper.historyComboWrapper {
   width: 232px;
-  margin-right: 16px;
 
   &:last-of-type {
     margin-right: 0;
