@@ -7,6 +7,7 @@ import { getToken } from '@app/features/login'
 import factory from '@app/lib/api/apiFactory'
 import ExternalLink from '@app/ui/molecules/ExternalLink'
 import ProgressBar from './atoms/ProgressBar'
+import { displayFileName } from './displayFileName'
 import * as styles from './Uploader.css'
 
 interface Props {
@@ -47,7 +48,6 @@ const Uploader = ({ id, onUploaded, initialValue }: Props) => {
         )
 
         push({ message: 'Файл загружен' })
-        setUploading(false)
         setPath(newPath)
 
         if (onUploaded) {
@@ -58,13 +58,15 @@ const Uploader = ({ id, onUploaded, initialValue }: Props) => {
           message: 'Что-то пошло не так',
           description: 'Попробуйте, пожалуйста, позже',
         })
+      } finally {
+        setUploading(false)
       }
     },
     [path, fileInput, api],
   )
 
   return (
-    <>
+    <div className={styles.container}>
       <label className={styles.fileLabel} htmlFor={id}>
         <input
           onChange={onChange}
@@ -75,13 +77,13 @@ const Uploader = ({ id, onUploaded, initialValue }: Props) => {
         />
         {path ? 'Загрузить другой файл' : 'Загрузить файл'}
       </label>
+      {uploading && <ProgressBar percentage={precentage} />}
       {!!path && (
         <ExternalLink href={path} className={styles.link}>
-          Открыть файл
+          {displayFileName(path)}
         </ExternalLink>
       )}
-      {uploading && <ProgressBar percentage={precentage} />}
-    </>
+    </div>
   )
 }
 
