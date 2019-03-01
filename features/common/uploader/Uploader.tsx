@@ -4,6 +4,7 @@ import * as React from 'react'
 import { getToken } from '@app/features/login'
 import factory from '@app/lib/api/apiFactory'
 import { connect } from 'react-redux'
+import ProgressBar from './atoms/ProgressBar'
 import * as styles from './Uploader.css'
 
 interface Props {
@@ -44,6 +45,7 @@ class Uploader extends React.Component<Props, State> {
           Загрузить
         </label>
         {path && <p>{path}</p>}
+        <ProgressBar />
       </>
     )
   }
