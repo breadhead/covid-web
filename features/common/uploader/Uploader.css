@@ -1,13 +1,10 @@
 .fileInput {
-  width: 0;
-  height: 0;
-  overflow: hidden;
+  display: none !important;
 }
 
 .fileLabel {
   position: relative;
   display: inline-block;
-  max-width: 116px;
   padding: 8px 20px;
   margin-top: 8px;
   color: #ffffff;

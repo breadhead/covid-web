@@ -14,6 +14,7 @@ const FormFileInput = ({ name }: Props) => (
         <>
           <Uploader
             id={name}
+            initialValue={input.value}
             onUploaded={value => {
               const fakeEvent = { target: { value } }
               input.onChange(fakeEvent)

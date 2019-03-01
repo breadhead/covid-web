@@ -1,75 +1,67 @@
 import { head } from 'lodash'
-import * as React from 'react'
+import { useCallback, useMemo, useRef, useState } from 'react'
+import { useMappedState } from 'redux-react-hook'
 
 import { getToken } from '@app/features/login'
 import factory from '@app/lib/api/apiFactory'
-import { connect } from 'react-redux'
+import { displayFileName } from './displayFileName'
 import * as styles from './Uploader.css'
 
 interface Props {
+  initialValue?: string
   onUploaded?: (url: string) => void
   id?: string
-  token: string
 }
 
-interface State {
-  path: string | null
-  currentFiles: any
-  file: any
+const Uploader = ({ id, onUploaded, initialValue }: Props) => {
+  const token = useMappedState(getToken)
+  const api = useMemo(() => factory(token), [token])
+
+  const [path, setPath] = useState(initialValue)
+
+  const fileInput = useRef<HTMLInputElement>(null)
+
+  const onChange = useCallback(
+    async () => {
+      if (!fileInput.current) {
+        return
+      }
+
+      const currentFile = head(fileInput.current.files)
+
+      if (!currentFile) {
+        return
+      }
+
+      const { path: newPath } = await api.uploadFile(currentFile)
+
+      if (onUploaded && newPath) {
+        setPath(newPath)
+        onUploaded(newPath)
+      }
+    },
+    [path, fileInput, api],
+  )
+
+  return (
+    <>
+      <label className={styles.fileLabel} htmlFor={id}>
+        <input
+          onChange={onChange}
+          className={styles.fileInput}
+          type="file"
+          ref={fileInput}
+          id={id}
+        />
+        {path ? 'Загрузить другой другой файл' : 'Загрузить файл'}
+      </label>
+      {path ? (
+        <p>{displayFileName(path)}</p>
+      ) : (
+        <p>Нажмите кнопку выше, чтобы загрузить файл</p>
+      )}
+    </>
+  )
 }
 
-class Uploader extends React.Component<Props, State> {
-  public state = {
-    path: null,
-    currentFiles: [],
-    file: '',
-  } as State
-
-  private fileInput: React.RefObject<HTMLInputElement> = React.createRef()
-
-  public render() {
-    const { id } = this.props
-    const { path } = this.state
-
-    return (
-      <>
-        <label className={styles.fileLabel} htmlFor={id}>
-          <input
-            onChange={this.onChange}
-            className={styles.fileInput}
-            type="file"
-            ref={this.fileInput}
-            id={id}
-          />
-          Загрузить
-        </label>
-        {path && <p>{path}</p>}
-      </>
-    )
-  }
-
-  private onChange = async () => {
-    if (!this.fileInput.current) {
-      return
-    }
-
-    const file = head(this.fileInput.current.files)
-
-    if (!file) {
-      return
-    }
-
-    const { onUploaded, token } = this.props
-    const apiClient = factory(token)
-    const { path } = await apiClient.uploadFile(file)
-
-    this.setState({ currentFiles: this.fileInput.current.files, file })
-    this.setState({ path }, () => onUploaded && onUploaded(path))
-  }
-}
-
-const mapState = (state: any) => ({
-  token: getToken(state),
-})
-
-export default connect(mapState)(Uploader)
+export default Uploader
