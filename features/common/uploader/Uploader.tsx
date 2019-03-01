@@ -2,9 +2,10 @@ import { head } from 'lodash'
 import { useCallback, useMemo, useRef, useState } from 'react'
 import { useMappedState } from 'redux-react-hook'
 
+import { push } from '@app/features/admin/features/toast'
 import { getToken } from '@app/features/login'
 import factory from '@app/lib/api/apiFactory'
-import { displayFileName } from './displayFileName'
+import ExternalLink from '@app/ui/molecules/ExternalLink'
 import * as styles from './Uploader.css'
 
 interface Props {
@@ -33,11 +34,18 @@ const Uploader = ({ id, onUploaded, initialValue }: Props) => {
         return
       }
 
-      const { path: newPath } = await api.uploadFile(currentFile)
+      try {
+        const { path: newPath } = await api.uploadFile(currentFile)
 
-      if (onUploaded && newPath) {
-        setPath(newPath)
-        onUploaded(newPath)
+        if (onUploaded && newPath) {
+          setPath(newPath)
+          onUploaded(newPath)
+        }
+      } catch (e) {
+        push({
+          message: 'Что-то пошло не так',
+          description: 'Попробуйте, пожалуйста, позже',
+        })
       }
     },
     [path, fileInput, api],
@@ -53,12 +61,12 @@ const Uploader = ({ id, onUploaded, initialValue }: Props) => {
           ref={fileInput}
           id={id}
         />
-        {path ? 'Загрузить другой другой файл' : 'Загрузить файл'}
+        {path ? 'Загрузить другой файл' : 'Загрузить файл'}
       </label>
-      {path ? (
-        <p>{displayFileName(path)}</p>
-      ) : (
-        <p>Нажмите кнопку выше, чтобы загрузить файл</p>
+      {!!path && (
+        <ExternalLink href={path} className={styles.link}>
+          Открыть файл
+        </ExternalLink>
       )}
     </>
   )

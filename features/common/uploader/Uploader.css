@@ -18,3 +18,7 @@
     background-color: darken(#f15d22, 10%);
   }
 }
+
+.link {
+  margin-left: 8px;
+}
