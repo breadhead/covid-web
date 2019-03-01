@@ -154,7 +154,7 @@ class OncohelpWeb extends App<Props> {
               name="twitter:image:alt"
               content="Справочная служба | Просто спросить"
             />
-            <meta property="fb:app_id" content="306467899461959" />
+            <meta property="fb:306467899461959" content="306467899461959" />
           </Head>
           <Sprite />
           <Provider store={reduxStore}>
