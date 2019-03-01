@@ -61,6 +61,7 @@
 }
 
 .footer {
+  position: relative;
   &::after {
     display: none;
   }
@@ -114,4 +115,22 @@
   @media (--smallDown) {
     margin-top: 32px;
   }
+}
+
+.draftContainer {
+  position: absolute;
+  top: 112px;
+  display: flex;
+  align-items: center;
+}
+
+.draftNotification {
+  font: var(--text16-24);
+  color: #82839b;
+}
+
+.iconSuccess {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
 }
