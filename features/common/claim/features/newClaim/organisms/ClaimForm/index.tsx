@@ -64,11 +64,11 @@ const ClaimForm = ({
 }: Props) => {
   const [showDraftNotification, setDraftNotification] = useState(false)
 
-  const setNotification = useCallback(() => setDraftNotification(true), [])
+  const saveDraft = useCallback(fields => saveNewClaimDraft(id, fields), [id])
 
   const saveDebouncedValues = (fields: any) => {
-    setNotification()
-    return Promise.resolve(saveNewClaimDraft(id, fields))
+    setDraftNotification(true)
+    return Promise.resolve(saveDraft(fields))
   }
 
   return (
