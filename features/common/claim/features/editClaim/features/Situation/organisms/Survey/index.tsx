@@ -4,13 +4,13 @@ import cx from 'classnames'
 
 import { Input } from '@app/features/common/form'
 import { RemoveSection } from '@app/features/common/form'
-import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
+import { FormFileInput } from '@app/features/common/uploader'
+import { StylesType } from '@app/lib/config'
 import AddFieldContainer, {
   SectionDivider,
   SectionHeader,
 } from '@app/ui/organisms/AddFieldContainer'
 import { ClaimData, SituationClaimFields } from '../../types'
-import * as surveyStyles from './Survey.css'
 
 interface Props {
   styles: StylesType
@@ -27,34 +27,39 @@ const Survey = ({
 }: Props) => (
   <article className={cx(styles.article, styles.articleSurvey)}>
     <h2 className={styles.title}>Обследования</h2>
-
-    <p className={styles.text}>
-      Предоставьте имеющиеся у вас актуальные исследования. Для этого вам нужно
-      выложить файлы с исследованиями на{NON_BREAKING_SPACE}сервисы типа
-      Яндекс.Диск, Google Диск или Dropbox, открыть доступы к файлам и указать
-      ссылки на них.
-    </p>
     {!!claimData.localization && (
       <>
         <h3 className={styles.subtitle}>Гистология</h3>
         <p className={styles.secondaryText}>
-          Последняя по дате. Укажите ссылку на скан или фотографию
+          Последняя по дате. Прикрепите скан или фотографию
         </p>
-        <label htmlFor="histology.url" className={styles.labelSmall}>
-          Ссылка на файл
-        </label>
-        <Input placeholder="https://" name="histology.url" />
+        <FormFileInput name="histologyFile" />
       </>
     )}
 
     <h3 className={styles.subtitle}>Заключения и выписки</h3>
     <p className={styles.secondaryText}>
-      Последние по дате. Укажите ссылку на сканы или фотографии
+      Последние по дате. Прикрепите сканы или фотографии
     </p>
-    <label htmlFor="discharge.url" className={styles.labelSmall}>
-      Ссылка на файл
-    </label>
-    <Input placeholder="https://" name="discharge.url" />
+    <AddFieldContainer
+      buttonClassName={styles.addButton}
+      buttonText="Добавить другие заключения и выписки"
+    >
+      {(count, removeSection) =>
+        count.map(key => (
+          <React.Fragment key={key}>
+            <SectionHeader
+              index={key}
+              onRemoveClick={() =>
+                removeSection(removeSectionFromState(key, 'otherFiles'))
+              }
+            />
+            <FormFileInput name={`dischargeFile${key}`} />
+            <SectionDivider />
+          </React.Fragment>
+        ))
+      }
+    </AddFieldContainer>
     <AddFieldContainer
       initialCount={initial.otherFiles!.length}
       buttonClassName={styles.addButton}
@@ -69,9 +74,7 @@ const Survey = ({
                 removeSection(removeSectionFromState(key, 'otherFiles'))
               }
             />
-            <h3 className={cx(styles.subtitle, surveyStyles.subtitle)}>
-              Дополнительный файл
-            </h3>
+            <h3 className={styles.subtitle}>Дополнительный файл</h3>
             <label
               htmlFor={`otherFiles.${key}.title`}
               className={styles.labelSmall}
@@ -79,10 +82,7 @@ const Survey = ({
               Название исследования
             </label>
             <Input name={`otherFiles.${key}.title`} />
-            <label htmlFor={`otherFiles.${key}.url`} className={styles.label}>
-              Ссылка на файл
-            </label>
-            <Input placeholder="https://" name={`otherFiles.${key}.url`} />
+            <FormFileInput name={`otherFile${key}mm`} />
             <SectionDivider />
           </React.Fragment>
         ))
