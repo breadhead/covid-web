@@ -133,9 +133,21 @@ class OncohelpWeb extends App<Props> {
               content="Просто спросить — справочная служба для онкологических пациентов и их близких"
             />
             <meta property="og:type" content="website" />
+
             <meta
               property="og:image"
-              content="/static/images/prosto-sprosit_facebook-post.jpg"
+              content="http://i.ibb.co/HYSBLj3/prosto-sprosit-facebook-post.jpg"
+            />
+            <meta
+              property="og:image:secure_url"
+              content="https://i.ibb.co/HYSBLj3/prosto-sprosit-facebook-post.jpg"
+            />
+            <meta property="og:image:type" content="image/jpeg" />
+            <meta property="og:image:width" content="600" />
+            <meta property="og:image:height" content="315" />
+            <meta
+              property="og:image:alt"
+              content="Просто спросить — справочная служба для онкологических пациентов и их близких"
             />
             <meta name="twitter:card" content="summary_large_image" />
             <meta
