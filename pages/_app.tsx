@@ -94,6 +94,7 @@ class OncohelpWeb extends App<Props> {
             />
             <meta name="keywords" content={keywords.join(', ')} />
             <meta name="description" content={description} />
+            <link rel="canonical" href="https://ask.nenaprasno.ru" />
             <link
               rel="apple-touch-icon"
               sizes="180x180"
@@ -133,7 +134,6 @@ class OncohelpWeb extends App<Props> {
               content="Просто спросить — справочная служба для онкологических пациентов и их близких"
             />
             <meta property="og:type" content="website" />
-
             <meta
               property="og:image"
               content="http://i.ibb.co/HYSBLj3/prosto-sprosit-facebook-post.jpg"
