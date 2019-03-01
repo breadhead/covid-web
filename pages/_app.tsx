@@ -94,6 +94,7 @@ class OncohelpWeb extends App<Props> {
             />
             <meta name="keywords" content={keywords.join(', ')} />
             <meta name="description" content={description} />
+            <link rel="canonical" href="https://ask.nenaprasno.ru" />
             <link
               rel="apple-touch-icon"
               sizes="180x180"
@@ -135,7 +136,18 @@ class OncohelpWeb extends App<Props> {
             <meta property="og:type" content="website" />
             <meta
               property="og:image"
-              content="/static/images/prosto-sprosit_facebook-post.jpg"
+              content="http://i.ibb.co/HYSBLj3/prosto-sprosit-facebook-post.jpg"
+            />
+            <meta
+              property="og:image:secure_url"
+              content="https://i.ibb.co/HYSBLj3/prosto-sprosit-facebook-post.jpg"
+            />
+            <meta property="og:image:type" content="image/jpeg" />
+            <meta property="og:image:width" content="600" />
+            <meta property="og:image:height" content="315" />
+            <meta
+              property="og:image:alt"
+              content="Просто спросить — справочная служба для онкологических пациентов и их близких"
             />
             <meta name="twitter:card" content="summary_large_image" />
             <meta
@@ -154,7 +166,7 @@ class OncohelpWeb extends App<Props> {
               name="twitter:image:alt"
               content="Справочная служба | Просто спросить"
             />
-            <meta property="fb:app_id" content="306467899461959" />
+            <meta property="fb:306467899461959" content="306467899461959" />
           </Head>
           <Sprite />
           <Provider store={reduxStore}>
