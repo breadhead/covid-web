@@ -6,6 +6,7 @@ import { push } from '@app/features/admin/features/toast'
 import { getToken } from '@app/features/login'
 import factory from '@app/lib/api/apiFactory'
 import ExternalLink from '@app/ui/molecules/ExternalLink'
+import ProgressBar from './atoms/ProgressBar'
 import * as styles from './Uploader.css'
 
 interface Props {
@@ -19,6 +20,8 @@ const Uploader = ({ id, onUploaded, initialValue }: Props) => {
   const api = useMemo(() => factory(token), [token])
 
   const [path, setPath] = useState(initialValue)
+  const [uploading, setUploading] = useState(false)
+  const [precentage, setPercentage] = useState(0)
 
   const fileInput = useRef<HTMLInputElement>(null)
 
@@ -35,10 +38,19 @@ const Uploader = ({ id, onUploaded, initialValue }: Props) => {
       }
 
       try {
-        const { path: newPath } = await api.uploadFile(currentFile)
+        setUploading(true)
+        setPercentage(0)
 
-        if (onUploaded && newPath) {
-          setPath(newPath)
+        const { path: newPath } = await api.uploadFile(
+          currentFile,
+          setPercentage,
+        )
+
+        push({ message: 'Файл загружен' })
+        setUploading(false)
+        setPath(newPath)
+
+        if (onUploaded) {
           onUploaded(newPath)
         }
       } catch (e) {
@@ -68,6 +80,7 @@ const Uploader = ({ id, onUploaded, initialValue }: Props) => {
           Открыть файл
         </ExternalLink>
       )}
+      {uploading && <ProgressBar percentage={precentage} />}
     </>
   )
 }
