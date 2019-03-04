@@ -78,7 +78,7 @@ const Uploader = ({ id, onUploaded, initialValue, remove }: Props) => {
             ref={fileInput}
             id={id}
           />
-          {path ? 'Загрузить другой файл' : 'Загрузить файл'}
+          {path ? 'Изменить файл' : 'Загрузить файл'}
         </label>
         {path && remove && (
           <Button kind={ButtonKind.Extra} onClick={remove}>

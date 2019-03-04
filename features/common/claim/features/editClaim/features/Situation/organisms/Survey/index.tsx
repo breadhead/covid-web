@@ -40,7 +40,6 @@ const Survey = ({
     <p className={styles.secondaryText}>
       Последние по дате. Прикрепите сканы или фотографии
     </p>
-    <FormFileInput name="discharge.url" />
 
     <AddFieldContainer
       initialCount={initial.otherFiles!.length}
@@ -48,9 +47,9 @@ const Survey = ({
       buttonText="Добавить другие файлы"
     >
       {(count, removeSection) =>
-        count.map(key => (
+        count.map((key, index) => (
           <React.Fragment key={key}>
-            <SectionDivider />
+            {index > 0 && <SectionDivider />}
             <label
               htmlFor={`otherFiles.${key}.title`}
               className={styles.labelSmall}
