@@ -8,7 +8,6 @@ import { FormFileInput } from '@app/features/common/uploader'
 import { StylesType } from '@app/lib/config'
 import AddFieldContainer, {
   SectionDivider,
-  SectionHeader,
 } from '@app/ui/organisms/AddFieldContainer'
 import { ClaimData, SituationClaimFields } from '../../types'
 
@@ -33,7 +32,7 @@ const Survey = ({
         <p className={styles.secondaryText}>
           Последняя по дате. Прикрепите скан или фотографию
         </p>
-        <FormFileInput name="histologyFile" />
+        <FormFileInput name="histology.url" />
       </>
     )}
 
@@ -41,25 +40,8 @@ const Survey = ({
     <p className={styles.secondaryText}>
       Последние по дате. Прикрепите сканы или фотографии
     </p>
-    <AddFieldContainer
-      buttonClassName={styles.addButton}
-      buttonText="Добавить другие заключения и выписки"
-    >
-      {(count, removeSection) =>
-        count.map(key => (
-          <React.Fragment key={key}>
-            <SectionHeader
-              index={key}
-              onRemoveClick={() =>
-                removeSection(removeSectionFromState(key, 'otherFiles'))
-              }
-            />
-            <FormFileInput name={`dischargeFile${key}`} />
-            <SectionDivider />
-          </React.Fragment>
-        ))
-      }
-    </AddFieldContainer>
+    <FormFileInput name="discharge.url" />
+
     <AddFieldContainer
       initialCount={initial.otherFiles!.length}
       buttonClassName={styles.addButton}
@@ -68,13 +50,7 @@ const Survey = ({
       {(count, removeSection) =>
         count.map(key => (
           <React.Fragment key={key}>
-            <SectionHeader
-              index={key}
-              onRemoveClick={() =>
-                removeSection(removeSectionFromState(key, 'otherFiles'))
-              }
-            />
-            <h3 className={styles.subtitle}>Дополнительный файл</h3>
+            <SectionDivider />
             <label
               htmlFor={`otherFiles.${key}.title`}
               className={styles.labelSmall}
@@ -82,8 +58,12 @@ const Survey = ({
               Название исследования
             </label>
             <Input name={`otherFiles.${key}.title`} />
-            <FormFileInput name={`otherFile${key}mm`} />
-            <SectionDivider />
+            <FormFileInput
+              name={`otherFiles.${key}.url`}
+              remove={() => {
+                removeSection(removeSectionFromState(key, 'otherFiles'))
+              }}
+            />
           </React.Fragment>
         ))
       }

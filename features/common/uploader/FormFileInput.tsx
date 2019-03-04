@@ -5,14 +5,16 @@ import Uploader from './Uploader'
 
 interface Props {
   name: string
+  remove?: () => void
 }
 
-const FormFileInput = ({ name }: Props) => (
+const FormFileInput = ({ name, ...rest }: Props) => (
   <>
     <FinalField name={name}>
       {({ input }) => (
         <>
           <Uploader
+            {...rest}
             id={name}
             initialValue={input.value}
             onUploaded={value => {

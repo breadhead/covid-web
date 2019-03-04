@@ -1,7 +1,9 @@
 import * as React from 'react'
 
+import { displayFileName } from '@app/features/common/uploader/displayFileName'
 import { StylesType } from '@app/lib/config'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
+import ExternalLink from '@app/ui/molecules/ExternalLink'
 import { ClickableText } from '@front/ui/molecules/clickable-text'
 
 import claimToInfoBlocks from './helpers/claimToInfoBlocks'
@@ -15,7 +17,13 @@ interface Props {
 const createRenderFlat = (styles: any) => (article: Article) => (
   <div className={styles.infoBlock} key={article.subtitle}>
     <h3 className={styles.subtitle}>{article.subtitle}</h3>
-    <ClickableText className={styles.text}>{article.text}</ClickableText>
+    {!!article.isUrl && !!article.text ? (
+      <ExternalLink href={article.text} className={styles.text}>
+        {displayFileName(article.text)}
+      </ExternalLink>
+    ) : (
+      <ClickableText className={styles.text}>{article.text}</ClickableText>
+    )}
   </div>
 )
 

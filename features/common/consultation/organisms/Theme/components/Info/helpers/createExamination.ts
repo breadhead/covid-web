@@ -14,10 +14,12 @@ const createExamination = ({
     {
       subtitle: 'Гистология',
       text: histology && histology.url,
+      isUrl: true,
     },
     {
       subtitle: 'Заключения и выписки',
       text: discharge && discharge.url,
+      isUrl: true,
     },
   ]
 
@@ -30,6 +32,7 @@ const createExamination = ({
           ...otherFiles.map(({ title: subtitle, url }) => ({
             subtitle,
             text: url,
+            isUrl: true,
           })),
         ],
       },

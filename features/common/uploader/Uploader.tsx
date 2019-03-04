@@ -5,6 +5,7 @@ import { useMappedState } from 'redux-react-hook'
 import { push } from '@app/features/admin/features/toast'
 import { getToken } from '@app/features/login'
 import factory from '@app/lib/api/apiFactory'
+import Button, { ButtonKind } from '@app/ui/atoms/Button'
 import ExternalLink from '@app/ui/molecules/ExternalLink'
 import ProgressBar from './atoms/ProgressBar'
 import { displayFileName } from './displayFileName'
@@ -14,9 +15,10 @@ interface Props {
   initialValue?: string
   onUploaded?: (url: string) => void
   id?: string
+  remove?: () => void
 }
 
-const Uploader = ({ id, onUploaded, initialValue }: Props) => {
+const Uploader = ({ id, onUploaded, initialValue, remove }: Props) => {
   const token = useMappedState(getToken)
   const api = useMemo(() => factory(token), [token])
 
@@ -67,16 +69,23 @@ const Uploader = ({ id, onUploaded, initialValue }: Props) => {
 
   return (
     <div className={styles.container}>
-      <label className={styles.fileLabel} htmlFor={id}>
-        <input
-          onChange={onChange}
-          className={styles.fileInput}
-          type="file"
-          ref={fileInput}
-          id={id}
-        />
-        {path ? 'Загрузить другой файл' : 'Загрузить файл'}
-      </label>
+      <div className={styles.row}>
+        <label className={styles.fileLabel} htmlFor={id}>
+          <input
+            onChange={onChange}
+            className={styles.fileInput}
+            type="file"
+            ref={fileInput}
+            id={id}
+          />
+          {path ? 'Загрузить другой файл' : 'Загрузить файл'}
+        </label>
+        {path && remove && (
+          <Button kind={ButtonKind.Extra} onClick={remove}>
+            Удалить
+          </Button>
+        )}
+      </div>
       {uploading && <ProgressBar percentage={precentage} />}
       {!!path && (
         <ExternalLink href={path} className={styles.link}>
