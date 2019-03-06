@@ -4,7 +4,7 @@ type Props = React.DetailedHTMLProps<
 >
 
 const ServerImage = ({ src, ...rest }: Props) => (
-  <img src={`//${src}`} {...rest} />
+  <img src={`${src}`} {...rest} />
 )
 
 export default ServerImage
