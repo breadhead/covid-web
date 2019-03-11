@@ -51,7 +51,7 @@ type FooterType = (
   loading: boolean,
   styles: any,
   id: string,
-  showDraftNotification: boolean,
+  showDraftNotification?: boolean,
 ) => React.ReactNode
 
 const ClaimForm = ({
@@ -62,13 +62,8 @@ const ClaimForm = ({
   id,
   footer,
 }: Props) => {
-  const [showDraftNotification, setDraftNotification] = useState(false)
-
   const saveDebouncedValues = useCallback(
-    async fields => {
-      setDraftNotification(true)
-      saveNewClaimDraft(id, fields)
-    },
+    async fields => saveNewClaimDraft(id, fields),
     [id],
   )
 
@@ -90,7 +85,7 @@ const ClaimForm = ({
             styles={styles}
             initial={initial}
           />
-          {footer(error, loading, styles, id, showDraftNotification)}
+          {footer(error, loading, styles, id)}
         </>
       )}
     </Form>

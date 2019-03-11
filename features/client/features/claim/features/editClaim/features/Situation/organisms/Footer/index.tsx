@@ -26,7 +26,7 @@ const Footer = ({
   error,
   loading,
   id,
-  showDraftNotification,
+  showDraftNotification = false,
 }: Props) => {
   const errorMessage = error ? ERROR_MESSAGE : undefined
 
