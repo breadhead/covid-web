@@ -6,6 +6,7 @@ import { Props } from './page'
 
 interface Query {
   email: string
+  waiting: boolean
 }
 
 const Container = (Wrapped: ComponentType<Props>) =>
@@ -15,15 +16,20 @@ const Container = (Wrapped: ComponentType<Props>) =>
     public static async getInitialProps(context: AppContext<Query>) {
       const { email } = context.query
 
+      const path: string = (context as any).asPath
+
+      const waiting = !path.includes('/client/claim/form-finish/')
+
       return {
         email: decodeURIComponent(email),
+        waiting,
       }
     }
 
     public render() {
-      const { email } = this.props
+      const { email, waiting } = this.props
 
-      return <Wrapped email={email!} />
+      return <Wrapped email={email!} waiting={!!waiting} />
     }
   }
 

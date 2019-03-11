@@ -32,6 +32,11 @@ module.exports = nextRoutes()
     '/client/claim/form-finish/:email',
     'client/form-finish',
   )
+  .add(
+    'client-wait-please',
+    '/client/claim/wait-please/:email',
+    'client/form-finish',
+  )
   // admin
   .add('admin-home', '/admin', 'admin/quotas')
   .add('admin-transfer', '/admin/transfer', 'admin/transfer')

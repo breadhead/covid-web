@@ -103,6 +103,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
           const { error, roles } = this.props
 
           if (!error) {
+            // TODO: add quotaAllocated parameter to this call
             this.redirect(shortClaim.personalData.email, shortClaim.id, roles)
           }
           return
@@ -138,11 +139,22 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
         )
       }
 
-      private redirect(email: string = '', id: string, roles: Role[]) {
+      private redirect(
+        email: string = '',
+        id: string,
+        roles: Role[],
+        quotaAallocated: boolean = false,
+      ) {
         if (roles.includes(Role.Client)) {
-          Router.pushRoute(
-            `/client/claim/form-finish/${encodeURIComponent(email)}`,
-          )
+          if (quotaAallocated) {
+            Router.pushRoute(
+              `/client/claim/form-finish/${encodeURIComponent(email)}`,
+            )
+          } else {
+            Router.pushRoute(
+              `/client/claim/wait-please/${encodeURIComponent(email)}`,
+            )
+          }
         } else if (roles.includes(Role.CaseManager)) {
           Router.pushRoute(`/manager/consultation/${id}`)
         }
