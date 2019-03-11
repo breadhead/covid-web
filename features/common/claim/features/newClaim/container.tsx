@@ -117,37 +117,22 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       private onFormSubmit = async (claimFields: ShortClaimFields) => {
         const request = this.createRequest(claimFields)
 
-        const {
-          id,
-          quotaAllocated,
-          personalData,
-        } = await this.props.createClaim(request as ShortClaimRequest)
-
-        const { email } = personalData
+        const { id } = await this.props.createClaim(
+          request as ShortClaimRequest,
+        )
 
         const { error, roles } = this.props
 
         if (!error) {
-          this.redirect(quotaAllocated, id, email, roles)
+          this.redirect(id, roles)
         }
 
-        if (quotaAllocated) {
-          this.props.setIdInQuery(id)
-        }
+        this.props.setIdInQuery(id)
       }
 
-      private redirect(
-        quotaAllocated: boolean,
-        id: string,
-        email: string | undefined,
-        roles: Role[],
-      ) {
+      private redirect(id: string, roles: Role[]) {
         if (roles.includes(Role.Client)) {
-          if (quotaAllocated) {
-            Router.pushRoute(`/client/claim/${id}/situation`)
-          } else if (email) {
-            Router.pushRoute(`/client/claim/wait/${encodeURIComponent(email)}`)
-          }
+          Router.pushRoute(`/client/claim/${id}/situation`)
         } else if (roles.includes(Role.CaseManager)) {
           Router.pushRoute(`/manager/consultation/${id}`)
         }

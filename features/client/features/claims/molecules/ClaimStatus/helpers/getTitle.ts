@@ -3,8 +3,7 @@ import ClaimStatus from '@app/models/Claim/ClaimStatus'
 type TitlesMap = { [key in ClaimStatus]: string }
 
 const titlesMap: TitlesMap = {
-  [ClaimStatus.QuestionnaireWaiting]:
-    'Вам нужно заполнить свои медицинские данные и вопросы эксперту',
+  [ClaimStatus.QuestionnaireWaiting]: 'Черновик',
   [ClaimStatus.Draft]: 'Черновик',
   [ClaimStatus.Closed]: 'Консультация завершена',
   [ClaimStatus.QuotaAllocation]: 'Дождитесь ответа нашего сотрудника',

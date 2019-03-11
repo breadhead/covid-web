@@ -3,7 +3,7 @@ import ClaimStatus from '@app/models/Claim/ClaimStatus'
 type ActionsMap = { [key in ClaimStatus]: string | undefined }
 
 const actionsMap: ActionsMap = {
-  [ClaimStatus.QuestionnaireWaiting]: 'Заполнить',
+  [ClaimStatus.QuestionnaireWaiting]: 'Продолжить заполнение',
   [ClaimStatus.Draft]: 'Продолжить заполнение',
   [ClaimStatus.Closed]: 'Посмотреть ответы эксперта',
   [ClaimStatus.DeliveredToCustomer]: 'Посмотреть ответы эксперта',
