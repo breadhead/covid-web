@@ -11,7 +11,7 @@ interface Props {
 const QuestionnaireWaitingButton = ({ claimId, className }: Props) => (
   <Button className={className}>
     <NavLink href={`/client/claim/${claimId}/situation`} type={NavLinkType.Nav}>
-      Заполнить
+      Продолжить заполнение
     </NavLink>
   </Button>
 )

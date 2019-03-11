@@ -1,15 +1,7 @@
-import dayjs from 'dayjs'
-
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import formatDate from '../../../claims/helpers/formatDate'
 import { NotifiationButtonType } from '../NotificationButton'
-
-const claimDeadlineDate = dayjs()
-  .add(3, 'day')
-  .format()
-const formattedClaimDeadlineDate = formatDate(new Date(claimDeadlineDate))
 
 interface NotificationLink {
   label: string
@@ -39,8 +31,7 @@ export const getNotificationsText = (info: ListedClaim): NotificationText => {
     [ClaimStatus.QuestionnaireWaiting]: {
       id: '2',
       image: '/static/images/continue-filling.png',
-      title: `Вам нужно заполнить свои медицинские данные и${NON_BREAKING_SPACE}вопросы эксперту`,
-      text: `Пожалуйста, постарайтесь заполнить анкету до${NON_BREAKING_SPACE}${formattedClaimDeadlineDate}.`,
+      title: `Черновик`,
       button: NotifiationButtonType.QuestionnaireWaiting,
     },
     [ClaimStatus.QuestionnaireValidation]: {
