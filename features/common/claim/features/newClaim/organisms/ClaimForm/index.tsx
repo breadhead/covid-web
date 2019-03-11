@@ -1,7 +1,7 @@
 import { Form } from '@app/features/common/form'
 import Gender from '@app/models/Gender'
 import * as React from 'react'
-import { useCallback, useState } from 'react'
+import { useCallback } from 'react'
 import { DeepPartial } from 'utility-types'
 import { saveNewClaimDraft } from '../../localStorage'
 import { ShortClaimFields } from '../ClaimForm'

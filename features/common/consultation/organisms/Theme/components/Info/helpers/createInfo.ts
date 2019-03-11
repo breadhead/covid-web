@@ -30,7 +30,7 @@ const createInfo = ({
         text: otherDisease,
       },
       {
-        subtitle: 'Кровные родстенники, которые болели раком',
+        subtitle: 'Кровные родственники, которые болели раком',
         children: (relativesDiseases || []).map(
           ({ relative, diagnosisAge, localization }) => ({
             subtitle: relative,
