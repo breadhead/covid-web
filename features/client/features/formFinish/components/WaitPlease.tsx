@@ -19,11 +19,8 @@ export const WaitPlease = ({ styles, email }: Props) => {
         Спасибо. Ваша заявка поставлена в очередь
       </h1>
       <p className={styles.text}>
-        Мы передадим вашу заявку эксперту, как{NON_BREAKING_SPACE}
-        только возобновится финансирование консультаций. Срок
-        {NON_BREAKING_SPACE}
-        рассмотрения заявки может увеличиться. Сейчас у{NON_BREAKING_SPACE}нас
-        меньше пожертвований, чем
+        Срок рассмотрения заявки может увеличиться. Сейчас у{NON_BREAKING_SPACE}
+        нас меньше пожертвований, чем
         {NON_BREAKING_SPACE}необходимо для ответов на{NON_BREAKING_SPACE}
         обращения. Пожалуйста, отнеситесь к этому с{NON_BREAKING_SPACE}
         пониманием — мы{NON_BREAKING_SPACE}обязательно вам ответим.
