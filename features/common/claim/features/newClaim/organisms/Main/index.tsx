@@ -1,11 +1,19 @@
-import { themes } from '@app/features/client/values'
-import { Select } from '@app/features/common/form'
-import { StylesType } from '@app/lib/config'
-import ClaimTarget from '@app/models/Claim/ClaimTarget'
-import { mapString } from '@app/ui/atoms/Select'
 import cx from 'classnames'
 import * as React from 'react'
 import { DeepPartial } from 'utility-types'
+
+import { themes } from '@app/features/client/values'
+import {
+  EmergingControlTypes,
+  EmergingFormElement,
+  Input,
+  Select,
+  TextArea,
+} from '@app/features/common/form'
+import { SPACE, StylesType } from '@app/lib/config'
+import ClaimTarget from '@app/models/Claim/ClaimTarget'
+import { mapString } from '@app/ui/atoms/Select'
+
 import { ShortClaimFields } from '../ClaimForm'
 import { schema } from './schema'
 
@@ -36,20 +44,12 @@ const Main = ({ styles }: Props) => (
       placeholder="Выберите для кого консультация"
     />
 
-    {/* TODO: Hide by ON-357, DO NOT delete */}
-    {/* <p className={styles.emergingLabel}>
+    <p className={cx(styles.label, styles.field)}>
       Вы консультируетесь по корпоративной программе от своего работодателя?
-      {SPACE}
-      <NavLink href="/partners" target={TargetType.Blank}>
-        Узнать{NON_BREAKING_SPACE}больше{NON_BREAKING_SPACE}о
-        {NON_BREAKING_SPACE}программе
-      </NavLink>
     </p>
     <EmergingFormElement
-      defaultValue={RadioButtonsValue.No}
       validate={schema.companyPresence}
       controlType={EmergingControlTypes.Switch}
-      defaultVisible={initial.companyPresence}
       name="companyPresence"
     >
       <label
@@ -58,14 +58,10 @@ const Main = ({ styles }: Props) => (
       >
         Название компании-работодателя
       </label>
-      <Input
-        className={styles.field}
-        validate={schema.companyName}
-        name="company.name"
-      />
+      <Input validate={schema.companyName} name="company.name" />
       <label
         htmlFor="company.position"
-        className={cx(styles.label, styles.emergingLabel)}
+        className={cx(styles.label, styles.emergingLabel, styles.field)}
       >
         Ваша должность и департамент компании.{SPACE}
         <span className={styles.secondaryText}>
@@ -74,7 +70,7 @@ const Main = ({ styles }: Props) => (
         </span>
       </label>
       <TextArea validate={schema.companyPosition} name="company.position" />
-    </EmergingFormElement> */}
+    </EmergingFormElement>
   </article>
 )
 

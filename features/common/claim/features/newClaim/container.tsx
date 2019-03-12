@@ -77,19 +77,15 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
 
         const { smsPhone } = this.props
         if (!!claim) {
-          return nanomerge(
-            {
-              ...claim,
-              localizationPresence: !!claim.localization,
-              companyPresence: !!claim.company,
-            },
-            draft,
-          )
+          return {
+            ...claim,
+            localizationPresence: !!claim.localization,
+            companyPresence: !!claim.company,
+          }
         }
 
         return nanomerge(
           {
-            companyPresence: false,
             personalData: { phone: smsPhone },
           },
           draft,
