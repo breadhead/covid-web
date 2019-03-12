@@ -5,9 +5,10 @@ import { NON_BREAKING_SPACE } from '@app/lib/config'
 interface Props {
   styles: any
   email: string
+  number: number
 }
 
-export const WaitPlease = ({ styles, email }: Props) => {
+export const WaitPlease = ({ styles, email, number }: Props) => {
   return (
     <>
       <Head>
@@ -16,6 +17,8 @@ export const WaitPlease = ({ styles, email }: Props) => {
         </title>
       </Head>
       <h1 className={styles.title}>
+        <small>Заявка №{number}</small>
+        <br />
         Спасибо. Ваша заявка поставлена в очередь
       </h1>
       <p className={styles.text}>
