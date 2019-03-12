@@ -9,9 +9,10 @@ import { WaitPlease } from '../components/WaitPlease'
 export interface Props {
   email: string
   waiting: boolean
+  number: number
 }
 
-const FormFinish = ({ email, waiting }: Props) => (
+const FormFinish = ({ email, waiting, number }: Props) => (
   <Layout
     headerClassName={styles.mainHeader}
     pageClassName={styles.formFinish}
@@ -21,9 +22,9 @@ const FormFinish = ({ email, waiting }: Props) => (
       <img className={styles.image} src="/static/images/2-step.png" />
     </div>
     {waiting ? (
-      <WaitPlease styles={styles} email={email} />
+      <WaitPlease styles={styles} email={email} number={number} />
     ) : (
-      <QuotaAllocated styles={styles} email={email} />
+      <QuotaAllocated styles={styles} email={email} number={number} />
     )}
   </Layout>
 )

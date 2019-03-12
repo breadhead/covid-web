@@ -7,11 +7,9 @@ import { AnyAction, Dispatch } from 'redux'
 
 import { fetchClaim } from '@app/features/common/consultation'
 import { getRoles } from '@app/features/login'
-import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { Role } from '@app/models/Users/User'
 import routes from '@app/routes'
 
-import { fetchShortClaim } from '../../../newClaim'
 import { createQuestionsClaim as createQuestionsClaimAction } from './actions'
 import { getQuestionsClaimDraft } from './localStorage'
 import { FooterType } from './organisms/Form'
@@ -91,7 +89,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
           createQuestionsClaim,
           shortClaim,
           setQuestionsClaimError,
-          fetchQuotaAllocated,
+          fetchAllClaim,
         } = this.props
 
         const request = this.createRequest(fields, shortClaim.id)
@@ -106,7 +104,8 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
           const { error, roles } = this.props
 
           if (!error) {
-            const { quotaAllocated }: ShortClaim = await fetchQuotaAllocated(
+            // tslint:disable-next-line: no-shadowed-variable
+            const { mainInfo, shortClaim } = await fetchAllClaim(
               this.props.shortClaim.id,
             )
 
@@ -114,7 +113,8 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
               shortClaim.personalData.email,
               shortClaim.id,
               roles,
-              quotaAllocated,
+              mainInfo.number,
+              shortClaim.quotaAllocated,
             )
           }
           return
@@ -154,16 +154,21 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
         email: string = '',
         id: string,
         roles: Role[],
+        number: number,
         quotaAallocated: boolean = false,
       ) {
         if (roles.includes(Role.Client)) {
           if (quotaAallocated) {
             Router.pushRoute(
-              `/client/claim/form-finish/${encodeURIComponent(email)}`,
+              `/client/claim/form-finish/${encodeURIComponent(
+                email,
+              )}?number=${number}`,
             )
           } else {
             Router.pushRoute(
-              `/client/claim/wait-please/${encodeURIComponent(email)}`,
+              `/client/claim/wait-please/${encodeURIComponent(
+                email,
+              )}?number=${number}`,
             )
           }
         } else if (roles.includes(Role.CaseManager)) {
@@ -184,7 +189,7 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   createQuestionsClaim: (questionsClaim: QuestionsClaim) =>
     dispatch(createQuestionsClaimAction(questionsClaim) as any),
   setQuestionsClaimError: (error: string) => dispatch(actions.error(error)),
-  fetchQuotaAllocated: (id: string) => dispatch(fetchShortClaim(id) as any),
+  fetchAllClaim: (id: string) => dispatch(fetchClaim(id) as any),
 })
 
 export default Container

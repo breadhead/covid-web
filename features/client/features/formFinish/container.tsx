@@ -6,7 +6,7 @@ import { Props } from './page'
 
 interface Query {
   email: string
-  waiting: boolean
+  number: number
 }
 
 const Container = (Wrapped: ComponentType<Props>) =>
@@ -14,7 +14,7 @@ const Container = (Wrapped: ComponentType<Props>) =>
     public static isSecure = true
 
     public static async getInitialProps(context: AppContext<Query>) {
-      const { email } = context.query
+      const { email, number } = context.query
 
       const path: string = (context as any).asPath
 
@@ -23,13 +23,14 @@ const Container = (Wrapped: ComponentType<Props>) =>
       return {
         email: decodeURIComponent(email),
         waiting,
+        number,
       }
     }
 
     public render() {
-      const { email, waiting } = this.props
+      const { email, waiting, number } = this.props
 
-      return <Wrapped email={email!} waiting={!!waiting} />
+      return <Wrapped email={email!} waiting={!!waiting} number={number || 0} />
     }
   }
 

@@ -5,15 +5,20 @@ import { NON_BREAKING_SPACE } from '@app/lib/config'
 interface Props {
   styles: any
   email: string
+  number: number
 }
 
-export const QuotaAllocated = ({ styles, email }: Props) => {
+export const QuotaAllocated = ({ styles, email, number }: Props) => {
   return (
     <>
       <Head>
         <title>Спасибо! Мы получили вашу заявку | Просто спросить</title>
       </Head>
-      <h1 className={styles.title}>Спасибо! Мы получили вашу заявку</h1>
+      <h1 className={styles.title}>
+        <small>Заявка №{number}</small>
+        <br />
+        Спасибо! Мы получили вашу заявку
+      </h1>
       <p className={styles.text}>
         Мы передадим вашу заявку подходящему эксперту.
         <br />
