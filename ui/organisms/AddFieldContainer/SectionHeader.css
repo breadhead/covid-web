@@ -6,6 +6,7 @@
 
 .text {
   font: var(--title-small);
+  font-weight: 500;
 }
 
 .button {
@@ -17,7 +18,7 @@
   color: var(--color-link);
   cursor: pointer;
   background-color: transparent;
-  border: none;
+  border: none !important;
 
   & .icon {
     display: block;

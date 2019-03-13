@@ -2,8 +2,6 @@ import { ReactNode } from 'react'
 
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 
-import formatDate from '../../../helpers/formatDate'
-
 interface FullParams {
   expireAt: Date
   email: string
@@ -16,12 +14,6 @@ type SubtitlesMap = Partial<
 >
 
 const getSubtitlesMap: SubtitlesMap = {
-  [ClaimStatus.QuestionnaireWaiting]: ({ expireAt }) => (
-    <>
-      Пожалуйста, постарайтесь дозаполнить заявку до{' '}
-      <b>{expireAt && formatDate(expireAt)}</b>
-    </>
-  ),
   [ClaimStatus.QuotaAllocation]: ({ email }) => (
     <>
       Мы получили вашу заявку. Как только у нас появятся средства на

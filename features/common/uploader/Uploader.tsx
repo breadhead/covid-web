@@ -1,66 +1,99 @@
 import { head } from 'lodash'
-import * as React from 'react'
+import { useCallback, useMemo, useRef, useState } from 'react'
+import { useMappedState } from 'redux-react-hook'
 
-import Button, { ButtonType } from '@app/ui/atoms/Button'
-
+import { push } from '@app/features/admin/features/toast'
 import { getToken } from '@app/features/login'
 import factory from '@app/lib/api/apiFactory'
-import { connect } from 'react-redux'
+import Button, { ButtonKind } from '@app/ui/atoms/Button'
+import ExternalLink from '@app/ui/molecules/ExternalLink'
+import ProgressBar from './atoms/ProgressBar'
+import { displayFileName } from './displayFileName'
 import * as styles from './Uploader.css'
 
 interface Props {
+  initialValue?: string
   onUploaded?: (url: string) => void
   id?: string
-  token: string
+  remove?: () => void
 }
 
-interface State {
-  path: string | null
-}
+const Uploader = ({ id, onUploaded, initialValue, remove }: Props) => {
+  const token = useMappedState(getToken)
+  const api = useMemo(() => factory(token), [token])
 
-class Uploader extends React.Component<Props, State> {
-  public state = {
-    path: null,
-  } as State
+  const [path, setPath] = useState(initialValue)
+  const [uploading, setUploading] = useState(false)
+  const [precentage, setPercentage] = useState(0)
 
-  private fileInput: React.RefObject<HTMLInputElement> = React.createRef()
+  const fileInput = useRef<HTMLInputElement>(null)
 
-  public render() {
-    const { id } = this.props
-    const { path } = this.state
+  const onChange = useCallback(
+    async () => {
+      if (!fileInput.current) {
+        return
+      }
 
-    return (
-      <div className={styles.container}>
-        <input type="file" ref={this.fileInput} id={id} />
-        <Button onClick={this.onClick} type={ButtonType.Button}>
-          Загрузить
-        </Button>
-        {path && <p>{path}</p>}
+      const currentFile = head(fileInput.current.files)
+
+      if (!currentFile) {
+        return
+      }
+
+      try {
+        setUploading(true)
+        setPercentage(0)
+
+        const { path: newPath } = await api.uploadFile(
+          currentFile,
+          setPercentage,
+        )
+
+        push({ message: 'Файл загружен' })
+        setPath(newPath)
+
+        if (onUploaded) {
+          onUploaded(newPath)
+        }
+      } catch (e) {
+        push({
+          message: 'Что-то пошло не так',
+          description: 'Попробуйте, пожалуйста, позже',
+        })
+      } finally {
+        setUploading(false)
+      }
+    },
+    [path, fileInput, api],
+  )
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.row}>
+        <label className={styles.fileLabel} htmlFor={id}>
+          <input
+            onChange={onChange}
+            className={styles.fileInput}
+            type="file"
+            ref={fileInput}
+            id={id}
+          />
+          {path ? 'Изменить файл' : 'Загрузить файл'}
+        </label>
+        {path && remove && (
+          <Button kind={ButtonKind.Extra} onClick={remove}>
+            Удалить
+          </Button>
+        )}
       </div>
-    )
-  }
-
-  private onClick = async () => {
-    if (!this.fileInput.current) {
-      return
-    }
-
-    const file = head(this.fileInput.current.files)
-
-    if (!file) {
-      return
-    }
-
-    const { onUploaded, token } = this.props
-    const apiClient = factory(token)
-    const { path } = await apiClient.uploadFile(file)
-
-    this.setState({ path }, () => onUploaded && onUploaded(path))
-  }
+      {uploading && <ProgressBar percentage={precentage} />}
+      {!!path && (
+        <ExternalLink href={path} className={styles.link}>
+          {displayFileName(path)}
+        </ExternalLink>
+      )}
+    </div>
+  )
 }
 
-const mapState = (state: any) => ({
-  token: getToken(state),
-})
-
-export default connect(mapState)(Uploader)
+export default Uploader

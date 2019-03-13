@@ -132,7 +132,14 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
           fields.radiationTreatments = []
         }
 
-        return { ...fields, id, otherFiles: fields.otherFiles || [] }
+        const otherFiles = (fields.otherFiles || [])
+          .filter(file => !!file.url)
+          .map((file, index) => ({
+            ...file,
+            title: file.title || `Файл №${index + 1}`,
+          }))
+
+        return { ...fields, id, otherFiles }
       }
     },
   )

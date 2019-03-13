@@ -232,4 +232,9 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .get(`/claims/manager/client`, { params: { login } })
       .then(response => response.data as ShortClaim[])
+
+  public commonQuotasAvailable = () =>
+    this.axiosInstance
+      .get('/statistics/quotas-available')
+      .then(response => response.data as boolean)
 }

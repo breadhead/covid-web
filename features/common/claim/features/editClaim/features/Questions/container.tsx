@@ -5,11 +5,11 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, Dispatch } from 'redux'
 
-import routes from '@app/routes'
-
 import { fetchClaim } from '@app/features/common/consultation'
 import { getRoles } from '@app/features/login'
 import { Role } from '@app/models/Users/User'
+import routes from '@app/routes'
+
 import { createQuestionsClaim as createQuestionsClaimAction } from './actions'
 import { getQuestionsClaimDraft } from './localStorage'
 import { FooterType } from './organisms/Form'
@@ -89,6 +89,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
           createQuestionsClaim,
           shortClaim,
           setQuestionsClaimError,
+          fetchAllClaim,
         } = this.props
 
         const request = this.createRequest(fields, shortClaim.id)
@@ -103,7 +104,18 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
           const { error, roles } = this.props
 
           if (!error) {
-            this.redirect(shortClaim.personalData.email, shortClaim.id, roles)
+            // tslint:disable-next-line: no-shadowed-variable
+            const { mainInfo, shortClaim } = await fetchAllClaim(
+              this.props.shortClaim.id,
+            )
+
+            this.redirect(
+              shortClaim.personalData.email,
+              shortClaim.id,
+              roles,
+              mainInfo.number,
+              shortClaim.quotaAllocated,
+            )
           }
           return
         }
@@ -138,11 +150,27 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
         )
       }
 
-      private redirect(email: string = '', id: string, roles: Role[]) {
+      private redirect(
+        email: string = '',
+        id: string,
+        roles: Role[],
+        number: number,
+        quotaAallocated: boolean = false,
+      ) {
         if (roles.includes(Role.Client)) {
-          Router.pushRoute(
-            `/client/claim/form-finish/${encodeURIComponent(email)}`,
-          )
+          if (quotaAallocated) {
+            Router.pushRoute(
+              `/client/claim/form-finish/${encodeURIComponent(
+                email,
+              )}?number=${number}`,
+            )
+          } else {
+            Router.pushRoute(
+              `/client/claim/wait-please/${encodeURIComponent(
+                email,
+              )}?number=${number}`,
+            )
+          }
         } else if (roles.includes(Role.CaseManager)) {
           Router.pushRoute(`/manager/consultation/${id}`)
         }
@@ -161,6 +189,7 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   createQuestionsClaim: (questionsClaim: QuestionsClaim) =>
     dispatch(createQuestionsClaimAction(questionsClaim) as any),
   setQuestionsClaimError: (error: string) => dispatch(actions.error(error)),
+  fetchAllClaim: (id: string) => dispatch(fetchClaim(id) as any),
 })
 
 export default Container

@@ -24,7 +24,7 @@ const footer: FooterType = (
   loading,
   styles,
   id,
-  showDraftNotification,
+  showDraftNotification = false,
 ) => (
   <Footer
     error={error}
