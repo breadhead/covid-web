@@ -42,20 +42,20 @@ const RadioGroupElement = ({
   value,
   ...rest
 }: Props) => {
-  const currentValue = getValue(value)
+  const [currentValue, setCurrentValue] = React.useState(undefined)
+
+  React.useEffect(() => {
+    setCurrentValue(getValue(value) as any)
+  }, [])
+
   return (
-    <>
-      {currentValue && (
-        <RadioGroup
-          name={name}
-          buttons={radioButtons}
-          onChange={onChange}
-          value={currentValue}
-          {...rest}
-        />
-      )}
-    </>
+    <RadioGroup
+      name={name}
+      buttons={radioButtons}
+      onChange={onChange}
+      value={currentValue}
+      {...rest}
+    />
   )
 }
-
 export default RadioGroupElement
