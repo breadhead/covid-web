@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react'
 
-import { ExternalLink } from '@front/ui/atoms/extarnal-link'
+import { ExternalLink } from '@front/ui/extarnal-link'
 
 import { findUrls } from './helpers/findUrls'
 import { isUrl } from './helpers/isUrl'

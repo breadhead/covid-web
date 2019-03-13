@@ -1,6 +1,6 @@
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { Doctor } from '@app/models/Users/Doctor'
-import Button, { ButtonKind } from '@app/ui/Button'
+import { Button, ButtonKind } from '@front/ui/button'
 
 import Status from '../../atoms/Status'
 import { showSendToClientButton } from '../../helpers/showSendToClientButton'

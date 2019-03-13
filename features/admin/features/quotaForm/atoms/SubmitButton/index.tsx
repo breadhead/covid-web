@@ -1,7 +1,7 @@
 import { Form as AntdForm } from 'antd'
 import { ReactNode } from 'react'
 
-import Button, { ButtonKind, ButtonType } from '@app/ui/Button'
+import { Button, ButtonKind } from '@front/ui/button'
 
 const FormItem = AntdForm.Item
 
@@ -18,7 +18,7 @@ const SubmitButton = ({ error, children }: Props) => {
       validateStatus={error ? 'error' : undefined}
       help={error && INVALID_MESSAGE}
     >
-      <Button kind={ButtonKind.Primary} type={ButtonType.Submit}>
+      <Button kind={ButtonKind.Primary} submit>
         {children}
       </Button>
     </FormItem>

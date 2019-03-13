@@ -1,16 +1,14 @@
-import ButtonWithTooltip from '@app/features/common/form/components/ButtonWithTooltip'
 import { ACCOUNT_EXISTS_STATUS } from '@app/features/login/features/signUp'
 import { SignUpError } from '@app/features/login/features/signUp/reducer'
 import * as React from 'react'
 import styles from './SignUp.css'
 
-import { InputType } from '@app/features/common/form'
+import { ButtonWithTooltip, InputType } from '@app/features/common/form'
 import Form from '@app/features/common/form/components/Form'
 import Input from '@app/features/common/form/components/Input'
 import OpenModalButton from '@app/features/login/atoms/OpenModalButton'
 import Footer from '@app/features/login/organisms/Footer'
 import { SPACE } from '@app/lib/config'
-import { ButtonType } from '@app/ui/Button'
 import { confirmCb, schema } from './schema'
 
 interface Props {
@@ -60,7 +58,7 @@ const SignUp = ({ onFormSubmit, error, openSignIn }: Props) => (
             </div>
           )}
           <ButtonWithTooltip
-            type={ButtonType.Submit}
+            submit
             error={!!error && !error.fields ? error.message : undefined}
             className={styles.button}
           >

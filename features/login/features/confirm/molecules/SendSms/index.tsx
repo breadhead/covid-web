@@ -3,8 +3,8 @@ import React from 'react'
 
 import { Form, Input } from '@app/features/common/form'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import Button, { ButtonType } from '@app/ui/Button'
 import Icon, { IconColor, IconType } from '@app/ui/Icon'
+import { Button } from '@front/ui/button'
 
 import * as styles from './SendSms.css'
 
@@ -47,7 +47,7 @@ class SendSms extends React.Component<Props, LocalState> {
               error={validationError || smsSendError}
             />
             <div className={styles.blockGettingCode}>
-              <Button className={styles.button} type={ButtonType.Submit}>
+              <Button className={styles.button} submit>
                 Получить код
               </Button>
               {success && !validationError && (

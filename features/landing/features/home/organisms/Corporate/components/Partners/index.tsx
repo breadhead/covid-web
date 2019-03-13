@@ -3,8 +3,8 @@ import * as React from 'react'
 import * as styles from './Partners.css'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import { ButtonSize } from '@app/ui/Button'
 import NavLink from '@app/ui/NavLink'
+import { ButtonSize } from '@front/ui/button'
 import StartConsultationButton from '../../../../molecules/StartConsultationButton'
 import PartnersList from './components/PartnersList'
 

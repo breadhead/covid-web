@@ -4,8 +4,8 @@ import { compose } from 'recompose'
 import { getToken } from './selectors'
 
 import { withSignUpModal } from '@app/features/login'
-import Button, { ButtonKind, ButtonSize } from '@app/ui/Button'
 import NavLink, { NavLinkType } from '@app/ui/NavLink'
+import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
 
 interface Props {
   children: string

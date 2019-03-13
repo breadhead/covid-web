@@ -6,7 +6,6 @@ import cx from 'classnames'
 import { Form, TextArea } from '@app/features/common/form'
 import { State as AppState } from '@app/lib/store'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
-import { ButtonType } from '@app/ui/Button'
 import IconCustom from '@app/ui/IconCustom'
 
 import { getRoles } from '@app/features/login'
@@ -68,7 +67,7 @@ const Chat = ({
                 disableResizeOnEnter
                 placeholder="Ваше сообщение..."
               />
-              <button type={ButtonType.Submit} className={styles.sendButton}>
+              <button className={styles.sendButton}>
                 <IconCustom
                   className={styles.inputIcon}
                   name="24x24_send-message"

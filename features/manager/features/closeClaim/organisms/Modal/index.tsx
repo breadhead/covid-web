@@ -9,8 +9,8 @@ import {
 } from '@app/lib/api/request/CloseClaimRequest'
 import { RadioButtonStyles } from '@app/ui//RadioGroup'
 
-import Button, { ButtonType } from '@app/ui/Button'
 import { SectionDivider } from '@app/ui/organisms/AddFieldContainer'
+import { Button } from '@front/ui/button'
 import SubmitButton from '../../atoms/Button'
 import {
   addCommentFieldToValues,
@@ -80,7 +80,7 @@ const Modal = ({ onFormSubmit, saveCloseData }: Props) => {
                   Применить
                 </SubmitButton>
               ) : (
-                <Button type={ButtonType.Submit} className={styles.button}>
+                <Button submit className={styles.button}>
                   Применить
                 </Button>
               )}

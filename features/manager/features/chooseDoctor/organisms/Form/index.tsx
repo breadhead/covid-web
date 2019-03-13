@@ -1,5 +1,4 @@
 import {
-  ButtonType,
   ButtonWithTooltip,
   Form as UIForm,
   RadioGroup,
@@ -55,7 +54,7 @@ const Form = ({
             <ButtonWithTooltip
               error={errorMessage}
               className={styles.SubmitButton}
-              type={ButtonType.Submit}
+              submit
             >
               Сохранить
             </ButtonWithTooltip>

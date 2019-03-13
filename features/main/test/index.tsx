@@ -2,13 +2,13 @@ import * as React from 'react'
 
 import { withModal, WithModalProps } from '@app/features/common/modal'
 
-import { ButtonKind, ButtonSize } from '@app/ui/Button'
 import Checkbox from '@app/ui/Checkbox'
 import NavLink, { NavLinkType } from '@app/ui/NavLink'
 import RadioButton from '@app/ui/RadioButton'
 import Select, { mapString } from '@app/ui/Select'
 import Switch from '@app/ui/Switch'
 import TextArea from '@app/ui/TextArea'
+import { ButtonKind, ButtonSize } from '@front/ui/button'
 
 import Layout from '@app/features/client/organisms/Layout'
 import { InputType } from '@app/features/common/form'
@@ -20,9 +20,9 @@ import {
 } from '@app/features/login'
 import Combobox from '@app/ui//Combobox'
 import HintInput from '@app/ui//HintInput'
-import Button from '@app/ui/Button'
 import Input from '@app/ui/Input'
 import TimePicker from '@app/ui/TimePicker'
+import { Button } from '@front/ui/button'
 import FormTest from './FormTest'
 
 const testSelectOptions = [

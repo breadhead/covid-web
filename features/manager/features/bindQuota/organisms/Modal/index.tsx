@@ -1,7 +1,7 @@
 import { Content as QuotasListContent } from '@app/features/admin/features/quotasList'
 import Form from '@app/features/common/form/components/Form'
 import { BindQuotaRequest } from '@app/lib/api/request/BindQuotaRequest'
-import Button, { ButtonType } from '@app/ui/Button'
+import { Button } from '@front/ui/button'
 import * as React from 'react'
 import styles from './BindQuota.css'
 import SelectQuotaType from './SelectQuotaType'
@@ -31,7 +31,7 @@ const QuotaType = ({ onFormSubmit, quotaId }: Props) => {
               }}
             />
 
-            <Button type={ButtonType.Submit} className={styles.button}>
+            <Button submit className={styles.button}>
               Сохранить
             </Button>
           </>

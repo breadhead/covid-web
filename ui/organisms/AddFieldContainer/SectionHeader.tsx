@@ -1,4 +1,3 @@
-import { ButtonType } from '@app/ui/Button'
 import IconCustom from '@app/ui/IconCustom'
 import * as styles from './SectionHeader.css'
 
@@ -20,7 +19,7 @@ const SectionHeader: React.SFC<SectionHeaderProps> = ({
           <p className={styles.text}>Ещё</p>
           <button
             className={styles.button}
-            type={ButtonType.Button}
+            type="button"
             onClick={onRemoveClick}
           >
             <IconCustom className={styles.icon} name="24x24_close_blue" />
@@ -33,7 +32,7 @@ const SectionHeader: React.SFC<SectionHeaderProps> = ({
       return (
         <div className={styles.header}>
           <button
-            type={ButtonType.Button}
+            type="button"
             className={styles.button}
             onClick={onRemoveClick}
           >

@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { useModal } from '@app/features/common/modal'
-import Button, { ButtonSize, ButtonType } from '@app/ui/Button'
+import { Button, ButtonSize } from '@front/ui/button'
 import {
   addCommentFieldToValues,
   InitialValues,
@@ -32,7 +32,7 @@ const SubmitButton = ({
   return (
     <Button
       className={className}
-      type={ButtonType.Submit}
+      submit
       size={ButtonSize.Large}
       onClick={openConfirmModal}
     >

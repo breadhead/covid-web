@@ -1,5 +1,5 @@
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import Button, { ButtonKind } from '@app/ui/Button'
+import { Button, ButtonKind } from '@front/ui/button'
 
 import NavLink, { NavLinkType } from '@app/ui/NavLink'
 import Messages from '../../atoms/Messages'

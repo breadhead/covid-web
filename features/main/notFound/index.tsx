@@ -12,9 +12,9 @@ import * as styles from './NotFound.css'
 
 import StartConsultationButton from '@app/features/landing/features/home/molecules/StartConsultationButton'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import Button, { ButtonKind, ButtonSize } from '@app/ui/Button'
 import IconCustom from '@app/ui/IconCustom'
 import NavLink, { NavLinkType } from '@app/ui/NavLink'
+import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
 
 const NotFound = () => (
   <>
