@@ -6,11 +6,11 @@ import {
   Checkbox,
   Form,
 } from '@app/features/common/form'
-import Button from '@app/ui/atoms/Button'
+import Button from '@app/ui/Button'
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
-import NavLink, { TargetType } from '@app/ui/atoms/NavLink'
+import NavLink, { TargetType } from '@app/ui/NavLink'
 
 import styles from './Terms.css'
 

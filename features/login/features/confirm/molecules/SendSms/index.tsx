@@ -3,8 +3,8 @@ import React from 'react'
 
 import { Form, Input } from '@app/features/common/form'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import Button, { ButtonType } from '@app/ui/atoms/Button'
-import Icon, { IconColor, IconType } from '@app/ui/atoms/Icon'
+import Button, { ButtonType } from '@app/ui/Button'
+import Icon, { IconColor, IconType } from '@app/ui/Icon'
 
 import * as styles from './SendSms.css'
 

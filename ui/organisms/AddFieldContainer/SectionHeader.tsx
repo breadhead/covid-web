@@ -1,5 +1,5 @@
-import { ButtonType } from '@app/ui/atoms/Button'
-import IconCustom from '@app/ui/atoms/IconCustom'
+import { ButtonType } from '@app/ui/Button'
+import IconCustom from '@app/ui/IconCustom'
 import * as styles from './SectionHeader.css'
 
 export interface SectionHeaderProps {

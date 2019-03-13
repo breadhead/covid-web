@@ -3,7 +3,7 @@ import { authViolateStatus, getViolateState } from '@app/features/login'
 import { Store } from '@app/lib/store'
 import withReduxStore from '@app/lib/with-redux-store'
 import '@app/ui/antd-styles.less'
-import Sprite from '@app/ui/atoms/Sprite'
+import Sprite from '@app/ui/Sprite'
 import { Option } from 'tsoption'
 
 import App, { Container, NextAppContext } from 'next/app'

@@ -2,9 +2,9 @@ import * as React from 'react'
 import * as styles from './Intro.css'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import Button, { ButtonKind, ButtonSize } from '@app/ui/atoms/Button'
-import IconCustom from '@app/ui/atoms/IconCustom'
-import NavLink, { NavLinkType, TargetType } from '@app/ui/atoms/NavLink'
+import Button, { ButtonKind, ButtonSize } from '@app/ui/Button'
+import IconCustom from '@app/ui/IconCustom'
+import NavLink, { NavLinkType, TargetType } from '@app/ui/NavLink'
 import StartConsultationButton from '../../../../molecules/StartConsultationButton'
 
 const Intro = () => (

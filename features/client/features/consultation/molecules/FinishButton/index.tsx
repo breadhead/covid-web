@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { useSpecificModal } from '@app/features/common/modal'
 
-import Button, { ButtonSize } from '@app/ui/atoms/Button'
+import Button, { ButtonSize } from '@app/ui/Button'
 import { MODAL_KEY } from '../../organisms/withFinishModal'
 
 interface Props {

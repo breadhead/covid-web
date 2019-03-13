@@ -1,5 +1,5 @@
-import Button, { ButtonKind } from '@app/ui/atoms/Button'
-import IconCustom from '@app/ui/atoms/IconCustom'
+import Button, { ButtonKind } from '@app/ui/Button'
+import IconCustom from '@app/ui/IconCustom'
 import { range } from 'lodash'
 import { size } from 'lodash'
 import * as React from 'react'

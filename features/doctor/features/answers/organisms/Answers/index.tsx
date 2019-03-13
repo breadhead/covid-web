@@ -12,7 +12,7 @@ import {
   ButtonWithTooltip,
 } from '@app/features/common/form'
 import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
-import Button from '@app/ui/atoms/Button'
+import Button from '@app/ui/Button'
 
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { makeFieldName } from '../../helpers/makeFieldName'

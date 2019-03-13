@@ -3,7 +3,7 @@ import * as React from 'react'
 import { displayFileName } from '@app/features/common/uploader/displayFileName'
 import { StylesType } from '@app/lib/config'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
-import ExternalLink from '@app/ui/molecules/ExternalLink'
+import ExternalLink from '@app/ui//ExternalLink'
 import { ClickableText } from '@front/ui/molecules/clickable-text'
 
 import claimToInfoBlocks from './helpers/claimToInfoBlocks'

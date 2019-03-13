@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import HintInput from '@app/ui/molecules/HintInput'
+import HintInput from '@app/ui//HintInput'
 
 import { OPTIONS_CLINICS } from './config'
 

@@ -1,5 +1,5 @@
-import Button, { Props } from '@app/ui/atoms/Button'
+import Button, { Props } from '@app/ui/Button'
 import withTooltip from '../../formHOCs/withTooltip'
 
-export { ButtonSize, ButtonType, ButtonKind } from '@app/ui/atoms/Button'
+export { ButtonSize, ButtonType, ButtonKind } from '@app/ui/Button'
 export default withTooltip<Props>(Button)

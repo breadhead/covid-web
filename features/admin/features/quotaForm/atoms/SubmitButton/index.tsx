@@ -1,7 +1,7 @@
 import { Form as AntdForm } from 'antd'
 import { ReactNode } from 'react'
 
-import Button, { ButtonKind, ButtonType } from '@app/ui/atoms/Button'
+import Button, { ButtonKind, ButtonType } from '@app/ui/Button'
 
 const FormItem = AntdForm.Item
 

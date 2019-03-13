@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import * as styles from './YandexMap.css'
 
-import ExternalLink from '@app/ui/molecules/ExternalLink'
+import ExternalLink from '@app/ui//ExternalLink'
 import { Map, Placemark, YMaps } from 'react-yandex-maps'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'

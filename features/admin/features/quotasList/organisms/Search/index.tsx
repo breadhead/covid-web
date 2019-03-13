@@ -1,7 +1,7 @@
 import { debounce } from 'lodash'
 import * as React from 'react'
 
-import Input from '@app/ui/atoms/Input'
+import Input from '@app/ui/Input'
 
 interface Props {
   value?: string

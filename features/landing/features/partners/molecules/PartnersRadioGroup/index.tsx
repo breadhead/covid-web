@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import cx from 'classnames'
 
-import '@app/ui/molecules/RadioGroup/ButtonStyle.css?CSSModulesDisable'
+import '@app/ui//RadioGroup/ButtonStyle.css?CSSModulesDisable'
 
 import { Radio } from 'antd'
 import { RadioChangeEvent } from 'antd/lib/radio'

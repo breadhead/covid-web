@@ -3,7 +3,7 @@ import * as React from 'react'
 
 import { RadioGroup } from '@app/features/common/form'
 import { Quota } from '@app/models/Quota/Quota'
-import { RadioButtonStyles } from '@app/ui/molecules/RadioGroup'
+import { RadioButtonStyles } from '@app/ui//RadioGroup'
 
 // TODO: fix types
 const SelectQuotaType = ({ quotas = [{}], ...rest }: any) => {

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import Container from '@app/ui/atoms/Container'
+import Container from '@app/ui/Container'
 
 import Header from '../Header'
 

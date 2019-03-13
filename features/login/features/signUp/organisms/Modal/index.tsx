@@ -10,7 +10,7 @@ import Input from '@app/features/common/form/components/Input'
 import OpenModalButton from '@app/features/login/atoms/OpenModalButton'
 import Footer from '@app/features/login/organisms/Footer'
 import { SPACE } from '@app/lib/config'
-import { ButtonType } from '@app/ui/atoms/Button'
+import { ButtonType } from '@app/ui/Button'
 import { confirmCb, schema } from './schema'
 
 interface Props {

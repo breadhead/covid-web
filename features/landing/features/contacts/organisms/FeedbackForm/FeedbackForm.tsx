@@ -4,7 +4,7 @@ import * as styles from './FeedbackForm.css'
 
 import { Form, Input, TextArea } from '@app/features/common/form'
 import { SendFeedbackRequest } from '@app/lib/api/request/SendFeedback'
-import Button, { ButtonType } from '@app/ui/atoms/Button'
+import Button, { ButtonType } from '@app/ui/Button'
 import * as yup from 'yup'
 
 const REQUIRED = 'Обязательное поле'

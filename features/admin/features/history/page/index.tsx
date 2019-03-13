@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import Layout from '@app/features/admin/organisms/Layout'
 import { Transaction } from '@app/models/Quota/Transaction'
-import Loader from '@app/ui/atoms/Loader'
+import Loader from '@app/ui/Loader'
 
 import Header from '../organisms/Header'
 import TransactionList from '../organisms/TransactionList'

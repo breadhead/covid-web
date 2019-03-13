@@ -1,5 +1,5 @@
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
-import IconCustom from '@app/ui/atoms/IconCustom'
+import IconCustom from '@app/ui/IconCustom'
 import * as React from 'react'
 import OpenModalButton from '../../atoms/OpenModalButton'
 import styles from './Footer.css'

@@ -2,13 +2,13 @@ import * as React from 'react'
 
 import { withModal, WithModalProps } from '@app/features/common/modal'
 
-import { ButtonKind, ButtonSize } from '@app/ui/atoms/Button'
-import Checkbox from '@app/ui/atoms/Checkbox'
-import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
-import RadioButton from '@app/ui/atoms/RadioButton'
-import Select, { mapString } from '@app/ui/atoms/Select'
-import Switch from '@app/ui/atoms/Switch'
-import TextArea from '@app/ui/atoms/TextArea'
+import { ButtonKind, ButtonSize } from '@app/ui/Button'
+import Checkbox from '@app/ui/Checkbox'
+import NavLink, { NavLinkType } from '@app/ui/NavLink'
+import RadioButton from '@app/ui/RadioButton'
+import Select, { mapString } from '@app/ui/Select'
+import Switch from '@app/ui/Switch'
+import TextArea from '@app/ui/TextArea'
 
 import Layout from '@app/features/client/organisms/Layout'
 import { InputType } from '@app/features/common/form'
@@ -18,11 +18,11 @@ import {
   SIGN_UP_MODAL,
   SMS_CONFIRM_MODAL,
 } from '@app/features/login'
-import Button from '@app/ui/atoms/Button'
-import Input from '@app/ui/atoms/Input'
-import TimePicker from '@app/ui/atoms/TimePicker'
-import Combobox from '@app/ui/molecules/Combobox'
-import HintInput from '@app/ui/molecules/HintInput'
+import Combobox from '@app/ui//Combobox'
+import HintInput from '@app/ui//HintInput'
+import Button from '@app/ui/Button'
+import Input from '@app/ui/Input'
+import TimePicker from '@app/ui/TimePicker'
 import FormTest from './FormTest'
 
 const testSelectOptions = [

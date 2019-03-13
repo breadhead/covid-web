@@ -7,9 +7,9 @@ import {
   CloseClaimRequest,
   CloseType,
 } from '@app/lib/api/request/CloseClaimRequest'
-import { RadioButtonStyles } from '@app/ui/molecules/RadioGroup'
+import { RadioButtonStyles } from '@app/ui//RadioGroup'
 
-import Button, { ButtonType } from '@app/ui/atoms/Button'
+import Button, { ButtonType } from '@app/ui/Button'
 import { SectionDivider } from '@app/ui/organisms/AddFieldContainer'
 import SubmitButton from '../../atoms/Button'
 import {

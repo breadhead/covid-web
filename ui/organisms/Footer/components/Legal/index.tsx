@@ -1,12 +1,12 @@
 import cx from 'classnames'
 import * as React from 'react'
 
-import NavLink, { NavLinkType, TargetType } from '@app/ui/atoms/NavLink'
+import NavLink, { NavLinkType, TargetType } from '@app/ui/NavLink'
 
 import * as styles from './Legal.css'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import ExternalLink from '@app/ui/molecules/ExternalLink'
+import ExternalLink from '@app/ui//ExternalLink'
 
 interface Props {
   className?: string

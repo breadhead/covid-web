@@ -1,6 +1,6 @@
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { Doctor } from '@app/models/Users/Doctor'
-import Button, { ButtonKind } from '@app/ui/atoms/Button'
+import Button, { ButtonKind } from '@app/ui/Button'
 import Router from 'next/router'
 import { WithQuotaTypeModal } from '../../../bindQuota'
 import { WithChooseDoctorModal } from '../../../chooseDoctor'

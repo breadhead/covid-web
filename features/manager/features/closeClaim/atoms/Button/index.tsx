@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { useModal } from '@app/features/common/modal'
-import Button, { ButtonSize, ButtonType } from '@app/ui/atoms/Button'
+import Button, { ButtonSize, ButtonType } from '@app/ui/Button'
 import {
   addCommentFieldToValues,
   InitialValues,
