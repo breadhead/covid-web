@@ -44,6 +44,7 @@
 }
 
 .input {
+  padding: 12px 44px 12px 41px !important;
   border-bottom-right-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
 
@@ -68,14 +69,34 @@
   fill: var(--color-primary);
 }
 
+.attachIcon {
+  width: 24px;  
+  height: 24px;
+  fill: #bfbfbf;
+}
+
 .sendButton {
   position: absolute;
-  right: 16px;
-  bottom: 12px;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
   display: flex;
-  padding: 0;
+  height: 100%;
+  padding: 0 16px 0 0;
   cursor: pointer;
   background-color: transparent;
   border: 0;
 }
 
+.attachButton {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  height: 100%;
+  padding: 0 0 0 8px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+}

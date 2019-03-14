@@ -59,6 +59,12 @@ const Chat = ({
         {() =>
           !muted && (
             <>
+              <button className={styles.attachButton}>
+                <IconCustom
+                  className={styles.attachIcon}
+                  name="24x24_attach-file"
+                />
+              </button>
               <TextArea
                 onFocus={onTextAreaFocus}
                 autosize={{ minRows: 1, maxRows: 4 }}
