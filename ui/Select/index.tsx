@@ -12,6 +12,7 @@ interface OwnProps {
   label?: string
   error?: string
   className?: string
+  placeholder?: string
 }
 
 export type Props = OwnProps & SelectProps
@@ -23,6 +24,7 @@ const Select = ({
   error,
   className,
   value,
+  placeholder,
   ...rest
 }: Props) => (
   <div className={className}>
@@ -30,6 +32,7 @@ const Select = ({
     <AntSelect
       value={`${value}` || undefined}
       id={name}
+      placeholder={!value ? undefined : placeholder}
       {...rest}
       className={error && 'error'}
     >
