@@ -1,15 +1,17 @@
 import { createSelector } from 'reselect'
 import { Option } from 'tsoption'
 
-import { getShortClaim } from '@app/features/common/claim/features/newClaim/selectors'
+import { getClaim } from '@app/features/common/consultation'
 
 import { CorporateStatus } from '../enums/CorporateStatus'
 
 export const getCorporateStatus = createSelector(
-  getShortClaim,
-  shortClaim =>
-    Option.of(shortClaim).map(() => {
-      // TODO: define status
-      return CorporateStatus.Checking
-    }),
+  getClaim,
+  claim => {
+    if (!claim) {
+      return Option.of<CorporateStatus>(undefined)
+    }
+
+    return Option.of(claim.mainInfo.corporateStatus)
+  },
 )
