@@ -106,7 +106,11 @@ import {
 import ApiClient from './api/ApiClient'
 import factory from './api/apiFactory'
 
+import { domainReducer } from '@app/src/domain/redux/domainReducer'
+import { DomainState } from '@app/src/domain/redux/DomainState'
+
 export interface State {
+  domain: DomainState
   login: LoginState
   quotas: QuotasState
   createQuota: CreateQuotaState
@@ -128,6 +132,7 @@ export interface State {
 }
 
 const reducer = combineReducers({
+  domain: domainReducer,
   login: loginReducer,
   quotas: quotasReducer,
   createQuota: createQuotaReducer,
