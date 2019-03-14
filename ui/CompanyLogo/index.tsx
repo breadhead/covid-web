@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import ExternalLink from '@app/ui//ExternalLink'
+import ExternalLink from '@app/ui/ExternalLink'
 import ServerImage from '@app/ui/ServerImage'
 
 import styles from './CompanyLogo.css'

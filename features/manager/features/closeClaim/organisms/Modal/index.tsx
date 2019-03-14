@@ -7,7 +7,7 @@ import {
   CloseClaimRequest,
   CloseType,
 } from '@app/lib/api/request/CloseClaimRequest'
-import { RadioButtonStyles } from '@app/ui//RadioGroup'
+import { RadioButtonStyles } from '@app/ui/RadioGroup'
 
 import { SectionDivider } from '@app/ui/organisms/AddFieldContainer'
 import { Button } from '@front/ui/button'

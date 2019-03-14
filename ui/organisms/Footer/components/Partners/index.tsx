@@ -5,7 +5,7 @@ import { NON_BREAKING_SPACE } from '@app/lib/config'
 
 import styles from './Partners.css'
 
-import ExternalLink from '@app/ui//ExternalLink'
+import ExternalLink from '@app/ui/ExternalLink'
 
 interface Props {
   className?: string

@@ -1,24 +1,13 @@
 import cx from 'classnames'
-import React, { ReactNode } from 'react'
+import React from 'react'
 
 import styles from './Button.css'
 import { ButtonKind } from './ButtonKind'
+import { ButtonProps } from './ButtonProps'
 import { ButtonSize } from './ButtonSize'
-import { get } from './helpers/getButtonType'
+import { getButtonType } from './helpers/getButtonType'
 import { getKindClassName } from './helpers/getKindClassName'
 import { getSizeClassName } from './helpers/getSizeClassName'
-
-export interface Props {
-  children: ReactNode
-  size?: ButtonSize
-  kind?: ButtonKind
-  onClick?:
-    | ((event: React.MouseEvent<HTMLButtonElement>) => void | undefined)
-    | (() => void)
-  disabled?: boolean
-  submit?: boolean
-  className?: string
-}
 
 export const Button = ({
   children,
@@ -28,8 +17,7 @@ export const Button = ({
   submit = false,
   onClick,
   className,
-  ...rest
-}: Props) => (
+}: ButtonProps) => (
   <button
     className={cx(
       styles.button,
@@ -39,8 +27,7 @@ export const Button = ({
     )}
     onClick={onClick}
     disabled={disabled}
-    type={get(submit)}
-    {...rest}
+    type={getButtonType(submit)}
   >
     {children}
   </button>

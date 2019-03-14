@@ -18,8 +18,8 @@ import {
   SIGN_UP_MODAL,
   SMS_CONFIRM_MODAL,
 } from '@app/features/login'
-import Combobox from '@app/ui//Combobox'
-import HintInput from '@app/ui//HintInput'
+import Combobox from '@app/ui/Combobox'
+import HintInput from '@app/ui/HintInput'
 import Input from '@app/ui/Input'
 import TimePicker from '@app/ui/TimePicker'
 import { Button } from '@front/ui/button'

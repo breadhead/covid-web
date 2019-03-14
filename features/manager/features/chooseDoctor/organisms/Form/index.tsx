@@ -4,7 +4,7 @@ import {
   RadioGroup,
 } from '@app/features/common/form'
 import { Doctor } from '@app/models/Users/Doctor'
-import { RadioButtonStyles } from '@app/ui//RadioGroup'
+import { RadioButtonStyles } from '@app/ui/RadioGroup'
 import cx from 'classnames'
 import * as React from 'react'
 import { mapDoctors } from '../../helpers/mapDoctors'
