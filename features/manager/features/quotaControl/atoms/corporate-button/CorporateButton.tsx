@@ -3,7 +3,7 @@ import { useMappedState } from 'redux-react-hook'
 
 import { useModal } from '@app/features/common/modal'
 import { CorporateStatus } from '@app/src/domain/claim/enums/CorporateStatus'
-import { getReadbleCorporateStatus } from '@app/src/domain/claim/getters/getReadableCorporateStaus'
+import { getReadableCorporateStatus } from '@app/src/domain/claim/getters/getReadableCorporateStatus'
 import { getCorporateStatus } from '@app/src/domain/claim/selectors/getCorporateStatus'
 import ButtonWithArrow from '@app/ui/ButtonWithArrow'
 
@@ -16,7 +16,7 @@ export const CorporateButton = () => {
 
   const label = React.useMemo(
     () =>
-      getReadbleCorporateStatus(
+      getReadableCorporateStatus(
         currentStatus.getOrElse(CorporateStatus.Checking),
       ),
     [currentStatus],
