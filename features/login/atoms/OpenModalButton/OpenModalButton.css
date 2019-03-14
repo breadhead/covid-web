@@ -5,7 +5,6 @@
 .openSignUpButton.openSignUpButton.openSignUpButton {
   display: inline-block;
   padding: 0 !important;
-  margin-right: 16px !important;
   font: var(--text14-20) !important;
   color: var(--color-link);
   cursor: pointer;

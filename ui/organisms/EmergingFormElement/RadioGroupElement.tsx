@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import cx from 'classnames'
 
-import { RadioButtonStyles } from '@app/ui/molecules/RadioGroup'
+import { RadioButtonStyles } from '@app/ui/RadioGroup'
 import { Radio } from 'antd'
 import { RadioChangeEvent } from 'antd/lib/radio'
 

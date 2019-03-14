@@ -2,7 +2,7 @@ import {
   WithLoginModal,
   withSignInModal,
 } from '@app/features/login/features/signIn'
-import Button, { ButtonKind } from '@app/ui/atoms/Button'
+import { Button, ButtonKind } from '@front/ui/button'
 import * as React from 'react'
 
 interface LoginButtonProps {

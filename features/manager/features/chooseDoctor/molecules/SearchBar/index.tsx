@@ -1,4 +1,4 @@
-import Input from '@app/ui/atoms/Input'
+import Input from '@app/ui/Input'
 import * as React from 'react'
 import * as styles from './SearchBar.css'
 

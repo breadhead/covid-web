@@ -1,4 +1,4 @@
-import NavLink from '@app/ui/atoms/NavLink'
+import NavLink from '@app/ui/NavLink'
 import * as React from 'react'
 
 import styles from './Navigation.css'

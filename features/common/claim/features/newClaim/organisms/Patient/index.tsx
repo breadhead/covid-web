@@ -10,7 +10,7 @@ import {
 } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
 import Gender from '@app/models/Gender'
-import { mapString } from '@app/ui/atoms/Select'
+import { mapString } from '@app/ui/Select'
 import cx from 'classnames'
 import * as React from 'react'
 import { DeepPartial } from 'utility-types'

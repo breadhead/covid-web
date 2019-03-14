@@ -1,11 +1,10 @@
 import {
-  ButtonType,
   ButtonWithTooltip,
   Form as UIForm,
   RadioGroup,
 } from '@app/features/common/form'
 import { Doctor } from '@app/models/Users/Doctor'
-import { RadioButtonStyles } from '@app/ui/molecules/RadioGroup'
+import { RadioButtonStyles } from '@app/ui/RadioGroup'
 import cx from 'classnames'
 import * as React from 'react'
 import { mapDoctors } from '../../helpers/mapDoctors'
@@ -55,7 +54,7 @@ const Form = ({
             <ButtonWithTooltip
               error={errorMessage}
               className={styles.SubmitButton}
-              type={ButtonType.Submit}
+              submit
             >
               Сохранить
             </ButtonWithTooltip>

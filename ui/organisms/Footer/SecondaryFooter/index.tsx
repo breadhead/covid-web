@@ -1,9 +1,9 @@
 import cx from 'classnames'
 import * as React from 'react'
 
-import Logo from '@app/ui/atoms/Logo'
+import Logo from '@app/ui/Logo'
 
-import { TargetType } from '@app/ui/atoms/NavLink'
+import { TargetType } from '@app/ui/NavLink'
 import Legal from '../components/Legal'
 import Menu from '../components/Menu'
 import FooterTheme from '../FooterTheme'

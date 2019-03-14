@@ -4,8 +4,8 @@ import * as React from 'react'
 import * as styles from './Dropdown.css'
 
 import { SPACE } from '@app/lib/config'
-import IconCustom from '@app/ui/atoms/IconCustom'
-import NavLink, { TargetType } from '@app/ui/atoms/NavLink'
+import IconCustom from '@app/ui/IconCustom'
+import NavLink, { TargetType } from '@app/ui/NavLink'
 
 export enum DropdownPositions {
   Left = 'left',

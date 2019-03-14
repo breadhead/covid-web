@@ -1,6 +1,6 @@
 import { ComboBox } from '@app/features/common/form'
-import { mapString } from '@app/ui/atoms/Select'
-import Switch from '@app/ui/atoms/Switch'
+import { mapString } from '@app/ui/Select'
+import Switch from '@app/ui/Switch'
 import cx from 'classnames'
 import * as React from 'react'
 import { Props } from '../../container'

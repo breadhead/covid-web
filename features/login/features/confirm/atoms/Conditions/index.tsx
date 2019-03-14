@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as styles from './Conditions.css'
 
-import NavLink, { TargetType } from '@app/ui/atoms/NavLink'
+import NavLink, { TargetType } from '@app/ui/NavLink'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 

@@ -3,8 +3,8 @@ import * as React from 'react'
 import * as styles from './Header.css'
 
 import { Role } from '@app/models/Users/User'
-import IconCustom from '@app/ui/atoms/IconCustom'
-import NavLink from '@app/ui/atoms/NavLink'
+import IconCustom from '@app/ui/IconCustom'
+import NavLink from '@app/ui/NavLink'
 
 interface Props {
   claimNumber: number

@@ -27,6 +27,5 @@ export { default as PhoneInput } from './components/PhoneInput'
 export {
   default as ButtonWithTooltip,
   ButtonSize,
-  ButtonType,
   ButtonKind,
 } from './components/ButtonWithTooltip'

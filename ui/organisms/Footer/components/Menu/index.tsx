@@ -1,4 +1,4 @@
-import NavLink, { NavLinkType, TargetType } from '@app/ui/atoms/NavLink'
+import NavLink, { NavLinkType, TargetType } from '@app/ui/NavLink'
 
 import stylesLong from './MenuLong.css'
 import stylesShort from './MenuShort.css'

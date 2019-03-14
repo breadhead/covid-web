@@ -2,8 +2,9 @@ import * as React from 'react'
 
 import { Form, Input } from '@app/features/common/form'
 import { InputType } from '@app/features/common/form'
-import Button, { ButtonType } from '@app/ui/atoms/Button'
-import Icon, { IconColor, IconType } from '@app/ui/atoms/Icon'
+import { Button } from '@front/ui/button'
+
+import Icon, { IconColor, IconType } from '@app/ui/Icon'
 
 import * as styles from './SmsCode.css'
 
@@ -32,7 +33,7 @@ const SmsCode = ({ valid, validate, codeValidationError }: Props) => (
           className={styles.inputWrapper}
         />
 
-        <Button type={ButtonType.Submit} className={styles.button}>
+        <Button submit className={styles.button}>
           Отправить
         </Button>
       </>

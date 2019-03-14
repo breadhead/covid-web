@@ -1,4 +1,4 @@
-import Dropdown from '@app/ui/molecules/Dropdown'
+import Dropdown from '@app/ui/Dropdown'
 import * as styles from './Menu.css'
 
 interface Props {

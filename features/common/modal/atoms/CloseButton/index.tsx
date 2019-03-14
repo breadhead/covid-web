@@ -3,7 +3,7 @@ import * as styles from './CloseButton.css'
 
 import { Action } from 'redux'
 
-import IconCustom from '@app/ui/atoms/IconCustom'
+import IconCustom from '@app/ui/IconCustom'
 
 interface Props {
   onClick: () => Action
