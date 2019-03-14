@@ -1,5 +1,6 @@
 import { getClaimId } from '@app/features/common/consultation'
 import {
+  getClaim,
   getMainInfo,
   getQuotaName,
 } from '@app/features/common/consultation/selectors'
@@ -64,6 +65,7 @@ const mapState = (state: State) => ({
   mainInfo: getMainInfo(state),
   roles: getRoles(state),
   quotaName: getQuotaName(state),
+  claim: getClaim(state),
 })
 
 export default compose(
