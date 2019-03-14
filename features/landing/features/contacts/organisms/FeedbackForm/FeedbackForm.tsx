@@ -4,7 +4,7 @@ import * as styles from './FeedbackForm.css'
 
 import { Form, Input, TextArea } from '@app/features/common/form'
 import { SendFeedbackRequest } from '@app/lib/api/request/SendFeedback'
-import { Button } from '@front/ui/button'
+import { Button, ButtonSize } from '@front/ui/button'
 
 import * as yup from 'yup'
 
@@ -22,11 +22,12 @@ export const schema = {
 
 export interface Props {
   onFormSubmit: (params: SendFeedbackRequest) => Promise<any>
+  claimNumber: string
 }
 
-const FeedbackForm = ({ onFormSubmit }: Props) => (
+const FeedbackForm = ({ onFormSubmit, claimNumber }: Props) => (
   <article id="feedback-form" className={styles.FeedbackFormWrapper}>
-    <h2 className={styles.title}>Обратная связь</h2>
+    <h2 className={styles.title}>Обратная связь {claimNumber}</h2>
     <Form onSubmit={onFormSubmit as any} resetAfterSubmit>
       {() => (
         <>
@@ -57,7 +58,7 @@ const FeedbackForm = ({ onFormSubmit }: Props) => (
             validate={schema.content}
             rows={3}
           />
-          <Button className={styles.button} submit>
+          <Button size={ButtonSize.Large} className={styles.button} submit>
             Отправить
           </Button>
         </>

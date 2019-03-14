@@ -21,7 +21,7 @@ interface NotificationText {
 type NotificationMap = { [key in ClaimStatus]: NotificationText }
 
 export const getNotificationsText = (info: ListedClaim): NotificationText => {
-  const { email, status, closeComment } = info
+  const { email, status, closeComment, number } = info
   return ({
     [ClaimStatus.QuotaAllocation]: {
       id: '1',
@@ -63,7 +63,7 @@ export const getNotificationsText = (info: ListedClaim): NotificationText => {
       button: Notifiation.Denied,
       link: {
         label: 'форму обратной связи',
-        href: '/contacts#feedback-form',
+        href: `/contacts?claimNumber=${number}#feedback-form`,
       },
     },
     [ClaimStatus.QueueForQuota]: {
