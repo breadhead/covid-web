@@ -72,6 +72,7 @@
 .attachIcon {
   width: 24px;  
   height: 24px;
+  margin: 0;
   fill: #bfbfbf;
 }
 
@@ -88,15 +89,29 @@
   border: 0;
 }
 
-.attachButton {
+.uploader {
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 1;
-  display: flex;
   height: 100%;
-  padding: 0 0 0 8px;
-  cursor: pointer;
   background-color: transparent;
   border: 0;
+
+  & div {
+    height: 100%;
+  }
+
+  & label {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 0 0 8px;
+    margin: 0;
+    font-size: 0;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: none;
+  }
 }

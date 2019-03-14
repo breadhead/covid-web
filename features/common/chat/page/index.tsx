@@ -11,6 +11,7 @@ import IconCustom from '@app/ui/IconCustom'
 import { getRoles } from '@app/features/login'
 import { Role } from '@app/models/Users/User'
 import { connect } from 'react-redux'
+import Uploader from '../../uploader'
 import ChatWrapper from '../organisms/ChatWrapper'
 import Header from '../organisms/Header'
 
@@ -59,12 +60,12 @@ const Chat = ({
         {() =>
           !muted && (
             <>
-              <button className={styles.attachButton}>
+              <Uploader className={styles.uploader}>
                 <IconCustom
                   className={styles.attachIcon}
                   name="24x24_attach-file"
                 />
-              </button>
+              </Uploader>
               <TextArea
                 onFocus={onTextAreaFocus}
                 autosize={{ minRows: 1, maxRows: 4 }}
