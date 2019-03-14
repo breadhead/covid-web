@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import ServerImage from '@app/ui/atoms/ServerImage'
-import ExternalLink from '@app/ui/molecules/ExternalLink'
+import ExternalLink from '@app/ui/ExternalLink'
+import ServerImage from '@app/ui/ServerImage'
 
 import styles from './CompanyLogo.css'
 

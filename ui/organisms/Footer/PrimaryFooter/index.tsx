@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import * as React from 'react'
 
-import Logo from '@app/ui/atoms/Logo'
+import Logo from '@app/ui/Logo'
 
 import { getToken } from '@app/features/login'
 import { State } from '@app/lib/store'

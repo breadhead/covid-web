@@ -5,7 +5,7 @@ import * as styles from './PartnersList.css'
 import PartnerCard from '@app/features/landing/organisms/PartnerCard'
 
 import { partners } from '@app/features/landing/features/partners/organisms/PartnersList/config'
-import NavLink, { NavLinkType, TargetType } from '@app/ui/atoms/NavLink'
+import NavLink, { NavLinkType, TargetType } from '@app/ui/NavLink'
 
 const PartnersList = () => (
   <section className={styles.partnersList}>

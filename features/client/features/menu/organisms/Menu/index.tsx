@@ -1,6 +1,6 @@
-import IconCustom from '@app/ui/atoms/IconCustom'
-import NavLink, { NavLinkType } from '@app/ui/atoms/NavLink'
-import Dropdown from '@app/ui/molecules/Dropdown'
+import Dropdown from '@app/ui/Dropdown'
+import IconCustom from '@app/ui/IconCustom'
+import NavLink, { NavLinkType } from '@app/ui/NavLink'
 import cx from 'classnames'
 import * as styles from './Menu.css'
 

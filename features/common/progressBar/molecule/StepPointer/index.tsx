@@ -4,7 +4,7 @@ import * as styles from './StepPointer.css'
 
 import cx from 'classnames'
 
-import IconCustom from '@app/ui/atoms/IconCustom'
+import IconCustom from '@app/ui/IconCustom'
 
 export enum StepPointerType {
   Empty = 'empty',

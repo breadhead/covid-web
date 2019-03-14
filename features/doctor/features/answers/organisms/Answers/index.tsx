@@ -6,13 +6,9 @@ import {
   makeQuestionGroups,
 } from '@app/features/common/consultation'
 import { Form, TextArea } from '@app/features/common/form'
-import {
-  ButtonKind,
-  ButtonType,
-  ButtonWithTooltip,
-} from '@app/features/common/form'
+import { ButtonKind, ButtonWithTooltip } from '@app/features/common/form'
 import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
-import Button from '@app/ui/atoms/Button'
+import { Button } from '@front/ui/button'
 
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { makeFieldName } from '../../helpers/makeFieldName'
@@ -54,12 +50,14 @@ const Answers = ({ claim, onSubmit, claimStatus }: Props) => {
             )}
           />
           <div className={styles.controls}>
-            <ButtonWithTooltip type={ButtonType.Submit}>
+            <ButtonWithTooltip submit>
               {answerSent ? 'Сохранить изменения' : 'Отправить ответ'}
             </ButtonWithTooltip>
             <Button
               kind={ButtonKind.Secondary}
-              onClick={() => Router.push(`/consultation/redirect/${claim.id}`)}
+              onClick={() =>
+                Router.push(`/consultation/redirect/${claim.id}`) as any
+              }
             >
               Отменить изменения
             </Button>

@@ -1,16 +1,11 @@
 import * as React from 'react'
 
-import {
-  ButtonSize,
-  ButtonType,
-  Checkbox,
-  Form,
-} from '@app/features/common/form'
-import Button from '@app/ui/atoms/Button'
+import { ButtonSize, Checkbox, Form } from '@app/features/common/form'
+import { Button } from '@front/ui/button'
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
-import NavLink, { TargetType } from '@app/ui/atoms/NavLink'
+import NavLink, { TargetType } from '@app/ui/NavLink'
 
 import styles from './Terms.css'
 
@@ -81,7 +76,7 @@ class Terms extends React.Component<Props, State> {
               )}
             </TransitionGroup>
             <Button
-              type={ButtonType.Submit}
+              submit
               className={styles.button}
               size={ButtonSize.ExtraLarge}
             >

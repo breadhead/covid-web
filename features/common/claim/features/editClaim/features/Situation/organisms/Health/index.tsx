@@ -3,7 +3,7 @@ import * as React from 'react'
 import { RadioGroup, TextArea } from '@app/features/common/form'
 
 import { SPACE, StylesType } from '@app/lib/config'
-import { RadioButtonStyles } from '@app/ui/molecules/RadioGroup'
+import { RadioButtonStyles } from '@app/ui/RadioGroup'
 import { ClaimData } from '../..//types'
 import { feelings } from './config'
 import { schema } from './schema'

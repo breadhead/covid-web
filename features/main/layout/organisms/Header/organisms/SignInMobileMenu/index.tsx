@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import NavLink, { NavLinkType, TargetType } from '@app/ui/atoms/NavLink'
+import NavLink, { NavLinkType, TargetType } from '@app/ui/NavLink'
 
 import NavIcon from '../../atoms/NavIcon'
 import * as styles from './SignInMobileMenu.css'

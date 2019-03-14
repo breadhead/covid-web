@@ -44,14 +44,8 @@
 }
 
 .button {
-  padding: 12px 28px !important;
-
   @media (--smallDown) {
     width: 100% !important;
     white-space: nowrap !important;
-  }
-
-  @media (--smallDown) {
-    padding: 12px 16px !important;
   }
 }

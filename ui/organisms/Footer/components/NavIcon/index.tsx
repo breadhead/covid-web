@@ -3,7 +3,7 @@ import * as styles from './NavIcon.css'
 
 import cx from 'classnames'
 
-import IconCustom from '@app/ui/atoms/IconCustom'
+import IconCustom from '@app/ui/IconCustom'
 
 interface Props {
   long?: boolean

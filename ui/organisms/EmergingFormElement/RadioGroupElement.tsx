@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import RadioGroup from '@app/ui/molecules/RadioGroup'
+import RadioGroup from '@app/ui/RadioGroup'
 import { RadioChangeEvent } from 'antd/lib/radio'
 
 export enum RadioButtonsValue {

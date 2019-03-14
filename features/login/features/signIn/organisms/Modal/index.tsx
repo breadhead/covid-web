@@ -3,8 +3,8 @@ import Form from '@app/features/common/form/components/Form'
 import Input from '@app/features/common/form/components/Input'
 import OpenModalButton from '@app/features/login/atoms/OpenModalButton'
 import { SPACE } from '@app/lib/config'
-import Button, { ButtonType } from '@app/ui/atoms/Button'
-import NavLink from '@app/ui/atoms/NavLink'
+import NavLink from '@app/ui/NavLink'
+import { Button } from '@front/ui/button'
 import * as React from 'react'
 import { schema } from '../../container'
 import * as styles from './SignIn.css'
@@ -44,7 +44,7 @@ const SignIn = ({ onFormSubmit, passwordRecoveryUrl, openSignUp }: Props) => (
           <NavLink href={passwordRecoveryUrl} className={styles.link}>
             Забыли пароль?
           </NavLink>
-          <Button type={ButtonType.Submit} className={styles.mainButton}>
+          <Button submit className={styles.mainButton}>
             Войти
           </Button>
         </>

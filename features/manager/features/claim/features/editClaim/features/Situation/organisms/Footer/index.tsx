@@ -2,14 +2,10 @@ import * as React from 'react'
 
 import cx from 'classnames'
 
-import {
-  ButtonSize,
-  ButtonType,
-  ButtonWithTooltip,
-} from '@app/features/common/form'
+import { ButtonSize, ButtonWithTooltip } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
-import IconCustom from '@app/ui/atoms/IconCustom'
-import NavLink from '@app/ui/atoms/NavLink'
+import IconCustom from '@app/ui/IconCustom'
+import NavLink from '@app/ui/NavLink'
 import styles from './Footer.css'
 
 interface Props {
@@ -48,7 +44,7 @@ const Footer = ({ styles: parentStyles, error, loading, id }: Props) => {
       <ButtonWithTooltip
         error={errorMessage}
         size={ButtonSize.Large}
-        type={ButtonType.Submit}
+        submit
         className={parentStyles.button}
         loading={loading}
       >

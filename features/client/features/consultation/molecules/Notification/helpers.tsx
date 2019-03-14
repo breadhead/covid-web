@@ -1,7 +1,7 @@
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import { NotifiationButtonType } from '../NotificationButton'
+import { Notifiation } from '../NotificationButton'
 
 interface NotificationLink {
   label: string
@@ -14,7 +14,7 @@ interface NotificationText {
   title: string
   text: string
   link?: NotificationLink
-  button?: NotifiationButtonType
+  button?: Notifiation
 }
 
 type NotificationMap = { [key in ClaimStatus]: NotificationText }
@@ -32,7 +32,7 @@ export const getNotificationsText = (info: ListedClaim): NotificationText => {
       id: '2',
       image: '/static/images/continue-filling.png',
       title: `Черновик`,
-      button: NotifiationButtonType.QuestionnaireWaiting,
+      button: Notifiation.QuestionnaireWaiting,
     },
     [ClaimStatus.QuestionnaireValidation]: {
       id: '3',
@@ -45,13 +45,13 @@ export const getNotificationsText = (info: ListedClaim): NotificationText => {
       image: '/static/images/expert-answering.png',
       title: `Эксперт ответил на${NON_BREAKING_SPACE}ваши вопросы`,
       text: `Если вы хотите что-то уточнить или оставить отзыв, напишите в${NON_BREAKING_SPACE}чат в${NON_BREAKING_SPACE}правой части страницы.`,
-      button: NotifiationButtonType.DeliveredToCustomer,
+      button: Notifiation.DeliveredToCustomer,
     },
     [ClaimStatus.Closed]: {
       id: '5',
       image: '/static/images/consultation-done-success.png',
       title: 'Ваша консультация завершена',
-      button: NotifiationButtonType.Closed,
+      button: Notifiation.Closed,
     },
     [ClaimStatus.Denied]: {
       id: '6',
@@ -59,7 +59,7 @@ export const getNotificationsText = (info: ListedClaim): NotificationText => {
       title: 'Ваша заявка отклонена',
       text: `К сожалению, мы${NON_BREAKING_SPACE}отклонили вашу заявку. Это может быть связано с${NON_BREAKING_SPACE}тем, что вы${NON_BREAKING_SPACE}слишком долго не${NON_BREAKING_SPACE}заходили в${NON_BREAKING_SPACE}личный кабинет и${NON_BREAKING_SPACE}не${NON_BREAKING_SPACE}заполняли анкету — мы были вынуждены передать средства на${NON_BREAKING_SPACE}вашу консультацию другому человеку. Кроме этого, возможно ваш вопрос не${NON_BREAKING_SPACE}был связан с${NON_BREAKING_SPACE}онкологией.
     Если у вас есть вопросы, напишите в `,
-      button: NotifiationButtonType.Denied,
+      button: Notifiation.Denied,
       link: {
         label: 'форму обратной связи',
         href: '/contacts#feedback-form',
