@@ -1,3 +1,5 @@
+import { CorporateStatus } from '@app/src/domain/claim/enums/CorporateStatus'
+
 import ClaimStatus from './ClaimStatus'
 import ClaimTarget from './ClaimTarget'
 
@@ -10,4 +12,5 @@ export interface ListedClaim {
   newMessage: boolean
   email?: string
   target: ClaimTarget
+  corporateStatus: CorporateStatus
 }

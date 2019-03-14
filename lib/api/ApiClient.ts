@@ -9,6 +9,7 @@ import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import { Quota } from '@app/models/Quota/Quota'
 import { Transaction } from '@app/models/Quota/Transaction'
 import { Doctor } from '@app/models/Users/Doctor'
+import { CorporateStatus } from '@app/src/domain/claim/enums/CorporateStatus'
 import { User } from '../../models/Users/User'
 import { AnswerRequest } from './request/AnswerRequest'
 import { BindQuotaRequest } from './request/BindQuotaRequest'
@@ -69,4 +70,9 @@ export default interface ApiClient {
   getClaimsListForClient(login: string): Promise<any>
 
   commonQuotasAvailable(): Promise<boolean>
+
+  changeCorporateStatus(
+    claimId: string,
+    newStatus: CorporateStatus,
+  ): Promise<void>
 }
