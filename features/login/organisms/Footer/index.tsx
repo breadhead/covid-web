@@ -1,5 +1,5 @@
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
-import IconCustom from '@app/ui/atoms/IconCustom'
+import IconCustom from '@app/ui/IconCustom'
 import * as React from 'react'
 import OpenModalButton from '../../atoms/OpenModalButton'
 import styles from './Footer.css'
@@ -15,7 +15,7 @@ const Footer = ({ onOpenModalClick }: FooterProps) => (
       Если у вас есть аккаунт на{NON_BREAKING_SPACE}
       <b>nenaprasno.ru</b>, вы{NON_BREAKING_SPACE}
       можете{SPACE}
-      <OpenModalButton onClick={onOpenModalClick}>Войти</OpenModalButton>,
+      <OpenModalButton onClick={onOpenModalClick}>войти</OpenModalButton>,
       используя те
       {NON_BREAKING_SPACE}
       же{NON_BREAKING_SPACE}данные

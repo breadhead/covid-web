@@ -9,7 +9,7 @@ import ClosedButton from './components/ClosedButton'
 import DeliveredToCustomerButton from './components/DeliveredToCustomerButton'
 import QuestionnaireWaitingButton from './components/QuestionnaireWaitingButton'
 
-export enum NotifiationButtonType {
+export enum Notifiation {
   QuestionnaireWaiting = 'QuestionnaireWaiting',
   Denied = 'Denied',
   QueueForQuota = 'QueueForQuota',
@@ -18,17 +18,13 @@ export enum NotifiationButtonType {
 }
 
 interface Props {
-  type: NotifiationButtonType
+  type: Notifiation
   info: ListedClaim
   claim: Claim
 }
 
 const NotificationButton = ({ type, info, claim }: Props) => {
-  const {
-    QuestionnaireWaiting,
-    DeliveredToCustomer,
-    Closed,
-  } = NotifiationButtonType
+  const { QuestionnaireWaiting, DeliveredToCustomer, Closed } = Notifiation
 
   switch (type) {
     case QuestionnaireWaiting:

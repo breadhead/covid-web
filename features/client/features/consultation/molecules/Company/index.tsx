@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { QuotaClaim } from '@app/models/Claim/QuotaClaim'
-import CompanyLogo from '@app/ui/molecules/CompanyLogo'
+import CompanyLogo from '@app/ui/CompanyLogo'
 
 import * as styles from './Company.css'
 

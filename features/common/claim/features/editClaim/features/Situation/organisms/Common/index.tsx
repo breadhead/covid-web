@@ -12,11 +12,11 @@ import {
 } from '@app/features/common/form'
 import { InputType } from '@app/features/common/form'
 import { SPACE, StylesType } from '@app/lib/config'
-import { mapString } from '@app/ui/atoms/Select'
 import AddFieldContainer, {
   SectionDivider,
   SectionHeader,
 } from '@app/ui/organisms/AddFieldContainer'
+import { mapString } from '@app/ui/Select'
 import { ClaimData, SituationClaimFields } from '../../types'
 import { CONDITIONAL_THEME } from '../Form/config'
 import { localizations, relatives } from './config'

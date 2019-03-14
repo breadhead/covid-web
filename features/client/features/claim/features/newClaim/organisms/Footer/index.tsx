@@ -2,11 +2,7 @@ import * as React from 'react'
 
 import cx from 'classnames'
 
-import {
-  ButtonSize,
-  ButtonType,
-  ButtonWithTooltip,
-} from '@app/features/common/form'
+import { ButtonSize, ButtonWithTooltip } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
 
 interface Props {
@@ -24,7 +20,7 @@ const Footer = ({ styles, error, loading }: Props) => {
       <ButtonWithTooltip
         error={errorMessage}
         size={ButtonSize.Large}
-        type={ButtonType.Submit}
+        submit
         className={styles.button}
         loading={loading}
       >

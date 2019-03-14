@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import Logo from '@app/ui/atoms/Logo'
+import Logo from '@app/ui/Logo'
 
 import Menu from '@app/features/manager/features/menu'
 

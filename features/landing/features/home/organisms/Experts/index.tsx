@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import * as styles from './Experts.css'
 
-import NavLink from '@app/ui/atoms/NavLink'
+import NavLink from '@app/ui/NavLink'
 import Photos from './components/Photos'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'

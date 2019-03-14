@@ -62,7 +62,7 @@ const ClaimForm = ({
   id,
   footer,
 }: Props) => {
-  const saveDebouncedValues = useCallback(
+  const saveEnteredValues = useCallback(
     async fields => saveNewClaimDraft(id, fields),
     [id],
   )
@@ -71,7 +71,8 @@ const ClaimForm = ({
     <Form
       onSubmit={onSubmit as any}
       className={styles.ClaimForm}
-      saveDebounced={saveDebouncedValues}
+      saveDebounced={saveEnteredValues}
+      saveOnBlur={saveEnteredValues}
       initialValues={{ ...initial }}
     >
       {({ values, changeField }) => (

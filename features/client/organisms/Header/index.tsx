@@ -3,7 +3,7 @@ import * as React from 'react'
 import cx from 'classnames'
 
 import Menu from '@app/features/client/features/menu'
-import LogoClient from '@app/ui/atoms/LogoClient'
+import LogoClient from '@app/ui/LogoClient'
 
 import * as styles from './Header.css'
 

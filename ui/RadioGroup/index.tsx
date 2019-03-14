@@ -37,13 +37,19 @@ const RadioGroup = ({
   radioStyle = RadioButtonStyles.Button,
   ...rest
 }: Props) => {
+  const [currentValue, setCurrentValue] = React.useState(undefined)
+
+  React.useEffect(() => {
+    setCurrentValue(value as any)
+  })
+
   return (
     <div className={cx(`radioButtonStyle__${radioStyle}`, className)}>
       <AntRadioGroup
         name={name}
         onChange={onChange}
         defaultValue={defaultValue}
-        value={value}
+        value={currentValue}
       >
         {buttons.map(button => (
           <Radio key={button.id} name={name} value={button.value} {...rest}>

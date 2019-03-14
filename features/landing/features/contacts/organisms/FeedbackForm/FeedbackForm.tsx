@@ -4,7 +4,8 @@ import * as styles from './FeedbackForm.css'
 
 import { Form, Input, TextArea } from '@app/features/common/form'
 import { SendFeedbackRequest } from '@app/lib/api/request/SendFeedback'
-import Button, { ButtonType } from '@app/ui/atoms/Button'
+import { Button } from '@front/ui/button'
+
 import * as yup from 'yup'
 
 const REQUIRED = 'Обязательное поле'
@@ -56,7 +57,7 @@ const FeedbackForm = ({ onFormSubmit }: Props) => (
             validate={schema.content}
             rows={3}
           />
-          <Button className={styles.button} type={ButtonType.Submit}>
+          <Button className={styles.button} submit>
             Отправить
           </Button>
         </>

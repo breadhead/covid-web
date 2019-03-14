@@ -26,6 +26,6 @@
 }
 
 .button {
-  padding: 12px 28px !important;
+  display: block;
   margin: 32px auto 0 auto;
 }

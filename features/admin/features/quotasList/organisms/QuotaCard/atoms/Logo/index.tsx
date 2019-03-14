@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import ServerImage from '@app/ui/atoms/ServerImage'
+import ServerImage from '@app/ui/ServerImage'
 
 import styles from './Logo.css'
 

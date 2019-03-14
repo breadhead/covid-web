@@ -1,4 +1,4 @@
-import ButtonWithArrow from '@app/ui/atoms/ButtonWithArrow'
+import ButtonWithArrow from '@app/ui/ButtonWithArrow'
 import * as React from 'react'
 import * as styles from './button.css'
 

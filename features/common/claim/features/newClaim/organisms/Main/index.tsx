@@ -12,7 +12,7 @@ import {
 } from '@app/features/common/form'
 import { SPACE, StylesType } from '@app/lib/config'
 import ClaimTarget from '@app/models/Claim/ClaimTarget'
-import { mapString } from '@app/ui/atoms/Select'
+import { mapString } from '@app/ui/Select'
 
 import { ShortClaimFields } from '../ClaimForm'
 import { schema } from './schema'

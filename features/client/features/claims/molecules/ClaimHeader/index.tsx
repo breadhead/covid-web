@@ -2,7 +2,7 @@ import cx from 'classnames'
 import Router from 'next/router'
 
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import IconCustom from '@app/ui/atoms/IconCustom'
+import IconCustom from '@app/ui/IconCustom'
 
 import NewMessageBadge from '../../atoms/NewMessageBage'
 import formatDate from '../../helpers/formatDate'

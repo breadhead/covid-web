@@ -1,4 +1,4 @@
-import IconCustom from '@app/ui/atoms/IconCustom'
+import IconCustom from '@app/ui/IconCustom'
 import cx from 'classnames'
 import * as React from 'react'
 import NavLink, { NavLinkType } from '../NavLink'

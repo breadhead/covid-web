@@ -4,7 +4,7 @@ import * as styles from './Notification.css'
 
 import Claim from '@app/models/Claim/Claim'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import ExternalLink from '@app/ui/molecules/ExternalLink'
+import ExternalLink from '@app/ui/ExternalLink'
 import NotificationButton from '../NotificationButton'
 import { getNotificationsText } from './helpers'
 

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import Select from '@app/ui/atoms/Select'
+import Select from '@app/ui/Select'
 import { OPTIONS_MONTHS } from './config'
 
 export interface Props {

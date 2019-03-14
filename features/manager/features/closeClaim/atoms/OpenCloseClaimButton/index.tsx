@@ -2,11 +2,7 @@ import * as React from 'react'
 
 import { useModal } from '@app/features/common/modal'
 import { MODAL_KEY as CLOSE_CLAIM_MODAL } from '@app/features/manager/features/closeClaim'
-import Button, {
-  ButtonKind,
-  ButtonSize,
-  ButtonType,
-} from '@app/ui/atoms/Button'
+import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
 interface Props {
   className: string
   children?: React.ReactNode
@@ -24,7 +20,6 @@ const OpenCloseClaimButton = ({ children, className, ...rest }: Props) => {
 
   return (
     <Button
-      type={ButtonType.Button}
       className={className}
       onClick={openCloseClaimModal}
       size={ButtonSize.Large}

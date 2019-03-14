@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as styles from './OpenChatButton.css'
 
-import IconCustom from '@app/ui/atoms/IconCustom'
+import IconCustom from '@app/ui/IconCustom'
 
 interface Props {
   onClick: () => void
