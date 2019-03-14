@@ -1,7 +1,12 @@
 import * as React from 'react'
 
-import RadioGroup from '@app/ui/RadioGroup'
+import cx from 'classnames'
+
+import { RadioButtonStyles } from '@app/ui/RadioGroup'
+import { Radio } from 'antd'
 import { RadioChangeEvent } from 'antd/lib/radio'
+
+const AntRadioGroup = Radio.Group
 
 export enum RadioButtonsValue {
   Yes = 'Да',
@@ -33,6 +38,7 @@ export interface Props {
   onChange?: (evt: RadioChangeEvent) => void
   defaultChecked?: boolean
   value?: string
+  radioStyle?: RadioButtonStyles
 }
 
 const RadioGroupElement = ({
@@ -40,15 +46,25 @@ const RadioGroupElement = ({
   onChange,
   defaultChecked,
   value,
+  radioStyle = RadioButtonStyles.Button,
   ...rest
-}: Props) => (
-  <RadioGroup
-    name={name}
-    buttons={radioButtons}
-    onChange={onChange}
-    value={getValue(value)}
-    {...rest}
-  />
-)
+}: Props) => {
+  const [currentValue, setCurrentValue] = React.useState(undefined)
 
+  React.useEffect(() => {
+    setCurrentValue(getValue(value) as any)
+  })
+
+  return (
+    <div className={cx(`radioButtonStyle__${radioStyle}`)}>
+      <AntRadioGroup name={name} onChange={onChange} value={currentValue}>
+        {radioButtons.map(button => (
+          <Radio key={button.id} name={name} value={button.value} {...rest}>
+            {button.value}
+          </Radio>
+        ))}
+      </AntRadioGroup>
+    </div>
+  )
+}
 export default RadioGroupElement
