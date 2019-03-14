@@ -14,6 +14,7 @@ import { Transaction } from '@app/models/Quota/Transaction'
 
 import { Doctor } from '@app/models/Users/Doctor'
 import { User } from '@app/models/Users/User'
+import { CorporateStatus } from '@app/src/domain/claim/enums/CorporateStatus'
 import ApiClient, { UploadedFile } from './ApiClient'
 import { queryString } from './helper/queryString'
 import { tapDate } from './helper/tapDate'
@@ -237,4 +238,15 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .get('/statistics/quotas-available')
       .then(response => response.data as boolean)
+
+  public changeCorporateStatus = (
+    claimId: string,
+    newStatus: CorporateStatus,
+  ) =>
+    this.axiosInstance
+      .post('/claims/change-corporate-status', {
+        claimId,
+        newStatus,
+      })
+      .then(response => response.data)
 }

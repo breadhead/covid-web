@@ -1,5 +1,7 @@
+import Claim from '@app/models/Claim/Claim'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { Doctor } from '@app/models/Users/Doctor'
+import { forCorporate } from '@app/src/domain/claim/statements/forCorporate'
 import { Button, ButtonKind } from '@front/ui/button'
 import Router from 'next/router'
 import { WithQuotaTypeModal } from '../../../bindQuota'
@@ -26,6 +28,7 @@ interface Props
   toQueue: boolean
   quotaName?: string
   closeComment?: string
+  claim: Claim
 }
 
 const Controls = (props: Props) => (
@@ -51,7 +54,9 @@ const Controls = (props: Props) => (
     <div className={styles.plate}>
       <TopRow {...props} />
       <CommentRow comment={props.closeComment} />
-      {props.allowEditing && <BottomRow {...props} />}
+      {props.allowEditing && (
+        <BottomRow corporate={forCorporate(props.claim)} {...props} />
+      )}
     </div>{' '}
   </>
 )

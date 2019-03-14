@@ -1,6 +1,7 @@
 import { Doctor } from '@app/models/Users/Doctor'
 import AssignDoctorButton from '../../atoms/AssignDoctorButton'
 import ChangeQuotaButton from '../../atoms/ChangeQuotaButton'
+import { CorporateButton } from '../../atoms/corporate-button'
 import { showButtonWithDoctorsName } from '../../helpers/showButtonWithDoctorsName'
 import * as styles from './BottomRow.css'
 
@@ -9,6 +10,7 @@ interface Props {
   openBindQuota: () => void
   assignedDoctor?: Doctor
   quotaName?: string
+  corporate: boolean
 }
 
 const BottomRow = ({
@@ -16,6 +18,7 @@ const BottomRow = ({
   assignedDoctor,
   quotaName,
   openBindQuota,
+  corporate,
 }: Props) => (
   <div className={styles.corporate}>
     {showButtonWithDoctorsName(!!assignedDoctor) && (
@@ -24,6 +27,7 @@ const BottomRow = ({
         assignedDoctor={assignedDoctor}
       />
     )}
+    {corporate && <CorporateButton />}
     {quotaName && (
       <ChangeQuotaButton openBindQuota={openBindQuota} quotaName={quotaName} />
     )}

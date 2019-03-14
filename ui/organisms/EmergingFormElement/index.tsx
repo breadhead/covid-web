@@ -28,6 +28,17 @@ interface State {
 }
 
 class EmergingFormElement extends React.Component<Props, State> {
+  public static getDerivedStateFromProps(props: Props, state: State) {
+    if (props.value !== undefined) {
+      return {
+        ...state,
+        isVisible: props.value,
+      }
+    }
+
+    return state
+  }
+
   public state = {
     isVisible: this.props.defaultVisible,
   } as State
@@ -35,20 +46,16 @@ class EmergingFormElement extends React.Component<Props, State> {
   public switchChangeHandler = () => {
     const { onChange } = this.props
 
-    this.setState(
-      state => ({ isVisible: !state.isVisible }),
-      () => onChange && onChange(this.state.isVisible),
-    )
+    const isVisible = !this.state.isVisible
+
+    this.setState({ isVisible }, () => onChange && onChange(isVisible))
   }
 
   public radioGroupChangeHandler = (evt: RadioChangeEvent) => {
     const { onChange } = this.props
     const { value } = evt.target
     const isVisible = value === radioButtons[0].value
-    this.setState(
-      { isVisible },
-      () => onChange && onChange(this.state.isVisible),
-    )
+    this.setState({ isVisible }, () => onChange && onChange(isVisible))
   }
 
   public render() {
@@ -70,7 +77,7 @@ class EmergingFormElement extends React.Component<Props, State> {
               {...rest}
               name={name}
               onChange={this.switchChangeHandler}
-              defaultChecked={defaultVisible}
+              defaultChecked={this.state.isVisible}
             />
           ) : (
             <RadioGroupElement
