@@ -60,7 +60,10 @@ const Chat = ({
         {() =>
           !muted && (
             <>
-              <Uploader className={styles.uploader}>
+              <Uploader
+                onUploaded={onSubmit as any}
+                className={styles.uploader}
+              >
                 <IconCustom
                   className={styles.attachIcon}
                   name="24x24_attach-file"
