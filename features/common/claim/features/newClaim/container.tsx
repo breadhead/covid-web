@@ -8,6 +8,7 @@ import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { Role } from '@app/models/Users/User'
 import routes from '@app/routes'
 import nanomerge from 'nanomerge'
+import Head from 'next/head'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, Dispatch } from 'redux'
@@ -60,6 +61,9 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
 
         return (
           <Layout>
+            <Head>
+              <title>Заполните заявку | Просто спросить</title>
+            </Head>
             <WrappedComponent
               id={id}
               error={error}

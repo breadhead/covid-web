@@ -1,5 +1,6 @@
 import { isEmpty } from 'lodash'
 import nanomerge from 'nanomerge'
+import Head from 'next/head'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, Dispatch } from 'redux'
@@ -61,6 +62,9 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
         const Layout = layout
         return (
           <Layout>
+            <Head>
+              <title>Опишите ситуацию | Просто спросить</title>
+            </Head>
             <WrappedComponent
               initialFields={initialFields}
               error={error}
