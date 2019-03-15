@@ -48,8 +48,8 @@ const Chat = ({
   const [uploading, setUploading] = React.useState(false)
 
   const onUpload = async (file: string) => {
-    scrollToBottom()
     setUploading(true)
+    scrollToBottom()
     await onSubmit({ message: file })
     setUploading(false)
   }
