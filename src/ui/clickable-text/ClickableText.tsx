@@ -11,7 +11,7 @@ import { splitText } from './helpers/splitText'
 interface Props {
   className?: string
   linkClassName?: string
-  children?: string | null
+  children?: string
 }
 
 export const ClickableText = ({
