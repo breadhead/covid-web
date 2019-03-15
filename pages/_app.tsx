@@ -67,7 +67,7 @@ class OncohelpWeb extends App<Props> {
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
       this.props.reduxStore.dispatch(setToken(''))
-      Router.push('/')
+      Router.push('/?sign-in')
       // Router.push(
       //   `/?sign-in?wantTo=${decodeURIComponent(this.props.router
       //     .asPath as string)}`,
