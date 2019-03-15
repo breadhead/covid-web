@@ -1,3 +1,4 @@
+import cx from 'classnames'
 import { head } from 'lodash'
 import { useCallback, useMemo, useRef, useState } from 'react'
 import { useMappedState } from 'redux-react-hook'
@@ -16,9 +17,18 @@ interface Props {
   onUploaded?: (url: string) => void
   id?: string
   remove?: () => void
+  children?: React.ReactNode
+  className?: string
 }
 
-const Uploader = ({ id, onUploaded, initialValue, remove }: Props) => {
+const Uploader = ({
+  id,
+  onUploaded,
+  initialValue,
+  remove,
+  children,
+  className,
+}: Props) => {
   const token = useMappedState(getToken)
   const api = useMemo(() => factory(token), [token])
 
@@ -68,7 +78,7 @@ const Uploader = ({ id, onUploaded, initialValue, remove }: Props) => {
   )
 
   return (
-    <div className={styles.container}>
+    <div className={cx(styles.container, className)}>
       <div className={styles.row}>
         <label className={styles.fileLabel} htmlFor={id}>
           <input
@@ -78,6 +88,7 @@ const Uploader = ({ id, onUploaded, initialValue, remove }: Props) => {
             ref={fileInput}
             id={id}
           />
+          {children}
           {path ? 'Изменить файл' : 'Загрузить файл'}
         </label>
         {path && remove && (

@@ -3,7 +3,7 @@
   width: 100%;
   padding: 20px;
   margin-bottom: 64px;
-  border: 2px solid #F1F1F2;
+  border: 2px solid #f1f1f2;
   border-radius: 20px;
 
   @media (--smallDown) {
@@ -26,7 +26,6 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-
 
   @media (--smallDown) {
     flex-direction: column;

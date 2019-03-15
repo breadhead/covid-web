@@ -6,14 +6,16 @@ import * as styles from './ChatWrapper.css'
 
 import EmptyWindow from '../EmptyWindow'
 import Message from '../Message'
+import MessageLoader from '../MessageLoader'
 
 interface Props {
   messages: ChatMessage[]
   role: string
+  loading?: boolean
 }
 
 const ChatWrapper = React.forwardRef<HTMLDivElement, Props>(
-  ({ messages, role }: Props, ref) => {
+  ({ messages, role, loading }: Props, ref) => {
     return messages.length === 0 ? (
       <EmptyWindow role={role} />
     ) : (
@@ -21,6 +23,7 @@ const ChatWrapper = React.forwardRef<HTMLDivElement, Props>(
         {messages.map(message => (
           <Message key={message.id} message={message} />
         ))}
+        {loading && <MessageLoader />}
       </div>
     )
   },

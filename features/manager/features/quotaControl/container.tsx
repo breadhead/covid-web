@@ -44,13 +44,13 @@ const Container = (WrappedComponent: any) => {
         allowAnswerEditing
 
       const toQueue = [ClaimStatus.QuotaAllocation].includes(mainInfo.status)
-
       return (
         <WrappedComponent
           {...this.props}
           editClaim={editClaim}
           editAnswer={editAnswer}
           toQueue={toQueue}
+          closeComment={mainInfo.closeComment}
           trelloUrl={this.props.trelloUrl}
         />
       )
