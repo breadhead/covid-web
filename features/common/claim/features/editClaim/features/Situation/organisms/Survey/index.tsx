@@ -2,14 +2,12 @@ import * as React from 'react'
 
 import cx from 'classnames'
 
-import { Input } from '@app/features/common/form'
 import { RemoveSection } from '@app/features/common/form'
 import { FormFileInput } from '@app/features/common/uploader'
 import { StylesType } from '@app/lib/config'
-import AddFieldContainer, {
-  SectionDivider,
-} from '@app/ui/organisms/AddFieldContainer'
+
 import { ClaimData, SituationClaimFields } from '../../types'
+import SurveyAddFieldContainer from './../SurveyAddFieldContainer'
 
 interface Props {
   styles: StylesType
@@ -41,7 +39,7 @@ const Survey = ({
       Последние по дате. Прикрепите сканы или фотографии
     </p>
 
-    <AddFieldContainer
+    {/* <AddFieldContainer
       initialCount={initial.otherFiles!.length}
       buttonClassName={styles.addButton}
       buttonText="Добавить другие файлы"
@@ -66,7 +64,12 @@ const Survey = ({
           </React.Fragment>
         ))
       }
-    </AddFieldContainer>
+    </AddFieldContainer> */}
+
+    <SurveyAddFieldContainer
+      initialCount={initial.otherFiles!.length}
+      removeSectionFromState={removeSectionFromState}
+    />
   </article>
 )
 
