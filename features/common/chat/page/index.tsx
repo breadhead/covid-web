@@ -43,6 +43,15 @@ const Chat = ({
   roles,
 }: Props) => {
   const shouldHide = !opensOnce || !isOpen
+
+  const [uploading, setUploading] = React.useState(false)
+
+  const onUpload = async (file: string) => {
+    setUploading(true)
+    await onSubmit({ message: file })
+    setUploading(false)
+  }
+
   return (
     <section className={cx(styles.chat, shouldHide && styles.hide)}>
       <div>
@@ -50,6 +59,7 @@ const Chat = ({
       </div>
       <div className={styles.messageWrapper}>
         <ChatWrapper role={roles[0]} ref={forwardedRef} messages={messages} />
+        {!!uploading && <div>mememe</div>}
       </div>
       <Form
         onSubmit={onSubmit as any}
@@ -60,10 +70,7 @@ const Chat = ({
         {() =>
           !muted && (
             <>
-              <Uploader
-                onUploaded={onSubmit as any}
-                className={styles.uploader}
-              >
+              <Uploader onUploaded={onUpload} className={styles.uploader}>
                 <IconCustom
                   className={styles.attachIcon}
                   name="24x24_attach-file"
