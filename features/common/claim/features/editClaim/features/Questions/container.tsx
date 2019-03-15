@@ -1,6 +1,7 @@
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { QuestionsClaim } from '@app/models/Claim/QuestionsClaim'
+import Head from 'next/head'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, Dispatch } from 'redux'
@@ -69,6 +70,9 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
         const Layout = layout
         return (
           <Layout>
+            <Head>
+              <title>Задайте вопросы | Просто спросить</title>
+            </Head>
             <WrappedComponent
               error={error}
               loading={loading}
