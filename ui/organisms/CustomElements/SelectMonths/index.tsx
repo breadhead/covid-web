@@ -11,10 +11,10 @@ export interface Props {
 
 const SelectMonths = ({ name, isMobile, className, ...rest }: Props) => (
   <Select
+    {...rest}
     placeholder={isMobile ? 'Месяц' : 'Выберите месяц'}
     options={OPTIONS_MONTHS}
     name={name}
-    {...rest}
     className={className}
   />
 )

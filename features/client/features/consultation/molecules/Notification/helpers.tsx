@@ -2,6 +2,7 @@ import { NON_BREAKING_SPACE } from '@app/lib/config'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { Notifiation } from '../NotificationButton'
+import { getDeniedText } from './config'
 
 interface NotificationLink {
   label: string
@@ -20,7 +21,7 @@ interface NotificationText {
 type NotificationMap = { [key in ClaimStatus]: NotificationText }
 
 export const getNotificationsText = (info: ListedClaim): NotificationText => {
-  const { email, status } = info
+  const { email, status, closeComment, number } = info
   return ({
     [ClaimStatus.QuotaAllocation]: {
       id: '1',
@@ -57,12 +58,12 @@ export const getNotificationsText = (info: ListedClaim): NotificationText => {
       id: '6',
       image: '/static/images/consultation-canceled.png',
       title: 'Ваша заявка отклонена',
-      text: `К сожалению, мы${NON_BREAKING_SPACE}отклонили вашу заявку. Это может быть связано с${NON_BREAKING_SPACE}тем, что вы${NON_BREAKING_SPACE}слишком долго не${NON_BREAKING_SPACE}заходили в${NON_BREAKING_SPACE}личный кабинет и${NON_BREAKING_SPACE}не${NON_BREAKING_SPACE}заполняли анкету — мы были вынуждены передать средства на${NON_BREAKING_SPACE}вашу консультацию другому человеку. Кроме этого, возможно ваш вопрос не${NON_BREAKING_SPACE}был связан с${NON_BREAKING_SPACE}онкологией.
-    Если у вас есть вопросы, напишите в `,
+      text: `${getDeniedText(closeComment)}.
+    Если у вас есть вопросы, напишите в${NON_BREAKING_SPACE}`,
       button: Notifiation.Denied,
       link: {
         label: 'форму обратной связи',
-        href: '/contacts#feedback-form',
+        href: `/contacts?claimNumber=${number}#feedback-form`,
       },
     },
     [ClaimStatus.QueueForQuota]: {

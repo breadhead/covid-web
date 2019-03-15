@@ -10,6 +10,7 @@ import { Props as PageProps } from './FeedbackForm'
 
 interface Props {
   send: (feedbackFields: SendFeedbackRequest) => Promise<any>
+  claimNumber: string
 }
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
@@ -41,4 +42,4 @@ export default compose(
     mapDipatch,
   ),
   Container,
-)
+) as any

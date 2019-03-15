@@ -60,9 +60,17 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
           onSubmit={this.send}
           forwardedRef={this.messages}
           onTextAreaFocus={this.onTextAreaFocus}
+          scrollToBottom={this.scrollToBottom}
           {...this.props}
         />
       )
+    }
+
+    public scrollToBottom = () => {
+      const ref = this.messages.current
+      if (ref) {
+        ref.scrollTop = ref.scrollHeight
+      }
     }
 
     private handleChatStatusChange = (isOpen: boolean) => {
@@ -77,13 +85,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
         } else {
           unlock()
         }
-      }
-    }
-
-    private scrollToBottom = () => {
-      const ref = this.messages.current
-      if (ref) {
-        ref.scrollTop = ref.scrollHeight
       }
     }
 

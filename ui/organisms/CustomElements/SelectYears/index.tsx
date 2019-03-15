@@ -20,22 +20,14 @@ const SelectYears = ({
   name,
   placeholder,
   ...rest
-}: Props) => {
-  const selectPlaceholder = placeholder
-    ? placeholder
-    : isMobile
-    ? 'Год'
-    : 'Выберите год'
-
-  return (
-    <Select
-      placeholder={selectPlaceholder}
-      options={years}
-      name={name}
-      {...rest}
-      className={className}
-    />
-  )
-}
+}: Props) => (
+  <Select
+    placeholder={isMobile ? 'Год' : 'Выберите год'}
+    options={years}
+    name={name}
+    {...rest}
+    className={className}
+  />
+)
 
 export default SelectYears
