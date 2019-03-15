@@ -14,7 +14,6 @@ import { connect } from 'react-redux'
 import Uploader from '../../uploader'
 import ChatWrapper from '../organisms/ChatWrapper'
 import Header from '../organisms/Header'
-
 export interface FormFileds {
   message: string
 }
@@ -27,6 +26,7 @@ export interface Props {
   onSubmit: (values: FormFileds) => Promise<void>
   onTextAreaFocus: () => void
   forwardedRef: React.Ref<HTMLDivElement>
+  scrollToBottom: () => void
   muted: boolean
   roles: Role[]
 }
@@ -39,6 +39,7 @@ const Chat = ({
   opensOnce,
   onTextAreaFocus,
   forwardedRef,
+  scrollToBottom,
   muted,
   roles,
 }: Props) => {
@@ -47,6 +48,7 @@ const Chat = ({
   const [uploading, setUploading] = React.useState(false)
 
   const onUpload = async (file: string) => {
+    scrollToBottom()
     setUploading(true)
     await onSubmit({ message: file })
     setUploading(false)
@@ -58,8 +60,12 @@ const Chat = ({
         <Header onCloseButtonClick={closeChat} />
       </div>
       <div className={styles.messageWrapper}>
-        <ChatWrapper role={roles[0]} ref={forwardedRef} messages={messages} />
-        {!!uploading && <div>mememe</div>}
+        <ChatWrapper
+          loading={uploading}
+          role={roles[0]}
+          ref={forwardedRef}
+          messages={messages}
+        />
       </div>
       <Form
         onSubmit={onSubmit as any}
