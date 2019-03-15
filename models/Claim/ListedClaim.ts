@@ -12,5 +12,6 @@ export interface ListedClaim {
   newMessage: boolean
   email?: string
   target: ClaimTarget
+  closeComment?: string
   corporateStatus: CorporateStatus
 }
