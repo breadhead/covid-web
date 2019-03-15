@@ -3,5 +3,5 @@ export const normalizeUrl = (url: string) => {
     return url
   }
 
-  return `https://${url}`
+  return `http://${url}`
 }

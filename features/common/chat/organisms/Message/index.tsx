@@ -9,9 +9,10 @@ import * as styles from './Message.css'
 
 interface Props {
   message: ChatMessage
+  loader?: React.ReactNode
 }
 
-const Message = ({ message }: Props) => {
+const Message = ({ message, loader }: Props) => {
   const { author, content, date } = message
   return (
     <article
@@ -21,6 +22,7 @@ const Message = ({ message }: Props) => {
     >
       {!!author && <p className={styles.author}>{author}</p>}
       <ClickableText className={styles.content}>{content}</ClickableText>
+      {loader}
       <p className={styles.sendingTime}>{getFormattedDate(date)}</p>
     </article>
   )

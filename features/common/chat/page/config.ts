@@ -70,3 +70,10 @@ export const EmptyWindowText = {
   [Role.CaseManager]: 'Сообщений нет',
   [Role.Doctor]: 'Сообщений нет',
 } as any
+
+export const MockMessageForLoader = {
+  id: '',
+  author: '',
+  content: ``,
+  date: new Date(),
+}

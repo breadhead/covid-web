@@ -1,9 +1,15 @@
 import { Spin } from 'antd'
 
+import cx from 'classnames'
+
 import * as styles from './Loader.css'
 
-const Loader = () => (
-  <div className={styles.Loader}>
+interface Props {
+  className?: string
+}
+
+const Loader = ({ className }: Props) => (
+  <div className={cx(styles.Loader, className)}>
     <Spin />
   </div>
 )
