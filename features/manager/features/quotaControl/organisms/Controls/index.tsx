@@ -8,6 +8,7 @@ import { WithQuotaTypeModal } from '../../../bindQuota'
 import { WithChooseDoctorModal } from '../../../chooseDoctor'
 import { WithCloseClaimModal } from '../../../closeClaim'
 import BottomRow from '../../molecules/BottomRow'
+import CommentRow from '../../molecules/CommentRow'
 import TopRow from '../../molecules/TopRow'
 import * as styles from './Controls.css'
 
@@ -26,6 +27,7 @@ interface Props
   editAnswer: boolean
   toQueue: boolean
   quotaName?: string
+  closeComment?: string
   claim: Claim
 }
 
@@ -51,6 +53,7 @@ const Controls = (props: Props) => (
     )}
     <div className={styles.plate}>
       <TopRow {...props} />
+      <CommentRow comment={props.closeComment} />
       {props.allowEditing && (
         <BottomRow corporate={forCorporate(props.claim)} {...props} />
       )}

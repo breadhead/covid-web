@@ -7,7 +7,11 @@ import Layout from '@app/features/main/layout'
 import FeedbackForm from '../organisms/FeedbackForm'
 import YandexMap from '../organisms/YandexMap'
 
-const ContactsPage = () => (
+export interface Props {
+  claimNumber: string
+}
+
+const ContactsPage = ({ claimNumber }: Props) => (
   <Layout className={styles.main}>
     <Head>
       <title>Контакты | Просто спросить</title>
@@ -16,7 +20,7 @@ const ContactsPage = () => (
     <div className={styles.mapContainer}>
       <YandexMap />
     </div>
-    <FeedbackForm />
+    <FeedbackForm claimNumber={claimNumber} />
   </Layout>
 )
 
