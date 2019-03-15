@@ -32,7 +32,7 @@ const Select = ({
     <AntSelect
       value={`${value}` || undefined}
       id={name}
-      placeholder={!value ? undefined : placeholder}
+      placeholder={value && `${value}`.length > 0 ? undefined : placeholder}
       {...rest}
       className={error && 'error'}
     >
