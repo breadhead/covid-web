@@ -1,21 +1,24 @@
 import IconCustom from '@app/ui/IconCustom'
-import Input from '@app/ui/Input'
-import { SectionDivider } from '@app/ui/organisms/AddFieldContainer'
+import {
+  SectionDivider,
+  SectionHeader,
+} from '@app/ui/organisms/AddFieldContainer'
 import { Button, ButtonKind } from '@front/ui/button'
 import cx from 'classnames'
 
+import { Input } from '@app/features/common/form'
 import * as React from 'react'
 import FileField from './components/FileField'
 import LinkField from './components/LinkField'
 import * as styles from './SurveyAddFieldContainer.css'
 
-type RemoveSection = (changeState: () => void) => void
+type RemoveSection = (changeState: () => void, id: number) => void
 
 export enum FieldType {
   Files = 'Files',
   Links = 'Links',
+  Empty = '',
 }
-
 interface Props {
   buttonText?: string
   initialCount?: number
@@ -33,43 +36,43 @@ interface State {
 }
 
 const INITIAL_COUNT = 1
-const initialFields = [{ id: 1, type: FieldType.Files }]
 class SurveyAddFieldContainer extends React.Component<Props, State> {
   public state = {
     count: this.props.initialCount || INITIAL_COUNT,
-    fields: initialFields,
-    fieldType: FieldType.Files,
+    fields: [{ id: 0, type: FieldType.Files }],
   }
 
   public render() {
     const { removeSectionFromState } = this.props
+
     return (
       <div>
         <div className={styles.fields}>
-          {this.state.fields.map((field, index) => (
-            <React.Fragment key={field.id}>
-              {index > 0 && <SectionDivider />}
-              <label
-                htmlFor={`otherFiles.${field.id}.title`}
-                className={styles.labelSmall}
-              >
-                Название исследования
-              </label>
-              <Input name={`otherFiles.${field.id}.title`} />
-              {field.type === FieldType.Files ? (
-                <FileField
-                  name={`otherFiles.${field.id}.url`}
-                  remove={() => {
-                    this.removeSection(
-                      removeSectionFromState(field.id, 'otherFiles'),
-                    )
-                  }}
-                />
-              ) : (
-                <LinkField name={`otherFiles.${field.id}.link`} />
-              )}
-            </React.Fragment>
-          ))}
+          {this.state.fields.length > 0 &&
+            this.state.fields.map((field, index) => (
+              <React.Fragment key={field.id}>
+                {index > 0 && <SectionDivider />}
+                {index > 0 && (
+                  <SectionHeader
+                    index={field.id}
+                    onRemoveClick={() => {
+                      this.removeSection(
+                        removeSectionFromState(field.id, 'otherFiles'),
+                        field.id,
+                      )
+                    }}
+                  />
+                )}
+                <label
+                  htmlFor={`otherFiles.${field.id}.title`}
+                  className={styles.labelSmall}
+                >
+                  Название исследования
+                </label>
+                <Input name={`otherFiles.${field.id}.title`} />
+                {this.getField(field, removeSectionFromState)}
+              </React.Fragment>
+            ))}
         </div>
         <Button
           onClick={() => this.onClick(FieldType.Files)}
@@ -92,13 +95,15 @@ class SurveyAddFieldContainer extends React.Component<Props, State> {
   }
 
   private onClick = (type: FieldType) => {
-    this.changeCount(1)
     this.addField({ id: this.state.count, type })
+    this.changeCount(1)
   }
 
-  private removeSection: RemoveSection = changeState => {
+  private removeSection: RemoveSection = (changeState, id) => {
     changeState()
-    this.changeCount(-1)
+    this.setState((state: State) => ({
+      fields: state.fields.filter(field => field.id !== id),
+    }))
   }
 
   private changeCount = (quantity: number) => {
@@ -111,6 +116,29 @@ class SurveyAddFieldContainer extends React.Component<Props, State> {
     const { id, type } = field
     const newField = { id, type }
     this.setState((state: State) => ({ fields: state.fields.concat(newField) }))
+  }
+
+  private getField = (
+    field: Field,
+    removeSectionFromState: (key: number, id: string) => () => void,
+  ) => {
+    if (field.type === FieldType.Files) {
+      return (
+        <FileField
+          name={`otherFiles.${field.id}.url`}
+          remove={() => {
+            this.removeSection(
+              removeSectionFromState(field.id, 'otherFiles'),
+              field.id,
+            )
+          }}
+        />
+      )
+    } else if (field.type === FieldType.Links) {
+      return <LinkField name={`otherFiles.${field.id}.link`} />
+    } else {
+      return ''
+    }
   }
 }
 

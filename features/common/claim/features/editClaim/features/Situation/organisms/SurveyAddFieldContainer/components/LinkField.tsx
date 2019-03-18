@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as styles from '../SurveyAddFieldContainer.css'
 
-import Input from '@app/ui/Input'
+import { Input } from '@app/features/common/form'
 
 interface Props {
   name: string
