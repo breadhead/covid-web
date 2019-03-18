@@ -39,33 +39,6 @@ const Survey = ({
       Последние по дате. Прикрепите сканы или фотографии
     </p>
 
-    {/* <AddFieldContainer
-      initialCount={initial.otherFiles!.length}
-      buttonClassName={styles.addButton}
-      buttonText="Добавить другие файлы"
-    >
-      {(count, removeSection) =>
-        count.map((key, index) => (
-          <React.Fragment key={key}>
-            {index > 0 && <SectionDivider />}
-            <label
-              htmlFor={`otherFiles.${key}.title`}
-              className={styles.labelSmall}
-            >
-              Название исследования
-            </label>
-            <Input name={`otherFiles.${key}.title`} />
-            <FormFileInput
-              name={`otherFiles.${key}.url`}
-              remove={() => {
-                removeSection(removeSectionFromState(key, 'otherFiles'))
-              }}
-            />
-          </React.Fragment>
-        ))
-      }
-    </AddFieldContainer> */}
-
     <SurveyAddFieldContainer
       initialCount={initial.otherFiles!.length}
       removeSectionFromState={removeSectionFromState}
