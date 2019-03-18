@@ -15,10 +15,8 @@ import * as styles from './SurveyAddFieldContainer.css'
 export enum FieldType {
   Files = 'Files',
   Links = 'Links',
-  Empty = '',
 }
 interface Props {
-  buttonText?: string
   initialCount?: number
   removeSectionFromState: (key: number, id: string) => () => void
 }
@@ -28,94 +26,41 @@ interface Field {
   type: FieldType
 }
 
-interface State {
-  count: number
-  fields: Field[]
-}
-
 const INITIAL_COUNT = 1
-class SurveyAddFieldContainer extends React.Component<Props, State> {
-  public state = {
-    count: INITIAL_COUNT,
-    fields: [{ id: 0, type: FieldType.Files }],
+const INITIAL_FIELDS = [{ id: 0, type: FieldType.Files }]
+
+const SurveyAddFieldContainer = ({
+  initialCount,
+  removeSectionFromState,
+}: Props) => {
+  const [count, setCount] = React.useState(initialCount || INITIAL_COUNT)
+  const [fields, setFields] = React.useState(INITIAL_FIELDS)
+
+  const onClick = (type: FieldType) => {
+    addField({ id: count, type })
+    changeCount(1)
   }
 
-  public render() {
-    return (
-      <div>
-        <div className={styles.fields}>
-          {this.state.fields.length > 0 &&
-            this.state.fields.map((field, index) => (
-              <React.Fragment key={field.id}>
-                {index > 0 && <SectionDivider />}
-                {index > 0 && (
-                  <SectionHeader
-                    index={field.id}
-                    onRemoveClick={() => {
-                      this.removeSection(index, field.id)
-                    }}
-                  />
-                )}
-                <label
-                  htmlFor={`otherFiles.${index}.title`}
-                  className={styles.labelSmall}
-                >
-                  Название исследования
-                </label>
-                <Input name={`otherFiles.${index}.title`} />
-                {this.getField(index, field)}
-              </React.Fragment>
-            ))}
-        </div>
-        <Button
-          onClick={() => this.onClick(FieldType.Files)}
-          className={cx(styles.addButton, styles.filesButton)}
-          kind={ButtonKind.Extra}
-        >
-          <IconCustom className={styles.icon} name="24x24_plus" />
-          Добавить другие файлы
-        </Button>
-        <Button
-          onClick={() => this.onClick(FieldType.Links)}
-          className={cx(styles.addButton, styles.linksButton)}
-          kind={ButtonKind.Extra}
-        >
-          <IconCustom className={styles.icon} name="24x24_plus" />
-          Добавить ссылки на файлы
-        </Button>
-      </div>
-    )
+  const removeSection = (index: number, id: number) => {
+    removeSectionFromState(index, 'otherFiles')()
+    setFields(fields.filter(field => field.id !== id))
   }
 
-  private onClick = (type: FieldType) => {
-    this.addField({ id: this.state.count, type })
-    this.changeCount(1)
+  const changeCount = (quantity: number) => {
+    setCount(count + quantity)
   }
 
-  private removeSection = (index: number, id: number) => {
-    this.props.removeSectionFromState(index, 'otherFiles')()
-    this.setState((state: State) => ({
-      fields: state.fields.filter(field => field.id !== id),
-    }))
+  const addField = (field: Field) => {
+    setFields(fields.concat(field))
   }
 
-  private changeCount = (quantity: number) => {
-    this.setState((state: State) => ({
-      count: state.count + quantity,
-    }))
-  }
-
-  private addField = (field: Field) => {
-    this.setState((state: State) => ({ fields: state.fields.concat(field) }))
-  }
-
-  private getField = (index: number, field: Field) => {
+  const getField = (index: number, field: Field) => {
     if (field.type === FieldType.Files) {
       return (
         <FileField
           name={`otherFiles.${index}.url`}
           remove={() => {
-            this.removeSection(index, field.id)
+            removeSection(index, field.id)
           }}
         />
       )
@@ -125,6 +70,51 @@ class SurveyAddFieldContainer extends React.Component<Props, State> {
       return ''
     }
   }
+
+  return (
+    <div>
+      <div className={styles.fields}>
+        {fields.length > 0 &&
+          fields.map((field, index) => (
+            <React.Fragment key={field.id}>
+              {index > 0 && <SectionDivider />}
+              {index > 0 && (
+                <SectionHeader
+                  index={field.id}
+                  onRemoveClick={() => {
+                    removeSection(index, field.id)
+                  }}
+                />
+              )}
+              <label
+                htmlFor={`otherFiles.${index}.title`}
+                className={styles.labelSmall}
+              >
+                Название исследования
+              </label>
+              <Input name={`otherFiles.${index}.title`} />
+              {getField(index, field)}
+            </React.Fragment>
+          ))}
+      </div>
+      <Button
+        onClick={() => onClick(FieldType.Files)}
+        className={cx(styles.addButton, styles.filesButton)}
+        kind={ButtonKind.Extra}
+      >
+        <IconCustom className={styles.icon} name="24x24_plus" />
+        Добавить другие файлы
+      </Button>
+      <Button
+        onClick={() => onClick(FieldType.Links)}
+        className={cx(styles.addButton, styles.linksButton)}
+        kind={ButtonKind.Extra}
+      >
+        <IconCustom className={styles.icon} name="24x24_plus" />
+        Добавить ссылки на файлы
+      </Button>
+    </div>
+  )
 }
 
 export default SurveyAddFieldContainer
