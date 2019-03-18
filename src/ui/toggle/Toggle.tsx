@@ -10,12 +10,22 @@ import * as styles from './Toggle.css'
 import { useHandleChange } from './useHandleChange'
 
 interface Props {
+  name: string
+  label?: string
+  className?: string
   onChange?: (value: boolean) => void
   value?: boolean
   disabled?: boolean
 }
 
-export const Toggle = ({ onChange, value, disabled = false }: Props) => {
+export const Toggle = ({
+  label,
+  name,
+  className,
+  onChange,
+  value,
+  disabled = false,
+}: Props) => {
   const [checked, setChecked] = useState(value || false)
   const ref = useRef<HTMLDivElement>(null)
   const handleChange = useHandleChange(
@@ -29,19 +39,23 @@ export const Toggle = ({ onChange, value, disabled = false }: Props) => {
   usePressEnter(ref, handleChange)
 
   return (
-    <div
-      ref={ref}
-      tabIndex={0}
-      role="checkbox"
-      aria-checked={checked}
-      onClick={handleChange}
-      className={cx(
-        styles.container,
-        styles[getCheckedClassName(checked)],
-        styles[getDisabledClassName(disabled)],
-      )}
-    >
-      {getCheckedText(checked)}
-    </div>
+    <>
+      {label && <label htmlFor={name}>{label}</label>}
+      <div
+        ref={ref}
+        tabIndex={0}
+        role="checkbox"
+        aria-checked={checked}
+        onClick={handleChange}
+        className={cx(
+          styles.container,
+          styles[getCheckedClassName(checked)],
+          styles[getDisabledClassName(disabled)],
+          className,
+        )}
+      >
+        {getCheckedText(checked)}
+      </div>
+    </>
   )
 }

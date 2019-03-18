@@ -7,17 +7,19 @@ import { Toggle } from '../Toggle'
 const onChange = action('toggle clicked')
 
 storiesOf('atoms/Toggle', module)
-  .add('Simple toggle', () => <Toggle />)
-  .add('Toggle with onChange', () => <Toggle onChange={onChange} />)
+  .add('Simple toggle', () => <Toggle name="test-toggle" />)
+  .add('Toggle with onChange', () => (
+    <Toggle name="test-toggle" onChange={onChange} />
+  ))
   .add('Disabled toggle', () => (
     <>
-      <Toggle value={false} disabled />
-      <Toggle value={true} disabled />
+      <Toggle name="test-toggle" value={false} disabled />
+      <Toggle name="test-toggle" value={true} disabled />
     </>
   ))
   .add('Controlled toggle', () => (
     <>
-      <Toggle value={true} onChange={onChange} />
-      <Toggle value={false} onChange={onChange} />
+      <Toggle name="test-toggle" value={true} onChange={onChange} />
+      <Toggle name="test-toggle" value={false} onChange={onChange} />
     </>
   ))
