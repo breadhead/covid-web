@@ -17,5 +17,7 @@ export const getMessages = createSelector(
 export const getLoaded = (state: State) => state.chat.loaded
 
 export const isMuted = (state: State) =>
-  state.login.user.roles.includes(Role.Client) &&
-  state.consultation.claimData.mainInfo!.status === ClaimStatus.Closed
+  (state.login.user.roles.includes(Role.Client) &&
+    state.consultation.claimData.mainInfo!.status === ClaimStatus.Closed) ||
+  ClaimStatus.ClosedWithoutAnswer ||
+  ClaimStatus.Denied
