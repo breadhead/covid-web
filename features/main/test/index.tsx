@@ -6,9 +6,9 @@ import Checkbox from '@app/ui/Checkbox'
 import NavLink, { NavLinkType } from '@app/ui/NavLink'
 import RadioButton from '@app/ui/RadioButton'
 import Select, { mapString } from '@app/ui/Select'
-import Switch from '@app/ui/Switch'
 import TextArea from '@app/ui/TextArea'
 import { ButtonKind, ButtonSize } from '@front/ui/button'
+import { Toggle } from '@front/ui/Toggle'
 
 import Layout from '@app/features/client/organisms/Layout'
 import { InputType } from '@app/features/common/form'
@@ -116,7 +116,7 @@ const Test = ({ modal }: WithModalProps) => (
       <br />
       <Input name="input2" type={InputType.Number} placeholder="инпут2" />
       <br />
-      <Switch name="fd" />
+      <Toggle name="fd" />
       <br />
       <br />
       <br />

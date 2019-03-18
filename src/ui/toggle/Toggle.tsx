@@ -9,7 +9,7 @@ import { getDisabledClassName } from './helpers/getDisabledClassName'
 import * as styles from './Toggle.css'
 import { useHandleChange } from './useHandleChange'
 
-interface Props {
+export interface Props {
   name: string
   label?: string
   className?: string
