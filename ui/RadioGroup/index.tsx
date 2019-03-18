@@ -39,9 +39,12 @@ const RadioGroup = ({
 }: Props) => {
   const [currentValue, setCurrentValue] = React.useState(undefined)
 
-  React.useEffect(() => {
-    setCurrentValue(value as any)
-  })
+  React.useEffect(
+    () => {
+      setCurrentValue(value as any)
+    },
+    [value],
+  )
 
   return (
     <div className={cx(`radioButtonStyle__${radioStyle}`, className)}>
