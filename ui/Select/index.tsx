@@ -1,5 +1,6 @@
 import { Select as AntSelect } from 'antd'
 import { LabeledValue, SelectProps } from 'antd/lib/select'
+import cx from 'classnames'
 import * as React from 'react'
 
 import './SelectGlobal.css?CSSModulesDisable'
@@ -26,25 +27,40 @@ const Select = ({
   value,
   placeholder,
   ...rest
-}: Props) => (
-  <div className={className}>
-    {label && <label htmlFor={name}>{label}</label>}
-    <AntSelect
-      value={(!!value && `${value}`.length > 0 && `${value}`) || undefined}
-      id={name}
-      placeholder={!!value && `${value}`.length > 0 ? undefined : placeholder}
-      {...rest}
-      className={error && 'error'}
-    >
-      {options.map(option => (
-        <Option key={option.key} value={option.key}>
-          {option.label}
-        </Option>
-      ))}
-    </AntSelect>
-  </div>
-)
+}: Props) => {
+  const [check, setCheck] = React.useState(false)
 
-export default Select
+  React.useEffect(() => {
+    setCheck(true)
+  }, [])
+
+  const currentValue = `${value}`.length > 0 ? `${value}` : undefined
+  const currentPlaceholder = !currentValue && placeholder
+  return (
+    check && (
+      <div className={className}>
+        {label && <label htmlFor={name}>{label}</label>}
+        <AntSelect
+          value={currentValue}
+          id={name}
+          placeholder={currentPlaceholder}
+          {...rest}
+          className={cx(
+            error && 'error',
+            currentPlaceholder && 'placeholder-pale',
+          )}
+        >
+          {options.map(option => (
+            <Option key={option.key} value={option.key}>
+              {option.label}
+            </Option>
+          ))}
+        </AntSelect>
+      </div>
+    )
+  )
+}
+
+export default Select as any
 
 export { mapEnum, mapString } from './mappers'

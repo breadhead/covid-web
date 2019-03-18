@@ -24,6 +24,11 @@
   }
 }
 
+.placeholder-pale div {
+  color: #bfbfbf;
+}
+
+
 .ant-select-selection--single {
   height: auto !important;
 }
