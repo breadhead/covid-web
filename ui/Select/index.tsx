@@ -30,9 +30,9 @@ const Select = ({
   <div className={className}>
     {label && <label htmlFor={name}>{label}</label>}
     <AntSelect
-      value={`${value}` || undefined}
+      value={(!!value && `${value}`.length > 0 && `${value}`) || undefined}
       id={name}
-      placeholder={value && `${value}`.length > 0 ? undefined : placeholder}
+      placeholder={!!value && `${value}`.length > 0 ? undefined : placeholder}
       {...rest}
       className={error && 'error'}
     >

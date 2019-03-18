@@ -51,7 +51,8 @@ class Combobox extends React.Component<Props> {
 
     const { currentHint } = this.state
 
-    const currentValue = `${value}`.length > 0 ? `${value}` : undefined
+    const currentValue =
+      !!value && `${value}`.length > 0 ? `${value}` : undefined
 
     return (
       <div className={wrapperClassName}>
@@ -67,7 +68,7 @@ class Combobox extends React.Component<Props> {
           maxTagCount={6}
           notFoundContent={<div className="not-found">{NOT_FOUND_TEXT}</div>}
           filterOption={this.filterOptions}
-          value={`${currentValue}`}
+          value={currentValue}
           {...rest}
           className={error && 'error'}
         >
