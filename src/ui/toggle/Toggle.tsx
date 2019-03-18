@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { usePressEnter } from '@front/hooks/usePressEnter'
 
@@ -16,6 +16,7 @@ interface Props {
   onChange?: (value: boolean) => void
   value?: boolean
   disabled?: boolean
+  defaultChecked?: boolean
 }
 
 export const Toggle = ({
@@ -24,6 +25,7 @@ export const Toggle = ({
   className,
   onChange,
   value,
+  defaultChecked,
   disabled = false,
 }: Props) => {
   const [checked, setChecked] = useState(value || false)
@@ -37,6 +39,12 @@ export const Toggle = ({
   )
 
   usePressEnter(ref, handleChange)
+
+  useEffect(() => {
+    if (defaultChecked) {
+      setChecked(true)
+    }
+  }, [])
 
   return (
     <>
