@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { Select as AntSelect } from 'antd'
 import { LabeledValue, OptionProps, SelectProps } from 'antd/lib/select'
+import cx from 'classnames'
 
 import { toString } from 'lodash'
 
@@ -19,6 +20,7 @@ interface OwnProps {
   wrapperClassName?: string
   selectClassName?: string
   error?: string
+  placeholder?: string
 }
 
 type Option = React.ReactElement<OptionProps>
@@ -34,7 +36,12 @@ class Combobox extends React.Component<Props> {
   }
 
   public state = {
+    check: false,
     currentHint: this.props.hintForEmptyValue,
+  }
+
+  public componentDidMount() {
+    this.setState({ check: true })
   }
 
   public render() {
@@ -46,40 +53,48 @@ class Combobox extends React.Component<Props> {
       label,
       error,
       value,
+      placeholder,
       ...rest
     } = this.props
 
-    const { currentHint } = this.state
+    const { currentHint, check } = this.state
 
     const currentValue = `${value}`.length > 0 ? `${value}` : undefined
+    const currentPlaceholder = !currentValue && placeholder
 
     return (
-      <div className={wrapperClassName}>
-        {label && (
-          <label className="label" htmlFor={name}>
-            {label}
-          </label>
-        )}
-        <AntSelect
-          id={name}
-          showSearch
-          onSearch={this.onInputKeyDown}
-          maxTagCount={6}
-          notFoundContent={<div className="not-found">{NOT_FOUND_TEXT}</div>}
-          filterOption={this.filterOptions}
-          value={`${currentValue}`}
-          {...rest}
-          className={error && 'error'}
-        >
-          <OptGroup label={currentHint}>
-            {options.map(option => (
-              <Option key={option.key} value={option.key}>
-                {option.label}
-              </Option>
-            ))}
-          </OptGroup>
-        </AntSelect>
-      </div>
+      check && (
+        <div className={wrapperClassName}>
+          {label && (
+            <label className="label" htmlFor={name}>
+              {label}
+            </label>
+          )}
+          <AntSelect
+            id={name}
+            showSearch
+            onSearch={this.onInputKeyDown}
+            maxTagCount={6}
+            notFoundContent={<div className="not-found">{NOT_FOUND_TEXT}</div>}
+            filterOption={this.filterOptions}
+            value={`${value}`.length > 0 ? `${value}` : undefined}
+            placeholder={currentPlaceholder}
+            {...rest}
+            className={cx(
+              error && 'error',
+              currentPlaceholder && 'placeholder-pale',
+            )}
+          >
+            <OptGroup label={currentHint}>
+              {options.map(option => (
+                <Option key={option.key} value={option.key}>
+                  {option.label}
+                </Option>
+              ))}
+            </OptGroup>
+          </AntSelect>
+        </div>
+      )
     )
   }
 

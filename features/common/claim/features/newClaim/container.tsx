@@ -91,6 +91,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
         return nanomerge(
           {
             personalData: { phone: smsPhone },
+            companyPresence: false,
           },
           draft,
         )

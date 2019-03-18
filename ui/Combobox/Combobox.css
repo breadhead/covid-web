@@ -19,6 +19,14 @@
   }
 }
 
+.ant-select-selection__placeholder {
+  color: var(--text-color-primary);
+}
+
+.placeholder-pale div {
+  color: #bfbfbf;
+}
+
 .ant-select-selection__rendered {
   margin: 0;
   line-height: initial;
