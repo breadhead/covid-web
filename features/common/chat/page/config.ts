@@ -1,4 +1,5 @@
 import { NON_BREAKING_SPACE } from '@app/lib/config'
+import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { Role } from '@app/models/Users/User'
 
 export const MockMessages = [
@@ -77,3 +78,9 @@ export const MockMessageForLoader = {
   content: ``,
   date: new Date(),
 }
+
+export const mutedStatuses = [
+  ClaimStatus.Closed,
+  ClaimStatus.ClosedWithoutAnswer,
+  ClaimStatus.Denied,
+]
