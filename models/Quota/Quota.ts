@@ -17,4 +17,5 @@ export interface Quota {
   publicCompany: boolean
   comment: string
   createdAt: string
+  editedAt?: string
 }
