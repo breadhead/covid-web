@@ -3,8 +3,9 @@ import { createSelector } from 'reselect'
 
 import { State } from '@app/lib/store'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
-import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { Role } from '@app/models/Users/User'
+import { tryOr } from '@app/src/helpers/tryOr'
+import { mutedStatuses } from './page/config'
 
 const getUnsortedMessages = (state: State) => state.chat.messages
 
@@ -17,7 +18,11 @@ export const getMessages = createSelector(
 export const getLoaded = (state: State) => state.chat.loaded
 
 export const isMuted = (state: State) =>
-  (state.login.user.roles.includes(Role.Client) &&
-    state.consultation.claimData.mainInfo!.status === ClaimStatus.Closed) ||
-  ClaimStatus.ClosedWithoutAnswer ||
-  ClaimStatus.Denied
+  tryOr(() => {
+    const status = state.consultation.claimData.mainInfo!.status
+
+    const isClient = state.login.user.roles.includes(Role.Client)
+    const statusIsMuted = mutedStatuses.includes(status)
+
+    return isClient && statusIsMuted
+  }, false)
