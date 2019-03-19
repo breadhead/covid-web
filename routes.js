@@ -2,7 +2,6 @@ const nextRoutes = require('next-routes')
 
 module.exports = nextRoutes()
   // main routes
-  .add('test', '/test', 'main-test')
   .add('manager', '/manager', 'main-manager')
   .add('doctor', '/doctor', 'main-doctor')
   // landing

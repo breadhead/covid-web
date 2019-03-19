@@ -19,14 +19,13 @@ interface ContainerProps {
 }
 
 export interface Props extends ContainerProps {
-  clientInRussia: boolean
-  onChangeInRussia: (value: boolean) => void
+  clientInRussia?: boolean
+  onChangeInRussia: (value?: boolean) => void
 }
 
 const Container = (WrappedComponent: React.ComponentType<Props>) => {
   return class extends React.Component<ContainerProps, LocalState> {
     public state = this.getInitialState() as LocalState
-
     public render() {
       return (
         <WrappedComponent
@@ -45,7 +44,7 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
       }
     }
 
-    private onChangeInRussia = (value: boolean) => {
+    private onChangeInRussia = (value = true) => {
       this.setState({ clientInRussia: value })
       this.props.changeField(this.props.name, undefined)
     }
