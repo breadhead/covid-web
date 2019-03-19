@@ -4,8 +4,8 @@ import * as React from 'react'
 
 import * as styles from './EmergingFormElement.css'
 
+import { Toggle } from '@app/src/ui/toggle'
 import RadioGroupElement, { radioButtons } from './RadioGroupElement'
-import ToggleElement from './ToggleElement'
 
 export enum ControlTypes {
   Switch = 'Switch',
@@ -20,7 +20,7 @@ export interface Props {
   className?: string
   children?: React.ReactNode
   value?: string
-  onChange?: (value: boolean) => void
+  onChange?: (value?: boolean) => void
 }
 
 interface State {
@@ -73,11 +73,11 @@ class EmergingFormElement extends React.Component<Props, State> {
       <React.Fragment>
         <div className={cx(styles.EmergingFormControl, className)}>
           {controlType === ControlTypes.Switch ? (
-            <ToggleElement
+            <Toggle
               {...rest}
               name={name}
               onChange={this.switchChangeHandler}
-              defaultChecked={this.state.isVisible}
+              value={this.state.isVisible}
             />
           ) : (
             <RadioGroupElement
