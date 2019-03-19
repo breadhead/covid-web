@@ -15,7 +15,12 @@
   cursor: pointer;
   user-select: none;
   border-radius: var(--radius);
+  outline-width: 0px;
   transition: background-color var(--animation-duration);
+
+  &:focus {
+    box-shadow: 0 0 0 2px var(--color-primary);
+  }
 
   &::after {
     position: absolute;
