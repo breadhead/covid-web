@@ -2,14 +2,12 @@ import * as React from 'react'
 
 import cx from 'classnames'
 
-import { Input } from '@app/features/common/form'
 import { RemoveSection } from '@app/features/common/form'
 import { FormFileInput } from '@app/features/common/uploader'
 import { StylesType } from '@app/lib/config'
-import AddFieldContainer, {
-  SectionDivider,
-} from '@app/ui/organisms/AddFieldContainer'
+
 import { ClaimData, SituationClaimFields } from '../../types'
+import SurveyAddFieldContainer from './../SurveyAddFieldContainer'
 
 interface Props {
   styles: StylesType
@@ -41,32 +39,10 @@ const Survey = ({
       Последние по дате. Прикрепите сканы или фотографии
     </p>
 
-    <AddFieldContainer
+    <SurveyAddFieldContainer
       initialCount={initial.otherFiles!.length}
-      buttonClassName={styles.addButton}
-      buttonText="Добавить другие файлы"
-    >
-      {(count, removeSection) =>
-        count.map((key, index) => (
-          <React.Fragment key={key}>
-            {index > 0 && <SectionDivider />}
-            <label
-              htmlFor={`otherFiles.${key}.title`}
-              className={styles.labelSmall}
-            >
-              Название исследования
-            </label>
-            <Input name={`otherFiles.${key}.title`} />
-            <FormFileInput
-              name={`otherFiles.${key}.url`}
-              remove={() => {
-                removeSection(removeSectionFromState(key, 'otherFiles'))
-              }}
-            />
-          </React.Fragment>
-        ))
-      }
-    </AddFieldContainer>
+      removeSectionFromState={removeSectionFromState}
+    />
   </article>
 )
 
