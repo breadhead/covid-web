@@ -1,6 +1,5 @@
-import { ComboBox } from '@app/features/common/form'
+import { ComboBox, Toggle } from '@app/features/common/form'
 import { mapString } from '@app/ui/Select'
-import Switch from '@app/ui/Switch'
 import cx from 'classnames'
 import * as React from 'react'
 import { Props } from '../../container'
@@ -24,10 +23,10 @@ const RegionSelect = ({
     >
       {textSwitch}
     </label>
-    <Switch
+    <Toggle
       name="personalData.russia"
       onChange={onChangeInRussia}
-      checked={clientInRussia}
+      value={clientInRussia}
     />
     {clientInRussia && (
       <>

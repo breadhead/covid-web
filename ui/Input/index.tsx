@@ -35,8 +35,7 @@ const Input = ({
   value,
   ...rest
 }: Props) => {
-  const currentValue = `${value}`.length > 0 ? `${value}` : undefined
-
+  const currentValue = !!value && `${value}`.length > 0 ? `${value}` : undefined
   return (
     <div className={className}>
       {label && (
