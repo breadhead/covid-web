@@ -98,7 +98,11 @@ class Consultation extends React.Component<Props, State> {
               authorLogin={authorLogin}
             />
             {renderSubHeader && renderSubHeader(claim)}
-            <Theme shortClaim={claim.short} situationClaim={claim.situation} />
+            <Theme
+              mainInfo={claim.mainInfo}
+              shortClaim={claim.short}
+              situationClaim={claim.situation}
+            />
             {!hideAnswers && <ExpertAnswers claim={claim.questions} />}
             {renderFooter && renderFooter(claim)}
           </Layout>
