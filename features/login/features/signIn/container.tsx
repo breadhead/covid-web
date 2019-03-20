@@ -9,6 +9,7 @@ import * as yup from 'yup'
 import withSignUpModal, { WithSignUpModal } from '../signUp/withSignUpModal'
 import { getViolateState } from './selectors'
 
+import { normalizeWantToSignIn } from '@app/pages/config'
 import { MODAL_KEY } from './const'
 export { MODAL_KEY }
 
@@ -54,8 +55,9 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
 
     private onFormSubmit = async (credentials: Credentials) => {
       const { violateState } = this.props
-      // const wantTo = `${window.location.search}`.replace('?sign-in?wantTo=', '')
-      await this.props.login(credentials)
+      const wantTo = normalizeWantToSignIn(`${window.location.search}`)
+
+      await this.props.login(credentials, wantTo)
       if (violateState) {
         return {
           login: 'Неверный логин или пароль',

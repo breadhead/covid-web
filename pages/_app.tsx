@@ -27,6 +27,7 @@ import { AppContext } from '@app/lib/server-types'
 
 import { currentUser, getToken } from '@app/features/login/features/user'
 import { pushRoute } from '@app/features/routing/pushRoute'
+import { normalizeWantTo } from './config'
 import { description, keywords } from './SEO'
 
 interface Props {
@@ -67,11 +68,9 @@ class OncohelpWeb extends App<Props> {
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
       this.props.reduxStore.dispatch(setToken(''))
-      Router.push('/?sign-in')
-      // Router.push(
-      //   `/?sign-in?wantTo=${decodeURIComponent(this.props.router
-      //     .asPath as string)}`,
-      // )
+
+      const wantTo = normalizeWantTo(this.props.router.asPath!)
+      Router.push(`/?sign-in?wantTo=${decodeURIComponent(wantTo)}`)
     }
 
     this.props.reduxStore.dispatch(setQuery(this.props.router.query || {}))

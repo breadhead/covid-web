@@ -8,10 +8,8 @@ export enum Condition {
 
 export default (roles: Role[], wantTo?: string, condition?: Condition) => {
   if (wantTo && wantTo.length > 0) {
-    // tslint:disable-next-line: no-console
-    console.log(wantTo)
-    //   Router.push(encodeURIComponent(wantTo))
-    //   return
+    Router.push(`/${decodeURIComponent(wantTo)}`)
+    return
   }
 
   if (roles.includes(Role.Admin)) {
