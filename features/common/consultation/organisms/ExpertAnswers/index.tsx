@@ -4,17 +4,24 @@ import { AnswerClaim, Question } from '@app/models/Claim/AnswerClaim'
 
 import * as styles from './ExpertAnswers.css'
 
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import answered from './answered'
 import Footer from './components/Footer'
 import { makeQuestionGroups } from './helpers/makeQuestionGroups'
 
 interface Props {
   claim: AnswerClaim
+  mainInfo: ListedClaim
   renderCustomAnswer?: (theme: string, question: Question) => React.ReactNode
   title?: string
 }
 
-const ExpertAnswers = ({ claim, renderCustomAnswer, title }: Props) => {
+const ExpertAnswers = ({
+  claim,
+  renderCustomAnswer,
+  title,
+  mainInfo,
+}: Props) => {
   const answeredClaim = answered(claim)
 
   const groups = makeQuestionGroups(claim)
@@ -46,7 +53,10 @@ const ExpertAnswers = ({ claim, renderCustomAnswer, title }: Props) => {
             ))}
           </article>
         ))}
-        <Footer />
+        <Footer
+          answeredAt={mainInfo.answeredAt}
+          editedAnswer={mainInfo.editedAnswer}
+        />
       </section>
     </>
   ) : null

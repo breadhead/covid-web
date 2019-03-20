@@ -103,7 +103,12 @@ class Consultation extends React.Component<Props, State> {
               shortClaim={claim.short}
               situationClaim={claim.situation}
             />
-            {!hideAnswers && <ExpertAnswers claim={claim.questions} />}
+            {!hideAnswers && (
+              <ExpertAnswers
+                claim={claim.questions}
+                mainInfo={claim.mainInfo}
+              />
+            )}
             {renderFooter && renderFooter(claim)}
           </Layout>
         </div>
