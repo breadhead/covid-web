@@ -1,4 +1,5 @@
 export default (date: Date) => {
+  // TODO: дата приходит в разных форматах, Игорь сказал, что знает решение получше
   const currentDate = new Date(date)
   let dd = currentDate.getDate().toString()
 
