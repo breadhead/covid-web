@@ -5,20 +5,20 @@ import * as styles from './Footer.css'
 
 interface Props {
   answeredAt?: Date
-  editedAnswer?: Date
+  answerUpdatedAt?: Date
 }
 
-const Footer = ({ answeredAt, editedAnswer }: Props) =>
+const Footer = ({ answeredAt, answerUpdatedAt }: Props) =>
   !!answeredAt ? (
     <article className={styles.footer}>
       <div className={styles.item}>
         <p className={styles.text}>Ответ загружен</p>
         <p className={styles.date}>{formatDate(answeredAt)}</p>
       </div>
-      {editedAnswer && (
+      {answerUpdatedAt && (
         <div className={styles.item}>
           <p className={styles.text}>Ответ обновлён</p>
-          <p className={styles.date}>{formatDate(editedAnswer)}</p>
+          <p className={styles.date}>{formatDate(answerUpdatedAt)}</p>
         </div>
       )}
     </article>

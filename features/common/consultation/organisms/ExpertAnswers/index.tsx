@@ -55,7 +55,7 @@ const ExpertAnswers = ({
         ))}
         <Footer
           answeredAt={mainInfo.answeredAt}
-          editedAnswer={mainInfo.editedAnswer}
+          answerUpdatedAt={mainInfo.answerUpdatedAt}
         />
       </section>
     </>
