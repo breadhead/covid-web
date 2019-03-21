@@ -12,10 +12,11 @@ const redirectOnServer = (route: string, context: any) => {
 export const pushRoute = async (
   route: string,
   context: Option<AppContext<any>> = Option.of(null),
+  options: object = {},
 ): Promise<void> => {
   if (context.nonEmpty()) {
     return redirectOnServer(route, context.get())
   }
 
-  return NextRoutes.Router.pushRoute(route)
+  return NextRoutes.Router.pushRoute(route, options)
 }

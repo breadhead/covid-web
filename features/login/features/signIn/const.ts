@@ -1,1 +1,1 @@
-export const MODAL_KEY = 'sign-in'
+export const MODAL_KEY = 'signIn'

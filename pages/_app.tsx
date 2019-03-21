@@ -25,8 +25,10 @@ import { canUseDOM } from '@app/lib/helpers/canUseDOM'
 import registerModals from '@app/lib/register-modals'
 import { AppContext } from '@app/lib/server-types'
 
+import { resetCookie } from '@app/features/login/features/signIn/helpers/setAuthToken'
 import { currentUser, getToken } from '@app/features/login/features/user'
 import { pushRoute } from '@app/features/routing/pushRoute'
+import { normalizeWantTo } from './config'
 import { description, keywords } from './SEO'
 
 interface Props {
@@ -55,7 +57,8 @@ class OncohelpWeb extends App<Props> {
     const loggedIn = getToken(ctx.reduxStore.getState()).length > 0
 
     if (isSecure && !loggedIn) {
-      await pushRoute('/?sign-in', Option.of(ctx))
+      const wantTo = normalizeWantTo(context.router.asPath!)
+      await pushRoute('/', Option.of(ctx), { query: { signIn: true, wantTo } })
     }
 
     return App.getInitialProps(context)
@@ -67,11 +70,10 @@ class OncohelpWeb extends App<Props> {
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
       this.props.reduxStore.dispatch(setToken(''))
-      Router.push('/?sign-in')
-      // Router.push(
-      //   `/?sign-in?wantTo=${decodeURIComponent(this.props.router
-      //     .asPath as string)}`,
-      // )
+      resetCookie()
+
+      const wantTo = normalizeWantTo(this.props.router.asPath!)
+      return Router.push({ pathname: '/', query: { signIn: true, wantTo } })
     }
 
     this.props.reduxStore.dispatch(setQuery(this.props.router.query || {}))

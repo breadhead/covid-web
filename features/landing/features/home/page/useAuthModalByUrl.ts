@@ -4,22 +4,22 @@ import { useModal } from '@app/features/common/modal'
 import { MODAL_KEY as SIGN_IN_MODAL } from '@app/features/login/features/signIn/const'
 import { MODAL_KEY as SIGN_UP_MODAL } from '@app/features/login/features/signUp/const'
 
-const SIGN_IN_URL = 'sign-in'
-const SIGN_UP_URL = 'sign-up'
+const SIGN_IN_URL = 'signIn'
+const SIGN_UP_URL = 'signUp'
 
 export const useAuthModalByUrl = () => {
   const { open } = useModal()
 
   useEffect(
     () => {
-      const currentPopup = window.location.href.split('?')[1]
+      const currentPopup = window.location.href
 
-      if (currentPopup === SIGN_IN_URL) {
+      if (currentPopup.includes(SIGN_IN_URL)) {
         open(SIGN_IN_MODAL)
         return
       }
 
-      if (currentPopup === SIGN_UP_URL) {
+      if (currentPopup.includes(SIGN_UP_URL)) {
         open(SIGN_UP_MODAL)
         return
       }

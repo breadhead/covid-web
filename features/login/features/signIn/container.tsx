@@ -9,6 +9,7 @@ import * as yup from 'yup'
 import withSignUpModal, { WithSignUpModal } from '../signUp/withSignUpModal'
 import { getViolateState } from './selectors'
 
+import Router from 'next/router'
 import { MODAL_KEY } from './const'
 export { MODAL_KEY }
 
@@ -24,7 +25,7 @@ interface Props extends ContainerProps {
 }
 
 interface ContainerProps extends WithSignUpModal {
-  login: (credentials: Credentials, wantTo?: string) => any
+  login: (credentials: Credentials, wantTo?: string | string[]) => any
   onFormSubmit: () => Promise<any>
   violateState?: boolean
 }
@@ -54,8 +55,9 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
 
     private onFormSubmit = async (credentials: Credentials) => {
       const { violateState } = this.props
-      // const wantTo = `${window.location.search}`.replace('?sign-in?wantTo=', '')
-      await this.props.login(credentials)
+      const wantTo: string | string[] = (Router.query as any).wantTo
+
+      await this.props.login(credentials, wantTo)
       if (violateState) {
         return {
           login: 'Неверный логин или пароль',

@@ -1,4 +1,5 @@
 import { Role } from '@app/models/Users/User'
+import { head } from 'lodash'
 import Router from 'next/router'
 
 export enum Condition {
@@ -6,12 +7,15 @@ export enum Condition {
   signUp = 'signUp',
 }
 
-export default (roles: Role[], wantTo?: string, condition?: Condition) => {
+export default (
+  roles: Role[],
+  wantTo?: string | string[],
+  condition?: Condition,
+) => {
   if (wantTo && wantTo.length > 0) {
-    // tslint:disable-next-line: no-console
-    console.log(wantTo)
-    //   Router.push(encodeURIComponent(wantTo))
-    //   return
+    const realWantTo = Array.isArray(wantTo) ? head(wantTo) || '' : wantTo
+    Router.push(`/${decodeURIComponent(realWantTo)}`)
+    return
   }
 
   if (roles.includes(Role.Admin)) {
