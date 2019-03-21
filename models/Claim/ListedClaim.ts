@@ -7,6 +7,9 @@ export interface ListedClaim {
   id: string
   number: number
   createdAt: Date
+  editedAt?: Date
+  answeredAt?: Date
+  answerUpdatedAt?: Date
   expireAt?: Date
   status: ClaimStatus
   newMessage: boolean

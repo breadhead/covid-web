@@ -13,7 +13,7 @@ const Answer = ({ claimId, status }: Props) =>
   status !== ClaimStatus.DeliveredToCustomer &&
   status !== ClaimStatus.AnswerValidation ? (
     <Button
-      className={styles.Answer}
+      className={styles.AnswerButton}
       onClick={() => Router.push(`/doctor/answers/${claimId}`)}
     >
       Заполнить ответ

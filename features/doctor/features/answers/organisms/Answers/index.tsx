@@ -11,6 +11,7 @@ import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
 import { Button } from '@front/ui/button'
 
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { makeFieldName } from '../../helpers/makeFieldName'
 import { makeInitialValues } from '../../helpers/makeInitialValues'
 import * as styles from './Answers.css'
@@ -24,11 +25,12 @@ export interface Fields {
 
 export interface Props {
   claim: AnswerClaim
+  mainInfo: ListedClaim
   claimStatus?: ClaimStatus
   onSubmit: (fields: Fields) => Promise<any>
 }
 
-const Answers = ({ claim, onSubmit, claimStatus }: Props) => {
+const Answers = ({ claim, onSubmit, claimStatus, mainInfo }: Props) => {
   const answerSent = claimStatus === ClaimStatus.AnswerValidation
 
   return (
@@ -40,6 +42,7 @@ const Answers = ({ claim, onSubmit, claimStatus }: Props) => {
         <>
           <ExpertAnswers
             claim={claim}
+            mainInfo={mainInfo}
             title="Вопросы эксперту"
             renderCustomAnswer={(theme, { question }) => (
               <TextArea
