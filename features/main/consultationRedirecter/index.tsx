@@ -38,7 +38,7 @@ class ConsultationRedirecter extends React.Component<Props> {
         redirect('doctor')
       }
     } catch (e) {
-      pushRoute('/?sign-in', Option.of(ctx))
+      pushRoute('/', Option.of(ctx), { query: { signIn: true } })
     }
 
     return {}

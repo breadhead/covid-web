@@ -12,3 +12,11 @@ export const setCookie = (token: string) => {
     )};`
   }
 }
+
+export const resetCookie = () => {
+  if (document) {
+    document.cookie = `token=; path=/; expires=${new Date(
+      Date.now() + 900000,
+    )};`
+  }
+}
