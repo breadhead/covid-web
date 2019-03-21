@@ -18,7 +18,8 @@ interface OwnProps {
   error?: string
   autosize?: boolean | RowsNum
   disableResizeOnEnter?: boolean
-  ref?: React.Ref<React.ReactNode>
+  focused?: boolean
+  setUnfocused?: () => void
 }
 
 export type Props = OwnProps & TextAreaProps
@@ -31,6 +32,7 @@ const onEnterPress = (disableResizeOnEnter: boolean) => (e: any) => {
 
 class TextArea extends React.Component<Props> {
   public static defaultProps = { autosize: true }
+  public inputRef = React.createRef<HTMLDivElement>()
 
   public state = {
     mount: false,
@@ -38,6 +40,12 @@ class TextArea extends React.Component<Props> {
 
   public componentDidMount() {
     this.setState({ mount: true })
+  }
+
+  public componentDidUpdate(prevProps: Props) {
+    if (prevProps.focused !== this.props.focused) {
+      this.inputRef.current!.focus()
+    }
   }
 
   public render() {
@@ -48,7 +56,7 @@ class TextArea extends React.Component<Props> {
       error,
       autosize,
       disableResizeOnEnter,
-      ref,
+      focused,
       ...rest
     } = this.props
     const { mount } = this.state
@@ -60,7 +68,7 @@ class TextArea extends React.Component<Props> {
           </label>
         )}
         <AntInput.TextArea
-          ref={ref as any}
+          ref={this.inputRef as any}
           key={`${mount}`}
           name={name}
           id={name}

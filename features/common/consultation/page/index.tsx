@@ -23,6 +23,7 @@ interface State {
   isChatOpen: boolean
   haveNewMessage: boolean
   chatOpensOnce: boolean
+  isChatFocused: boolean
 }
 
 export interface Props {
@@ -45,9 +46,8 @@ class Consultation extends React.Component<Props, State> {
     isChatOpen: true,
     chatOpensOnce: false,
     haveNewMessage: false,
+    isChatFocused: false,
   }
-
-  private chatInputRef = React.createRef<HTMLDivElement>()
 
   public componentDidMount() {
     const { width } = this.props.windowSize
@@ -64,9 +64,11 @@ class Consultation extends React.Component<Props, State> {
   }
 
   public onChatButtonClick = () => {
-    if (this.chatInputRef.current) {
-      // this.chatInputRef.current!.focus()
-    }
+    this.setState({ isChatFocused: true })
+  }
+
+  public setUnfocused = () => {
+    this.setState({ isChatFocused: false })
   }
 
   public render() {
@@ -123,9 +125,10 @@ class Consultation extends React.Component<Props, State> {
         </div>
         <Chat
           closeChat={this.closeChat}
+          setUnfocused={this.setUnfocused}
           isOpen={isChatOpen}
           opensOnce={chatOpensOnce}
-          inputRef={this.chatInputRef}
+          focused={this.state.isChatFocused}
         />
       </div>
     )
