@@ -10,6 +10,7 @@ import { State } from '@app/lib/store'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
 import FinishButton from '../../molecules/FinishButton'
 import { getClientInfo } from '../selectors'
 
@@ -22,19 +23,18 @@ const STATUSES_WITH_VISIBLE_EXPERTS_BLOCK = [ClaimStatus.DeliveredToCustomer]
 const QuestionNotification = ({ mainInfo }: Props) =>
   STATUSES_WITH_VISIBLE_EXPERTS_BLOCK.includes(mainInfo.status) ? (
     <article className={styles.questionNotification}>
-      <h3 className={styles.title}>
-        Эксперт понятно ответил на все ваши вопросы?
-      </h3>
-      <FinishButton className={styles.button} />
-      <p className={styles.text}>
-        Если у{NON_BREAKING_SPACE}вас остались вопросы к эксперту, вы можете
-        задать их в{NON_BREAKING_SPACE}чате.
-        <br />
-        Там же вы можете оставить отзыв о{NON_BREAKING_SPACE}работе сервиса.
-        <br /> <br />
-        Если у вас не{NON_BREAKING_SPACE}осталось вопросов к{NON_BREAKING_SPACE}
-        эксперту, нажмите кнопку “Спасибо”.
-      </p>
+      <div className={styles.container}>
+        <p className={styles.text}>
+          Нам важно получить обратную связь от{NON_BREAKING_SPACE}вас
+        </p>
+        <h3 className={styles.title}>
+          Эксперт понятно ответил на все ваши вопросы?
+        </h3>
+        <FinishButton className={styles.finishButton} />
+        <Button size={ButtonSize.ExtraLarge} kind={ButtonKind.Extra}>
+          Нет
+        </Button>
+      </div>
     </article>
   ) : null
 

@@ -14,9 +14,15 @@ const FinishButton = ({ className }: Props) => {
   const { open } = useSpecificModal(MODAL_KEY)
 
   return (
-    <Button size={ButtonSize.Large} className={className} onClick={open as any}>
-      Да, cпасибо, мне все понятно
-    </Button>
+    <>
+      <Button
+        size={ButtonSize.ExtraLarge}
+        className={className}
+        onClick={open as any}
+      >
+        Да, мне все понятно
+      </Button>
+    </>
   )
 }
 
