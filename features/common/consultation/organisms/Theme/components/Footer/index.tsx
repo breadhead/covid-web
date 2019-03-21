@@ -1,22 +1,26 @@
-// import * as React from 'react'
+import * as React from 'react'
 
-// import * as styles from './Footer.css'
+import * as styles from './Footer.css'
 
-// const Footer = () => (
-//   <article className={styles.footer}>
-//     <div className={styles.item}>
-//       <p className={styles.text}>Анкета создана</p>
-//       <p className={styles.date}>27.04.2018</p>
-//     </div>
-//     <div className={styles.item}>
-//       <p className={styles.text}>Анкета обновлена</p>
-//       <p className={styles.date}>09.08.2018</p>
-//     </div>
-//   </article>
-// )
+import formatDate from '@app/features/client/features/claims/helpers/formatDate'
+interface Props {
+  createdAt: Date
+  editedAt?: Date
+}
 
-// TODO: TMP!
+const Footer = ({ createdAt, editedAt }: Props) => (
+  <article className={styles.footer}>
+    <div className={styles.item}>
+      <p className={styles.text}>Анкета создана</p>
+      <p className={styles.date}>{formatDate(createdAt)}</p>
+    </div>
+    {!!editedAt && (
+      <div className={styles.item}>
+        <p className={styles.text}>Анкета обновлена</p>
+        <p className={styles.date}>{formatDate(editedAt)}</p>
+      </div>
+    )}
+  </article>
+)
 
-const FooterNull = () => null
-
-export default FooterNull
+export default Footer
