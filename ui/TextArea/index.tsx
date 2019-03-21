@@ -18,6 +18,7 @@ interface OwnProps {
   error?: string
   autosize?: boolean | RowsNum
   disableResizeOnEnter?: boolean
+  ref?: React.Ref<React.ReactNode>
 }
 
 export type Props = OwnProps & TextAreaProps
@@ -47,6 +48,7 @@ class TextArea extends React.Component<Props> {
       error,
       autosize,
       disableResizeOnEnter,
+      ref,
       ...rest
     } = this.props
     const { mount } = this.state
@@ -58,6 +60,7 @@ class TextArea extends React.Component<Props> {
           </label>
         )}
         <AntInput.TextArea
+          ref={ref as any}
           key={`${mount}`}
           name={name}
           id={name}

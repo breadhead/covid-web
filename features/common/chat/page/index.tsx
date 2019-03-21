@@ -29,6 +29,7 @@ export interface Props {
   scrollToBottom: () => void
   muted: boolean
   roles: Role[]
+  inputRef?: React.Ref<React.ReactNode>
 }
 
 const Chat = ({
@@ -42,6 +43,7 @@ const Chat = ({
   scrollToBottom,
   muted,
   roles,
+  inputRef,
 }: Props) => {
   const shouldHide = !opensOnce || !isOpen
 
@@ -83,6 +85,7 @@ const Chat = ({
                 />
               </Uploader>
               <TextArea
+                ref={inputRef as any}
                 onFocus={onTextAreaFocus}
                 autosize={{ minRows: 1, maxRows: 4 }}
                 className={styles.input}

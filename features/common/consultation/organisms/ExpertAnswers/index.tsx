@@ -16,6 +16,7 @@ interface Props {
   mainInfo: ListedClaim
   renderCustomAnswer?: (theme: string, question: Question) => React.ReactNode
   title?: string
+  onChatButtonClick?: () => void
 }
 
 const ExpertAnswers = ({
@@ -23,6 +24,7 @@ const ExpertAnswers = ({
   renderCustomAnswer,
   title,
   mainInfo,
+  onChatButtonClick,
 }: Props) => {
   const answeredClaim = answered(claim)
 
@@ -59,7 +61,9 @@ const ExpertAnswers = ({
           answeredAt={mainInfo.answeredAt}
           answerUpdatedAt={mainInfo.answerUpdatedAt}
         />
-        {isClientConsultationUrl() && <QuestionNotification />}
+        {isClientConsultationUrl() && (
+          <QuestionNotification onChatButtonClick={onChatButtonClick} />
+        )}
       </section>
     </>
   ) : null

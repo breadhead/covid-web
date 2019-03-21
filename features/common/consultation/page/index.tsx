@@ -47,6 +47,8 @@ class Consultation extends React.Component<Props, State> {
     haveNewMessage: false,
   }
 
+  private chatInputRef = React.createRef<HTMLDivElement>()
+
   public componentDidMount() {
     const { width } = this.props.windowSize
 
@@ -58,6 +60,12 @@ class Consultation extends React.Component<Props, State> {
 
     if (width !== prevProps.windowSize.width) {
       this.toggleChatOpening(width)
+    }
+  }
+
+  public onChatButtonClick = () => {
+    if (this.chatInputRef.current) {
+      // this.chatInputRef.current!.focus()
     }
   }
 
@@ -107,6 +115,7 @@ class Consultation extends React.Component<Props, State> {
               <ExpertAnswers
                 claim={claim.questions}
                 mainInfo={claim.mainInfo}
+                onChatButtonClick={this.onChatButtonClick}
               />
             )}
             {renderFooter && renderFooter(claim)}
@@ -116,6 +125,7 @@ class Consultation extends React.Component<Props, State> {
           closeChat={this.closeChat}
           isOpen={isChatOpen}
           opensOnce={chatOpensOnce}
+          inputRef={this.chatInputRef}
         />
       </div>
     )
