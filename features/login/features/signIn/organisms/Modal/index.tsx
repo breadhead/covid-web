@@ -7,6 +7,7 @@ import NavLink from '@app/ui/NavLink'
 import { Button } from '@front/ui/button'
 import * as React from 'react'
 import { schema } from '../../container'
+import { isClientWantToConsultation } from './config'
 import * as styles from './SignIn.css'
 
 interface Props {
@@ -16,41 +17,49 @@ interface Props {
   passwordRecoveryUrl: string
 }
 
-const SignIn = ({ onFormSubmit, passwordRecoveryUrl, openSignUp }: Props) => (
-  <article className={styles.popup}>
-    <h1 className={styles.title}>Войти</h1>
-    <p className={styles.secondaryText}>
-      Ещё нет аккаунта?{SPACE}
-      <OpenModalButton onClick={openSignUp}>Зарегистрироваться</OpenModalButton>
-    </p>
+const SignIn = ({ onFormSubmit, passwordRecoveryUrl, openSignUp }: Props) => {
+  const title = isClientWantToConsultation()
+    ? 'Войдите, чтобы увидеть свою заявку'
+    : 'Войти'
 
-    <Form onSubmit={onFormSubmit}>
-      {() => (
-        <>
-          <Input
-            className={styles.input}
-            name="login"
-            label={'Эл. почта'}
-            type={InputType.Text}
-            validate={schema.login}
-          />
-          <Input
-            className={styles.input}
-            name="password"
-            label={'Пароль'}
-            type={InputType.Password}
-            validate={schema.password}
-          />
-          <NavLink href={passwordRecoveryUrl} className={styles.link}>
-            Забыли пароль?
-          </NavLink>
-          <Button submit className={styles.mainButton}>
-            Войти
-          </Button>
-        </>
-      )}
-    </Form>
-  </article>
-)
+  return (
+    <article className={styles.popup}>
+      <h1 className={styles.title}>{title}</h1>
+      <p className={styles.secondaryText}>
+        Ещё нет аккаунта?{SPACE}
+        <OpenModalButton onClick={openSignUp}>
+          Зарегистрироваться
+        </OpenModalButton>
+      </p>
+
+      <Form onSubmit={onFormSubmit}>
+        {() => (
+          <>
+            <Input
+              className={styles.input}
+              name="login"
+              label={'Эл. почта'}
+              type={InputType.Text}
+              validate={schema.login}
+            />
+            <Input
+              className={styles.input}
+              name="password"
+              label={'Пароль'}
+              type={InputType.Password}
+              validate={schema.password}
+            />
+            <NavLink href={passwordRecoveryUrl} className={styles.link}>
+              Забыли пароль?
+            </NavLink>
+            <Button submit className={styles.mainButton}>
+              Войти
+            </Button>
+          </>
+        )}
+      </Form>
+    </article>
+  )
+}
 
 export default SignIn
