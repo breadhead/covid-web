@@ -8,11 +8,14 @@ import { AnyAction, Dispatch } from 'redux'
 import { AnswerRequest } from '@app/lib/api/request/AnswerRequest'
 
 import { getClaimStatus } from '@app/features/common/consultation'
+import { getMainInfo } from '@app/features/common/consultation/selectors'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { answerQuestions } from './actions'
 import { Fields, Props as FormProps } from './organisms/Answers'
 
 interface OwnProps {
   sendAnswers: (request: AnswerRequest) => Promise<void>
+  mainInfo: ListedClaim
 }
 
 type ExternalProps = Pick<FormProps, 'claim' | 'claimStatus'>
@@ -54,6 +57,7 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
 
 const mapState = (state: State) => ({
   claimStatus: getClaimStatus(state),
+  mainInfo: getMainInfo(state),
 })
 
 export default compose<FormProps, ExternalProps>(
