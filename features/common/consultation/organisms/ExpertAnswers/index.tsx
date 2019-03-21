@@ -4,6 +4,8 @@ import { AnswerClaim, Question } from '@app/models/Claim/AnswerClaim'
 
 import * as styles from './ExpertAnswers.css'
 
+import QuestionNotification from '@app/features/client/features/consultation/organisms/QuestionNotification'
+import { isClientConsultationUrl } from '@app/features/login/features/signIn/organisms/Modal/config'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import answered from './answered'
 import Footer from './components/Footer'
@@ -57,6 +59,7 @@ const ExpertAnswers = ({
           answeredAt={mainInfo.answeredAt}
           answerUpdatedAt={mainInfo.answerUpdatedAt}
         />
+        {isClientConsultationUrl() && <QuestionNotification />}
       </section>
     </>
   ) : null

@@ -7,7 +7,7 @@ import NavLink from '@app/ui/NavLink'
 import { Button } from '@front/ui/button'
 import * as React from 'react'
 import { schema } from '../../container'
-import { isClientWantToConsultation } from './config'
+import { isClientConsultationUrl } from './config'
 import * as styles from './SignIn.css'
 
 interface Props {
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const SignIn = ({ onFormSubmit, passwordRecoveryUrl, openSignUp }: Props) => {
-  const title = isClientWantToConsultation()
+  const title = isClientConsultationUrl()
     ? 'Войдите, чтобы увидеть свою заявку'
     : 'Войти'
 

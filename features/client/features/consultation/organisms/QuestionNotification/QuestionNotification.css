@@ -1,11 +1,11 @@
 .questionNotification {
   padding: 32px 16px;
-  margin-bottom: 72px;
+  margin: 64px -120px 0 -120px;
   text-align: center;
   background-color: #ffd46d;
 
   @media (--smallDown) {
-    margin: 0 -16px 48px -16px;
+    margin: 40px -16px 48px -16px;
   }
 }
 

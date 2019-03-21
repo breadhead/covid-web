@@ -1,6 +1,8 @@
 import { tryOr } from '@app/src/helpers/tryOr'
 
-export const isClientWantToConsultation = () =>
+const clientUrls = ['client%2Fconsultation', 'client/consultation']
+
+export const isClientConsultationUrl = () =>
   tryOr(() => {
-    return window.location.search.includes('client%2Fconsultation')
+    return !!clientUrls.find(el => window.location.href.includes(el))
   }, false)
