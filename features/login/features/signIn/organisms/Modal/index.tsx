@@ -18,7 +18,7 @@ interface Props {
 }
 
 const SignIn = ({ onFormSubmit, passwordRecoveryUrl, openSignUp }: Props) => {
-  const title = isClientWantToConsultation
+  const title = isClientWantToConsultation()
     ? 'Войдите, чтобы увидеть свою заявку'
     : 'Войти'
 
