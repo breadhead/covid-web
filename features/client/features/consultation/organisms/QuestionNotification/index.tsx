@@ -26,6 +26,13 @@ const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
   const [isExpertClear, setExpertClear] = React.useState(true)
   const mainInfo: ListedClaim = useMappedState(getClientInfo) as ListedClaim
 
+  React.useEffect(() => {
+    if (window.location.href.includes('openMessage')) {
+      setExpertClear(false)
+      return
+    }
+  }, [])
+
   const onNoButtonClick = () => {
     setExpertClear(false)
   }
