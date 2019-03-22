@@ -4,6 +4,7 @@
   margin-bottom: 16px;
 
   @media (--smallDown) {
+    flex-direction: column;
     padding: 0 16px 16px;
     margin: 0;
   }
@@ -17,7 +18,9 @@
 
 .title {
   margin: 0 16px 0 0;
+  margin-bottom: 8px;
   font: var(--title-regular);
+  white-space: nowrap;
 }
 
 .printButton {

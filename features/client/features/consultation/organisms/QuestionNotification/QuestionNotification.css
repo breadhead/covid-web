@@ -5,7 +5,7 @@
   background-color: #ffd46d;
 
   @media (--smallDown) {
-    margin: 40px -16px 48px -16px;
+    margin: 0 -16px;
   }
 }
 
@@ -14,7 +14,7 @@
   margin: 0 auto;
   text-align: left;
   @media (--smallDown) {
-    margin: 0 16px;
+    margin: 0;
   }
 }
 
@@ -35,13 +35,21 @@
 .finishButton.finishButton.finishButton {
   margin-right: 12px;
 
-  @media (max-width: 360px) {
-    padding: 20px 24px;
+  @media (--xxsmallDown) {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
+
+.refuseButton {
+  @media (--xxsmallDown) {
+    width: 100%;
   }
 }
 
 .chatButton {
   color: var(--color-link);
+  cursor: pointer;
   border-bottom: 1px solid transparent;
 
   &:hover {
