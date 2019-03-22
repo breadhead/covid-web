@@ -19,12 +19,7 @@ import OpenChatButton from '../atoms/OpenChatButton'
 import ExpertAnswers from '../organisms/ExpertAnswers'
 import Header from '../organisms/Header'
 import Theme from '../organisms/Theme'
-interface State {
-  isChatOpen: boolean
-  haveNewMessage: boolean
-  chatOpensOnce: boolean
-  isChatFocused: boolean
-}
+import { useDonationModalByUrl } from './useDonationModalByUrl'
 
 export interface Props {
   windowSize: WindowSize
@@ -41,114 +36,101 @@ export interface Props {
   openMessage: boolean
 }
 
-class Consultation extends React.Component<Props, State> {
-  public state = {
-    isChatOpen: true,
-    chatOpensOnce: false,
-    haveNewMessage: false,
-    isChatFocused: false,
+export const Consultation = ({
+  windowSize,
+  claim,
+  renderSubHeader,
+  renderFooter,
+  layout,
+  roles,
+  authorLogin,
+  clientClaimsCount,
+  hideAnswers,
+  openMessage,
+}: Props) => {
+  const [isChatOpen, setChatOpen] = React.useState(true)
+  const [isChatOpensOnce, setChatOpensOnce] = React.useState(true)
+  const [isChatFocused, setChatFocused] = React.useState(true)
+
+  React.useEffect(
+    () => {
+      const { width } = windowSize
+      toggleChatOpening(width)
+    },
+    [windowSize.width],
+  )
+
+  const onChatButtonClick = () => {
+    setChatFocused(true)
   }
 
-  public componentDidMount() {
-    const { width } = this.props.windowSize
-
-    this.toggleChatOpening(width)
+  const setUnfocused = () => {
+    setChatFocused(false)
   }
 
-  public componentDidUpdate(prevProps: Props) {
-    const { width } = this.props.windowSize
+  const closeChat = () => setChatOpen(false)
 
-    if (width !== prevProps.windowSize.width) {
-      this.toggleChatOpening(width)
-    }
+  const openChat = () => {
+    setChatOpen(true)
+    setChatOpensOnce(true)
   }
 
-  public onChatButtonClick = () => {
-    this.setState({ isChatFocused: true })
-  }
-
-  public setUnfocused = () => {
-    this.setState({ isChatFocused: false })
-  }
-
-  public render() {
-    const { isChatOpen, haveNewMessage, chatOpensOnce } = this.state
-    const {
-      renderSubHeader,
-      renderFooter,
-      layout,
-      claim,
-      hideAnswers,
-      roles,
-      clientClaimsCount,
-      authorLogin,
-    } = this.props
-    const Layout = layout
-
-    return (
-      <div
-        className={
-          isChatOpen ? cx(styles.wrapper, styles.openChat) : styles.wrapper
-        }
-      >
-        <div className={styles.layoutWrapper}>
-          <Layout>
-            <Head>
-              <title>Ваша заявка | Просто спросить</title>
-            </Head>
-            <OpenChatButton
-              haveNewMessage={haveNewMessage}
-              onClick={this.openChat}
-            />
-            <Header
-              role={roles[0]}
-              claimNumber={claim.mainInfo.number}
-              clientClaimsCount={clientClaimsCount}
-              claimId={claim.mainInfo.id}
-              authorLogin={authorLogin}
-            />
-            {renderSubHeader && renderSubHeader(claim)}
-            <Theme
-              mainInfo={claim.mainInfo}
-              shortClaim={claim.short}
-              situationClaim={claim.situation}
-            />
-            {!hideAnswers && (
-              <ExpertAnswers
-                claim={claim.questions}
-                mainInfo={claim.mainInfo}
-                onChatButtonClick={this.onChatButtonClick}
-                openChat={this.openChat}
-              />
-            )}
-            {renderFooter && renderFooter(claim)}
-          </Layout>
-        </div>
-        <Chat
-          closeChat={this.closeChat}
-          setUnfocused={this.setUnfocused}
-          isOpen={isChatOpen}
-          opensOnce={chatOpensOnce}
-          focused={this.state.isChatFocused}
-        />
-      </div>
-    )
-  }
-
-  private closeChat = () => this.setState({ isChatOpen: false })
-
-  private openChat = () =>
-    this.setState({ isChatOpen: true, chatOpensOnce: true })
-
-  private toggleChatOpening = (width: number) => {
-    const { openMessage } = this.props
+  const toggleChatOpening = (width: number) => {
     const needOpen = width > CHAT_DEFAULT_OPEN_WIDTH || openMessage
     if (needOpen) {
-      this.openChat()
+      openChat()
     } else {
-      this.closeChat()
+      closeChat()
     }
   }
+
+  const Layout = layout
+  useDonationModalByUrl()
+  return (
+    <div
+      className={
+        isChatOpen ? cx(styles.wrapper, styles.openChat) : styles.wrapper
+      }
+    >
+      <div className={styles.layoutWrapper}>
+        <Layout>
+          <Head>
+            <title>Ваша заявка | Просто спросить</title>
+          </Head>
+          <OpenChatButton haveNewMessage onClick={openChat} />
+          <Header
+            role={roles[0]}
+            claimNumber={claim.mainInfo.number}
+            clientClaimsCount={clientClaimsCount}
+            claimId={claim.mainInfo.id}
+            authorLogin={authorLogin}
+          />
+          {renderSubHeader && renderSubHeader(claim)}
+          <Theme
+            mainInfo={claim.mainInfo}
+            shortClaim={claim.short}
+            situationClaim={claim.situation}
+          />
+          {!hideAnswers && (
+            <ExpertAnswers
+              claim={claim.questions}
+              mainInfo={claim.mainInfo}
+              onChatButtonClick={onChatButtonClick}
+              openChat={openChat}
+            />
+          )}
+          {renderFooter && renderFooter(claim)}
+        </Layout>
+      </div>
+      <Chat
+        closeChat={closeChat}
+        setUnfocused={setUnfocused}
+        isOpen={isChatOpen}
+        opensOnce={isChatOpensOnce}
+        focused={isChatFocused}
+      />
+    </div>
+  )
 }
 
 export default withWindowSize(Consultation) as any
