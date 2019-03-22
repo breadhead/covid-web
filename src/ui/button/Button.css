@@ -66,18 +66,18 @@
 /* size */
 
 .extra-large {
-  padding: 17px 36px;
+  padding: 17px 36px 19px 36px;
   font: var(--text18-28);
 
   @media (--smallDown) {
-    padding: 11px 28px;
+    padding: 11px 28px 13px 28px;
     font: var(--text16-24);
     line-height: 24px;
   }
 }
 
 .large {
-  padding: 11px 28px;
+  padding: 11px 28px 13px 28px;
   font: var(--text16-24);
 }
 

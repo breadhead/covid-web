@@ -33,6 +33,7 @@ const withFinalForm = <T extends WrappedProps>(
       ? (value: any, values: any) =>
           validator({ value, schema, values, validateCb })
       : undefined
+
   return (
     <Field
       validateOnBlur={validateOnBlur}

@@ -29,6 +29,8 @@ export interface Props {
   scrollToBottom: () => void
   muted: boolean
   roles: Role[]
+  focused?: boolean
+  setUnfocused?: () => void
 }
 
 const Chat = ({
@@ -42,6 +44,8 @@ const Chat = ({
   scrollToBottom,
   muted,
   roles,
+  focused,
+  setUnfocused,
 }: Props) => {
   const shouldHide = !opensOnce || !isOpen
 
@@ -83,6 +87,8 @@ const Chat = ({
                 />
               </Uploader>
               <TextArea
+                focused={focused}
+                setUnfocused={setUnfocused}
                 onFocus={onTextAreaFocus}
                 autosize={{ minRows: 1, maxRows: 4 }}
                 className={styles.input}

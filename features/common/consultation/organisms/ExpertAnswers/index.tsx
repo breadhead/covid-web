@@ -4,6 +4,8 @@ import { AnswerClaim, Question } from '@app/models/Claim/AnswerClaim'
 
 import * as styles from './ExpertAnswers.css'
 
+import QuestionNotification from '@app/features/client/features/consultation/organisms/QuestionNotification'
+import { isClientConsultationUrl } from '@app/features/login/features/signIn/organisms/Modal/config'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import answered from './answered'
 import Footer from './components/Footer'
@@ -14,6 +16,8 @@ interface Props {
   mainInfo: ListedClaim
   renderCustomAnswer?: (theme: string, question: Question) => React.ReactNode
   title?: string
+  onChatButtonClick?: () => void
+  openChat?: () => void
 }
 
 const ExpertAnswers = ({
@@ -21,6 +25,8 @@ const ExpertAnswers = ({
   renderCustomAnswer,
   title,
   mainInfo,
+  onChatButtonClick,
+  openChat,
 }: Props) => {
   const answeredClaim = answered(claim)
 
@@ -57,6 +63,12 @@ const ExpertAnswers = ({
           answeredAt={mainInfo.answeredAt}
           answerUpdatedAt={mainInfo.answerUpdatedAt}
         />
+        {isClientConsultationUrl() && (
+          <QuestionNotification
+            openChat={openChat}
+            focusOnChat={onChatButtonClick}
+          />
+        )}
       </section>
     </>
   ) : null

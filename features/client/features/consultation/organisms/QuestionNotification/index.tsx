@@ -2,44 +2,59 @@ import * as React from 'react'
 
 import * as styles from './QuestionNotification.css'
 
-import { connect } from 'react-redux'
+import { useMappedState } from 'redux-react-hook'
 
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 
-import { State } from '@app/lib/store'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
-import FinishButton from '../../molecules/FinishButton'
+import withWindowSize, { WindowSize } from '@app/features/common/windowSize'
+import { CHAT_DEFAULT_OPEN_WIDTH, NON_BREAKING_SPACE } from '@app/lib/config'
 import { getClientInfo } from '../selectors'
+import { ChatFeedback } from './components/ChatFeedback'
+import { SimpleFeedback } from './components/SimpleFeedback'
 
 interface Props {
-  mainInfo: ListedClaim
+  focusOnChat: () => void
+  openChat: () => void
+  windowSize: WindowSize
 }
 
 const STATUSES_WITH_VISIBLE_EXPERTS_BLOCK = [ClaimStatus.DeliveredToCustomer]
 
-const QuestionNotification = ({ mainInfo }: Props) =>
-  STATUSES_WITH_VISIBLE_EXPERTS_BLOCK.includes(mainInfo.status) ? (
+const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
+  const [isExpertClear, setExpertClear] = React.useState(true)
+  const mainInfo: ListedClaim = useMappedState(getClientInfo) as ListedClaim
+
+  const onNoButtonClick = () => {
+    setExpertClear(false)
+  }
+
+  const onChatButtonClick = () => {
+    const { width } = windowSize
+
+    if (width < CHAT_DEFAULT_OPEN_WIDTH) {
+      openChat()
+      focusOnChat()
+    } else {
+      focusOnChat()
+    }
+  }
+
+  return STATUSES_WITH_VISIBLE_EXPERTS_BLOCK.includes(mainInfo.status) ? (
     <article className={styles.questionNotification}>
-      <h3 className={styles.title}>
-        Эксперт понятно ответил на все ваши вопросы?
-      </h3>
-      <FinishButton className={styles.button} />
-      <p className={styles.text}>
-        Если у{NON_BREAKING_SPACE}вас остались вопросы к эксперту, вы можете
-        задать их в{NON_BREAKING_SPACE}чате.
-        <br />
-        Там же вы можете оставить отзыв о{NON_BREAKING_SPACE}работе сервиса.
-        <br /> <br />
-        Если у вас не{NON_BREAKING_SPACE}осталось вопросов к{NON_BREAKING_SPACE}
-        эксперту, нажмите кнопку “Спасибо”.
-      </p>
+      <div className={styles.container}>
+        <p className={styles.text}>
+          Нам важно получить обратную связь от{NON_BREAKING_SPACE}вас
+        </p>
+        {isExpertClear ? (
+          <SimpleFeedback onNoButtonClick={onNoButtonClick} />
+        ) : (
+          <ChatFeedback onClick={onChatButtonClick} />
+        )}
+      </div>
     </article>
   ) : null
+}
 
-const mapState = (state: State) => ({
-  mainInfo: getClientInfo(state),
-})
-
-export default connect(mapState)(QuestionNotification as any) as any
+export default withWindowSize(QuestionNotification as any) as any

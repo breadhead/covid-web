@@ -2,7 +2,8 @@
   padding: 48px 0 64px;
   margin-bottom: 24px;
   background-color: #fff;
-  box-shadow: 0 0 1px 1px rgba(63,63,68,0.04), 0 1px 3px 0 rgba(63,63,68,0.16);
+  box-shadow: 0 0 1px 1px rgba(63, 63, 68, 0.04),
+    0 1px 3px 0 rgba(63, 63, 68, 0.16);
 
   @media (--smallDown) {
     padding: 32px 16px 48px;
@@ -12,6 +13,7 @@
 .title {
   margin: 0 0 24px 0;
   font: var(--title-medium);
+  word-break: break-word;
 
   @media (--smallDown) {
     margin: 0 0 16px 0;
@@ -35,18 +37,18 @@
   display: flex;
   justify-content: space-between;
 
-
   @media (--smallDown) {
     flex-direction: column;
   }
 }
 
 .text {
-  margin: 0 0 8px 0;  
+  margin: 0 0 8px 0;
 }
 
 .infoBlock {
   margin: 0 0 24px 0;
+  word-break: break-word;
 
   &:last-of-type {
     margin-bottom: 0;
@@ -64,10 +66,12 @@
 .midtitle {
   margin: 0 0 8px 0;
   font: var(--title-small);
+  word-break: break-word;
 }
 
 .subtitle {
   margin: 0 0 8px 0;
   font: var(--text16-24);
   font-weight: 500;
+  word-break: break-word;
 }

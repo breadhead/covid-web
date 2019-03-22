@@ -18,6 +18,8 @@ interface OwnProps {
   error?: string
   autosize?: boolean | RowsNum
   disableResizeOnEnter?: boolean
+  focused?: boolean
+  setUnfocused?: () => void
 }
 
 export type Props = OwnProps & TextAreaProps
@@ -30,6 +32,7 @@ const onEnterPress = (disableResizeOnEnter: boolean) => (e: any) => {
 
 class TextArea extends React.Component<Props> {
   public static defaultProps = { autosize: true }
+  public inputRef = React.createRef<HTMLDivElement>()
 
   public state = {
     mount: false,
@@ -37,6 +40,18 @@ class TextArea extends React.Component<Props> {
 
   public componentDidMount() {
     this.setState({ mount: true })
+  }
+
+  public componentDidUpdate(prevProps: Props) {
+    if (prevProps.focused !== this.props.focused && this.props.focused) {
+      this.inputRef.current!.focus()
+    }
+  }
+
+  public onBlur = () => {
+    if (!!this.props.setUnfocused) {
+      this.props.setUnfocused()
+    }
   }
 
   public render() {
@@ -47,6 +62,7 @@ class TextArea extends React.Component<Props> {
       error,
       autosize,
       disableResizeOnEnter,
+      focused,
       ...rest
     } = this.props
     const { mount } = this.state
@@ -57,15 +73,18 @@ class TextArea extends React.Component<Props> {
             {label}
           </label>
         )}
-        <AntInput.TextArea
-          key={`${mount}`}
-          name={name}
-          id={name}
-          className={cx('textarea', className, error && styles.error)}
-          autosize={autosize}
-          onKeyDown={onEnterPress(disableResizeOnEnter || false)}
-          {...rest}
-        />
+        <button className="focusButton" onBlur={this.onBlur}>
+          <AntInput.TextArea
+            ref={this.inputRef as any}
+            key={`${mount}`}
+            name={name}
+            id={name}
+            className={cx('textarea', className, error && styles.error)}
+            autosize={autosize}
+            onKeyDown={onEnterPress(disableResizeOnEnter || false)}
+            {...rest}
+          />
+        </button>
       </>
     )
   }
