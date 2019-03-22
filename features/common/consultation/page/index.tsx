@@ -118,6 +118,7 @@ class Consultation extends React.Component<Props, State> {
                 claim={claim.questions}
                 mainInfo={claim.mainInfo}
                 onChatButtonClick={this.onChatButtonClick}
+                openChat={this.openChat}
               />
             )}
             {renderFooter && renderFooter(claim)}

@@ -17,6 +17,7 @@ interface Props {
   renderCustomAnswer?: (theme: string, question: Question) => React.ReactNode
   title?: string
   onChatButtonClick?: () => void
+  openChat?: () => void
 }
 
 const ExpertAnswers = ({
@@ -25,6 +26,7 @@ const ExpertAnswers = ({
   title,
   mainInfo,
   onChatButtonClick,
+  openChat,
 }: Props) => {
   const answeredClaim = answered(claim)
 
@@ -62,7 +64,10 @@ const ExpertAnswers = ({
           answerUpdatedAt={mainInfo.answerUpdatedAt}
         />
         {isClientConsultationUrl() && (
-          <QuestionNotification onChatButtonClick={onChatButtonClick} />
+          <QuestionNotification
+            openChat={openChat}
+            focusOnChat={onChatButtonClick}
+          />
         )}
       </section>
     </>

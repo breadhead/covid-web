@@ -6,7 +6,7 @@ import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
 import FinishButton from '../../../../molecules/FinishButton'
 
 interface Props {
-  onNoButtonClick: React.Dispatch<React.SetStateAction<boolean>>
+  onNoButtonClick: () => void
 }
 
 const SimpleFeedback = ({ onNoButtonClick }: Props) => (
@@ -17,7 +17,7 @@ const SimpleFeedback = ({ onNoButtonClick }: Props) => (
     <FinishButton className={styles.finishButton} />
     <Button
       className={styles.refuseButton}
-      onClick={() => onNoButtonClick(false)}
+      onClick={onNoButtonClick}
       size={ButtonSize.ExtraLarge}
       kind={ButtonKind.Extra}
     >
