@@ -12,7 +12,7 @@ import { closeClaim } from '@app/features/manager/features/closeClaim'
 import { CloseType } from '@app/lib/api/request/CloseClaimRequest'
 import { State } from '@app/lib/store'
 
-export const MODAL_KEY = 'finish-modal'
+export const FINISH_MODAL_KEY = 'finish-modal'
 
 const mapState = (state: State) => ({
   claimId: getClaimId(state),
@@ -31,7 +31,7 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
 })
 
 export default compose(
-  isModal(MODAL_KEY),
+  isModal(FINISH_MODAL_KEY),
   withModal,
   connect(
     mapState,

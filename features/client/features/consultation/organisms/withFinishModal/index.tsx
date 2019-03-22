@@ -1,5 +1,5 @@
 import { withModal, WithModalProps } from '@app/features/common/modal'
-import { MODAL_KEY } from './container'
+import { FINISH_MODAL_KEY } from './container'
 
 export interface WithFinishModal {
   openFinishModal: () => void
@@ -7,7 +7,10 @@ export interface WithFinishModal {
 
 const Container = (Component: React.ComponentType<WithFinishModal>) =>
   withModal(({ modal, ...props }: WithModalProps) => (
-    <Component openFinishModal={() => modal.open(MODAL_KEY)} {...props} />
+    <Component
+      openFinishModal={() => modal.open(FINISH_MODAL_KEY)}
+      {...props}
+    />
   ))
 
 export default Container
