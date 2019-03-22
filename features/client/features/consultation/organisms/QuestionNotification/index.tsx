@@ -42,7 +42,7 @@ const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
   }
 
   return STATUSES_WITH_VISIBLE_EXPERTS_BLOCK.includes(mainInfo.status) ? (
-    <article className={styles.questionNotification}>
+    <article id="feedback" className={styles.questionNotification}>
       <div className={styles.container}>
         <p className={styles.text}>
           Нам важно получить обратную связь от{NON_BREAKING_SPACE}вас

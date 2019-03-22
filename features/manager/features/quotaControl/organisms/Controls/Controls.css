@@ -19,3 +19,11 @@
     margin-bottom: 48px;
   }
 }
+
+.buttonsWrapper {
+  margin-top: 40px;
+
+  @media (--smallDown) {
+    margin-top: 24px;
+  }
+}

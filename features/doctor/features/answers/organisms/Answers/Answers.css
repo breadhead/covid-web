@@ -1,6 +1,7 @@
 .controls {
   display: flex;
   flex-direction: row-reverse;
+  margin-top: 48px;
   margin-bottom: 64px;
 
   & > * {
