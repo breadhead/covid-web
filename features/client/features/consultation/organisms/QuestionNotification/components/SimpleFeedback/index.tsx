@@ -26,4 +26,4 @@ const SimpleFeedback = ({ onNoButtonClick }: Props) => (
   </>
 )
 
-export default SimpleFeedback
+export { SimpleFeedback }

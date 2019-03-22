@@ -27,4 +27,4 @@ const ChatFeedback = ({ onClick }: Props) => {
   )
 }
 
-export default ChatFeedback
+export { ChatFeedback }

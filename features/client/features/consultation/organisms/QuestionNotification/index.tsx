@@ -2,22 +2,19 @@ import * as React from 'react'
 
 import * as styles from './QuestionNotification.css'
 
-import { connect } from 'react-redux'
-import { compose } from 'recompose'
+import { useMappedState } from 'redux-react-hook'
 
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 
-import { State } from '@app/lib/store'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 
 import withWindowSize, { WindowSize } from '@app/features/common/windowSize'
 import { CHAT_DEFAULT_OPEN_WIDTH, NON_BREAKING_SPACE } from '@app/lib/config'
 import { getClientInfo } from '../selectors'
-import ChatFeedback from './components/ChatFeedback'
-import SimpleFeedback from './components/SimpleFeedback'
+import { ChatFeedback } from './components/ChatFeedback'
+import { SimpleFeedback } from './components/SimpleFeedback'
 
 interface Props {
-  mainInfo: ListedClaim
   focusOnChat: () => void
   openChat: () => void
   windowSize: WindowSize
@@ -25,13 +22,9 @@ interface Props {
 
 const STATUSES_WITH_VISIBLE_EXPERTS_BLOCK = [ClaimStatus.DeliveredToCustomer]
 
-const QuestionNotification = ({
-  mainInfo,
-  focusOnChat,
-  windowSize,
-  openChat,
-}: Props) => {
+const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
   const [isExpertClear, setExpertClear] = React.useState(true)
+  const mainInfo: ListedClaim = useMappedState(getClientInfo) as ListedClaim
 
   const onNoButtonClick = () => {
     setExpertClear(false)
@@ -64,11 +57,4 @@ const QuestionNotification = ({
   ) : null
 }
 
-const mapState = (state: State) => ({
-  mainInfo: getClientInfo(state),
-})
-
-export default compose(
-  withWindowSize,
-  connect(mapState),
-)(QuestionNotification as any) as any
+export default withWindowSize(QuestionNotification as any) as any
