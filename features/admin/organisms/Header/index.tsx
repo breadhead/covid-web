@@ -1,32 +1,48 @@
+import signOut from '@app/features/login/features/signOut'
 import Link from 'next/link'
-import React from 'react'
+import * as React from 'react'
+import { useCallback } from 'react'
+import { useDispatch } from 'redux-react-hook'
 
 import NavLink from '@app/ui/NavLink'
 import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
+import cx from 'classnames'
 
 import styles from './Header.css'
 
-const Header = () => (
-  <header className={styles.header}>
-    <section className={styles.block}>
-      <NavLink href="/admin"> Квоты</NavLink>
-      <NavLink href="/admin/history">История операций</NavLink>
-      <NavLink href="/admin/stats">Статистика</NavLink>
-    </section>
+const Header = () => {
+  const dispatch = useDispatch()
 
-    <section className={styles.block}>
-      <Link href="/admin/transfer">
-        <Button kind={ButtonKind.Secondary} size={ButtonSize.Small}>
-          Сделать перевод
-        </Button>
-      </Link>
-      <Link href="/admin/create-quota">
-        <Button kind={ButtonKind.Secondary} size={ButtonSize.Small}>
-          Создать новый тип квот
-        </Button>
-      </Link>
-    </section>
-  </header>
-)
+  const signOutOfApp = useCallback(() => dispatch(signOut() as any), [])
 
+  return (
+    <header className={styles.header}>
+      <section className={styles.block}>
+        <NavLink href="/admin"> Квоты</NavLink>
+        <NavLink href="/admin/history">История операций</NavLink>
+        <NavLink href="/admin/stats">Статистика</NavLink>
+      </section>
+
+      <section className={cx(styles.block, styles.buttonBlock)}>
+        <Link href="/admin/transfer">
+          <Button kind={ButtonKind.Secondary} size={ButtonSize.Small}>
+            Сделать перевод
+          </Button>
+        </Link>
+        <Link href="/admin/create-quota">
+          <Button kind={ButtonKind.Secondary} size={ButtonSize.Small}>
+            Создать новый тип квот
+          </Button>
+        </Link>
+        <Button
+          onClick={signOutOfApp}
+          kind={ButtonKind.Secondary}
+          size={ButtonSize.Small}
+        >
+          Выйти
+        </Button>
+      </section>
+    </header>
+  )
+}
 export default Header
