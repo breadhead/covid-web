@@ -73,7 +73,7 @@ class TextArea extends React.Component<Props> {
             {label}
           </label>
         )}
-        <button className="focusButton" onBlur={this.onBlur}>
+        <div className="focusContainer" onBlur={this.onBlur}>
           <AntInput.TextArea
             ref={this.inputRef as any}
             key={`${mount}`}
@@ -84,7 +84,7 @@ class TextArea extends React.Component<Props> {
             onKeyDown={onEnterPress(disableResizeOnEnter || false)}
             {...rest}
           />
-        </button>
+        </div>
       </>
     )
   }

@@ -50,7 +50,7 @@ export const Consultation = ({
 }: Props) => {
   const [isChatOpen, setChatOpen] = React.useState(true)
   const [isChatOpensOnce, setChatOpensOnce] = React.useState(true)
-  const [isChatFocused, setChatFocused] = React.useState(true)
+  const [isChatFocused, setChatFocused] = React.useState(false)
 
   React.useEffect(
     () => {

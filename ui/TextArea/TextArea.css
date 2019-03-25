@@ -28,7 +28,7 @@
   box-shadow: 0 0 0 1px var(--color-danger) !important;
 }
 
-.focusButton {
+.focusContainer {
   display: block;
   width: 100%;
   padding: 0;
