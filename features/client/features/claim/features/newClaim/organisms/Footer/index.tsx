@@ -19,7 +19,7 @@ const Footer = ({ styles, error, loading }: Props) => {
     <footer className={cx(styles.article, styles.footer)}>
       <ButtonWithTooltip
         error={errorMessage}
-        size={ButtonSize.Large}
+        size={ButtonSize.ExtraLarge}
         submit
         className={styles.button}
         loading={loading}
