@@ -249,4 +249,12 @@ export default class RealApiClient implements ApiClient {
         newStatus,
       })
       .then(response => response.data)
+
+  public downloadReport = (from: Date, to: Date, onlyClosed: boolean) => {
+    const path = onlyClosed ? 'closed-claims-report' : 'claims-report'
+
+    return this.axiosInstance
+      .get(`/statistics/${path}?${queryString({ from, to })}`)
+      .then(response => response.data)
+  }
 }
