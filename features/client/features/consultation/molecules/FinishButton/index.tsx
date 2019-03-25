@@ -4,14 +4,14 @@ import { useSpecificModal } from '@app/features/common/modal'
 
 import { Button, ButtonSize } from '@front/ui/button'
 
-import { MODAL_KEY } from '../../organisms/withFinishModal'
+import { FINISH_MODAL_KEY } from '../../organisms/withFinishModal'
 
 interface Props {
   className?: string
 }
 
 const FinishButton = ({ className }: Props) => {
-  const { open } = useSpecificModal(MODAL_KEY)
+  const { open } = useSpecificModal(FINISH_MODAL_KEY)
 
   return (
     <>

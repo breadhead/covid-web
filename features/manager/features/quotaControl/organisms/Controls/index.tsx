@@ -32,7 +32,7 @@ interface Props
 }
 
 const Controls = (props: Props) => (
-  <>
+  <div className={styles.buttonsWrapper}>
     {!!props.editClaim && (
       <Button
         className={styles.button}
@@ -58,7 +58,7 @@ const Controls = (props: Props) => (
         <BottomRow corporate={forCorporate(props.claim)} {...props} />
       )}
     </div>{' '}
-  </>
+  </div>
 )
 
 Controls.defaultProps = {

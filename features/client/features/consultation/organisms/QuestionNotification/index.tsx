@@ -1,5 +1,5 @@
 import * as React from 'react'
-
+import { useCallback, useState } from 'react'
 import * as styles from './QuestionNotification.css'
 
 import { useMappedState } from 'redux-react-hook'
@@ -13,6 +13,7 @@ import { CHAT_DEFAULT_OPEN_WIDTH, NON_BREAKING_SPACE } from '@app/lib/config'
 import { getClientInfo } from '../selectors'
 import { ChatFeedback } from './components/ChatFeedback'
 import { SimpleFeedback } from './components/SimpleFeedback'
+import { useAnswerClear } from './useAnswerClear'
 
 interface Props {
   focusOnChat: () => void
@@ -23,31 +24,32 @@ interface Props {
 const STATUSES_WITH_VISIBLE_EXPERTS_BLOCK = [ClaimStatus.DeliveredToCustomer]
 
 const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
-  const [isExpertClear, setExpertClear] = React.useState(true)
+  const [isAnswerClear, setAnswerClear] = useState(true)
   const mainInfo: ListedClaim = useMappedState(getClientInfo) as ListedClaim
 
-  const onNoButtonClick = () => {
-    setExpertClear(false)
-  }
+  useAnswerClear(setAnswerClear, false)
 
-  const onChatButtonClick = () => {
-    const { width } = windowSize
+  const onNoButtonClick = useCallback(() => setAnswerClear(false), [])
 
-    if (width < CHAT_DEFAULT_OPEN_WIDTH) {
-      openChat()
+  const onChatButtonClick = useCallback(
+    () => {
+      const { width } = windowSize
+      if (width < CHAT_DEFAULT_OPEN_WIDTH) {
+        openChat()
+      }
+
       focusOnChat()
-    } else {
-      focusOnChat()
-    }
-  }
+    },
+    [windowSize.width],
+  )
 
   return STATUSES_WITH_VISIBLE_EXPERTS_BLOCK.includes(mainInfo.status) ? (
-    <article className={styles.questionNotification}>
+    <article id="feedback" className={styles.questionNotification}>
       <div className={styles.container}>
         <p className={styles.text}>
           Нам важно получить обратную связь от{NON_BREAKING_SPACE}вас
         </p>
-        {isExpertClear ? (
+        {isAnswerClear ? (
           <SimpleFeedback onNoButtonClick={onNoButtonClick} />
         ) : (
           <ChatFeedback onClick={onChatButtonClick} />
