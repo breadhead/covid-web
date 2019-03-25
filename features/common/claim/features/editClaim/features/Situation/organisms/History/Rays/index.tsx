@@ -14,6 +14,7 @@ import {
 } from '@app/features/common/form'
 
 import { FormContext } from '@app/features/common/form/components/Form'
+import { SelectToThisDay } from '@app/features/common/form/components/SelectToThisDay'
 import { SPACE, StylesType } from '@app/lib/config'
 import AddFieldContainer, {
   SectionDivider,
@@ -112,24 +113,10 @@ const EmergingForm = ({ styles, initial, formContext }: Props) => (
               >
                 Когда закончили это лечение? (месяц и год)
               </label>
-              <div className={styles.historyComboContainer}>
-                <SelectMonths
-                  name={`radiationTreatments.${key}.end.month`}
-                  placeholder="Месяц"
-                  className={cx(
-                    styles.historyCombo,
-                    styles.historyComboWrapper,
-                  )}
-                />
-                <SelectYears
-                  name={`radiationTreatments.${key}.end.year`}
-                  placeholder="Год"
-                  className={cx(
-                    styles.historyCombo,
-                    styles.historyComboWrapper,
-                  )}
-                />
-              </div>
+              <SelectToThisDay
+                name={`radiationTreatments.${key}.end`}
+                formContext={formContext}
+              />
               <DateValidationTooltip
                 paths={[
                   {

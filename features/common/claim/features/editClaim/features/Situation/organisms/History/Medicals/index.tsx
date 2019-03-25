@@ -95,25 +95,6 @@ const EmergingForm = ({ styles, initial, formContext }: Props) => (
               >
                 Когда закончили это лечение? (месяц и год)
               </label>
-              {/* <div className={styles.historyComboContainer}>
-                <SelectMonths
-                  name={`medicalsTreatments.${key}.end.month`}
-                  placeholder="Месяц"
-                  className={cx(
-                    styles.historyCombo,
-                    styles.historyComboWrapper,
-                  )}
-                />
-
-                <SelectYears
-                  name={`medicalsTreatments.${key}.end.year`}
-                  placeholder="Год"
-                  className={cx(
-                    styles.historyCombo,
-                    styles.historyComboWrapper,
-                  )}
-                />
-              </div> */}
 
               <SelectToThisDay
                 name={`medicalsTreatments.${key}.end`}
