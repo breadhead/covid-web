@@ -11,6 +11,7 @@ const Header = () => (
     <section className={styles.block}>
       <NavLink href="/admin"> Квоты</NavLink>
       <NavLink href="/admin/history">История операций</NavLink>
+      <NavLink href="/admin/stats">Статистика</NavLink>
     </section>
 
     <section className={styles.block}>
