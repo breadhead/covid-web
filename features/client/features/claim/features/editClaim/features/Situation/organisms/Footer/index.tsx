@@ -31,7 +31,7 @@ const Footer = ({
       <ButtonWithTooltip
         error={errorMessage}
         loading={loading}
-        size={ButtonSize.Large}
+        size={ButtonSize.ExtraLarge}
         submit
         className={styles.button}
       >
