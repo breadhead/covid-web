@@ -4,11 +4,12 @@ import * as React from 'react'
 import './Checkbox.css?CSSModulesDisable'
 
 export interface Props {
-  name: string
+  name?: string
   children?: React.ReactNode
   className?: string
   defaultChecked?: boolean
   disabled?: boolean
+  onChange?: (e: any) => void
 }
 
 const Checkbox = ({

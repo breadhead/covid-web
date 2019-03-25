@@ -4,28 +4,9 @@ import {
 } from '@breadhead/form-saver'
 import React, { Component, createRef } from 'react'
 import { Form as FinalForm, FormProps, FormSpy } from 'react-final-form'
-import { FORM_ERROR_CLASSNAME } from '../../formHOCs/withFinalForm'
-import WithScrollToInvalid from '../../formHOCs/withScrollToInvalid'
-
-interface ChildrenPropsArgs {
-  removeSectionFromState: RemoveSection
-  values: any
-  changeField: (name: string, value?: any) => void
-}
-
-export type RemoveSection = (key: number, name: string) => () => void
-
-interface OwnProps {
-  className?: string
-  resetAfterSubmit?: boolean
-  forceSubmitOnEnter?: boolean
-  preventDefault?: boolean
-  scrollToInvalid?: boolean
-  saveDebounced?: (fields: any) => Promise<any>
-  debounce?: number
-  saveOnBlur?: (fields: any) => Promise<any>
-  children: (childrenPropsArgs: ChildrenPropsArgs) => React.ReactNode
-}
+import { FORM_ERROR_CLASSNAME } from '../../../formHOCs/withFinalForm'
+import WithScrollToInvalid from '../../../formHOCs/withScrollToInvalid'
+import { OwnProps } from './types/OwnProps'
 
 type Props = OwnProps & FormProps
 

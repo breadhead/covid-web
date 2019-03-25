@@ -8,12 +8,12 @@ import {
   EmergingControlTypes,
   EmergingFormElement,
   Input,
-  RemoveSection,
   SelectMonths,
   SelectYears,
   TextArea,
 } from '@app/features/common/form'
 
+import { FormContext } from '@app/features/common/form/components/Form'
 import { SPACE, StylesType } from '@app/lib/config'
 import AddFieldContainer, {
   SectionDivider,
@@ -26,16 +26,10 @@ interface Props {
   width: number
   styles: StylesType
   initial: Partial<SituationClaimFields>
-  removeSectionFromState: RemoveSection
-  changeField: (name: string, value?: any) => void
+  formContext: FormContext
 }
 
-const EmergingForm = ({
-  styles,
-  initial,
-  removeSectionFromState,
-  changeField,
-}: Props) => (
+const EmergingForm = ({ styles, initial, formContext }: Props) => (
   <>
     <h3 className={styles.subtitle}>Хирургическое лечение</h3>
     <EmergingFormElement
@@ -56,12 +50,15 @@ const EmergingForm = ({
                 index={key}
                 onRemoveClick={() =>
                   removeSection(
-                    removeSectionFromState(key, 'surgicalTreatments'),
+                    formContext.removeSectionFromState(
+                      key,
+                      'surgicalTreatments',
+                    ),
                   )
                 }
               />
               <RegionSelect
-                changeField={changeField}
+                changeField={formContext.changeField}
                 name={`surgicalTreatments.${key}.region`}
                 styles={styles}
                 textRegion="Регион, где проходили лечение"
