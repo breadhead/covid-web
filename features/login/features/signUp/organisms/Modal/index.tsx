@@ -4,7 +4,7 @@ import * as React from 'react'
 import styles from './SignUp.css'
 
 import { ButtonWithTooltip, InputType } from '@app/features/common/form'
-import Form from '@app/features/common/form/components/Form'
+import Form from '@app/features/common/form/components/Form/Form'
 import Input from '@app/features/common/form/components/Input'
 import OpenModalButton from '@app/features/login/atoms/OpenModalButton'
 import Footer from '@app/features/login/organisms/Footer'

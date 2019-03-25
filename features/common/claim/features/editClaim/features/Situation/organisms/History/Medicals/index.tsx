@@ -9,7 +9,6 @@ import {
   EmergingControlTypes,
   EmergingFormElement,
   Input,
-  RemoveSection,
   SelectMonths,
   SelectYears,
   TextArea,
@@ -20,21 +19,17 @@ import AddFieldContainer, {
   SectionHeader,
 } from '@app/ui/organisms/AddFieldContainer'
 
+import { FormContext } from '@app/features/common/form/components/Form'
+import { SelectToThisDay } from '@app/features/common/form/components/SelectToThisDay'
 import { SituationClaimFields } from '../../../types'
 
 interface Props {
   styles: StylesType
   initial: Partial<SituationClaimFields>
-  removeSectionFromState: RemoveSection
-  changeField: (name: string, value?: any) => void
+  formContext: FormContext
 }
 
-const EmergingForm = ({
-  styles,
-  initial,
-  removeSectionFromState,
-  changeField,
-}: Props) => (
+const EmergingForm = ({ styles, initial, formContext }: Props) => (
   <>
     <h3 className={styles.subtitle}>Лекарственное лечение</h3>
     <EmergingFormElement
@@ -55,12 +50,15 @@ const EmergingForm = ({
                 index={key}
                 onRemoveClick={() =>
                   removeSection(
-                    removeSectionFromState(key, 'medicalsTreatments'),
+                    formContext.removeSectionFromState(
+                      key,
+                      'medicalsTreatments',
+                    ),
                   )
                 }
               />
               <RegionSelect
-                changeField={changeField}
+                changeField={formContext.changeField}
                 name={`medicalsTreatments.${key}.region`}
                 styles={styles}
                 textRegion="Регион, где проходили лечение"
@@ -97,25 +95,11 @@ const EmergingForm = ({
               >
                 Когда закончили это лечение? (месяц и год)
               </label>
-              <div className={styles.historyComboContainer}>
-                <SelectMonths
-                  name={`medicalsTreatments.${key}.end.month`}
-                  placeholder="Месяц"
-                  className={cx(
-                    styles.historyCombo,
-                    styles.historyComboWrapper,
-                  )}
-                />
 
-                <SelectYears
-                  name={`medicalsTreatments.${key}.end.year`}
-                  placeholder="Год"
-                  className={cx(
-                    styles.historyCombo,
-                    styles.historyComboWrapper,
-                  )}
-                />
-              </div>
+              <SelectToThisDay
+                name={`medicalsTreatments.${key}.end`}
+                formContext={formContext}
+              />
               <DateValidationTooltip
                 paths={[
                   {
