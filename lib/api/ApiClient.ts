@@ -75,4 +75,6 @@ export default interface ApiClient {
     claimId: string,
     newStatus: CorporateStatus,
   ): Promise<void>
+
+  downloadReport(from: Date, to: Date, onlyClosed: boolean): Promise<any>
 }

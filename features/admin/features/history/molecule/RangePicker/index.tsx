@@ -4,7 +4,7 @@ import * as React from 'react'
 import { rangePickerValueToDates } from './helper/rangePickerValueToDates'
 
 interface Props {
-  onChange: (from?: Date, to?: Date) => Promise<void>
+  onChange: (from?: Date, to?: Date) => Promise<void> | void
 }
 
 const RangePicker = ({ onChange }: Props) => {
