@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as styles from './RefuseModal.css'
 
-import Form from '@app/features/common/form/components/Form'
+import Form from '@app/features/common/form/components/Form/Form'
 import { isModal, WithModalProps } from '@app/features/common/modal'
 import { CloseClaimRequest } from '@app/lib/api/request/CloseClaimRequest'
 import { Button, ButtonSize } from '@front/ui/button'

@@ -3,7 +3,7 @@ import * as React from 'react'
 import { WindowSize } from '@app/features/common/windowSize/selector'
 import withWindowSize from '@app/features/common/windowSize/withWindowSize'
 
-import { RemoveSection } from '@app/features/common/form'
+import { FormContext } from '@app/features/common/form/components/Form'
 import { StylesType } from '@app/lib/config'
 import { ClaimData, SituationClaimFields } from '../..//types'
 import Main from './Main'
@@ -16,8 +16,7 @@ interface Props {
   styles: StylesType
   claimData: ClaimData
   initial: Partial<SituationClaimFields>
-  removeSectionFromState: RemoveSection
-  changeField: (name: string, value?: any) => void
+  formContext: FormContext
 }
 
 const History = ({
@@ -25,29 +24,21 @@ const History = ({
   styles,
   claimData,
   initial,
-  removeSectionFromState,
-  changeField,
+  formContext,
 }: Props) => {
   const { width } = windowSize
   return (
     <article className={styles.article}>
       <Main claimData={claimData} width={width} styles={styles} />
       <Surgery
-        changeField={changeField}
-        removeSectionFromState={removeSectionFromState}
+        formContext={formContext}
         initial={initial}
         width={width}
         styles={styles}
       />
-      <Medicals
-        changeField={changeField}
-        removeSectionFromState={removeSectionFromState}
-        initial={initial}
-        styles={styles}
-      />
+      <Medicals formContext={formContext} initial={initial} styles={styles} />
       <Rays
-        changeField={changeField}
-        removeSectionFromState={removeSectionFromState}
+        formContext={formContext}
         initial={initial}
         width={width}
         styles={styles}

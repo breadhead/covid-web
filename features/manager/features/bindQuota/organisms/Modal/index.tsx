@@ -1,5 +1,5 @@
 import { Content as QuotasListContent } from '@app/features/admin/features/quotasList'
-import Form from '@app/features/common/form/components/Form'
+import Form from '@app/features/common/form/components/Form/Form'
 import { BindQuotaRequest } from '@app/lib/api/request/BindQuotaRequest'
 import { Button } from '@front/ui/button'
 import * as React from 'react'

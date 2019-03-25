@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Omit } from 'utility-types'
 
 import { RadioGroup, TextArea } from '@app/features/common/form'
-import Form from '@app/features/common/form/components/Form'
+import Form from '@app/features/common/form/components/Form/Form'
 import {
   CloseClaimRequest,
   CloseType,
