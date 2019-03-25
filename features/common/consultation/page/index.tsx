@@ -6,15 +6,14 @@ import cx from 'classnames'
 
 import * as styles from './Consultation.css'
 
+import Chat from '@app/features/common/chat'
 import { WindowSize } from '@app/features/common/windowSize/selector'
 import withWindowSize from '@app/features/common/windowSize/withWindowSize'
 import { CHAT_DEFAULT_OPEN_WIDTH } from '@app/lib/config'
 import Claim from '@app/models/Claim/Claim'
-
-import Chat from '@app/features/common/chat'
-
 import { ShortClaim } from '@app/models/Claim/ShortClaim'
 import { Role } from '@app/models/Users/User'
+import { head } from 'lodash'
 import OpenChatButton from '../atoms/OpenChatButton'
 import ExpertAnswers from '../organisms/ExpertAnswers'
 import Header from '../organisms/Header'
@@ -99,7 +98,7 @@ export const Consultation = ({
           </Head>
           <OpenChatButton haveNewMessage onClick={openChat} />
           <Header
-            role={roles[0]}
+            role={head(roles) as string}
             claimNumber={claim.mainInfo.number}
             clientClaimsCount={clientClaimsCount}
             claimId={claim.mainInfo.id}
