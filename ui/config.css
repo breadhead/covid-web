@@ -101,6 +101,10 @@ body {
   z-index: 20;
 }
 
+.ReactModal__Body--open {
+  overflow-y: hidden !important;
+}
+
 [class^='ReactModal'] {
   z-index: 20;
 
