@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { useCallback, useEffect, useState } from 'react'
 
 import cx from 'classnames'
 
@@ -10,13 +9,10 @@ import {
 } from '@app/features/common/form'
 import withWindowSize, { WindowSize } from '@app/features/common/windowSize'
 import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
-import routes from '@app/routes'
 import IconCustom from '@app/ui/IconCustom'
 import NavLink from '@app/ui/NavLink'
 import { isString } from 'lodash'
-import { defaultButtonText, getButtonText } from './config'
-
-const Router = routes.Router
+import { useButtonText } from './useButtonText'
 
 interface Props {
   styles: StylesType
@@ -35,26 +31,11 @@ const Footer = ({ styles, error, loading, id, windowSize }: Props) => {
     ? ERROR_MESSAGE
     : undefined
 
-  const [submitButtonText, setSubmitButtonText] = useState(
-    defaultButtonText.submit,
-  )
-  const [laterButtonText, setLaterButtonText] = useState(
-    defaultButtonText.later,
-  )
-
-  useEffect(
-    () => {
-      const text = getButtonText(windowSize.width)
-      setSubmitButtonText(text.submit)
-      setLaterButtonText(text.later)
-    },
-    [windowSize.width],
-  )
-
-  const onLaterButtonClick = useCallback(
-    () => Router.pushRoute('/client/claims'),
-    [],
-  )
+  const {
+    submitButtonText,
+    laterButtonText,
+    onLaterButtonClick,
+  } = useButtonText(windowSize.width)
 
   return (
     <footer className={cx(styles.article, styles.footer)}>
