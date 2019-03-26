@@ -12,8 +12,8 @@ export const currentUser = () => async (
   try {
     dispatch(actions.request())
     const user = await api.currentUser()
-
     dispatch(userActions.setUser(user.roles))
+    dispatch(userActions.setLogin(user.login))
     return user
   } catch (error) {
     dispatch(actions.error(error.message))
