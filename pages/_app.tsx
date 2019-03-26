@@ -46,7 +46,7 @@ class OncohelpWeb extends App<Props> {
     const ctx: AppContext = context.ctx as any
     if (ctx.req) {
       const token: string = (ctx.req as any).cookies.token
-      if (token.length > 1) {
+      if (!!token && token.length > 1) {
         ctx.reduxStore.dispatch(setToken(token))
         await ctx.reduxStore.dispatch(currentUser() as any) // it's important to dispatch this action after token is set to omit 401 infinite loop
       }
@@ -54,7 +54,7 @@ class OncohelpWeb extends App<Props> {
 
     registerModals()
     const isSecure = (context.Component as any).isSecure
-    const loggedIn = (getToken(ctx.reduxStore.getState()) || '').length > 1
+    const loggedIn = (getToken(ctx.reduxStore.getState()) || '').length > 0
 
     if (isSecure && !loggedIn) {
       const wantTo = normalizeWantTo(context.router.asPath!)
