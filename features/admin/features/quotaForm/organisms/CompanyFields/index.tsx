@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Input, TextArea, Toggle } from '@app/features/common/form'
+import { Input, InputType, TextArea, Toggle } from '@app/features/common/form'
 import FormFileInput from '@app/features/common/uploader/FormFileInput'
 
 import * as styles from './CompanyFields.css'
@@ -12,7 +12,11 @@ const Company = () => {
         <Toggle name="publicCompany" label="Показывать жертвователя на сайте" />
       </div>
       <FormFileInput name="companyLogo" />
-      <Input name="companyLink" placeholder="Ссылка на сайт жертвователя" />
+      <Input
+        type={InputType.Url}
+        name="companyLink"
+        placeholder="Ссылка на сайт жертвователя"
+      />
       <TextArea
         name="companyComment"
         placeholder="Публичное пояснение возле логотипа

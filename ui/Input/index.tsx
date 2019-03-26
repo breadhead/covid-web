@@ -12,6 +12,7 @@ export enum InputType {
   Email = 'email',
   Phone = 'tel',
   Password = 'password',
+  Url = 'url',
 }
 
 interface OwnProps {
