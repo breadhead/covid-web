@@ -1,6 +1,7 @@
 import { set } from '@app/features/common/browserQuery'
 import { getRoles } from '@app/features/login'
 import { getSmsPhone } from '@app/features/login/features/confirm'
+import { getUserLogin } from '@app/features/login/features/confirm/reducer/selectors'
 import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
@@ -79,7 +80,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       private getInitialFields = (claim?: ShortClaim) => {
         const draft = getNewClaimDraft((!!claim && claim.id) || DEFAULT_ID)
 
-        const { smsPhone } = this.props
+        const { smsPhone, userLogin } = this.props
         if (!!claim) {
           return {
             ...claim,
@@ -90,7 +91,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
 
         return nanomerge(
           {
-            personalData: { phone: smsPhone },
+            personalData: { phone: smsPhone, email: userLogin },
             companyPresence: false,
           },
           draft,
@@ -147,6 +148,7 @@ const mapState = (state: State) => ({
   loading: getLoading(state),
   roles: getRoles(state),
   smsPhone: getSmsPhone(state),
+  userLogin: getUserLogin(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
