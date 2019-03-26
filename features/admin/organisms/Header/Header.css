@@ -7,7 +7,7 @@
 .block {
   display: flex;
   align-items: center;
-  width: 50%;
+  max-width: 50%;
 
   &:first-child {
     justify-content: flex-start;
@@ -28,4 +28,8 @@
       margin-right: 0;
     }
   }
+}
+
+.buttonBlock {
+  align-items: initial;
 }
