@@ -76,7 +76,6 @@
 
 .startButton {
   display: inline-block;
-  padding: 16px 36px !important;
   margin-right: 16px;
   font: var(--text18-28) !important;
 
