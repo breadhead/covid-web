@@ -1,5 +1,5 @@
 import { State } from '@app/lib/store'
 
-const getSmsPhone = (state: State) => state.login.confirm.smsPhone.phone
+export const getSmsPhone = (state: State) => state.login.confirm.smsPhone.phone
 
-export default getSmsPhone
+export const getUserLogin = (state: State) => state.login.user.login
