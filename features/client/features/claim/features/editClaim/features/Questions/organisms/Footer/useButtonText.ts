@@ -1,15 +1,15 @@
 import routes from '@app/routes'
 import { useCallback, useEffect, useState } from 'react'
-import { defaultButtonText, getButtonText } from './getButtonText'
+import { getButtonText } from './getButtonText'
 
 const Router = routes.Router
 
 export const useButtonText = (width: number) => {
   const [submitButtonText, setSubmitButtonText] = useState(
-    defaultButtonText.submit,
+    getButtonText(width).submit,
   )
   const [laterButtonText, setLaterButtonText] = useState(
-    defaultButtonText.later,
+    getButtonText(width).later,
   )
 
   useEffect(

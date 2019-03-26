@@ -1,6 +1,6 @@
 import { NARROW_MOBILE_WIDTH } from './config'
 
-export const defaultButtonText = {
+const defaultButtonText = {
   submit: 'Отправить',
   later: 'Продолжить позже',
 }
