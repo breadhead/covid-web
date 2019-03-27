@@ -4,6 +4,7 @@ import { Store } from '@app/lib/store'
 import withReduxStore from '@app/lib/with-redux-store'
 import '@app/ui/antd-styles.less'
 import Sprite from '@app/ui/Sprite'
+import getConfig from 'next/config'
 import { Option } from 'tsoption'
 
 import App, { Container, NextAppContext } from 'next/app'
@@ -81,6 +82,7 @@ class OncohelpWeb extends App<Props> {
 
   public render() {
     const { Component, pageProps, reduxStore } = this.props
+    const { publicRuntimeConfig } = getConfig()
 
     const authViolate = getViolateState(reduxStore.getState())
     const notFound = !getFound(reduxStore.getState())
@@ -89,7 +91,6 @@ class OncohelpWeb extends App<Props> {
       reduxStore.dispatch(createSizeAction(window))
       listenResize(reduxStore, window, 100)
     }
-
     return (
       !authViolate && (
         <Container>
@@ -142,11 +143,15 @@ class OncohelpWeb extends App<Props> {
             <meta property="og:type" content="website" />
             <meta
               property="og:image"
-              content="http://i.ibb.co/HYSBLj3/prosto-sprosit-facebook-post.jpg"
+              content={`${
+                publicRuntimeConfig.siteUrl
+              }/static/images/prosto-sprosit_facebook-post.jpg`}
             />
             <meta
               property="og:image:secure_url"
-              content="https://i.ibb.co/HYSBLj3/prosto-sprosit-facebook-post.jpg"
+              content={`${
+                publicRuntimeConfig.siteUrl
+              }/static/images/prosto-sprosit_facebook-post.jpg`}
             />
             <meta property="og:image:type" content="image/jpeg" />
             <meta property="og:image:width" content="600" />
