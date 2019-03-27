@@ -9,13 +9,19 @@ const selectOptions = Object.values(QuotaType).map(value => ({
   label: value,
 }))
 
-const MainField = () => (
+interface Props {
+  hideAmount: boolean
+}
+
+const MainField = ({ hideAmount }: Props) => (
   <React.Fragment>
     <Input name="name" label="Название типа квот" />
     <Select name="category" options={selectOptions} />
     <Input name="companyName" label="Жертвователь" />
     <TextArea name="comment" label="Комментарий к типу квот" />
-    <Input name="count" type={InputType.Number} label="Количество квот" />
+    {!hideAmount && (
+      <Input name="count" type={InputType.Number} label="Количество квот" />
+    )}
   </React.Fragment>
 )
 

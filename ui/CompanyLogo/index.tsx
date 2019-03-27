@@ -18,20 +18,25 @@ const Logo = ({ src, name }: { src: string; name?: string }) => (
 )
 
 const CompanyLogo = ({ logo, site, name }: Props) => {
+  if (!logo) {
+    return null
+  }
+
   if (!!site) {
-    return !!logo ? (
+    return (
       <Col span={6}>
         <ExternalLink className={styles.logoWrapper} href={site}>
           <Logo src={logo} name={name} />
         </ExternalLink>
       </Col>
-    ) : null
+    )
   }
-  return !!logo ? (
+
+  return (
     <Col span={6}>
       <Logo src={logo} name={name} />
     </Col>
-  ) : null
+  )
 }
 
 export default CompanyLogo

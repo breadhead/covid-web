@@ -4,6 +4,10 @@ import schema from './helpers/validation'
 import { Props as FormProps } from './organisms/Form'
 import QuotaFields from './QuotaFields'
 
+export enum FormQuotaType {
+  Create = 'Create',
+  Edit = 'Edit',
+}
 export interface Props {
   error: boolean | string
   handleQuota: (fields: QuotaFields) => void
@@ -11,6 +15,7 @@ export interface Props {
   initial?: Partial<QuotaFields>
   submitButtonText: string
   title: string
+  type?: FormQuotaType
 }
 
 const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
