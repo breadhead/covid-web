@@ -8,7 +8,6 @@ import { Action, AnyAction, Dispatch } from 'redux'
 import { State } from '@app/lib/store'
 import withLockScroll from '@breadhead/with-scroll-lock'
 
-import { MOBILE_WIDTH } from '@app/lib/config'
 import CloseButton from './atoms/CloseButton'
 import { ModalDispatcher } from './helpers/ModalDispatcher'
 import { shouldOpenModal } from './helpers/shouldModalOpen'
@@ -56,17 +55,9 @@ class Modal extends React.Component<Props> {
     const { bodyScrolling } = this.props
     const { lock, unlock } = bodyScrolling
 
-    const isSafariBrowser = window.navigator.userAgent.includes('Safari')
-
     if (shouldOpenModal(modal)) {
       lock()
-      // TODO: update @breadhead/with-scroll-lock
-      document.body.style.position = 'static'
-      if (isSafariBrowser && window.innerWidth < MOBILE_WIDTH) {
-        document.body.style.position = 'fixed'
-      }
     } else {
-      document.body.style.position = 'static'
       unlock()
     }
   }
