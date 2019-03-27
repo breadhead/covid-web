@@ -33,10 +33,12 @@ export default class RealApiClient implements ApiClient {
   private _token: string = ''
 
   public constructor(baseUrl: string, token?: string) {
+    const bearer = !!token && token.length > 1 ? `Bearer ${token}` : null
+
     this.axiosInstance = axios.create({
       baseURL: baseUrl,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: bearer,
       },
     })
   }

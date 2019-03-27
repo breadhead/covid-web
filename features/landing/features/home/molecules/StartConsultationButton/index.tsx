@@ -16,28 +16,21 @@ interface Props {
 }
 
 const StartConsultationButton = ({
-  token,
   className,
   containerClassName,
   size,
-  openSignUp,
   children,
-}: Props & any) =>
-  !!token ? (
-    <NavLink
-      className={containerClassName}
-      type={NavLinkType.Nav}
-      href="/client/new-claim/rules"
-    >
-      <Button size={size} className={className} kind={ButtonKind.Primary}>
-        {children}
-      </Button>
-    </NavLink>
-  ) : (
-    <Button size={size} className={className} onClick={openSignUp}>
+}: Props & any) => (
+  <NavLink
+    className={containerClassName}
+    type={NavLinkType.Nav}
+    href="/client/new-claim/rules"
+  >
+    <Button size={size} className={className} kind={ButtonKind.Primary}>
       {children}
     </Button>
-  )
+  </NavLink>
+)
 
 const mapState = (state: any) => ({
   token: getToken(state),
