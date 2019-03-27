@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useMemo } from 'react'
 
 import Layout from '@app/features/admin/organisms/Layout'
 import { Transaction } from '@app/models/Quota/Transaction'
@@ -16,7 +17,10 @@ export interface Props {
 }
 
 const HistoryPage = ({ fetch, transactions, loading }: Props) => {
-  const sortedTransactions = orderBy(transactions, ['date'], ['desc'])
+  const sortedTransactions = useMemo(
+    () => orderBy(transactions, ['date'], ['desc']),
+    [transactions],
+  )
   return (
     <Layout>
       <section className={styles.wrapper}>
