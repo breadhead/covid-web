@@ -142,11 +142,11 @@ class OncohelpWeb extends App<Props> {
             <meta property="og:type" content="website" />
             <meta
               property="og:image"
-              content="http://i.ibb.co/HYSBLj3/prosto-sprosit-facebook-post.jpg"
+              content="http://ask.nenaprasno.ru/static/images/prosto-sprosit_facebook-post.jpg"
             />
             <meta
               property="og:image:secure_url"
-              content="https://i.ibb.co/HYSBLj3/prosto-sprosit-facebook-post.jpg"
+              content="http://ask.nenaprasno.ru/static/images/prosto-sprosit_facebook-post.jpg"
             />
             <meta property="og:image:type" content="image/jpeg" />
             <meta property="og:image:width" content="600" />
