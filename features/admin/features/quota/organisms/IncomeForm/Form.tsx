@@ -14,7 +14,7 @@ export interface IncomeFormProps {
 }
 
 const IncomeForm: React.SFC<IncomeFormProps> = ({ onFormSubmit }) => (
-  <Form onSubmit={onFormSubmit}>
+  <Form onSubmit={onFormSubmit} resetAfterSubmit>
     {() => (
       <>
         <Input
