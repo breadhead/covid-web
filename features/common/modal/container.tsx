@@ -66,6 +66,7 @@ class Modal extends React.Component<Props> {
         document.body.style.position = 'fixed'
       }
     } else {
+      document.body.style.position = 'static'
       unlock()
     }
   }

@@ -2,7 +2,6 @@ import * as React from 'react'
 
 import * as styles from './Modal.css'
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import Info from '../Info'
 import Widget from '../Widget'
@@ -26,12 +25,10 @@ class Modal extends React.Component<Props> {
   public render() {
     return (
       <article className={styles.modal}>
-        <p className={styles.text}>
+        <h1 className={styles.text}>
+          Спасибо!
+          <br />
           Мы рады, что ваша консультация прошла успешно
-        </p>
-        <h1 className={styles.title}>
-          Вы поможете другим людям, оформив пожертвование на{NON_BREAKING_SPACE}
-          этой странице
         </h1>
         <Info />
         <Widget />
