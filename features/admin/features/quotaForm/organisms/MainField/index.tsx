@@ -16,7 +16,11 @@ interface Props {
 const MainField = ({ hideAmount }: Props) => (
   <React.Fragment>
     <Input name="name" label="Название типа квот" />
-    <Select name="category" options={selectOptions} />
+    <Select
+      name="category"
+      label="Категория типа квот"
+      options={selectOptions}
+    />
     <Input name="companyName" label="Жертвователь" />
     <TextArea name="comment" label="Комментарий к типу квот" />
     {!hideAmount && (
