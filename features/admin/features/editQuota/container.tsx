@@ -14,6 +14,7 @@ import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
 import { Quota, QuotaType } from '@app/models/Quota/Quota'
 
+import { FormQuotaType } from '../quotaForm/container'
 import { editQuota } from './actions'
 import { getEditedQuotaError, getEditedQuotaId } from './selectors'
 
@@ -51,6 +52,7 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
           handleQuota={this.onFormSubmit}
           afterSuccess={this.afterSuccess}
           initial={initalFields}
+          type={FormQuotaType.Edit}
           {...this.props}
         />
       )
