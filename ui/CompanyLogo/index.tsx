@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { Col } from 'antd'
+
 import ExternalLink from '@app/ui/ExternalLink'
 import ServerImage from '@app/ui/ServerImage'
 
@@ -16,12 +18,24 @@ const Logo = ({ src, name }: { src: string; name?: string }) => (
 )
 
 const CompanyLogo = ({ logo, site, name }: Props) => {
-  return !!site ? (
-    <ExternalLink className={styles.logoWrapper} href={site}>
-      <Logo src={logo} name={name} />
-    </ExternalLink>
-  ) : (
-    <Logo src={logo} name={name} />
+  if (!logo) {
+    return null
+  }
+
+  if (!site) {
+    return (
+      <Col span={6}>
+        <Logo src={logo} name={name} />
+      </Col>
+    )
+  }
+
+  return (
+    <Col span={6}>
+      <ExternalLink className={styles.logoWrapper} href={site}>
+        <Logo src={logo} name={name} />
+      </ExternalLink>
+    </Col>
   )
 }
 
