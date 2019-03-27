@@ -1,5 +1,6 @@
 import { Quota } from '@app/models/Quota/Quota'
 import QuotaCard from '../QuotaCard'
+import * as styles from './QuotasList.css'
 
 export interface QuotasListProps {
   quotas: Quota[]
@@ -7,7 +8,7 @@ export interface QuotasListProps {
 
 const QuotasList: React.SFC<QuotasListProps> = ({ quotas }) => {
   return (
-    <div>
+    <div className={styles.container}>
       {quotas.map(quota => (
         <QuotaCard key={quota.name} {...quota} />
       ))}
