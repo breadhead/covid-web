@@ -22,19 +22,19 @@ const CompanyLogo = ({ logo, site, name }: Props) => {
     return null
   }
 
-  if (!!site) {
+  if (!site) {
     return (
       <Col span={6}>
-        <ExternalLink className={styles.logoWrapper} href={site}>
-          <Logo src={logo} name={name} />
-        </ExternalLink>
+        <Logo src={logo} name={name} />
       </Col>
     )
   }
 
   return (
     <Col span={6}>
-      <Logo src={logo} name={name} />
+      <ExternalLink className={styles.logoWrapper} href={site}>
+        <Logo src={logo} name={name} />
+      </ExternalLink>
     </Col>
   )
 }
