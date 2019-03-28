@@ -2,7 +2,6 @@ import * as React from 'react'
 
 import { NavLink } from '@front/ui/nav-link'
 
-import { NavLinkTargetType } from '@app/src/ui/nav-link/NavLinkTargetType'
 import { NavLinkType } from '@app/src/ui/nav-link/NavLinkType'
 import NavIcon from '../../atoms/NavIcon'
 import * as styles from './SignInMobileMenu.css'
@@ -18,7 +17,7 @@ const SignInMobileMenu = ({ signOut }: Props) => (
       <NavIcon />
     </NavLink>
     <NavLink
-      target={NavLinkTargetType.Blank}
+      blank
       href="https://cabinet.nenaprasno.ru"
       className={styles.menuItem}
     >

@@ -6,9 +6,7 @@ import { NavLink } from '@front/ui/nav-link'
 import * as styles from './Legal.css'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import { NavLinkTargetType } from '@app/src/ui/nav-link/NavLinkTargetType'
 import { NavLinkType } from '@app/src/ui/nav-link/NavLinkType'
-import { ExternalLink } from '@front/ui/external-link'
 
 interface Props {
   className?: string
@@ -19,7 +17,7 @@ const Legal = ({ className }: Props) => (
     <div className={styles.oncohelp}>
       <span className={styles.copyright}>© Просто спросить, 2018</span>
       <NavLink
-        target={NavLinkTargetType.Blank}
+        blank
         className={styles.infoLink}
         type={NavLinkType.Nav}
         href="/static/docs/terms-of-use.pdf"
@@ -31,9 +29,9 @@ const Legal = ({ className }: Props) => (
       <span className={styles.secondaryText}>
         Сайт сделан в{NON_BREAKING_SPACE}
       </span>
-      <ExternalLink className={styles.infoLink} href="https://breadhead.ru/">
+      <NavLink blank className={styles.infoLink} href="https://breadhead.ru/">
         Breadhead
-      </ExternalLink>
+      </NavLink>
     </span>
   </div>
 )

@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from 'react'
 
 import { displayFileName } from '@app/features/common/uploader/displayFileName'
-import { ExternalLink } from '@front/ui/external-link'
 
+import { NavLink } from '../nav-link'
 import { findUrls } from './helpers/findUrls'
 import { isUrl } from './helpers/isUrl'
 import { normalizeUrl } from './helpers/normalizeUrl'
@@ -34,9 +34,9 @@ export const ClickableText = ({
 
   const renderLink = useCallback(
     (url: string) => (
-      <ExternalLink className={linkClassName} href={normalizeUrl(url)}>
+      <NavLink blank className={linkClassName} href={normalizeUrl(url)}>
         {displayFileName(url)}
-      </ExternalLink>
+      </NavLink>
     ),
     [linkClassName],
   )

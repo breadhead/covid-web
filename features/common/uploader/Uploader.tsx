@@ -7,7 +7,7 @@ import { push } from '@app/features/admin/features/toast'
 import { getToken } from '@app/features/login'
 import factory from '@app/lib/api/apiFactory'
 import { Button, ButtonKind } from '@front/ui/button'
-import { ExternalLink } from '@front/ui/external-link'
+import { NavLink } from '@front/ui/nav-link'
 import ProgressBar from './atoms/ProgressBar'
 import { displayFileName } from './displayFileName'
 import * as styles from './Uploader.css'
@@ -99,9 +99,9 @@ const Uploader = ({
       </div>
       {uploading && <ProgressBar percentage={precentage} />}
       {!!path && (
-        <ExternalLink href={path} className={styles.link}>
+        <NavLink blank href={path} className={styles.link}>
           {displayFileName(path)}
-        </ExternalLink>
+        </NavLink>
       )}
     </div>
   )

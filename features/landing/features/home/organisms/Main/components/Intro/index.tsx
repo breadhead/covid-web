@@ -2,7 +2,6 @@ import * as React from 'react'
 import * as styles from './Intro.css'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import { NavLinkTargetType } from '@app/src/ui/nav-link/NavLinkTargetType'
 import { NavLinkType } from '@app/src/ui/nav-link/NavLinkType'
 import IconCustom from '@app/ui/IconCustom'
 import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
@@ -19,11 +18,7 @@ const Intro = () => (
       <p className={styles.status}>
         Проект фонда <br /> профилактики рака
       </p>
-      <NavLink
-        type={NavLinkType.Nav}
-        href="https://nenaprasno.ru"
-        target={NavLinkTargetType.Blank}
-      >
+      <NavLink type={NavLinkType.Nav} href="https://nenaprasno.ru" blank>
         <IconCustom className={styles.logo} name="foundation-logo" />
       </NavLink>
     </div>

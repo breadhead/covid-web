@@ -5,7 +5,7 @@ import { NON_BREAKING_SPACE } from '@app/lib/config'
 
 import styles from './Partners.css'
 
-import { ExternalLink } from '@front/ui/external-link'
+import { NavLink } from '@front/ui/nav-link'
 
 interface Props {
   className?: string
@@ -36,10 +36,10 @@ const partners = [
 const Partners = ({ className }: Props) => (
   <div className={cx(styles.middle, className)}>
     {partners.map(({ id, text, logo, href }) => (
-      <ExternalLink key={id} href={href} className={styles.partner}>
+      <NavLink blank key={id} href={href} className={styles.partner}>
         <p className={styles.text}>{text}</p>
         <img className={styles.logo} src={logo} alt={text} />
-      </ExternalLink>
+      </NavLink>
     ))}
   </div>
 )

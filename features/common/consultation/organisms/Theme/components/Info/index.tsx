@@ -4,8 +4,8 @@ import { displayFileName } from '@app/features/common/uploader/displayFileName'
 import { StylesType } from '@app/lib/config'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import { ClickableText } from '@front/ui/clickable-text'
-import { ExternalLink } from '@front/ui/external-link'
 
+import { NavLink } from '@front/ui/nav-link'
 import claimToInfoBlocks from './helpers/claimToInfoBlocks'
 import { Article } from './helpers/types'
 
@@ -18,9 +18,9 @@ const createRenderFlat = (styles: any) => (article: Article) => (
   <div className={styles.infoBlock} key={article.subtitle}>
     <h3 className={styles.subtitle}>{article.subtitle}</h3>
     {!!article.isUrl && !!article.text ? (
-      <ExternalLink href={article.text} className={styles.text}>
+      <NavLink blank href={article.text} className={styles.text}>
         {displayFileName(article.text)}
-      </ExternalLink>
+      </NavLink>
     ) : (
       <ClickableText className={styles.text}>{article.text}</ClickableText>
     )}
