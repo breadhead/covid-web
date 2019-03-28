@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useMemo } from 'react'
 
 import * as styles from './FeedbackForm.css'
 
@@ -26,8 +27,12 @@ export interface Props {
 }
 
 const FeedbackForm = ({ onFormSubmit, claimNumber }: Props) => {
+  const theme = useMemo(() => (claimNumber ? `Заявка №${claimNumber}` : ''), [
+    claimNumber,
+  ])
+
   const initial = {
-    theme: `Заявка №${claimNumber}`,
+    theme,
   }
   return (
     <article id="feedback-form" className={styles.FeedbackFormWrapper}>

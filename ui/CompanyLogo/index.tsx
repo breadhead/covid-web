@@ -2,8 +2,8 @@ import * as React from 'react'
 
 import { Col } from 'antd'
 
-import ExternalLink from '@app/ui/ExternalLink'
 import ServerImage from '@app/ui/ServerImage'
+import { ExternalLink } from '@front/ui/external-link'
 
 import styles from './CompanyLogo.css'
 
