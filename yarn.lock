@@ -1374,12 +1374,13 @@
   resolved "https://registry.yarnpkg.com/@breadhead/validate-phone/-/validate-phone-1.0.0.tgz#2602098b77c9892048885126c02d8df54127846e"
   integrity sha512-UJ3RlVzMvkyRKzPaA7p+jNOOjH/u4K2kr4Ia296910mZ6shwbfWihfgfL5wwAgSz0qne0kYKXYc1OUwF1Jr+Rg==
 
-"@breadhead/with-scroll-lock@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@breadhead/with-scroll-lock/-/with-scroll-lock-1.0.0.tgz#30a26b202077b6ee54bd2ff62bbd51c072d480c9"
-  integrity sha512-zCRRCLhb776x5Envb7j0qMJC5aUEqh7dIUGCcXqI3biHMns9o/8Yo+eouMzOoNuGhodgfR1RT/eAZyKPbRKm1Q==
+"@breadhead/with-scroll-lock@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@breadhead/with-scroll-lock/-/with-scroll-lock-1.2.2.tgz#d3499a14b3bf2af5e5bf24233b2671c20f4a2473"
+  integrity sha512-MSogv48QGAD3Y5nHuPAp3osjk4Mgj56NyA5gGy3Hv2ubeH+s3u7f1DJ6BK2VS0qE8uP5RjSL1y+DwV8FMGAeyQ==
   dependencies:
     body-scroll-lock "^2.6.1"
+    can-use-dom "^0.1.0"
 
 "@commitlint/cli@^7.3.2":
   version "7.3.2"
@@ -4095,6 +4096,11 @@ camelcase@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-5.0.0.tgz#03295527d58bd3cd4aa75363f35b2e8d97be2f42"
   integrity sha512-faqwZqnWxbxn+F1d399ygeamQNy3lPp/H9H6rNrqYh4FSVCtcY+3cub1MxA8o9mDd55mM8Aghuu/kuyYA6VTsA==
+
+can-use-dom@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/can-use-dom/-/can-use-dom-0.1.0.tgz#22cc4a34a0abc43950f42c6411024a3f6366b45a"
+  integrity sha1-IsxKNKCrxDlQ9CxkEQJKP2NmtFo=
 
 caniuse-api@^3.0.0:
   version "3.0.0"
