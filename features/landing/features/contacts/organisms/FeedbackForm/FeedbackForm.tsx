@@ -27,7 +27,9 @@ export interface Props {
 }
 
 const FeedbackForm = ({ onFormSubmit, claimNumber }: Props) => {
-  const theme = useMemo(() => (claimNumber ? `Заявка №${claimNumber}` : ''), [])
+  const theme = useMemo(() => (claimNumber ? `Заявка №${claimNumber}` : ''), [
+    claimNumber,
+  ])
 
   const initial = {
     theme,
