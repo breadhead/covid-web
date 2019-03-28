@@ -4,7 +4,6 @@ import { compose } from 'recompose'
 import { withModal, WithModalProps } from '@app/features/common/modal'
 import { getToken } from '@app/features/landing/features/home/molecules/StartConsultationButton/selectors'
 import { MODAL_KEY } from '@app/features/login/features/confirm'
-import { currentUser } from '@app/features/login/features/user'
 import { actions as userActions } from '@app/features/login/features/user'
 import apiFactory from '@app/lib/api/apiFactory'
 import { AppContext } from '@app/lib/server-types'
@@ -20,17 +19,17 @@ export interface PageProps {
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) =>
   class extends React.Component<Props> {
-    public static async getInitialProps({ reduxStore }: AppContext) {
-      const user = await reduxStore.dispatch(currentUser() as any)
+    public static isSecure = true
 
+    public static async getInitialProps({ reduxStore }: AppContext) {
       const api = apiFactory(getToken(reduxStore.getState()))
 
-      const quotasAvailable = await api.commonQuotasAvailable()
+      const quotasAvailable = await api
+        .commonQuotasAvailable()
+        .catch(() => true)
       reduxStore.dispatch(userActions.setQuotasAvailable(quotasAvailable))
 
-      return {
-        user,
-      }
+      return {}
     }
 
     public render() {

@@ -22,11 +22,9 @@ const QuotaDescription = ({ quota }: Props) => (
     />
     <IsCompaniyPublic publicCompany={quota.publicCompany} />
     <Row gutter={16}>
-      <Col span={3}>
-        <CompanyLogo logo={quota.company.logo} site={quota.company.site} />
-      </Col>
+      <CompanyLogo logo={quota.company.logo} site={quota.company.site} />
       <Col span={8}>
-        <span>{quota.comment}</span>
+        <span>{quota.company.comment}</span>
       </Col>
     </Row>
   </div>
