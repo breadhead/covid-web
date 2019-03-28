@@ -32,4 +32,34 @@ describe('isUrl', () => {
 
     expect(isUrl(text)).toBeFalsy()
   })
+
+  test('should return false for email with comment', () => {
+    const text = 'd.sidelnikova@nenaprasno.ru Hello, check '
+
+    expect(isUrl(text)).toBeFalsy()
+  })
+
+  test('should return false for email', () => {
+    const text = 'd.sidelnikova@nenaprasno.ru'
+
+    expect(isUrl(text)).toBeFalsy()
+  })
+
+  test('should return false for email with long domain', () => {
+    const text = 'd.sidelnikova@nenaprasno.tennis'
+
+    expect(isUrl(text)).toBeFalsy()
+  })
+
+  test('should return false for email with underscore', () => {
+    const text = 'd_sidelnikova@nenaprasno.tennis'
+
+    expect(isUrl(text)).toBeFalsy()
+  })
+
+  test('should return false for email with +', () => {
+    const text = 'd_sidelnikova+12@nenaprasno.tennis'
+
+    expect(isUrl(text)).toBeFalsy()
+  })
 })
