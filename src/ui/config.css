@@ -26,4 +26,5 @@ body {
   --color-text-primary: #151833;
 
   --color-link: #2d47ea;
+  --color-link-underline: rgba(45, 71, 234, 0.5);
 }
