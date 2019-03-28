@@ -32,4 +32,16 @@ describe('isUrl', () => {
 
     expect(isUrl(text)).toBeFalsy()
   })
+
+  test('should return false for email with comment', () => {
+    const text = 'd.sidelnikova@nenaprasno.ru Hello, check '
+
+    expect(isUrl(text)).toBeFalsy()
+  })
+
+  test('should return false for email', () => {
+    const text = 'd.sidelnikova@nenaprasno.ru'
+
+    expect(isUrl(text)).toBeFalsy()
+  })
 })
