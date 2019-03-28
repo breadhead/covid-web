@@ -6,7 +6,7 @@ import { Toggle } from '../Toggle'
 
 const onChange = action('toggle clicked')
 
-storiesOf('atoms/Toggle', module)
+storiesOf('Toggle', module)
   .add('Simple toggle', () => <Toggle name="test-toggle" />)
   .add('Toggle with onChange', () => (
     <Toggle name="test-toggle" onChange={onChange} />

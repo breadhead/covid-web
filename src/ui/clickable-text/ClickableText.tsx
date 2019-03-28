@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react'
 
 import { displayFileName } from '@app/features/common/uploader/displayFileName'
-import { ExternalLink } from '@front/ui/extarnal-link'
+import { ExternalLink } from '@front/ui/external-link'
 
 import { findUrls } from './helpers/findUrls'
 import { isUrl } from './helpers/isUrl'

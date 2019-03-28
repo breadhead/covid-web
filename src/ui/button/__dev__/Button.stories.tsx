@@ -10,7 +10,7 @@ const props = {
   onClick: action('button clicked'),
 }
 
-storiesOf('atoms/Button', module)
+storiesOf('Button', module)
   .add('Primary', () => (
     <>
       <Button size={ButtonSize.ExtraLarge} {...props}>
@@ -62,7 +62,7 @@ storiesOf('atoms/Button', module)
     </>
   ))
 
-storiesOf('atoms/Button/States', module).add('Disabled', () => (
+storiesOf('Button/States', module).add('Disabled', () => (
   <>
     <Button disabled>Выключенная кнопка</Button>
     <Button disabled kind={ButtonKind.Secondary}>

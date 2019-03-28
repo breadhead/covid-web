@@ -4,7 +4,7 @@ import { displayFileName } from '@app/features/common/uploader/displayFileName'
 import { StylesType } from '@app/lib/config'
 import { SituationClaim } from '@app/models/Claim/SituationClaim'
 import { ClickableText } from '@front/ui/clickable-text'
-import { ExternalLink } from '@front/ui/extarnal-link'
+import { ExternalLink } from '@front/ui/external-link'
 
 import claimToInfoBlocks from './helpers/claimToInfoBlocks'
 import { Article } from './helpers/types'
