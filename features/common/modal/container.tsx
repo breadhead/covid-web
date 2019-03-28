@@ -79,7 +79,7 @@ const hoc = compose<Props, {}>(
     mapState,
     mapDispatch,
   ),
-  withLockScroll(true),
+  withLockScroll(),
 )
 
 export default hoc(Modal)
