@@ -1,7 +1,7 @@
 import IconCustom from '@app/ui/IconCustom'
+import { NavLink, NavLinkType } from '@front/ui/nav-link'
 import cx from 'classnames'
 import * as React from 'react'
-import NavLink, { NavLinkType } from '../NavLink'
 import styles from './Logo.css'
 
 interface Props {

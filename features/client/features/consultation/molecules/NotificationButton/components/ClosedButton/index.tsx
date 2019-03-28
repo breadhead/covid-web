@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import NavLink, { NavLinkType } from '@app/ui/NavLink'
 import { Button } from '@front/ui/button'
+import { NavLink, NavLinkType } from '@front/ui/nav-link'
 
 interface Props {
   claimId: string

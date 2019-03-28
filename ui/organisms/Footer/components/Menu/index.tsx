@@ -1,4 +1,4 @@
-import NavLink, { NavLinkType, TargetType } from '@app/ui/NavLink'
+import { NavLink, NavLinkTargetType, NavLinkType } from '@front/ui/nav-link'
 
 import stylesLong from './MenuLong.css'
 import stylesShort from './MenuShort.css'
@@ -21,7 +21,7 @@ const linksLong = [
 
 interface Props {
   long?: boolean
-  targetType?: TargetType
+  targetType?: NavLinkTargetType
 }
 
 const Menu = ({ long, targetType }: Props) => {

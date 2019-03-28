@@ -2,8 +2,8 @@ import * as React from 'react'
 
 import * as styles from './Notification.css'
 
-import NavLink, { NavLinkType } from '@app/ui/NavLink'
 import { Button, ButtonKind } from '@front/ui/button'
+import { NavLink, NavLinkType } from '@front/ui/nav-link'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 

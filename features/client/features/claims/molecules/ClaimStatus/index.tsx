@@ -1,7 +1,7 @@
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { Button, ButtonKind } from '@front/ui/button'
 
-import NavLink, { NavLinkType } from '@app/ui/NavLink'
+import { NavLink, NavLinkType } from '@front/ui/nav-link'
 import Messages from '../../atoms/Messages'
 import Point from '../../atoms/Point'
 import styles from './ClaimStatus.css'

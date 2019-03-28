@@ -1,6 +1,6 @@
 import styles from './Title.css'
 
-import NavLink from '@app/ui/NavLink'
+import { NavLink } from '@front/ui/nav-link'
 
 const Title = () => (
   <header className={styles.container}>

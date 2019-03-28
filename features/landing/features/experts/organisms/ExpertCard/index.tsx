@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import * as styles from './ExpertCard.css'
 
-import NavLink, { NavLinkType } from '@app/ui/NavLink'
+import { NavLink, NavLinkType } from '@front/ui/nav-link'
 
 import { ExpertInterface } from '../../features/Expert/page'
 

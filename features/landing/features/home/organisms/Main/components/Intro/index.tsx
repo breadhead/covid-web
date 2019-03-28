@@ -2,9 +2,11 @@ import * as React from 'react'
 import * as styles from './Intro.css'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { NavLinkTargetType } from '@app/src/ui/nav-link/NavLinkTargetType'
+import { NavLinkType } from '@app/src/ui/nav-link/NavLinkType'
 import IconCustom from '@app/ui/IconCustom'
-import NavLink, { NavLinkType, TargetType } from '@app/ui/NavLink'
 import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
+import { NavLink } from '@front/ui/nav-link'
 import StartConsultationButton from '../../../../molecules/StartConsultationButton'
 
 const Intro = () => (
@@ -20,7 +22,7 @@ const Intro = () => (
       <NavLink
         type={NavLinkType.Nav}
         href="https://nenaprasno.ru"
-        target={TargetType.Blank}
+        target={NavLinkTargetType.Blank}
       >
         <IconCustom className={styles.logo} name="foundation-logo" />
       </NavLink>

@@ -1,11 +1,13 @@
 import cx from 'classnames'
 import * as React from 'react'
 
-import NavLink, { NavLinkType, TargetType } from '@app/ui/NavLink'
+import { NavLink } from '@front/ui/nav-link'
 
 import * as styles from './Legal.css'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { NavLinkTargetType } from '@app/src/ui/nav-link/NavLinkTargetType'
+import { NavLinkType } from '@app/src/ui/nav-link/NavLinkType'
 import { ExternalLink } from '@front/ui/external-link'
 
 interface Props {
@@ -17,7 +19,7 @@ const Legal = ({ className }: Props) => (
     <div className={styles.oncohelp}>
       <span className={styles.copyright}>© Просто спросить, 2018</span>
       <NavLink
-        target={TargetType.Blank}
+        target={NavLinkTargetType.Blank}
         className={styles.infoLink}
         type={NavLinkType.Nav}
         href="/static/docs/terms-of-use.pdf"

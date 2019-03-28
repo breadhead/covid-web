@@ -5,7 +5,7 @@ import * as styles from './Header.css'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import { Role } from '@app/models/Users/User'
 import IconCustom from '@app/ui/IconCustom'
-import NavLink from '@app/ui/NavLink'
+import { NavLink } from '@front/ui/nav-link'
 
 interface Props {
   claimNumber: number

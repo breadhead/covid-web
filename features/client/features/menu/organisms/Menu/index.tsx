@@ -1,6 +1,6 @@
 import Dropdown from '@app/ui/Dropdown'
 import IconCustom from '@app/ui/IconCustom'
-import NavLink, { NavLinkType } from '@app/ui/NavLink'
+import { NavLink, NavLinkType } from '@front/ui/nav-link'
 import cx from 'classnames'
 import * as styles from './Menu.css'
 

@@ -5,7 +5,9 @@ import * as styles from './PartnersList.css'
 import PartnerCard from '@app/features/landing/organisms/PartnerCard'
 
 import { partners } from '@app/features/landing/features/partners/organisms/PartnersList/config'
-import NavLink, { NavLinkType, TargetType } from '@app/ui/NavLink'
+import { NavLinkTargetType } from '@app/src/ui/nav-link/NavLinkTargetType'
+import { NavLinkType } from '@app/src/ui/nav-link/NavLinkType'
+import { NavLink } from '@front/ui/nav-link'
 
 const PartnersList = () => (
   <section className={styles.partnersList}>
@@ -14,7 +16,7 @@ const PartnersList = () => (
     ))}
     <div className={styles.buttonWrapper}>
       <NavLink
-        target={TargetType.Blank}
+        target={NavLinkTargetType.Blank}
         className={styles.buttonContainer}
         href="/contacts"
         type={NavLinkType.Nav}

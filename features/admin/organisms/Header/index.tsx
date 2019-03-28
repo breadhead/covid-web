@@ -4,10 +4,10 @@ import * as React from 'react'
 import { useCallback } from 'react'
 import { useDispatch } from 'redux-react-hook'
 
-import NavLink from '@app/ui/NavLink'
 import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
 import cx from 'classnames'
 
+import { NavLink } from '@front/ui/nav-link'
 import styles from './Header.css'
 
 const Header = () => {

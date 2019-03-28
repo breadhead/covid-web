@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as styles from './Conditions.css'
 
-import NavLink, { TargetType } from '@app/ui/NavLink'
+import { NavLink, NavLinkTargetType } from '@front/ui/nav-link'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 
@@ -13,7 +13,7 @@ const Conditions = () => (
     {NON_BREAKING_SPACE}кодом для подтверждения согласия с{NON_BREAKING_SPACE}
     <NavLink
       className={styles.link}
-      target={TargetType.Blank}
+      target={NavLinkTargetType.Blank}
       href="/static/docs/personal-data-processing-policy.pdf"
     >
       политикой обработки персональных данных
