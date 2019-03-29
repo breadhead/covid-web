@@ -1,6 +1,7 @@
 import cx from 'classnames'
 import NextLink from 'next/link'
 import * as React from 'react'
+import { getLinkStyle } from './helpers/getLinkStyle'
 import styles from './NavLink.css'
 import { NavLinkProps } from './NavLinkProps'
 
@@ -17,7 +18,7 @@ export const NavLink = ({
         href={href}
         className={cx(
           styles.navlink,
-          withoutUnderline ? styles.nav : styles.link,
+          getLinkStyle(withoutUnderline),
           className,
         )}
         target="_blank"
@@ -33,7 +34,7 @@ export const NavLink = ({
       <a
         className={cx(
           styles.navlink,
-          withoutUnderline ? styles.nav : styles.link,
+          getLinkStyle(withoutUnderline),
           className,
         )}
       >

@@ -16,3 +16,10 @@ storiesOf('NavLink', module)
       </NavLink>
     </>
   ))
+  .add('With blank', () => (
+    <>
+      <NavLink href="#" blank>
+        ссылка ведущая на внешний ресурс
+      </NavLink>
+    </>
+  ))
