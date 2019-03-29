@@ -11,6 +11,14 @@ export const isUrl = (text: string): boolean => {
     return false
   }
 
+  if (/\d{2}\.\d{2}\.\d{4}/.test(text)) {
+    return false
+  }
+
+  if (!isNaN(new Date(text).valueOf())) {
+    return false
+  }
+
   const match = text.match(URL_REGEXP)
 
   if (!match) {
