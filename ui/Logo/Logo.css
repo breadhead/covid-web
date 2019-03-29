@@ -1,7 +1,7 @@
 .logo {
   flex-shrink: 0;
-  width: 238px;
-  height: 48px;
+  width: 238px !important;
+  height: 48px !important;
 
   @media (--smallDown) {
     width: 198px;
@@ -10,8 +10,8 @@
 }
 
 .logoWrapper {
-  max-width: 238px;
-  max-height: 48px;
+  max-width: 238px !important;
+  max-height: 48px !important;
   cursor: pointer;
 
   @media (--smallDown) {
