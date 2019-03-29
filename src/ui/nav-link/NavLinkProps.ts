@@ -1,10 +1,9 @@
 import { ReactNode } from 'react'
-import { NavLinkType } from './NavLinkType'
 
 export interface NavLinkProps {
   href: string
   children: ReactNode
-  type?: NavLinkType
+  withoutUnderline?: boolean
   blank?: boolean
   className?: string
 }

@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/react'
 import React from 'react'
 
 import { NavLink } from '../NavLink'
-import { NavLinkType } from '../NavLinkType'
 
 storiesOf('NavLink', module)
   .add('WithUnderline', () => (
@@ -12,7 +11,7 @@ storiesOf('NavLink', module)
   ))
   .add('Nav', () => (
     <>
-      <NavLink href="#" type={NavLinkType.Nav}>
+      <NavLink href="#" withoutUnderline>
         ссылка в навигации и футере
       </NavLink>
     </>

@@ -1,7 +1,7 @@
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { Button, ButtonKind } from '@front/ui/button'
 
-import { NavLink, NavLinkType } from '@front/ui/nav-link'
+import { NavLink } from '@front/ui/nav-link'
 import Messages from '../../atoms/Messages'
 import Point from '../../atoms/Point'
 import styles from './ClaimStatus.css'
@@ -27,7 +27,7 @@ const Status = ({ status, id, expireAt, email }: Props) => {
         subtitle={getSubtitle(status, { expireAt, email })}
       />
       {action && path && (
-        <NavLink type={NavLinkType.Nav} href={path}>
+        <NavLink withoutUnderline href={path}>
           <Button
             kind={active ? ButtonKind.Primary : ButtonKind.Secondary}
             className={styles.action}

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { NavLink, NavLinkType } from '@front/ui/nav-link'
+import { NavLink } from '@front/ui/nav-link'
 
 import NavIcon from '../../atoms/NavIcon'
 import * as styles from './SignInMobileMenu.css'
@@ -11,7 +11,7 @@ export interface Props {
 
 const SignInMobileMenu = ({ signOut }: Props) => (
   <>
-    <NavLink className={styles.menuItem} type={NavLinkType.Nav} href="/client">
+    <NavLink className={styles.menuItem} withoutUnderline href="/client">
       Мои консультации
       <NavIcon />
     </NavLink>

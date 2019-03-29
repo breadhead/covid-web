@@ -14,14 +14,14 @@ import StartConsultationButton from '@app/features/landing/features/home/molecul
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import IconCustom from '@app/ui/IconCustom'
 import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
-import { NavLink, NavLinkType } from '@front/ui/nav-link'
+import { NavLink } from '@front/ui/nav-link'
 
 const NotFound = () => (
   <>
     <Head>
       <title>Такой страницы не существует | Просто спросить</title>
     </Head>
-    <NavLink href="/" type={NavLinkType.Nav}>
+    <NavLink href="/" withoutUnderline>
       <IconCustom
         className={cx(styles.desktopLogo, styles.logo)}
         name="logo_full"
@@ -42,7 +42,7 @@ const NotFound = () => (
         Такой страницы не{NON_BREAKING_SPACE}существует
       </h1>
       <div className={styles.buttons}>
-        <NavLink className={styles.buttonMain} href="/" type={NavLinkType.Nav}>
+        <NavLink className={styles.buttonMain} href="/" withoutUnderline>
           <Button size={ButtonSize.Large} kind={ButtonKind.Secondary}>
             Перейти на главную
           </Button>

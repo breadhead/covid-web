@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import * as React from 'react'
 
-import { NavLink, NavLinkType } from '@front/ui/nav-link'
+import { NavLink } from '@front/ui/nav-link'
 
 import * as styles from './Legal.css'
 
@@ -18,7 +18,7 @@ const Legal = ({ className }: Props) => (
       <NavLink
         blank
         className={styles.infoLink}
-        type={NavLinkType.Nav}
+        withoutUnderline
         href="/static/docs/terms-of-use.pdf"
       >
         Пользовательское соглашение

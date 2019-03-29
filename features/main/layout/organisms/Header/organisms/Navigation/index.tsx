@@ -6,7 +6,7 @@ import cx from 'classnames'
 import { default as ClientMenu } from '@app/features/client/features/menu/organisms/Menu'
 import IconCustom from '@app/ui/IconCustom'
 import MediaQuery, { Query } from '@app/ui/MediaQuery'
-import { NavLink, NavLinkType } from '@front/ui/nav-link'
+import { NavLink } from '@front/ui/nav-link'
 import LoginButton from '../../atoms/LoginButton'
 import NavIcon from '../../atoms/NavIcon'
 import SignInMobileMenu from '../SignInMobileMenu'
@@ -24,19 +24,19 @@ const Navigation = ({ className, hide, showLoginButton, signOut }: Props) => (
       закрыть меню
       <IconCustom className={styles.NavIcon} name="24x24_close_light" />
     </button>
-    <NavLink type={NavLinkType.Nav} href="/partners" className={styles.link}>
+    <NavLink withoutUnderline href="/partners" className={styles.link}>
       Партнёры
       <NavIcon />
     </NavLink>
-    <NavLink type={NavLinkType.Nav} href="/experts" className={styles.link}>
+    <NavLink withoutUnderline href="/experts" className={styles.link}>
       Эксперты
       <NavIcon />
     </NavLink>
-    <NavLink type={NavLinkType.Nav} href="/contacts" className={styles.link}>
+    <NavLink withoutUnderline href="/contacts" className={styles.link}>
       Контакты
       <NavIcon />
     </NavLink>
-    <NavLink type={NavLinkType.Nav} href="/#donation" className={styles.link}>
+    <NavLink withoutUnderline href="/#donation" className={styles.link}>
       Помочь проекту
       <NavIcon />
     </NavLink>

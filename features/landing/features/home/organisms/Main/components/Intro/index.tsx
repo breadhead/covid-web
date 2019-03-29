@@ -4,7 +4,7 @@ import * as styles from './Intro.css'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import IconCustom from '@app/ui/IconCustom'
 import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
-import { NavLink, NavLinkType } from '@front/ui/nav-link'
+import { NavLink } from '@front/ui/nav-link'
 import StartConsultationButton from '../../../../molecules/StartConsultationButton'
 
 const Intro = () => (
@@ -17,7 +17,7 @@ const Intro = () => (
       <p className={styles.status}>
         Проект фонда <br /> профилактики рака
       </p>
-      <NavLink type={NavLinkType.Nav} href="https://nenaprasno.ru" blank>
+      <NavLink withoutUnderline href="https://nenaprasno.ru" blank>
         <IconCustom className={styles.logo} name="foundation-logo" />
       </NavLink>
     </div>
@@ -31,7 +31,7 @@ const Intro = () => (
       </StartConsultationButton>
       <NavLink
         className={styles.buttonContainer}
-        type={NavLinkType.Nav}
+        withoutUnderline
         href="#donation"
       >
         <Button

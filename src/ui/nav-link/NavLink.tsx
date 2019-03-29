@@ -1,17 +1,15 @@
 import cx from 'classnames'
 import NextLink from 'next/link'
 import * as React from 'react'
-import { getTypeClassName } from './helpers/getTypeClassName'
 import styles from './NavLink.css'
 import { NavLinkProps } from './NavLinkProps'
-import { NavLinkType } from './NavLinkType'
 
 export const NavLink = ({
   children,
   className,
   href,
-  type,
   blank = false,
+  withoutUnderline = false,
 }: NavLinkProps) => {
   if (blank) {
     return (
@@ -19,7 +17,7 @@ export const NavLink = ({
         href={href}
         className={cx(
           styles.navlink,
-          styles[getTypeClassName(type)],
+          withoutUnderline ? styles.nav : styles.link,
           className,
         )}
         target="_blank"
@@ -35,7 +33,7 @@ export const NavLink = ({
       <a
         className={cx(
           styles.navlink,
-          styles[getTypeClassName(type || NavLinkType.WithUnderline)],
+          withoutUnderline ? styles.nav : styles.link,
           className,
         )}
       >

@@ -1,4 +1,4 @@
-import { NavLink, NavLinkType } from '@front/ui/nav-link'
+import { NavLink } from '@front/ui/nav-link'
 
 import stylesLong from './MenuLong.css'
 import stylesShort from './MenuShort.css'
@@ -35,7 +35,7 @@ const Menu = ({ long, blank = false }: Props) => {
         <NavLink
           blank={blank}
           key={title}
-          type={NavLinkType.Nav}
+          withoutUnderline
           href={href}
           className={styles.link}
         >

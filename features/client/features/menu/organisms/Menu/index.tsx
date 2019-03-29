@@ -1,6 +1,6 @@
 import Dropdown from '@app/ui/Dropdown'
 import IconCustom from '@app/ui/IconCustom'
-import { NavLink, NavLinkType } from '@front/ui/nav-link'
+import { NavLink } from '@front/ui/nav-link'
 import cx from 'classnames'
 import * as styles from './Menu.css'
 
@@ -13,7 +13,7 @@ const Menu = ({ signOut, className }: Props) => (
   <nav className={cx(styles.menu, className)}>
     <NavLink
       className={cx(styles.menuItem, styles.consultation)}
-      type={NavLinkType.Nav}
+      withoutUnderline
       href="/client"
     >
       <IconCustom className={styles.icon} name="24x24_my-consultation" />
