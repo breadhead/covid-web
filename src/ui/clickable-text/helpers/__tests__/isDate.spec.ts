@@ -36,4 +36,40 @@ describe('isDate', () => {
 
     expect(isDate(date)).toBeTruthy()
   })
+
+  test('should return false for regular string', () => {
+    const date = 'hello'
+
+    expect(isDate(date)).toBeFalsy()
+  })
+
+  test('should return false for empty string', () => {
+    const date = ''
+
+    expect(isDate(date)).toBeFalsy()
+  })
+
+  test('should return false for telephone number', () => {
+    const date = '89211234567'
+
+    expect(isDate(date)).toBeFalsy()
+  })
+
+  test('should return false for telephone number starts on +', () => {
+    const date = '+79211234567'
+
+    expect(isDate(date)).toBeFalsy()
+  })
+
+  test('should return false for telephone number with dashes', () => {
+    const date = '+7-921-123-45-67'
+
+    expect(isDate(date)).toBeFalsy()
+  })
+
+  test('should return false for time', () => {
+    const date = '14:56'
+
+    expect(isDate(date)).toBeFalsy()
+  })
 })
