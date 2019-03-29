@@ -1,13 +1,8 @@
-import { EMAIL_REGEXP } from './EMAIL_REGEXP'
+import { isEmail } from './isEmail'
 import { URL_REGEXP } from './URL_REGEXP'
 
 export const isUrl = (text: string): boolean => {
-  // we must set lastIndex to zero, because
-  // https://stackoverflow.com/questions/15276873/is-javascript-test-saving-state-in-the-regex
-  EMAIL_REGEXP.lastIndex = 0
-  if (EMAIL_REGEXP.test(text)) {
-    EMAIL_REGEXP.lastIndex = 0
-    // we must reset RegExp internal state after usage
+  if (isEmail(text)) {
     return false
   }
 
