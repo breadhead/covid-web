@@ -24,11 +24,11 @@ const Header = ({ id, createdAt, newMessage, target, number }: Props) => (
           {formatDate(createdAt)} №{number}
         </h2>
         <Icon
-          name="24x24_arrow-big-back"
+          name="arrow-big-back"
           className={cx(styles.arrow, styles.defaultArrow)}
         />
         <Icon
-          name="24x24_arrow-big-back-hover"
+          name="arrow-big-back-hover"
           className={cx(styles.arrow, styles.hoverArrow)}
         />
       </div>

@@ -38,7 +38,7 @@ const Header = ({
             >
               Ещё {clientClaimsCount}
             </NavLink>
-            <Icon className={styles.icon} name="24x24_arrow-small_right" />
+            <Icon className={styles.icon} name="arrow-right" />
           </>
         )}
       </div>

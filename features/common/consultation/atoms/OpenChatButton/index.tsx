@@ -10,11 +10,7 @@ interface Props {
 
 const OpenChatButton = ({ onClick, haveNewMessage }: Props) => (
   <button onClick={onClick} className={styles.openChatButton}>
-    {haveNewMessage ? (
-      <Icon name="32x32_chat_new-message" />
-    ) : (
-      <Icon name="32x32_chat" />
-    )}
+    {haveNewMessage ? <Icon name="chat-new-message" /> : <Icon name="chat" />}
   </button>
 )
 

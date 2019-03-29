@@ -28,10 +28,7 @@ const Footer = ({ styles: parentStyles, error, loading, id }: Props) => {
           <NavLink href={`/manager/claim/${id}/situation`}>
             Медицинские данные
           </NavLink>
-          <Icon
-            className={parentStyles.iconForward}
-            name="24x24_arrow-small_right"
-          />
+          <Icon className={parentStyles.iconForward} name="arrow-right" />
         </div>
       </div>
       <ButtonWithTooltip

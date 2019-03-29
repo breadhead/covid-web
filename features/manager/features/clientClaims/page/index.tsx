@@ -21,7 +21,7 @@ const ClientClaims = ({ clientClaims, authorLogin, currentClaimId }: Props) => (
     <div className={styles.linkWrapper}>
       {!!currentClaimId && (
         <>
-          <Icon name="24x24_arrow-small_right" className={styles.icon} />
+          <Icon name="arrow-right" className={styles.icon} />
           <NavLink href={`/manager/consultation/${currentClaimId}`}>
             Вернуться назад
           </NavLink>

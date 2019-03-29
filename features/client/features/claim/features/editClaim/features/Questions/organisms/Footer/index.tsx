@@ -65,7 +65,7 @@ const Footer = ({ styles, error, loading, id, windowSize }: Props) => {
         {laterButtonText}
       </ButtonWithTooltip>
       <div className={styles.footerBack}>
-        <Icon className={styles.iconBack} name="24x24_arrow-small_right" />
+        <Icon className={styles.iconBack} name="arrow-right" />
         <NavLink href={`/client/claim/${id}/situation`}>
           Вернуться назад
         </NavLink>

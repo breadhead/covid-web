@@ -22,7 +22,7 @@ const Navigation = ({ className, hide, showLoginButton, signOut }: Props) => (
   <nav className={cx(styles.menu, className)}>
     <button className={styles.closeButton} onClick={hide}>
       закрыть меню
-      <Icon className={styles.NavIcon} name="24x24_close_light" />
+      <Icon className={styles.NavIcon} name="close-light" />
     </button>
     <NavLink withoutUnderline href="/partners" className={styles.link}>
       Партнёры

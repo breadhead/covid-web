@@ -16,7 +16,7 @@ const Menu = ({ signOut, className }: Props) => (
       withoutUnderline
       href="/client"
     >
-      <Icon className={styles.icon} name="24x24_my-consultation" />
+      <Icon className={styles.icon} name="my-consultation" />
       <span className={styles.menuItemText}>Мои консультации</span>
     </NavLink>
     <div className={styles.menuItem}>

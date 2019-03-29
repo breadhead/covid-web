@@ -19,7 +19,7 @@ interface Props {
 
 const Dropdown = ({ signOut, position = DropdownPositions.Left }: Props) => (
   <div className={styles.dropdown}>
-    <Icon className={styles.icon} name="24x24_user" />
+    <Icon className={styles.icon} name="user" />
     <div className={cx(styles.menu, styles[position])}>
       <NavLink
         blank

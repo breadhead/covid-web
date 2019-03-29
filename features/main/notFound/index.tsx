@@ -22,8 +22,8 @@ const NotFound = () => (
       <title>Такой страницы не существует | Просто спросить</title>
     </Head>
     <NavLink href="/" withoutUnderline>
-      <Icon className={cx(styles.desktopLogo, styles.logo)} name="logo_full" />
-      <Icon className={cx(styles.mobileLogo, styles.logo)} name="logo_short" />
+      <Icon className={cx(styles.desktopLogo, styles.logo)} name="logo-full" />
+      <Icon className={cx(styles.mobileLogo, styles.logo)} name="logo-short" />
     </NavLink>
     <div className={styles.container}>
       <img

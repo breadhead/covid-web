@@ -25,20 +25,14 @@ const Footer = ({ styles: parentStyles, error, loading, id }: Props) => {
     >
       <div className={styles.links}>
         <div className={cx(parentStyles.footerBack, styles.footerBack)}>
-          <Icon
-            className={parentStyles.iconBack}
-            name="24x24_arrow-small_right"
-          />
+          <Icon className={parentStyles.iconBack} name="arrow-right" />
           <NavLink href={`/manager/new-claim/${id}`}>Короткая заявка</NavLink>
         </div>
         <div className={cx(parentStyles.footerForward, styles.footerForward)}>
           <NavLink href={`/manager/claim/${id}/questions`}>
             Вопросы к эксперту
           </NavLink>
-          <Icon
-            className={parentStyles.iconForward}
-            name="24x24_arrow-small_right"
-          />
+          <Icon className={parentStyles.iconForward} name="arrow-right" />
         </div>
       </div>
       <ButtonWithTooltip

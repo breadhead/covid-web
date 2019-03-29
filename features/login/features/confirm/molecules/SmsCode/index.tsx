@@ -22,9 +22,7 @@ const SmsCode = ({ valid, validate, codeValidationError }: Props) => (
           type={InputType.Number}
           label="Код из СМС"
           error={codeValidationError}
-          addonAfter={
-            valid && <Icon className={styles.icon} name="24x24_success_green" />
-          }
+          addonAfter={valid && <Icon className={styles.icon} name="success" />}
           maxLength={4}
           required
           className={styles.inputWrapper}

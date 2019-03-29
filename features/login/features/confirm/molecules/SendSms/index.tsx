@@ -52,7 +52,7 @@ class SendSms extends React.Component<Props, LocalState> {
               </Button>
               {success && !validationError && (
                 <p className={styles.messageCodeSent} hidden={false}>
-                  <Icon className={styles.icon} name="24x24_success_green" />
+                  <Icon className={styles.icon} name="success" />
                   {NON_BREAKING_SPACE}Код отправлен
                 </p>
               )}

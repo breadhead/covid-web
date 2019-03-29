@@ -39,7 +39,7 @@ class AddFieldContainer extends React.Component<Props, State> {
           className={buttonClassName}
           kind={ButtonKind.Extra}
         >
-          <Icon className={styles.icon} name="24x24_plus" />
+          <Icon className={styles.icon} name="plus" />
           {buttonText}
         </Button>
       </div>

@@ -10,7 +10,7 @@ interface FooterProps {
 
 const Footer = ({ onOpenModalClick }: FooterProps) => (
   <footer className={styles.footer}>
-    <Icon className={styles.logo} name="foundation_logo_mark" />
+    <Icon className={styles.logo} name="foundation-logo-mark" />
     <p className={styles.text}>
       Если у вас есть аккаунт на{NON_BREAKING_SPACE}
       <b>nenaprasno.ru</b>, вы{NON_BREAKING_SPACE}

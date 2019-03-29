@@ -39,7 +39,7 @@ const Footer = ({
       </ButtonWithTooltip>
       {showDraftNotification && (
         <div className={styles.draftContainer}>
-          <Icon className={styles.iconSuccess} name="24x24_success_green" />
+          <Icon className={styles.iconSuccess} name="success" />
           <span className={styles.draftNotification}>
             Ваши данные сохранены в черновике
           </span>
@@ -48,7 +48,7 @@ const Footer = ({
       <div className={styles.footerBack}>
         {!!id && (
           <>
-            <Icon className={styles.iconBack} name="24x24_arrow-small_right" />
+            <Icon className={styles.iconBack} name="arrow-right" />
             <NavLink href={`/client/new-claim/${id}`}>Вернуться назад</NavLink>
           </>
         )}

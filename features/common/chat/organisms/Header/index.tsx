@@ -12,14 +12,14 @@ interface Props {
 const Header = ({ onCloseButtonClick }: Props) => (
   <header className={styles.header}>
     <button className={cx(styles.button, styles.buttonChat)}>
-      <Icon className={styles.iconChat} name="32x32_chat" />
+      <Icon className={styles.iconChat} name="chat" />
     </button>
     <h3 className={styles.title}>«Просто спросить»</h3>
     <button
       onClick={onCloseButtonClick}
       className={cx(styles.button, styles.closeButton)}
     >
-      <Icon name="24x24_close_light" />
+      <Icon name="close-light" />
     </button>
   </header>
 )

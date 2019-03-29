@@ -10,7 +10,7 @@ export interface Props {
 const BurgerButton = ({ show }: Props) => (
   <button className={styles.openButton} onClick={show}>
     открыть меню
-    <Icon className={styles.NavIcon} name="24x24_burger-menu" />
+    <Icon className={styles.NavIcon} name="burger-menu" />
   </button>
 )
 

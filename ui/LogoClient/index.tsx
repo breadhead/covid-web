@@ -10,7 +10,7 @@ interface Props {
 
 const LogoClient = ({ className }: Props) => (
   <NavLink className={styles.logoWrapper} withoutUnderline href="/">
-    <Icon className={cx(styles.logo, className)} name="logo_short" />
+    <Icon className={cx(styles.logo, className)} name="logo-short" />
   </NavLink>
 )
 

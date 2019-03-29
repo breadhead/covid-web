@@ -12,7 +12,7 @@ interface Props {
 const NavIcon = ({ long = false }: Props) => (
   <Icon
     className={cx(styles.NavIcon, long && styles.long)}
-    name="24x24_arrow-small_right"
+    name="arrow-right"
   />
 )
 

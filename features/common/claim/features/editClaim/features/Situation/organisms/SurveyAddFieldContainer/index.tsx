@@ -102,7 +102,7 @@ const SurveyAddFieldContainer = ({
         className={cx(styles.addButton, styles.filesButton)}
         kind={ButtonKind.Extra}
       >
-        <Icon className={styles.icon} name="24x24_plus" />
+        <Icon className={styles.icon} name="plus" />
         Добавить другие файлы
       </Button>
       <Button
@@ -110,7 +110,7 @@ const SurveyAddFieldContainer = ({
         className={cx(styles.addButton, styles.linksButton)}
         kind={ButtonKind.Extra}
       >
-        <Icon className={styles.icon} name="24x24_plus" />
+        <Icon className={styles.icon} name="plus" />
         Добавить ссылки на файлы
       </Button>
     </div>

@@ -22,7 +22,7 @@ const SectionHeader: React.SFC<SectionHeaderProps> = ({
             type="button"
             onClick={onRemoveClick}
           >
-            <Icon className={styles.icon} name="24x24_close_blue" />
+            <Icon className={styles.icon} name="close-blue" />
             <span>Удалить</span>
           </button>
         </div>
@@ -36,7 +36,7 @@ const SectionHeader: React.SFC<SectionHeaderProps> = ({
             className={styles.button}
             onClick={onRemoveClick}
           >
-            <Icon className={styles.icon} name="24x24_close_blue" />
+            <Icon className={styles.icon} name="close-blue" />
             <span>Удалить</span>
           </button>
         </div>

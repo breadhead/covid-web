@@ -17,7 +17,7 @@ const ChatFeedback = ({ onClick }: Props) => {
           чате
         </span>
         {NON_BREAKING_SPACE}
-        <Icon className={styles.icon} name="32x32_chat" />
+        <Icon className={styles.icon} name="chat" />
       </h3>
       <p className={styles.text}>
         Там же{NON_BREAKING_SPACE}вы{NON_BREAKING_SPACE}можете оставить отзыв о

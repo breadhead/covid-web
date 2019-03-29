@@ -81,7 +81,7 @@ const Chat = ({
           !muted && (
             <>
               <Uploader onUploaded={onUpload} className={styles.uploader}>
-                <Icon className={styles.attachIcon} name="24x24_attach-file" />
+                <Icon className={styles.attachIcon} name="attach-file" />
               </Uploader>
               <TextArea
                 focused={focused}
@@ -94,7 +94,7 @@ const Chat = ({
                 placeholder="Ваше сообщение..."
               />
               <button className={styles.sendButton}>
-                <Icon className={styles.inputIcon} name="24x24_send-message" />
+                <Icon className={styles.inputIcon} name="send-message" />
               </button>
             </>
           )
