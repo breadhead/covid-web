@@ -48,4 +48,34 @@ describe('isEmail', () => {
 
     expect(isEmail(email)).toBeTruthy()
   })
+
+  test('should return false for regular string', () => {
+    const email = 'hello'
+
+    expect(isEmail(email)).toBeFalsy()
+  })
+
+  test('should return false for empty string', () => {
+    const email = ''
+
+    expect(isEmail(email)).toBeFalsy()
+  })
+
+  test('should return false for string with @', () => {
+    const email = 'memem @ memem'
+
+    expect(isEmail(email)).toBeFalsy()
+  })
+
+  test('should return false for string with @mention', () => {
+    const email = 'memem @memem'
+
+    expect(isEmail(email)).toBeFalsy()
+  })
+
+  test('should return false for string starts on @mention', () => {
+    const email = '@memem'
+
+    expect(isEmail(email)).toBeFalsy()
+  })
 })
