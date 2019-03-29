@@ -18,7 +18,7 @@ export const NavLink = ({
         href={href}
         className={cx(
           styles.navlink,
-          getLinkStyle(withoutUnderline),
+          styles[getLinkStyle(withoutUnderline)],
           className,
         )}
         target="_blank"
@@ -34,7 +34,7 @@ export const NavLink = ({
       <a
         className={cx(
           styles.navlink,
-          getLinkStyle(withoutUnderline),
+          styles[getLinkStyle(withoutUnderline)],
           className,
         )}
       >
