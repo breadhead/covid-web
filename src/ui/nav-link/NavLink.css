@@ -1,4 +1,4 @@
-.NavLink {
+.navlink {
   font: var(--text16-24);
   text-decoration: none;
 
@@ -8,7 +8,7 @@
   }
 }
 
-.Link.Link {
+.link {
   color: var(--color-link);
   border-bottom: 1px solid transparent;
 
@@ -19,11 +19,12 @@
 
   &:active {
     color: var(--color-link);
+    border-color: var(--color-link-underline);
     border-bottom: 1px solid var(--color-link-underline);
   }
 }
 
-.Nav.Nav {
+.nav {
   color: var(--text-color-primary);
 
   &:hover {

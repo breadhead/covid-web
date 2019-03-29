@@ -5,7 +5,7 @@ import { Button } from '@front/ui/button'
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
-import NavLink, { TargetType } from '@app/ui/NavLink'
+import { NavLink } from '@front/ui/nav-link'
 
 import styles from './Terms.css'
 
@@ -37,15 +37,14 @@ class Terms extends React.Component<Props, State> {
       <Form onSubmit={this.onSubmit as any}>
         {() => (
           <>
-            {' '}
             <Checkbox
               name="consultationTerms"
               type="checkbox"
               className={styles.checkbox}
             >
-              Я согласен с{' '}
+              Я согласен с{NON_BREAKING_SPACE}
               <NavLink
-                target={TargetType.Blank}
+                blank
                 href="/static/docs/personal-data-processing-policy.pdf"
               >
                 политикой обработки персональных данных
@@ -56,11 +55,8 @@ class Terms extends React.Component<Props, State> {
               type="checkbox"
               className={styles.checkbox}
             >
-              Я согласен с{' '}
-              <NavLink
-                target={TargetType.Blank}
-                href="/static/docs/terms-of-use.pdf"
-              >
+              Я согласен с{NON_BREAKING_SPACE}
+              <NavLink blank href="/static/docs/terms-of-use.pdf">
                 условиями пользовательского соглашения
               </NavLink>
             </Checkbox>

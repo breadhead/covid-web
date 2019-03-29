@@ -8,7 +8,7 @@ import Claims from '@app/features/client/features/claims/organisms/Claims'
 import { getDeclensionedWord } from '@app/features/common/helpers'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import IconCustom from '@app/ui/IconCustom'
-import NavLink from '@app/ui/NavLink'
+import { NavLink } from '@front/ui/nav-link'
 
 export interface Props {
   clientClaims: ListedClaim[]

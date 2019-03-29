@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import NavLink, { NavLinkType } from '@app/ui/NavLink'
 import { Button, ButtonSize } from '@front/ui/button'
+import { NavLink } from '@front/ui/nav-link'
 
 interface Props {
   claimId: string
@@ -11,7 +11,7 @@ interface Props {
 const DeliveredToCustomerButton = ({ claimId, className }: Props) => (
   <NavLink
     href={`/client/consultation/${claimId}#expert-answers`}
-    type={NavLinkType.Nav}
+    withoutUnderline
     className={className}
   >
     <Button size={ButtonSize.Large}>Посмотреть ответы эксперта</Button>

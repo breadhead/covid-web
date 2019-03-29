@@ -52,7 +52,7 @@ const SignUp = ({ onFormSubmit, error, openSignIn }: Props) => (
           />
           {!!error && error.code === ACCOUNT_EXISTS_STATUS && (
             <div className={styles.error}>
-              У вас есть аккаунт на нашем основном сайте nenaprasno.ru,{' '}
+              У вас есть аккаунт на нашем основном сайте nenaprasno.ru,
               <OpenModalButton onClick={openSignIn}>Войти</OpenModalButton>,
               используя те же данные
             </div>

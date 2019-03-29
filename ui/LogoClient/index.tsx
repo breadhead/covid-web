@@ -1,7 +1,7 @@
 import IconCustom from '@app/ui/IconCustom'
+import { NavLink } from '@front/ui/nav-link'
 import cx from 'classnames'
 import * as React from 'react'
-import NavLink, { NavLinkType } from '../NavLink'
 import styles from './Logo.css'
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const LogoClient = ({ className }: Props) => (
-  <NavLink className={styles.logoWrapper} type={NavLinkType.Nav} href="/">
+  <NavLink className={styles.logoWrapper} withoutUnderline href="/">
     <IconCustom className={cx(styles.logo, className)} name="logo_short" />
   </NavLink>
 )

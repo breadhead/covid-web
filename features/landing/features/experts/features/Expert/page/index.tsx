@@ -3,7 +3,7 @@ import * as React from 'react'
 import * as styles from './ExpertPage.css'
 
 import Layout from '@app/features/main/layout'
-import NavLink from '@app/ui/NavLink'
+import { NavLink } from '@front/ui/nav-link'
 
 export interface ExpertInterface {
   id: string

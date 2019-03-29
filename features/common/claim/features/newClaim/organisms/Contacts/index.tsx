@@ -14,9 +14,8 @@ const Contacts = ({ styles }: Props) => (
   <article className={styles.article}>
     <h2 className={styles.title}>Контактные данные</h2>
     <label htmlFor="personalData.name" className={styles.label}>
-      Как к вам обращаться?
+      Как к вам обращаться?{' '}
       <span className={styles.secondaryText}>
-        {' '}
         Вы можете не указывать свою фамилию, если не хотите
       </span>
     </label>
@@ -26,9 +25,8 @@ const Contacts = ({ styles }: Props) => (
       htmlFor="personalData.email"
       className={cx(styles.label, styles.field)}
     >
-      Электронная почта.
+      Электронная почта.{' '}
       <span className={styles.secondaryText}>
-        {' '}
         Будем присылать вам уведомления{NON_BREAKING_SPACE}о ходе консультации.
         Пожалуйста, регулярно проверяйте почту до{NON_BREAKING_SPACE}окончания
         консультации
@@ -44,7 +42,7 @@ const Contacts = ({ styles }: Props) => (
       htmlFor="personalData.phone"
       className={cx(styles.label, styles.emergingLabel, styles.field)}
     >
-      Контактный телефон.
+      Контактный телефон.{' '}
       <span className={styles.secondaryText}>
         +7{NON_BREAKING_SPACE}(000){NON_BREAKING_SPACE}000-00-00, если вы
         {NON_BREAKING_SPACE}живёте в{NON_BREAKING_SPACE}России. Позвоним только

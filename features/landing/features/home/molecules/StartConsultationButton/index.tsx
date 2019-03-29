@@ -4,8 +4,8 @@ import { compose } from 'recompose'
 import { getToken } from './selectors'
 
 import { withSignUpModal } from '@app/features/login'
-import NavLink, { NavLinkType } from '@app/ui/NavLink'
 import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
+import { NavLink } from '@front/ui/nav-link'
 
 interface Props {
   children: string
@@ -23,7 +23,7 @@ const StartConsultationButton = ({
 }: Props & any) => (
   <NavLink
     className={containerClassName}
-    type={NavLinkType.Nav}
+    withoutUnderline
     href="/client/new-claim/rules"
   >
     <Button size={size} className={className} kind={ButtonKind.Primary}>

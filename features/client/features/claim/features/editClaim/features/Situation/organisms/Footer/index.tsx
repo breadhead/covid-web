@@ -5,7 +5,7 @@ import cx from 'classnames'
 import { ButtonSize, ButtonWithTooltip } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
 import IconCustom from '@app/ui/IconCustom'
-import NavLink from '@app/ui/NavLink'
+import { NavLink } from '@front/ui/nav-link'
 
 interface Props {
   styles: StylesType

@@ -4,7 +4,7 @@ import * as styles from './Notification.css'
 
 import Claim from '@app/models/Claim/Claim'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import { ExternalLink } from '@front/ui/external-link'
+import { NavLink } from '@front/ui/nav-link'
 import NotificationButton from '../NotificationButton'
 import { getNotificationsText } from './helpers'
 
@@ -26,9 +26,9 @@ const Notification = ({ info, claim }: Props) => {
             {content.text}
             {!!content.link && (
               <>
-                <ExternalLink className={styles.link} href={content.link.href}>
+                <NavLink blank className={styles.link} href={content.link.href}>
                   {content.link.label}
-                </ExternalLink>
+                </NavLink>
                 .
               </>
             )}

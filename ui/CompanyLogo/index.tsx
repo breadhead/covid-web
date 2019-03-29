@@ -3,8 +3,8 @@ import * as React from 'react'
 import { Col } from 'antd'
 
 import ServerImage from '@app/ui/ServerImage'
-import { ExternalLink } from '@front/ui/external-link'
 
+import { NavLink } from '@app/src/ui/nav-link'
 import styles from './CompanyLogo.css'
 
 interface Props {
@@ -32,9 +32,9 @@ const CompanyLogo = ({ logo, site, name }: Props) => {
 
   return (
     <Col span={6}>
-      <ExternalLink className={styles.logoWrapper} href={site}>
+      <NavLink blank className={styles.logoWrapper} href={site}>
         <Logo src={logo} name={name} />
-      </ExternalLink>
+      </NavLink>
     </Col>
   )
 }

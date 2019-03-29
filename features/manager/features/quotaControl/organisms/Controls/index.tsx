@@ -57,7 +57,7 @@ const Controls = (props: Props) => (
       {props.allowEditing && (
         <BottomRow corporate={forCorporate(props.claim)} {...props} />
       )}
-    </div>{' '}
+    </div>
   </div>
 )
 
