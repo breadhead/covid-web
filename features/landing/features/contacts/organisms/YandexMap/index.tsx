@@ -5,7 +5,7 @@ import * as styles from './YandexMap.css'
 import { Map, Placemark, YMaps } from 'react-yandex-maps'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import { NavLink } from '@front/ui/nav-link'
+import { NavLink, NavLinkType } from '@front/ui/nav-link'
 
 const LAT = 59.94416343318767
 const LON = 30.28458858355316
@@ -27,13 +27,19 @@ class YandexMap extends React.Component {
             <Placemark geometry={[LAT, LON]} />
             <article className={styles.infoBlock}>
               <p className={styles.text}>
-                <NavLink blank className={styles.link} href="tel:+78124685797">
+                <NavLink
+                  blank
+                  type={NavLinkType.Nav}
+                  className={styles.link}
+                  href="tel:+78124685797"
+                >
                   +7 812 468-57-97
                 </NavLink>
               </p>
               <p className={styles.text}>
                 <NavLink
                   blank
+                  type={NavLinkType.Nav}
                   className={styles.link}
                   href="mailto:ask@nenaprasno.ru"
                 >

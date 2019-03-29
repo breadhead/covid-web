@@ -10,7 +10,7 @@ export const NavLink = ({
   children,
   className,
   href,
-  type = NavLinkType.Link,
+  type,
   blank = false,
 }: NavLinkProps) => {
   if (blank) {
@@ -35,7 +35,7 @@ export const NavLink = ({
       <a
         className={cx(
           styles.navlink,
-          styles[getTypeClassName(type)],
+          styles[getTypeClassName(type || NavLinkType.Link)],
           className,
         )}
       >
