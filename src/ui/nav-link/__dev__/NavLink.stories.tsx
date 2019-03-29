@@ -5,12 +5,12 @@ import { NavLink } from '../NavLink'
 import { NavLinkType } from '../NavLinkType'
 
 storiesOf('NavLink', module)
-  .add('Nav', () => (
+  .add('WithUnderline', () => (
     <>
       <NavLink href="#">обычная ссылка</NavLink>
     </>
   ))
-  .add('Link', () => (
+  .add('Nav', () => (
     <>
       <NavLink href="#" type={NavLinkType.Nav}>
         ссылка в навигации и футере

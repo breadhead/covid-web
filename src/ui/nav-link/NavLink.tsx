@@ -23,7 +23,7 @@ export const NavLink = ({
           className,
         )}
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         {children}
       </a>
@@ -35,7 +35,7 @@ export const NavLink = ({
       <a
         className={cx(
           styles.navlink,
-          styles[getTypeClassName(type || NavLinkType.Link)],
+          styles[getTypeClassName(type || NavLinkType.WithUnderline)],
           className,
         )}
       >

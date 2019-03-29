@@ -1,8 +1,7 @@
 import * as React from 'react'
 
-import { NavLink } from '@front/ui/nav-link'
+import { NavLink, NavLinkType } from '@front/ui/nav-link'
 
-import { NavLinkType } from '@app/src/ui/nav-link/NavLinkType'
 import NavIcon from '../../atoms/NavIcon'
 import * as styles from './SignInMobileMenu.css'
 

@@ -13,7 +13,7 @@ const Conditions = () => (
     {NON_BREAKING_SPACE}кодом для подтверждения согласия с{NON_BREAKING_SPACE}
     <NavLink
       blank
-      type={NavLinkType.Link}
+      type={NavLinkType.WithUnderline}
       href="/static/docs/personal-data-processing-policy.pdf"
       className={styles.link}
     >

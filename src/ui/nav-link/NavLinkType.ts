@@ -1,4 +1,4 @@
 export enum NavLinkType {
-  Link = 'Link',
+  WithUnderline = 'WithUnderline',
   Nav = 'Nav',
 }

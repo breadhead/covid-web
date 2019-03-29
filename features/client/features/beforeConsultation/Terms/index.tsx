@@ -45,7 +45,7 @@ class Terms extends React.Component<Props, State> {
               Я согласен с{NON_BREAKING_SPACE}
               <NavLink
                 blank
-                type={NavLinkType.Link}
+                type={NavLinkType.WithUnderline}
                 href="/static/docs/personal-data-processing-policy.pdf"
               >
                 политикой обработки персональных данных
@@ -59,7 +59,7 @@ class Terms extends React.Component<Props, State> {
               Я согласен с{NON_BREAKING_SPACE}
               <NavLink
                 blank
-                type={NavLinkType.Link}
+                type={NavLinkType.WithUnderline}
                 href="/static/docs/terms-of-use.pdf"
               >
                 условиями пользовательского соглашения
