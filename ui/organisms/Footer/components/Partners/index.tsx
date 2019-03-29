@@ -34,7 +34,13 @@ const partners = [
 const Partners = ({ className }: Props) => (
   <div className={cx(styles.middle, className)}>
     {partners.map(({ id, text, logo, href }) => (
-      <a target="_blank" key={id} href={href} className={styles.partner}>
+      <a
+        target="_blank"
+        rel="noopener"
+        key={id}
+        href={href}
+        className={styles.partner}
+      >
         <p className={styles.text}>{text}</p>
         <img className={styles.logo} src={logo} alt={text} />
       </a>
