@@ -72,4 +72,10 @@ describe('isDate', () => {
 
     expect(isDate(date)).toBeFalsy()
   })
+
+  test('should return false for url', () => {
+    const date = 'http://google.com'
+
+    expect(isDate(date)).toBeFalsy()
+  })
 })

@@ -78,4 +78,10 @@ describe('isEmail', () => {
 
     expect(isEmail(email)).toBeFalsy()
   })
+
+  test('should return false for url', () => {
+    const email = 'http://google.com'
+
+    expect(isEmail(email)).toBeFalsy()
+  })
 })
