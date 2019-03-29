@@ -62,4 +62,34 @@ describe('isUrl', () => {
 
     expect(isUrl(text)).toBeFalsy()
   })
+
+  test('should return false for data in normal order', () => {
+    const text = '16.04.2019'
+
+    expect(isUrl(text)).toBeFalsy()
+  })
+
+  test('should return false for data in reverse order', () => {
+    const text = '2019.04.16'
+
+    expect(isUrl(text)).toBeFalsy()
+  })
+
+  test('should return false for data without year', () => {
+    const text = '04.16'
+
+    expect(isUrl(text)).toBeFalsy()
+  })
+
+  test('should return false for datas', () => {
+    const text = '04.16 2019.04.16 16.04.2019'
+
+    expect(isUrl(text)).toBeFalsy()
+  })
+
+  test('should return false for datas', () => {
+    const text = '16.04.2019 http://google.com'
+
+    expect(isUrl(text)).toBeFalsy()
+  })
 })
