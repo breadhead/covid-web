@@ -27,3 +27,8 @@
   font: var(--text14-20);
   color: #82839b;
 }
+
+.icon {
+  width: 18px;
+  height: 18px;
+}

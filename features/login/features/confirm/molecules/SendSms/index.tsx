@@ -3,9 +3,9 @@ import React from 'react'
 
 import { Form, Input } from '@app/features/common/form'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import Icon, { IconColor, IconType } from '@app/ui/Icon'
 import { Button } from '@front/ui/button'
 
+import IconCustom from '@app/ui/IconCustom'
 import * as styles from './SendSms.css'
 
 interface Props {
@@ -52,7 +52,10 @@ class SendSms extends React.Component<Props, LocalState> {
               </Button>
               {success && !validationError && (
                 <p className={styles.messageCodeSent} hidden={false}>
-                  <Icon type={IconType.CheckCircle} color={IconColor.Success} />
+                  <IconCustom
+                    className={styles.icon}
+                    name="24x24_success_green"
+                  />
                   {NON_BREAKING_SPACE}Код отправлен
                 </p>
               )}

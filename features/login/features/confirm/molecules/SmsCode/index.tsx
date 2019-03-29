@@ -2,9 +2,8 @@ import * as React from 'react'
 
 import { Form, Input } from '@app/features/common/form'
 import { InputType } from '@app/features/common/form'
+import IconCustom from '@app/ui/IconCustom'
 import { Button } from '@front/ui/button'
-
-import Icon, { IconColor, IconType } from '@app/ui/Icon'
 
 import * as styles from './SmsCode.css'
 
@@ -25,7 +24,7 @@ const SmsCode = ({ valid, validate, codeValidationError }: Props) => (
           error={codeValidationError}
           addonAfter={
             valid && (
-              <Icon type={IconType.CheckCircle} color={IconColor.Success} />
+              <IconCustom className={styles.icon} name="24x24_success_green" />
             )
           }
           maxLength={4}
