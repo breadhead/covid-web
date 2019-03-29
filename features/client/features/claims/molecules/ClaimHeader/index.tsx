@@ -2,7 +2,7 @@ import cx from 'classnames'
 import Router from 'next/router'
 
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
 
 import NewMessageBadge from '../../atoms/NewMessageBage'
 import formatDate from '../../helpers/formatDate'
@@ -23,11 +23,11 @@ const Header = ({ id, createdAt, newMessage, target, number }: Props) => (
         <h2 className={styles.title}>
           {formatDate(createdAt)} №{number}
         </h2>
-        <IconCustom
+        <Icon
           name="24x24_arrow-big-back"
           className={cx(styles.arrow, styles.defaultArrow)}
         />
-        <IconCustom
+        <Icon
           name="24x24_arrow-big-back-hover"
           className={cx(styles.arrow, styles.hoverArrow)}
         />

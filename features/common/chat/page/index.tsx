@@ -6,7 +6,7 @@ import cx from 'classnames'
 import { Form, TextArea } from '@app/features/common/form'
 import { State as AppState } from '@app/lib/store'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
 
 import { getRoles } from '@app/features/login'
 import { Role } from '@app/models/Users/User'
@@ -81,10 +81,7 @@ const Chat = ({
           !muted && (
             <>
               <Uploader onUploaded={onUpload} className={styles.uploader}>
-                <IconCustom
-                  className={styles.attachIcon}
-                  name="24x24_attach-file"
-                />
+                <Icon className={styles.attachIcon} name="24x24_attach-file" />
               </Uploader>
               <TextArea
                 focused={focused}
@@ -97,10 +94,7 @@ const Chat = ({
                 placeholder="Ваше сообщение..."
               />
               <button className={styles.sendButton}>
-                <IconCustom
-                  className={styles.inputIcon}
-                  name="24x24_send-message"
-                />
+                <Icon className={styles.inputIcon} name="24x24_send-message" />
               </button>
             </>
           )

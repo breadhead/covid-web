@@ -4,7 +4,7 @@ import cx from 'classnames'
 
 import { ButtonSize, ButtonWithTooltip } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 import styles from './Footer.css'
 
@@ -28,7 +28,7 @@ const Footer = ({ styles: parentStyles, error, loading, id }: Props) => {
           <NavLink href={`/manager/claim/${id}/situation`}>
             Медицинские данные
           </NavLink>
-          <IconCustom
+          <Icon
             className={parentStyles.iconForward}
             name="24x24_arrow-small_right"
           />

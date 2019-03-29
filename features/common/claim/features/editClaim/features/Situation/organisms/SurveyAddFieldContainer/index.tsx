@@ -1,9 +1,9 @@
-import IconCustom from '@app/ui/IconCustom'
 import {
   SectionDivider,
   SectionHeader,
 } from '@app/ui/organisms/AddFieldContainer'
 import { Button, ButtonKind } from '@front/ui/button'
+import { Icon } from '@front/ui/icon'
 import cx from 'classnames'
 
 import { Input } from '@app/features/common/form'
@@ -102,7 +102,7 @@ const SurveyAddFieldContainer = ({
         className={cx(styles.addButton, styles.filesButton)}
         kind={ButtonKind.Extra}
       >
-        <IconCustom className={styles.icon} name="24x24_plus" />
+        <Icon className={styles.icon} name="24x24_plus" />
         Добавить другие файлы
       </Button>
       <Button
@@ -110,7 +110,7 @@ const SurveyAddFieldContainer = ({
         className={cx(styles.addButton, styles.linksButton)}
         kind={ButtonKind.Extra}
       >
-        <IconCustom className={styles.icon} name="24x24_plus" />
+        <Icon className={styles.icon} name="24x24_plus" />
         Добавить ссылки на файлы
       </Button>
     </div>

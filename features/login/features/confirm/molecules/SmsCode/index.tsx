@@ -2,8 +2,8 @@ import * as React from 'react'
 
 import { Form, Input } from '@app/features/common/form'
 import { InputType } from '@app/features/common/form'
-import IconCustom from '@app/ui/IconCustom'
 import { Button } from '@front/ui/button'
+import { Icon } from '@front/ui/icon'
 
 import * as styles from './SmsCode.css'
 
@@ -23,9 +23,7 @@ const SmsCode = ({ valid, validate, codeValidationError }: Props) => (
           label="Код из СМС"
           error={codeValidationError}
           addonAfter={
-            valid && (
-              <IconCustom className={styles.icon} name="24x24_success_green" />
-            )
+            valid && <Icon className={styles.icon} name="24x24_success_green" />
           }
           maxLength={4}
           required

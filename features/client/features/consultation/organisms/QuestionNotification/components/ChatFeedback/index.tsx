@@ -1,5 +1,5 @@
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
 import * as React from 'react'
 import * as styles from './../../QuestionNotification.css'
 
@@ -17,7 +17,7 @@ const ChatFeedback = ({ onClick }: Props) => {
           чате
         </span>
         {NON_BREAKING_SPACE}
-        <IconCustom className={styles.icon} name="32x32_chat" />
+        <Icon className={styles.icon} name="32x32_chat" />
       </h3>
       <p className={styles.text}>
         Там же{NON_BREAKING_SPACE}вы{NON_BREAKING_SPACE}можете оставить отзыв о

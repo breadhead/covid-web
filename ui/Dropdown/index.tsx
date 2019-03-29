@@ -4,7 +4,7 @@ import * as React from 'react'
 import * as styles from './Dropdown.css'
 
 import { SPACE } from '@app/lib/config'
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 
 export enum DropdownPositions {
@@ -19,7 +19,7 @@ interface Props {
 
 const Dropdown = ({ signOut, position = DropdownPositions.Left }: Props) => (
   <div className={styles.dropdown}>
-    <IconCustom className={styles.icon} name="24x24_user" />
+    <Icon className={styles.icon} name="24x24_user" />
     <div className={cx(styles.menu, styles[position])}>
       <NavLink
         blank

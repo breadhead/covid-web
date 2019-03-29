@@ -1,4 +1,4 @@
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 import cx from 'classnames'
 import * as React from 'react'
@@ -15,7 +15,7 @@ const Logo = ({ className, wrapperClassName }: Props) => (
     withoutUnderline
     href="/"
   >
-    <IconCustom className={cx(styles.logo, className)} name="logo_full" />
+    <Icon className={cx(styles.logo, className)} name="logo_full" />
   </NavLink>
 )
 

@@ -2,8 +2,8 @@ import * as React from 'react'
 import * as styles from './Intro.css'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import IconCustom from '@app/ui/IconCustom'
 import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
+import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 import StartConsultationButton from '../../../../molecules/StartConsultationButton'
 
@@ -18,7 +18,7 @@ const Intro = () => (
         Проект фонда <br /> профилактики рака
       </p>
       <NavLink withoutUnderline href="https://nenaprasno.ru" blank>
-        <IconCustom className={styles.logo} name="foundation-logo" />
+        <Icon className={styles.logo} name="foundation-logo" />
       </NavLink>
     </div>
     <div className={styles.buttons}>

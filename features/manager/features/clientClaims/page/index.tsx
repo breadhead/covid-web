@@ -7,7 +7,7 @@ import { Layout } from '@app/features/manager'
 import Claims from '@app/features/client/features/claims/organisms/Claims'
 import { getDeclensionedWord } from '@app/features/common/helpers'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 
 export interface Props {
@@ -21,7 +21,7 @@ const ClientClaims = ({ clientClaims, authorLogin, currentClaimId }: Props) => (
     <div className={styles.linkWrapper}>
       {!!currentClaimId && (
         <>
-          <IconCustom name="24x24_arrow-small_right" className={styles.icon} />
+          <Icon name="24x24_arrow-small_right" className={styles.icon} />
           <NavLink href={`/manager/consultation/${currentClaimId}`}>
             Вернуться назад
           </NavLink>

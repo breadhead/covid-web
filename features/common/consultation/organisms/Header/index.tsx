@@ -4,7 +4,7 @@ import * as styles from './Header.css'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import { Role } from '@app/models/Users/User'
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 
 interface Props {
@@ -38,10 +38,7 @@ const Header = ({
             >
               Ещё {clientClaimsCount}
             </NavLink>
-            <IconCustom
-              className={styles.icon}
-              name="24x24_arrow-small_right"
-            />
+            <Icon className={styles.icon} name="24x24_arrow-small_right" />
           </>
         )}
       </div>
