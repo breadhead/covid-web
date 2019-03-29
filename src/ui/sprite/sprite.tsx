@@ -410,8 +410,8 @@ export const Sprite = () => (
         />
       </symbol>
 
-      <symbol id={IconsList.Chat} viewBox="0 0 30 30">
-        <g fill="none" fillRule="evenodd">
+      <symbol width="24" height="24" id={IconsList.Chat} viewBox="0 0 30 30">
+        <g width="24" height="24" fill="none" fillRule="evenodd">
           <path
             d="M9 3h14a7 7 0 0 1 7 7v9a7 7 0 0 1-7 7H9.48a6 6 0 0 0-4.24 1.76l-1.53 1.53A1 1 0 0 1 2 28.6V10a7 7 0 0 1 7-7"
             fill="var(--color-primary)"
