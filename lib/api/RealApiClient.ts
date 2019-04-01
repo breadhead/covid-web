@@ -14,7 +14,7 @@ import { Transaction } from '@app/models/Quota/Transaction'
 
 import { Doctor } from '@app/models/Users/Doctor'
 import { User } from '@app/models/Users/User'
-import { CorporateStatus } from '@app/src/domain/claim/enums/CorporateStatus'
+import { CorporateStatus } from '@front/domain/claim/enums/CorporateStatus'
 import ApiClient, { UploadedFile } from './ApiClient'
 import { queryString } from './helper/queryString'
 import { tapDate } from './helper/tapDate'

@@ -6,10 +6,11 @@ import cx from 'classnames'
 import { Form, TextArea } from '@app/features/common/form'
 import { State as AppState } from '@app/lib/store'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
 
 import { getRoles } from '@app/features/login'
 import { Role } from '@app/models/Users/User'
+import { IconsList } from '@front/ui/sprite'
 import { connect } from 'react-redux'
 import Uploader from '../../uploader'
 import ChatWrapper from '../organisms/ChatWrapper'
@@ -81,9 +82,9 @@ const Chat = ({
           !muted && (
             <>
               <Uploader onUploaded={onUpload} className={styles.uploader}>
-                <IconCustom
+                <Icon
                   className={styles.attachIcon}
-                  name="24x24_attach-file"
+                  name={IconsList.AttachFile}
                 />
               </Uploader>
               <TextArea
@@ -97,9 +98,9 @@ const Chat = ({
                 placeholder="Ваше сообщение..."
               />
               <button className={styles.sendButton}>
-                <IconCustom
+                <Icon
                   className={styles.inputIcon}
-                  name="24x24_send-message"
+                  name={IconsList.SendMessage}
                 />
               </button>
             </>

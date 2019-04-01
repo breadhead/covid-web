@@ -1,4 +1,5 @@
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
+import { IconsList } from '@front/ui/sprite'
 import * as styles from './SectionHeader.css'
 
 export interface SectionHeaderProps {
@@ -22,7 +23,7 @@ const SectionHeader: React.SFC<SectionHeaderProps> = ({
             type="button"
             onClick={onRemoveClick}
           >
-            <IconCustom className={styles.icon} name="24x24_close_blue" />
+            <Icon className={styles.icon} name={IconsList.CloseBlue} />
             <span>Удалить</span>
           </button>
         </div>
@@ -36,7 +37,7 @@ const SectionHeader: React.SFC<SectionHeaderProps> = ({
             className={styles.button}
             onClick={onRemoveClick}
           >
-            <IconCustom className={styles.icon} name="24x24_close_blue" />
+            <Icon className={styles.icon} name={IconsList.CloseBlue} />
             <span>Удалить</span>
           </button>
         </div>

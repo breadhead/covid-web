@@ -3,9 +3,9 @@ import * as React from 'react'
 import { Form, Input } from '@app/features/common/form'
 import { InputType } from '@app/features/common/form'
 import { Button } from '@front/ui/button'
+import { Icon } from '@front/ui/icon'
 
-import Icon, { IconColor, IconType } from '@app/ui/Icon'
-
+import { IconsList } from '@front/ui/sprite'
 import * as styles from './SmsCode.css'
 
 interface Props {
@@ -24,9 +24,7 @@ const SmsCode = ({ valid, validate, codeValidationError }: Props) => (
           label="Код из СМС"
           error={codeValidationError}
           addonAfter={
-            valid && (
-              <Icon type={IconType.CheckCircle} color={IconColor.Success} />
-            )
+            valid && <Icon className={styles.icon} name={IconsList.Success} />
           }
           maxLength={4}
           required

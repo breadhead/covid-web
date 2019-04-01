@@ -4,7 +4,7 @@ import * as React from 'react'
 
 import * as styles from './EmergingFormElement.css'
 
-import { Toggle } from '@app/src/ui/toggle'
+import { Toggle } from '@front/ui/toggle'
 import RadioGroupElement, { radioButtons } from './RadioGroupElement'
 
 export enum ControlTypes {

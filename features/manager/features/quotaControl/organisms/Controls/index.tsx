@@ -1,7 +1,7 @@
 import Claim from '@app/models/Claim/Claim'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { Doctor } from '@app/models/Users/Doctor'
-import { forCorporate } from '@app/src/domain/claim/statements/forCorporate'
+import { forCorporate } from '@front/domain/claim/statements/forCorporate'
 import { Button, ButtonKind } from '@front/ui/button'
 import Router from 'next/router'
 import { WithQuotaTypeModal } from '../../../bindQuota'

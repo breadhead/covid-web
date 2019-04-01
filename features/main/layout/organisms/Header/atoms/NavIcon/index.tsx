@@ -1,10 +1,11 @@
 import * as React from 'react'
 import * as styles from './NavIcon.css'
 
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
+import { IconsList } from '@front/ui/sprite'
 
 const NavIcon = () => (
-  <IconCustom className={styles.NavIcon} name="24x24_arrow-small_right" />
+  <Icon className={styles.NavIcon} name={IconsList.ArrowRight} />
 )
 
 export default NavIcon

@@ -1,6 +1,7 @@
 import Dropdown from '@app/ui/Dropdown'
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
+import { IconsList } from '@front/ui/sprite'
 import cx from 'classnames'
 import * as styles from './Menu.css'
 
@@ -16,7 +17,7 @@ const Menu = ({ signOut, className }: Props) => (
       withoutUnderline
       href="/client"
     >
-      <IconCustom className={styles.icon} name="24x24_my-consultation" />
+      <Icon className={styles.icon} name={IconsList.MyConsultation} />
       <span className={styles.menuItemText}>Мои консультации</span>
     </NavLink>
     <div className={styles.menuItem}>

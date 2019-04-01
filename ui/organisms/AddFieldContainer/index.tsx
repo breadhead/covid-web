@@ -1,5 +1,6 @@
-import IconCustom from '@app/ui/IconCustom'
 import { Button, ButtonKind } from '@front/ui/button'
+import { Icon } from '@front/ui/icon'
+import { IconsList } from '@front/ui/sprite'
 import { range } from 'lodash'
 import { size } from 'lodash'
 import * as React from 'react'
@@ -39,7 +40,7 @@ class AddFieldContainer extends React.Component<Props, State> {
           className={buttonClassName}
           kind={ButtonKind.Extra}
         >
-          <IconCustom className={styles.icon} name="24x24_plus" />
+          <Icon className={styles.icon} name={IconsList.Plus} />
           {buttonText}
         </Button>
       </div>

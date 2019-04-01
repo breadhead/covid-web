@@ -3,7 +3,8 @@ import * as React from 'react'
 
 import * as styles from './Header.css'
 
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
+import { IconsList } from '@front/ui/sprite'
 
 interface Props {
   onCloseButtonClick?: () => void
@@ -12,14 +13,14 @@ interface Props {
 const Header = ({ onCloseButtonClick }: Props) => (
   <header className={styles.header}>
     <button className={cx(styles.button, styles.buttonChat)}>
-      <IconCustom className={styles.iconChat} name="32x32_chat" />
+      <Icon className={styles.iconChat} name={IconsList.Chat} />
     </button>
     <h3 className={styles.title}>«Просто спросить»</h3>
     <button
       onClick={onCloseButtonClick}
       className={cx(styles.button, styles.closeButton)}
     >
-      <IconCustom className={styles.iconClose} name="24x24_close_light" />
+      <Icon name={IconsList.CloseLight} />
     </button>
   </header>
 )

@@ -3,7 +3,8 @@ import * as styles from './CloseButton.css'
 
 import { Action } from 'redux'
 
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
+import { IconsList } from '@front/ui/sprite'
 
 interface Props {
   onClick: () => Action
@@ -11,7 +12,7 @@ interface Props {
 
 const CloseButton = ({ onClick }: Props) => (
   <button className={styles.button} onClick={onClick}>
-    <IconCustom className={styles.icon} name="24x24_close_light" />
+    <Icon name={IconsList.CloseLight} />
     закрыть окно
   </button>
 )

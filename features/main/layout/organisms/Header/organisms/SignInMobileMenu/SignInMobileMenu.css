@@ -1,8 +1,3 @@
-.icon {
-  width: 24px;
-  height: 24px;
-}
-
 .menuItem {
   display: flex;
   align-self: center;
@@ -14,13 +9,12 @@
   border-bottom: 1px solid var(--divider-color) !important;
 
   &:hover {
-    color:  var(--color-link) !important;
+    color: var(--color-link) !important;
 
     & svg {
-      fill:  var(--color-link);
+      fill: var(--color-link);
     }
   }
-
 }
 
 .signOutButton {

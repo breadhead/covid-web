@@ -1,4 +1,4 @@
-import { CorporateStatus } from '@app/src/domain/claim/enums/CorporateStatus'
+import { CorporateStatus } from '@front/domain/claim/enums/CorporateStatus'
 
 import ClaimStatus from './ClaimStatus'
 import ClaimTarget from './ClaimTarget'

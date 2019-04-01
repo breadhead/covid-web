@@ -4,7 +4,8 @@ import * as styles from './StepPointer.css'
 
 import cx from 'classnames'
 
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
+import { IconsList } from '@front/ui/sprite'
 
 export enum StepPointerType {
   Empty = 'empty',
@@ -32,7 +33,7 @@ const StepPointer = ({ step, index, className }: Props) => {
 
   const currentContent =
     type === StepPointerType.Success ? (
-      <IconCustom className={styles.successIcon} name="input-valid" />
+      <Icon className={styles.successIcon} name={IconsList.InputValid} />
     ) : (
       index + 1
     )

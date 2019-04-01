@@ -3,7 +3,7 @@ import { useRef } from 'react'
 
 import { usePressEnter } from '@front/hooks/usePressEnter'
 
-import { useCustomInput } from '@app/src/hooks/useCustomInput'
+import { useCustomInput } from '@front/hooks/useCustomInput'
 import { getCheckedClassName } from './helpers/getCheckedClassName'
 import { getCheckedText } from './helpers/getCheckedText'
 import { getDisabledClassName } from './helpers/getDisabledClassName'

@@ -2,10 +2,10 @@ import * as React from 'react'
 import { useMappedState } from 'redux-react-hook'
 
 import { useModal } from '@app/features/common/modal'
-import { CorporateStatus } from '@app/src/domain/claim/enums/CorporateStatus'
-import { getReadableCorporateStatus } from '@app/src/domain/claim/getters/getReadableCorporateStatus'
-import { getCorporateStatus } from '@app/src/domain/claim/selectors/getCorporateStatus'
 import ButtonWithArrow from '@app/ui/ButtonWithArrow'
+import { CorporateStatus } from '@front/domain/claim/enums/CorporateStatus'
+import { getReadableCorporateStatus } from '@front/domain/claim/getters/getReadableCorporateStatus'
+import { getCorporateStatus } from '@front/domain/claim/selectors/getCorporateStatus'
 
 import { CheckCorporateModalKey } from '../../../checkCorporate'
 import * as styles from './button.css'

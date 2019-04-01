@@ -52,8 +52,8 @@
 }
 
 .desktopLogo {
-  width: 238px;
-  height: 48px;
+  width: 238px !important;
+  height: 48px !important;
 
   @media (--smallDown) {
     display: none;
@@ -62,8 +62,8 @@
 
 .mobileLogo {
   display: none;
-  width: 200px;
-  height: 38px;
+  width: 200px !important;
+  height: 38px !important;
 
   @media (--smallDown) {
     display: block;

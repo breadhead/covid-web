@@ -3,16 +3,17 @@ import * as styles from './NavIcon.css'
 
 import cx from 'classnames'
 
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
+import { IconsList } from '@front/ui/sprite'
 
 interface Props {
   long?: boolean
 }
 
 const NavIcon = ({ long = false }: Props) => (
-  <IconCustom
+  <Icon
     className={cx(styles.NavIcon, long && styles.long)}
-    name="24x24_arrow-small_right"
+    name={IconsList.ArrowRight}
   />
 )
 

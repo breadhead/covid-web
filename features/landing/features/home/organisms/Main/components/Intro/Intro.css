@@ -22,8 +22,8 @@
 }
 
 .logo {
-  width: 146px;
-  height: 56px;
+  width: 146px !important;
+  height: 56px !important;
   margin-right: 16px;
 
   &:last-of-type {
@@ -45,15 +45,15 @@
 }
 
 .button.button.button {
-    padding: 16px 36px;
-    font: var(--text18-28);
+  padding: 16px 36px;
+  font: var(--text18-28);
 
-    @media (--smallDown) {
-      display: block;
-      width: 100%;
-      max-width: 300px;
-      margin: 0 auto;
-    }
+  @media (--smallDown) {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
 }
 
 .buttonsItem.buttonsItem {
@@ -98,5 +98,5 @@
   margin: 0 24px 0 0;
   font: var(--text12-16);
   font-weight: 500;
-  text-align: left;  
+  text-align: left;
 }

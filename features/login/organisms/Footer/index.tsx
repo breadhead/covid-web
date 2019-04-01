@@ -1,5 +1,6 @@
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
+import { IconsList } from '@front/ui/sprite'
 import * as React from 'react'
 import OpenModalButton from '../../atoms/OpenModalButton'
 import styles from './Footer.css'
@@ -10,7 +11,7 @@ interface FooterProps {
 
 const Footer = ({ onOpenModalClick }: FooterProps) => (
   <footer className={styles.footer}>
-    <IconCustom className={styles.logo} name="foundation_logo_mark" />
+    <Icon className={styles.logo} name={IconsList.FoundationLogoMark} />
     <p className={styles.text}>
       Если у вас есть аккаунт на{NON_BREAKING_SPACE}
       <b>nenaprasno.ru</b>, вы{NON_BREAKING_SPACE}

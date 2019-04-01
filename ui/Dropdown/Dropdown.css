@@ -5,7 +5,8 @@
   display: none;
   flex-direction: column;
   border-radius: 4px;
-  box-shadow: 0 0 1px 1px rgba(63,63,68,0.04), 0 4px 12px 0 rgba(63,63,68,0.12);
+  box-shadow: 0 0 1px 1px rgba(63, 63, 68, 0.04),
+    0 4px 12px 0 rgba(63, 63, 68, 0.12);
 }
 
 .dropdown {
@@ -33,15 +34,15 @@
 .menuItem.menuItem.menuItem {
   padding: 14px 16px;
   font: var(--text14-20);
-  color: #6C718A;
+  color: #6c718a;
   white-space: nowrap;
   background-color: #fff;
-  border-bottom: 1px solid #EDEDEF;
+  border-bottom: 1px solid #ededef;
 
   &:hover {
     color: var(--text-color-primary);
-    background-color: #F7F7F9;
-    border-bottom: 1px solid #EDEDEF;
+    background-color: #f7f7f9;
+    border-bottom: 1px solid #ededef;
   }
 
   &:first-of-type {
@@ -81,7 +82,5 @@
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
   fill: var(--text-color-secondary);
 }

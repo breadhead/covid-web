@@ -9,8 +9,9 @@ import {
 } from '@app/features/common/form'
 import withWindowSize, { WindowSize } from '@app/features/common/windowSize'
 import { NON_BREAKING_SPACE, StylesType } from '@app/lib/config'
-import IconCustom from '@app/ui/IconCustom'
+import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
+import { IconsList } from '@front/ui/sprite'
 import { isString } from 'lodash'
 import { useButtonText } from './useButtonText'
 
@@ -65,10 +66,7 @@ const Footer = ({ styles, error, loading, id, windowSize }: Props) => {
         {laterButtonText}
       </ButtonWithTooltip>
       <div className={styles.footerBack}>
-        <IconCustom
-          className={styles.iconBack}
-          name="24x24_arrow-small_right"
-        />
+        <Icon className={styles.iconBack} name={IconsList.ArrowRight} />
         <NavLink href={`/client/claim/${id}/situation`}>
           Вернуться назад
         </NavLink>

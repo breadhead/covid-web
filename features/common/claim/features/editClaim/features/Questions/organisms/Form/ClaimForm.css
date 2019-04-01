@@ -148,15 +148,11 @@
 }
 
 .iconBack {
-  width: 24px;
-  height: 24px;
   margin-right: 4px;
   fill: var(--color-primary);
   transform: rotate(180deg);
 }
 .iconForward {
-  width: 24px;
-  height: 24px;
   margin-right: 4px;
   fill: var(--color-primary);
 }
