@@ -5,7 +5,7 @@ import { InputType } from '@app/features/common/form'
 import { Button } from '@front/ui/button'
 import { Icon } from '@front/ui/icon'
 
-import { IconsList } from '@app/src/ui/sprite'
+import { IconsList } from '@front/ui/sprite'
 import * as styles from './SmsCode.css'
 
 interface Props {

@@ -3,8 +3,8 @@ import * as styles from './NavIcon.css'
 
 import cx from 'classnames'
 
-import { IconsList } from '@app/src/ui/sprite'
 import { Icon } from '@front/ui/icon'
+import { IconsList } from '@front/ui/sprite'
 
 interface Props {
   long?: boolean

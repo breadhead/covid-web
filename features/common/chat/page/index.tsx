@@ -10,7 +10,7 @@ import { Icon } from '@front/ui/icon'
 
 import { getRoles } from '@app/features/login'
 import { Role } from '@app/models/Users/User'
-import { IconsList } from '@app/src/ui/sprite'
+import { IconsList } from '@front/ui/sprite'
 import { connect } from 'react-redux'
 import Uploader from '../../uploader'
 import ChatWrapper from '../organisms/ChatWrapper'

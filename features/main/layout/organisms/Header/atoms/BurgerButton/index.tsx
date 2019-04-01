@@ -1,8 +1,8 @@
 import * as React from 'react'
 import * as styles from './BurgerButton.css'
 
-import { IconsList } from '@app/src/ui/sprite'
 import { Icon } from '@front/ui/icon'
+import { IconsList } from '@front/ui/sprite'
 
 export interface Props {
   show: () => void

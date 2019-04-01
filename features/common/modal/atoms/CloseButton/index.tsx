@@ -3,8 +3,8 @@ import * as styles from './CloseButton.css'
 
 import { Action } from 'redux'
 
-import { IconsList } from '@app/src/ui/sprite'
 import { Icon } from '@front/ui/icon'
+import { IconsList } from '@front/ui/sprite'
 
 interface Props {
   onClick: () => Action

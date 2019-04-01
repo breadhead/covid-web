@@ -106,8 +106,8 @@ import {
 import ApiClient from './api/ApiClient'
 import factory from './api/apiFactory'
 
-import { domainReducer } from '@app/src/domain/redux/domainReducer'
-import { DomainState } from '@app/src/domain/redux/DomainState'
+import { domainReducer } from '@front/domain/redux/domainReducer'
+import { DomainState } from '@front/domain/redux/DomainState'
 
 export interface State {
   domain: DomainState

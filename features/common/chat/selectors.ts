@@ -4,7 +4,7 @@ import { createSelector } from 'reselect'
 import { State } from '@app/lib/store'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import { Role } from '@app/models/Users/User'
-import { tryOr } from '@app/src/helpers/tryOr'
+import { tryOr } from '@front/helpers/tryOr'
 import { mutedStatuses } from './page/config'
 
 const getUnsortedMessages = (state: State) => state.chat.messages

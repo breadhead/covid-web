@@ -1,5 +1,5 @@
-import { IconsList } from '@app/src/ui/sprite'
 import { Icon } from '@front/ui/icon'
+import { IconsList } from '@front/ui/sprite'
 import * as styles from './SectionHeader.css'
 
 export interface SectionHeaderProps {

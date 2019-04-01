@@ -4,7 +4,7 @@ import { Col } from 'antd'
 
 import ServerImage from '@app/ui/ServerImage'
 
-import { NavLink } from '@app/src/ui/nav-link'
+import { NavLink } from '@front/ui/nav-link'
 import styles from './CompanyLogo.css'
 
 interface Props {

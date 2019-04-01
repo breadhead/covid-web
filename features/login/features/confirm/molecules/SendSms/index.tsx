@@ -5,8 +5,8 @@ import { Form, Input } from '@app/features/common/form'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import { Button } from '@front/ui/button'
 
-import { IconsList } from '@app/src/ui/sprite'
 import { Icon } from '@front/ui/icon'
+import { IconsList } from '@front/ui/sprite'
 import * as styles from './SendSms.css'
 
 interface Props {
