@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { IconsList } from './IconsList'
 
-export const Sprite = () => (
+export const IconsSprite = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     style={{
