@@ -3,7 +3,7 @@ import * as styles from './NavIcon.css'
 
 import cx from 'classnames'
 
-import { IconsList } from '@app/src/ui/sprite/IconsList'
+import { IconsList } from '@app/src/ui/sprite'
 import { Icon } from '@front/ui/icon'
 
 interface Props {

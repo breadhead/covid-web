@@ -4,7 +4,7 @@ import * as styles from './StepPointer.css'
 
 import cx from 'classnames'
 
-import { IconsList } from '@app/src/ui/sprite/IconsList'
+import { IconsList } from '@app/src/ui/sprite'
 import { Icon } from '@front/ui/icon'
 
 export enum StepPointerType {

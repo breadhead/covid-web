@@ -4,7 +4,7 @@ import * as styles from './Header.css'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import { Role } from '@app/models/Users/User'
-import { IconsList } from '@app/src/ui/sprite/IconsList'
+import { IconsList } from '@app/src/ui/sprite'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 

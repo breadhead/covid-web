@@ -1,4 +1,4 @@
-import { IconsList } from '@app/src/ui/sprite/IconsList'
+import { IconsList } from '@app/src/ui/sprite'
 import { Button, ButtonKind } from '@front/ui/button'
 import { Icon } from '@front/ui/icon'
 import { range } from 'lodash'

@@ -1,5 +1,5 @@
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import { IconsList } from '@app/src/ui/sprite/IconsList'
+import { IconsList } from '@app/src/ui/sprite'
 import { Icon } from '@front/ui/icon'
 import * as React from 'react'
 import * as styles from './../../QuestionNotification.css'

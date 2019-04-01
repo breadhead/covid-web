@@ -4,7 +4,7 @@ import cx from 'classnames'
 
 import { ButtonSize, ButtonWithTooltip } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
-import { IconsList } from '@app/src/ui/sprite/IconsList'
+import { IconsList } from '@app/src/ui/sprite'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 

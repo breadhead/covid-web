@@ -4,7 +4,7 @@ import * as styles from './Navigation.css'
 import cx from 'classnames'
 
 import { default as ClientMenu } from '@app/features/client/features/menu/organisms/Menu'
-import { IconsList } from '@app/src/ui/sprite/IconsList'
+import { IconsList } from '@app/src/ui/sprite'
 import MediaQuery, { Query } from '@app/ui/MediaQuery'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'

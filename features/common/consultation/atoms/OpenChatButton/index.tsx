@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as styles from './OpenChatButton.css'
 
-import { IconsList } from '@app/src/ui/sprite/IconsList'
+import { IconsList } from '@app/src/ui/sprite'
 import { Icon } from '@front/ui/icon'
 
 interface Props {

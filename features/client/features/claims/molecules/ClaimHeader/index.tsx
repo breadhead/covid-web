@@ -4,7 +4,7 @@ import Router from 'next/router'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { Icon } from '@front/ui/icon'
 
-import { IconsList } from '@app/src/ui/sprite/IconsList'
+import { IconsList } from '@app/src/ui/sprite'
 import NewMessageBadge from '../../atoms/NewMessageBage'
 import formatDate from '../../helpers/formatDate'
 import styles from './ClaimHeader.css'

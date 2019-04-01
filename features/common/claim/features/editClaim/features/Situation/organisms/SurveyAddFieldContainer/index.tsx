@@ -7,7 +7,7 @@ import { Icon } from '@front/ui/icon'
 import cx from 'classnames'
 
 import { Input } from '@app/features/common/form'
-import { IconsList } from '@app/src/ui/sprite/IconsList'
+import { IconsList } from '@app/src/ui/sprite'
 import * as React from 'react'
 import FileField from './components/FileField'
 import LinkField from './components/LinkField'

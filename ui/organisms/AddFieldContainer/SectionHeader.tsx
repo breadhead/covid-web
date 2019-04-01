@@ -1,4 +1,4 @@
-import { IconsList } from '@app/src/ui/sprite/IconsList'
+import { IconsList } from '@app/src/ui/sprite'
 import { Icon } from '@front/ui/icon'
 import * as styles from './SectionHeader.css'
 
