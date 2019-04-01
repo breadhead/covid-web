@@ -1,3 +1,4 @@
+import { IconsList } from '@app/src/ui/sprite/IconsList'
 import { Icon } from '@front/ui/icon'
 import * as styles from './SectionHeader.css'
 
@@ -22,7 +23,7 @@ const SectionHeader: React.SFC<SectionHeaderProps> = ({
             type="button"
             onClick={onRemoveClick}
           >
-            <Icon className={styles.icon} name="close-blue" />
+            <Icon className={styles.icon} name={IconsList.CloseBlue} />
             <span>Удалить</span>
           </button>
         </div>
@@ -36,7 +37,7 @@ const SectionHeader: React.SFC<SectionHeaderProps> = ({
             className={styles.button}
             onClick={onRemoveClick}
           >
-            <Icon className={styles.icon} name="close-blue" />
+            <Icon className={styles.icon} name={IconsList.CloseBlue} />
             <span>Удалить</span>
           </button>
         </div>

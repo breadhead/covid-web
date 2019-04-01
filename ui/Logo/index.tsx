@@ -1,3 +1,4 @@
+import { IconsList } from '@app/src/ui/sprite/IconsList'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 import cx from 'classnames'
@@ -15,7 +16,7 @@ const Logo = ({ className, wrapperClassName }: Props) => (
     withoutUnderline
     href="/"
   >
-    <Icon className={cx(styles.logo, className)} name="logo-full" />
+    <Icon className={cx(styles.logo, className)} name={IconsList.LogoFull} />
   </NavLink>
 )
 

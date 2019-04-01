@@ -12,6 +12,7 @@ import * as styles from './NotFound.css'
 
 import StartConsultationButton from '@app/features/landing/features/home/molecules/StartConsultationButton'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { IconsList } from '@app/src/ui/sprite/IconsList'
 import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
@@ -22,8 +23,14 @@ const NotFound = () => (
       <title>Такой страницы не существует | Просто спросить</title>
     </Head>
     <NavLink href="/" withoutUnderline>
-      <Icon className={cx(styles.desktopLogo, styles.logo)} name="logo-full" />
-      <Icon className={cx(styles.mobileLogo, styles.logo)} name="logo-short" />
+      <Icon
+        className={cx(styles.desktopLogo, styles.logo)}
+        name={IconsList.LogoFull}
+      />
+      <Icon
+        className={cx(styles.mobileLogo, styles.logo)}
+        name={IconsList.LogoShort}
+      />
     </NavLink>
     <div className={styles.container}>
       <img

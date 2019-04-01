@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as styles from './OpenChatButton.css'
 
+import { IconsList } from '@app/src/ui/sprite/IconsList'
 import { Icon } from '@front/ui/icon'
 
 interface Props {
@@ -10,7 +11,11 @@ interface Props {
 
 const OpenChatButton = ({ onClick, haveNewMessage }: Props) => (
   <button onClick={onClick} className={styles.openChatButton}>
-    {haveNewMessage ? <Icon name="chat-new-message" /> : <Icon name="chat" />}
+    {haveNewMessage ? (
+      <Icon name={IconsList.ChatNewMessage} />
+    ) : (
+      <Icon name={IconsList.Chat} />
+    )}
   </button>
 )
 

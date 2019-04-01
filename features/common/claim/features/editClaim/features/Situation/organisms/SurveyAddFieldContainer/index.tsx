@@ -7,6 +7,7 @@ import { Icon } from '@front/ui/icon'
 import cx from 'classnames'
 
 import { Input } from '@app/features/common/form'
+import { IconsList } from '@app/src/ui/sprite/IconsList'
 import * as React from 'react'
 import FileField from './components/FileField'
 import LinkField from './components/LinkField'
@@ -102,7 +103,7 @@ const SurveyAddFieldContainer = ({
         className={cx(styles.addButton, styles.filesButton)}
         kind={ButtonKind.Extra}
       >
-        <Icon className={styles.icon} name="plus" />
+        <Icon className={styles.icon} name={IconsList.Plus} />
         Добавить другие файлы
       </Button>
       <Button
@@ -110,7 +111,7 @@ const SurveyAddFieldContainer = ({
         className={cx(styles.addButton, styles.linksButton)}
         kind={ButtonKind.Extra}
       >
-        <Icon className={styles.icon} name="plus" />
+        <Icon className={styles.icon} name={IconsList.Plus} />
         Добавить ссылки на файлы
       </Button>
     </div>

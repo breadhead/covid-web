@@ -1,3 +1,4 @@
+import { IconsList } from '@app/src/ui/sprite/IconsList'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 import cx from 'classnames'
@@ -10,7 +11,7 @@ interface Props {
 
 const LogoClient = ({ className }: Props) => (
   <NavLink className={styles.logoWrapper} withoutUnderline href="/">
-    <Icon className={cx(styles.logo, className)} name="logo-short" />
+    <Icon className={cx(styles.logo, className)} name={IconsList.LogoShort} />
   </NavLink>
 )
 

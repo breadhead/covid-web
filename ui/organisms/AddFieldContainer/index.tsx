@@ -1,3 +1,4 @@
+import { IconsList } from '@app/src/ui/sprite/IconsList'
 import { Button, ButtonKind } from '@front/ui/button'
 import { Icon } from '@front/ui/icon'
 import { range } from 'lodash'
@@ -39,7 +40,7 @@ class AddFieldContainer extends React.Component<Props, State> {
           className={buttonClassName}
           kind={ButtonKind.Extra}
         >
-          <Icon className={styles.icon} name="plus" />
+          <Icon className={styles.icon} name={IconsList.Plus} />
           {buttonText}
         </Button>
       </div>

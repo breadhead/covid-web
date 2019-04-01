@@ -4,6 +4,7 @@ import Router from 'next/router'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { Icon } from '@front/ui/icon'
 
+import { IconsList } from '@app/src/ui/sprite/IconsList'
 import NewMessageBadge from '../../atoms/NewMessageBage'
 import formatDate from '../../helpers/formatDate'
 import styles from './ClaimHeader.css'
@@ -24,11 +25,11 @@ const Header = ({ id, createdAt, newMessage, target, number }: Props) => (
           {formatDate(createdAt)} №{number}
         </h2>
         <Icon
-          name="arrow-big-back"
+          name={IconsList.ArrowBigBack}
           className={cx(styles.arrow, styles.defaultArrow)}
         />
         <Icon
-          name="arrow-big-back-hover"
+          name={IconsList.ArrowBigBackHover}
           className={cx(styles.arrow, styles.hoverArrow)}
         />
       </div>

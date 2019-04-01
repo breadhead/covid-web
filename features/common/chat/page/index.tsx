@@ -10,6 +10,7 @@ import { Icon } from '@front/ui/icon'
 
 import { getRoles } from '@app/features/login'
 import { Role } from '@app/models/Users/User'
+import { IconsList } from '@app/src/ui/sprite/IconsList'
 import { connect } from 'react-redux'
 import Uploader from '../../uploader'
 import ChatWrapper from '../organisms/ChatWrapper'
@@ -81,7 +82,10 @@ const Chat = ({
           !muted && (
             <>
               <Uploader onUploaded={onUpload} className={styles.uploader}>
-                <Icon className={styles.attachIcon} name="attach-file" />
+                <Icon
+                  className={styles.attachIcon}
+                  name={IconsList.AttachFile}
+                />
               </Uploader>
               <TextArea
                 focused={focused}
@@ -94,7 +98,10 @@ const Chat = ({
                 placeholder="Ваше сообщение..."
               />
               <button className={styles.sendButton}>
-                <Icon className={styles.inputIcon} name="send-message" />
+                <Icon
+                  className={styles.inputIcon}
+                  name={IconsList.SendMessage}
+                />
               </button>
             </>
           )

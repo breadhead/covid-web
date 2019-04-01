@@ -7,6 +7,7 @@ import { Layout } from '@app/features/manager'
 import Claims from '@app/features/client/features/claims/organisms/Claims'
 import { getDeclensionedWord } from '@app/features/common/helpers'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import { IconsList } from '@app/src/ui/sprite/IconsList'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 
@@ -21,7 +22,7 @@ const ClientClaims = ({ clientClaims, authorLogin, currentClaimId }: Props) => (
     <div className={styles.linkWrapper}>
       {!!currentClaimId && (
         <>
-          <Icon name="arrow-right" className={styles.icon} />
+          <Icon name={IconsList.ArrowRight} className={styles.icon} />
           <NavLink href={`/manager/consultation/${currentClaimId}`}>
             Вернуться назад
           </NavLink>

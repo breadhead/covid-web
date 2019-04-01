@@ -4,6 +4,7 @@ import * as React from 'react'
 import * as styles from './Dropdown.css'
 
 import { SPACE } from '@app/lib/config'
+import { IconsList } from '@app/src/ui/sprite/IconsList'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 
@@ -19,7 +20,7 @@ interface Props {
 
 const Dropdown = ({ signOut, position = DropdownPositions.Left }: Props) => (
   <div className={styles.dropdown}>
-    <Icon className={styles.icon} name="user" />
+    <Icon className={styles.icon} name={IconsList.User} />
     <div className={cx(styles.menu, styles[position])}>
       <NavLink
         blank

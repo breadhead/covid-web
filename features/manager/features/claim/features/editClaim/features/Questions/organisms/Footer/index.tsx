@@ -4,6 +4,7 @@ import cx from 'classnames'
 
 import { ButtonSize, ButtonWithTooltip } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
+import { IconsList } from '@app/src/ui/sprite/IconsList'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 import { isString } from 'lodash'
@@ -30,7 +31,7 @@ const Footer = ({ styles: parentStyles, error, loading, id }: Props) => {
     >
       <div className={styles.links}>
         <div className={cx(parentStyles.footerBack, styles.footerBack)}>
-          <Icon className={parentStyles.iconBack} name="arrow-right" />
+          <Icon className={parentStyles.iconBack} name={IconsList.ArrowRight} />
           <NavLink href={`/manager/claim/${id}/situation`}>
             Медицинские данные
           </NavLink>

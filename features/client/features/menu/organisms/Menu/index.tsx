@@ -1,3 +1,4 @@
+import { IconsList } from '@app/src/ui/sprite/IconsList'
 import Dropdown from '@app/ui/Dropdown'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
@@ -16,7 +17,7 @@ const Menu = ({ signOut, className }: Props) => (
       withoutUnderline
       href="/client"
     >
-      <Icon className={styles.icon} name="my-consultation" />
+      <Icon className={styles.icon} name={IconsList.MyConsultation} />
       <span className={styles.menuItemText}>Мои консультации</span>
     </NavLink>
     <div className={styles.menuItem}>
