@@ -38,6 +38,13 @@ const partners = [
     img: '/static/images/partners/Pravoslavie_i_Mir.png',
     label: `БФ «Православие и${NON_BREAKING_SPACE}мир»`,
   },
+  {
+    id: '30',
+    type: PartnersType.Donor,
+    typeLabel: PartnersLabel.Donor,
+    img: '/static/images/partners/Etam_Logo-01.png',
+    label: `Etam`,
+  },
 ]
 
 const getCurrentPartnersOptions = (currentPartners: Partner[]) => {
