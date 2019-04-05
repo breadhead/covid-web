@@ -1374,10 +1374,10 @@
   resolved "https://registry.yarnpkg.com/@breadhead/validate-phone/-/validate-phone-1.0.0.tgz#2602098b77c9892048885126c02d8df54127846e"
   integrity sha512-UJ3RlVzMvkyRKzPaA7p+jNOOjH/u4K2kr4Ia296910mZ6shwbfWihfgfL5wwAgSz0qne0kYKXYc1OUwF1Jr+Rg==
 
-"@breadhead/with-scroll-lock@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@breadhead/with-scroll-lock/-/with-scroll-lock-1.2.2.tgz#d3499a14b3bf2af5e5bf24233b2671c20f4a2473"
-  integrity sha512-MSogv48QGAD3Y5nHuPAp3osjk4Mgj56NyA5gGy3Hv2ubeH+s3u7f1DJ6BK2VS0qE8uP5RjSL1y+DwV8FMGAeyQ==
+"@breadhead/with-scroll-lock@^1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@breadhead/with-scroll-lock/-/with-scroll-lock-1.2.4.tgz#ef9442880fc5c23232bf8e90dd033aa09f0fc2ee"
+  integrity sha512-9VGmIDg+ruxKfURTy35SFxIP/XoF1zHTHRl7FlyhDRpfd1LtlrGEb+kMcA6zs4lJsioAAPnKL1XXOmqRzo6SHg==
   dependencies:
     body-scroll-lock "^2.6.1"
     can-use-dom "^0.1.0"
