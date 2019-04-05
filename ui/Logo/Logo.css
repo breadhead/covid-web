@@ -5,7 +5,12 @@
 
   @media (--smallDown) {
     width: 198px;
-    height: 40px;
+    height: 48px;
+  }
+
+  @media (--xxsmallDown) {
+    width: 159px !important;
+    height: 48px !important;
   }
 }
 
@@ -16,6 +21,11 @@
 
   @media (--smallDown) {
     max-width: 198px;
-    max-height: 40px;
+    max-height: 48px;
+  }
+
+  @media (--xxsmallDown) {
+    width: 159px !important;
+    height: 48px !important;
   }
 }

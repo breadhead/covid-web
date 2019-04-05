@@ -21,7 +21,10 @@ const Header = ({ token, signOutOfApp }: Props) => {
     <div className={styles.headerWrapper}>
       <header className={styles.header}>
         <Logo wrapperClassName={styles.logo} />
-        <MediaQuery query={Query.ToExtraLarge}>
+        <MediaQuery
+          className={styles.buttonContainer}
+          query={Query.ToExtraLarge}
+        >
           <Menu signOut={signOutOfApp} showLoginButton={token.length === 0} />
         </MediaQuery>
         <MediaQuery query={Query.FromExtraLarge}>
