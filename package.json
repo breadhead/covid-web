@@ -21,6 +21,8 @@
     "@breadhead/thunk-error": "^1.0.3",
     "@breadhead/validate-phone": "^1.0.0",
     "@breadhead/with-scroll-lock": "^1.2.4",
+    "@bugsnag/js": "^6.0.0",
+    "@bugsnag/plugin-react": "^6.0.0",
     "@types/object-hash": "^1.2.0",
     "@zeit/next-less": "^1.0.1",
     "@zeit/next-typescript": "^1.1.1",

@@ -2,10 +2,13 @@ import Modal from '@app/features/common/modal'
 import { authViolateStatus, getViolateState } from '@app/features/login'
 import { Store } from '@app/lib/store'
 import withReduxStore from '@app/lib/with-redux-store'
+import bugsnagClient from '@app/pages/bugsnag'
 import '@app/ui/antd-styles.less'
 import { Sprite } from '@front/ui/sprite'
 import getConfig from 'next/config'
 import { Option } from 'tsoption'
+
+import ErrorComponent from './_error'
 
 import App, { Container, NextAppContext } from 'next/app'
 import Head from 'next/head'
@@ -41,6 +44,8 @@ interface Props {
 Router.events.on('routeChangeComplete', () => {
   window.scrollTo(0, 0)
 })
+
+const ErrorBoundary = bugsnagClient.getPlugin('react')
 
 class OncohelpWeb extends App<Props> {
   public static async getInitialProps(context: NextAppContext) {
@@ -92,101 +97,103 @@ class OncohelpWeb extends App<Props> {
     }
     return (
       !authViolate && (
-        <Container>
-          <Head>
-            <meta
-              name="viewport"
-              content="width=device-width, initial=scale=1"
-            />
-            <meta name="keywords" content={keywords.join(', ')} />
-            <meta name="description" content={description} />
-            <link rel="canonical" href="https://ask.nenaprasno.ru" />
-            <link
-              rel="apple-touch-icon"
-              sizes="180x180"
-              href="/static/images/favicons/apple-touch-icon.png"
-            />
-            <link
-              rel="icon"
-              type="image/png"
-              sizes="32x32"
-              href="/static/images/favicons/favicon-32x32.png"
-            />
-            <link
-              rel="icon"
-              type="image/png"
-              sizes="16x16"
-              href="/static/images/favicons/favicon-16x16.png"
-            />
-            <link
-              rel="manifest"
-              href="/static/images/favicons/site.webmanifest"
-            />
-            <link
-              rel="mask-icon"
-              href="/static/images/favicons/safari-pinned-tab.svg"
-              color="#ffc40d"
-            />
-            <meta name="msapplication-TileColor" content="#ffc40d" />
-            <meta name="theme-color" content="#ffffff" />
-            <meta
-              property="og:title"
-              content="Справочная служба | Просто спросить"
-            />
-            <meta property="og:site_name" content="ask.nenaprasno.ru" />
-            <meta property="og:url" content="http://ask.nenaprasno.ru" />
-            <meta
-              property="og:description"
-              content="Просто спросить — справочная служба для онкологических пациентов и их близких"
-            />
-            <meta property="og:type" content="website" />
-            <meta
-              property="og:image"
-              content={`${
-                publicRuntimeConfig.siteUrl
-              }/static/images/prosto-sprosit_facebook-post.jpg`}
-            />
-            <meta
-              property="og:image:secure_url"
-              content={`${
-                publicRuntimeConfig.siteUrl
-              }/static/images/prosto-sprosit_facebook-post.jpg`}
-            />
-            <meta property="og:image:type" content="image/jpeg" />
-            <meta property="og:image:width" content="600" />
-            <meta property="og:image:height" content="315" />
-            <meta
-              property="og:image:alt"
-              content="Просто спросить — справочная служба для онкологических пациентов и их близких"
-            />
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta
-              name="twitter:title"
-              content="Справочная служба | Просто спросить"
-            />
-            <meta
-              name="twitter:description"
-              content="Просто спросить — справочная служба для онкологических пациентов и их близких"
-            />
-            <meta
-              name="twitter:image"
-              content="/static/images/prosto-sprosit_facebook-post.jpg"
-            />
-            <meta
-              name="twitter:image:alt"
-              content="Справочная служба | Просто спросить"
-            />
-            <meta property="fb:306467899461959" content="306467899461959" />
-          </Head>
-          <Sprite />
-          <Provider store={reduxStore}>
-            <StoreContext.Provider value={reduxStore}>
-              {notFound ? <NotFound /> : <Component {...pageProps} />}
-              <Modal />
-              <Analitics />
-            </StoreContext.Provider>
-          </Provider>
-        </Container>
+        <ErrorBoundary FallbackComponent={ErrorComponent}>
+          <Container>
+            <Head>
+              <meta
+                name="viewport"
+                content="width=device-width, initial=scale=1"
+              />
+              <meta name="keywords" content={keywords.join(', ')} />
+              <meta name="description" content={description} />
+              <link rel="canonical" href="https://ask.nenaprasno.ru" />
+              <link
+                rel="apple-touch-icon"
+                sizes="180x180"
+                href="/static/images/favicons/apple-touch-icon.png"
+              />
+              <link
+                rel="icon"
+                type="image/png"
+                sizes="32x32"
+                href="/static/images/favicons/favicon-32x32.png"
+              />
+              <link
+                rel="icon"
+                type="image/png"
+                sizes="16x16"
+                href="/static/images/favicons/favicon-16x16.png"
+              />
+              <link
+                rel="manifest"
+                href="/static/images/favicons/site.webmanifest"
+              />
+              <link
+                rel="mask-icon"
+                href="/static/images/favicons/safari-pinned-tab.svg"
+                color="#ffc40d"
+              />
+              <meta name="msapplication-TileColor" content="#ffc40d" />
+              <meta name="theme-color" content="#ffffff" />
+              <meta
+                property="og:title"
+                content="Справочная служба | Просто спросить"
+              />
+              <meta property="og:site_name" content="ask.nenaprasno.ru" />
+              <meta property="og:url" content="http://ask.nenaprasno.ru" />
+              <meta
+                property="og:description"
+                content="Просто спросить — справочная служба для онкологических пациентов и их близких"
+              />
+              <meta property="og:type" content="website" />
+              <meta
+                property="og:image"
+                content={`${
+                  publicRuntimeConfig.siteUrl
+                }/static/images/prosto-sprosit_facebook-post.jpg`}
+              />
+              <meta
+                property="og:image:secure_url"
+                content={`${
+                  publicRuntimeConfig.siteUrl
+                }/static/images/prosto-sprosit_facebook-post.jpg`}
+              />
+              <meta property="og:image:type" content="image/jpeg" />
+              <meta property="og:image:width" content="600" />
+              <meta property="og:image:height" content="315" />
+              <meta
+                property="og:image:alt"
+                content="Просто спросить — справочная служба для онкологических пациентов и их близких"
+              />
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta
+                name="twitter:title"
+                content="Справочная служба | Просто спросить"
+              />
+              <meta
+                name="twitter:description"
+                content="Просто спросить — справочная служба для онкологических пациентов и их близких"
+              />
+              <meta
+                name="twitter:image"
+                content="/static/images/prosto-sprosit_facebook-post.jpg"
+              />
+              <meta
+                name="twitter:image:alt"
+                content="Справочная служба | Просто спросить"
+              />
+              <meta property="fb:306467899461959" content="306467899461959" />
+            </Head>
+            <Sprite />
+            <Provider store={reduxStore}>
+              <StoreContext.Provider value={reduxStore}>
+                {notFound ? <NotFound /> : <Component {...pageProps} />}
+                <Modal />
+                <Analitics />
+              </StoreContext.Provider>
+            </Provider>
+          </Container>
+        </ErrorBoundary>
       )
     )
   }

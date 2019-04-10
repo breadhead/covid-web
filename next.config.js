@@ -44,9 +44,17 @@ module.exports = withPlugins(
       },
     ],
     {
+      serverRuntimeConfig: {
+        BUGSNAG_API_KEY:
+          process.env.BUGSNAG_SERVER_API_KEY ||
+          '3bf065d72a96ab4a596727ace4dcbd4f',
+      },
       publicRuntimeConfig: {
         backUrl: process.env.BACK_URL || 'http://localhost:3000',
         siteUrl: process.env.SITE_URL || 'http://localhost:3001',
+        BUGSNAG_API_KEY:
+          process.env.BUGSNAG_BROWSER_API_KEY ||
+          '3bf065d72a96ab4a596727ace4dcbd4f',
       },
     },
   ],
