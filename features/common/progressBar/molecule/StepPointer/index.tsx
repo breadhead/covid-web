@@ -52,7 +52,9 @@ const StepPointer = ({ step, index, className }: Props) => {
       <div
         className={currentClassName}
         onClick={() => {
-          Router.push(href)
+          if (!disabled) {
+            Router.push(href)
+          }
         }}
       >
         {currentContent}
