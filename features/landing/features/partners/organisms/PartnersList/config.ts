@@ -43,7 +43,14 @@ const partners = [
     type: PartnersType.Donor,
     typeLabel: PartnersLabel.Donor,
     img: '/static/images/partners/Etam_Logo-01.png',
-    label: `Etam`,
+    label: 'Etam',
+  },
+  {
+    id: '40',
+    type: PartnersType.Donor,
+    typeLabel: PartnersLabel.Donor,
+    img: '/static/images/partners/IconSuit_logo.png',
+    label: 'IconSuit',
   },
 ]
 
