@@ -1,4 +1,3 @@
-import { validate } from '@breadhead/validate-phone'
 import React from 'react'
 
 import { Form, Input } from '@app/features/common/form'
@@ -68,15 +67,6 @@ class SendSms extends React.Component<Props, LocalState> {
     const { send } = this.props
     const realPhone = phone.replace(/[^0-9]/g, '').replace(/^8/, '7')
 
-    const { valid } = validate(realPhone)
-    if (!valid) {
-      if (realPhone.length < 11) {
-        return this.setState({ validationError: 'Недостаточно символов' })
-      }
-      return this.setState({ validationError: 'Ошибка в номере телефона' })
-    }
-
-    this.setState({ validationError: undefined })
     return send(realPhone)
   }
 }
