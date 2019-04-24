@@ -73,9 +73,6 @@ class SendSms extends React.Component<Props, LocalState> {
       if (realPhone.length < 11) {
         return this.setState({ validationError: 'Недостаточно символов' })
       }
-      if (realPhone.length > 11) {
-        return this.setState({ validationError: 'Слишком длинный номер' })
-      }
       return this.setState({ validationError: 'Ошибка в номере телефона' })
     }
 
