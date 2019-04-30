@@ -1,9 +1,9 @@
 .footer {
   position: relative;
   display: flex;
+  align-items: center;
   padding: 24px 0;
   font: var(--text14-20);
-  align-items: center;
 
   &::after {
     position: absolute;

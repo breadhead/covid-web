@@ -24,7 +24,7 @@ const StartConsultationButton = ({
   <NavLink
     className={containerClassName}
     withoutUnderline
-    href="/client/new-claim/rules"
+    href="?signUp=true&wantTo=client/new-claim/rules"
   >
     <Button size={size} className={className} kind={ButtonKind.Primary}>
       {children}
