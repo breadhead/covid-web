@@ -6,9 +6,15 @@ import ProgressBar, { ProgressBarKind } from '@app/features/common/progressBar'
 import { getQuotasAvailable } from '@app/features/login/features/user/selectors'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
+import dayjs from 'dayjs'
 import Layout from '../../organisms/Layout'
 import * as styles from './BeforeConsultation.css'
-import { progressBarSteps, statements } from './config'
+import {
+  MAY_HOLIDAYS_BEGINS,
+  MAY_HOLIDAYS_ENDS,
+  progressBarSteps,
+  statements,
+} from './config'
 import Container, { PageProps } from './container'
 import { InfoText } from './InfoText'
 import Terms from './Terms'
@@ -17,6 +23,9 @@ import TextList from './TextList'
 const BeforeConsultation: SFC<PageProps> = ({ next }) => {
   const commonQuotaAvailable = useMappedState(getQuotasAvailable)
 
+  const areMayHolidaysNow =
+    dayjs(new Date()).isAfter(dayjs(MAY_HOLIDAYS_BEGINS)) &&
+    dayjs(new Date()).isBefore(dayjs(MAY_HOLIDAYS_ENDS))
   return (
     <Layout>
       <Head>
@@ -31,13 +40,16 @@ const BeforeConsultation: SFC<PageProps> = ({ next }) => {
       <h1 className={styles.title}>
         Пожалуйста, прочитайте этот текст перед началом консультации
       </h1>
-      <InfoText className={styles.text}>
-        В период майских праздников с{NON_BREAKING_SPACE}1{NON_BREAKING_SPACE}по
-        {NON_BREAKING_SPACE}13 мая возможно увеличение времени ответа
-        специалистов. Пожалуйста, отнеситесь к{NON_BREAKING_SPACE}этому с
-        {NON_BREAKING_SPACE}
-        пониманием.
-      </InfoText>
+      {areMayHolidaysNow && (
+        <InfoText className={styles.text}>
+          В период майских праздников с{NON_BREAKING_SPACE}1{NON_BREAKING_SPACE}
+          по
+          {NON_BREAKING_SPACE}13 мая возможно увеличение времени ответа
+          специалистов. Пожалуйста, отнеситесь к{NON_BREAKING_SPACE}этому с
+          {NON_BREAKING_SPACE}
+          пониманием.
+        </InfoText>
+      )}
       {!commonQuotaAvailable && (
         <InfoText className={styles.text}>
           Сейчас у{NON_BREAKING_SPACE}нас меньше пожертвований, чем необходимо
