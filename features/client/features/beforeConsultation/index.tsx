@@ -5,11 +5,12 @@ import { useMappedState } from 'redux-react-hook'
 import ProgressBar, { ProgressBarKind } from '@app/features/common/progressBar'
 import { getQuotasAvailable } from '@app/features/login/features/user/selectors'
 
+import { NON_BREAKING_SPACE } from '@app/lib/config'
 import Layout from '../../organisms/Layout'
 import * as styles from './BeforeConsultation.css'
 import { progressBarSteps, statements } from './config'
 import Container, { PageProps } from './container'
-import { QuotasUnavailable } from './QuotasUnavailable'
+import { InfoText } from './InfoText'
 import Terms from './Terms'
 import TextList from './TextList'
 
@@ -30,7 +31,21 @@ const BeforeConsultation: SFC<PageProps> = ({ next }) => {
       <h1 className={styles.title}>
         Пожалуйста, прочитайте этот текст перед началом консультации
       </h1>
-      {!commonQuotaAvailable && <QuotasUnavailable className={styles.text} />}
+      <InfoText className={styles.text}>
+        В период майских праздников с{NON_BREAKING_SPACE}1{NON_BREAKING_SPACE}по
+        {NON_BREAKING_SPACE}13 мая возможно увеличение времени ответа
+        специалистов. Пожалуйста, отнеситесь к{NON_BREAKING_SPACE}этому с
+        {NON_BREAKING_SPACE}
+        пониманием.
+      </InfoText>
+      {!commonQuotaAvailable && (
+        <InfoText className={styles.text}>
+          Сейчас у{NON_BREAKING_SPACE}нас меньше пожертвований, чем необходимо
+          для ответов на{NON_BREAKING_SPACE}обращения. Срок рассмотрения заявок
+          может увеличиться. Пожалуйста, отнеситесь к{NON_BREAKING_SPACE}этому с
+          {NON_BREAKING_SPACE}пониманием.
+        </InfoText>
+      )}
       <section className={styles.BeforeConsultation}>
         <article className={styles.article}>
           <TextList items={statements} />
