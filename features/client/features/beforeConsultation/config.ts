@@ -28,3 +28,7 @@ export const statements = [
     text: `Сервис работает на${NON_BREAKING_SPACE}благотворительные пожертвования и${NON_BREAKING_SPACE}является бесплатным.`,
   },
 ]
+
+export const MAY_HOLIDAYS_BEGINS = '2019-05-01T12:35:17.947Z'
+
+export const MAY_HOLIDAYS_ENDS = '2019-05-13T12:35:17.947Z'
