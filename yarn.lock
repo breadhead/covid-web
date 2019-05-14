@@ -9886,6 +9886,11 @@ next-tick@1:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
+next-transpile-modules@1:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-1.3.0.tgz#b524c395cd2dc50982fae19da1180a5d7a492cc1"
+  integrity sha512-LGX4GUOiVijrLNCWzBhK9gLsGOcGDkkpQS1DDS6tlbXV4xCeb6bFrCBFW3AlDlh5yzhWFNf+RV7QnruwocO0Mw==
+
 next@^7.0.2:
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/next/-/next-7.0.2.tgz#5ff6b3f0e6cf03ce539d5779a55dc1f8fb1759d7"
