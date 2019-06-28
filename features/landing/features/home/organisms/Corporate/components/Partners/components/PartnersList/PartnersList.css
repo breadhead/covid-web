@@ -2,12 +2,18 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 68px;
+  overflow: scroll;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
 
   @media (--smallDown) {
     max-width: 100vw;
     margin-bottom: 32px;
-    overflow: scroll;
   }
+}
+
+.partnersList::-webkit-scrollbar {
+  display: none;
 }
 
 .buttonWrapper { 

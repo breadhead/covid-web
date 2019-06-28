@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 176px;
+  margin-right: 24px;
 
   @media (--smallDown) {
     width: 120px;
