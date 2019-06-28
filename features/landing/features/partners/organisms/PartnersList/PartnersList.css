@@ -41,6 +41,8 @@
   display: flex;
   flex-wrap: wrap;
   margin: 48px 0 0 0;
+  overflow: scroll;
+  overscroll-behavior: contain;
 
   @media (--mediumDown) {
     justify-content: center;
@@ -50,6 +52,11 @@
   @media (--smallDown) {
     justify-content: space-between;
   }
+}
+
+
+.partnersList::-webkit-scrollbar {
+  display: none;
 }
 
 .partnerCard.partnerCard {

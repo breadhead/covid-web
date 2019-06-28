@@ -52,6 +52,20 @@ const partners = [
     img: '/static/images/partners/IconSuit_logo.png',
     label: 'IconSuit',
   },
+  {
+    id: '50',
+    type: PartnersType.Donor,
+    typeLabel: PartnersLabel.Donor,
+    img: '/static/images/partners/Yasnoe_utro_Logo.jpg',
+    label: 'Ясное Утро',
+  },
+  {
+    id: '60',
+    type: PartnersType.Donor,
+    typeLabel: PartnersLabel.Donor,
+    img: '/static/images/partners/Avon_logo.png',
+    label: 'Avon',
+  },
 ]
 
 const getCurrentPartnersOptions = (currentPartners: Partner[]) => {
