@@ -43,7 +43,6 @@
   margin: 48px 0 0 0;
   overflow: scroll;
   overscroll-behavior: contain;
-  scrollbar-width: none;
 
   @media (--mediumDown) {
     justify-content: center;
