@@ -21,7 +21,6 @@ export const useAuthModalByUrl = () => {
 
       if (currentPopup.includes(SIGN_UP_URL)) {
         open(SIGN_UP_MODAL)
-        return
       }
     },
     [open],

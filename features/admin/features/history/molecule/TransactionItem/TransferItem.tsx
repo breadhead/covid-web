@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Col, List, Row } from 'antd'
 import * as React from 'react'
 

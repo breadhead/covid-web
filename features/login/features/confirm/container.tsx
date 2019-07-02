@@ -27,7 +27,7 @@ interface Props {
 }
 
 const Container = (WrappedComponent: ComponentType<WrappedProps>) =>
-  class extends React.Component<Props & WithModalProps> {
+  class ContaineredComponent extends React.Component<Props & WithModalProps> {
     public render() {
       const {
         sendSmsCode,

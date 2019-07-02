@@ -24,11 +24,22 @@ import { Props as PageProps } from './page'
 import { getSituationError, getSituationLoading } from './selectors'
 import { SituationClaimFields } from './types'
 
-const Router = routes.Router
+const { Router } = routes
 
 interface Query {
   id: string
 }
+
+const mapState = (state: State) => ({
+  error: getSituationError(state),
+  loading: getSituationLoading(state),
+  roles: getRoles(state),
+})
+
+const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
+  createSituationClaim: (situationClaim: SituationClaimRequest) =>
+    dispatch(createSituationClaimAction(situationClaim) as any),
+})
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
   layout: React.ComponentType,
@@ -38,7 +49,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
     mapState,
     mapDispatch,
   )(
-    class extends React.Component<any> {
+    class ContaineredComponent extends React.Component<any> {
       public static async getInitialProps({
         reduxStore,
         query,
@@ -148,16 +159,5 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
     },
   )
 }
-
-const mapState = (state: State) => ({
-  error: getSituationError(state),
-  loading: getSituationLoading(state),
-  roles: getRoles(state),
-})
-
-const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
-  createSituationClaim: (situationClaim: SituationClaimRequest) =>
-    dispatch(createSituationClaimAction(situationClaim) as any),
-})
 
 export default Container

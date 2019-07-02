@@ -51,22 +51,6 @@ export const Consultation = ({
   const [isChatOpensOnce, setChatOpensOnce] = React.useState(true)
   const [isChatFocused, setChatFocused] = React.useState(false)
 
-  React.useEffect(
-    () => {
-      const { width } = windowSize
-      toggleChatOpening(width)
-    },
-    [windowSize.width],
-  )
-
-  const onChatButtonClick = () => {
-    setChatFocused(true)
-  }
-
-  const setUnfocused = () => {
-    setChatFocused(false)
-  }
-
   const closeChat = () => setChatOpen(false)
 
   const openChat = () => {
@@ -81,6 +65,22 @@ export const Consultation = ({
     } else {
       closeChat()
     }
+  }
+
+  React.useEffect(
+    () => {
+      const { width } = windowSize
+      toggleChatOpening(width)
+    },
+    [windowSize.width],
+  )
+
+  const onChatButtonClick = () => {
+    setChatFocused(true)
+  }
+
+  const setUnfocused = () => {
+    setChatFocused(false)
   }
 
   const Layout = layout

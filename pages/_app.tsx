@@ -51,6 +51,7 @@ class OncohelpWeb extends App<Props> {
   public static async getInitialProps(context: NextAppContext) {
     const ctx: AppContext = context.ctx as any
     if (ctx.req) {
+      // eslint-disable-next-line prefer-destructuring
       const token: string = (ctx.req as any).cookies.token
       if (!!token && token.length > 1) {
         ctx.reduxStore.dispatch(setToken(token))
@@ -59,7 +60,7 @@ class OncohelpWeb extends App<Props> {
     }
 
     registerModals()
-    const isSecure = (context.Component as any).isSecure
+    const { isSecure } = context.Component as any
     const loggedIn = (getToken(ctx.reduxStore.getState()) || '').length > 0
 
     if (isSecure && !loggedIn) {
@@ -78,7 +79,8 @@ class OncohelpWeb extends App<Props> {
       resetCookie()
 
       const wantTo = normalizeWantTo(this.props.router.asPath!)
-      return Router.push({ pathname: '/', query: { signIn: true, wantTo } })
+      Router.push({ pathname: '/', query: { signIn: true, wantTo } })
+      return
     }
 
     this.props.reduxStore.dispatch(setQuery(this.props.router.query || {}))

@@ -1,3 +1,5 @@
+/* eslint-disable react/display-name */
+/* eslint-disable consistent-return */
 import * as React from 'react'
 import * as yup from 'yup'
 

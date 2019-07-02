@@ -14,7 +14,6 @@ export const useDonationModalByUrl = () => {
 
       if (currentPopup.includes(DONATION_URL)) {
         open(FINISH_MODAL_KEY)
-        return
       }
     },
     [open],

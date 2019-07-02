@@ -1,3 +1,4 @@
+import React from 'react'
 import * as styles from './ProgressBar.css'
 
 import cx from 'classnames'

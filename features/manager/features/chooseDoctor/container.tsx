@@ -31,7 +31,7 @@ export interface ContainerProps extends WithModalProps {
 }
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
-  return class extends React.Component<ContainerProps> {
+  return class ContaineredComponent extends React.Component<ContainerProps> {
     public state = { filter: '' }
 
     public render() {

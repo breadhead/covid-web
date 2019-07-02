@@ -37,7 +37,7 @@ type ResultPageProps = Omit<PageProps, 'messages' | 'onSubmit'>
 type Props = OwnProps & ResultPageProps
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
-  return class extends React.Component<Props, {}> {
+  return class ContaineredComponent extends React.Component<Props, {}> {
     private messages = React.createRef<HTMLDivElement>()
     public async componentDidMount() {
       await this.fetchMessages()

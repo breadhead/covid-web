@@ -22,7 +22,7 @@ export const fetchDoctorsIfNeeded = () => async (
     const shouldFetchDoctors = roles.includes(Role.CaseManager)
     if (shouldFetchDoctors) {
       const doctors = await api.doctors(claimId!)
-      return dispatch(listActions.success(doctors))
+      dispatch(listActions.success(doctors))
     }
   } catch (error) {
     dispatch(listActions.error(error.message))

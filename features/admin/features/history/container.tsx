@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'

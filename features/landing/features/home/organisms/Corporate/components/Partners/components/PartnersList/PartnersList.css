@@ -15,7 +15,7 @@
   display: none;
 }
 
-.buttonWrapper { 
+.buttonWrapper {
   width: 176px;
   @media (--smallDown) {
     width: 120px;

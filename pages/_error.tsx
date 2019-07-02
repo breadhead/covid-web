@@ -22,5 +22,7 @@ export default class Error extends React.Component<Props> {
     if (this.props.statusCode === 404) {
       return <NotFound />
     }
+
+    return null
   }
 }

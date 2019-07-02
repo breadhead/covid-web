@@ -23,7 +23,7 @@ type ExternalProps = Pick<FormProps, 'claim' | 'claimStatus'>
 type Props = OwnProps & ExternalProps
 
 const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
-  return class extends React.Component<Props> {
+  return class ContaineredComoponent extends React.Component<Props> {
     public render() {
       return <WrappedComponent onSubmit={this.onFormSubmit} {...this.props} />
     }

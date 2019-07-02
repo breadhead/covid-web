@@ -32,7 +32,7 @@ export interface ContainerProps {
 }
 
 const Container = (WrappedComponent: any) => {
-  return class extends React.Component<ContainerProps> {
+  return class ContaineredComponent extends React.Component<ContainerProps> {
     public render() {
       const { roles, position, allowAnswerEditing } = this.props
       const mainInfo: ListedClaim = (this.props as any).mainInfo || []

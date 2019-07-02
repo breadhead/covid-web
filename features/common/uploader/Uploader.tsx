@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import { head } from 'lodash'
-import { useCallback, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { useMappedState } from 'redux-react-hook'
 
 import { push } from '@app/features/admin/features/toast'

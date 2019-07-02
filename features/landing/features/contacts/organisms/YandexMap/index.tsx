@@ -20,8 +20,9 @@ class YandexMap extends React.Component {
             defaultState={{ center: [LAT, LON], zoom: 16 }}
             defaultOptions={{ behaviors: [{ scrollZoom: false }] }}
             instanceRef={(ref: any) => {
-              // tslint:disable-next-line:no-unused-expression
-              ref && ref.behaviors.disable('scrollZoom')
+              if (ref) {
+                ref.behaviors.disable('scrollZoom')
+              }
             }}
           >
             <Placemark geometry={[LAT, LON]} />

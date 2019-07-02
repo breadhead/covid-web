@@ -1,3 +1,4 @@
+import React from 'react'
 import ValidationTooltip from '../ValidationTooltip'
 import * as styles from './QuestionsValidationTooltip.css'
 import { validateCb } from './validateCb'

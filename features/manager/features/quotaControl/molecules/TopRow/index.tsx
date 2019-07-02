@@ -1,3 +1,4 @@
+import React from 'react'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { Doctor } from '@app/models/Users/Doctor'
 import { Button, ButtonKind } from '@front/ui/button'

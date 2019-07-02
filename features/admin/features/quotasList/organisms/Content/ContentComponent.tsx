@@ -1,3 +1,4 @@
+import React from 'react'
 import { isUndefined } from 'lodash'
 
 // TODO: fix types

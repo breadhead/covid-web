@@ -14,7 +14,7 @@ interface Props {
 }
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
-  return class extends React.Component<Props> {
+  return class ContaineredComponent extends React.Component<Props> {
     public render() {
       return (
         <WrappedComponent onFormSubmit={this.onFormSubmit} {...this.props} />

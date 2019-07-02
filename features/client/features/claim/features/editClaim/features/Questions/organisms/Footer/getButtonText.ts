@@ -12,7 +12,7 @@ export const getButtonText = (width: number) => {
       submit: 'Отправить заявку на консультацию',
       later: 'Продолжить заполнение позже',
     }
-  } else {
-    return { submit, later }
   }
+
+  return { submit, later }
 }

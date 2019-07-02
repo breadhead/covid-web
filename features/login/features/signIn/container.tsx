@@ -42,7 +42,7 @@ export const schema = {
 }
 
 const Container = (WrappedComponent: React.ComponentType<Props>) => {
-  return class extends React.Component<ContainerProps> {
+  return class ContaineredComponent extends React.Component<ContainerProps> {
     public render() {
       return (
         <WrappedComponent
@@ -53,9 +53,10 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
       )
     }
 
+    // eslint-disable-next-line consistent-return
     private onFormSubmit = async (credentials: Credentials) => {
       const { violateState } = this.props
-      const wantTo: string | string[] = (Router.query as any).wantTo
+      const { wantTo } = Router.query as any
 
       await this.props.login(credentials, wantTo)
       if (violateState) {

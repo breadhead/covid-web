@@ -18,7 +18,7 @@ import { DefaultQuestion, FormFields, Props as PageProps } from './page'
 import { actions } from './reducer'
 import { getQuestionsError, getQuestionsLoading } from './selectors'
 
-const Router = routes.Router
+const { Router } = routes
 
 const REQUEST_VALIDATION_ERROR =
   'Пожалуйста, выберите хотя бы один вопрос или напишите свой'
@@ -31,6 +31,19 @@ interface LocalState {
   initialFields: any
 }
 
+const mapState = (state: State) => ({
+  error: getQuestionsError(state),
+  loading: getQuestionsLoading(state),
+  roles: getRoles(state),
+})
+
+const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
+  createQuestionsClaim: (questionsClaim: QuestionsClaim) =>
+    dispatch(createQuestionsClaimAction(questionsClaim) as any),
+  setQuestionsClaimError: (error: string) => dispatch(actions.error(error)),
+  fetchAllClaim: (id: string) => dispatch(fetchClaim(id) as any),
+})
+
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
   layout: React.ComponentType,
   footer: FooterType,
@@ -39,7 +52,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
     mapState,
     mapDispatch,
   )(
-    class extends React.Component<any, LocalState> {
+    class ConataineredComponent extends React.Component<any, LocalState> {
       public static async getInitialProps(context: AppContext<Query>) {
         const { id } = context.query
 
@@ -124,7 +137,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
           return
         }
 
-        return setQuestionsClaimError(REQUEST_VALIDATION_ERROR)
+        setQuestionsClaimError(REQUEST_VALIDATION_ERROR)
       }
 
       private filterDefaultQuestions = (questions: DefaultQuestion[]) =>
@@ -182,18 +195,5 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
     },
   )
 }
-
-const mapState = (state: State) => ({
-  error: getQuestionsError(state),
-  loading: getQuestionsLoading(state),
-  roles: getRoles(state),
-})
-
-const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
-  createQuestionsClaim: (questionsClaim: QuestionsClaim) =>
-    dispatch(createQuestionsClaimAction(questionsClaim) as any),
-  setQuestionsClaimError: (error: string) => dispatch(actions.error(error)),
-  fetchAllClaim: (id: string) => dispatch(fetchClaim(id) as any),
-})
 
 export default Container

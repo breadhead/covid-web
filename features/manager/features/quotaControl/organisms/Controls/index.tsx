@@ -1,3 +1,4 @@
+import React from 'react'
 import Claim from '@app/models/Claim/Claim'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { Doctor } from '@app/models/Users/Doctor'

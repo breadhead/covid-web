@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { SFC } from 'react'
+import React, { SFC } from 'react'
 import { useMappedState } from 'redux-react-hook'
 
 import ProgressBar, { ProgressBarKind } from '@app/features/common/progressBar'

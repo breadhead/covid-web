@@ -15,6 +15,7 @@ interface Props {
   kind: ProgressBarKind
 }
 
+// eslint-disable-next-line react/display-name
 const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => ({
   step = 0,
   query,

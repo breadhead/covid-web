@@ -1,5 +1,5 @@
 import { Form as AntdForm } from 'antd'
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 import { Button, ButtonKind } from '@front/ui/button'
 

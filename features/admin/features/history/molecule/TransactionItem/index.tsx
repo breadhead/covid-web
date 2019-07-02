@@ -1,3 +1,4 @@
+import React from 'react'
 import { Transaction, TransactionKind } from '@app/models/Quota/Transaction'
 import IncomeItem from './IncomeItem'
 import TransferItem from './TransferItem'

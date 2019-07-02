@@ -2,7 +2,7 @@
   padding-bottom: 96px;
   margin: 0 auto;
 
-    &::after {
+  &::after {
     position: absolute;
     bottom: 48px;
     left: 0;
@@ -13,7 +13,7 @@
     padding: 0 120px;
     margin: 0 -120px;
     content: '';
-    background-color: rgba(21,24,51,0.12);
+    background-color: rgba(21, 24, 51, 0.12);
 
     @media (--smallDown) {
       bottom: 32px;

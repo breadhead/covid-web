@@ -20,10 +20,7 @@ jobs:
             - ./node_modules
       - run:
           name: Lint Code
-          command: yarn lint:code
-      - run:
-          name: Link Styles
-          command: yarn lint:style
+          command: yarn s lint
 
   test:
     docker:

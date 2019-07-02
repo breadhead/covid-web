@@ -19,11 +19,25 @@ import { FooterType, ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
 import { getLoading, getNewClaimError } from './selectors'
 
-const Router = routes.Router
+const { Router } = routes
 
 interface Query {
   id?: string
 }
+
+const mapState = (state: State) => ({
+  error: getNewClaimError(state),
+  loading: getLoading(state),
+  roles: getRoles(state),
+  smsPhone: getSmsPhone(state),
+  userLogin: getUserLogin(state),
+})
+
+const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
+  createClaim: (claimRequest: ShortClaimRequest) =>
+    dispatch(createClaim(claimRequest) as any),
+  setIdInQuery: (id: string) => dispatch(set({ id })),
+})
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
   layout: React.ComponentType,
@@ -33,7 +47,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
     mapState,
     mapDipatch,
   )(
-    class extends React.Component<any> {
+    class ContaineredComponent extends React.Component<any> {
       public static async getInitialProps({
         query,
         reduxStore,
@@ -142,19 +156,5 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
     },
   )
 }
-
-const mapState = (state: State) => ({
-  error: getNewClaimError(state),
-  loading: getLoading(state),
-  roles: getRoles(state),
-  smsPhone: getSmsPhone(state),
-  userLogin: getUserLogin(state),
-})
-
-const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
-  createClaim: (claimRequest: ShortClaimRequest) =>
-    dispatch(createClaim(claimRequest) as any),
-  setIdInQuery: (id: string) => dispatch(set({ id })),
-})
 
 export default Container

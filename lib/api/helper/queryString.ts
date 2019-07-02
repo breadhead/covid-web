@@ -10,16 +10,6 @@ interface UrlParameter {
   [key: string]: UrlValue
 }
 
-export const queryString = (query: Query = {}) =>
-  Object.entries(query)
-    .filter(([_, value]) => value !== undefined && value !== null)
-    .map(([key, value]) => ({ key, value }))
-    .map(parameter => parameter as UrlParameter)
-    .map(({ key, value }) => ({ key, value: urlValueToString(value) }))
-    .map(({ key, value }) => ({ key, value: encodeURIComponent(value) }))
-    .map(({ key, value }) => `${key}=${value}`)
-    .join('&')
-
 const urlValueToString = (value: UrlValue): string => {
   if (value instanceof Date) {
     return value.toISOString()
@@ -31,3 +21,13 @@ const urlValueToString = (value: UrlValue): string => {
 
   return value
 }
+
+export const queryString = (query: Query = {}) =>
+  Object.entries(query)
+    .filter(([_, value]) => value !== undefined && value !== null)
+    .map(([key, value]) => ({ key, value }))
+    .map(parameter => parameter as UrlParameter)
+    .map(({ key, value }) => ({ key, value: urlValueToString(value) }))
+    .map(({ key, value }) => ({ key, value: encodeURIComponent(value) }))
+    .map(({ key, value }) => `${key}=${value}`)
+    .join('&')

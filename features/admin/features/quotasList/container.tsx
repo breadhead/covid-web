@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import { flow } from 'lodash'
 import * as React from 'react'
 import { connect } from 'react-redux'

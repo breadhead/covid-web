@@ -2,9 +2,9 @@
   display: flex;
   align-items: center;
 
-  & > label{
+  & > label {
     margin-right: 30px;
-    &> input {
+    & > input {
       margin-right: 10px;
     }
   }

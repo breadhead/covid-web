@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import cx from 'classnames'
 import * as React from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'

@@ -1,3 +1,4 @@
+import React from 'react'
 import styles from './Title.css'
 
 import { NavLink } from '@front/ui/nav-link'

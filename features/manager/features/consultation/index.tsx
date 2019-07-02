@@ -1,3 +1,4 @@
+import React from 'react'
 import createConsultationPage from '@app/features/common/consultation'
 import Claim from '@app/models/Claim/Claim'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'

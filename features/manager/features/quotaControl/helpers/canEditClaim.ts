@@ -13,15 +13,6 @@ enum Position {
   Header = 'Header',
 }
 
-const canEditClaim = (
-  claimStatus: ClaimStatus,
-  roles: Role[],
-  position?: Position,
-) => {
-  return (
-    checkStatus(claimStatus) && checkRoles(roles) && checkPosition(position)
-  )
-}
 const checkRoles = (roles: Role[]) => {
   return !(roles.includes(Role.Doctor) && size(roles) === 1)
 }
@@ -31,5 +22,15 @@ const checkStatus = (claimStatus: ClaimStatus) => {
 }
 
 const checkPosition = (position?: Position) => position === Position.Footer
+
+const canEditClaim = (
+  claimStatus: ClaimStatus,
+  roles: Role[],
+  position?: Position,
+) => {
+  return (
+    checkStatus(claimStatus) && checkRoles(roles) && checkPosition(position)
+  )
+}
 
 export { canEditClaim, Position }

@@ -28,10 +28,9 @@
   }
 }
 
-
 .infoText {
   margin: 0 0 32px 0;
-  color: #82839B;
+  color: #82839b;
 
   @media (--smallDown) {
     padding: 0 16px;

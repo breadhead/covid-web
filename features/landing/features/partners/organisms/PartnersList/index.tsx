@@ -3,7 +3,7 @@ import * as React from 'react'
 import * as styles from './PartnersList.css'
 
 import routes from '@app/routes'
-const Router = routes.Router
+const { Router } = routes
 
 import PartnerCard, {
   PartnerCardInterface,

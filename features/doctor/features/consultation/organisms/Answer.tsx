@@ -1,3 +1,4 @@
+import React from 'react'
 import Router from 'next/router'
 
 import ClaimStatus from '@app/models/Claim/ClaimStatus'

@@ -1,8 +1,12 @@
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
+import { Omit } from 'utility-types'
 
-type Props = React.DetailedHTMLProps<
-  React.ImgHTMLAttributes<HTMLImageElement>,
-  HTMLImageElement
+type Props = Omit<
+  React.DetailedHTMLProps<
+    React.ImgHTMLAttributes<HTMLImageElement>,
+    HTMLImageElement
+  >,
+  'ref'
 >
 
 const ServerImage = ({ src, ...rest }: Props) => {

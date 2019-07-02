@@ -25,7 +25,7 @@ export interface ContainerProps extends WithModalProps {
 }
 
 const Container = (WrappedComponent: any) => {
-  return class extends React.Component<ContainerProps> {
+  return class ContaineredComponent extends React.Component<ContainerProps> {
     public render() {
       const { saveCloseData, claimData } = this.props
       return (
