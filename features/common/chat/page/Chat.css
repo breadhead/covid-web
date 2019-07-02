@@ -46,8 +46,7 @@
 .input {
   padding: 12px 44px 12px 41px !important;
   margin: 0 !important;
-  border-bottom-right-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
+  border-radius: 0 !important;
 
   & > * {
     margin-top: auto !important;
@@ -83,6 +82,7 @@
   bottom: 0;
   z-index: 1;
   display: flex;
+  align-items: center;
   height: 100%;
   padding: 0 16px 0 0;
   cursor: pointer;

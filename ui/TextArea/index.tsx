@@ -63,6 +63,7 @@ class TextArea extends React.Component<Props> {
       autosize,
       disableResizeOnEnter,
       focused,
+      setUnfocused,
       ...rest
     } = this.props
     const { mount } = this.state
