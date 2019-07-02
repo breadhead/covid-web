@@ -1,4 +1,4 @@
-import { Component, ComponentType } from 'react'
+import React, { Component, ComponentType } from 'react'
 
 import { AppContext } from '@app/lib/server-types'
 
@@ -9,7 +9,7 @@ interface Query {
 }
 
 const Container = (Wrapped: ComponentType<Props>) =>
-  class extends Component<Partial<Props>> {
+  class ContaineredComponent extends Component<Partial<Props>> {
     public static isSecure = true
 
     public static async getInitialProps(context: AppContext<Query>) {

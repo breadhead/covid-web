@@ -26,13 +26,14 @@ interface Props {
 }
 
 const Container = (WrappedComponent: React.ComponentType<Props>) => {
-  return class extends React.Component<Props> {
+  return class ContaineredComponent extends React.Component<Props> {
     public render() {
       return (
         <WrappedComponent onFormSubmit={this.onFormSubmit} {...this.props} />
       )
     }
 
+    // eslint-disable-next-line consistent-return
     private onFormSubmit = async (credentials: SignUpData) => {
       try {
         await this.props.signUp(credentials)

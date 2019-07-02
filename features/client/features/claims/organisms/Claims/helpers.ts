@@ -4,9 +4,10 @@ export const compareNumeric = (a: ListedClaim, b: ListedClaim) => {
   if (new Date(a.createdAt).getTime() > new Date(b.createdAt).getTime()) {
     return -1
   }
+
   if (new Date(a.createdAt).getTime() < new Date(b.createdAt).getTime()) {
     return 1
-  } else {
-    return 0
   }
+
+  return 0
 }

@@ -3,7 +3,7 @@
   grid-column-end: 2;
   justify-self: flex-start;
 
-  @media (--smallDown) { 
+  @media (--smallDown) {
     grid-column-start: 1;
     grid-column-end: 3;
     width: 100%;

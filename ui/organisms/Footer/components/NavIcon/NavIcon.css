@@ -4,13 +4,13 @@
   height: 24px;
   fill: var(--text-color-secondary);
 
-    @media (--smallDown) {
-      display: inline-block;
-    }
+  @media (--smallDown) {
+    display: inline-block;
+  }
 }
 
 .long {
-    @media (--mediumDown) {
-      display: inline-block;
-    }
+  @media (--mediumDown) {
+    display: inline-block;
+  }
 }

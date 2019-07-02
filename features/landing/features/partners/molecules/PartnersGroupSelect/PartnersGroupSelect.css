@@ -3,9 +3,9 @@
 
   @media (--smallDown) {
     min-width: 220px;
-    }
   }
+}
 
 .ant-select-selection-selected-value::after {
-    display: none !important;
+  display: none !important;
 }

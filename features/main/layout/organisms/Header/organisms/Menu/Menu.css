@@ -2,6 +2,7 @@
   transform: translateX(0);
 }
 
-.animExiting, .animEntering {
+.animExiting,
+.animEntering {
   transform: translateX(100%);
 }

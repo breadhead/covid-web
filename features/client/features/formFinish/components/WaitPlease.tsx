@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'

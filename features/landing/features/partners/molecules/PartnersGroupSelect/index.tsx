@@ -9,7 +9,7 @@ import { Select as AntSelect } from 'antd'
 import { SelectValue } from 'antd/lib/select'
 import { currentPartnersOptions } from '../../organisms/PartnersList/config'
 
-const Option = AntSelect.Option
+const { Option } = AntSelect
 
 const options = currentPartnersOptions.map(option => ({
   label: option.label,

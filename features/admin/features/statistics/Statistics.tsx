@@ -1,5 +1,5 @@
 import saveFile from 'js-file-download'
-import { useCallback, useMemo, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 
 import formatDate from '@app/features/client/features/claims/helpers/formatDate'
 import { useApi } from '@app/lib/api/useApi'

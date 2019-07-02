@@ -1,3 +1,4 @@
+import React from 'react'
 import { Quota } from '@app/models/Quota/Quota'
 import QuotaCard from '../QuotaCard'
 import * as styles from './QuotasList.css'

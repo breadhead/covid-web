@@ -37,6 +37,14 @@ const SurveyAddFieldContainer = ({
   const [count, setCount] = React.useState(initialCount || INITIAL_COUNT)
   const [fields, setFields] = React.useState(INITIAL_FIELDS)
 
+  const changeCount = (quantity: number) => {
+    setCount(count + quantity)
+  }
+
+  const addField = (field: Field) => {
+    setFields(fields.concat(field))
+  }
+
   const onClick = (type: FieldType) => {
     addField({ id: count, type })
     changeCount(1)
@@ -45,14 +53,6 @@ const SurveyAddFieldContainer = ({
   const removeSection = (index: number, id: number) => {
     removeSectionFromState(index, 'otherFiles')()
     setFields(fields.filter(field => field.id !== id))
-  }
-
-  const changeCount = (quantity: number) => {
-    setCount(count + quantity)
-  }
-
-  const addField = (field: Field) => {
-    setFields(fields.concat(field))
   }
 
   const getField = (index: number, field: Field) => {
@@ -65,11 +65,13 @@ const SurveyAddFieldContainer = ({
           }}
         />
       )
-    } else if (field.type === FieldType.Links) {
-      return <LinkField name={`otherFiles.${index}.link`} />
-    } else {
-      return ''
     }
+
+    if (field.type === FieldType.Links) {
+      return <LinkField name={`otherFiles.${index}.link`} />
+    }
+
+    return ''
   }
 
   return (

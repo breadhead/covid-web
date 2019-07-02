@@ -1,4 +1,3 @@
-
 .time-picker {
   height: 48px;
 
@@ -8,10 +7,10 @@
 }
 
 .ant-time-picker-panel-input-wrap {
-    display: flex;
-    height: 48px;
-  }
+  display: flex;
+  height: 48px;
+}
 
-.ant-time-picker-panel-clear-btn.ant-time-picker-panel-clear-btn  {
+.ant-time-picker-panel-clear-btn.ant-time-picker-panel-clear-btn {
   top: 14px;
 }

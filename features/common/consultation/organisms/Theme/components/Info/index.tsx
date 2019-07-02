@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import * as React from 'react'
 
 import { displayFileName } from '@app/features/common/uploader/displayFileName'
@@ -51,9 +52,7 @@ const Info = ({ styles, claim }: Props) => {
             return renderFlat(article)
           }
 
-          if (!!article.children) {
-            return renderCompose(article)
-          }
+          return renderCompose(article)
         })
 
         return (

@@ -22,7 +22,7 @@ export const NavLink = ({
           className,
         )}
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         {children}
       </a>

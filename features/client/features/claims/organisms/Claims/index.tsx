@@ -1,3 +1,4 @@
+import React from 'react'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 
 import ClaimCard from '../Claim'

@@ -24,6 +24,18 @@ interface Query {
 
 type Props = PageProps
 
+const mapState = (state: State) => ({
+  claim: getClaim(state),
+  authorLogin: getAuthorLogin(state),
+  clientClaims: getClientClaimsList(state),
+  roles: getRoles(state),
+})
+
+const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
+  getListOfClientClaims: (login: string) =>
+    dispatch(getClientClaims(login) as any),
+})
+
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
   additionalProps: Partial<PageProps>,
   layout: React.ComponentType,
@@ -31,7 +43,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
   connect(
     mapState,
     mapDispatch,
-  )(class extends React.Component<Props> {
+  )(class ContaineredComponent extends React.Component<Props> {
     public static async getInitialProps({
       reduxStore,
       query,
@@ -45,7 +57,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       await reduxStore.dispatch(fetchDoctorsIfNeeded() as any)
       return {
         roles: user.roles,
-        openMessage: query.hasOwnProperty('openMessage'),
+        openMessage: Object.prototype.hasOwnProperty.call(query, 'openMessage'),
       }
     }
 
@@ -71,17 +83,5 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       )
     }
   } as any)
-
-const mapState = (state: State) => ({
-  claim: getClaim(state),
-  authorLogin: getAuthorLogin(state),
-  clientClaims: getClientClaimsList(state),
-  roles: getRoles(state),
-})
-
-const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
-  getListOfClientClaims: (login: string) =>
-    dispatch(getClientClaims(login) as any),
-})
 
 export default Container as any

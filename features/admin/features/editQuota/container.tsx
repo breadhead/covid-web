@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import Router from 'next/router'
 import * as React from 'react'
 import { connect } from 'react-redux'

@@ -1,3 +1,4 @@
+import React from 'react'
 import { NavLink } from '@front/ui/nav-link'
 
 import stylesLong from './MenuLong.css'

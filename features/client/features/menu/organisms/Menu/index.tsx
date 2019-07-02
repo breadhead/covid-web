@@ -1,3 +1,4 @@
+import React from 'react'
 import Dropdown from '@app/ui/Dropdown'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'

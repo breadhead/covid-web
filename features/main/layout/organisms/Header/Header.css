@@ -42,10 +42,9 @@
 }
 
 .buttonContainer {
-
-  @media(--xxsmallDown) {
-  display: block;
-  width: 40px;
-  margin-left: auto;
+  @media (--xxsmallDown) {
+    display: block;
+    width: 40px;
+    margin-left: auto;
   }
 }

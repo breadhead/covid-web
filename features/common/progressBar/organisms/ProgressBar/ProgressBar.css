@@ -5,12 +5,22 @@
   max-width: 800px;
   margin: 0 auto;
   background-color: inherit;
-  background-image: linear-gradient(to top, transparent 30%, rgba(21, 24, 51, 0.2) 1px, transparent calc(30% + 1px));
+  background-image: linear-gradient(
+    to top,
+    transparent 30%,
+    rgba(21, 24, 51, 0.2) 1px,
+    transparent calc(30% + 1px)
+  );
   background-position: top;
 
   @media (--smallDown) {
     max-width: 272px;
-    background-image: linear-gradient(to top, transparent 45%, rgba(21, 24, 51, 0.2) 1px, transparent calc(45% + 1px));
+    background-image: linear-gradient(
+      to top,
+      transparent 45%,
+      rgba(21, 24, 51, 0.2) 1px,
+      transparent calc(45% + 1px)
+    );
   }
 }
 
@@ -18,7 +28,7 @@
   position: relative;
   z-index: 1;
   display: flex;
-  flex-direction: column;    
+  flex-direction: column;
   align-items: center;
   max-width: 150px;
   background-color: inherit;
@@ -26,7 +36,6 @@
   background-position: inherit;
 
   &:first-of-type {
-    
     &::before {
       position: absolute;
       bottom: 0;
@@ -39,7 +48,6 @@
   }
 
   &:last-of-type {
-
     &::after {
       position: absolute;
       right: 0;

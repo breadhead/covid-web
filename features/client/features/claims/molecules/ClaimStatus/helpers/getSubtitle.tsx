@@ -1,4 +1,5 @@
-import { ReactNode } from 'react'
+/* eslint-disable react/display-name */
+import React, { ReactNode } from 'react'
 
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 

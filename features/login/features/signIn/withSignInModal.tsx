@@ -1,3 +1,4 @@
+import React from 'react'
 import { withModal, WithModalProps } from '@app/features/common/modal'
 import { SIGN_IN_MODAL } from '@app/features/login'
 

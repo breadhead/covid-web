@@ -24,7 +24,10 @@ export interface Props extends ContainerProps {
 }
 
 const Container = (WrappedComponent: React.ComponentType<Props>) => {
-  return class extends React.Component<ContainerProps, LocalState> {
+  return class ContaineredComponent extends React.Component<
+    ContainerProps,
+    LocalState
+  > {
     public state = this.getInitialState() as LocalState
     public render() {
       return (

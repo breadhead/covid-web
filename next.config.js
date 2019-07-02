@@ -17,7 +17,9 @@ const themeVariables = lessToJS(
 
 // fix: prevents error when .less files are required by node
 if (typeof require !== 'undefined') {
-  require.extensions['.less'] = file => {}
+  require.extensions['.less'] = () => {
+    // pass
+  }
 }
 
 module.exports = withPlugins(

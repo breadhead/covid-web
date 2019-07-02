@@ -21,7 +21,7 @@ interface Props {
 }
 
 const Container = (WrappedComponent: React.ComponentType<Props>) => {
-  return class extends React.Component<Props> {
+  return class ContaineredComponent extends React.Component<Props> {
     public static isSecure = true
 
     public static async getInitialProps(context: AppContext<Query>) {

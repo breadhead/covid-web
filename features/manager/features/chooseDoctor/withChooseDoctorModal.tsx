@@ -1,3 +1,4 @@
+import React from 'react'
 import { withModal, WithModalProps } from '@app/features/common/modal'
 import { MODAL_KEY } from './container'
 

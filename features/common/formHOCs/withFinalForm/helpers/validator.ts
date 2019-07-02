@@ -11,6 +11,7 @@ interface ValidatorParams {
 }
 export type Validator = (params: ValidatorParams) => undefined | string
 
+// eslint-disable-next-line consistent-return
 const validator: Validator = ({ value, values, schema, validateCb }) => {
   try {
     if (schema) {

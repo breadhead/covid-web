@@ -1,3 +1,5 @@
+/* eslint-disable react/display-name */
+import React from 'react'
 import createConsultationPage from '@app/features/common/consultation'
 
 import Layout from '../../organisms/Layout'

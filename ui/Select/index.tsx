@@ -5,7 +5,7 @@ import * as React from 'react'
 
 import './SelectGlobal.css?CSSModulesDisable'
 
-const Option = AntSelect.Option
+const { Option } = AntSelect
 
 interface OwnProps {
   name: string

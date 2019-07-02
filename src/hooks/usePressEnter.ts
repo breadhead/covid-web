@@ -17,11 +17,13 @@ export const usePressEnter = (
   useEffect(
     () => {
       const { current } = ref
-      if (current) {
-        current.addEventListener('keyup', handleEnter)
-
-        return () => current.removeEventListener('keyup', handleEnter)
+      if (!current) {
+        return () => null
       }
+
+      current.addEventListener('keyup', handleEnter)
+
+      return () => current.removeEventListener('keyup', handleEnter)
     },
     [ref, handleEnter],
   )

@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react'
 
 import { displayFileName } from '@app/features/common/uploader/displayFileName'
 
@@ -19,12 +19,12 @@ export const ClickableText = ({
   linkClassName,
   children,
 }: Props) => {
-  if (!children) {
-    return null
-  }
-
   const pieces = useMemo(
     () => {
+      if (!children) {
+        return []
+      }
+
       const links = findUrls(children)
 
       return splitText(children, links)
@@ -40,6 +40,10 @@ export const ClickableText = ({
     ),
     [linkClassName],
   )
+
+  if (!children) {
+    return null
+  }
 
   return (
     <p className={className}>

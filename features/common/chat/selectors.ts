@@ -19,7 +19,7 @@ export const getLoaded = (state: State) => state.chat.loaded
 
 export const isMuted = (state: State) =>
   tryOr(() => {
-    const status = state.consultation.claimData.mainInfo!.status
+    const { status } = state.consultation.claimData.mainInfo!
 
     const isClient = state.login.user.roles.includes(Role.Client)
     const statusIsMuted = mutedStatuses.includes(status)

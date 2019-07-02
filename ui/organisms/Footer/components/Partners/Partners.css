@@ -7,7 +7,6 @@
   }
 }
 
-
 .partner {
   display: flex;
   align-items: center;
@@ -15,7 +14,7 @@
   width: calc(100% / 3);
   padding: 12px 16px;
   margin-right: 16px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
   border-radius: 10px;
 
   &:last-of-type {

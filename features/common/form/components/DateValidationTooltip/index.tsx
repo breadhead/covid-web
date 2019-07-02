@@ -1,3 +1,4 @@
+import React from 'react'
 import { DateInterface } from '@app/lib/helpers/validateDates'
 import { head } from 'lodash'
 import ValidationTooltip from '../ValidationTooltip'

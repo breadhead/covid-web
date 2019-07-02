@@ -14,7 +14,7 @@ const QuotaName = ({ name, id }: Props) => {
   }
   return (
     <h1 className={styles.QuotaName}>
-      {name + ' '}
+      {`${name} `}
       <Icon
         type="edit"
         theme="filled"

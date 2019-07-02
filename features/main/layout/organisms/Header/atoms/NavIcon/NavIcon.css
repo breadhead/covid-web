@@ -4,7 +4,7 @@
   height: 24px;
   fill: var(--text-color-secondary);
 
-    @media (--mediumDown) {
-      display: inline-block;
-    }
+  @media (--mediumDown) {
+    display: inline-block;
+  }
 }

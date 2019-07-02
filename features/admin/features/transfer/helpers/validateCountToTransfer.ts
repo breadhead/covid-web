@@ -10,6 +10,7 @@ export const validateCountToTransfer = (
   const isCountToTransferValid = sourceCount >= countToTransfer
 
   if (!isCountToTransferValid) {
+    // eslint-disable-next-line no-throw-literal
     throw { message: 'Недостаточно квот', path: 'count' }
   }
   return true

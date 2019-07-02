@@ -37,7 +37,6 @@
   @media (--smallDown) {
     margin-bottom: 0;
   }
-
 }
 
 .reasons {
@@ -48,7 +47,7 @@
   padding: 12px 20px;
   margin: 0 0 12px 0;
   text-align: left;
-  background-color: #F7F6F2;
+  background-color: #f7f6f2;
   border-radius: 16px 16px 16px 0;
 
   &:last-of-type {
@@ -57,7 +56,7 @@
 }
 
 .button.button.button.button {
-    display: block;
+  display: block;
   @media (--smallDown) {
     margin-right: auto;
   }

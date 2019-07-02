@@ -1,3 +1,4 @@
+import React from 'react'
 import { Doctor } from '@app/models/Users/Doctor'
 import AssignDoctorButton from '../../atoms/AssignDoctorButton'
 import ChangeQuotaButton from '../../atoms/ChangeQuotaButton'

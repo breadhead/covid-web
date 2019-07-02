@@ -1,3 +1,4 @@
+import React from 'react'
 import Dropdown from '@app/ui/Dropdown'
 import * as styles from './Menu.css'
 

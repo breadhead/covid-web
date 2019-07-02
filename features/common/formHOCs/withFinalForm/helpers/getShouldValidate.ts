@@ -7,9 +7,11 @@ export const getShouldValidate = ({
 }: any) => {
   if (submitFailed || eagerValidation) {
     return true
-  } else if (active) {
-    return false
-  } else {
-    return touched && !pristine
   }
+
+  if (active) {
+    return false
+  }
+
+  return touched && !pristine
 }

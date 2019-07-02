@@ -1,3 +1,4 @@
+import React from 'react'
 import createConsultationPage from '@app/features/common/consultation'
 import { Controls, Layout } from '@app/features/manager'
 import Claim from '@app/models/Claim/Claim'

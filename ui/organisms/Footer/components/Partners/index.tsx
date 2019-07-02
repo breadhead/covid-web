@@ -36,7 +36,7 @@ const Partners = ({ className }: Props) => (
     {partners.map(({ id, text, logo, href }) => (
       <a
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
         key={id}
         href={href}
         className={styles.partner}

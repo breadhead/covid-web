@@ -2,7 +2,7 @@
   padding: 2px 12px;
   font: var(--text14-20);
   color: var(--text-color-primary);
-  background-color: #FFEAB7;
+  background-color: #ffeab7;
   border-radius: 12px;
 
   @media (--mediumDown) {

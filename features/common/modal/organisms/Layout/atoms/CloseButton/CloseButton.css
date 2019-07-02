@@ -22,14 +22,14 @@
   }
 
   &::after {
-  position: absolute;
-  top: 2px;
-  right: 11px;
-  display: block;
-  width: 2px;
-  height: 21px;
-  content: '';
-  background-color: var(--color-default);
-  transform: rotate(-45deg);
+    position: absolute;
+    top: 2px;
+    right: 11px;
+    display: block;
+    width: 2px;
+    height: 21px;
+    content: '';
+    background-color: var(--color-default);
+    transform: rotate(-45deg);
   }
 }

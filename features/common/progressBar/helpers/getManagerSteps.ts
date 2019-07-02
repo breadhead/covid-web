@@ -1,18 +1,5 @@
 import { StepPointerModel, StepPointerType } from '../molecule/StepPointer'
 import { managerSteps } from '../steps'
-export function getManagerSteps(id: string, current: number) {
-  return managerSteps.map(
-    (name, index): StepPointerModel => {
-      const href = defineHref(index, id)
-      return {
-        title: name,
-        type: defineType(index, current),
-        disabled: false,
-        href,
-      }
-    },
-  )
-}
 
 const defineType = (index: number, current: number) => {
   if (index === current) {
@@ -32,4 +19,18 @@ const defineHref = (index: number, id?: string) => {
     `/manager/claim/${id}/situation`,
     `/manager/claim/${id}/questions`,
   ][index]
+}
+
+export function getManagerSteps(id: string, current: number) {
+  return managerSteps.map(
+    (name, index): StepPointerModel => {
+      const href = defineHref(index, id)
+      return {
+        title: name,
+        type: defineType(index, current),
+        disabled: false,
+        href,
+      }
+    },
+  )
 }

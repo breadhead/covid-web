@@ -11,8 +11,8 @@
   margin: 0 auto;
   margin-bottom: 48px;
   text-align: center;
-  background-color: #F7F6F2;
-  border: 1px solid #F1EFED;
+  background-color: #f7f6f2;
+  border: 1px solid #f1efed;
   border-radius: 20px;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .countItem {
-  flex-basis: 50%;    
+  flex-basis: 50%;
   padding: 32px 0;
 
   &:first-of-type {
