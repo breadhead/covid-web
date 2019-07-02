@@ -1,3 +1,10 @@
+.wholeBlock {
+  display: grid;
+  grid-row-templates: auto auto;
+  gap: 48px;
+  padding-bottom: 8px;
+}
+
 .questionNotification {
   padding: 32px 16px;
   margin: 64px -120px 0 -120px;

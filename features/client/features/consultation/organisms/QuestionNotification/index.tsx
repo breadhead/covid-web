@@ -14,6 +14,7 @@ import { getClientInfo } from '../selectors'
 import { ChatFeedback } from './components/ChatFeedback'
 import { SimpleFeedback } from './components/SimpleFeedback'
 import { useAnswerClear } from './useAnswerClear'
+import { ClearMorning } from './components/clear-morning'
 
 interface Props {
   focusOnChat: () => void
@@ -44,18 +45,22 @@ const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
   )
 
   return STATUSES_WITH_VISIBLE_EXPERTS_BLOCK.includes(mainInfo.status) ? (
-    <article id="feedback" className={styles.questionNotification}>
-      <div className={styles.container}>
-        <p className={styles.text}>
-          Нам важно получить обратную связь от{NON_BREAKING_SPACE}вас
-        </p>
-        {isAnswerClear ? (
-          <SimpleFeedback onNoButtonClick={onNoButtonClick} />
-        ) : (
-          <ChatFeedback onClick={onChatButtonClick} />
-        )}
-      </div>
-    </article>
+    <div className={styles.wholeBlock}>
+      <article id="feedback" className={styles.questionNotification}>
+        <div className={styles.container}>
+          <p className={styles.text}>
+            Нам важно получить обратную связь от{NON_BREAKING_SPACE}вас
+          </p>
+          {isAnswerClear ? (
+            <SimpleFeedback onNoButtonClick={onNoButtonClick} />
+          ) : (
+            <ChatFeedback onClick={onChatButtonClick} />
+          )}
+        </div>
+      </article>
+
+      <ClearMorning />
+    </div>
   ) : null
 }
 
