@@ -15,6 +15,7 @@ import { Transaction } from '@app/models/Quota/Transaction'
 import { Doctor } from '@app/models/Users/Doctor'
 import { User } from '@app/models/Users/User'
 import { CorporateStatus } from '@front/domain/claim/enums/CorporateStatus'
+import { TimeReport } from '@front/domain/statistics/model/time-report'
 import ApiClient, { UploadedFile } from './ApiClient'
 import { queryString } from './helper/queryString'
 import { tapDate } from './helper/tapDate'
@@ -259,4 +260,9 @@ export default class RealApiClient implements ApiClient {
       .get(`/statistics/${path}?${queryString({ from, to })}`)
       .then(response => response.data)
   }
+
+  fetchTimeReport = () =>
+    this.axiosInstance
+      .get('/statistics/doctor-answer')
+      .then(response => response.data as TimeReport)
 }

@@ -19,6 +19,7 @@ import { QuotaTransferRequest } from './request/QuotaTransfer'
 import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
+import { TimeReport } from '@front/domain/statistics/model/time-report'
 
 export interface UploadedFile {
   path: string
@@ -77,4 +78,5 @@ export default interface ApiClient {
   ): Promise<void>
 
   downloadReport(from: Date, to: Date, onlyClosed: boolean): Promise<any>
+  fetchTimeReport(): Promise<TimeReport>
 }

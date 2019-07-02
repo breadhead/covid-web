@@ -4,7 +4,8 @@ import { Tabs } from 'antd'
 const { TabPane } = Tabs
 
 import Layout from '../../organisms/Layout'
-import { ClaimArchive } from './components/claim-archive/ClaimArchive'
+import { ClaimArchive } from './components/claim-archive'
+import { TimeReport } from './components/time-report'
 import s from './Statistics.css'
 
 export const Statistics = () => {
@@ -17,7 +18,7 @@ export const Statistics = () => {
           <ClaimArchive />
         </TabPane>
         <TabPane tab="Время ответа" key="time" className={s.tab}>
-          Тут будет время ответа экспертов
+          <TimeReport />
         </TabPane>
       </Tabs>
     </Layout>
