@@ -1,5 +1,5 @@
 export const formatTimestamp = (ms: number) => {
-  const hours = Math.round(ms / 1000 / 60 / 60 / 24)
+  const hours = Math.round(ms / 1000 / 60 / 60)
 
   if (hours > 24) {
     const hoursAfterDays = hours % 24
