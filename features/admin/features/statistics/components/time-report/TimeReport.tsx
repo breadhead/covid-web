@@ -42,7 +42,7 @@ export const TimeReport = () => {
     return <p>Загружаем...</p>
   }
 
-  const { median, min, max, average, doctors } = timeData
+  const { median, max, average, doctors } = timeData
 
   const tableData = doctors.map(doctor => ({
     key: doctor.name,
