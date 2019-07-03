@@ -23,12 +23,6 @@ const columns = [
     render: formatTimestamp,
   },
   {
-    title: 'Минимальное время ответа',
-    dataIndex: 'min',
-    key: 'min',
-    render: formatTimestamp,
-  },
-  {
     title: 'Максимальное время ответа',
     dataIndex: 'max',
     key: 'max',
@@ -59,7 +53,6 @@ export const TimeReport = () => {
     <div>
       <p>Общее среднее время ответа: {formatTimestamp(average)}</p>
       <p>Общее медианное время ответа: {formatTimestamp(median)}</p>
-      <p>Минимальное время ответа: {formatTimestamp(min)}</p>
       <p>Максимальное время ответа: {formatTimestamp(max)}</p>
       <Table columns={columns} dataSource={tableData} />
     </div>
