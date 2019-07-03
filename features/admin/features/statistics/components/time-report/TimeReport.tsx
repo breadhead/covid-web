@@ -22,6 +22,18 @@ const columns = [
     key: 'median',
     render: formatTimestamp,
   },
+  {
+    title: 'Минимальное время ответа',
+    dataIndex: 'min',
+    key: 'min',
+    render: formatTimestamp,
+  },
+  {
+    title: 'Максимальное время ответа',
+    dataIndex: 'max',
+    key: 'max',
+    render: formatTimestamp,
+  },
 ]
 
 export const TimeReport = () => {
@@ -36,7 +48,7 @@ export const TimeReport = () => {
     return <p>Загружаем...</p>
   }
 
-  const { median, average, doctors } = timeData
+  const { median, min, max, average, doctors } = timeData
 
   const tableData = doctors.map(doctor => ({
     key: doctor.name,
@@ -47,6 +59,8 @@ export const TimeReport = () => {
     <div>
       <p>Общее среднее время ответа: {formatTimestamp(average)}</p>
       <p>Общее медианное время ответа: {formatTimestamp(median)}</p>
+      <p>Минимальное время ответа: {formatTimestamp(min)}</p>
+      <p>Максимальное время ответа: {formatTimestamp(max)}</p>
       <Table columns={columns} dataSource={tableData} />
     </div>
   )
