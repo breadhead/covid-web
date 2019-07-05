@@ -2,11 +2,8 @@ import React from 'react'
 import Router from 'next/router'
 import * as yup from 'yup'
 
-import {
-  ExpertAnswers,
-  makeQuestionGroups,
-} from '@app/features/common/consultation'
-import { useCallback } from 'react'
+import { ExpertAnswers } from '@app/features/common/consultation'
+import { useCallback, useState, useEffect } from 'react'
 import { Form, TextArea } from '@app/features/common/form'
 import { ButtonKind, ButtonWithTooltip } from '@app/features/common/form'
 import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
@@ -15,9 +12,8 @@ import { Button } from '@front/ui/button'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { makeFieldName } from '../../helpers/makeFieldName'
-import { makeInitialValues } from '../../helpers/makeInitialValues'
 import * as styles from './Answers.css'
-import { saveAnswerDraft } from './localStorage'
+import { saveAnswerDraft, getAnswerDraft } from './localStorage'
 
 interface Answers {
   [key: string]: string
@@ -34,6 +30,7 @@ export interface Props {
 }
 
 const Answers = ({ claim, onSubmit, claimStatus, mainInfo }: Props) => {
+  const [draft, getDraft] = useState({})
   const answerSent = claimStatus === ClaimStatus.AnswerValidation
 
   const saveEnteredValues = useCallback(
@@ -41,10 +38,17 @@ const Answers = ({ claim, onSubmit, claimStatus, mainInfo }: Props) => {
     [],
   )
 
+  useEffect(
+    () => {
+      getDraft(getAnswerDraft())
+    },
+    [saveEnteredValues],
+  )
+
   return (
     <Form
       onSubmit={onSubmit as any}
-      initialValues={claim && makeInitialValues(makeQuestionGroups(claim))}
+      initialValues={draft}
       saveDebounced={saveEnteredValues}
       saveOnBlur={saveEnteredValues}
     >

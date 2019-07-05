@@ -6,4 +6,4 @@ export const saveAnswerDraft = (data: any) => {
   store.set(ANSWERS_DRAFT_KEY, data, true)
 }
 
-export const gatAnswerDraft = () => store.get(ANSWERS_DRAFT_KEY) || {}
+export const getAnswerDraft = () => store.get(ANSWERS_DRAFT_KEY) || {}
