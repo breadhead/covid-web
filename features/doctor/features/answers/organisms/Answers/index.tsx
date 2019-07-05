@@ -35,12 +35,15 @@ const Answers = ({ claim, onSubmit, claimStatus, mainInfo }: Props) => {
 
   const saveEnteredValues = useCallback(
     async fields => saveAnswerDraft(mainInfo.id, fields),
-    [],
+    [mainInfo.id],
   )
 
-  useEffect(() => {
-    setDraft(getAnswerDraft(mainInfo.id))
-  }, [])
+  useEffect(
+    () => {
+      setDraft(getAnswerDraft(mainInfo.id))
+    },
+    [mainInfo.id],
+  )
 
   return (
     <Form
