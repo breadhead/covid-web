@@ -30,20 +30,17 @@ export interface Props {
 }
 
 const Answers = ({ claim, onSubmit, claimStatus, mainInfo }: Props) => {
-  const [draft, getDraft] = useState({})
+  const [draft, setDraft] = useState({})
   const answerSent = claimStatus === ClaimStatus.AnswerValidation
 
   const saveEnteredValues = useCallback(
-    async fields => saveAnswerDraft(fields),
+    async fields => saveAnswerDraft(mainInfo.id, fields),
     [],
   )
 
-  useEffect(
-    () => {
-      getDraft(getAnswerDraft())
-    },
-    [saveEnteredValues],
-  )
+  useEffect(() => {
+    setDraft(getAnswerDraft(mainInfo.id))
+  }, [])
 
   return (
     <Form
