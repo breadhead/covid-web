@@ -15,18 +15,26 @@ const columns = [
     dataIndex: 'average',
     key: 'average',
     render: formatTimestamp,
+    defaultSortOrder: 'descend',
+    sorter: (a: { average: number }, b: { average: number }) =>
+      a.average - b.average,
   },
   {
     title: 'Медианное время ответа',
     dataIndex: 'median',
     key: 'median',
     render: formatTimestamp,
+    defaultSortOrder: 'descend',
+    sorter: (a: { median: number }, b: { median: number }) =>
+      a.median - b.median,
   },
   {
     title: 'Максимальное время ответа',
     dataIndex: 'max',
     key: 'max',
     render: formatTimestamp,
+    defaultSortOrder: 'descend',
+    sorter: (a: { max: number }, b: { max: number }) => a.max - b.max,
   },
 ]
 
@@ -48,7 +56,6 @@ export const TimeReport = () => {
     key: doctor.name,
     ...doctor,
   }))
-
   return (
     <div>
       <p>Общее среднее время ответа: {formatTimestamp(average)}</p>

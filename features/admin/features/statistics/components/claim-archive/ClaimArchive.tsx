@@ -54,7 +54,7 @@ export const ClaimArchive = () => {
   return (
     <>
       <div className={styles.radioGroup}>
-        <label>
+        <label className={styles.label}>
           <input
             type="radio"
             name="onlyClosed"
@@ -64,7 +64,7 @@ export const ClaimArchive = () => {
           Все
         </label>
 
-        <label>
+        <label className={styles.label}>
           <input
             type="radio"
             name="onlyClosed"
