@@ -21,6 +21,7 @@
       "@front/*": ["src/*"],
       "redux-windowsize": ["src/types/reduxWindowsize.d.ts"],
       "plural-ru": ["src/types/plural-ru.d.ts"]
-    }
+    },
+    "exclude": ["features/admin/statistics/time-report/useColumnSearchProps.ts"]
   }
 }
