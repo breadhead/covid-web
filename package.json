@@ -59,6 +59,7 @@
     "react-redux": "^5.1.0",
     "react-transition-group": "^2.5.1",
     "react-yandex-maps": "^3.0.2",
+    "recharts": "^1.6.2",
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
     "redux-clear": "^1.1.2",
