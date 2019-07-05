@@ -1,5 +1,8 @@
 import * as React from 'react'
 import { FunnelChart, Tooltip, Funnel, LabelList } from 'recharts'
+import routes from '@app/routes'
+
+const { Router } = routes
 
 const data = [
   {
@@ -40,7 +43,7 @@ export const ClaimsFunnel = () => {
       <Tooltip />
       <Funnel
         animationEasing="ease-in"
-        onClick={(info: any) => console.log(info.id)}
+        onClick={(info: any) => Router.pushRoute(`/admin/linechart:${info.id}`)}
         dataKey="value"
         data={data}
         isAnimationActive
