@@ -6,6 +6,7 @@ import {
   ExpertAnswers,
   makeQuestionGroups,
 } from '@app/features/common/consultation'
+import { useCallback } from 'react'
 import { Form, TextArea } from '@app/features/common/form'
 import { ButtonKind, ButtonWithTooltip } from '@app/features/common/form'
 import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
@@ -16,6 +17,7 @@ import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { makeFieldName } from '../../helpers/makeFieldName'
 import { makeInitialValues } from '../../helpers/makeInitialValues'
 import * as styles from './Answers.css'
+import { saveAnswerDraft } from './localStorage'
 
 interface Answers {
   [key: string]: string
@@ -34,10 +36,17 @@ export interface Props {
 const Answers = ({ claim, onSubmit, claimStatus, mainInfo }: Props) => {
   const answerSent = claimStatus === ClaimStatus.AnswerValidation
 
+  const saveEnteredValues = useCallback(
+    async fields => saveAnswerDraft(fields),
+    [],
+  )
+
   return (
     <Form
       onSubmit={onSubmit as any}
       initialValues={claim && makeInitialValues(makeQuestionGroups(claim))}
+      saveDebounced={saveEnteredValues}
+      saveOnBlur={saveEnteredValues}
     >
       {() => (
         <>
