@@ -4,7 +4,6 @@ import { useApi } from '@app/lib/api/useApi'
 import { formatTimestamp } from './formatTimestamp'
 import { TimeReport as TimeReportModel } from '@app/src/domain/statistics/model/time-report'
 import { useColumnSearchProps } from './useColumnSearchProps'
-/* eslint-disable react/display-name */
 
 export const TimeReport = () => {
   const api = useApi()

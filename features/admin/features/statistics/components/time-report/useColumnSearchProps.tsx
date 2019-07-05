@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { Input, Button, Icon } from 'antd'
 import Highlighter from 'react-highlight-words'
-
+/* eslint-disable react/display-name */
 interface Props {
   setSelectedKeys: (evt: any) => void
   selectedKeys: any
