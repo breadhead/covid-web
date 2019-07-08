@@ -12,46 +12,35 @@ import Layout from '@app/features/admin/organisms/Layout'
 
 const data = [
   {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    name: 'Февраль',
+    all: 5000,
+    answered: 2500,
   },
   {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    name: 'Март',
+    all: 2500,
+    answered: 2500,
   },
   {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    name: 'Апрель',
+    all: 3000,
+    answered: 2500,
   },
   {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
+    name: 'Май',
+    all: 3200,
+    answered: 3908,
     amt: 2500,
   },
   {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    name: 'Июнь',
+    all: 3300,
+    answered: 2500,
+  },
+  {
+    name: 'Июль',
+    all: 3400,
+    answered: 3800,
   },
 ]
 
@@ -60,7 +49,7 @@ export const ClaimsLineChart = () => {
     <Layout>
       <LineChart
         width={730}
-        height={250}
+        height={300}
         data={data}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
       >
@@ -69,8 +58,8 @@ export const ClaimsLineChart = () => {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+        <Line type="monotone" dataKey="answered" stroke="#8884d8" />
+        <Line type="monotone" dataKey="all" stroke="#82ca9d" />
       </LineChart>
     </Layout>
   )
