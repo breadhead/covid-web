@@ -28,6 +28,7 @@ import { SendFeedbackRequest } from './request/SendFeedback'
 import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
+import { SuccessefulClosedClaims } from '@app/src/domain/statistics/model/SuccessefulClosedClaims'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -265,4 +266,9 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .get('/statistics/doctor-answer')
       .then(response => response.data as TimeReport)
+
+  fetchSuccessefulClosedClaims = () =>
+    this.axiosInstance
+      .get('/statistics/success-closed-claims-report')
+      .then(response => response.data as SuccessefulClosedClaims)
 }

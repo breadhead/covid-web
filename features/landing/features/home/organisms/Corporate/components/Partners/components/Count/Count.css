@@ -1,4 +1,9 @@
 .countWrapper {
+  padding: 32px 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
   @media (--smallDown) {
     max-width: 100vw;
     padding: 0 16px;
@@ -27,13 +32,4 @@
   font-family: var(--fontFamily-title);
   font-size: 64px;
   line-height: 64px;
-}
-
-.countItem {
-  flex-basis: 50%;
-  padding: 32px 0;
-
-  &:first-of-type {
-    border-right: 1px solid rgba(21, 24, 51, 0.08);
-  }
 }

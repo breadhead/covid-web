@@ -1,20 +1,30 @@
 import * as React from 'react'
+import { useEffect, useState } from 'react'
+import cx from 'classnames'
+import plural from 'plural-ru'
 
 import * as styles from './Count.css'
+import { useApi } from '@app/lib/api/useApi'
+import { SPACE } from '@app/lib/config'
 
-const Count = () => (
-  <div className={styles.countWrapper}>
-    <div className={styles.count}>
-      <div className={styles.countItem}>
-        <p className={styles.number}>0</p>
-        <p className={styles.label}>Проведено</p>
-      </div>
-      <div className={styles.countItem}>
-        <p className={styles.number}>128</p>
-        <p className={styles.label}>Предоплачено</p>
-      </div>
+const Count = () => {
+  const api = useApi()
+  const [count, setCount] = useState<number | null>(null)
+
+  useEffect(() => {
+    api.fetchSuccessefulClosedClaims().then(res => {
+      setCount(res.num)
+    })
+  }, [])
+
+  return !!count ? (
+    <div className={cx(styles.countWrapper, styles.count)}>
+      <p className={styles.number}>{count}</p>
+      <p className={styles.label}>
+        Успешно проведенных{SPACE}
+        {plural(count, 'консультация', 'консультации', 'консультаций')}
+      </p>
     </div>
-  </div>
-)
-
+  ) : null
+}
 export default Count

@@ -20,6 +20,7 @@ import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 import { TimeReport } from '@front/domain/statistics/model/time-report'
+import { SuccessefulClosedClaims } from '@app/src/domain/statistics/model/SuccessefulClosedClaims'
 
 export interface UploadedFile {
   path: string
@@ -76,7 +77,7 @@ export default interface ApiClient {
     claimId: string,
     newStatus: CorporateStatus,
   ): Promise<void>
-
   downloadReport(from: Date, to: Date, onlyClosed: boolean): Promise<any>
   fetchTimeReport(): Promise<TimeReport>
+  fetchSuccessefulClosedClaims(): Promise<SuccessefulClosedClaims>
 }
