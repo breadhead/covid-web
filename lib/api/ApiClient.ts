@@ -79,5 +79,5 @@ export default interface ApiClient {
   ): Promise<void>
   downloadReport(from: Date, to: Date, onlyClosed: boolean): Promise<any>
   fetchTimeReport(): Promise<TimeReport>
-  fetchSuccessefulClosedClaims(): Promise<SuccessefulClosedClaims>
+  fetchSuccessefulClosedClaims(): Promise<number>
 }

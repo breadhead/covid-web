@@ -1,9 +1,13 @@
-import { createFetchingRedux, FetchingState } from 'redux-clear'
+import { FetchingState, createClearRedux } from 'redux-clear'
 
 type State = FetchingState
 
-const { actions, reducer } = createFetchingRedux(
-  'claim/change-corporate-status',
+const { actions, reducer } = createClearRedux(
+  {
+    set: () => query => query,
+  },
+  {},
+  'browser-query',
 )
 
 export { actions, reducer, State }

@@ -5,10 +5,14 @@ import * as styles from './Corporate.css'
 import Partners from './components/Partners'
 import Program from './components/Program'
 
-const Corporate = () => (
+interface Props {
+  count: number
+}
+
+const Corporate = ({ count }: Props) => (
   <section className={styles.corporate}>
     <Program />
-    <Partners />
+    <Partners count={count} />
   </section>
 )
 
