@@ -9,11 +9,7 @@ import StartConsultationButton from '../../../../molecules/StartConsultationButt
 import PartnersList from './components/PartnersList'
 import Count from './components/Count'
 
-interface Props {
-  count: number
-}
-
-const Partners = ({ count }: Props) => (
+const Partners = () => (
   <article className={styles.partners}>
     <h2 className={styles.title}>
       Консультации проводятся на{NON_BREAKING_SPACE}пожертвования физических лиц
@@ -22,7 +18,7 @@ const Partners = ({ count }: Props) => (
     <p className={styles.subtitle}>
       На 2019 год запланировано 5000 консультаций
     </p>
-    <Count count={count} />
+    <Count />
     <PartnersList />
     <NavLink className={styles.link} href="/partners">
       Посмотреть всех партнёров

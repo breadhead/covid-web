@@ -268,6 +268,6 @@ export default class RealApiClient implements ApiClient {
 
   public fetchSuccessefulClosedClaims = () =>
     this.axiosInstance
-      .get('/statistics/success-closed-claims-count')
+      .get('/public-statistics/success-closed-claims-count')
       .then(response => response.data as number)
 }
