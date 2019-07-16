@@ -15,15 +15,15 @@ export const changeCorporateStatus = (
   { getApi }: ExtraArgs,
 ) => {
   const api = getApi(getState)
-  dispatch((actions as any).request())
+  dispatch(actions.request())
 
   try {
     await api.changeCorporateStatus(claimId, newStatus)
 
     await dispatch(fetchClaim(claimId))
-    dispatch((actions as any).success())
+    dispatch(actions.success())
   } catch (error) {
-    dispatch((actions as any).failure(error.message))
+    dispatch(actions.failure(error.message))
     throw error
   }
 }
