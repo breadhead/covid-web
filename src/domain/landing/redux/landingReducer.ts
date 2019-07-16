@@ -5,4 +5,4 @@ import { reducer as fetchSuccessefullClosedClaims } from './parts/fetchSuccessef
 
 export const landingReducer = combineReducers<LandingState>({
   fetchSuccessefullClosedClaims,
-})
+} as any)

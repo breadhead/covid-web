@@ -5,7 +5,7 @@ import { actions } from '../redux/parts/fetchSuccessefullClosedClaims'
 export const fetchSuccessefulClosedClaimsAction = () => async (
   dispatch: Dispatch<any>,
   getState: () => State,
-  { getApi }: ExtraArgs
+  { getApi }: ExtraArgs,
 ) => {
   const api = getApi(getState)
   const count = await api.fetchSuccessefulClosedClaims()

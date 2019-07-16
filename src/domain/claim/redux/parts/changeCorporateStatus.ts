@@ -4,7 +4,7 @@ type State = FetchingState
 
 const { actions, reducer } = createClearRedux(
   {
-    set: () => query => query,
+    set: () => (query: string) => query,
   },
   {},
   'browser-query',
