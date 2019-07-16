@@ -5,36 +5,29 @@ import { Button, ButtonKind } from '@front/ui/button'
 import * as React from 'react'
 import { schema } from '../../container'
 import * as styles from './RestorePasswordModal.css'
-import ModalFooter from '@app/features/login/organisms/Footer';
+import ModalFooter from '@app/features/login/organisms/Footer'
 
 interface Props {
   onFormSubmit: () => Promise<any>
   error: boolean | string
   openSignIn: () => void
   openSignUp: () => void
+  phone: string | null
 }
 
 const RestorePasswordModal = ({
   onFormSubmit,
   openSignIn,
-  openSignUp
+  openSignUp,
+  phone,
 }: Props) => {
-  console.log('openSignIn:', openSignIn)
+  console.log('phone:', phone)
   return (
     <article className={styles.popup}>
       <h1 className={styles.title}>Забыли пароль?</h1>
-      <Button
-        className={styles.actionButton}
-        onClick={openSignIn}
-      >
-        Войти
-      </Button>
-      <Button
-        className={styles.actionButton}
-        onClick={openSignUp}
-      >
+      <button className={styles.actionButton} onClick={openSignUp}>
         Зарегистрироваться
-      </Button>
+      </button>
       <Form onSubmit={onFormSubmit}>
         {() => (
           <>
