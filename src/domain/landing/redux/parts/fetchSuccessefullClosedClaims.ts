@@ -1,28 +1,25 @@
-import { Action } from 'redux'
-import { createSymbiote } from 'redux-symbiote'
+import { createClearRedux, ClearAction } from 'redux-clear'
 
 interface State {
   count: number
 }
 
 interface Actions {
-  setCount(count: number): Action
+  setCount: ClearAction<[number]>
 }
 
 const initialState: State = {
   count: 0,
 }
 
-const { actions, reducer } = createSymbiote<State, Actions>(
-  initialState,
+const { actions, reducer } = createClearRedux<State, Actions>(
   {
-    setCount: (_, count: number) => {
-      return {
-        count,
-      }
-    },
+    setCount: () => count => ({
+      count,
+    }),
   },
-  'count',
+  initialState,
+  'landing/count',
 )
 
 export { State, reducer, Actions, actions }
