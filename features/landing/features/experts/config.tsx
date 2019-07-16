@@ -251,7 +251,7 @@ export const experts = [
   },
   {
     id: 'molostova',
-    photo: '/static/images/experts/Molostova.jpg',
+    photo: '/static/images/experts/Molostova.JPG',
     name: 'Молостова Ольга ',
     specialization: 'Онколог',
     info: [
@@ -314,7 +314,7 @@ export const experts = [
   },
   {
     id: 'natopkin',
-    photo: '/static/images/experts/Natopkin.jpg',
+    photo: '/static/images/experts/Natopkin.JPG',
     name: 'Натопкин Алексей Альбертович',
     specialization: 'Хирург-онколог',
     info: [
