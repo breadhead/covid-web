@@ -4,20 +4,19 @@ import Input from '@app/features/common/form/components/Input'
 import OpenModalButton from '@app/features/login/atoms/OpenModalButton'
 import { SPACE } from '@app/lib/config'
 import { Button } from '@front/ui/button'
-import { NavLink } from '@front/ui/nav-link'
 import * as React from 'react'
 import { schema } from '../../container'
 import { isClientConsultationUrl } from './config'
 import * as styles from './SignIn.css'
+import OpenRestorePasswordModalButton from '../../../restorePassword/molecules/open-restore-password-modal-button/OpenRestorePasswordModalButton'
 
 interface Props {
   onFormSubmit: () => Promise<any>
   error: boolean | string
   openSignUp: () => void
-  passwordRecoveryUrl: string
 }
 
-const SignIn = ({ onFormSubmit, passwordRecoveryUrl, openSignUp }: Props) => {
+const SignIn = ({ onFormSubmit,openSignUp }: Props) => {
   const title = isClientConsultationUrl()
     ? 'Войдите, чтобы увидеть свою заявку'
     : 'Войти'
@@ -37,21 +36,19 @@ const SignIn = ({ onFormSubmit, passwordRecoveryUrl, openSignUp }: Props) => {
           <>
             <Input
               className={styles.input}
-              name="login"
+              name='login'
               label={'Эл. почта'}
               type={InputType.Text}
               validate={schema.login}
             />
             <Input
               className={styles.input}
-              name="password"
+              name='password'
               label={'Пароль'}
               type={InputType.Password}
               validate={schema.password}
             />
-            <NavLink href={passwordRecoveryUrl} className={styles.link}>
-              Забыли пароль?
-            </NavLink>
+            <OpenRestorePasswordModalButton />
             <Button submit className={styles.mainButton}>
               Войти
             </Button>

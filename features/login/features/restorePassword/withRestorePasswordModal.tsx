@@ -6,7 +6,9 @@ export interface WithRestorePasswordModal {
   openModal: () => void
 }
 
-const Container = (Component: React.ComponentType<WithRestorePasswordModal>) =>
+const withRestorePasswordModal = (
+  Component: React.ComponentType<WithRestorePasswordModal>
+) =>
   withModal(({ modal, ...props }: WithModalProps) => (
     <Component
       {...props}
@@ -14,4 +16,4 @@ const Container = (Component: React.ComponentType<WithRestorePasswordModal>) =>
     />
   ))
 
-export default Container
+export default withRestorePasswordModal

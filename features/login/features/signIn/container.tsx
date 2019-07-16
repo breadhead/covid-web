@@ -13,15 +13,9 @@ import Router from 'next/router'
 import { MODAL_KEY } from './const'
 export { MODAL_KEY }
 
-const passwordRecoveryUrl = 'https://cabinet.nenaprasno.ru/restore'
-
 export interface Credentials {
   login: string
   password: string
-}
-
-interface Props extends ContainerProps {
-  passwordRecoveryUrl: string
 }
 
 interface ContainerProps extends WithSignUpModal {
@@ -41,13 +35,12 @@ export const schema = {
     .required('Пароль должен быть длиннее 2 символов'),
 }
 
-const Container = (WrappedComponent: React.ComponentType<Props>) => {
+const Container = (WrappedComponent: React.ComponentType<ContainerProps>) => {
   return class ContaineredComponent extends React.Component<ContainerProps> {
     public render() {
       return (
         <WrappedComponent
           onFormSubmit={this.onFormSubmit}
-          passwordRecoveryUrl={passwordRecoveryUrl}
           {...this.props}
         />
       )

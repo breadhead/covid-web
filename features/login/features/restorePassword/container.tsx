@@ -6,25 +6,19 @@ import { login } from './actions'
 
 import { isModal } from '@app/features/common/modal'
 import * as yup from 'yup'
-import withSignUpModal, { WithSignUpModal } from '../signUp/withSignUpModal'
 import { getViolateState } from './selectors'
 
 import Router from 'next/router'
 import { RESTORE_PASSWORD_MODAL_KEY } from './modal-key'
+import { withSignInModal, WithSignInModal } from '../signIn'
+import { withSignUpModal, WithSignUpModal } from '../signUp';
 export { RESTORE_PASSWORD_MODAL_KEY }
-
-const passwordRecoveryUrl = 'https://cabinet.nenaprasno.ru/restore'
 
 export interface Credentials {
   login: string
-  password: string
 }
 
-interface Props extends ContainerProps {
-  passwordRecoveryUrl: string
-}
-
-interface ContainerProps extends WithSignUpModal {
+interface ContainerProps extends WithSignInModal {
   login: (credentials: Credentials, wantTo?: string | string[]) => any
   onFormSubmit: () => Promise<any>
   violateState?: boolean
@@ -34,22 +28,14 @@ export const schema = {
   login: yup
     .string()
     .email('Введите email')
-    .required('Обязательное поле'),
-  password: yup
-    .string()
-    .min(3, 'Пароль должен быть длиннее 2 символов')
-    .required('Пароль должен быть длиннее 2 символов'),
+    .required('Обязательное поле')
 }
 
-const Container = (WrappedComponent: React.ComponentType<Props>) => {
-  return class ContaineredComponent extends React.Component<ContainerProps> {
+const Container = (WrappedComponent: React.ComponentType<ContainerProps & WithSignUpModal>) => {
+  return class ContaineredComponent extends React.Component<ContainerProps & WithSignUpModal> {
     public render() {
       return (
-        <WrappedComponent
-          onFormSubmit={this.onFormSubmit}
-          passwordRecoveryUrl={passwordRecoveryUrl}
-          {...this.props}
-        />
+        <WrappedComponent onFormSubmit={this.onFormSubmit} {...this.props} />
       )
     }
 
@@ -61,8 +47,7 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
       await this.props.login(credentials, wantTo)
       if (violateState) {
         return {
-          login: 'Неверный логин или пароль',
-          password: 'Неверный логин или пароль',
+          login: 'Введите вашу почту',
         }
       }
     }
@@ -70,20 +55,21 @@ const Container = (WrappedComponent: React.ComponentType<Props>) => {
 }
 
 const mapState = (state: State) => ({
-  violateState: getViolateState(state),
+  violateState: getViolateState(state)
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   login: (credentials: Credentials, wantTo: string) =>
-    dispatch(login(credentials.login, credentials.password, wantTo) as any),
+    dispatch(login(credentials.login, wantTo) as any)
 })
 
 export default compose(
   isModal(RESTORE_PASSWORD_MODAL_KEY),
+  withSignInModal,
   withSignUpModal,
   connect(
     mapState,
-    mapDispatch,
+    mapDispatch
   ),
-  Container,
+  Container
 )

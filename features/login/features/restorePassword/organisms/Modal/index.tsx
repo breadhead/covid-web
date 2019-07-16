@@ -1,67 +1,57 @@
 import { InputType } from '@app/features/common/form'
 import Form from '@app/features/common/form/components/Form/Form'
 import Input from '@app/features/common/form/components/Input'
-import OpenModalButton from '@app/features/login/atoms/OpenModalButton'
-import { SPACE } from '@app/lib/config'
-import { Button } from '@front/ui/button'
-import { NavLink } from '@front/ui/nav-link'
+import { Button, ButtonKind } from '@front/ui/button'
 import * as React from 'react'
 import { schema } from '../../container'
-import { isClientConsultationUrl } from './config'
 import * as styles from './RestorePasswordModal.css'
+import ModalFooter from '@app/features/login/organisms/Footer';
 
 interface Props {
   onFormSubmit: () => Promise<any>
   error: boolean | string
+  openSignIn: () => void
   openSignUp: () => void
-  passwordRecoveryUrl: string
 }
 
 const RestorePasswordModal = ({
   onFormSubmit,
-  passwordRecoveryUrl,
-  openSignUp,
+  openSignIn,
+  openSignUp
 }: Props) => {
-  const title = isClientConsultationUrl()
-    ? 'Войдите, чтобы увидеть свою заявку'
-    : 'Войти'
-
+  console.log('openSignIn:', openSignIn)
   return (
     <article className={styles.popup}>
-      <h1 className={styles.title}>{title}</h1>
-      <p className={styles.secondaryText}>
-        Ещё нет аккаунта?{SPACE}
-        <OpenModalButton onClick={openSignUp}>
-          Зарегистрироваться
-        </OpenModalButton>
-      </p>
-
+      <h1 className={styles.title}>Забыли пароль?</h1>
+      <Button
+        className={styles.actionButton}
+        onClick={openSignIn}
+      >
+        Войти
+      </Button>
+      <Button
+        className={styles.actionButton}
+        onClick={openSignUp}
+      >
+        Зарегистрироваться
+      </Button>
       <Form onSubmit={onFormSubmit}>
         {() => (
           <>
             <Input
               className={styles.input}
-              name="login"
-              label={'Эл. почта'}
+              name='login'
+              label={'Введите вашу почту'}
               type={InputType.Text}
               validate={schema.login}
             />
-            <Input
-              className={styles.input}
-              name="password"
-              label={'Пароль'}
-              type={InputType.Password}
-              validate={schema.password}
-            />
-            <NavLink href={passwordRecoveryUrl} className={styles.link}>
-              Забыли пароль?
-            </NavLink>
             <Button submit className={styles.mainButton}>
-              Войти
+              Сбросить пароль
             </Button>
           </>
         )}
       </Form>
+      <ModalFooter onOpenModalClick={openSignIn} />
     </article>
   )
 }

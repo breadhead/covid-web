@@ -12,6 +12,6 @@ export const authViolateStatus = (value: boolean) =>
 export { login } from './actions'
 export { unauthorizedMiddleware } from './middleware'
 export { getViolateState } from './selectors'
-export { default as withSignInModal, WithLoginModal } from './withSignInModal'
+export { default as withSignInModal, WithSignInModal } from './withSignInModal'
 
 export default Container(Modal)
