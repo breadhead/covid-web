@@ -5,4 +5,4 @@ import { reducer as changeCorporateStatus } from './parts/changeCorporateStatus'
 
 export const claimReducer = combineReducers<ClaimState>({
   changeCorporateStatus,
-} as any)
+})
