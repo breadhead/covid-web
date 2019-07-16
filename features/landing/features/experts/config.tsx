@@ -2,7 +2,7 @@ import { ASTERISK, NON_BREAKING_SPACE } from '@app/lib/config'
 
 export const experts = [
   {
-    id: '1',
+    id: 'berkut',
     photo: '/static/images/experts/Berkut.jpg',
     name: 'Беркут Мария Владимировна',
     specialization: 'Хирургический онколог, уролог',
@@ -16,7 +16,7 @@ export const experts = [
     ],
   },
   {
-    id: '2',
+    id: 'gavrilyukov',
     photo: '/static/images/experts/Gavrilyukov.jpg',
     name: 'Гаврилюков Артем Викторович',
     specialization: 'Онкоколопроктолог, хирург',
@@ -28,7 +28,7 @@ export const experts = [
     ],
   },
   {
-    id: '3',
+    id: 'zaiceva',
     photo: '/static/images/experts/Zaiceva.jpg',
     name: 'Зайцева Юлия Александровна',
     specialization: 'Онколог-химиотерапевт',
@@ -41,7 +41,7 @@ export const experts = [
     ],
   },
   {
-    id: '4',
+    id: 'korobejnikova',
     photo: '/static/images/experts/Korobejnikova.jpg',
     name: 'Коробейникова Екатерина Александровна',
     specialization: 'Онколог-химиотерапевт',
@@ -56,7 +56,7 @@ export const experts = [
     ],
   },
   {
-    id: '6',
+    id: 'stepanova',
     photo: '/static/images/experts/Stepanova.jpg',
     name: 'Степанова Мария Леонидовна',
     specialization: 'Онколог - химиотерапевт',
@@ -67,7 +67,7 @@ export const experts = [
     ],
   },
   {
-    id: '7',
+    id: 'menzulin',
     photo: '/static/images/experts/Menzulin.jpg',
     name: 'Мензулин Руслан Сергеевич',
     specialization: 'Хирург-онколог',
@@ -79,7 +79,7 @@ export const experts = [
     ],
   },
   {
-    id: '8',
+    id: 'petrachkov',
     photo: '/static/images/experts/Petrachkov.jpg',
     name: 'Петрачков Александр Олегович',
     specialization: 'Хирург-онколог',
@@ -90,7 +90,7 @@ export const experts = [
     ],
   },
   {
-    id: '9',
+    id: 'pavlov',
     photo: '/static/images/experts/Pavlov.jpg',
     name: 'Павлов Ростислав Владимирович',
     specialization: 'Хирург-онколог',
@@ -101,7 +101,7 @@ export const experts = [
     ],
   },
   {
-    id: '10',
+    id: 'kushnarev',
     photo: '/static/images/experts/Kushnarev.jpg',
     name: 'Кушнарев Владимир Андреевич',
     specialization: 'Врач-онкопатоморфолог',
@@ -118,7 +118,7 @@ export const experts = [
     ],
   },
   {
-    id: '11',
+    id: 'ygai',
     photo: '/static/images/experts/Ygai.jpg',
     name: 'Югай Сергей Вячеславович',
     specialization: 'Онколог-химиотерапевт, клинический ординатор',
@@ -130,7 +130,7 @@ export const experts = [
     ],
   },
   {
-    id: '12',
+    id: 'skryabin',
     photo: '/static/images/experts/Skryabin.jpg',
     name: 'Скрябин Михаил Викторович',
     specialization: 'Онколог-химиотерапевт, клинический ординатор',
@@ -142,7 +142,7 @@ export const experts = [
     ],
   },
   {
-    id: '13',
+    id: 'kym',
     photo: '/static/images/experts/Kym.jpg',
     name: 'Ким Анна Яновна',
     specialization: 'Хирург-онколог',
@@ -157,7 +157,7 @@ export const experts = [
     ],
   },
   {
-    id: '14',
+    id: 'shilo',
     photo: '/static/images/experts/Shilo.jpg',
     name: 'Полина Шило ',
     specialization: 'Онколог-химиотерапевт, онкогематолог',
@@ -174,7 +174,7 @@ export const experts = [
     ],
   },
   {
-    id: '15',
+    id: 'gasymly',
     photo: '/static/images/experts/Gasymly.jpg',
     name: 'Дюня Гасымлы',
     specialization: 'Врач онколог',
@@ -190,7 +190,7 @@ export const experts = [
     ],
   },
   {
-    id: '16',
+    id: 'sorokin',
     photo: '/static/images/experts/Sorokin.jpg',
     name: 'Сорокин Павел',
     specialization: 'Онколог, онкогинеколог',
@@ -202,7 +202,7 @@ export const experts = [
     ],
   },
   {
-    id: '17',
+    id: 'lopushanskaya',
     photo: '/static/images/experts/Lopushanskaya.jpg',
     name: 'Сорокин Павел',
     specialization: 'Хирург-онколог',
@@ -215,7 +215,7 @@ export const experts = [
     ],
   },
   {
-    id: '18',
+    id: 'volchenkov',
     photo: '/static/images/experts/Volchenkov.jpg',
     name: 'Волченков Станислав',
     specialization: 'Онколог, клинический ординатор',
@@ -226,7 +226,7 @@ export const experts = [
     ],
   },
   {
-    id: '19',
+    id: 'konovalov',
     photo: '/static/images/experts/Konovalov.jpeg',
     name: 'Коновалов Антон',
     specialization: 'Нейрохирург',
@@ -240,7 +240,7 @@ export const experts = [
     ],
   },
   {
-    id: '20',
+    id: 'gricenko',
     photo: '/static/images/experts/Gricenko.jpg',
     name: 'Гриценко Анастасия ',
     specialization: 'Онколог (врач-исследователь)',
@@ -250,7 +250,7 @@ export const experts = [
     ],
   },
   {
-    id: '21',
+    id: 'molostova',
     photo: '/static/images/experts/Molostova.jpg',
     name: 'Молостова Ольга ',
     specialization: 'Онколог',
@@ -267,7 +267,7 @@ export const experts = [
     ],
   },
   {
-    id: '22',
+    id: 'kotov',
     photo: '/static/images/experts/Kotov.jpg',
     name: 'Котов Максим Андреевич',
     specialization: 'Хирург-онколог, опухоли головы и шеи',
@@ -286,7 +286,7 @@ export const experts = [
     ],
   },
   {
-    id: '23',
+    id: 'stanevich',
     photo: '/static/images/experts/Stanevich.jpg',
     name: 'Станевич Оксана Владимировна',
     specialization: 'Врач-инфекционист',
@@ -313,7 +313,7 @@ export const experts = [
     ],
   },
   {
-    id: '24',
+    id: 'natopkin',
     photo: '/static/images/experts/Natopkin.jpg',
     name: 'Натопкин Алексей Альбертович',
     specialization: 'Хирург-онколог',
@@ -326,7 +326,7 @@ export const experts = [
     ],
   },
   {
-    id: '25',
+    id: 'potapenko',
     photo: '/static/images/experts/Potapenko.jpg',
     name: 'Потапенко Всеволод Геннадьевич',
     specialization: 'Врач-гематолог',
