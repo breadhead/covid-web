@@ -204,7 +204,7 @@ export const experts = [
   {
     id: 'lopushanskaya',
     photo: '/static/images/experts/Lopushanskaya.jpg',
-    name: 'Сорокин Павел',
+    name: 'Ольга Лопушанская',
     specialization: 'Хирург-онколог',
     info: [
       `Место работы: ФГБУ НМИЦ онкологии имени Н.Н. Петрова, хирургическое торакальное отделение`,
