@@ -261,8 +261,13 @@ export default class RealApiClient implements ApiClient {
       .then(response => response.data)
   }
 
-  fetchTimeReport = () =>
+  public fetchTimeReport = () =>
     this.axiosInstance
       .get('/statistics/doctor-answer')
       .then(response => response.data as TimeReport)
+
+  public fetchSuccessefulClosedClaims = () =>
+    this.axiosInstance
+      .get('/public-statistics/success-closed-claims-count')
+      .then(response => response.data as number)
 }

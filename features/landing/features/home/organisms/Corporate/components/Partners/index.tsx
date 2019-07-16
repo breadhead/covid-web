@@ -7,6 +7,7 @@ import { ButtonSize } from '@front/ui/button'
 import { NavLink } from '@front/ui/nav-link'
 import StartConsultationButton from '../../../../molecules/StartConsultationButton'
 import PartnersList from './components/PartnersList'
+import Count from './components/Count'
 
 const Partners = () => (
   <article className={styles.partners}>
@@ -17,7 +18,7 @@ const Partners = () => (
     <p className={styles.subtitle}>
       На 2019 год запланировано 5000 консультаций
     </p>
-    {/* TODO: <Count /> */}
+    <Count />
     <PartnersList />
     <NavLink className={styles.link} href="/partners">
       Посмотреть всех партнёров

@@ -16,6 +16,11 @@ import {
 } from '@app/features/common/claim'
 
 import {
+  reducer as landingReducer,
+  State as LandingState,
+} from '@app/src/domain/landing'
+
+import {
   notFoundMiddleware,
   reducer as notFoundReducer,
   State as NotFoundState,
@@ -129,6 +134,7 @@ export interface State {
   notFound: NotFoundState
   claim: ClaimState
   clientClaim: ClientClaimsState
+  landing: LandingState
 }
 
 const reducer = combineReducers({
@@ -151,6 +157,7 @@ const reducer = combineReducers({
   doctor: doctorReducer,
   notFound: notFoundReducer,
   claim: claimReducer,
+  landing: landingReducer,
   clientClaim: clientClaimsReducer,
 } as any)
 
