@@ -23,7 +23,7 @@ export const signUp = (
     dispatch(userActions.setToken(token))
     dispatch(modalActions.close())
 
-    redirectUser(roles, Condition.signUp)
+    redirectUser(roles, undefined, Condition.signUp)
 
     return dispatch(actions.success(token))
   } catch (error) {
