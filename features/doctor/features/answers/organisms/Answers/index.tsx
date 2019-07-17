@@ -5,6 +5,8 @@ import Router from 'next/router'
 import {
   ExpertAnswers,
   makeQuestionGroups,
+  getClaim,
+  fetchQuotaClaim
 } from '@app/features/common/consultation'
 import { Form } from '@app/features/common/form'
 import { ButtonKind, ButtonWithTooltip } from '@app/features/common/form'
@@ -18,6 +20,8 @@ import * as styles from './Answers.css'
 import { makeFieldName } from '../../helpers/makeFieldName'
 import { TextArea } from '@app/features/common/form'
 import * as yup from 'yup'
+import { useMappedState } from 'redux-react-hook'
+import { useApi } from '@app/lib/api/useApi'
 
 interface Answers {
   [key: string]: string
@@ -39,7 +43,7 @@ const Answers = ({
   onSave,
   onPreSave,
   claimStatus,
-  mainInfo,
+  mainInfo
 }: Props) => {
   const answerSent = claimStatus === ClaimStatus.AnswerValidation
   const [isEditMode, setEditMode] = useState(true)
@@ -51,12 +55,12 @@ const Answers = ({
         setEditMode(false)
       }
     },
-    [claim],
+    [claim]
   )
 
   const renderTextAreas = (
     theme: string,
-    { question }: { question: string },
+    { question }: { question: string }
   ) => {
     return (
       <TextArea
@@ -67,9 +71,18 @@ const Answers = ({
     )
   }
 
+  const onSubmit = (fields: Fields) => {
+    if (isPreAnswer) {
+      setEditMode(false)
+      onPreSave(fields)
+      // fetchQuotaClaim(mainInfo.id)
+    } else {
+      onSave(fields)
+    }
+  }
   return (
     <Form
-      onSubmit={isPreAnswer ? onPreSave : (onSave as any)}
+      onSubmit={onSubmit as any}
       initialValues={claim && makeInitialValues(makeQuestionGroups(claim))}
     >
       {() => (
@@ -77,7 +90,7 @@ const Answers = ({
           <ExpertAnswers
             claim={claim}
             mainInfo={mainInfo}
-            title="Вопросы эксперту"
+            title='Вопросы эксперту'
             renderCustomAnswer={isEditMode ? renderTextAreas : undefined}
           />
           <div className={styles.controls}>
@@ -114,7 +127,6 @@ const Answers = ({
                 submit
                 onClick={() => {
                   setPreAnswer(true)
-                  setEditMode(false)
                 }}
               >
                 Сохранить как черновик
