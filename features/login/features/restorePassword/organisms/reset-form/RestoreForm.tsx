@@ -11,7 +11,7 @@ interface Props {
   onFormSubmit: () => void
 }
 
-export const RestoreForm = ({ openSignUp, onFormSubmit }: Props) => {
+export const ResetForm = ({ openSignUp, onFormSubmit }: Props) => {
   return (
     <>
       <h1 className={styles.title}>Забыли пароль?</h1>

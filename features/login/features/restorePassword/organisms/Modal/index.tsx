@@ -1,11 +1,12 @@
 import * as React from 'react'
 import * as styles from './RestorePasswordModal.css'
 import ModalFooter from '@app/features/login/organisms/Footer'
-import { RestoreForm } from '../restore-form'
 import { NewPasswordForm } from '../new-password-form'
+import { ResetForm } from '../reset-form'
 
 interface Props {
-  onFormSubmit: () => Promise<any>
+  onResetFormSubmit: () => Promise<any>
+  onLoginFormSubmit: () => Promise<any>
   error: boolean | string
   openSignIn: () => void
   openSignUp: () => void
@@ -13,10 +14,11 @@ interface Props {
 }
 
 const RestorePasswordModal = ({
-  onFormSubmit,
+  onResetFormSubmit,
+  onLoginFormSubmit,
   openSignIn,
   openSignUp,
-  phone
+  phone,
 }: Props) => {
   return (
     <article className={styles.popup}>
@@ -26,7 +28,7 @@ const RestorePasswordModal = ({
           onFormSubmit={() => console.log('login')}
         />
       ) : (
-        <RestoreForm onFormSubmit={onFormSubmit} openSignUp={openSignUp} />
+        <ResetForm onFormSubmit={onResetFormSubmit} openSignUp={openSignUp} />
       )}
       <ModalFooter onOpenModalClick={openSignIn} />
     </article>
