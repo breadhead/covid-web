@@ -1,15 +1,14 @@
+/* eslint-disable */
 import * as React from 'react'
 import { useState } from 'react'
 import { compose } from 'redux'
-
 import { isModal } from '@app/features/common/modal'
-import * as yup from 'yup'
-
 import { RESTORE_PASSWORD_MODAL_KEY } from './modal-key'
 import { withSignInModal, WithSignInModal, loginAction } from '../signIn'
 import { withSignUpModal, WithSignUpModal } from '../signUp'
 import { useApi } from '@app/lib/api/useApi'
 export { RESTORE_PASSWORD_MODAL_KEY }
+import { useThunk } from '@front/hooks/useThunk'
 
 export interface Credentials {
   login: string
@@ -21,17 +20,11 @@ interface ContainerProps extends WithSignInModal {
   phone: string
 }
 
-export const schema = {
-  login: yup
-    .string()
-    .email('Введите email')
-    .required('Обязательное поле'),
-}
-
 const Container = (
   WrappedComponent: React.ComponentType<ContainerProps & WithSignUpModal>,
 ) => (props: ContainerProps & WithSignUpModal) => {
   const api = useApi()
+  const dispatch = useThunk()
   const [phone, setPhone] = useState<string | null>(null)
   const [login, setLogin] = useState<string | null>(null)
 
@@ -41,8 +34,7 @@ const Container = (
   }
 
   const onLoginFormSubmit = async (props: any) => {
-    await loginAction(login!, props.password, '')
-    console.log(login, props)
+    await dispatch(loginAction(login!, props.password, ''))
   }
 
   return (

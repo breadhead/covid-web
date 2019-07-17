@@ -1,1 +1,1 @@
-export { ResetForm } from './RestoreForm'
+export { ResetForm } from './ResetForm'

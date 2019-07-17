@@ -3,8 +3,8 @@ import Form from '@app/features/common/form/components/Form/Form'
 import Input from '@app/features/common/form/components/Input'
 import { Button } from '@front/ui/button'
 import * as React from 'react'
-import { schema } from '../../container'
-import * as styles from './RestoreForm.css'
+import * as styles from './ResetForm.css'
+import { schema } from './schema'
 interface Props {
   openSignUp: () => void
   onFormSubmit: () => void
