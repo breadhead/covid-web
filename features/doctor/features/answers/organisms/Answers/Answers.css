@@ -9,7 +9,8 @@
   }
 }
 
-.textarea {
-  margin-bottom: 12px;
-  white-space: pre-line;
+.cancel {
+  margin-right: auto;
+  order: 1;
+  margin-left: 0;
 }

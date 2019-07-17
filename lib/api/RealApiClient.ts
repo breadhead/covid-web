@@ -28,6 +28,7 @@ import { SendFeedbackRequest } from './request/SendFeedback'
 import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
+import { request } from 'http'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -125,10 +126,12 @@ export default class RealApiClient implements ApiClient {
       .post('/quotas/transfer', quotaTransferRequest)
       .then(response => response.data as QuotaTransferResponse)
 
-  public answerQuestions = (request: AnswerRequest) =>
-    this.axiosInstance
-      .post('/claims/answer', request)
+  public answerQuestions = ({ pre, ...request }: AnswerRequest) => {
+    const prefix = pre ? 'pre-' : ''
+    return this.axiosInstance
+      .post(`/claims/${prefix}answer`, request)
       .then(response => response.data)
+  }
 
   public quota = (id: string) =>
     this.axiosInstance

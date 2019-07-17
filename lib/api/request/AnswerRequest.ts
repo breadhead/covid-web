@@ -6,4 +6,5 @@ interface Answer {
 export interface AnswerRequest {
   claimId: string
   answers: Answer[]
+  pre: boolean
 }
