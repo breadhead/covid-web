@@ -2,11 +2,15 @@ import React from 'react'
 import Router from 'next/router'
 import * as yup from 'yup'
 
-import { ExpertAnswers } from '@app/features/common/consultation'
+import {
+  ExpertAnswers,
+  makeQuestionGroups,
+} from '@app/features/common/consultation'
 import { Form, TextArea } from '@app/features/common/form'
 import { ButtonKind, ButtonWithTooltip } from '@app/features/common/form'
 import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
 import { Button } from '@front/ui/button'
+import { makeInitialValues } from '../../helpers/makeInitialValues'
 
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
@@ -31,7 +35,10 @@ const Answers = ({ claim, onSubmit, claimStatus, mainInfo }: Props) => {
   const answerSent = claimStatus === ClaimStatus.AnswerValidation
 
   return (
-    <Form onSubmit={onSubmit as any}>
+    <Form
+      onSubmit={onSubmit as any}
+      initialValues={claim && makeInitialValues(makeQuestionGroups(claim))}
+    >
       {() => (
         <>
           <ExpertAnswers
