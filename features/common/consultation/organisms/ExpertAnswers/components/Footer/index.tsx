@@ -10,9 +10,10 @@ import { SPACE } from '@app/lib/config'
 interface Props {
   answeredAt?: Date
   answerUpdatedAt?: Date
+  draftedAt?: Date
 }
 
-const Footer = ({ answeredAt, answerUpdatedAt }: Props) => {
+const Footer = ({ answeredAt, answerUpdatedAt, draftedAt }: Props) => {
   const currentClaimStatus = useMappedState(getClaimStatus)
 
   const isItDraft = currentClaimStatus === ClaimStatus.AtTheDoctor
@@ -27,7 +28,7 @@ const Footer = ({ answeredAt, answerUpdatedAt }: Props) => {
         <p className={styles.text}>Ответ не отправлен</p>
         <p className={styles.date}>
           Черновик от{SPACE}
-          {formatDate(answeredAt)}
+          {formatDate(draftedAt!)}
         </p>
       </div>
     </article>
