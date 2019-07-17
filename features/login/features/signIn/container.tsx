@@ -2,7 +2,7 @@ import { State } from '@app/lib/store'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
-import { login } from './actions'
+import { loginAction } from './actions'
 
 import { isModal } from '@app/features/common/modal'
 import * as yup from 'yup'
@@ -65,7 +65,11 @@ const mapState = (state: State) => ({
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   login: (credentials: Credentials, wantTo: string) =>
-    dispatch(login(credentials.login, credentials.password, wantTo) as any),
+    dispatch(loginAction(
+      credentials.login,
+      credentials.password,
+      wantTo,
+    ) as any),
 })
 
 export default compose(

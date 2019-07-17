@@ -23,10 +23,7 @@ const RestorePasswordModal = ({
   return (
     <article className={styles.popup}>
       {!!phone ? (
-        <NewPasswordForm
-          phone={phone}
-          onFormSubmit={() => console.log('login')}
-        />
+        <NewPasswordForm phone={phone} onFormSubmit={onLoginFormSubmit} />
       ) : (
         <ResetForm onFormSubmit={onResetFormSubmit} openSignUp={openSignUp} />
       )}

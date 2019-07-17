@@ -5,7 +5,6 @@ import { Button } from '@front/ui/button'
 import * as React from 'react'
 import { schema } from '../../container'
 import * as styles from './RestoreForm.css'
-
 interface Props {
   openSignUp: () => void
   onFormSubmit: () => void

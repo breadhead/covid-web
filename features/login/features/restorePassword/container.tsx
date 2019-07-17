@@ -6,7 +6,7 @@ import { isModal } from '@app/features/common/modal'
 import * as yup from 'yup'
 
 import { RESTORE_PASSWORD_MODAL_KEY } from './modal-key'
-import { withSignInModal, WithSignInModal } from '../signIn'
+import { withSignInModal, WithSignInModal, loginAction } from '../signIn'
 import { withSignUpModal, WithSignUpModal } from '../signUp'
 import { useApi } from '@app/lib/api/useApi'
 export { RESTORE_PASSWORD_MODAL_KEY }
@@ -16,7 +16,8 @@ export interface Credentials {
 }
 
 interface ContainerProps extends WithSignInModal {
-  onFormSubmit: () => Promise<any>
+  onResetFormSubmit: () => Promise<any>
+  onLoginFormSubmit: () => Promise<any>
   phone: string
 }
 
@@ -32,13 +33,25 @@ const Container = (
 ) => (props: ContainerProps & WithSignUpModal) => {
   const api = useApi()
   const [phone, setPhone] = useState<string | null>(null)
+  const [login, setLogin] = useState<string | null>(null)
 
-  const onFormSubmit = async (credentials: Credentials) => {
+  const onResetFormSubmit = async (credentials: Credentials) => {
     await api.restorePassword(credentials.login).then(setPhone)
+    setLogin(credentials.login)
+  }
+
+  const onLoginFormSubmit = async (props: any) => {
+    await loginAction(login!, props.password, '')
+    console.log(login, props)
   }
 
   return (
-    <WrappedComponent onFormSubmit={onFormSubmit} phone={phone} {...props} />
+    <WrappedComponent
+      onResetFormSubmit={onResetFormSubmit}
+      onLoginFormSubmit={onLoginFormSubmit}
+      phone={phone}
+      {...props}
+    />
   )
 }
 
