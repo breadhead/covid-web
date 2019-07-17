@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Router from 'next/router'
 
 import {
   ExpertAnswers,
@@ -8,9 +7,8 @@ import {
   fetchQuotaClaim,
 } from '@app/features/common/consultation'
 import { Form } from '@app/features/common/form'
-import { ButtonKind, ButtonWithTooltip } from '@app/features/common/form'
+
 import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
-import { Button } from '@front/ui/button'
 import { makeInitialValues } from '../../helpers/makeInitialValues'
 
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
@@ -19,9 +17,8 @@ import * as styles from './Answers.css'
 import { makeFieldName } from '../../helpers/makeFieldName'
 import { TextArea } from '@app/features/common/form'
 import * as yup from 'yup'
-import { useMappedState } from 'redux-react-hook'
-import { useApi } from '@app/lib/api/useApi'
 import { useThunk } from '@app/src/hooks/useThunk'
+import { Controls } from '../controls/Controls'
 
 interface Answers {
   [key: string]: string
@@ -95,46 +92,14 @@ const Answers = ({
             title="Вопросы эксперту"
             renderCustomAnswer={isEditMode ? renderTextAreas : undefined}
           />
-          <div className={styles.controls}>
-            {isEditMode && (
-              <Button
-                className={styles.cancel}
-                kind={ButtonKind.Secondary}
-                onClick={() =>
-                  Router.push(`/consultation/redirect/${claim.id}`) as any
-                }
-              >
-                Отменить изменения
-              </Button>
-            )}
-            <ButtonWithTooltip
-              className={styles.save}
-              submit
-              onClick={() => setPreAnswer(false)}
-            >
-              {answerSent ? 'Сохранить изменения' : 'Отправить ответ'}
-            </ButtonWithTooltip>
-            {!isEditMode && (
-              <Button
-                kind={ButtonKind.Secondary}
-                onClick={() => setEditMode(true)}
-              >
-                Редактировать
-              </Button>
-            )}
-            {isEditMode && (
-              <ButtonWithTooltip
-                className={styles.draft}
-                kind={ButtonKind.Secondary}
-                submit
-                onClick={() => {
-                  setPreAnswer(true)
-                }}
-              >
-                Сохранить как черновик
-              </ButtonWithTooltip>
-            )}
-          </div>
+          <Controls
+            styles={styles}
+            isEditMode={isEditMode}
+            setPreAnswer={setPreAnswer}
+            setEditMode={setEditMode}
+            answerSent={answerSent}
+            id={claim.id}
+          />
         </>
       )}
     </Form>
