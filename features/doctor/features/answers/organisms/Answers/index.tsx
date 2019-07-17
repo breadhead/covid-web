@@ -5,8 +5,7 @@ import Router from 'next/router'
 import {
   ExpertAnswers,
   makeQuestionGroups,
-  getClaim,
-  fetchQuotaClaim
+  fetchQuotaClaim,
 } from '@app/features/common/consultation'
 import { Form } from '@app/features/common/form'
 import { ButtonKind, ButtonWithTooltip } from '@app/features/common/form'
@@ -22,6 +21,7 @@ import { TextArea } from '@app/features/common/form'
 import * as yup from 'yup'
 import { useMappedState } from 'redux-react-hook'
 import { useApi } from '@app/lib/api/useApi'
+import { useThunk } from '@app/src/hooks/useThunk'
 
 interface Answers {
   [key: string]: string
@@ -43,11 +43,13 @@ const Answers = ({
   onSave,
   onPreSave,
   claimStatus,
-  mainInfo
+  mainInfo,
 }: Props) => {
   const answerSent = claimStatus === ClaimStatus.AnswerValidation
   const [isEditMode, setEditMode] = useState(true)
   const [isPreAnswer, setPreAnswer] = useState(false)
+
+  const dispatch = useThunk()
 
   useEffect(
     () => {
@@ -55,12 +57,12 @@ const Answers = ({
         setEditMode(false)
       }
     },
-    [claim]
+    [claim],
   )
 
   const renderTextAreas = (
     theme: string,
-    { question }: { question: string }
+    { question }: { question: string },
   ) => {
     return (
       <TextArea
@@ -71,13 +73,13 @@ const Answers = ({
     )
   }
 
-  const onSubmit = (fields: Fields) => {
+  const onSubmit = async (fields: Fields) => {
     if (isPreAnswer) {
       setEditMode(false)
-      onPreSave(fields)
-      // fetchQuotaClaim(mainInfo.id)
+      await onPreSave(fields)
+      await dispatch(fetchQuotaClaim(mainInfo.id))
     } else {
-      onSave(fields)
+      await onSave(fields)
     }
   }
   return (
@@ -90,7 +92,7 @@ const Answers = ({
           <ExpertAnswers
             claim={claim}
             mainInfo={mainInfo}
-            title='Вопросы эксперту'
+            title="Вопросы эксперту"
             renderCustomAnswer={isEditMode ? renderTextAreas : undefined}
           />
           <div className={styles.controls}>

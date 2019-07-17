@@ -46,7 +46,6 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
     }
 
     private onSave = async (fields: Fields) => {
-
       const { claim, sendAnswers } = this.props
       const { id } = claim
       const completeData = this.getCompleteData(fields)
