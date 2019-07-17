@@ -40,21 +40,18 @@ const Container = (WrappedComponent: React.ComponentType<FormProps>) => {
 
     private onPreSave = async (fields: Fields) => {
       const { preSaveAnswer } = this.props
-      console.log('pre-save', this.props)
 
       const completeData = this.getCompleteData(fields)
-      console.log('completeData:', completeData)
       await preSaveAnswer(completeData)
     }
 
     private onSave = async (fields: Fields) => {
-      console.log('save')
       const { claim, sendAnswers } = this.props
       const { id } = claim
       const completeData = this.getCompleteData(fields)
       await sendAnswers(completeData)
 
-      // Router.push(`/consultation/redirect/${id}`)
+      Router.push(`/consultation/redirect/${id}`)
     }
 
     private getCompleteData = (fields: Fields) => {
