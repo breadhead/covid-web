@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Router from 'next/router'
 
 import {
@@ -42,8 +42,30 @@ const Answers = ({
   mainInfo,
 }: Props) => {
   const answerSent = claimStatus === ClaimStatus.AnswerValidation
-
+  const [isEditMode, setEditMode] = useState(true)
   const [isPreAnswer, setPreAnswer] = useState(false)
+
+  useEffect(
+    () => {
+      if (!!claim.defaultQuestions[0].answer) {
+        setEditMode(false)
+      }
+    },
+    [claim],
+  )
+
+  const renderTextAreas = (
+    theme: string,
+    { question }: { question: string },
+  ) => {
+    return (
+      <TextArea
+        validate={yup.string().required('Обязательное поле')}
+        className={styles.textarea}
+        name={makeFieldName(theme, question)}
+      />
+    )
+  }
 
   return (
     <Form
@@ -56,24 +78,20 @@ const Answers = ({
             claim={claim}
             mainInfo={mainInfo}
             title="Вопросы эксперту"
-            renderCustomAnswer={(theme, { question }) => (
-              <TextArea
-                validate={yup.string().required('Обязательное поле')}
-                className={styles.textarea}
-                name={makeFieldName(theme, question)}
-              />
-            )}
+            renderCustomAnswer={isEditMode ? renderTextAreas : undefined}
           />
           <div className={styles.controls}>
-            <Button
-              className={styles.cancel}
-              kind={ButtonKind.Secondary}
-              onClick={() =>
-                Router.push(`/consultation/redirect/${claim.id}`) as any
-              }
-            >
-              Отменить изменения
-            </Button>
+            {isEditMode && (
+              <Button
+                className={styles.cancel}
+                kind={ButtonKind.Secondary}
+                onClick={() =>
+                  Router.push(`/consultation/redirect/${claim.id}`) as any
+                }
+              >
+                Отменить изменения
+              </Button>
+            )}
             <ButtonWithTooltip
               className={styles.save}
               submit
@@ -81,14 +99,27 @@ const Answers = ({
             >
               {answerSent ? 'Сохранить изменения' : 'Отправить ответ'}
             </ButtonWithTooltip>
-            <ButtonWithTooltip
-              className={styles.draft}
-              kind={ButtonKind.Secondary}
-              submit
-              onClick={() => setPreAnswer(true)}
-            >
-              Сохранить как черновик
-            </ButtonWithTooltip>
+            {!isEditMode && (
+              <Button
+                kind={ButtonKind.Secondary}
+                onClick={() => setEditMode(true)}
+              >
+                Редактировать
+              </Button>
+            )}
+            {isEditMode && (
+              <ButtonWithTooltip
+                className={styles.draft}
+                kind={ButtonKind.Secondary}
+                submit
+                onClick={() => {
+                  setPreAnswer(true)
+                  setEditMode(false)
+                }}
+              >
+                Сохранить как черновик
+              </ButtonWithTooltip>
+            )}
           </div>
         </>
       )}
