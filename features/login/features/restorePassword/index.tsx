@@ -1,14 +1,13 @@
 import Container from './container'
-import RestorePasswordModal from './organisms/Modal'
-import { actions } from './reducer'
-
+import {
+  RestorePasswordModal,
+  RESTORE_PASSWORD_MODAL_KEY,
+} from './organisms/Modal'
 export { State, reducer, Actions, actions } from './reducer'
-
-export const authViolateStatus = (value: boolean) =>
-  actions.authViolateStatus(value)
-
-export { login } from './actions'
-export { getViolateState } from './selectors'
+export {
+  OpenRestorePasswordModalButton,
+} from './molecules/open-restore-password-modal-button'
 
 export default Container(RestorePasswordModal)
 export { RestorePasswordModal }
+export { RESTORE_PASSWORD_MODAL_KEY }

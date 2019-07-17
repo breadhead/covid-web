@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as styles from './OpenRestorePasswordModalButton.css'
-import withRestorePasswordModal from '../../withRestorePasswordModal'
+import withRestorePasswordModal from '../../hoc/withRestorePasswordModal'
 
 interface Props {
   openModal: () => void

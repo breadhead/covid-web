@@ -3,12 +3,12 @@ import * as React from 'react'
 import { useState } from 'react'
 import { compose } from 'redux'
 import { isModal } from '@app/features/common/modal'
-import { RESTORE_PASSWORD_MODAL_KEY } from './modal-key'
 import { withSignInModal, WithSignInModal, loginAction } from '../signIn'
 import { withSignUpModal, WithSignUpModal } from '../signUp'
 import { useApi } from '@app/lib/api/useApi'
-export { RESTORE_PASSWORD_MODAL_KEY }
+
 import { useThunk } from '@front/hooks/useThunk'
+import { RESTORE_PASSWORD_MODAL_KEY } from './organisms/Modal'
 
 export interface Credentials {
   login: string
