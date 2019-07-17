@@ -159,7 +159,7 @@ export const experts = [
   {
     id: 'shilo',
     photo: '/static/images/experts/Shilo.jpg',
-    name: 'Полина Шило ',
+    name: 'Шило Полина Сергеевна',
     specialization: 'Онколог-химиотерапевт, онкогематолог',
     info: [
       `Место работы: ГКБ имени И.В. Давыдовского, Москва. Студентка программы Гарвардской медицинской школы по клиническим исследованиям (GCSRT)`,
@@ -176,7 +176,7 @@ export const experts = [
   {
     id: 'gasymly',
     photo: '/static/images/experts/Gasymly.jpg',
-    name: 'Дюня Гасымлы',
+    name: 'Дюня Джамил кызы Гасымлы',
     specialization: 'Врач онколог',
     info: [
       `Место работы: Красноярский краевой клинический онкологический диспансер им. А.И. Крыжановского (отделение лекарственной противоопухолевой терапии) Федеральный научный клинический центр ФМБА России (онкогинекология, химиотерапия).`,
@@ -192,7 +192,7 @@ export const experts = [
   {
     id: 'sorokin',
     photo: '/static/images/experts/Sorokin.jpg',
-    name: 'Сорокин Павел',
+    name: 'Сорокин Павел Игоревич',
     specialization: 'Онколог, онкогинеколог',
     info: [
       `Место работы: НМИЦ онкологии им. Н.Н. Петрова`,
@@ -204,7 +204,7 @@ export const experts = [
   {
     id: 'lopushanskaya',
     photo: '/static/images/experts/Lopushanskaya.jpg',
-    name: 'Ольга Лопушанская',
+    name: 'Лопушанская Ольга Олеговна',
     specialization: 'Хирург-онколог',
     info: [
       `Место работы: ФГБУ НМИЦ онкологии имени Н.Н. Петрова, хирургическое торакальное отделение`,
@@ -217,7 +217,7 @@ export const experts = [
   {
     id: 'volchenkov',
     photo: '/static/images/experts/Volchenkov.jpg',
-    name: 'Волченков Станислав',
+    name: 'Волченков Станислав Андреевич',
     specialization: 'Онколог, клинический ординатор',
     info: [
       `Место работы: ФГБУ "Национальный медицинский исследовательский центр онкологии имени Н.Н. Петрова" Министерства здравоохранения Российской Федерации, Санкт-Петербург`,
@@ -228,7 +228,7 @@ export const experts = [
   {
     id: 'konovalov',
     photo: '/static/images/experts/Konovalov.jpeg',
-    name: 'Коновалов Антон',
+    name: 'Коновалов Антон Николаевич',
     specialization: 'Нейрохирург',
     info: [
       `Место работы: ФГАУ НМИЦ Нейрохирургии им. акад. Н.Н.Бурденко г. Москва`,
@@ -242,7 +242,7 @@ export const experts = [
   {
     id: 'gricenko',
     photo: '/static/images/experts/Gricenko.jpg',
-    name: 'Гриценко Анастасия ',
+    name: 'Гриценко Анастасия Александровна',
     specialization: 'Онколог (врач-исследователь)',
     info: [
       `Место работы: ЧМУ "Евромедсервис", г. Санкт-Петербург, г. Пушкин; НУЗ "Дорожная клиническая больница ОАО "РЖД"", г. Санкт-Петербург.`,
@@ -252,7 +252,7 @@ export const experts = [
   {
     id: 'molostova',
     photo: '/static/images/experts/Molostova.JPG',
-    name: 'Молостова Ольга ',
+    name: 'Молостова Ольга Олеговна',
     specialization: 'Онколог',
     info: [
       `Образование
