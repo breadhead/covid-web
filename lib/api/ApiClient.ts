@@ -79,4 +79,5 @@ export default interface ApiClient {
   downloadReport(from: Date, to: Date, onlyClosed: boolean): Promise<any>
   fetchTimeReport(): Promise<TimeReport>
   fetchSuccessefulClosedClaims(): Promise<number>
+  restorePassword(login: string): Promise<string>
 }

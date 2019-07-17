@@ -1,5 +1,5 @@
 import {
-  WithLoginModal,
+  WithSignInModal,
   withSignInModal,
 } from '@app/features/login/features/signIn'
 import { Button, ButtonKind } from '@front/ui/button'
@@ -9,7 +9,7 @@ interface LoginButtonProps {
   className?: string
 }
 
-type Props = LoginButtonProps & WithLoginModal
+type Props = LoginButtonProps & WithSignInModal
 
 const LoginButton: React.StatelessComponent<Props> = ({
   className,

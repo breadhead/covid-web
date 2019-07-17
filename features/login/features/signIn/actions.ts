@@ -5,7 +5,7 @@ import { actions as userActions } from '../user'
 import { setCookie } from './helpers/setAuthToken'
 import { actions } from './reducer'
 
-export const login = (
+export const loginAction = (
   username: string,
   password: string,
   wantTo: string,

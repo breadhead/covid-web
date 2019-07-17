@@ -7,7 +7,7 @@ import { ButtonWithTooltip, InputType } from '@app/features/common/form'
 import Form from '@app/features/common/form/components/Form/Form'
 import Input from '@app/features/common/form/components/Input'
 import OpenModalButton from '@app/features/login/atoms/OpenModalButton'
-import Footer from '@app/features/login/organisms/Footer'
+import ModalFooter from '@app/features/login/organisms/Footer'
 import { SPACE } from '@app/lib/config'
 import { confirmCb, schema } from './schema'
 
@@ -67,7 +67,7 @@ const SignUp = ({ onFormSubmit, error, openSignIn }: Props) => (
         </>
       )}
     </Form>
-    <Footer onOpenModalClick={openSignIn} />
+    <ModalFooter onOpenModalClick={openSignIn} />
   </article>
 )
 

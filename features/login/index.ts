@@ -19,7 +19,7 @@ export {
   authViolateStatus,
   getViolateState,
   withSignInModal as withLoginModal,
-  WithLoginModal,
+  WithSignInModal,
 } from './features/signIn'
 
 export { State, reducer } from './reducer'

@@ -270,4 +270,9 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .get('/public-statistics/success-closed-claims-count')
       .then(response => response.data as number)
+
+  public restorePassword = (login: string) =>
+    this.axiosInstance
+      .post('/auth/reset-password', { login })
+      .then(res => res.data as string)
 }
