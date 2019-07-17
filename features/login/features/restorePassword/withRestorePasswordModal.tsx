@@ -7,7 +7,7 @@ export interface WithRestorePasswordModal {
 }
 
 const withRestorePasswordModal = (
-  Component: React.ComponentType<WithRestorePasswordModal>
+  Component: React.ComponentType<WithRestorePasswordModal>,
 ) =>
   withModal(({ modal, ...props }: WithModalProps) => (
     <Component

@@ -6,13 +6,12 @@ import { actions } from './reducer'
 export const restorePassword = (login: string) => async (
   dispatch: Dispatch<any>,
   getState: () => State,
-  { getApi }: ExtraArgs
+  { getApi }: ExtraArgs,
 ) => {
   const api = getApi(getState)
   try {
     dispatch(actions.request())
     await api.restorePassword(login)
-
   } catch (error) {
     dispatch(actions.error(error.message))
     throw error

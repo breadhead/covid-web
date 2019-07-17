@@ -39,8 +39,8 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance = axios.create({
       baseURL: baseUrl,
       headers: {
-        Authorization: bearer
-      }
+        Authorization: bearer,
+      },
     })
   }
 
@@ -109,7 +109,7 @@ export default class RealApiClient implements ApiClient {
       .then(response => response.data as ClaimBoardCard)
 
   public createSituationClaim = (
-    situationClaimRequest: SituationClaimRequest
+    situationClaimRequest: SituationClaimRequest,
   ) =>
     this.axiosInstance
       .post(`/claims/situation`, situationClaimRequest)
@@ -202,12 +202,12 @@ export default class RealApiClient implements ApiClient {
         }
 
         return false
-      }
+      },
     )
 
   public uploadFile = async (
     file: File,
-    onProgress?: (precent: number) => void
+    onProgress?: (precent: number) => void,
   ) => {
     const form = new FormData()
     form.append('file', file)
@@ -215,7 +215,7 @@ export default class RealApiClient implements ApiClient {
     const response = await this.axiosInstance.post('/file/upload', form, {
       headers: { 'Content-Type': 'multipart/form-data' },
       onUploadProgress: ({ loaded, total }) =>
-        onProgress && onProgress((loaded / total) * 100)
+        onProgress && onProgress((loaded / total) * 100),
     })
 
     return response.data as UploadedFile
@@ -244,12 +244,12 @@ export default class RealApiClient implements ApiClient {
 
   public changeCorporateStatus = (
     claimId: string,
-    newStatus: CorporateStatus
+    newStatus: CorporateStatus,
   ) =>
     this.axiosInstance
       .post('/claims/change-corporate-status', {
         claimId,
-        newStatus
+        newStatus,
       })
       .then(response => response.data)
 
@@ -272,5 +272,7 @@ export default class RealApiClient implements ApiClient {
       .then(response => response.data as number)
 
   public restorePassword = (login: string) =>
-    this.axiosInstance.post('/auth/reset-password', { login }).then(res => res.data as string)
+    this.axiosInstance
+      .post('/auth/reset-password', { login })
+      .then(res => res.data as string)
 }

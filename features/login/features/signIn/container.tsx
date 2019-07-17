@@ -39,10 +39,7 @@ const Container = (WrappedComponent: React.ComponentType<ContainerProps>) => {
   return class ContaineredComponent extends React.Component<ContainerProps> {
     public render() {
       return (
-        <WrappedComponent
-          onFormSubmit={this.onFormSubmit}
-          {...this.props}
-        />
+        <WrappedComponent onFormSubmit={this.onFormSubmit} {...this.props} />
       )
     }
 

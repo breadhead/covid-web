@@ -8,10 +8,7 @@ interface Props {
 
 const OpenRestorePasswordModalButton = ({ openModal }: Props) => {
   return (
-    <button
-      onClick={openModal}
-      className={styles.button}
-    >
+    <button onClick={openModal} className={styles.button}>
       Забыли пароль?
     </button>
   )
