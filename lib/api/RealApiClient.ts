@@ -28,7 +28,6 @@ import { SendFeedbackRequest } from './request/SendFeedback'
 import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
-import { request } from 'http'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
