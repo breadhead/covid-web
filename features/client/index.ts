@@ -25,3 +25,5 @@ export const reducer = combineReducers({
 } as any)
 
 export { themes } from './values'
+
+export { PreviewImage } from './features/preview-image'
