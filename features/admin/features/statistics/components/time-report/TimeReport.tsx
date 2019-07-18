@@ -58,7 +58,7 @@ export const TimeReport = () => {
             a.success - b.success,
         },
         {
-          title: 'Неуспешных заявок',
+          title: 'Просроченных заявок',
           dataIndex: 'failure',
           key: 'failure',
           defaultSortOrder: 'descend',
@@ -88,8 +88,8 @@ export const TimeReport = () => {
       <p>Общее среднее время ответа: {formatTimestamp(average)}</p>
       <p>Общее медианное время ответа: {formatTimestamp(median)}</p>
       <p>Максимальное время ответа: {formatTimestamp(max)}</p>
-      <p>Успешных заявок: {success}</p>
-      <p>Неуспешных заявок: {failure}</p>
+      <p>Всего успешных заявок: {success}</p>
+      <p>Всего просроченных заявок: {failure}</p>
       <Table columns={columns} dataSource={tableData} />
     </div>
   )
