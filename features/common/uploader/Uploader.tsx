@@ -11,6 +11,9 @@ import { NavLink } from '@front/ui/nav-link'
 import ProgressBar from './atoms/ProgressBar'
 import { displayFileName } from './displayFileName'
 import * as styles from './Uploader.css'
+import routes from '@app/routes'
+
+const { Router } = routes
 
 interface Props {
   initialValue?: string
@@ -76,7 +79,7 @@ const Uploader = ({
     },
     [path, fileInput, api],
   )
-
+  console.log('path:', path)
   return (
     <div className={cx(styles.container, className)}>
       <div className={styles.row}>
@@ -99,9 +102,14 @@ const Uploader = ({
       </div>
       {uploading && <ProgressBar percentage={precentage} />}
       {!!path && (
-        <NavLink blank href={path} className={styles.link}>
-          {displayFileName(path)}
-        </NavLink>
+        <>
+          <NavLink blank href={path} className={styles.link}>
+            {displayFileName(path)}
+          </NavLink>
+          <button onClick={() => Router.pushRoute(`/preview/${path}`)}>
+            click me
+          </button>
+        </>
       )}
     </div>
   )
