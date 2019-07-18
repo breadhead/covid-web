@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { PreviewImage } from '@app/features/client'
 import { AppContext } from '@app/lib/server-types'
 

@@ -5,5 +5,6 @@ interface Props {
 }
 
 export const PreviewImage = ({ img }: Props) => {
-  return <img src={img} />
+  const currentImg = img.replace(/&/g, '/')
+  return <img src={`http://${currentImg}`} />
 }
