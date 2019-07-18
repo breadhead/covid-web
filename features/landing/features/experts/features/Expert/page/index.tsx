@@ -32,7 +32,7 @@ const ExpertPage = ({ expert }: Props) => {
             <p className={styles.description}>{specialization}</p>
             <div className={styles.info}>
               {info.map((text, i) => (
-                <p key={i}>{text}</p>
+                <p key={text}>{text}</p>
               ))}
             </div>
           </div>
