@@ -1,21 +1,24 @@
 import React from 'react'
-import Router from 'next/router'
-import * as yup from 'yup'
+import { useState, useEffect } from 'react'
 
 import {
   ExpertAnswers,
   makeQuestionGroups,
+  fetchQuotaClaim,
 } from '@app/features/common/consultation'
-import { Form, TextArea } from '@app/features/common/form'
-import { ButtonKind, ButtonWithTooltip } from '@app/features/common/form'
+import { Form } from '@app/features/common/form'
+
 import { AnswerClaim } from '@app/models/Claim/AnswerClaim'
-import { Button } from '@front/ui/button'
 import { makeInitialValues } from '../../helpers/makeInitialValues'
 
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import { makeFieldName } from '../../helpers/makeFieldName'
 import * as styles from './Answers.css'
+import { makeFieldName } from '../../helpers/makeFieldName'
+import { TextArea } from '@app/features/common/form'
+import * as yup from 'yup'
+import { useThunk } from '@app/src/hooks/useThunk'
+import { Controls } from '../controls/Controls'
 
 interface Answers {
   [key: string]: string
@@ -28,12 +31,54 @@ export interface Props {
   claim: AnswerClaim
   mainInfo: ListedClaim
   claimStatus?: ClaimStatus
-  onSubmit: (fields: Fields) => Promise<any>
+  onSave: (fields: Fields) => Promise<any>
+  onPreSave: (fields: Fields) => Promise<any>
 }
 
-const Answers = ({ claim, onSubmit, claimStatus, mainInfo }: Props) => {
+const Answers = ({
+  claim,
+  onSave,
+  onPreSave,
+  claimStatus,
+  mainInfo,
+}: Props) => {
   const answerSent = claimStatus === ClaimStatus.AnswerValidation
+  const [isEditMode, setEditMode] = useState(true)
+  const [isPreAnswer, setPreAnswer] = useState(false)
 
+  const dispatch = useThunk()
+
+  useEffect(
+    () => {
+      if (!!claim.defaultQuestions[0].answer) {
+        setEditMode(false)
+      }
+    },
+    [claim],
+  )
+
+  const renderTextAreas = (
+    theme: string,
+    { question }: { question: string },
+  ) => {
+    return (
+      <TextArea
+        validate={yup.string().required('Обязательное поле')}
+        className={styles.textarea}
+        name={makeFieldName(theme, question)}
+      />
+    )
+  }
+
+  const onSubmit = async (fields: Fields) => {
+    if (isPreAnswer) {
+      setEditMode(false)
+      await onPreSave(fields)
+      await dispatch(fetchQuotaClaim(mainInfo.id))
+    } else {
+      await onSave(fields)
+    }
+  }
   return (
     <Form
       onSubmit={onSubmit as any}
@@ -45,27 +90,16 @@ const Answers = ({ claim, onSubmit, claimStatus, mainInfo }: Props) => {
             claim={claim}
             mainInfo={mainInfo}
             title="Вопросы эксперту"
-            renderCustomAnswer={(theme, { question }) => (
-              <TextArea
-                validate={yup.string().required('Обязательное поле')}
-                className={styles.textarea}
-                name={makeFieldName(theme, question)}
-              />
-            )}
+            renderCustomAnswer={isEditMode ? renderTextAreas : undefined}
           />
-          <div className={styles.controls}>
-            <ButtonWithTooltip submit>
-              {answerSent ? 'Сохранить изменения' : 'Отправить ответ'}
-            </ButtonWithTooltip>
-            <Button
-              kind={ButtonKind.Secondary}
-              onClick={() =>
-                Router.push(`/consultation/redirect/${claim.id}`) as any
-              }
-            >
-              Отменить изменения
-            </Button>
-          </div>
+          <Controls
+            styles={styles}
+            isEditMode={isEditMode}
+            setPreAnswer={setPreAnswer}
+            setEditMode={setEditMode}
+            answerSent={answerSent}
+            id={claim.id}
+          />
         </>
       )}
     </Form>

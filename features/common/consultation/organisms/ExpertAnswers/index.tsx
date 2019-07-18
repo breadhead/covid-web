@@ -62,6 +62,7 @@ const ExpertAnswers = ({
         <Footer
           answeredAt={mainInfo.answeredAt}
           answerUpdatedAt={mainInfo.answerUpdatedAt}
+          draftedAt={mainInfo.draftedAt}
         />
         {isClientConsultationUrl() && (
           <QuestionNotification
