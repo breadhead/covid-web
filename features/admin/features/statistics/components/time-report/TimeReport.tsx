@@ -13,7 +13,6 @@ export const TimeReport = () => {
   useEffect(() => {
     api.fetchTimeReport().then(setTimeData)
   }, [])
-
   const getColumnSearchProps = useColumnSearchProps()
   useEffect(
     () => {
@@ -25,7 +24,7 @@ export const TimeReport = () => {
           ...getColumnSearchProps('name'),
         },
         {
-          title: 'Среднее время ответа',
+          title: 'Среднее время',
           dataIndex: 'average',
           key: 'average',
           render: formatTimestamp,
@@ -34,7 +33,7 @@ export const TimeReport = () => {
             a.average - b.average,
         },
         {
-          title: 'Медианное время ответа',
+          title: 'Медианное время',
           dataIndex: 'median',
           key: 'median',
           render: formatTimestamp,
@@ -43,12 +42,28 @@ export const TimeReport = () => {
             a.median - b.median,
         },
         {
-          title: 'Максимальное время ответа',
+          title: 'Максимальное время',
           dataIndex: 'max',
           key: 'max',
           render: formatTimestamp,
           defaultSortOrder: 'descend',
           sorter: (a: { max: number }, b: { max: number }) => a.max - b.max,
+        },
+        {
+          title: 'Успешных заявок',
+          dataIndex: 'success',
+          key: 'success',
+          defaultSortOrder: 'descend',
+          sorter: (a: { success: number }, b: { success: number }) =>
+            a.success - b.success,
+        },
+        {
+          title: 'Неуспешных заявок',
+          dataIndex: 'failure',
+          key: 'failure',
+          defaultSortOrder: 'descend',
+          sorter: (a: { failure: number }, b: { failure: number }) =>
+            a.failure - b.failure,
         },
       ]
 
@@ -61,7 +76,7 @@ export const TimeReport = () => {
     return <p>Загружаем...</p>
   }
 
-  const { median, max, average, doctors } = timeData
+  const { median, max, average, doctors, success, failure } = timeData
 
   const tableData = doctors.map(doctor => ({
     key: doctor.name,
@@ -73,6 +88,8 @@ export const TimeReport = () => {
       <p>Общее среднее время ответа: {formatTimestamp(average)}</p>
       <p>Общее медианное время ответа: {formatTimestamp(median)}</p>
       <p>Максимальное время ответа: {formatTimestamp(max)}</p>
+      <p>Успешных заявок: {success}</p>
+      <p>Неуспешных заявок: {failure}</p>
       <Table columns={columns} dataSource={tableData} />
     </div>
   )
