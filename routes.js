@@ -36,6 +36,8 @@ module.exports = nextRoutes()
     '/client/claim/wait-please/:email',
     'client/form-finish',
   )
+  .add('preview-image', '/preview-image/:img', 'client/preview-image')
+
   // admin
   .add('admin-home', '/admin', 'admin/quotas')
   .add('admin-transfer', '/admin/transfer', 'admin/transfer')

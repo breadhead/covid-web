@@ -5,5 +5,7 @@ export interface TimeReport {
   median: number
   min: number
   max: number
+  success: number
+  failure: number
   doctors: DoctorTimeReport[]
 }

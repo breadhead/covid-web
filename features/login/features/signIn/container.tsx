@@ -2,7 +2,7 @@ import { State } from '@app/lib/store'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
-import { login } from './actions'
+import { loginAction } from './actions'
 
 import { isModal } from '@app/features/common/modal'
 import * as yup from 'yup'
@@ -13,15 +13,9 @@ import Router from 'next/router'
 import { MODAL_KEY } from './const'
 export { MODAL_KEY }
 
-const passwordRecoveryUrl = 'https://cabinet.nenaprasno.ru/restore'
-
 export interface Credentials {
   login: string
   password: string
-}
-
-interface Props extends ContainerProps {
-  passwordRecoveryUrl: string
 }
 
 interface ContainerProps extends WithSignUpModal {
@@ -41,15 +35,11 @@ export const schema = {
     .required('Пароль должен быть длиннее 2 символов'),
 }
 
-const Container = (WrappedComponent: React.ComponentType<Props>) => {
+const Container = (WrappedComponent: React.ComponentType<ContainerProps>) => {
   return class ContaineredComponent extends React.Component<ContainerProps> {
     public render() {
       return (
-        <WrappedComponent
-          onFormSubmit={this.onFormSubmit}
-          passwordRecoveryUrl={passwordRecoveryUrl}
-          {...this.props}
-        />
+        <WrappedComponent onFormSubmit={this.onFormSubmit} {...this.props} />
       )
     }
 
@@ -75,7 +65,11 @@ const mapState = (state: State) => ({
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   login: (credentials: Credentials, wantTo: string) =>
-    dispatch(login(credentials.login, credentials.password, wantTo) as any),
+    dispatch(loginAction(
+      credentials.login,
+      credentials.password,
+      wantTo,
+    ) as any),
 })
 
 export default compose(

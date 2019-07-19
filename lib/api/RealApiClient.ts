@@ -125,10 +125,12 @@ export default class RealApiClient implements ApiClient {
       .post('/quotas/transfer', quotaTransferRequest)
       .then(response => response.data as QuotaTransferResponse)
 
-  public answerQuestions = (request: AnswerRequest) =>
-    this.axiosInstance
-      .post('/claims/answer', request)
+  public answerQuestions = ({ pre, ...request }: AnswerRequest) => {
+    const prefix = pre ? 'pre-' : ''
+    return this.axiosInstance
+      .post(`/claims/${prefix}answer`, request)
       .then(response => response.data)
+  }
 
   public quota = (id: string) =>
     this.axiosInstance
@@ -261,8 +263,18 @@ export default class RealApiClient implements ApiClient {
       .then(response => response.data)
   }
 
-  fetchTimeReport = () =>
+  public fetchTimeReport = () =>
     this.axiosInstance
       .get('/statistics/doctor-answer')
       .then(response => response.data as TimeReport)
+
+  public fetchSuccessefulClosedClaims = () =>
+    this.axiosInstance
+      .get('/public-statistics/success-closed-claims-count')
+      .then(response => response.data as number)
+
+  public restorePassword = (login: string) =>
+    this.axiosInstance
+      .post('/auth/reset-password', { login })
+      .then(res => res.data as string)
 }

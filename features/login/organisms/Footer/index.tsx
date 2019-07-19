@@ -9,7 +9,7 @@ interface FooterProps {
   onOpenModalClick: () => void
 }
 
-const Footer = ({ onOpenModalClick }: FooterProps) => (
+const ModalFooter = ({ onOpenModalClick }: FooterProps) => (
   <footer className={styles.footer}>
     <Icon className={styles.logo} name={IconsList.FoundationLogoMark} />
     <p className={styles.text}>
@@ -24,4 +24,4 @@ const Footer = ({ onOpenModalClick }: FooterProps) => (
   </footer>
 )
 
-export default Footer
+export default ModalFooter

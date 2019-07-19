@@ -8,6 +8,8 @@ import Donation from '../organisms/Donation'
 import Experts from '../organisms/Experts'
 import Main from '../organisms/Main'
 import { useAuthModalByUrl } from './useAuthModalByUrl'
+import { fetchSuccessefulClosedClaimsAction } from '@app/src/domain/landing/actions/fetchSuccessefulClosedClaimsAction'
+import { AppContext } from '@app/lib/server-types'
 
 const LandingPage = () => {
   useAuthModalByUrl()
@@ -23,6 +25,12 @@ const LandingPage = () => {
       <Donation />
     </Layout>
   )
+}
+
+LandingPage.getInitialProps = async (context: AppContext) => {
+  await context.reduxStore.dispatch(fetchSuccessefulClosedClaimsAction() as any)
+
+  return {}
 }
 
 export default LandingPage

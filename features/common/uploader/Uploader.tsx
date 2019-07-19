@@ -99,7 +99,11 @@ const Uploader = ({
       </div>
       {uploading && <ProgressBar percentage={precentage} />}
       {!!path && (
-        <NavLink blank href={path} className={styles.link}>
+        <NavLink
+          blank
+          href={`/preview-image/${path.replace(/\//g, '&')}`}
+          className={styles.link}
+        >
           {displayFileName(path)}
         </NavLink>
       )}

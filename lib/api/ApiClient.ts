@@ -76,7 +76,8 @@ export default interface ApiClient {
     claimId: string,
     newStatus: CorporateStatus,
   ): Promise<void>
-
   downloadReport(from: Date, to: Date, onlyClosed: boolean): Promise<any>
   fetchTimeReport(): Promise<TimeReport>
+  fetchSuccessefulClosedClaims(): Promise<number>
+  restorePassword(login: string): Promise<string>
 }
