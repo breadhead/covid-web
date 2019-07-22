@@ -9,10 +9,10 @@ import RangePicker from '../../../history/molecule/RangePicker'
 const { Router } = routes
 
 export const ClaimsFunnel = () => {
-  const [from, setFrom] = useState<Date | undefined>(undefined)
-  const [to, setTo] = useState<Date | undefined>(undefined)
+  const [from, setFrom] = useState<Date | undefined>(new Date('2019-02-01'))
+  const [to, setTo] = useState<Date | undefined>(new Date())
 
-  const data = useFunnelData(from, to)
+  const data = useFunnelData(from!, to!)
 
   const changePeriod = useCallback(
     (newFrom?: Date, newTo?: Date) => {

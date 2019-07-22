@@ -1,9 +1,9 @@
 export interface Funnel {
-  answerValidationClaims: number
-  finishedClaims: number
-  sendedToClientClaims: number
-  sendedToDoctorClaims: number
   shortClaims: number
   situationClaims: number
+  finishedClaims: number
+  answerValidationClaims: number
+  sendedToDoctorClaims: number
+  sendedToClientClaims: number
   successfullyClosedClaims: number
 }

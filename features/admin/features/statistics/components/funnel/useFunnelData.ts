@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react'
 import { useApi } from '@app/lib/api/useApi'
 import { Funnel } from '@app/models/Statistics/Funnel'
 
-export const useFunnelData = (from: Date | undefined, to: Date | undefined) => {
+export const useFunnelData = (from: Date, to: Date) => {
   const [stats, setStats] = useState<Funnel | null>(null)
   const api = useApi()
 
   useEffect(
     () => {
       const fetchData = async () => {
-        const funnel = await api.fetchFunnelStats({ from, to })
+        const funnel = await api.fetchFunnelStats(from, to)
 
         setStats(funnel)
       }
