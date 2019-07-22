@@ -277,4 +277,12 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post('/auth/reset-password', { login })
       .then(res => res.data as string)
+
+  public fetchFunnelStats = (req: any) => {
+    console.log('req:', req)
+    return this.axiosInstance
+      .post('/statistics/funnel-claims', req)
+      .then(res => res.data as any)
+    // TODO: add funnel type
+  }
 }

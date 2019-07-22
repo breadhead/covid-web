@@ -1,43 +1,12 @@
 import * as React from 'react'
 import { FunnelChart, Tooltip, Funnel, LabelList } from 'recharts'
 import routes from '@app/routes'
+import { useFunnelData } from './useFunnelData'
 
 const { Router } = routes
 
-const data = [
-  {
-    id: 'bercut',
-    value: 100,
-    name: 'Беркут',
-    fill: '#8884d8',
-  },
-  {
-    id: 'gavrilucov',
-    value: 80,
-    name: 'Гаврилюков',
-    fill: '#83a6ed',
-  },
-  {
-    id: 'zaitseva',
-    value: 50,
-    name: 'Зайцева',
-    fill: '#8dd1e1',
-  },
-  {
-    id: 'corobeinicova',
-    value: 40,
-    name: 'Коробейникова',
-    fill: '#82ca9d',
-  },
-  {
-    id: 'stepanova',
-    value: 26,
-    name: 'Степанова',
-    fill: '#a4de6c',
-  },
-]
-
 export const ClaimsFunnel = () => {
+  const data = useFunnelData()
   return (
     <FunnelChart width={730} height={250}>
       <Tooltip />
