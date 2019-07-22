@@ -1,53 +1,69 @@
 import { useState, useEffect } from 'react'
 import { useApi } from '@app/lib/api/useApi'
+import { Funnel } from '@app/models/Statistics/Funnel'
 
 export const useFunnelData = () => {
-  const [stats, setStats] = useState<any | null>(null)
+  const [stats, setStats] = useState<Funnel | null>(null)
   const api = useApi()
 
   useEffect(() => {
     const fetchData = async () => {
-      await api
-        .fetchFunnelStats({
-          from: new Date('2019-02-01'),
-          to: new Date('2019-07-22'),
-        })
-        .then(setStats)
+      const funnel = await api.fetchFunnelStats({
+        from: new Date('2019-02-01'),
+        to: new Date('2019-07-22'),
+      })
+
+      setStats(funnel)
     }
     fetchData()
   }, [])
 
-  console.log('stats:', stats)
+  if (!stats) {
+    return null
+  }
+
   const data = [
     {
-      id: 'bercut',
-      value: 100,
-      name: 'Беркут',
+      id: 'new-claim',
+      value: stats.shortClaims,
+      name: 'Первый шаг',
       fill: '#8884d8',
     },
     {
-      id: 'gavrilucov',
-      value: 80,
-      name: 'Гаврилюков',
+      id: 'situation-claim',
+      value: stats.situationClaims,
+      name: 'Второй шаг',
       fill: '#83a6ed',
     },
     {
-      id: 'zaitseva',
-      value: 50,
-      name: 'Зайцева',
+      id: 'question-claim',
+      value: stats.finishedClaims,
+      name: 'Третий шаг',
       fill: '#8dd1e1',
     },
     {
-      id: 'corobeinicova',
-      value: 40,
-      name: 'Коробейникова',
+      id: 'sended-to-doctor',
+      value: stats.sendedToDoctorClaims,
+      name: 'Отправлено врачу',
       fill: '#82ca9d',
     },
     {
-      id: 'stepanova',
-      value: 26,
-      name: 'Степанова',
+      id: 'answer-validation',
+      value: stats.answerValidationClaims,
+      name: 'Валидация ответа',
       fill: '#a4de6c',
+    },
+    {
+      id: 'sended-to-client',
+      value: stats.sendedToClientClaims,
+      name: 'Отправлено клиенту',
+      fill: '#FFCE55',
+    },
+    {
+      id: 'successefully-closed',
+      value: stats.successfullyClosedClaims,
+      name: 'Успешно закрыто',
+      fill: '#DE6CA3',
     },
   ]
 

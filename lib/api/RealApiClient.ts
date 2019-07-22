@@ -28,6 +28,7 @@ import { SendFeedbackRequest } from './request/SendFeedback'
 import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
+import { Funnel } from '@app/models/Statistics/Funnel'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -279,7 +280,6 @@ export default class RealApiClient implements ApiClient {
       .then(res => res.data as string)
 
   public fetchFunnelStats = (req: any) => {
-    console.log('req:', req)
     return this.axiosInstance
       .post('/statistics/funnel-claims', req)
       .then(res => res.data as any)

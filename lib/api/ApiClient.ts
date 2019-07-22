@@ -20,6 +20,7 @@ import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 import { TimeReport } from '@front/domain/statistics/model/time-report'
+import { Funnel } from '@app/models/Statistics/Funnel'
 
 export interface UploadedFile {
   path: string
@@ -80,5 +81,5 @@ export default interface ApiClient {
   fetchTimeReport(): Promise<TimeReport>
   fetchSuccessefulClosedClaims(): Promise<number>
   restorePassword(login: string): Promise<string>
-  fetchFunnelStats(req: any): Promise<any> //TODO: add type
+  fetchFunnelStats(req: { from: Date; to: Date }): Promise<Funnel>
 }
