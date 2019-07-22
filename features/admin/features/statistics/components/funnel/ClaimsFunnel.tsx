@@ -17,7 +17,7 @@ export const ClaimsFunnel = () => {
         data={data}
         isAnimationActive
       >
-        <LabelList position="right" fill="#000" stroke="none" dataKey="name" />
+        <LabelList position="center" fill="#000" stroke="none" dataKey="name" />
       </Funnel>
     </FunnelChart>
   )

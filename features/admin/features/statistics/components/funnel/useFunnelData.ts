@@ -63,7 +63,7 @@ export const useFunnelData = () => {
       id: 'successefully-closed',
       value: stats.successfullyClosedClaims,
       name: 'Успешно закрыто',
-      fill: '#DE6CA3',
+      fill: '#fc92c6',
     },
   ]
 
