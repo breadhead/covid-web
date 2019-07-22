@@ -2,21 +2,21 @@ import { useState, useEffect } from 'react'
 import { useApi } from '@app/lib/api/useApi'
 import { Funnel } from '@app/models/Statistics/Funnel'
 
-export const useFunnelData = () => {
+export const useFunnelData = (from: Date | undefined, to: Date | undefined) => {
   const [stats, setStats] = useState<Funnel | null>(null)
   const api = useApi()
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const funnel = await api.fetchFunnelStats({
-        from: new Date('2019-02-01'),
-        to: new Date('2019-07-22'),
-      })
+  useEffect(
+    () => {
+      const fetchData = async () => {
+        const funnel = await api.fetchFunnelStats({ from, to })
 
-      setStats(funnel)
-    }
-    fetchData()
-  }, [])
+        setStats(funnel)
+      }
+      fetchData()
+    },
+    [from, to],
+  )
 
   if (!stats) {
     return null
