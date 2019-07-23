@@ -7,6 +7,7 @@ import Layout from '../../organisms/Layout'
 import { ClaimArchive } from './components/claim-archive'
 import { TimeReport } from './components/time-report'
 import s from './Statistics.css'
+import { ClaimsFunnel } from './components/funnel'
 
 export const Statistics = () => {
   return (
@@ -19,6 +20,9 @@ export const Statistics = () => {
         </TabPane>
         <TabPane tab="Время ответа" key="time" className={s.tab}>
           <TimeReport />
+        </TabPane>
+        <TabPane tab="Воронка продаж" key="funnel" className={s.tab}>
+          <ClaimsFunnel />
         </TabPane>
       </Tabs>
     </Layout>

@@ -1,0 +1,1 @@
+export { ClaimsFunnel } from './ClaimsFunnel'
