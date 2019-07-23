@@ -18,32 +18,38 @@ const Footer = ({ answeredAt, answerUpdatedAt, draftedAt }: Props) => {
 
   const isItDraft = currentClaimStatus === ClaimStatus.AtTheDoctor
 
-  return isItDraft
-    ? draftedAt && (
-        <article className={styles.footer}>
+  const renderDraftFooter = () => {
+    return draftedAt ? (
+      <article className={styles.footer}>
+        <div className={styles.item}>
+          <p className={styles.text}>Ответ не отправлен</p>
+          <p className={styles.date}>
+            Черновик от{SPACE}
+            {formatDate(draftedAt)}
+          </p>
+        </div>
+      </article>
+    ) : null
+  }
+
+  const renderRegularFooter = () => {
+    return answeredAt ? (
+      <article className={styles.footer}>
+        <div className={styles.item}>
+          <p className={styles.text}>Ответ загружен</p>
+          <p className={styles.date}>{formatDate(answeredAt)}</p>
+        </div>
+        {answerUpdatedAt && (
           <div className={styles.item}>
-            <p className={styles.text}>Ответ не отправлен</p>
-            <p className={styles.date}>
-              Черновик от{SPACE}
-              {formatDate(draftedAt)}
-            </p>
+            <p className={styles.text}>Ответ обновлён</p>
+            <p className={styles.date}>{formatDate(answerUpdatedAt)}</p>
           </div>
-        </article>
-      )
-    : answeredAt && (
-        <article className={styles.footer}>
-          <div className={styles.item}>
-            <p className={styles.text}>Ответ загружен</p>
-            <p className={styles.date}>{formatDate(answeredAt)}</p>
-          </div>
-          {answerUpdatedAt && (
-            <div className={styles.item}>
-              <p className={styles.text}>Ответ обновлён</p>
-              <p className={styles.date}>{formatDate(answerUpdatedAt)}</p>
-            </div>
-          )}
-        </article>
-      )
+        )}
+      </article>
+    ) : null
+  }
+
+  return isItDraft ? renderDraftFooter() : renderRegularFooter()
 }
 
 export default Footer
