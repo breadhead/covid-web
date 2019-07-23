@@ -18,34 +18,32 @@ const Footer = ({ answeredAt, answerUpdatedAt, draftedAt }: Props) => {
 
   const isItDraft = currentClaimStatus === ClaimStatus.AtTheDoctor
 
-  if (!answeredAt) {
-    return null
-  }
-
-  return isItDraft ? (
-    <article className={styles.footer}>
-      <div className={styles.item}>
-        <p className={styles.text}>Ответ не отправлен</p>
-        <p className={styles.date}>
-          Черновик от{SPACE}
-          {formatDate(draftedAt!)}
-        </p>
-      </div>
-    </article>
-  ) : (
-    <article className={styles.footer}>
-      <div className={styles.item}>
-        <p className={styles.text}>Ответ загружен</p>
-        <p className={styles.date}>{formatDate(answeredAt)}</p>
-      </div>
-      {answerUpdatedAt && (
-        <div className={styles.item}>
-          <p className={styles.text}>Ответ обновлён</p>
-          <p className={styles.date}>{formatDate(answerUpdatedAt)}</p>
-        </div>
-      )}
-    </article>
-  )
+  return isItDraft
+    ? draftedAt && (
+        <article className={styles.footer}>
+          <div className={styles.item}>
+            <p className={styles.text}>Ответ не отправлен</p>
+            <p className={styles.date}>
+              Черновик от{SPACE}
+              {formatDate(draftedAt)}
+            </p>
+          </div>
+        </article>
+      )
+    : answeredAt && (
+        <article className={styles.footer}>
+          <div className={styles.item}>
+            <p className={styles.text}>Ответ загружен</p>
+            <p className={styles.date}>{formatDate(answeredAt)}</p>
+          </div>
+          {answerUpdatedAt && (
+            <div className={styles.item}>
+              <p className={styles.text}>Ответ обновлён</p>
+              <p className={styles.date}>{formatDate(answerUpdatedAt)}</p>
+            </div>
+          )}
+        </article>
+      )
 }
 
 export default Footer
