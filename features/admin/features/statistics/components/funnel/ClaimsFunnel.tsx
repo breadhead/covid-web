@@ -2,22 +2,22 @@ import * as React from 'react'
 import * as s from './ClaimsFunnel.css'
 import { useCallback, useState } from 'react'
 import { FunnelChart, Tooltip, Funnel, LabelList } from 'recharts'
-import routes from '@app/routes'
 import { useFunnelData } from './useFunnelData'
 import RangePicker from '../../../history/molecule/RangePicker'
 
-const { Router } = routes
+const DEFAULT_START = new Date('2019-02-01')
 
 export const ClaimsFunnel = () => {
-  const [from, setFrom] = useState<Date | undefined>(new Date('2019-02-01'))
-  const [to, setTo] = useState<Date | undefined>(new Date())
+  const now = new Date()
+  const [from, setFrom] = useState<Date>(DEFAULT_START)
+  const [to, setTo] = useState<Date>(now)
 
-  const data = useFunnelData(from!, to!)
+  const data = useFunnelData(from, to)
 
   const changePeriod = useCallback(
     (newFrom?: Date, newTo?: Date) => {
-      setFrom(newFrom)
-      setTo(newTo)
+      setFrom(newFrom || DEFAULT_START)
+      setTo(newTo || now)
     },
     [setFrom],
   )
@@ -31,9 +31,6 @@ export const ClaimsFunnel = () => {
         <Tooltip />
         <Funnel
           animationEasing="ease-in"
-          onClick={(info: any) =>
-            Router.pushRoute(`/admin/linechart:${info.id}`)
-          }
           dataKey="value"
           data={data}
           isAnimationActive
