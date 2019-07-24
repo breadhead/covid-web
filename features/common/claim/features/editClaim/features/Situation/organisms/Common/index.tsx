@@ -73,15 +73,10 @@ const Common = ({
       </span>
     </label>
     <TextArea name="otherDisease" />
-
     <label htmlFor="AIDS" className={styles.label}>
       Укажите ВИЧ-статус
     </label>
-    <RadioGroup
-      validate={schema.aids}
-      name="personalData.aids"
-      buttons={aidsRadioGroup}
-    />
+    <RadioGroup validate={schema.aids} name="aids" buttons={aidsRadioGroup} />
     {claimData.theme !== CONDITIONAL_THEME && (
       <>
         <label className={styles.label}>
