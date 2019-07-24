@@ -15,6 +15,8 @@ import { connect } from 'react-redux'
 import Uploader from '../../uploader'
 import ChatWrapper from '../organisms/ChatWrapper'
 import Header from '../organisms/Header'
+import { useGoogleAnalyticsPush } from '../../analytics/useGoogleAnalyticsPush/useGoogleAnalyticsPush'
+import { SourceEnum } from '../../analytics/useGoogleAnalyticsPush/SourceEnum'
 export interface FormFileds {
   message: string
 }
@@ -51,12 +53,18 @@ const Chat = ({
   const shouldHide = !opensOnce || !isOpen
 
   const [uploading, setUploading] = React.useState(false)
+  const gtmPush = useGoogleAnalyticsPush(SourceEnum.Chat)
 
   const onUpload = async (file: string) => {
     setUploading(true)
     scrollToBottom()
     await onSubmit({ message: file })
     setUploading(false)
+  }
+
+  const onFormSubmit = async (data: any) => {
+    onSubmit(data)
+    gtmPush.smsSend()
   }
 
   return (
@@ -73,7 +81,7 @@ const Chat = ({
         />
       </div>
       <Form
-        onSubmit={onSubmit as any}
+        onSubmit={onFormSubmit as any}
         className={styles.inputWrapper}
         resetAfterSubmit
         forceSubmitOnEnter
