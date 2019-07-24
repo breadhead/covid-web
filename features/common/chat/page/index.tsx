@@ -15,6 +15,11 @@ import { connect } from 'react-redux'
 import Uploader from '../../uploader'
 import ChatWrapper from '../organisms/ChatWrapper'
 import Header from '../organisms/Header'
+import { useGoogleAnalyticsPush } from '../../analytics/useGoogleAnalyticsPush/useGoogleAnalyticsPush'
+import { SourceEnum } from '../../analytics/useGoogleAnalyticsPush/SourceEnum'
+import { useMappedState } from 'redux-react-hook'
+import { getClaimStatus } from '../../consultation'
+import ClaimStatus from '@app/models/Claim/ClaimStatus'
 export interface FormFileds {
   message: string
 }
@@ -34,6 +39,13 @@ export interface Props {
   setUnfocused?: () => void
 }
 
+const claimStatusesAfterAnswer = [
+  ClaimStatus.Closed,
+  ClaimStatus.DeliveredToCustomer,
+  ClaimStatus.Denied,
+  ClaimStatus.ClosedWithoutAnswer,
+]
+
 const Chat = ({
   isOpen,
   messages,
@@ -51,12 +63,25 @@ const Chat = ({
   const shouldHide = !opensOnce || !isOpen
 
   const [uploading, setUploading] = React.useState(false)
+  const currentClaimStatus = useMappedState(getClaimStatus)
+  const gtmPush = useGoogleAnalyticsPush(SourceEnum.Chat)
 
   const onUpload = async (file: string) => {
     setUploading(true)
     scrollToBottom()
     await onSubmit({ message: file })
     setUploading(false)
+  }
+
+  const onFormSubmit = async (data: any) => {
+    onSubmit(data)
+
+    if (
+      !!currentClaimStatus &&
+      claimStatusesAfterAnswer.includes(currentClaimStatus)
+    ) {
+      gtmPush.smsSend()
+    }
   }
 
   return (
@@ -73,7 +98,7 @@ const Chat = ({
         />
       </div>
       <Form
-        onSubmit={onSubmit as any}
+        onSubmit={onFormSubmit as any}
         className={styles.inputWrapper}
         resetAfterSubmit
         forceSubmitOnEnter

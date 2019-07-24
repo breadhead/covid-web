@@ -5,6 +5,7 @@ import Conditions from '../../atoms/Conditions'
 import Title from '../../atoms/Title'
 import SendSms from '../../molecules/SendSms'
 import SmsCode from '../../molecules/SmsCode'
+import { newClaimUTM } from '@app/features/common/analytics/utmCodes'
 
 import * as styles from './Modal.css'
 
@@ -23,7 +24,9 @@ class ModalSmsConfirm extends React.Component<Props> {
     const { validationSuccess } = this.props
 
     if (validationSuccess) {
-      Router.push('/client/new-claim').then(() => this.props.close())
+      Router.push(`/client/new-claim?${newClaimUTM}`).then(() =>
+        this.props.close(),
+      )
     }
   }
 
