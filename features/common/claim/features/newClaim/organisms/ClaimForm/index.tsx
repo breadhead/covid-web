@@ -1,5 +1,4 @@
 import { Form } from '@app/features/common/form'
-import Gender from '@app/models/Gender'
 import * as React from 'react'
 import { useCallback } from 'react'
 import { DeepPartial } from 'utility-types'
@@ -19,7 +18,6 @@ interface PersonalData {
   name: string
   region: string
   age: number
-  gender: Gender
   email?: string
   phone?: string
 }

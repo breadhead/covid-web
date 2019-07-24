@@ -9,6 +9,7 @@ import {
   RemoveSection,
   Select,
   TextArea,
+  RadioGroup,
 } from '@app/features/common/form'
 import { InputType } from '@app/features/common/form'
 import { SPACE, StylesType } from '@app/lib/config'
@@ -21,12 +22,14 @@ import { ClaimData, SituationClaimFields } from '../../types'
 import { CONDITIONAL_THEME } from '../Form/config'
 import { localizations, relatives } from './config'
 import { schema } from './schema'
+import { aidsRadioGroup } from './aidsRadioGroup'
 interface Props {
   styles: StylesType
   claimData: ClaimData
   initial: Partial<SituationClaimFields>
   removeSectionFromState: RemoveSection
 }
+
 const Common = ({
   styles,
   claimData,
@@ -70,6 +73,15 @@ const Common = ({
       </span>
     </label>
     <TextArea name="otherDisease" />
+
+    <label htmlFor="AIDS" className={styles.label}>
+      Укажите ВИЧ-статус
+    </label>
+    <RadioGroup
+      validate={schema.aids}
+      name="personalData.aids"
+      buttons={aidsRadioGroup}
+    />
     {claimData.theme !== CONDITIONAL_THEME && (
       <>
         <label className={styles.label}>

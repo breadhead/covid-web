@@ -9,7 +9,6 @@ import {
   RadioGroup,
 } from '@app/features/common/form'
 import { StylesType } from '@app/lib/config'
-import Gender from '@app/models/Gender'
 import { mapString } from '@app/ui/Select'
 import cx from 'classnames'
 import * as React from 'react'
@@ -17,11 +16,7 @@ import { DeepPartial } from 'utility-types'
 import { ShortClaimFields } from '../ClaimForm'
 import { diagnosisVisible } from './diagnosisVisible'
 import { schema } from './schema'
-
-const genderRadioGroup = Object.entries(Gender).map(([id, value]) => ({
-  id,
-  value,
-}))
+import { genderRadioGroup } from './genderRadioGroup'
 
 interface Props {
   styles: StylesType
