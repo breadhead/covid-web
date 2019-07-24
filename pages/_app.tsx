@@ -21,7 +21,7 @@ import { createSizeAction, listenResize } from 'redux-windowsize'
 import '@app/ui/config.css?CSSModulesDisable'
 import '@front/ui/config.css?CSSModulesDisable'
 
-import { Analitics } from '@app/features/common/analytics'
+import { Analytics, GoogleTagManager } from '@app/features/common/analytics'
 import { set as setQuery } from '@app/features/common/browserQuery'
 import { setToken } from '@app/features/login'
 import NotFound, { getFound } from '@app/features/main/notFound'
@@ -191,7 +191,8 @@ class OncohelpWeb extends App<Props> {
               <StoreContext.Provider value={reduxStore}>
                 {notFound ? <NotFound /> : <Component {...pageProps} />}
                 <Modal />
-                <Analitics />
+                <Analytics />
+                <GoogleTagManager />
               </StoreContext.Provider>
             </Provider>
           </Container>

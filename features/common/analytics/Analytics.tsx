@@ -3,7 +3,7 @@ import * as React from 'react'
 
 import { GTM_ID } from './config'
 
-export const Analitics = () => (
+export const Analytics = () => (
   <>
     <Head>
       <script
