@@ -75,7 +75,7 @@ const Common = ({
     </label>
     <TextArea name="otherDisease" />
     <label htmlFor="aids" className={styles.label}>
-      Укажите ВИЧ-статус
+      Инфицирован ли ВИЧ?
     </label>
     <RadioGroup
       validate={schema.aids}
