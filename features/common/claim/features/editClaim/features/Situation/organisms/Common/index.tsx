@@ -23,6 +23,7 @@ import { CONDITIONAL_THEME } from '../Form/config'
 import { localizations, relatives } from './config'
 import { schema } from './schema'
 import { aidsRadioGroup } from './aidsRadioGroup'
+
 interface Props {
   styles: StylesType
   claimData: ClaimData
@@ -73,10 +74,15 @@ const Common = ({
       </span>
     </label>
     <TextArea name="otherDisease" />
-    <label htmlFor="AIDS" className={styles.label}>
+    <label htmlFor="aids" className={styles.label}>
       Укажите ВИЧ-статус
     </label>
-    <RadioGroup validate={schema.aids} name="aids" buttons={aidsRadioGroup} />
+    <RadioGroup
+      validate={schema.aids}
+      name="aids"
+      buttons={aidsRadioGroup}
+      defaultValue={null}
+    />
     {claimData.theme !== CONDITIONAL_THEME && (
       <>
         <label className={styles.label}>
