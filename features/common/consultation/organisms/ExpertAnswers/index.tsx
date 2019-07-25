@@ -34,6 +34,8 @@ const ExpertAnswers = ({
 
   const questionsAvailable = Object.keys(groups).length > 0
 
+  const { answeredAt, answerUpdatedAt, draftedAt } = mainInfo
+
   return questionsAvailable ? (
     <>
       <h2 className={styles.mainTitle}>
@@ -60,9 +62,9 @@ const ExpertAnswers = ({
           </article>
         ))}
         <Footer
-          answeredAt={mainInfo.answeredAt}
-          answerUpdatedAt={mainInfo.answerUpdatedAt}
-          draftedAt={mainInfo.draftedAt}
+          answeredAt={answeredAt}
+          answerUpdatedAt={answerUpdatedAt}
+          draftedAt={draftedAt}
         />
         {isClientConsultationUrl() && (
           <QuestionNotification

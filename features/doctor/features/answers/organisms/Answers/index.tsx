@@ -5,6 +5,7 @@ import {
   ExpertAnswers,
   makeQuestionGroups,
   fetchQuotaClaim,
+  getClaimStatus,
 } from '@app/features/common/consultation'
 import { Form } from '@app/features/common/form'
 
@@ -19,6 +20,7 @@ import { TextArea } from '@app/features/common/form'
 import * as yup from 'yup'
 import { useThunk } from '@app/src/hooks/useThunk'
 import { Controls } from '../controls/Controls'
+import { useMappedState } from 'redux-react-hook'
 
 interface Answers {
   [key: string]: string
@@ -45,6 +47,7 @@ const Answers = ({
   const answerSent = claimStatus === ClaimStatus.AnswerValidation
   const [isEditMode, setEditMode] = useState(true)
   const [isPreAnswer, setPreAnswer] = useState(false)
+  const currentClaimStatus = useMappedState(getClaimStatus)
 
   const dispatch = useThunk()
 
@@ -52,6 +55,10 @@ const Answers = ({
     () => {
       if (!!claim.defaultQuestions[0].answer) {
         setEditMode(false)
+      }
+
+      if (currentClaimStatus === ClaimStatus.AnswerValidation) {
+        setEditMode(true)
       }
     },
     [claim],
