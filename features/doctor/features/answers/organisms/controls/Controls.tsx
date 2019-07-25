@@ -26,11 +26,14 @@ export const Controls = ({
 }: Props) => {
   const currentClaimStatus = useMappedState(getClaimStatus)
   const draftControlsCondition = currentClaimStatus === ClaimStatus.AtTheDoctor
+  const editControlsCondition =
+    currentClaimStatus === ClaimStatus.AtTheDoctor ||
+    ClaimStatus.AnswerValidation
 
   return (
-    <>
-      {draftControlsCondition ? (
-        <div className={styles.controls}>
+    <div className={styles.controls}>
+      {editControlsCondition && (
+        <>
           {isEditMode && (
             <Button
               className={styles.cancel}
@@ -47,6 +50,10 @@ export const Controls = ({
           >
             {answerSent ? 'Сохранить изменения' : 'Отправить ответ'}
           </ButtonWithTooltip>
+        </>
+      )}
+      {draftControlsCondition && (
+        <>
           {!isEditMode && (
             <Button
               kind={ButtonKind.Secondary}
@@ -67,8 +74,8 @@ export const Controls = ({
               Сохранить как черновик
             </ButtonWithTooltip>
           )}
-        </div>
-      ) : null}
-    </>
+        </>
+      )}
+    </div>
   )
 }
