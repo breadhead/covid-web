@@ -16,9 +16,15 @@ export const ClaimArchive = () => {
   const [to, setTo] = useState<Date | undefined>(undefined)
 
   const changePeriod = useCallback(
-    (newFrom?: Date, newTo?: Date) => {
-      setFrom(newFrom)
-      setTo(newTo)
+    (dates: [Date, Date] | undefined) => {
+      if (!dates) {
+        setFrom(undefined)
+        setTo(undefined)
+      } else {
+        const [newFrom, newTo] = dates
+        setFrom(newFrom)
+        setTo(newTo)
+      }
     },
     [setFrom],
   )
