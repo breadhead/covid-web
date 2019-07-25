@@ -1,5 +1,4 @@
 import { Form } from '@app/features/common/form'
-import Gender from '@app/models/Gender'
 import * as React from 'react'
 import { useCallback } from 'react'
 import { DeepPartial } from 'utility-types'
@@ -9,6 +8,7 @@ import Contacts from '../Contacts'
 import Main from '../Main'
 import Patient from '../Patient'
 import * as styles from './ClaimForm.css'
+import Gender from '@app/models/Gender'
 
 interface Company {
   name: string

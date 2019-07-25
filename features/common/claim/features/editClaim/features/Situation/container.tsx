@@ -90,7 +90,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
 
       private onFormSubmit = async (fields: SituationClaimFields) => {
         const { createSituationClaim, shortClaim } = this.props
-
         const request = this.createRequest(fields, shortClaim.id)
         const { id } = await createSituationClaim(request)
 

@@ -11,4 +11,5 @@ export const schema = {
   relativesDiseases: yup.string().required(REQUIRED),
   localization: yup.string().required(REQUIRED),
   diagnosisAge: yup.number().required(REQUIRED),
+  aids: yup.string().required(REQUIRED),
 }
