@@ -8,6 +8,7 @@ const createInfo = ({
   stage,
   otherDisease,
   relativesDiseases,
+  aids,
 }: SituationClaim): InfoBlock[] => [
   {
     title: 'Общая информация',
@@ -28,6 +29,10 @@ const createInfo = ({
         subtitle:
           'Другие заболевания, о которых, как вы считаете, нам надо знать',
         text: otherDisease,
+      },
+      {
+        subtitle: 'Инфицирован ли ВИЧ',
+        text: aids,
       },
       {
         subtitle: 'Кровные родственники, которые болели раком',

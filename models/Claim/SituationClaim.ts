@@ -1,3 +1,5 @@
+import { Aids } from '../Aids'
+
 interface FileData {
   title: string
   url: string
@@ -42,4 +44,5 @@ export interface SituationClaim {
   discharge: FileData
   otherFiles: FileData[]
   diagnosisDate: Date
+  aids: Aids
 }
