@@ -13768,6 +13768,11 @@ react-fuzzy@^0.5.2:
     fuse.js "^3.0.1"
     prop-types "^15.5.9"
 
+react-google-tag-manager@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/react-google-tag-manager/-/react-google-tag-manager-2.2.1.tgz#b0659c7b19d9263c7cb45d3c019f506529af9077"
+  integrity sha512-8yPbEE3r2z0OWRvJYg1HegKQktH2fIJ2hHCFzAk7+GeOHIK7Vcq+dA0wo2Wf81oHSPMHiOY7nhXIviSVJFV64w==
+
 react-highlight-words@^0.16.0:
   version "0.16.0"
   resolved "https://registry.yarnpkg.com/react-highlight-words/-/react-highlight-words-0.16.0.tgz#4b4b9824e3d2b98789d3e3b3aedb5e961ae1b7cf"

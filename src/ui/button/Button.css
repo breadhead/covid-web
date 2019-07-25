@@ -4,6 +4,7 @@
   background-color: transparent;
   border: none;
   border-radius: 8px;
+  transition: background-color 0.2s;
 
   &[disabled] {
     opacity: 0.4;

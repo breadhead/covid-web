@@ -1,4 +1,6 @@
 # oncohelp-web
+### stage http://oncohelp-dev.breadhead.ru
+### prod https://ask.nenaprasno.ru
 
 ## Development
 + `git clone`
@@ -17,3 +19,4 @@ http://localhost:3001
 + `yarn test` to run unit tests
 + `yarn lint:code` to check code-style
 + `yarn lint:style` to check style-style
+
