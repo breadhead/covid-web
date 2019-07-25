@@ -8,6 +8,7 @@ import Contacts from '../Contacts'
 import Main from '../Main'
 import Patient from '../Patient'
 import * as styles from './ClaimForm.css'
+import Gender from '@app/models/Gender'
 
 interface Company {
   name: string
@@ -18,6 +19,7 @@ interface PersonalData {
   name: string
   region: string
   age: number
+  gender: Gender
   email?: string
   phone?: string
 }
