@@ -5,7 +5,7 @@ import { FunnelChart, Tooltip, Funnel, LabelList } from 'recharts'
 import { useFunnelData } from './useFunnelData'
 import RangePicker from '../../../history/molecule/RangePicker'
 
-const DEFAULT_START = new Date('2019-02-01')
+const DEFAULT_START = new Date('2019-03-26')
 
 export const ClaimsFunnel = () => {
   const now = new Date()
@@ -15,9 +15,15 @@ export const ClaimsFunnel = () => {
   const data = useFunnelData(from, to)
 
   const changePeriod = useCallback(
-    (newFrom?: Date, newTo?: Date) => {
-      setFrom(newFrom || DEFAULT_START)
-      setTo(newTo || now)
+    (dates: [Date, Date] | undefined) => {
+      if (!dates) {
+        setFrom(DEFAULT_START)
+        setTo(now)
+      } else {
+        const [newFrom, newTo] = dates
+        setFrom(newFrom)
+        setTo(newTo)
+      }
     },
     [setFrom],
   )
@@ -25,10 +31,13 @@ export const ClaimsFunnel = () => {
   return (
     <>
       <div className={s.range}>
-        <RangePicker onChange={changePeriod} />
+        <RangePicker
+          dateIsDisabled={date => date < DEFAULT_START || date > now}
+          value={[from, to]}
+          onChange={changePeriod}
+        />
       </div>
       <FunnelChart width={730} height={250}>
-        <Tooltip />
         <Funnel
           animationEasing="ease-in"
           dataKey="value"

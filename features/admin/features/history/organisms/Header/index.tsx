@@ -6,7 +6,7 @@ import Title from '../../molecule/Title'
 import * as styles from './Header.css'
 
 interface Props {
-  onChangePeriod: (from?: Date, to?: Date) => Promise<void>
+  onChangePeriod: (dates: [Date, Date] | undefined) => Promise<void>
 }
 
 const Header = ({ onChangePeriod }: Props) => (
