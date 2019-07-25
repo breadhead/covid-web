@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as s from './ClaimsFunnel.css'
 import { useCallback, useState } from 'react'
-import { FunnelChart, Tooltip, Funnel, LabelList } from 'recharts'
+import { FunnelChart, Funnel, LabelList } from 'recharts'
 import { useFunnelData } from './useFunnelData'
 import RangePicker from '../../../history/molecule/RangePicker'
 

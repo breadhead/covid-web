@@ -21,10 +21,23 @@ const HistoryPage = ({ fetch, transactions, loading }: Props) => {
     () => orderBy(transactions, ['date'], ['desc']),
     [transactions],
   )
+
+  const onChangePeriod = React.useCallback(
+    (dates: [Date, Date] | undefined) => {
+      if (!dates) {
+        return fetch()
+      }
+
+      const [start, end] = dates
+      return fetch(start, end)
+    },
+    [fetch],
+  )
+
   return (
     <Layout>
       <section className={styles.wrapper}>
-        <Header onChangePeriod={fetch} />
+        <Header onChangePeriod={onChangePeriod} />
         {!loading ? (
           <TransactionList transations={sortedTransactions} />
         ) : (
