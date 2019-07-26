@@ -19,7 +19,11 @@ const createRenderFlat = (styles: any) => (article: Article) => (
   <div className={styles.infoBlock} key={article.subtitle}>
     <h3 className={styles.subtitle}>{article.subtitle}</h3>
     {!!article.isUrl && !!article.text ? (
-      <NavLink blank href={article.text} className={styles.text}>
+      <NavLink
+        blank
+        href={`/preview-image/${article.text.replace(/\//g, '&')}`}
+        className={styles.text}
+      >
         {displayFileName(article.text)}
       </NavLink>
     ) : (
