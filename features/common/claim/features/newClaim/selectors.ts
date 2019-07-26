@@ -4,4 +4,5 @@ export const getNewClaimError = (state: State) => state.claim.newClaim.error
 
 export const getShortClaim = (state: State) => state.claim.newClaim.claim
 
-export const getLoading = (state: State) => state.claim.newClaim.fetching
+export const getNewClaimLoading = (state: State) =>
+  state.claim.newClaim.fetching
