@@ -9,6 +9,7 @@ import { ClickableText } from '@front/ui/clickable-text'
 import { NavLink } from '@front/ui/nav-link'
 import claimToInfoBlocks from './helpers/claimToInfoBlocks'
 import { Article } from './helpers/types'
+import { getPreviewLink } from '@app/features/client/features/preview-image'
 
 interface Props {
   styles: StylesType
@@ -21,7 +22,7 @@ const createRenderFlat = (styles: any) => (article: Article) => (
     {!!article.isUrl && !!article.text ? (
       <NavLink
         blank
-        href={`/preview-image/${article.text.replace(/\//g, '&')}`}
+        href={getPreviewLink(article.text)}
         className={styles.text}
       >
         {displayFileName(article.text)}
