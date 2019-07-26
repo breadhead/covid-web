@@ -15,6 +15,7 @@ export const Button = ({
   kind = ButtonKind.Primary,
   disabled = false,
   submit = false,
+  loading = false,
   onClick,
   className,
 }: ButtonProps) => (
@@ -26,7 +27,7 @@ export const Button = ({
       className,
     )}
     onClick={onClick}
-    disabled={disabled}
+    disabled={disabled || loading}
     type={getButtonType(submit)}
   >
     {children}

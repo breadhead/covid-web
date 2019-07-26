@@ -17,7 +17,7 @@ import { createClaim, fetchShortClaim } from './actions'
 import { DEFAULT_ID, getNewClaimDraft } from './localStorage'
 import { FooterType, ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
-import { getLoading, getNewClaimError } from './selectors'
+import { getNewClaimLoading, getNewClaimError } from './selectors'
 
 const { Router } = routes
 
@@ -27,7 +27,7 @@ interface Query {
 
 const mapState = (state: State) => ({
   error: getNewClaimError(state),
-  loading: getLoading(state),
+  loading: getNewClaimLoading(state),
   roles: getRoles(state),
   smsPhone: getSmsPhone(state),
   userLogin: getUserLogin(state),

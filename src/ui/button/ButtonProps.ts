@@ -10,6 +10,7 @@ export interface ButtonProps {
     event: React.MouseEvent<HTMLButtonElement>,
   ) => void | undefined | any
   disabled?: boolean
+  loading?: boolean
   submit?: boolean
   className?: string
 }
