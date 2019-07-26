@@ -15,10 +15,8 @@ const PreviewImagePage = ({ img }: Props) => {
 }
 
 PreviewImagePage.getInitialProps = (ctx: AppContext<Query>) => {
-  // console.log('ctx:', ctx.query)
   return {
     img: ctx.query.img,
-    // img: 'gtc'
   }
 }
 
