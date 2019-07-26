@@ -5,7 +5,7 @@ import { FunnelChart, Funnel, LabelList } from 'recharts'
 import { useFunnelData } from './useFunnelData'
 import RangePicker from '../../../history/molecule/RangePicker'
 
-const DEFAULT_START = new Date('2019-03-26')
+export const DEFAULT_START = new Date('2019-03-26')
 
 export const ClaimsFunnel = () => {
   const now = new Date()
