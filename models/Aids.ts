@@ -1,5 +1,5 @@
 export enum Aids {
-  No = 'Нет',
   Yes = 'Да',
+  No = 'Нет',
   DontKnow = 'Не знаю',
 }
