@@ -19,9 +19,10 @@
 
 .photo {
   width: 100%;
-  max-width: 128px;
-  min-height: 128px;
+  width: 128px;
+  height: 128px;
   border-radius: 50%;
+  object-fit: cover;
 
   @media (--mediumDown) {
     grid-gap: 16px;
