@@ -1,4 +1,5 @@
 import * as React from 'react'
+import * as s from './PreviewImage.css'
 
 interface Props {
   img: string
@@ -6,5 +7,5 @@ interface Props {
 
 export const PreviewImage = ({ img }: Props) => {
   const currentImg = img.replace(/&/g, '/')
-  return <img src={`http://${currentImg}`} />
+  return <img className={s.img} src={`http://${currentImg}`} />
 }
