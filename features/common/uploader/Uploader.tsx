@@ -11,6 +11,7 @@ import { NavLink } from '@front/ui/nav-link'
 import ProgressBar from './atoms/ProgressBar'
 import { displayFileName } from './displayFileName'
 import * as styles from './Uploader.css'
+import { getPreviewLink } from '@app/features/client/features/preview-image'
 
 interface Props {
   initialValue?: string
@@ -99,11 +100,7 @@ const Uploader = ({
       </div>
       {uploading && <ProgressBar percentage={precentage} />}
       {!!path && (
-        <NavLink
-          blank
-          href={`/preview-image/${path.replace(/\//g, '&')}`}
-          className={styles.link}
-        >
+        <NavLink blank href={getPreviewLink(path)} className={styles.link}>
           {displayFileName(path)}
         </NavLink>
       )}
