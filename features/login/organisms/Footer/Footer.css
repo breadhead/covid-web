@@ -23,13 +23,17 @@
 }
 
 .text {
-  flex-shrink: 1;
   margin: 0;
+  margin-left: 12px;
 }
 
 .logo {
   display: inline-block;
   width: 26px;
   height: 40px;
-  margin-right: 12px;
+}
+
+.logoWrap {
+  display: flex;
+  width: 26px;
 }

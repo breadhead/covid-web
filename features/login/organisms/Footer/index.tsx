@@ -11,7 +11,9 @@ interface FooterProps {
 
 const ModalFooter = ({ onOpenModalClick }: FooterProps) => (
   <footer className={styles.footer}>
-    <Icon className={styles.logo} name={IconsList.FoundationLogoMark} />
+    <span className={styles.logoWrap}>
+      <Icon className={styles.logo} name={IconsList.FoundationLogoMark} />
+    </span>
     <p className={styles.text}>
       Если у вас есть аккаунт на{NON_BREAKING_SPACE}
       <b>nenaprasno.ru</b>, вы{NON_BREAKING_SPACE}
