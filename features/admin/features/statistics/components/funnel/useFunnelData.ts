@@ -39,13 +39,13 @@ export const useFunnelData = (from: Date, to: Date) => {
     {
       id: 'sended-to-client',
       value: stats.sendedToClientClaims,
-      name: `Отправлено клиенту ${stats.sendedToClientClaims}`,
+      name: `Успешно закрыто ${stats.sendedToClientClaims}`,
       fill: '#82ca9d',
     },
     {
       id: 'successefully-closed',
       value: stats.successfullyClosedClaims,
-      name: `Успешно закрыто ${stats.successfullyClosedClaims}`,
+      name: `Закрыто клиентом ${stats.successfullyClosedClaims}`,
       fill: '#a4de6c',
     },
     {
