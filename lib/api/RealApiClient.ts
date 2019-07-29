@@ -264,9 +264,9 @@ export default class RealApiClient implements ApiClient {
       .then(response => response.data)
   }
 
-  public fetchTimeReport = () =>
+  public fetchTimeReport = (from: Date, to: Date) =>
     this.axiosInstance
-      .get('/statistics/doctor-answer')
+      .get(`/statistics/doctor-answer?${queryString({ from, to })}`)
       .then(response => response.data as TimeReport)
 
   public fetchSuccessefulClosedClaims = () =>

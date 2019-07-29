@@ -15,9 +15,12 @@ export const TimeReport = () => {
   const [from, setFrom] = useState<Date>(DEFAULT_START)
   const [to, setTo] = useState<Date>(now)
 
-  useEffect(() => {
-    api.fetchTimeReport(from, to).then(setTimeData)
-  }, [])
+  useEffect(
+    () => {
+      api.fetchTimeReport(from, to).then(setTimeData)
+    },
+    [from, to],
+  )
 
   const getColumnSearchProps = useColumnSearchProps()
   const columns = useCurrentColumns(getColumnSearchProps)
