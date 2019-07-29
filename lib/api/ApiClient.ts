@@ -78,7 +78,7 @@ export default interface ApiClient {
     newStatus: CorporateStatus,
   ): Promise<void>
   downloadReport(from: Date, to: Date, onlyClosed: boolean): Promise<any>
-  fetchTimeReport(): Promise<TimeReport>
+  fetchTimeReport(from: Date, to: Date): Promise<TimeReport>
   fetchSuccessefulClosedClaims(): Promise<number>
   restorePassword(login: string): Promise<string>
   fetchFunnelStats(from: Date, to: Date): Promise<Funnel>
