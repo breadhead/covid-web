@@ -6,5 +6,6 @@ interface Props {
 }
 
 export const PreviewImage = ({ img }: Props) => {
-  return <img className={s.img} src={`${img}`} />
+  // TODO: delete //
+  return <img className={s.img} src={`//${img}`} />
 }
