@@ -31,6 +31,7 @@ interface OwnProps {
   windowSize: WindowSize
   bodyScrolling: { lock: () => void; unlock: () => void }
   muted: boolean
+  host: string
 }
 
 type ResultPageProps = Omit<PageProps, 'messages' | 'onSubmit'>

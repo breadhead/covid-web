@@ -33,6 +33,7 @@ export interface Props {
   clientClaimsCount: number
   hideAnswers?: boolean
   openMessage: boolean
+  host: string
 }
 
 export const Consultation = ({
@@ -46,6 +47,7 @@ export const Consultation = ({
   clientClaimsCount,
   hideAnswers,
   openMessage,
+  host,
 }: Props) => {
   const [isChatOpen, setChatOpen] = React.useState(true)
   const [isChatOpensOnce, setChatOpensOnce] = React.useState(true)
@@ -127,6 +129,7 @@ export const Consultation = ({
         isOpen={isChatOpen}
         opensOnce={isChatOpensOnce}
         focused={isChatFocused}
+        host={host}
       />
     </div>
   )

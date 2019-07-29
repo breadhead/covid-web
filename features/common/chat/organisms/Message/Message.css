@@ -10,6 +10,8 @@
   background-color: #fff;
   border-radius: 16px 16px 16px 0;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.06);
+  overflow-wrap: break-word;
+
   &:first-child {
     margin-top: 16px;
   }

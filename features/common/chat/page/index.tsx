@@ -20,6 +20,7 @@ import { SourceEnum } from '../../analytics/useGoogleAnalyticsPush/SourceEnum'
 import { useMappedState } from 'redux-react-hook'
 import { getClaimStatus } from '../../consultation'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
+import { getPreviewLink } from '@app/features/client/features/preview-image'
 export interface FormFileds {
   message: string
 }
@@ -37,6 +38,7 @@ export interface Props {
   roles: Role[]
   focused?: boolean
   setUnfocused?: () => void
+  host: string
 }
 
 const claimStatusesAfterAnswer = [
@@ -59,17 +61,18 @@ const Chat = ({
   roles,
   focused,
   setUnfocused,
+  host,
 }: Props) => {
   const shouldHide = !opensOnce || !isOpen
 
   const [uploading, setUploading] = React.useState(false)
   const currentClaimStatus = useMappedState(getClaimStatus)
   const gtmPush = useGoogleAnalyticsPush(SourceEnum.Chat)
-
   const onUpload = async (file: string) => {
+    const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https'
     setUploading(true)
     scrollToBottom()
-    await onSubmit({ message: file })
+    await onSubmit({ message: `${protocol}://${host}${getPreviewLink(file)}` })
     setUploading(false)
   }
 
