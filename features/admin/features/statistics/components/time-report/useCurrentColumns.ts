@@ -13,7 +13,7 @@ export const useCurrentColumns = (
           title: 'Эксперт',
           dataIndex: 'name',
           key: 'name',
-          ...getColumnSearchProps('name'),
+          ...(getColumnSearchProps('name') as unknown),
         },
         {
           title: 'Среднее время',
