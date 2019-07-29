@@ -46,7 +46,9 @@ const Controls = (props: Props) => (
     {!!props.editAnswer && (
       <Button
         className={styles.button}
-        onClick={() => Router.push(`/doctor/answers/${props.id}`)}
+        onClick={() =>
+          Router.push(`/doctor/answers/${props.id}#expert-answers`)
+        }
         kind={ButtonKind.Extra}
       >
         Редактировать ответ
