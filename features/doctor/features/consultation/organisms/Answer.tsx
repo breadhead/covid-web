@@ -15,7 +15,7 @@ const Answer = ({ claimId, status }: Props) =>
   status !== ClaimStatus.AnswerValidation ? (
     <Button
       className={styles.AnswerButton}
-      onClick={() => Router.push(`/doctor/answers/${claimId}`)}
+      onClick={() => Router.push(`/doctor/answers/${claimId}#expert-answers`)}
     >
       Заполнить ответ
     </Button>
