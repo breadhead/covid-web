@@ -6,6 +6,7 @@ interface Props {
 }
 
 export const PreviewImage = ({ img }: Props) => {
-  // TODO: delete //
-  return <img className={s.img} src={`//${img}`} />
+  const prefix = process.env.NODE_ENV === 'development' ? '//' : ''
+
+  return <img className={s.img} src={`${prefix}${img}`} />
 }

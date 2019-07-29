@@ -69,9 +69,10 @@ const Chat = ({
   const currentClaimStatus = useMappedState(getClaimStatus)
   const gtmPush = useGoogleAnalyticsPush(SourceEnum.Chat)
   const onUpload = async (file: string) => {
+    const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https'
     setUploading(true)
     scrollToBottom()
-    await onSubmit({ message: `https://${host}${getPreviewLink(file)}` })
+    await onSubmit({ message: `${protocol}://${host}${getPreviewLink(file)}` })
     setUploading(false)
   }
 
