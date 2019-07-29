@@ -38,6 +38,7 @@ export interface Props {
   roles: Role[]
   focused?: boolean
   setUnfocused?: () => void
+  host: string
 }
 
 const claimStatusesAfterAnswer = [
@@ -60,6 +61,7 @@ const Chat = ({
   roles,
   focused,
   setUnfocused,
+  host,
 }: Props) => {
   const shouldHide = !opensOnce || !isOpen
 
@@ -67,10 +69,9 @@ const Chat = ({
   const currentClaimStatus = useMappedState(getClaimStatus)
   const gtmPush = useGoogleAnalyticsPush(SourceEnum.Chat)
   const onUpload = async (file: string) => {
-    console.log('getPreviewLink', getPreviewLink(file))
     setUploading(true)
     scrollToBottom()
-    await onSubmit({ message: `https://${getPreviewLink(file)}` })
+    await onSubmit({ message: `https://${host}${getPreviewLink(file)}` })
     setUploading(false)
   }
 

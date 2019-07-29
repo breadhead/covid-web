@@ -14,6 +14,7 @@ interface Props {
 
 const Message = ({ message, loader }: Props) => {
   const { author, content, date } = message
+
   return (
     <article
       className={

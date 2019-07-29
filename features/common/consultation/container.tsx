@@ -20,6 +20,7 @@ interface Query {
   clientClaims: ShortClaim[]
   getListOfClientClaims: (login: string) => Promise<any>
   openMessage: string
+  host: string
 }
 
 type Props = PageProps
@@ -47,17 +48,20 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
     public static async getInitialProps({
       reduxStore,
       query,
+      req: {
+        headers: { host },
+      },
     }: AppContext<Query>) {
       await reduxStore.dispatch(fetchClaim(query.id) as any)
       const user = await reduxStore.dispatch(currentUser() as any)
       await reduxStore
         .dispatch(fetchClaimBoardCard(query.id) as any)
         .catch(() => null) // .catch for roles without access to trello
-
       await reduxStore.dispatch(fetchDoctorsIfNeeded() as any)
       return {
         roles: user.roles,
         openMessage: Object.prototype.hasOwnProperty.call(query, 'openMessage'),
+        host,
       }
     }
 
