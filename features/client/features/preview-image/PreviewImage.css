@@ -1,4 +1,6 @@
 .img {
   object-fit: contain;
   object-position: top;
+  will-change: transform;
+  transition: transform 0.2s ease;
 }
