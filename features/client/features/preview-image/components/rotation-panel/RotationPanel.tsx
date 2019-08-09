@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { Icon } from '@app/src/ui/icon'
 import { IconsList } from '@app/src/ui/sprite'
+import * as s from './RotationPanel.css'
+import cx from 'classnames'
 
 interface Props {
   angle: number
@@ -9,12 +11,13 @@ interface Props {
 
 export const RotationPanel = ({ angle, setAngle }: Props) => {
   return (
-    <>
-      <button onClick={() => setAngle(angle - 90)}>
-        left
-        <Icon name={IconsList.RotateIcon} />
+    <section className={s.panel}>
+      <button className={s.button} onClick={() => setAngle(angle - 90)}>
+        <Icon className={cx(s.icon, s.leftIcon)} name={IconsList.RotateIcon} />
       </button>
-      <button onClick={() => setAngle(angle + 90)}>right</button>
-    </>
+      <button className={s.button} onClick={() => setAngle(angle + 90)}>
+        <Icon className={cx(s.icon, s.rightIcon)} name={IconsList.RotateIcon} />
+      </button>
+    </section>
   )
 }

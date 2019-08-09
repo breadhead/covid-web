@@ -13,8 +13,6 @@ export const IconsSprite = () => (
   >
     <defs>
       <symbol
-        width="40"
-        height="40"
         viewBox="0 0 40 40"
         fill="none"
         id={IconsList.RotateIcon}

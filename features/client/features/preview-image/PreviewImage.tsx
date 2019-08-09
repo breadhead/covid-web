@@ -16,7 +16,7 @@ export const PreviewImage = ({ img }: Props) => {
     <>
       <RotationPanel angle={angle} setAngle={setAngle} />
       <img
-        style={{ transform: `rotate(${angle}deg)` }}
+        style={{ transform: `rotateZ(${angle}deg)` }}
         className={s.img}
         src={`${prefix}${img}`}
       />
