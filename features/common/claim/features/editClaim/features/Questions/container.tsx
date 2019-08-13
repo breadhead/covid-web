@@ -17,7 +17,6 @@ import { FooterType } from './organisms/Form'
 import { DefaultQuestion, FormFields, Props as PageProps } from './page'
 import { actions } from './reducer'
 import { getQuestionsError, getQuestionsLoading } from './selectors'
-import { finishClaimUTM } from '@app/features/common/analytics/utmCodes'
 
 const { Router } = routes
 
@@ -186,7 +185,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
             Router.pushRoute(
               `/client/claim/wait-please/${encodeURIComponent(
                 email,
-              )}?number=${number}&${finishClaimUTM}`,
+              )}?number=${number}`,
             )
           }
         } else if (roles.includes(Role.CaseManager)) {

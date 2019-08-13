@@ -1,15 +1,13 @@
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
-import { expertAnswersUTM } from '@app/features/common/analytics/utmCodes'
 
 type ActionsMap = { [key in ClaimStatus]: (id: string) => string | undefined }
 
 const actionsMap: ActionsMap = {
   [ClaimStatus.QuestionnaireWaiting]: id => `/client/claim/${id}/situation`,
   [ClaimStatus.Draft]: id => `/client/claim/${id}/situation`,
-  [ClaimStatus.Closed]: id =>
-    `/client/consultation/${id}?${expertAnswersUTM}#expert-answers`,
+  [ClaimStatus.Closed]: id => `/client/consultation/${id}#expert-answers`,
   [ClaimStatus.DeliveredToCustomer]: id =>
-    `/client/consultation/${id}?${expertAnswersUTM}#expert-answers`,
+    `/client/consultation/${id}#expert-answers`,
   [ClaimStatus.AnswerValidation]: () => undefined,
   [ClaimStatus.AtTheDoctor]: () => undefined,
   [ClaimStatus.QuotaAllocation]: () => undefined,

@@ -6,7 +6,6 @@ import routes from '@app/routes'
 import { Button, ButtonSize } from '@front/ui/button'
 
 import { FINISH_MODAL_KEY } from '../../organisms/withFinishModal'
-import { finishYesUTM } from '@app/features/common/analytics/utmCodes'
 
 const { Router } = routes
 
@@ -18,7 +17,7 @@ const FinishButton = ({ className }: Props) => {
   const { open } = useSpecificModal(FINISH_MODAL_KEY)
 
   const openModal = () => {
-    Router.pushRoute(`/?donation&${finishYesUTM}`)
+    Router.pushRoute(`/?donation`)
     open()
   }
 
