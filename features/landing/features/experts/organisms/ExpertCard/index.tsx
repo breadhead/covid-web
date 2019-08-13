@@ -14,7 +14,7 @@ const ExpertCard = ({ expert }: Props) => {
   const { id, photo, name, specialization } = expert
   return (
     <article className={styles.expertCard}>
-      <NavLink withoutUnderline href={`experts/${id}`}>
+      <NavLink withoutUnderline href={`/experts/${id}`}>
         <img className={styles.image} src={photo} alt={name} />
         <p className={styles.name}>{name}</p>
         <p className={styles.specialization}>{specialization}</p>
