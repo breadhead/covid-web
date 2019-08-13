@@ -5,7 +5,6 @@ import routes from '@app/routes'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
 import FinishButton from '../../../../molecules/FinishButton'
-import { finishNoUTM } from '@app/features/common/analytics/utmCodes'
 
 const { Router } = routes
 
@@ -16,7 +15,7 @@ interface Props {
 const SimpleFeedback = ({ onNoButtonClick }: Props) => {
   const denialClick = () => {
     onNoButtonClick()
-    Router.pushRoute(`/?donation&${finishNoUTM}`)
+    Router.pushRoute(`/?donation`)
   }
 
   return (
