@@ -2,7 +2,6 @@ import * as React from 'react'
 
 import { Button } from '@front/ui/button'
 import { NavLink } from '@front/ui/nav-link'
-import { expertAnswersUTM } from '@app/features/common/analytics/utmCodes'
 
 interface Props {
   claimId: string
@@ -11,7 +10,7 @@ interface Props {
 
 const ClosedButton = ({ claimId, className }: Props) => (
   <NavLink
-    href={`/client/consultation/${claimId}?${expertAnswersUTM}#expert-answers`}
+    href={`/client/consultation/${claimId}#expert-answers`}
     withoutUnderline
     className={className}
   >
