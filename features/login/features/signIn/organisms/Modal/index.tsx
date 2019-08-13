@@ -48,10 +48,10 @@ const SignIn = ({ onFormSubmit, openSignUp }: Props) => {
               type={InputType.Password}
               validate={schema.password}
             />
-            <OpenRestorePasswordModalButton />
             <Button submit className={styles.mainButton}>
               Войти
             </Button>
+            <OpenRestorePasswordModalButton />
           </>
         )}
       </Form>
