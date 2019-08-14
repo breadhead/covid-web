@@ -6,7 +6,7 @@ export function makeQuestionGroups(claim: AnswerClaim) {
     ...(claim.defaultQuestions || []),
     ...(claim.additionalQuestions || []).map(({ question, answer }) => ({
       question: `Дополнительные вопросы: ${question}`,
-      answer,
+      answer: !!answer ? answer : undefined,
     })),
   ])
 }
