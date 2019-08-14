@@ -8,7 +8,8 @@ export const makeInitialValues = (questionGroups: GroupedQuestions) => {
       return questions.reduce((acc, question) => {
         return {
           ...acc,
-          [makeFieldName(theme, question.question)]: question.answer,
+          [makeFieldName(theme, question.question)]:
+            !!question && question.answer,
         }
       }, {})
     })
