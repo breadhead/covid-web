@@ -19,6 +19,7 @@ import ExpertAnswers from '../organisms/ExpertAnswers'
 import Header from '../organisms/Header'
 import Theme from '../organisms/Theme'
 import { useDonationModalByUrl } from './useDonationModalByUrl'
+import { AvonSection } from '../organisms/AvonSection'
 
 export interface Props {
   windowSize: WindowSize
@@ -85,6 +86,8 @@ export const Consultation = ({
     setChatFocused(false)
   }
 
+  const avonCondition = true
+
   const Layout = layout
   useDonationModalByUrl()
   return (
@@ -105,8 +108,9 @@ export const Consultation = ({
             clientClaimsCount={clientClaimsCount}
             claimId={claim.mainInfo.id}
             authorLogin={authorLogin}
+            avon={avonCondition}
           />
-          {renderSubHeader && renderSubHeader(claim)}
+          {renderSubHeader && !avonCondition && renderSubHeader(claim)}
           <Theme
             mainInfo={claim.mainInfo}
             shortClaim={claim.short}
