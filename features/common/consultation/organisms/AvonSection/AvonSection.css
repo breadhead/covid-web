@@ -1,0 +1,36 @@
+.avon {
+  display: flex;
+}
+
+.logoWrapper {
+  width: 240px;
+  background-color: var(--color-avon);
+}
+
+.textWrapper {
+  padding: 20px 24px 24px;
+  background-color: #fff;
+}
+
+.title {
+  color: #cd0d5e;
+  font: var(--title-tiny);
+  margin-bottom: 12px;
+}
+
+.text {
+  color: #cd0d5e;
+  font: var(--text14-20);
+  margin-bottom: 16px;
+  max-width: 512px;
+}
+
+.note {
+  font: var(--text12-16);
+  color: var(--text-color-secondary);
+  margin-bottom: 8px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
