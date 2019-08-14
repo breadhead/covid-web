@@ -1,11 +1,15 @@
 import * as React from 'react'
 import * as s from './AvonSection.css'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { Icon } from '@app/src/ui/icon'
+import { IconsList } from '@app/src/ui/sprite'
 
 export const AvonSection = () => {
   return (
     <section className={s.avon}>
-      <article className={s.logoWrapper}>avon memme</article>
+      <article className={s.logoWrapper}>
+        <Icon className={s.logo} name={IconsList.Avon} />
+      </article>
       <article className={s.textWrapper}>
         <h3 className={s.title}>
           Средства на консультацию предоставлены компанией{NON_BREAKING_SPACE}

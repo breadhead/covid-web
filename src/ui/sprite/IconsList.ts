@@ -40,4 +40,5 @@ export enum IconsList {
   User = 'user',
   View = 'view',
   RotateIcon = 'rotate-icon',
+  Avon = 'avon',
 }
