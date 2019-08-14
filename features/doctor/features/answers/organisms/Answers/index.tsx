@@ -53,7 +53,11 @@ const Answers = ({
 
   useEffect(
     () => {
-      if (!!claim.defaultQuestions[0].answer) {
+      if (
+        !!claim &&
+        !!claim.defaultQuestions[0] &&
+        !!claim.defaultQuestions[0].answer
+      ) {
         setEditMode(false)
       }
 
