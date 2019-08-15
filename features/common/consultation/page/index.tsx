@@ -19,9 +19,7 @@ import ExpertAnswers from '../organisms/ExpertAnswers'
 import Header from '../organisms/Header'
 import Theme from '../organisms/Theme'
 import { useDonationModalByUrl } from './useDonationModalByUrl'
-import { AvonSection } from '../organisms/AvonSection'
 import { useMappedState } from 'redux-react-hook'
-import { selectSuccessefullClosedClaims } from '@app/src/domain/landing/selectors/selectSuccessefullClosedClaims'
 import { selectQuotaCompanyName } from '@app/src/domain/landing/selectors/selectQuotaCompanyName'
 
 export interface Props {
