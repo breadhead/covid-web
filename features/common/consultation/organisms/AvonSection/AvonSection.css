@@ -1,5 +1,11 @@
 .avon {
   display: flex;
+
+  @media (--smallMiddleDown) {
+    flex-direction: column;
+    width: 100vw !important;
+    margin-left: -16px;
+  }
 }
 
 .logoWrapper {
@@ -9,6 +15,14 @@
   justify-content: center;
   align-items: center;
   padding: 16px 24px;
+
+  @media (--smallMiddleDown) {
+    width: calc(100% - 32px);
+  }
+
+  @media (--xsmallDown) {
+    width: 100%;
+  }
 }
 
 .textWrapper {
