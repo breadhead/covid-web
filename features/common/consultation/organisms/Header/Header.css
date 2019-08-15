@@ -21,6 +21,11 @@
   padding-right: calc((100vw - 800px - 400px) / 2);
   padding-left: calc((100vw - 800px - 400px) / 2);
   background: linear-gradient(0deg, #faf9f7 0%, #fcc6d3 100%);
+
+  @media (--mediumDown) {
+    margin: 0;
+    padding: 16px;
+  }
 }
 
 .number {
