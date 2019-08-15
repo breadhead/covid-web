@@ -20,6 +20,9 @@ import Header from '../organisms/Header'
 import Theme from '../organisms/Theme'
 import { useDonationModalByUrl } from './useDonationModalByUrl'
 import { AvonSection } from '../organisms/AvonSection'
+import { useMappedState } from 'redux-react-hook'
+import { selectSuccessefullClosedClaims } from '@app/src/domain/landing/selectors/selectSuccessefullClosedClaims'
+import { selectQuotaCompanyName } from '@app/src/domain/landing/selectors/selectQuotaCompanyName'
 
 export interface Props {
   windowSize: WindowSize
@@ -86,8 +89,10 @@ export const Consultation = ({
     setChatFocused(false)
   }
 
-  const avonCondition = true
+  const quotaCompany = useMappedState(selectQuotaCompanyName)
 
+  const avonCondition = !!quotaCompany && quotaCompany === 'Avon'
+  console.log('avonCondition:', avonCondition)
   const Layout = layout
   useDonationModalByUrl()
   return (
@@ -110,7 +115,7 @@ export const Consultation = ({
             authorLogin={authorLogin}
             avon={avonCondition}
           />
-          {renderSubHeader && !avonCondition && renderSubHeader(claim)}
+          {renderSubHeader && renderSubHeader(claim)}
           <Theme
             mainInfo={claim.mainInfo}
             shortClaim={claim.short}

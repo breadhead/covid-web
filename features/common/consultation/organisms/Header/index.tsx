@@ -26,30 +26,31 @@ const Header = ({
   clientClaimsCount,
   claimId,
   avon,
-}: Props) => (
-  <header className={cx(styles.header, avon && styles.avon)}>
-    <h1 className={styles.title}>
-      Консультация{NON_BREAKING_SPACE}
-      <span className={styles.number}>№{claimNumber}</span>
-    </h1>
+}: Props) => {
+  return (
+    <header className={cx(styles.header, avon && styles.avon)}>
+      <h1 className={styles.title}>
+        Консультация{NON_BREAKING_SPACE}
+        <span className={styles.number}>№{claimNumber}</span>
+      </h1>
 
-    {role === Role.CaseManager && (
-      <div className={styles.linkWrapper}>
-        {clientClaimsCount > 1 && (
-          <>
-            <NavLink
-              href={`/manager/client/${authorLogin}/claims${claimId &&
-                `?from=${claimId}`}`}
-            >
-              Ещё {clientClaimsCount}
-            </NavLink>
-            <Icon className={styles.icon} name={IconsList.ArrowRight} />
-          </>
-        )}
-      </div>
-    )}
-    {avon && <AvonSection />}
-  </header>
-)
-
+      {role === Role.CaseManager && (
+        <div className={styles.linkWrapper}>
+          {clientClaimsCount > 1 && (
+            <>
+              <NavLink
+                href={`/manager/client/${authorLogin}/claims${claimId &&
+                  `?from=${claimId}`}`}
+              >
+                Ещё {clientClaimsCount}
+              </NavLink>
+              <Icon className={styles.icon} name={IconsList.ArrowRight} />
+            </>
+          )}
+        </div>
+      )}
+      {avon && <AvonSection />}
+    </header>
+  )
+}
 export default Header
