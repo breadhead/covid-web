@@ -68,6 +68,7 @@ body {
 
   --color-link: #2d47ea;
   --color-link-underline: rgba(45, 71, 234, 0.5);
+  --width-without-chat: var(calc(100vw - 400px));
 
   /* styles */
   font-family: var(--fontFamily);
