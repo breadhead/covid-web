@@ -19,6 +19,8 @@ import ExpertAnswers from '../organisms/ExpertAnswers'
 import Header from '../organisms/Header'
 import Theme from '../organisms/Theme'
 import { useDonationModalByUrl } from './useDonationModalByUrl'
+import { useMappedState } from 'redux-react-hook'
+import { selectQuotaCompanyName } from '@app/src/domain/landing/selectors/selectQuotaCompanyName'
 
 export interface Props {
   windowSize: WindowSize
@@ -85,6 +87,8 @@ export const Consultation = ({
     setChatFocused(false)
   }
 
+  const quotaCompany = useMappedState(selectQuotaCompanyName)
+
   const Layout = layout
   useDonationModalByUrl()
   return (
@@ -105,6 +109,7 @@ export const Consultation = ({
             clientClaimsCount={clientClaimsCount}
             claimId={claim.mainInfo.id}
             authorLogin={authorLogin}
+            sponsor={{ avon: !!quotaCompany && quotaCompany === 'Avon' }}
           />
           {renderSubHeader && renderSubHeader(claim)}
           <Theme

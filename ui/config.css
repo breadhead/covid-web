@@ -35,6 +35,7 @@ body {
   --title-regular: 40px/48px var(--fontFamily-title);
   --title-medium: 32px/40px var(--fontFamily-title);
   --title-small: 24px/32px var(--fontFamily-title);
+  --title-tiny: 20px/28px var(--fontFamily-title);
   --title-bold: bold 16px/24px var(--fontFamily-title);
 
   --text-0: 0px/0px var(--fontFamily);
@@ -82,6 +83,7 @@ body {
 @custom-media --smallDown (max-width: 767px);
 @custom-media --mediumSecondDown (max-width: 832px);
 @custom-media --mediumDown (max-width: 959px);
+@custom-media --largeDown (max-width: 1200px);
 
 @custom-media --xsmallUp (min-width: 501px);
 @custom-media --smallUp (min-width: 768px);

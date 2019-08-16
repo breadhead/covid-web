@@ -11,12 +11,9 @@ const Photos = () => {
   return (
     <div className={styles.photos}>
       {photos.map(photo => (
-        <img
-          className={styles.photo}
-          key={photo.id}
-          src={photo.photo}
-          alt={photo.name}
-        />
+        <div key={photo.id} className={styles.photoWrap}>
+          <img className={styles.photo} src={photo.photo} alt={photo.name} />
+        </div>
       ))}
     </div>
   )

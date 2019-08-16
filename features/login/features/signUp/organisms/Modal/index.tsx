@@ -8,7 +8,7 @@ import Form from '@app/features/common/form/components/Form/Form'
 import Input from '@app/features/common/form/components/Input'
 import OpenModalButton from '@app/features/login/atoms/OpenModalButton'
 import ModalFooter from '@app/features/login/organisms/Footer'
-import { SPACE } from '@app/lib/config'
+import { SPACE, NON_BREAKING_SPACE } from '@app/lib/config'
 import { confirmCb, schema } from './schema'
 
 interface Props {
@@ -53,6 +53,7 @@ const SignUp = ({ onFormSubmit, error, openSignIn }: Props) => (
           {!!error && error.code === ACCOUNT_EXISTS_STATUS && (
             <div className={styles.error}>
               У вас есть аккаунт на нашем основном сайте nenaprasno.ru,
+              {NON_BREAKING_SPACE}
               <OpenModalButton onClick={openSignIn}>Войти</OpenModalButton>,
               используя те же данные
             </div>

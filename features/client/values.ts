@@ -1,5 +1,6 @@
 import ClaimTarget from '@app/models/Claim/ClaimTarget'
 import { Question } from '@app/models/Claim/QuestionsClaim'
+import { CommonLocalizationsEnum } from './CommonLocalizationsEnum'
 
 interface QuestionsMap {
   [key: string]: Question[]
@@ -149,17 +150,17 @@ const targetQuestions: QuestionsMap = {
 export const getTargetQuestions = (target: string) => targetQuestions[target]
 
 export const localizations = [
-  'Опухоли головы и шеи',
-  'Опухоли лёгкого, средостения',
-  'Опухоли желудочно-кишечного тракта',
-  'Опухоли молочной железы',
-  'Опухоли женской половой системы',
-  'Опухоли мочевыводящей системы',
-  'Опухоли мужской половой системы',
-  'Опухоли головного, спинного мозга',
-  'Опухоли кожи, костей и мягких тканей',
-  'Заболевания крови, лимфомы',
-  'Метастазы рака неизвестной локализации',
+  CommonLocalizationsEnum.Neck,
+  CommonLocalizationsEnum.Lungs,
+  CommonLocalizationsEnum.Stomach,
+  CommonLocalizationsEnum.Breast,
+  CommonLocalizationsEnum.FemaleReproductiveSystem,
+  CommonLocalizationsEnum.UrinarySystem,
+  CommonLocalizationsEnum.MaleReproductiveSystem,
+  CommonLocalizationsEnum.Brain,
+  CommonLocalizationsEnum.Leather,
+  CommonLocalizationsEnum.Blood,
+  CommonLocalizationsEnum.UnknownLocation,
 ]
 
 export const GENERIC_CLAIM_ERROR =
