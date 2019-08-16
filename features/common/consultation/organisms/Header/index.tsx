@@ -10,13 +10,17 @@ import { IconsList } from '@front/ui/sprite'
 import { AvonSection } from '../AvonSection'
 import cx from 'classnames'
 
+interface Sponsor {
+  avon: boolean
+}
+
 interface Props {
   claimNumber: number
   role: string
   authorLogin: string
   clientClaimsCount: number
   claimId?: string
-  avon?: boolean
+  sponsor?: Sponsor
 }
 
 const Header = ({
@@ -25,10 +29,12 @@ const Header = ({
   authorLogin,
   clientClaimsCount,
   claimId,
-  avon,
+  sponsor,
 }: Props) => {
   return (
-    <header className={cx(styles.header, avon && styles.avon)}>
+    <header
+      className={cx(styles.header, sponsor && sponsor.avon && styles.avon)}
+    >
       <h1 className={styles.title}>
         Консультация{NON_BREAKING_SPACE}
         <span className={styles.number}>№{claimNumber}</span>
@@ -49,7 +55,7 @@ const Header = ({
           )}
         </div>
       )}
-      {avon && <AvonSection />}
+      {!!sponsor && sponsor.avon && <AvonSection />}
     </header>
   )
 }

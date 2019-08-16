@@ -89,8 +89,6 @@ export const Consultation = ({
 
   const quotaCompany = useMappedState(selectQuotaCompanyName)
 
-  const avonCondition = !!quotaCompany && quotaCompany === 'Avon'
-  console.log('avonCondition:', avonCondition)
   const Layout = layout
   useDonationModalByUrl()
   return (
@@ -111,7 +109,7 @@ export const Consultation = ({
             clientClaimsCount={clientClaimsCount}
             claimId={claim.mainInfo.id}
             authorLogin={authorLogin}
-            avon={avonCondition}
+            sponsor={{ avon: !!quotaCompany && quotaCompany === 'Avon' }}
           />
           {renderSubHeader && renderSubHeader(claim)}
           <Theme
