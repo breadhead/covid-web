@@ -26,7 +26,7 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
     error: false,
     fetching: false,
   }),
-  'client/edit-claim/questions',
+  'client/edit-claim/questions/',
 )
 
 export { State, reducer, Actions, actions }

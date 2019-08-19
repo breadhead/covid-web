@@ -16,7 +16,7 @@ const Menu = ({ signOut, className }: Props) => (
     <NavLink
       className={cx(styles.menuItem, styles.consultation)}
       withoutUnderline
-      href="/client"
+      href="/client/"
     >
       <Icon className={styles.icon} name={IconsList.MyConsultation} />
       <span className={styles.menuItemText}>Мои консультации</span>

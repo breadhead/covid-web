@@ -18,9 +18,9 @@ const defineHref = (index: number, id?: string) => {
   }
 
   return [
-    `/client/new-claim/${id}`,
-    `/client/claim/${id}/situation`,
-    `/client/claim/${id}/questions`,
+    `/client/new-claim/${id}/`,
+    `/client/claim/${id}/situation/`,
+    `/client/claim/${id}/questions/`,
   ][index]
 }
 

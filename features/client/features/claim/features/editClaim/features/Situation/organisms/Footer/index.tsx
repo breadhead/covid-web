@@ -50,7 +50,7 @@ const Footer = ({
         {!!id && (
           <>
             <Icon className={styles.iconBack} name={IconsList.ArrowRight} />
-            <NavLink href={`/client/new-claim/${id}`}>Вернуться назад</NavLink>
+            <NavLink href={`/client/new-claim/${id}/`}>Вернуться назад</NavLink>
           </>
         )}
       </div>
