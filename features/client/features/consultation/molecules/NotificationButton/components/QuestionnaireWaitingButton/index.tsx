@@ -10,7 +10,7 @@ interface Props {
 
 const QuestionnaireWaitingButton = ({ claimId, className }: Props) => (
   <Button className={className}>
-    <NavLink href={`/client/claim/${claimId}/situation`} withoutUnderline>
+    <NavLink href={`/client/claim/${claimId}/situation/`} withoutUnderline>
       Продолжить заполнение
     </NavLink>
   </Button>

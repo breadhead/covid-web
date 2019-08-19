@@ -18,7 +18,7 @@ const Container = (Wrapped: ComponentType<Props>) =>
 
       const path: string = (context as any).asPath
 
-      const waiting = !path.includes('/client/claim/form-finish/')
+      const waiting = !path.includes('/client/claim/form-finish')
 
       return {
         email: decodeURIComponent(email),

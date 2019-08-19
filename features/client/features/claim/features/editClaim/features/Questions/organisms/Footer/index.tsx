@@ -67,7 +67,7 @@ const Footer = ({ styles, error, loading, id, windowSize }: Props) => {
       </ButtonWithTooltip>
       <div className={styles.footerBack}>
         <Icon className={styles.iconBack} name={IconsList.ArrowRight} />
-        <NavLink href={`/client/claim/${id}/situation`}>
+        <NavLink href={`/client/claim/${id}/situation/`}>
           Вернуться назад
         </NavLink>
       </div>

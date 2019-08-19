@@ -179,13 +179,13 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
             Router.pushRoute(
               `/client/claim/form-finish/${encodeURIComponent(
                 email,
-              )}?number=${number}`,
+              )}?number=${number}/`,
             )
           } else {
             Router.pushRoute(
               `/client/claim/wait-please/${encodeURIComponent(
                 email,
-              )}?number=${number}`,
+              )}?number=${number}/`,
             )
           }
         } else if (roles.includes(Role.CaseManager)) {
