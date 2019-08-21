@@ -11025,6 +11025,14 @@ next-transpile-modules@1:
   resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-1.3.0.tgz#b524c395cd2dc50982fae19da1180a5d7a492cc1"
   integrity sha512-LGX4GUOiVijrLNCWzBhK9gLsGOcGDkkpQS1DDS6tlbXV4xCeb6bFrCBFW3AlDlh5yzhWFNf+RV7QnruwocO0Mw==
 
+next-ym@^2.3.5:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/next-ym/-/next-ym-2.3.5.tgz#329d5bf707e8bee39169fbc58b4c7127007f1cdb"
+  integrity sha512-wkZE5BqvvCbdoDE3B1qMY5M3ja/o0viBagXHiht+ujhijzr8JEoxenE7Snpd/nFcj8Jd2FH0T2Hs2P5pmycfEg==
+  dependencies:
+    debug "^4.0.0"
+    react-ym "^0.0.7"
+
 next@^7.0.2:
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/next/-/next-7.0.2.tgz#5ff6b3f0e6cf03ce539d5779a55dc1f8fb1759d7"
@@ -13963,6 +13971,11 @@ react-yandex-maps@^3.0.2:
     create-react-context "^0.2.2"
     prop-types "^15.6.2"
     react-display-name "^0.2.4"
+
+react-ym@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/react-ym/-/react-ym-0.0.7.tgz#496c9ea5f6644b40bc264b38d72d6501a9687e93"
+  integrity sha1-SWyepfZkS0C8Jks41y1lAalofpM=
 
 react@^16.6.3, react@^16.7.0:
   version "16.8.0"

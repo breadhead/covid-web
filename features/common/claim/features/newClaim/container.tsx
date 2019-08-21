@@ -18,6 +18,9 @@ import { DEFAULT_ID, getNewClaimDraft } from './localStorage'
 import { FooterType, ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
 import { getNewClaimLoading, getNewClaimError } from './selectors'
+import { compose } from 'recompose'
+import { GTM_ID } from '@app/features/common/analytics/config'
+import withYm from 'next-ym'
 
 const { Router } = routes
 
@@ -43,9 +46,12 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
   layout: React.ComponentType,
   footer: FooterType,
 ) => {
-  return connect(
-    mapState,
-    mapDipatch,
+  return compose(
+    withYm(GTM_ID, Router),
+    connect(
+      mapState,
+      mapDipatch,
+    ),
   )(
     class ContaineredComponent extends React.Component<any> {
       public static async getInitialProps({
