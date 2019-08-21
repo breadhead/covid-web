@@ -10,6 +10,8 @@ import { fetchClaim } from '@app/features/common/consultation'
 import { getRoles } from '@app/features/login'
 import { Role } from '@app/models/Users/User'
 import routes from '@app/routes'
+import { GTM_ID } from '@app/features/common/analytics/config'
+import withYM from 'next-ym'
 
 import { createQuestionsClaim as createQuestionsClaimAction } from './actions'
 import { getQuestionsClaimDraft } from './localStorage'
@@ -17,6 +19,7 @@ import { FooterType } from './organisms/Form'
 import { DefaultQuestion, FormFields, Props as PageProps } from './page'
 import { actions } from './reducer'
 import { getQuestionsError, getQuestionsLoading } from './selectors'
+import { compose } from 'recompose'
 
 const { Router } = routes
 
@@ -48,9 +51,12 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
   layout: React.ComponentType,
   footer: FooterType,
 ) => {
-  return connect(
-    mapState,
-    mapDispatch,
+  return compose(
+    withYM(GTM_ID, Router),
+    connect(
+      mapState,
+      mapDispatch,
+    ),
   )(
     class ConataineredComponent extends React.Component<any, LocalState> {
       public static async getInitialProps(context: AppContext<Query>) {

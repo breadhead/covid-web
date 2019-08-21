@@ -5,6 +5,8 @@ import Conditions from '../../atoms/Conditions'
 import Title from '../../atoms/Title'
 import SendSms from '../../molecules/SendSms'
 import SmsCode from '../../molecules/SmsCode'
+import withYM from 'next-ym'
+import { GTM_ID } from '@app/features/common/analytics/config'
 
 import * as styles from './Modal.css'
 
@@ -57,4 +59,4 @@ class ModalSmsConfirm extends React.Component<Props> {
   }
 }
 
-export default ModalSmsConfirm
+export default withYM(GTM_ID, Router)(ModalSmsConfirm)

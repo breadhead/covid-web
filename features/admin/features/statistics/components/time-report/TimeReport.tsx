@@ -45,10 +45,12 @@ export const TimeReport = () => {
 
   const { median, max, average, doctors, success, failure } = timeData
 
-  const tableData = doctors.map(doctor => ({
-    key: doctor.name,
-    ...doctor,
-  }))
+  const tableData =
+    doctors &&
+    doctors.map(doctor => ({
+      key: doctor.name,
+      ...doctor,
+    }))
 
   return (
     <div>
@@ -57,7 +59,7 @@ export const TimeReport = () => {
           <p>Общее среднее время ответа: {formatTimestamp(average)}</p>
           <p>Общее медианное время ответа: {formatTimestamp(median)}</p>
           <p>Максимальное время ответа: {formatTimestamp(max)}</p>
-          <p>Всего успешных заявок: {success}</p>
+          <p>Всего заявок, закрытых вовремя: {success}</p>
           <p>Всего просроченных заявок: {failure}</p>
         </div>
         <div style={{ zIndex: 10 }}>
