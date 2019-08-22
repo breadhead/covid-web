@@ -25,8 +25,7 @@ import { FooterType } from './organisms/Form'
 import { Props as PageProps } from './page'
 import { getSituationError, getSituationLoading } from './selectors'
 import { SituationClaimFields } from './types'
-import withYM from 'next-ym'
-import { GTM_ID } from '@app/features/common/analytics/config'
+import { hitYM } from '@app/features/common/analytics/config'
 
 const { Router } = routes
 
@@ -50,7 +49,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
   footer: FooterType,
 ) => {
   return compose(
-    withYM(GTM_ID, Router),
     connect(
       mapState,
       mapDispatch,
@@ -109,6 +107,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       private redirect(id: string, roles: Role[]) {
         if (roles.includes(Role.Client)) {
           Router.pushRoute(`/client/claim/${id}/questions/`)
+          hitYM(`client/claim/${id}/questions/`)
         } else if (roles.includes(Role.CaseManager)) {
           Router.pushRoute(`/manager/consultation/${id}`)
         }
