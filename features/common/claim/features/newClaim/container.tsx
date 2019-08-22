@@ -19,8 +19,7 @@ import { FooterType, ShortClaimFields } from './organisms/ClaimForm'
 import { Props as PageProps } from './page'
 import { getNewClaimLoading, getNewClaimError } from './selectors'
 import { compose } from 'recompose'
-import { GTM_ID } from '@app/features/common/analytics/config'
-import withYm from 'next-ym'
+import { hitYM } from '@app/features/common/analytics/config'
 
 const { Router } = routes
 
@@ -47,7 +46,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
   footer: FooterType,
 ) => {
   return compose(
-    withYm(GTM_ID, Router),
     connect(
       mapState,
       mapDipatch,
@@ -154,6 +152,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
 
       private redirect(id: string, roles: Role[]) {
         if (roles.includes(Role.Client)) {
+          hitYM(`client/claim/${id}/situation/`)
           Router.pushRoute(`/client/claim/${id}/situation/`)
         } else if (roles.includes(Role.CaseManager)) {
           Router.pushRoute(`/manager/consultation/${id}`)

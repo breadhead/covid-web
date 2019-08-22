@@ -7,6 +7,12 @@ interface Window {
 }
 
 export const GTM_ID = 'GTM-NGQHJ49'
+export const YANDEX_METRIKA_ID = '52214086'
+
 export const DATA_LAYER_NAME = 'dataLayer'
 export const dataLayer =
   canUseDOM && ((window as unknown) as Window)[DATA_LAYER_NAME]
+
+export const hitYM = (url: string) => {
+  ym(YANDEX_METRIKA_ID, 'hit', `https://ask.nenaprasno.ru/${url}`)
+}

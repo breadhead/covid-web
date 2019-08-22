@@ -10,8 +10,6 @@ import { fetchClaim } from '@app/features/common/consultation'
 import { getRoles } from '@app/features/login'
 import { Role } from '@app/models/Users/User'
 import routes from '@app/routes'
-import { GTM_ID } from '@app/features/common/analytics/config'
-import withYM from 'next-ym'
 
 import { createQuestionsClaim as createQuestionsClaimAction } from './actions'
 import { getQuestionsClaimDraft } from './localStorage'
@@ -20,6 +18,7 @@ import { DefaultQuestion, FormFields, Props as PageProps } from './page'
 import { actions } from './reducer'
 import { getQuestionsError, getQuestionsLoading } from './selectors'
 import { compose } from 'recompose'
+import { hitYM } from '@app/features/common/analytics/config'
 
 const { Router } = routes
 
@@ -52,7 +51,6 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
   footer: FooterType,
 ) => {
   return compose(
-    withYM(GTM_ID, Router),
     connect(
       mapState,
       mapDispatch,
@@ -187,9 +185,19 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
                 email,
               )}?number=${number}/`,
             )
+            hitYM(
+              `client/claim/form-finish/${encodeURIComponent(
+                email,
+              )}?number=${number}/`,
+            )
           } else {
             Router.pushRoute(
               `/client/claim/wait-please/${encodeURIComponent(
+                email,
+              )}?number=${number}/`,
+            )
+            hitYM(
+              `client/claim/wait-please/${encodeURIComponent(
                 email,
               )}?number=${number}/`,
             )
