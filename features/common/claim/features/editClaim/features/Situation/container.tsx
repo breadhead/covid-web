@@ -106,8 +106,9 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
 
       private redirect(id: string, roles: Role[]) {
         if (roles.includes(Role.Client)) {
-          Router.pushRoute(`/client/claim/${id}/questions/`)
-          hitYM(`client/claim/${id}/questions/`)
+          Router.pushRoute(`/client/claim/${id}/questions/`).then(() =>
+            hitYM(`client/claim/${id}/questions/`),
+          )
         } else if (roles.includes(Role.CaseManager)) {
           Router.pushRoute(`/manager/consultation/${id}`)
         }

@@ -25,7 +25,7 @@ class ModalSmsConfirm extends React.Component<Props> {
 
     if (validationSuccess) {
       Router.push('/client/new-claim/')
-        .then(() => hitYM('/client/new-claim/'))
+        .then(() => hitYM('client/new-claim/'))
         .then(() => this.props.close())
     }
   }

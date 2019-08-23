@@ -184,23 +184,25 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
               `/client/claim/form-finish/${encodeURIComponent(
                 email,
               )}?number=${number}/`,
-            )
-            hitYM(
-              `client/claim/form-finish/${encodeURIComponent(
-                email,
-              )}?number=${number}/`,
+            ).then(() =>
+              hitYM(
+                `client/claim/form-finish/${encodeURIComponent(
+                  email,
+                )}?number=${number}/`,
+              ),
             )
           } else {
             Router.pushRoute(
               `/client/claim/wait-please/${encodeURIComponent(
                 email,
               )}?number=${number}/`,
-            )
-            hitYM(
-              `client/claim/wait-please/${encodeURIComponent(
-                email,
-              )}?number=${number}/`,
-            )
+            ).then(() => {
+              hitYM(
+                `client/claim/wait-please/${encodeURIComponent(
+                  email,
+                )}?number=${number}/`,
+              )
+            })
           }
         } else if (roles.includes(Role.CaseManager)) {
           Router.pushRoute(`/manager/consultation/${id}`)
