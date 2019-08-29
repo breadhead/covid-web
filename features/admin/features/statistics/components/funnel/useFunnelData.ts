@@ -16,18 +16,17 @@ export const useFunnelData = (from: Date, to: Date) => {
   if (!stats) {
     return []
   }
-
   const data = [
     {
       id: 'new-claim',
-      value: stats.shortClaims,
-      name: `Первый шаг ${stats.shortClaims}`,
+      value: stats.firstStep,
+      name: `Первый шаг ${stats.firstStep}`,
       fill: '#8884d8',
     },
     {
       id: 'situation-claim',
-      value: stats.situationClaims,
-      name: `Второй шаг ${stats.situationClaims}`,
+      value: stats.secondStep,
+      name: `Второй шаг ${stats.secondStep}`,
       fill: '#83a6ed',
     },
     {
@@ -47,12 +46,6 @@ export const useFunnelData = (from: Date, to: Date) => {
       value: stats.closedByClientClaims,
       name: `Закрыто клиентом ${stats.closedByClientClaims}`,
       fill: '#82ca9d',
-    },
-    {
-      id: 'dsdfsd-closed',
-      value: stats.closedByClientClaims / 2,
-      name: '',
-      fill: 'transparent',
     },
   ]
 
