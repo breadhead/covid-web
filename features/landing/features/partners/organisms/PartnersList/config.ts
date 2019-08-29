@@ -54,7 +54,7 @@ const partners = [
   },
   {
     id: '50',
-    type: PartnersType.Donor,
+    type: PartnersType.InfrastructurePartner,
     typeLabel: PartnersLabel.Donor,
     img: '/static/images/partners/Yasnoe_utro_Logo.jpg',
     label: 'Ясное Утро',
