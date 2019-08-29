@@ -23,7 +23,7 @@ const Container = (Wrapped: ComponentType<Props>) =>
       return {
         email: decodeURIComponent(email),
         waiting,
-        number,
+        number: `${number}`.replace(/(\D)$/, ''),
       }
     }
 
