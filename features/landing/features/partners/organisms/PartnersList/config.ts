@@ -66,6 +66,13 @@ const partners = [
     img: '/static/images/partners/Avon_logo.png',
     label: 'Avon',
   },
+  {
+    id: '60',
+    type: PartnersType.InfrastructurePartner,
+    typeLabel: PartnersLabel.InfrastructurePartner,
+    img: '/static/images/partners/hands-up.png',
+    label: 'Поднимите руки',
+  },
 ]
 
 const getCurrentPartnersOptions = (currentPartners: Partner[]) => {
