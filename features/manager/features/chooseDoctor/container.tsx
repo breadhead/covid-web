@@ -53,11 +53,15 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     }
 
     private onFilterChange = (e: SyntheticEvent<HTMLInputElement>) => {
-      this.setState({ filter: (e.target as HTMLInputElement).value })
+      this.setState({
+        filter: (e.target as HTMLInputElement).value.toLowerCase(),
+      })
     }
 
     private filterDoctors = (doctors: Doctor[], filter: string) => {
-      return doctors.filter(doctor => RegExp(filter).test(doctor.fullName))
+      return doctors.filter(doctor =>
+        RegExp(filter).test(doctor.fullName.toLowerCase()),
+      )
     }
 
     private onSubmit = async (fields: FormFields) => {
