@@ -42,7 +42,7 @@ export const useCurrentColumns = (
           sorter: (a: { max: number }, b: { max: number }) => a.max - b.max,
         },
         {
-          title: 'Успешных заявок',
+          title: 'Закрытых вовремя заявок',
           dataIndex: 'success',
           key: 'success',
           defaultSortOrder: 'descend',

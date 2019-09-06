@@ -65,7 +65,6 @@ export const TimeReport = () => {
         <div style={{ zIndex: 10 }}>
           <RangePicker
             dateIsDisabled={date => date < DEFAULT_START || date > now}
-            value={[from, to]}
             onChange={changePeriod}
           />
         </div>
