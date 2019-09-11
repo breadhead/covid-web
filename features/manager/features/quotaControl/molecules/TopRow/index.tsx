@@ -37,7 +37,11 @@ const TopRow = ({
   quotaName,
   assignedDoctor,
 }: Props) => {
-  const closed = [ClaimStatus.Closed, ClaimStatus.Denied].includes(status)
+  const closed = [
+    ClaimStatus.Closed,
+    ClaimStatus.Denied,
+    ClaimStatus.ClosedWithoutAnswer,
+  ].includes(status)
   return (
     <>
       <div className={styles.buttons}>

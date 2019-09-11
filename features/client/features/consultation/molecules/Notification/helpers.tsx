@@ -89,7 +89,13 @@ export const getNotificationsText = (info: ListedClaim): NotificationText => {
       id: '10',
       image: '/static/images/expert-answered.png',
       title: `Ваша консультация завершена`,
-      button: Notifiation.Closed,
+      text: `${closeComment}.
+      Если у вас есть вопросы, напишите в${NON_BREAKING_SPACE}`,
+      button: Notifiation.Denied,
+      link: {
+        label: 'форму обратной связи',
+        href: `/contacts?claimNumber=${number}#feedback-form`,
+      },
     },
   } as NotificationMap)[status]
 }

@@ -10,7 +10,9 @@ import { Position } from '../quotaControl/helpers/canEditClaim'
 const renderControlsSubHeader = ({ mainInfo: { status } }: Claim) => (
   <Control
     status={status}
-    allocationAvailable={![ClaimStatus.Denied].includes(status)}
+    allocationAvailable={
+      ![ClaimStatus.Denied, ClaimStatus.ClosedWithoutAnswer].includes(status)
+    }
     allowAnswerEditing={true}
   />
 )
