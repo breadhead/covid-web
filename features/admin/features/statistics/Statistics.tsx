@@ -18,7 +18,7 @@ export const Statistics = () => {
         <TabPane tab="Архив заявок" key="archive" className={s.tab}>
           <ClaimArchive />
         </TabPane>
-        <TabPane tab="Время ответа" key="time" className={s.tab}>
+        <TabPane tab="Время ответа врачей" key="time" className={s.tab}>
           <TimeReport />
         </TabPane>
         <TabPane tab="Воронка продаж" key="funnel" className={s.tab}>
