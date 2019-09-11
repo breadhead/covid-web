@@ -88,7 +88,7 @@ export const ClaimArchive = () => {
 
       {!!from && !!to && (
         <Button className={styles.download} onClick={downloadFile}>
-          Скачать отчет
+          Скачать отчёт
         </Button>
       )}
     </>

@@ -7,6 +7,9 @@ import { useColumnSearchProps } from './useColumnSearchProps'
 import RangePicker from '../../../history/molecule/RangePicker'
 import { DEFAULT_START } from '../funnel/ClaimsFunnel'
 import { useCurrentColumns } from './useCurrentColumns'
+import { Button } from '@app/src/ui/button'
+import saveFile from 'js-file-download'
+import formatDate from '@app/features/client/features/claims/helpers/formatDate'
 
 export const TimeReport = () => {
   const api = useApi()
@@ -39,6 +42,20 @@ export const TimeReport = () => {
     [setFrom],
   )
 
+  const downloadFile = useCallback(
+    async () => {
+      if (!from || !to) {
+        return
+      }
+
+      const file = await api.fetchTimeReportTable(from, to)
+      saveFile(
+        file,
+        `Отчёт времени работы врачей ${formatDate(from)}-${formatDate(to)}.csv`,
+      )
+    },
+    [from, to],
+  )
   if (!timeData) {
     return <p>Загружаем...</p>
   }
@@ -67,6 +84,11 @@ export const TimeReport = () => {
             dateIsDisabled={date => date < DEFAULT_START || date > now}
             onChange={changePeriod}
           />
+          {!!from && !!to && (
+            <div style={{ marginTop: '20px' }}>
+              <Button onClick={downloadFile}>Скачать отчёт</Button>
+            </div>
+          )}
         </div>
       </section>
       <Table columns={columns} dataSource={tableData} />

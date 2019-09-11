@@ -79,6 +79,7 @@ export default interface ApiClient {
   ): Promise<void>
   downloadReport(from: Date, to: Date, onlyClosed: boolean): Promise<any>
   fetchTimeReport(from: Date, to: Date): Promise<TimeReport>
+  fetchTimeReportTable(from: Date, to: Date): Promise<any>
   fetchSuccessefulClosedClaims(): Promise<number>
   restorePassword(login: string): Promise<string>
   fetchFunnelStats(from: Date, to: Date): Promise<Funnel>
