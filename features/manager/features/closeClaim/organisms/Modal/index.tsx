@@ -33,6 +33,19 @@ const Modal = ({ onFormSubmit, saveCloseData }: Props) => {
     onFormSubmit(currentValues)
   }
 
+  const getRefuseTextAreaName = (currentType: CloseType) => {
+    switch (currentType) {
+      case CloseType.NoContact:
+        return 'noContactComment'
+      case CloseType.Refuse:
+        return 'refuseComment'
+      case CloseType.NoAnswerNeeded:
+        return 'noAnswerNeededComment'
+      default:
+        return 'refuseComment'
+    }
+  }
+
   return (
     <Form
       onSubmit={onSubmit as any}
@@ -62,13 +75,7 @@ const Modal = ({ onFormSubmit, saveCloseData }: Props) => {
               />
               {refuseTypes.includes(currentCloseType) && (
                 <div className={styles.comment}>
-                  <TextArea
-                    name={
-                      currentCloseType === CloseType.NoContact
-                        ? 'noContactComment'
-                        : 'refuseComment'
-                    }
-                  />
+                  <TextArea name={getRefuseTextAreaName(currentCloseType)} />
                 </div>
               )}
               {refuseTypes.includes(currentCloseType) ? (

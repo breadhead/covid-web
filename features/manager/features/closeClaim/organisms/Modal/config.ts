@@ -7,11 +7,14 @@ const REFUSE_COMMENT_TEXT =
 const NO_CONTACT_COMMENT_TEXT =
   'Мы не получали от вас ответ слишком долго и нам пришлось отклонить вашу заявку. Вы можете заполнить заявку еще раз'
 
+const NO_ANSWER_NEEDED_TEXT = `Ваш вопрос не требует ответа эксперта`
+
 interface InitialValues {
   type: CloseType
   deallocateQuota: boolean
   refuseComment: string
   noContactComment: string
+  noAnswerNeededComment: string
   comment: string
 }
 
@@ -20,6 +23,7 @@ const initial = {
   deallocateQuota: false,
   refuseComment: REFUSE_COMMENT_TEXT,
   noContactComment: NO_CONTACT_COMMENT_TEXT,
+  noAnswerNeededComment: NO_ANSWER_NEEDED_TEXT,
   comment: REFUSE_COMMENT_TEXT,
 }
 
@@ -42,7 +46,11 @@ const deallocateQuotaTypes = [
   },
 ]
 
-const refuseTypes = [CloseType.Refuse, CloseType.NoContact]
+const refuseTypes = [
+  CloseType.Refuse,
+  CloseType.NoContact,
+  CloseType.NoAnswerNeeded,
+]
 
 const addCommentFieldToValues = (values: InitialValues) => {
   const currentValues = values
@@ -51,6 +59,9 @@ const addCommentFieldToValues = (values: InitialValues) => {
   }
   if (currentValues.type === CloseType.NoContact) {
     currentValues.comment = values.noContactComment
+  }
+  if (currentValues.type === CloseType.NoAnswerNeeded) {
+    currentValues.comment = values.noAnswerNeededComment
   }
 
   return currentValues
