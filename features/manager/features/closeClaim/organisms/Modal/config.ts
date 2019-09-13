@@ -54,6 +54,8 @@ const refuseTypes = [
 
 const addCommentFieldToValues = (values: InitialValues) => {
   const currentValues = values
+  currentValues.comment = ''
+
   if (currentValues.type === CloseType.Refuse) {
     currentValues.comment = values.refuseComment
   }
