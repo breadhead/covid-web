@@ -6,19 +6,34 @@ import {
 } from '@app/lib/symbioteFactory'
 import { Action } from 'redux'
 
+export interface SignInErrorFields {
+  password?: boolean
+  confirm?: boolean
+  login?: boolean
+}
+
+export interface SignInError {
+  fields: SignInErrorFields
+  message: string
+  code?: number
+}
+
 interface State extends FetchingState {
   token: string
   authViolateStatus?: boolean
+  signInError?: SignInError
 }
 
 interface Actions extends FetchingActions {
   success(token: string): Action
   authViolateStatus(value: boolean): Action
+  signInError(value?: SignInError): Action
 }
 
 const initialState = createInitialState({
   token: '',
   authViolateStatus: undefined,
+  signInError: undefined,
 })
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
@@ -34,6 +49,12 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
       error: false,
       fetching: false,
       authViolateStatus,
+    }),
+    signInError: (state, signInError) => ({
+      ...state,
+      error: false,
+      fetching: false,
+      signInError,
     }),
   },
 )

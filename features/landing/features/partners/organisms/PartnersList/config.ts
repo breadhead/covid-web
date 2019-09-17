@@ -67,7 +67,7 @@ const partners = [
     label: 'Avon',
   },
   {
-    id: '60',
+    id: '70',
     type: PartnersType.InfrastructurePartner,
     typeLabel: PartnersLabel.InfrastructurePartner,
     img: '/static/images/partners/hands-up.png',

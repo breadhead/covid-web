@@ -5,7 +5,6 @@
   padding: 0 24px;
   background-color: #fff;
   border: none;
-
   @media (--smallDown) {
     padding: 0 16px;
     margin: 0 auto;
@@ -15,7 +14,6 @@
 .title {
   margin: 0 0 8px 0;
   font: var(--title-medium);
-
   @media (--smallDown) {
     font-size: 32px;
   }
@@ -38,6 +36,7 @@
 }
 
 .input {
+  position: relative;
   margin-bottom: 12px;
 }
 
@@ -58,4 +57,12 @@
 
 .footer {
   font: var(--text14-20);
+}
+
+.error {
+  position: absolute;
+  z-index: 5;
+  margin-top: -11px;
+  font: var(--text14-20);
+  color: var(--color-danger);
 }
