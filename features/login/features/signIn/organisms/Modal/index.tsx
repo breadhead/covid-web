@@ -16,7 +16,7 @@ interface Props {
   openSignUp: () => void
 }
 
-const SignIn = ({ onFormSubmit, openSignUp }: Props) => {
+const SignIn = ({ onFormSubmit, openSignUp, error }: Props) => {
   const title = isClientConsultationUrl()
     ? 'Войдите, чтобы увидеть свою заявку'
     : 'Войти'
@@ -48,6 +48,7 @@ const SignIn = ({ onFormSubmit, openSignUp }: Props) => {
               type={InputType.Password}
               validate={schema.password}
             />
+            {!!error && <div className={styles.error}>Неверный пароль</div>}
             <Button submit className={styles.mainButton}>
               Войти
             </Button>

@@ -25,7 +25,10 @@ export const loginAction = (
     redirectUser(roles, wantTo)
     return dispatch(actions.success(token))
   } catch (error) {
+    const { message, fields, code } = error.response.data
+
     dispatch(actions.error(error.message))
+    dispatch(actions.signInError({ message, fields, code }))
     throw error
   }
 }

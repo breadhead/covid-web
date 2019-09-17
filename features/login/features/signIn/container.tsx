@@ -11,6 +11,7 @@ import { getViolateState } from './selectors'
 
 import Router from 'next/router'
 import { MODAL_KEY } from './const'
+import { getSignInError } from './selectors/getSignInError'
 export { MODAL_KEY }
 
 export interface Credentials {
@@ -61,6 +62,7 @@ const Container = (WrappedComponent: React.ComponentType<ContainerProps>) => {
 
 const mapState = (state: State) => ({
   violateState: getViolateState(state),
+  error: getSignInError(state),
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
