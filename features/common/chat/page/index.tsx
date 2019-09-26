@@ -71,10 +71,7 @@ const Chat = ({
   const onUpload = async (file: string) => {
     setUploading(true)
     scrollToBottom()
-    // const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
-
     await onSubmit({ message: getDownloadLink(host, file) })
-    // await onSubmit({ message: `${protocol}://${host}${getPreviewLink(file)}` });
     setUploading(false)
   }
 
