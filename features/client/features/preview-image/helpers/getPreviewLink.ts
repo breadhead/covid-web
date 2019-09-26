@@ -1,7 +1,7 @@
-export const getPreviewLink = (link: string) => {
-  const imageRegexp = /.*\.(gif|jpe?g|bmp|png)$/gim
+import { IMAGE_REGEXP } from '@app/src/helpers/regexs'
 
-  if (imageRegexp.test(link)) {
+export const getPreviewLink = (link: string) => {
+  if (IMAGE_REGEXP.test(link)) {
     return `/preview-image/${encodeURIComponent(link)}`
   }
 

@@ -1,6 +1,6 @@
 import { isDate } from './isDate'
 import { isEmail } from './isEmail'
-import { URL_REGEXP } from './URL_REGEXP'
+import { URL_REGEXP, URL_ZIP_FILE_REGEX } from './URL_REGEXP'
 
 export const isUrl = (text: string): boolean => {
   if (isEmail(text)) {
@@ -11,11 +11,17 @@ export const isUrl = (text: string): boolean => {
     return false
   }
 
-  const match = text.match(URL_REGEXP)
+  const regularMatch = text.match(URL_REGEXP)
 
-  if (!match) {
-    return false
+  const zipMatch = text.match(URL_ZIP_FILE_REGEX)
+
+  if (regularMatch) {
+    return regularMatch[0] === text
   }
 
-  return match[0] === text
+  if (zipMatch) {
+    return true
+  }
+
+  return false
 }

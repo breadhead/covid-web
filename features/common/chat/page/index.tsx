@@ -20,7 +20,7 @@ import { SourceEnum } from '../../analytics/useGoogleAnalyticsPush/SourceEnum'
 import { useMappedState } from 'redux-react-hook'
 import { getClaimStatus } from '../../consultation'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
-import { getPreviewLink } from '@app/features/client/features/preview-image'
+import { getDownloadLink } from './helpers/getDownloadLink'
 export interface FormFileds {
   message: string
 }
@@ -69,10 +69,12 @@ const Chat = ({
   const currentClaimStatus = useMappedState(getClaimStatus)
   const gtmPush = useGoogleAnalyticsPush(SourceEnum.Chat)
   const onUpload = async (file: string) => {
-    const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https'
     setUploading(true)
     scrollToBottom()
-    await onSubmit({ message: `${protocol}://${host}${getPreviewLink(file)}` })
+    // const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+
+    await onSubmit({ message: getDownloadLink(host, file) })
+    // await onSubmit({ message: `${protocol}://${host}${getPreviewLink(file)}` });
     setUploading(false)
   }
 
