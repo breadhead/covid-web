@@ -59,9 +59,12 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
     }
 
     private filterDoctors = (doctors: Doctor[], filter: string) => {
-      return doctors.filter(doctor =>
-        RegExp(filter).test(doctor.fullName.toLowerCase()),
-      )
+      return doctors.filter(doctor => {
+        if (!doctor.fullName) {
+          return ''
+        }
+        return RegExp(filter).test(doctor.fullName.toLowerCase())
+      })
     }
 
     private onSubmit = async (fields: FormFields) => {
