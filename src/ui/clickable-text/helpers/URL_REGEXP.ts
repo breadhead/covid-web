@@ -3,4 +3,4 @@
 // Just use, it's correct
 export const URL_REGEXP = /(?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<>]+|\((?:[^\s()<>]+|(?:\([^\s()<>]+\)))?\))+(?:\((?:[^\s()<>]+|(?:\(?:[^\s()<>]+\)))?\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))?/g
 
-export const URL_FILE_REGEX = /((\/|\\|\/\/|https?:\\\\|https?:\/\/)[a-z0-9\s_@\-^!#$%&+={}.\/\\\[\]]+)+\.zip|rar|7z|tar|zipx|DMG$/
+export const URL_FILE_REGEX = /((\/|\\|\/\/|https?:\\\\|https?:\/\/)[a-z0-9\s_@\-^!#$%&+={}.\/\\\[\]]+)+\.zip|rar|7z|tar|zipx|pdf|DMG$/
