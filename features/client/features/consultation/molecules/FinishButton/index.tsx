@@ -17,8 +17,8 @@ const FinishButton = ({ className }: Props) => {
   const { open } = useSpecificModal(FINISH_MODAL_KEY)
 
   const openModal = () => {
-    Router.pushRoute(`/?donation`)
     open()
+    Router.pushRoute(`/?donation`)
   }
 
   return (
