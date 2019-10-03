@@ -13,11 +13,11 @@ export const isUrl = (text: string): boolean => {
 
   const regularMatch = text.match(URL_REGEXP)
 
-  const zipMatch = text.match(URL_FILE_REGEX)
-
   if (regularMatch) {
     return regularMatch[0] === text
   }
+
+  const zipMatch = text.match(URL_FILE_REGEX)
 
   if (zipMatch) {
     return true
