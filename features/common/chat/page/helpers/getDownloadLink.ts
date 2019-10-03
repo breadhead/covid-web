@@ -6,7 +6,7 @@ export const getDownloadLink = (host: string, url: string) => {
   const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https'
 
   if (IMAGE_REGEXP.test(url)) {
-    return `${protocol}://${host}${getPreviewLink(url)}`
+    return `/preview-image/${encodeURIComponent(url)}`
   }
 
   if (URL_FILE_REGEX.test(url)) {
