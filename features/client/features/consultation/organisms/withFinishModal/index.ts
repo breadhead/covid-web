@@ -1,6 +1,6 @@
 import Container from './container'
-import Modal from './organisms/Modal'
+import { FinishModal } from './organisms/Modal'
 
-export default Container(Modal as any)
+export default Container(FinishModal as any)
 
 export { FINISH_MODAL_KEY } from './container'

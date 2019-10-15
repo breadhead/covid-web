@@ -13,7 +13,7 @@ interface Props {
   claimStatus: ClaimStatus
 }
 
-class Modal extends React.Component<Props> {
+export class FinishModal extends React.Component<Props> {
   public componentDidMount() {
     const { claimStatus, claimId, closeClaim, refetchClaim } = this.props
 
@@ -36,5 +36,3 @@ class Modal extends React.Component<Props> {
     )
   }
 }
-
-export default Modal
