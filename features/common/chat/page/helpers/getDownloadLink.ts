@@ -8,10 +8,8 @@ export const getDownloadLink = (host: string, url: string) => {
   if (IMAGE_REGEXP.test(url)) {
     return `/preview-image/${encodeURIComponent(url)}`
   }
-
   if (URL_FILE_REGEX.test(url)) {
     return url
   }
-
   return `${protocol}://${host}${getPreviewLink(url)}`
 }
