@@ -4,6 +4,10 @@ const BACKLASH = 5
 export const displayFileName = (fileName: string) => {
   const underscorePosition = fileName.indexOf('_')
 
+  if (underscorePosition === -1) {
+    return fileName
+  }
+
   const position =
     underscorePosition === -1 ? fileName.length - 16 : underscorePosition
 

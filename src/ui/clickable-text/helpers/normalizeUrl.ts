@@ -3,5 +3,9 @@ export const normalizeUrl = (url: string) => {
     return url
   }
 
+  if (url.startsWith('/preview-image')) {
+    return url
+  }
+
   return `http://${url}`
 }
