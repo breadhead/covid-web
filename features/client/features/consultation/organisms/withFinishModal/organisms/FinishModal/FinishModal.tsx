@@ -1,10 +1,9 @@
 import * as React from 'react'
 
-import * as styles from './Modal.css'
+import * as styles from './FinishModal.css'
 
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
-import Info from '../Info'
-import Widget from '../Widget'
+import { FinishQuestion } from '../FinishQuestion/FinishQuestion'
 
 interface Props {
   closeClaim: (id: string) => Promise<void>
@@ -14,13 +13,14 @@ interface Props {
 }
 
 export class FinishModal extends React.Component<Props> {
-  public componentDidMount() {
-    const { claimStatus, claimId, closeClaim, refetchClaim } = this.props
+  // TODO: return it
+  // public componentDidMount() {
+  //   const { claimStatus, claimId, closeClaim, refetchClaim } = this.props;
 
-    if (claimStatus === ClaimStatus.DeliveredToCustomer) {
-      closeClaim(claimId).then(() => refetchClaim(claimId))
-    }
-  }
+  // if (claimStatus === ClaimStatus.DeliveredToCustomer) {
+  //   closeClaim(claimId).then(() => refetchClaim(claimId));
+  // }
+  // }
 
   public render() {
     return (
@@ -30,8 +30,7 @@ export class FinishModal extends React.Component<Props> {
           <br />
           Мы рады, что ваша консультация прошла успешно
         </h1>
-        <Info />
-        <Widget />
+        <FinishQuestion />
       </article>
     )
   }

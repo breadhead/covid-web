@@ -1,5 +1,5 @@
 import Container from './container'
-import { FinishModal } from './organisms/Modal'
+import { FinishModal } from './organisms/FinishModal'
 
 export default Container(FinishModal as any)
 
