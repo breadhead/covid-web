@@ -3,6 +3,10 @@ import { isEmail } from './isEmail'
 import { URL_REGEXP, URL_FILE_REGEX } from './URL_REGEXP'
 
 export const isUrl = (text: string): boolean => {
+  if (text.startsWith('/preview-image')) {
+    return true
+  }
+
   if (isEmail(text)) {
     return false
   }
