@@ -16,22 +16,24 @@ interface Props {
   claim: SituationClaim
 }
 
-const createRenderFlat = (styles: any) => (article: Article) => (
-  <div className={styles.infoBlock} key={article.subtitle}>
-    <h3 className={styles.subtitle}>{article.subtitle}</h3>
-    {!!article.isUrl && !!article.text ? (
-      <NavLink
-        blank
-        href={getPreviewLink(article.text)}
-        className={styles.text}
-      >
-        {displayFileName(article.text)}
-      </NavLink>
-    ) : (
-      <ClickableText className={styles.text}>{article.text}</ClickableText>
-    )}
-  </div>
-)
+const createRenderFlat = (styles: any) => (article: Article) => {
+  return (
+    <div className={styles.infoBlock} key={article.subtitle}>
+      <h3 className={styles.subtitle}>{article.subtitle}</h3>
+      {!!article.isUrl && !!article.text ? (
+        <NavLink
+          blank
+          href={getPreviewLink(article.text)}
+          className={styles.text}
+        >
+          {displayFileName(article.text)}
+        </NavLink>
+      ) : (
+        <ClickableText className={styles.text}>{article.text}</ClickableText>
+      )}
+    </div>
+  )
+}
 
 const createRenderCompose = (styles: any) => (article: Article) => (
   <div className={styles.infoBlock} key={article.subtitle}>

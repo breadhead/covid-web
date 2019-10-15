@@ -43,7 +43,15 @@ describe('getPreviewLink', () => {
 
   test('viber url', () => {
     const link =
-      '0655f1aecaba945d99db98c998436d29_viber_image_2019-10-03_,_17.56.36.jpg'
+      'https://store.ask.nenaprasno.ru/oncobucket/0655f1aecaba945d99db98c998436d29_viber_image_2019-10-03_,_17.56.36.jpg'
+    const res = getPreviewLink(link).includes('preview-image')
+
+    expect(res).toEqual(true)
+  })
+
+  test('viber url', () => {
+    const link =
+      'https://store.ask.nenaprasno.ru/oncobucket/1a33ecc23b4e76f172f4db366228b1ed_viber_image_2019-10-03_,_17.56.35.jpg'
     const res = getPreviewLink(link).includes('preview-image')
 
     expect(res).toEqual(true)
