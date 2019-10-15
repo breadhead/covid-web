@@ -1,1 +1,1 @@
-export const IMAGE_REGEXP = /.*\.(?:gif|JPG|jpe?g|bmp|png)$/gim
+export const IMAGE_REGEXP = /([/|.|\w|\s|-])*\.(jpe?g|gif|png|bmp)$/im
