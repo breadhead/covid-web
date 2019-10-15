@@ -1,14 +1,18 @@
 import { IMAGE_REGEXP } from '@app/src/helpers/regexs'
 
 export const getPreviewLink = (link: string) => {
-  console.log('link:', link)
-  console.log('condition', IMAGE_REGEXP.test(link))
-
   if (IMAGE_REGEXP.test(link)) {
     return `/preview-image/${encodeURIComponent(link)}`
   }
 
-  if (link.endsWith('.jpg')) {
+  if (
+    link.endsWith('.jpg') ||
+    link.endsWith('.jpeg') ||
+    link.endsWith('.JPG') ||
+    link.endsWith('.JPEG') ||
+    link.endsWith('.png') ||
+    link.endsWith('.PNG')
+  ) {
     return `/preview-image/${encodeURIComponent(link)}`
   }
 

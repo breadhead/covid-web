@@ -38,7 +38,7 @@ export const ClickableText = ({
         {displayFileName(url)}
       </NavLink>
     ),
-    [],
+    [linkClassName],
   )
 
   if (!children) {
