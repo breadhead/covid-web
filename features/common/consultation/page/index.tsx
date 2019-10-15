@@ -21,6 +21,7 @@ import Theme from '../organisms/Theme'
 import { useDonationModalByUrl } from './useDonationModalByUrl'
 import { useMappedState } from 'redux-react-hook'
 import { selectQuotaCompanyName } from '@app/src/domain/landing/selectors/selectQuotaCompanyName'
+import { ClearMorning } from '@app/features/client/features/consultation/organisms/QuestionNotification/components/clear-morning'
 
 export interface Props {
   windowSize: WindowSize
@@ -125,6 +126,7 @@ export const Consultation = ({
               openChat={openChat}
             />
           )}
+          <ClearMorning />
           {renderFooter && renderFooter(claim)}
         </Layout>
       </div>

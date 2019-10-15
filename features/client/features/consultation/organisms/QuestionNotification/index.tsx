@@ -58,8 +58,6 @@ const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
           )}
         </div>
       </article>
-
-      <ClearMorning />
     </div>
   ) : null
 }
