@@ -289,4 +289,9 @@ export default class RealApiClient implements ApiClient {
       .get(`/statistics/funnel-claims?${queryString({ from, to })}`)
       .then(res => res.data as Funnel)
   }
+
+  public sendRatingQuestionAnswer = (id: number, text: string) =>
+    this.axiosInstance
+      .post('/auth/rating-question', { id, text })
+      .then(res => res.data as string)
 }

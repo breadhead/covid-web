@@ -10,6 +10,7 @@ interface Props {
   claimId: string
   refetchClaim: (id: string) => Promise<void>
   claimStatus: ClaimStatus
+  submitRatingAnswer: (id: number, text: string) => Promise<void>
 }
 
 export class FinishModal extends React.Component<Props> {
@@ -30,7 +31,7 @@ export class FinishModal extends React.Component<Props> {
           <br />
           Мы рады, что ваша консультация прошла успешно
         </h1>
-        <FinishQuestion />
+        <FinishQuestion submit={this.props.submitRatingAnswer} />
       </article>
     )
   }

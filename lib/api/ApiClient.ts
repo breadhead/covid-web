@@ -83,4 +83,5 @@ export default interface ApiClient {
   fetchSuccessefulClosedClaims(): Promise<number>
   restorePassword(login: string): Promise<string>
   fetchFunnelStats(from: Date, to: Date): Promise<Funnel>
+  sendRatingQuestionAnswer(id: number, text: string): Promise<any>
 }

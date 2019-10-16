@@ -11,6 +11,7 @@ import { isModal, withModal } from '@app/features/common/modal'
 import { closeClaim } from '@app/features/manager/features/closeClaim'
 import { CloseType } from '@app/lib/api/request/CloseClaimRequest'
 import { State } from '@app/lib/store'
+import { submitRatingAnswerAction } from './organisms/domain/actions'
 
 export const FINISH_MODAL_KEY = 'finish-modal'
 
@@ -28,6 +29,8 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
       comment,
     }) as any),
   refetchClaim: (id: string) => dispatch(fetchClaim(id) as any),
+  submitRatingAnswer: (id: number, text: string) =>
+    dispatch(submitRatingAnswerAction(id, text) as any),
 })
 
 export default compose(
