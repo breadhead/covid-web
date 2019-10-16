@@ -27,27 +27,22 @@ export const RatingQuestion = React.memo(
       questionId,
     ])
 
-    const resetRating = useCallback(() => setRating(DEFAULT_RATING_VALUE), [
-      setRating,
-    ])
+    const resetRating = useCallback(() => setRating(DEFAULT_RATING_VALUE), [])
 
-    const submitRatingQuestion = useCallback(
-      () => {
-        submit({ question: currentQuestion.text, answer: `${rating}` }).then(
-          () => {
-            resetRating()
-            const newId = questionId + 1
-
-            if (newId > questions.length) {
-              setQuestionId(DEFAULT_QUESTION_ID)
-              return
-            }
-            setQuestionId(newId)
-          },
-        )
-      },
-      [questionId, currentQuestion.text],
-    )
+    const submitRatingQuestion = async () => {
+      await submit({
+        question: currentQuestion.text,
+        answer: `${rating}`,
+      }).then(() => {
+        const newId = questionId + 1
+        if (newId > questions.length) {
+          setQuestionId(DEFAULT_QUESTION_ID)
+          return
+        }
+        setQuestionId(newId)
+        resetRating()
+      })
+    }
 
     return (
       <>
@@ -57,19 +52,12 @@ export const RatingQuestion = React.memo(
         <p className={s.hint}>{currentQuestion.hint}</p>
         <div className={s.buttonsContainer}>
           {buttons.map(btn => (
-            <RatingButton key={btn.id} button={btn} onClick={setRating} />
+            <RatingButton key={btn.id} button={btn} setRating={setRating} />
           ))}
         </div>
         <p className={s.rating}>{!!rating ? rating : ''}</p>
         {!!error && <p>Ошибка: {error}</p>}
-        <NextQuestionButton
-          questionId={questionId}
-          setQuestionId={setQuestionId}
-          resetRating={resetRating}
-          lastQuestionId={questions.length}
-          submit={submitRatingQuestion}
-          error={error}
-        />
+        <NextQuestionButton submit={submitRatingQuestion} />
       </>
     )
   },

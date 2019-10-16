@@ -5,13 +5,18 @@ import * as s from './RatingButton.css'
 
 interface RatingButtonProps {
   button: RatingButtonI
-  onClick: (id: number) => void
+  setRating: (id: number) => void
 }
 
 export const RatingButton = React.memo(
-  ({ button, onClick }: RatingButtonProps) => {
+  ({ button, setRating }: RatingButtonProps) => {
     const { id, label } = button
-    const updateRating = React.useCallback(() => onClick(id), [onClick, id])
+    const updateRating = React.useCallback(
+      () => {
+        setRating(id)
+      },
+      [setRating, id],
+    )
     return (
       <Button
         size={ButtonSize.Small}
