@@ -12,12 +12,14 @@ import { closeClaim } from '@app/features/manager/features/closeClaim'
 import { CloseType } from '@app/lib/api/request/CloseClaimRequest'
 import { State } from '@app/lib/store'
 import { submitRatingAnswerAction } from './organisms/domain/actions'
+import { selectRatingAnswerError } from './organisms/domain/selector'
 
 export const FINISH_MODAL_KEY = 'finish-modal'
 
 const mapState = (state: State) => ({
   claimId: getClaimId(state),
   claimStatus: getClaimStatus(state),
+  ratingError: selectRatingAnswerError(state),
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({

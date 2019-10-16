@@ -2,34 +2,31 @@ import * as React from 'react'
 import { useCallback } from 'react'
 import { Button, ButtonKind, ButtonSize } from '@app/src/ui/button'
 import * as s from './NextQuestionButton.css'
-import { DEFAULT_QUESTION_ID } from '../../organisms/FinishQuestion/FinishQuestion'
+import { DEFAULT_QUESTION_ID } from '../../organisms/RatingQuestion/RatingQuestion'
 
 interface NextQuestionButtonProps {
-  onClick: (id: number) => void
+  setQuestionId: (id: number) => void
   resetRating: () => void
   questionId: number
   lastQuestionId: number
+  submit: () => void
+  error: string
 }
 
 export const NextQuestionButton = React.memo(
   ({
-    onClick,
+    setQuestionId,
     resetRating,
     questionId,
     lastQuestionId,
+    submit,
+    error,
   }: NextQuestionButtonProps) => {
     const updateQuestionId = useCallback(
       () => {
-        resetRating()
-        const newId = questionId + 1
-
-        if (newId > lastQuestionId) {
-          onClick(DEFAULT_QUESTION_ID)
-          return
-        }
-        onClick(newId)
+        submit()
       },
-      [onClick, questionId],
+      [setQuestionId, questionId],
     )
     return (
       <Button

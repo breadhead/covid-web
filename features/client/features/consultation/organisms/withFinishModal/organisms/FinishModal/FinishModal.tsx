@@ -3,7 +3,7 @@ import * as React from 'react'
 import * as styles from './FinishModal.css'
 
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
-import { FinishQuestion } from '../FinishQuestion/FinishQuestion'
+import { RatingQuestion } from '../RatingQuestion/RatingQuestion'
 
 interface Props {
   closeClaim: (id: string) => Promise<void>
@@ -11,6 +11,7 @@ interface Props {
   refetchClaim: (id: string) => Promise<void>
   claimStatus: ClaimStatus
   submitRatingAnswer: (id: number, text: string) => Promise<void>
+  ratingError: string
 }
 
 export class FinishModal extends React.Component<Props> {
@@ -24,6 +25,8 @@ export class FinishModal extends React.Component<Props> {
   // }
 
   public render() {
+    const { submitRatingAnswer, ratingError } = this.props
+
     return (
       <article className={styles.modal}>
         <h1 className={styles.text}>
@@ -31,7 +34,7 @@ export class FinishModal extends React.Component<Props> {
           <br />
           Мы рады, что ваша консультация прошла успешно
         </h1>
-        <FinishQuestion submit={this.props.submitRatingAnswer} />
+        <RatingQuestion submit={submitRatingAnswer} error={ratingError} />
       </article>
     )
   }
