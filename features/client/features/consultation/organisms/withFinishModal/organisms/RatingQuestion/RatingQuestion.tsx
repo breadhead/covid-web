@@ -11,10 +11,11 @@ import {
   DEFAULT_RATING_VALUE,
   DEFAULT_QUESTION_ID,
 } from './config/defaultValues'
+import { RatingAnswerI } from './RatingAnswerI'
 
 interface RatingQuestionProps {
   error: string
-  submit: (id: number, text: string) => Promise<void>
+  submit: (data: RatingAnswerI) => Promise<void>
 }
 
 export const RatingQuestion = React.memo(
@@ -32,16 +33,18 @@ export const RatingQuestion = React.memo(
 
     const submitRatingQuestion = useCallback(
       () => {
-        submit(questionId, currentQuestion.text).then(() => {
-          resetRating()
-          const newId = questionId + 1
+        submit({ question: currentQuestion.text, answer: `${rating}` }).then(
+          () => {
+            resetRating()
+            const newId = questionId + 1
 
-          if (newId > questions.length) {
-            setQuestionId(DEFAULT_QUESTION_ID)
-            return
-          }
-          setQuestionId(newId)
-        })
+            if (newId > questions.length) {
+              setQuestionId(DEFAULT_QUESTION_ID)
+              return
+            }
+            setQuestionId(newId)
+          },
+        )
       },
       [questionId, currentQuestion.text],
     )

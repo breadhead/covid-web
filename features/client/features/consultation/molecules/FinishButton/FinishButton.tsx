@@ -2,12 +2,12 @@ import * as React from 'react'
 
 import { useSpecificModal } from '@app/features/common/modal'
 
-import routes from '@app/routes'
+// import routes from '@app/routes'
 import { Button, ButtonSize } from '@front/ui/button'
 
 import { FINISH_MODAL_KEY } from '../../organisms/withFinishModal'
 
-const { Router } = routes
+// const { Router } = routes
 
 interface Props {
   className?: string

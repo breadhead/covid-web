@@ -5,6 +5,7 @@ import {
   FetchingState,
   FetchingActions,
 } from '@app/lib/symbioteFactory'
+import { RatingAnswerI } from '../RatingQuestion/RatingAnswerI'
 
 interface State extends FetchingState {
   id: number
@@ -12,7 +13,7 @@ interface State extends FetchingState {
 }
 
 interface Actions extends FetchingActions {
-  submitRatingAnswer(id: number, text: string): Action
+  submitRatingAnswer(data: RatingAnswerI): Action
 }
 
 const initialState = createInitialState({ id: 0, text: '' })
@@ -24,10 +25,9 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   }),
   'client/submit-question-answer',
   {
-    submitRatingAnswer: (state: State, id: number, text: string) => ({
+    submitRatingAnswer: (state: State, data: RatingAnswerI) => ({
       ...state,
-      id,
-      text,
+      data,
       fetching: false,
       error: false,
     }),

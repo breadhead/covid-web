@@ -13,6 +13,7 @@ import { CloseType } from '@app/lib/api/request/CloseClaimRequest'
 import { State } from '@app/lib/store'
 import { submitRatingAnswerAction } from './organisms/domain/actions'
 import { selectRatingAnswerError } from './organisms/domain/selector'
+import { RatingAnswerI } from './organisms/RatingQuestion/RatingAnswerI'
 
 export const FINISH_MODAL_KEY = 'finish-modal'
 
@@ -31,8 +32,8 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
       comment,
     }) as any),
   refetchClaim: (id: string) => dispatch(fetchClaim(id) as any),
-  submitRatingAnswer: (id: number, text: string) =>
-    dispatch(submitRatingAnswerAction(id, text) as any),
+  submitRatingAnswer: (data: RatingAnswerI) =>
+    dispatch(submitRatingAnswerAction(data) as any),
 })
 
 export default compose(

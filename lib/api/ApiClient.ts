@@ -21,6 +21,7 @@ import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 import { TimeReport } from '@front/domain/statistics/model/time-report'
 import { Funnel } from '@app/models/Statistics/Funnel'
+import { RatingAnswerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/RatingAnswerI'
 
 export interface UploadedFile {
   path: string
@@ -83,5 +84,5 @@ export default interface ApiClient {
   fetchSuccessefulClosedClaims(): Promise<number>
   restorePassword(login: string): Promise<string>
   fetchFunnelStats(from: Date, to: Date): Promise<Funnel>
-  sendRatingQuestionAnswer(id: number, text: string): Promise<any>
+  sendRatingQuestionAnswer(data: RatingAnswerI): Promise<any>
 }
