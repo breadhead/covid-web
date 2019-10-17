@@ -8,25 +8,25 @@ import {
 import { RatingQuestionI } from '../../organisms/RatingQuestion/RatingQuestionI'
 
 interface Actions extends FetchingActions {
-  fetchRatingQuestions(data: RatingQuestionI[]): Action
+  fetchRatingQuestions(data: RatingQuestionI[] | []): Action
+}
+
+interface State extends FetchingState {
+  data: RatingQuestionI[]
 }
 
 const initialState = createInitialState({
-  data: {
-    type: 'value',
-    question: 'question',
-    hint: 'hint',
-  },
+  data: [],
 })
 
-const { actions, reducer } = createFetchingSymbiote<FetchingState, Actions>(
+const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  (state: FetchingState) => ({
+  (state: State) => ({
     ...state,
   }),
   'client/fetch-rating-questions',
   {
-    fetchRatingQuestions: (state: FetchingState, data: RatingQuestionI[]) => ({
+    fetchRatingQuestions: (state: State, data: RatingQuestionI[]) => ({
       ...state,
       data,
       fetching: false,
@@ -35,4 +35,4 @@ const { actions, reducer } = createFetchingSymbiote<FetchingState, Actions>(
   },
 )
 
-export { FetchingState as State, reducer, Actions, actions }
+export { State, reducer, Actions, actions }

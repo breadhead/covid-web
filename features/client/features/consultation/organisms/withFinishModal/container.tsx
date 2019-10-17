@@ -17,6 +17,7 @@ import {
 } from './domain/actions'
 import { selectRatingAnswerError } from './domain/selectors/selectRatingAnswerError'
 import { RatingAnswerI } from './organisms/RatingQuestion/RatingAnswerI'
+import { selectRatingQuestions } from './domain/selectors/selectRatingQuestions'
 
 export const FINISH_MODAL_KEY = 'finish-modal'
 
@@ -24,6 +25,7 @@ const mapState = (state: State) => ({
   claimId: getClaimId(state),
   claimStatus: getClaimStatus(state),
   ratingError: selectRatingAnswerError(state),
+  questions: selectRatingQuestions(state),
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({

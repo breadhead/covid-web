@@ -12,16 +12,21 @@ import {
   DEFAULT_QUESTION_ID,
 } from './config/defaultValues'
 import { RatingAnswerI } from './RatingAnswerI'
+import { RatingQuestionI } from './RatingQuestionI'
+import { RatingQuestionsEnum } from './RatingQuestionsEnum'
 
 interface RatingQuestionProps {
   error: string
   submit: (data: RatingAnswerI) => Promise<void>
   claimId: string
+  questions: RatingQuestionI[] | []
 }
 
 export const RatingQuestion = React.memo(
-  ({ submit, error, claimId }: RatingQuestionProps) => {
-    const [questionId, setQuestionId] = useState<number>(DEFAULT_QUESTION_ID)
+  ({ submit, error, claimId, questions }: RatingQuestionProps) => {
+    const [questionId, setQuestionId] = useState<RatingQuestionsEnum>(
+      RatingQuestionsEnum.Q1,
+    )
     const [rating, setRating] = useState<number>(DEFAULT_RATING_VALUE)
 
     const currentQuestion = useMemo(() => keyBy(questions, 'id')[questionId], [
@@ -33,27 +38,27 @@ export const RatingQuestion = React.memo(
     const submitRatingQuestion = async () => {
       const data = {
         claimId,
-        question: currentQuestion.code,
+        question: currentQuestion.id,
         answer: `${rating}`,
       }
 
-      await submit(data).then(() => {
-        const newId = questionId + 1
-        if (newId > questions.length) {
-          setQuestionId(DEFAULT_QUESTION_ID)
-          return
-        }
-        setQuestionId(newId)
-        resetRating()
-      })
+      // await submit(data).then(() => {
+      //   const newId = questionId + 1
+      //   if (newId > questions.length) {
+      //     setQuestionId(DEFAULT_QUESTION_ID)
+      //     return
+      //   }
+      //   setQuestionId(newId)
+      //   resetRating()
+      // })
     }
-
-    return (
+    console.log('questions:', questions)
+    return questions.length > 0 ? (
       <>
-        <p className={s.text}>
-          {currentQuestion.id}. {currentQuestion.text}
+        {/* <p className={s.text}>
+          {currentQuestion.id}. {currentQuestion.question}
         </p>
-        <p className={s.hint}>{currentQuestion.hint}</p>
+        <p className={s.hint}>{currentQuestion.hint}</p> */}
         <div className={s.buttonsContainer}>
           {buttons.map(btn => (
             <RatingButton key={btn.id} button={btn} setRating={setRating} />
@@ -63,6 +68,8 @@ export const RatingQuestion = React.memo(
         {!!error && <p>Ошибка: {error}</p>}
         <NextQuestionButton submit={submitRatingQuestion} />
       </>
+    ) : (
+      <p>⭐️⭐️⭐️⭐️⭐️</p>
     )
   },
 )
