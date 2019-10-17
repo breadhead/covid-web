@@ -16,10 +16,11 @@ import { RatingAnswerI } from './RatingAnswerI'
 interface RatingQuestionProps {
   error: string
   submit: (data: RatingAnswerI) => Promise<void>
+  claimId: string
 }
 
 export const RatingQuestion = React.memo(
-  ({ submit, error }: RatingQuestionProps) => {
+  ({ submit, error, claimId }: RatingQuestionProps) => {
     const [questionId, setQuestionId] = useState<number>(DEFAULT_QUESTION_ID)
     const [rating, setRating] = useState<number>(DEFAULT_RATING_VALUE)
 
@@ -30,10 +31,13 @@ export const RatingQuestion = React.memo(
     const resetRating = useCallback(() => setRating(DEFAULT_RATING_VALUE), [])
 
     const submitRatingQuestion = async () => {
-      await submit({
-        question: currentQuestion.text,
+      const data = {
+        claimId,
+        question: currentQuestion.code,
         answer: `${rating}`,
-      }).then(() => {
+      }
+
+      await submit(data).then(() => {
         const newId = questionId + 1
         if (newId > questions.length) {
           setQuestionId(DEFAULT_QUESTION_ID)

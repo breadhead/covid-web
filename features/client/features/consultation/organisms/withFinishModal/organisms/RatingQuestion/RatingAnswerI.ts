@@ -1,4 +1,7 @@
+import { RatingQuestionsEnum } from './RatingQuestionsEnum'
+
 export interface RatingAnswerI {
-  question: string
+  claimId: string
+  question: RatingQuestionsEnum
   answer: string
 }
