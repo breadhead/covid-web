@@ -1,7 +1,7 @@
 import { RatingQuestionsEnum } from './RatingQuestionsEnum'
 
 export interface RatingQuestionI {
-  typee: string
+  type: string
   question: RatingQuestionsEnum
   hint: string
 }
