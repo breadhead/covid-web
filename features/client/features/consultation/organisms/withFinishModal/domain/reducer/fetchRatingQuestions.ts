@@ -8,7 +8,7 @@ import {
 import { RatingQuestionI } from '../../organisms/RatingQuestion/RatingQuestionI'
 
 interface Actions extends FetchingActions {
-  fetchRatingQuestions(data: RatingQuestionI): Action
+  fetchRatingQuestions(data: RatingQuestionI[]): Action
 }
 
 const initialState = createInitialState({
@@ -26,7 +26,7 @@ const { actions, reducer } = createFetchingSymbiote<FetchingState, Actions>(
   }),
   'client/fetch-rating-questions',
   {
-    fetchRatingQuestions: (state: FetchingState, data: RatingQuestionI) => ({
+    fetchRatingQuestions: (state: FetchingState, data: RatingQuestionI[]) => ({
       ...state,
       data,
       fetching: false,

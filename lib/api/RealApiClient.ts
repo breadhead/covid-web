@@ -297,8 +297,8 @@ export default class RealApiClient implements ApiClient {
       .post('/rating/answer', data)
       .then(res => res.data as string)
 
-  public fetchRatingQuestions = (data: RatingQuestionI) =>
+  public fetchRatingQuestions = () =>
     this.axiosInstance
-      .post('/rating/questions', data)
-      .then(res => res.data as string)
+      .get('/rating/questions')
+      .then(res => res.data as RatingQuestionI[])
 }

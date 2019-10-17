@@ -11,7 +11,10 @@ import { isModal, withModal } from '@app/features/common/modal'
 import { closeClaim } from '@app/features/manager/features/closeClaim'
 import { CloseType } from '@app/lib/api/request/CloseClaimRequest'
 import { State } from '@app/lib/store'
-import { submitRatingAnswerAction } from './domain/actions'
+import {
+  submitRatingAnswerAction,
+  fetchRatingQuestionsAction,
+} from './domain/actions'
 import { selectRatingAnswerError } from './domain/selector'
 import { RatingAnswerI } from './organisms/RatingQuestion/RatingAnswerI'
 
@@ -34,6 +37,7 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   refetchClaim: (id: string) => dispatch(fetchClaim(id) as any),
   submitRatingAnswer: (data: RatingAnswerI) =>
     dispatch(submitRatingAnswerAction(data) as any),
+  fetchRatingQuestions: () => dispatch(fetchRatingQuestionsAction() as any),
 })
 
 export default compose(
