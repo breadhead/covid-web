@@ -15,7 +15,7 @@ import {
   submitRatingAnswerAction,
   fetchRatingQuestionsAction,
 } from './domain/actions'
-import { selectRatingAnswerError } from './domain/selector'
+import { selectRatingAnswerError } from './domain/selectors/selectRatingAnswerError'
 import { RatingAnswerI } from './organisms/RatingQuestion/RatingAnswerI'
 
 export const FINISH_MODAL_KEY = 'finish-modal'
