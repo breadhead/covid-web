@@ -30,6 +30,7 @@ import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 import { Funnel } from '@app/models/Statistics/Funnel'
 import { RatingAnswerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/RatingAnswerI'
+import { RatingQuestionI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/RatingQuestionI'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -294,5 +295,10 @@ export default class RealApiClient implements ApiClient {
   public sendRatingQuestionAnswer = (data: RatingAnswerI) =>
     this.axiosInstance
       .post('/rating/answer', data)
+      .then(res => res.data as string)
+
+  public fetchRatingQuestions = (data: RatingQuestionI) =>
+    this.axiosInstance
+      .post('/rating/questions', data)
       .then(res => res.data as string)
 }
