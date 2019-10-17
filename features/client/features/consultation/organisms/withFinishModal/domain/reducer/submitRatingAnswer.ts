@@ -5,7 +5,7 @@ import {
   FetchingState,
   FetchingActions,
 } from '@app/lib/symbioteFactory'
-import { RatingAnswerI } from '../RatingQuestion/RatingAnswerI'
+import { RatingAnswerI } from '../../organisms/RatingQuestion/RatingAnswerI'
 
 interface State extends FetchingState {
   id: number

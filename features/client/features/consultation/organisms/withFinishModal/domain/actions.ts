@@ -1,7 +1,7 @@
 import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
-import { actions } from './submitRatingAnswer'
-import { RatingAnswerI } from '../RatingQuestion/RatingAnswerI'
+import { actions } from './reducer/submitRatingAnswer'
+import { RatingAnswerI } from '../organisms/RatingQuestion/RatingAnswerI'
 
 export const submitRatingAnswerAction = (data: RatingAnswerI) => async (
   dispatch: Dispatch<any>,
