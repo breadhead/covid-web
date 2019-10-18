@@ -48,7 +48,10 @@ export const RatingQuestion = React.memo(
         question:
           (!!currentQuestion && (currentQuestion.id as RatingQuestionsEnum)) ||
           (RatingQuestionsEnum.Q1 as RatingQuestionsEnum),
-        answer: `${answer}`,
+        answerType:
+          (!!currentQuestion && (currentQuestion.type as RatingQuestionType)) ||
+          (RatingQuestionType.Value as RatingQuestionType),
+        answerValue: `${answer}`,
       }
 
       await submit(data)

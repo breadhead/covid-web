@@ -1,7 +1,9 @@
 import { RatingQuestionsEnum } from './RatingQuestionsEnum'
+import { RatingQuestionType } from './RatingQuestionType'
 
 export interface RatingAnswerI {
   claimId: string
   question: RatingQuestionsEnum
-  answer: string
+  answerType: RatingQuestionType
+  answerValue: string
 }
