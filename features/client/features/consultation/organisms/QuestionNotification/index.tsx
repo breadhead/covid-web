@@ -8,6 +8,10 @@ import { CHAT_DEFAULT_OPEN_WIDTH, NON_BREAKING_SPACE } from '@app/lib/config'
 import { ChatFeedback } from './components/ChatFeedback'
 import { SimpleFeedback } from './components/SimpleFeedback'
 import { useAnswerClear } from './useAnswerClear'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import { useMappedState } from 'redux-react-hook'
+import { getClientInfo } from '../selectors'
+import ClaimStatus from '@app/models/Claim/ClaimStatus'
 
 interface Props {
   focusOnChat: () => void
@@ -15,11 +19,11 @@ interface Props {
   windowSize: WindowSize
 }
 
-// const STATUSES_WITH_VISIBLE_EXPERTS_BLOCK = [ClaimStatus.DeliveredToCustomer]
+const STATUSES_WITH_VISIBLE_EXPERTS_BLOCK = [ClaimStatus.DeliveredToCustomer]
 
 const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
   const [isAnswerClear, setAnswerClear] = useState(true)
-  // const mainInfo: ListedClaim = useMappedState(getClientInfo) as ListedClaim
+  const mainInfo: ListedClaim = useMappedState(getClientInfo) as ListedClaim
 
   useAnswerClear(setAnswerClear, false)
 
@@ -36,9 +40,7 @@ const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
     },
     [windowSize.width],
   )
-  // TODO: return it
-  // return STATUSES_WITH_VISIBLE_EXPERTS_BLOCK.includes(mainInfo.status) ? (
-  return (
+  return STATUSES_WITH_VISIBLE_EXPERTS_BLOCK.includes(mainInfo.status) ? (
     <div className={styles.wholeBlock}>
       <article id="feedback" className={styles.questionNotification}>
         <div className={styles.container}>
@@ -53,7 +55,7 @@ const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
         </div>
       </article>
     </div>
-  )
+  ) : null
 }
 
 export default withWindowSize(QuestionNotification as any) as any

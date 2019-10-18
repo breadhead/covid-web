@@ -19,17 +19,19 @@ interface Props {
 }
 
 export class FinishModal extends React.Component<Props> {
-  // TODO: return it
-  // public componentDidMount() {
-  //   const { claimStatus, claimId, closeClaim, refetchClaim } = this.props;
-
-  // if (claimStatus === ClaimStatus.DeliveredToCustomer) {
-  //   closeClaim(claimId).then(() => refetchClaim(claimId));
-  // }
-  // }
-
   public componentDidMount() {
-    this.props.fetchRatingQuestions()
+    const {
+      claimStatus,
+      claimId,
+      closeClaim,
+      refetchClaim,
+      fetchRatingQuestions,
+    } = this.props
+
+    fetchRatingQuestions()
+    if (claimStatus === ClaimStatus.DeliveredToCustomer) {
+      closeClaim(claimId).then(() => refetchClaim(claimId))
+    }
   }
 
   public render() {

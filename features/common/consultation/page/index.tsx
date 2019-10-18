@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { useMemo } from 'react'
+
 import Head from 'next/head'
 
 import cx from 'classnames'
@@ -55,6 +57,8 @@ export const Consultation = ({
   const [isChatOpen, setChatOpen] = React.useState(true)
   const [isChatOpensOnce, setChatOpensOnce] = React.useState(true)
   const [isChatFocused, setChatFocused] = React.useState(false)
+
+  const isClient = useMemo(() => roles.includes(Role.Client), [roles])
 
   const closeChat = () => setChatOpen(false)
 
@@ -126,7 +130,7 @@ export const Consultation = ({
               openChat={openChat}
             />
           )}
-          <ClearMorning />
+          {isClient && <ClearMorning />}
           {renderFooter && renderFooter(claim)}
         </Layout>
       </div>
