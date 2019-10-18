@@ -48,10 +48,12 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
     public static async getInitialProps({
       reduxStore,
       query,
-      req: {
-        headers: { host },
-      },
+      req,
     }: AppContext<Query>) {
+      if (!req || !req.headers) return {}
+
+      const { host } = req.headers
+
       await reduxStore.dispatch(fetchClaim(query.id) as any)
       const user = await reduxStore.dispatch(currentUser() as any)
       await reduxStore
