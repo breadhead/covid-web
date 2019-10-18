@@ -5,6 +5,7 @@ import { NextQuestionButton } from '../../molecules/NextQuestionButton'
 import {
   DEFAULT_RATING_VALUE,
   DEFAULT_QUESTION_ID,
+  FINAL_QUESTION_ID,
 } from './config/defaultValues'
 import { RatingAnswerI } from './RatingAnswerI'
 import { RatingQuestionI } from './RatingQuestionI'
@@ -14,6 +15,7 @@ import { RatingQuestionType } from './RatingQuestionType'
 
 import * as s from './RatingQuestion.css'
 import { QuestionComment } from './components/QuestionComment'
+import { isNull } from 'lodash'
 
 interface RatingQuestionProps {
   error: string
@@ -24,20 +26,28 @@ interface RatingQuestionProps {
 
 export const RatingQuestion = React.memo(
   ({ submit, error, claimId, questions }: RatingQuestionProps) => {
-    const [questionId, setQuestionId] = useState<number>(DEFAULT_QUESTION_ID)
+    const [questionId, setQuestionId] = useState<number | null>(
+      DEFAULT_QUESTION_ID,
+    )
     const [answer, setAnswer] = useState<number | string>(DEFAULT_RATING_VALUE)
 
-    const currentQuestion = useMemo(() => questions[questionId], [
-      questions,
-      questionId,
-    ])
+    const currentQuestion = useMemo(
+      () => (!isNull(questionId) ? questions[questionId] : null),
+      [questions.length, questionId],
+    )
 
     const resetRating = useCallback(() => setAnswer(DEFAULT_RATING_VALUE), [])
 
     const submitRatingQuestion = async () => {
+      if (isNull(questionId)) {
+        return
+      }
+
       const data = {
         claimId,
-        question: currentQuestion.id as RatingQuestionsEnum,
+        question:
+          (!!currentQuestion && (currentQuestion.id as RatingQuestionsEnum)) ||
+          (RatingQuestionsEnum.Q1 as RatingQuestionsEnum),
         answer: `${answer}`,
       }
 
@@ -45,9 +55,7 @@ export const RatingQuestion = React.memo(
         .then(() => {
           const newId = questionId + 1
           if (newId >= questions.length) {
-            //TODO: add new q
-
-            setQuestionId(DEFAULT_QUESTION_ID)
+            setQuestionId(FINAL_QUESTION_ID)
             return
           }
           setQuestionId(newId)
@@ -68,19 +76,27 @@ export const RatingQuestion = React.memo(
     }
 
     return questions.length > 0 ? (
-      <>
-        <p className={s.text}>
-          {questionId + 1}. {currentQuestion.question}
-        </p>
-        <p className={s.hint}>{currentQuestion.hint}</p>
-        {renderQuestionByType(currentQuestion.type)}
-        {!!error && <p>Ошибка: {error}</p>}
-        <NextQuestionButton submit={submitRatingQuestion} />
-      </>
+      !isNull(questionId) ? (
+        <>
+          {!!currentQuestion && (
+            <>
+              <p className={s.text}>
+                {questionId + 1}. {currentQuestion.question}
+              </p>
+              <p className={s.hint}>{currentQuestion.hint}</p>
+              {renderQuestionByType(currentQuestion.type)}
+            </>
+          )}
+          {!!error && <p>Ошибка: {error}</p>}
+          <NextQuestionButton submit={submitRatingQuestion} />
+        </>
+      ) : (
+        <p className={s.finalText}>Спасибо за ваш ответ!</p>
+      )
     ) : (
       <p>⭐️⭐️⭐️⭐️⭐️</p>
     )
   },
 )
 
-RatingQuestion.displayName = 'FinishQuestion'
+RatingQuestion.displayName = 'RatingQuestion'
