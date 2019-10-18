@@ -13,3 +13,8 @@
   height: 32px;
   margin: 0;
 }
+
+.active {
+  background-color: var(--color-primary) !important;
+  color: #fff !important;
+}

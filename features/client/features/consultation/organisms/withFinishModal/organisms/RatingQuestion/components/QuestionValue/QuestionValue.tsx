@@ -13,9 +13,13 @@ export const QuestionValue = ({ setRating, answer }: QuestionValueProps) => (
   <>
     <div className={s.buttonsContainer}>
       {buttons.map(btn => (
-        <RatingButton key={btn.id} button={btn} setRating={setRating} />
+        <RatingButton
+          key={btn.id}
+          className={answer === btn.id && s.active}
+          button={btn}
+          setRating={setRating}
+        />
       ))}
     </div>
-    <p className={s.answer}>{!!answer ? answer : ''}</p>
   </>
 )

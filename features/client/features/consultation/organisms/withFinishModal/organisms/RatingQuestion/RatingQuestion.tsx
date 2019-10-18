@@ -39,7 +39,7 @@ export const RatingQuestion = React.memo(
     const resetRating = useCallback(() => setAnswer(DEFAULT_RATING_VALUE), [])
 
     const submitRatingQuestion = async () => {
-      if (isNull(questionId)) {
+      if (isNull(questionId) || !!error) {
         return
       }
 
