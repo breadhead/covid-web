@@ -50,9 +50,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       query,
       req,
     }: AppContext<Query>) {
-      if (!req || !req.headers) return {}
-
-      const { host } = req.headers
+      const { host } = !!req && !!req.headers && req.headers
 
       await reduxStore.dispatch(fetchClaim(query.id) as any)
       const user = await reduxStore.dispatch(currentUser() as any)
