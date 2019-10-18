@@ -12,6 +12,9 @@ import { RatingQuestionsEnum } from './RatingQuestionsEnum'
 import { QuestionValue } from './components/QuestionValue'
 import { RatingQuestionType } from './RatingQuestionType'
 
+import * as s from './RatingQuestion.css'
+import { QuestionComment } from './components/QuestionComment'
+
 interface RatingQuestionProps {
   error: string
   submit: (data: RatingAnswerI) => Promise<void>
@@ -22,20 +25,20 @@ interface RatingQuestionProps {
 export const RatingQuestion = React.memo(
   ({ submit, error, claimId, questions }: RatingQuestionProps) => {
     const [questionId, setQuestionId] = useState<number>(DEFAULT_QUESTION_ID)
-    const [rating, setRating] = useState<number>(DEFAULT_RATING_VALUE)
+    const [answer, setAnswer] = useState<number | string>(DEFAULT_RATING_VALUE)
 
     const currentQuestion = useMemo(() => questions[questionId], [
       questions,
       questionId,
     ])
 
-    const resetRating = useCallback(() => setRating(DEFAULT_RATING_VALUE), [])
+    const resetRating = useCallback(() => setAnswer(DEFAULT_RATING_VALUE), [])
 
     const submitRatingQuestion = async () => {
       const data = {
         claimId,
         question: currentQuestion.id as RatingQuestionsEnum,
-        answer: `${rating}`,
+        answer: `${answer}`,
       }
 
       await submit(data)
@@ -56,16 +59,9 @@ export const RatingQuestion = React.memo(
     const renderQuestionByType = (type: RatingQuestionType) => {
       switch (type) {
         case RatingQuestionType.Value:
-          return (
-            <QuestionValue
-              questionNum={questionId + 1}
-              currentQuestion={currentQuestion}
-              setRating={setRating}
-              rating={rating}
-            />
-          )
+          return <QuestionValue setRating={setAnswer} answer={answer} />
         case RatingQuestionType.Comment:
-          return <div>mememmem</div>
+          return <QuestionComment setAnswer={setAnswer} />
         default:
           return null
       }
@@ -73,6 +69,10 @@ export const RatingQuestion = React.memo(
 
     return questions.length > 0 ? (
       <>
+        <p className={s.text}>
+          {questionId + 1}. {currentQuestion.question}
+        </p>
+        <p className={s.hint}>{currentQuestion.hint}</p>
         {renderQuestionByType(currentQuestion.type)}
         {!!error && <p>Ошибка: {error}</p>}
         <NextQuestionButton submit={submitRatingQuestion} />

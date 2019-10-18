@@ -3,33 +3,19 @@ import { RatingButton } from '../../../../molecules/RatingButton'
 import { buttons } from './buttons'
 
 import * as s from './QuestionValue.css'
-import { RatingQuestionI } from '../../RatingQuestionI'
 
 export interface QuestionValueProps {
-  questionNum: number
-  currentQuestion: RatingQuestionI
   setRating: (val: number) => void
-  rating: number
+  answer: number | string
 }
 
-export const QuestionValue = ({
-  questionNum,
-  currentQuestion,
-  setRating,
-  rating,
-}: QuestionValueProps) => {
-  return (
-    <>
-      <p className={s.text}>
-        {questionNum}. {currentQuestion.question}
-      </p>
-      <p className={s.hint}>{currentQuestion.hint}</p>
-      <div className={s.buttonsContainer}>
-        {buttons.map(btn => (
-          <RatingButton key={btn.id} button={btn} setRating={setRating} />
-        ))}
-      </div>
-      <p className={s.rating}>{!!rating ? rating : ''}</p>
-    </>
-  )
-}
+export const QuestionValue = ({ setRating, answer }: QuestionValueProps) => (
+  <>
+    <div className={s.buttonsContainer}>
+      {buttons.map(btn => (
+        <RatingButton key={btn.id} button={btn} setRating={setRating} />
+      ))}
+    </div>
+    <p className={s.answer}>{!!answer ? answer : ''}</p>
+  </>
+)

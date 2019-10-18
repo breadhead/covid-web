@@ -1,14 +1,3 @@
-.text {
-  margin: 0;
-  align-self: flex-start;
-}
-
-.hint {
-  margin: 0 0 16px 0;
-  color: #82839b;
-  align-self: flex-start;
-}
-
 .rating {
   font-size: 32px;
   height: 32px;
@@ -17,4 +6,10 @@
 
 .buttonsContainer {
   margin-bottom: 16px;
+}
+
+.answer {
+  font-size: 32px;
+  height: 32px;
+  margin: 0;
 }
