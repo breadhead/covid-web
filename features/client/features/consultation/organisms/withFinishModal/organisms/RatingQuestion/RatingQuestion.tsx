@@ -1,9 +1,6 @@
 import * as React from 'react'
 import { useState, useMemo, useCallback } from 'react'
-import { buttons } from './config/buttons'
 
-import * as s from './RatingQuestion.css'
-import { RatingButton } from '../../molecules/RatingButton'
 import { NextQuestionButton } from '../../molecules/NextQuestionButton'
 import {
   DEFAULT_RATING_VALUE,
@@ -12,6 +9,8 @@ import {
 import { RatingAnswerI } from './RatingAnswerI'
 import { RatingQuestionI } from './RatingQuestionI'
 import { RatingQuestionsEnum } from './RatingQuestionsEnum'
+import { QuestionValue } from './components/QuestionValue'
+import { RatingQuestionType } from './RatingQuestionType'
 
 interface RatingQuestionProps {
   error: string
@@ -54,18 +53,27 @@ export const RatingQuestion = React.memo(
         .catch(e => console.log('error', e))
     }
 
+    const renderQuestionByType = (type: RatingQuestionType) => {
+      switch (type) {
+        case RatingQuestionType.Value:
+          return (
+            <QuestionValue
+              questionNum={questionId + 1}
+              currentQuestion={currentQuestion}
+              setRating={setRating}
+              rating={rating}
+            />
+          )
+        case RatingQuestionType.Comment:
+          return <div>mememmem</div>
+        default:
+          return null
+      }
+    }
+
     return questions.length > 0 ? (
       <>
-        <p className={s.text}>
-          {questionId + 1}. {currentQuestion.question}
-        </p>
-        <p className={s.hint}>{currentQuestion.hint}</p>
-        <div className={s.buttonsContainer}>
-          {buttons.map(btn => (
-            <RatingButton key={btn.id} button={btn} setRating={setRating} />
-          ))}
-        </div>
-        <p className={s.rating}>{!!rating ? rating : ''}</p>
+        {renderQuestionByType(currentQuestion.type)}
         {!!error && <p>Ошибка: {error}</p>}
         <NextQuestionButton submit={submitRatingQuestion} />
       </>

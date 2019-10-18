@@ -1,4 +1,5 @@
 import { RatingQuestionsEnum } from './RatingQuestionsEnum'
+import { RatingQuestionType } from './RatingQuestionType'
 
 export interface RatingQuestionServerI {
   id: string
@@ -9,7 +10,7 @@ export interface RatingQuestionServerI {
 
 export interface RatingQuestionI {
   id: string
-  type: string
+  type: RatingQuestionType
   question: RatingQuestionsEnum
   hint: string
 }

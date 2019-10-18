@@ -4,6 +4,7 @@ import { actions as sendAnswerActions } from './reducer/submitRatingAnswer'
 import { actions as fetchQuesitonsActions } from './reducer/fetchRatingQuestions'
 import { RatingAnswerI } from '../organisms/RatingQuestion/RatingAnswerI'
 import { RatingQuestionI } from '../organisms/RatingQuestion/RatingQuestionI'
+import { RatingQuestionType } from '../organisms/RatingQuestion/RatingQuestionType'
 
 export const submitRatingAnswerAction = (data: RatingAnswerI) => async (
   dispatch: Dispatch<any>,
@@ -33,7 +34,7 @@ export const fetchRatingQuestionsAction = () => async (
 
     const ratingQuestions: RatingQuestionI[] = questions.map(q => ({
       id: q.id,
-      type: q._type,
+      type: q._type as RatingQuestionType,
       question: q._question,
       hint: q._hint,
     }))
