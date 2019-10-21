@@ -8,9 +8,12 @@
   & td {
     text-align: center;
     border-right: 1px solid rgba(60, 84, 238, 0.5);
-
     &:last-child {
       border-right: none;
     }
   }
+}
+
+.stars.stars {
+  text-align: left;
 }

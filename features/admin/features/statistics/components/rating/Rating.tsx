@@ -8,6 +8,7 @@ import { RatingQuestionI } from '@app/features/client/features/consultation/orga
 import { SPACE } from '@app/lib/config'
 import * as s from './Rating.css'
 import { fromQuestionIdToNum } from './helpers/fromQuestionIdToNum'
+import { getStars } from './helpers/getStars'
 
 export const Rating = () => {
   const [data, setData] = useState<RatingValueQuestion[] | null>(null)
@@ -54,7 +55,9 @@ export const Rating = () => {
                       {Object.entries(value).map(([key, val]) => (
                         <React.Fragment key={key}>
                           <tr>
-                            <td>{key}</td>
+                            <td className={s.stars}>
+                              {key} {getStars(key)}
+                            </td>
                             <td>{(val as any).count}</td>
                             <td>{(val as any).percentage}%</td>
                           </tr>
