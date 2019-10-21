@@ -3,8 +3,7 @@ import { Dispatch } from 'redux'
 import { actions as sendAnswerActions } from './reducer/submitRatingAnswer'
 import { actions as fetchQuesitonsActions } from './reducer/fetchRatingQuestions'
 import { RatingAnswerI } from '../organisms/RatingQuestion/RatingAnswerI'
-import { RatingQuestionI } from '../organisms/RatingQuestion/RatingQuestionI'
-import { RatingQuestionType } from '../organisms/RatingQuestion/RatingQuestionType'
+
 import { mapRatingQuesitons } from './helpers/mapRatingQuesitons'
 
 export const submitRatingAnswerAction = (data: RatingAnswerI) => async (

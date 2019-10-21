@@ -6,6 +6,7 @@ import { mapRatingQuesitons } from '@app/features/client/features/consultation/o
 import { RatingQuestionType } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/RatingQuestionType'
 import { RatingQuestionI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/RatingQuestionI'
 import { SPACE } from '@app/lib/config'
+import * as s from './Rating.css'
 
 export const Rating = () => {
   const [data, setData] = useState<RatingValueQuestion[] | null>(null)
@@ -26,39 +27,44 @@ export const Rating = () => {
   }, [])
 
   return !!data ? (
-    data.map(q => (
-      <div key={`${q.id}`}>
-        {Object.entries(q).map(([questionKey, questionValue], i) => {
-          return (
-            <>
-              {questions && (
-                <p key={questionKey}>
-                  {q.id}.{SPACE}
-                  {questions.filter(q => q.id === questionKey)[0].question}
-                </p>
-              )}
-              {Object.entries(questionValue).map(([_, value]) => (
-                <div key={_}>
-                  {Object.entries(value).map(([key, val]) => (
-                    <div key={key}>
-                      <p>{key}</p>
-                      <p>
-                        количество ответов
-                        {(val as any).count}
-                      </p>
-                      <p>
-                        процентное соотношение
-                        {(val as any).percentage}
-                      </p>
-                    </div>
+    <>
+      {data.map(q => (
+        <div key={`${q.id}`}>
+          {Object.entries(q).map(([questionKey, questionValue]) => {
+            return (
+              <article key={questionKey}>
+                {questions && (
+                  <h3 key={questionKey}>
+                    {q.id}.{SPACE}
+                    {questions.filter(q => q.id === questionKey)[0].question}
+                  </h3>
+                )}
+                <table className={s.table}>
+                  <tr>
+                    <th>Количество звёзд</th>
+                    <th>Количество ответов</th>
+                    <th>Доля</th>
+                  </tr>
+                  {Object.entries(questionValue).map(([_, value]) => (
+                    <React.Fragment key={_}>
+                      {Object.entries(value).map(([key, val]) => (
+                        <React.Fragment key={key}>
+                          <tr>
+                            <td>{key}</td>
+                            <td>{(val as any).count}</td>
+                            <td>{(val as any).percentage}%</td>
+                          </tr>
+                        </React.Fragment>
+                      ))}
+                    </React.Fragment>
                   ))}
-                </div>
-              ))}
-            </>
-          )
-        })}
-      </div>
-    ))
+                </table>
+              </article>
+            )
+          })}
+        </div>
+      ))}
+    </>
   ) : (
     <div>loading...</div>
   )
