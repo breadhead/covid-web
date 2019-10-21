@@ -7,6 +7,7 @@ import { RatingQuestionType } from '@app/features/client/features/consultation/o
 import { RatingQuestionI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/RatingQuestionI'
 import { SPACE } from '@app/lib/config'
 import * as s from './Rating.css'
+import { fromQuestionIdToNum } from './helpers/fromQuestionIdToNum'
 
 export const Rating = () => {
   const [data, setData] = useState<RatingValueQuestion[] | null>(null)
@@ -31,12 +32,15 @@ export const Rating = () => {
       {data.map(q => (
         <div key={`${q.id}`}>
           {Object.entries(q).map(([questionKey, questionValue]) => {
+            const currentQuesiton =
+              questions && questions.filter(q => q.id === questionKey)[0]
+
             return (
               <article key={questionKey}>
-                {questions && (
+                {currentQuesiton && (
                   <h3 key={questionKey}>
-                    {q.id}.{SPACE}
-                    {questions.filter(q => q.id === questionKey)[0].question}
+                    {fromQuestionIdToNum(currentQuesiton.id)}.{SPACE}
+                    {currentQuesiton.question}
                   </h3>
                 )}
                 <table className={s.table}>
