@@ -5,6 +5,7 @@ import { actions as fetchQuesitonsActions } from './reducer/fetchRatingQuestions
 import { RatingAnswerI } from '../organisms/RatingQuestion/RatingAnswerI'
 import { RatingQuestionI } from '../organisms/RatingQuestion/RatingQuestionI'
 import { RatingQuestionType } from '../organisms/RatingQuestion/RatingQuestionType'
+import { mapRatingQuesitons } from './helpers/mapRatingQuesitons'
 
 export const submitRatingAnswerAction = (data: RatingAnswerI) => async (
   dispatch: Dispatch<any>,
@@ -32,12 +33,7 @@ export const fetchRatingQuestionsAction = () => async (
   try {
     const questions = await api.fetchRatingQuestions()
 
-    const ratingQuestions: RatingQuestionI[] = questions.map(q => ({
-      id: q.id,
-      type: q._type as RatingQuestionType,
-      question: q._question,
-      hint: q._hint,
-    }))
+    const ratingQuestions = mapRatingQuesitons(questions)
     dispatch(fetchQuesitonsActions.fetchRatingQuestions(ratingQuestions))
   } catch (error) {
     dispatch(fetchQuesitonsActions.error(error.message))
