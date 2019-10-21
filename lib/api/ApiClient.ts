@@ -23,6 +23,7 @@ import { TimeReport } from '@front/domain/statistics/model/time-report'
 import { Funnel } from '@app/models/Statistics/Funnel'
 import { RatingAnswerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/RatingAnswerI'
 import { RatingQuestionServerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/RatingQuestionI'
+import { RatingValueQuestion } from '@app/features/admin/features/statistics/RatingValueQuestion'
 
 export interface UploadedFile {
   path: string
@@ -87,4 +88,5 @@ export default interface ApiClient {
   fetchFunnelStats(from: Date, to: Date): Promise<Funnel>
   sendRatingQuestionAnswer(data: RatingAnswerI): Promise<any>
   fetchRatingQuestions(): Promise<RatingQuestionServerI[]>
+  fetchRatingReport(): Promise<RatingValueQuestion[]>
 }

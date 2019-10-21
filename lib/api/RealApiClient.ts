@@ -31,6 +31,7 @@ import { QuotaTransferResponse } from './response/QuotaTransfer'
 import { Funnel } from '@app/models/Statistics/Funnel'
 import { RatingAnswerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/RatingAnswerI'
 import { RatingQuestionServerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/RatingQuestionI'
+import { RatingValueQuestion } from '@app/features/admin/features/statistics/RatingValueQuestion'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -301,4 +302,9 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .get('/rating/questions')
       .then(res => res.data as RatingQuestionServerI[])
+
+  public fetchRatingReport = () =>
+    this.axiosInstance
+      .get('/statistics/rating-report')
+      .then(res => res.data as RatingValueQuestion[])
 }
