@@ -9,7 +9,7 @@ export enum Condition {
 
 const redirectUser = (condition?: Condition) => {
   if (condition === Condition.signUp) {
-    Router.push('client/new-claim/rules/')
+    Router.push('/client/new-claim/rules/')
   } else {
     Router.push('/client')
   }
