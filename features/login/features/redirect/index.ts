@@ -1,6 +1,6 @@
-import { Role } from '@app/models/Users/User'
-import { head } from 'lodash'
-import Router from 'next/router'
+import { Role } from '@app/models/Users/User';
+import { head } from 'lodash';
+import Router from 'next/router';
 
 export enum Condition {
   signIn = 'signIn',
@@ -9,7 +9,7 @@ export enum Condition {
 
 const redirectUser = (condition?: Condition) => {
   if (condition === Condition.signUp) {
-    Router.push('/client/new-claim/rules/')
+    Router.push('client/new-claim/rules/')
   } else {
     Router.push('/client')
   }
