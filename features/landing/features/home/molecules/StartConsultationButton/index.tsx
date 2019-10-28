@@ -27,7 +27,7 @@ const StartConsultationButton = ({
       withoutUnderline
       href={
         token
-          ? 'client/new-claim/rules/'
+          ? '/client/new-claim/rules/'
           : '/?signUp=true&wantTo=client/new-claim/rules/'
       }
     >
