@@ -36,7 +36,13 @@ export class FinishModal extends React.Component<Props> {
   }
 
   public render() {
-    const { submitRatingAnswer, ratingError, claimId, questions, phone } = this.props
+    const {
+      submitRatingAnswer,
+      ratingError,
+      claimId,
+      questions,
+      phone,
+    } = this.props
 
     return (
       <article className={styles.modal}>

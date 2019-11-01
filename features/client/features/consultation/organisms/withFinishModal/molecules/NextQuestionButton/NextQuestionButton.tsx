@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, ButtonKind, ButtonSize } from '@app/src/ui/button'
+import { Button, ButtonSize } from '@app/src/ui/button'
 import * as s from './NextQuestionButton.css'
 // import { DEFAULT_QUESTION_ID } from '../../organisms/RatingQuestion/RatingQuestion';
 
@@ -12,8 +12,7 @@ export const NextQuestionButton = React.memo(
     return (
       <Button
         className={s.button}
-        kind={ButtonKind.Super}
-        size={ButtonSize.Large}
+        size={ButtonSize.ExtraLarge}
         onClick={submit}
       >
         Дальше

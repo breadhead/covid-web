@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { RatingQuestionI } from '../../types/RatingQuestionI';
-import { Dispatch, SetStateAction, ReactText } from 'react';
-import { isNull } from 'lodash';
-import { RatingQuestionType } from '../../types/RatingQuestionType';
-import { QuestionValue } from '../QuestionValue';
-import { QuestionComment } from '../QuestionComment';
-import { NextQuestionButton } from '../../../../molecules/NextQuestionButton';
+import * as React from 'react'
+import { RatingQuestionI } from '../../types/RatingQuestionI'
+import { Dispatch, SetStateAction, ReactText } from 'react'
+import { isNull } from 'lodash'
+import { RatingQuestionType } from '../../types/RatingQuestionType'
+import { QuestionValue } from '../QuestionValue'
+import { QuestionComment } from '../QuestionComment'
+import { NextQuestionButton } from '../../../../molecules/NextQuestionButton'
 
 export interface QuestionsContainerProps {
   questionId: number | null
@@ -17,17 +17,15 @@ export interface QuestionsContainerProps {
   answer: any
 }
 
-export const QuestionsContainer: React.SFC<QuestionsContainerProps> = (
-  { questionId,
-    currentQuestion,
-    styles,
-    error,
-    submitRatingQuestion,
-    setAnswer,
-    answer, }
-) => {
-
-
+export const QuestionsContainer: React.SFC<QuestionsContainerProps> = ({
+  questionId,
+  currentQuestion,
+  styles,
+  error,
+  submitRatingQuestion,
+  setAnswer,
+  answer,
+}) => {
   const renderQuestionByType = (type: RatingQuestionType) => {
     switch (type) {
       case RatingQuestionType.Value:
@@ -52,5 +50,6 @@ export const QuestionsContainer: React.SFC<QuestionsContainerProps> = (
       )}
       {!!error && <p>Ошибка: {error}</p>}
       <NextQuestionButton submit={submitRatingQuestion} />
-    </>) : null
+    </>
+  ) : null
 }
