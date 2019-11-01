@@ -9,17 +9,3 @@
     width: 100%;
   }
 }
-
-.text {
-  max-width: 604px;
-  margin: 0 0 40px 0;
-  font: var(--title-medium);
-  text-align: center;
-}
-
-.title {
-  max-width: 600px;
-  margin: 0 auto 16px auto;
-  font: var(--title-medium);
-  text-align: center;
-}

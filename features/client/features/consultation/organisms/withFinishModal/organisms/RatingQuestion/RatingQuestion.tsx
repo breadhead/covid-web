@@ -13,6 +13,7 @@ import { isNull } from 'lodash'
 import { RatingAnswerI } from './types/RatingAnswerI'
 import { Content } from './components/Content'
 import { createSubmitData } from './helpers/createSubmitData'
+import { Title } from './components/Title';
 
 interface RatingQuestionProps {
   error: string
@@ -27,6 +28,7 @@ export const RatingQuestion = React.memo(
       DEFAULT_QUESTION_ID,
     )
     const [answer, setAnswer] = useState<number | string>(DEFAULT_RATING_VALUE)
+    const [modalType, setModalType] = useState<'questions' | 'story'>('questions')
 
     const currentQuestion = useMemo(
       () => (!isNull(questionId) ? questions[questionId] : null),
@@ -47,6 +49,7 @@ export const RatingQuestion = React.memo(
           const newId = questionId + 1
           if (newId >= questions.length) {
             setQuestionId(FINAL_QUESTION_ID)
+            setModalType('story')
             return
           }
           setQuestionId(newId)
@@ -55,19 +58,22 @@ export const RatingQuestion = React.memo(
         .catch(e => console.log('error', e))
     }
 
-    return questions.length > 0 ? (
-      <Content
-        questionId={questionId}
-        currentQuestion={currentQuestion}
-        styles={s}
-        error={error}
-        submitRatingQuestion={submitRatingQuestion}
-        answer={answer}
-        setAnswer={setAnswer}
-      />
-    ) : (
-      <p>⭐️⭐️⭐️⭐️⭐️</p>
-    )
+    return <>
+      <Title styles={s} modalType={modalType} />
+      {questions.length > 0 ? (
+        <Content
+          questionId={questionId}
+          currentQuestion={currentQuestion}
+          styles={s}
+          error={error}
+          submitRatingQuestion={submitRatingQuestion}
+          answer={answer}
+          setAnswer={setAnswer}
+        />
+      ) : (
+          <p>⭐️⭐️⭐️⭐️⭐️</p>
+        )}
+    </>
   },
 )
 

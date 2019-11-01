@@ -39,11 +39,6 @@ export class FinishModal extends React.Component<Props> {
 
     return (
       <article className={styles.modal}>
-        <h1 className={styles.text}>
-          Спасибо!
-          <br />
-          Мы рады, что ваша консультация прошла успешно
-        </h1>
         <RatingQuestion
           claimId={claimId}
           submit={submitRatingAnswer}

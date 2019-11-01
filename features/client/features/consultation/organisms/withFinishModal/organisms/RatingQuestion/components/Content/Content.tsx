@@ -6,6 +6,7 @@ import { RatingQuestionType } from '../../types/RatingQuestionType'
 import { QuestionValue } from '../QuestionValue'
 import { QuestionComment } from '../QuestionComment'
 import { Dispatch, SetStateAction, ReactText } from 'react'
+import { ClientStory } from '../ClientStory';
 
 export interface ContentProps {
   questionId: number | null
@@ -52,6 +53,6 @@ export const Content: React.SFC<ContentProps> = ({
       <NextQuestionButton submit={submitRatingQuestion} />
     </>
   ) : (
-    <p className={styles.finalText}>Спасибо за ваш ответ!</p>
-  )
+      <ClientStory />
+    )
 }

@@ -16,3 +16,10 @@
 .finalText {
   margin: 0;
 }
+
+.title {
+  max-width: 604px;
+  margin: 0 0 40px 0;
+  font: var(--title-medium);
+  text-align: center;
+}
