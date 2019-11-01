@@ -2,7 +2,7 @@ import {
   RatingQuestionI,
   RatingQuestionServerI,
 } from '../../organisms/RatingQuestion/types/RatingQuestionI'
-import { RatingQuestionType } from '../../organisms/RatingQuestion/types/RatingQuestionType';
+import { RatingQuestionType } from '../../organisms/RatingQuestion/types/RatingQuestionType'
 
 export const mapRatingQuesitons = (
   questions: RatingQuestionServerI[],

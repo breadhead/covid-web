@@ -8,7 +8,7 @@ import { SPACE } from '@app/lib/config'
 import * as s from './Rating.css'
 import { fromQuestionIdToNum } from './helpers/fromQuestionIdToNum'
 import { getStars } from './helpers/getStars'
-import { RatingQuestionType } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionType';
+import { RatingQuestionType } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionType'
 
 export const Rating = () => {
   const [data, setData] = useState<RatingValueQuestion[] | null>(null)
@@ -73,6 +73,6 @@ export const Rating = () => {
       ))}
     </>
   ) : (
-      <div>loading...</div>
-    )
+    <div>loading...</div>
+  )
 }

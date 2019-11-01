@@ -17,8 +17,8 @@ import {
 } from './domain/actions'
 import { selectRatingAnswerError } from './domain/selectors/selectRatingAnswerError'
 import { selectRatingQuestions } from './domain/selectors/selectRatingQuestions'
-import withLockScroll from '@breadhead/with-scroll-lock';
-import { RatingAnswerI } from './organisms/RatingQuestion/types/RatingAnswerI';
+import withLockScroll from '@breadhead/with-scroll-lock'
+import { RatingAnswerI } from './organisms/RatingQuestion/types/RatingAnswerI'
 
 export const FINISH_MODAL_KEY = 'finish-modal'
 

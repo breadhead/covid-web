@@ -7,15 +7,12 @@ import {
   FINAL_QUESTION_ID,
 } from './config/defaultValues'
 import { RatingQuestionI } from './types/RatingQuestionI'
-import { QuestionValue } from './components/QuestionValue'
 
 import * as s from './RatingQuestion.css'
-import { QuestionComment } from './components/QuestionComment'
 import { isNull } from 'lodash'
-import { RatingAnswerI } from './types/RatingAnswerI';
-import { RatingQuestionsEnum } from './types/RatingQuestionsEnum';
-import { RatingQuestionType } from './types/RatingQuestionType';
-import { Content } from './components/Content';
+import { RatingAnswerI } from './types/RatingAnswerI'
+import { Content } from './components/Content'
+import { createSubmitData } from './helpers/createSubmitData'
 
 interface RatingQuestionProps {
   error: string
@@ -39,20 +36,11 @@ export const RatingQuestion = React.memo(
     const resetRating = useCallback(() => setAnswer(DEFAULT_RATING_VALUE), [])
 
     const submitRatingQuestion = async () => {
-      if (isNull(questionId) || !!error) {
+      if (isNull(questionId) || !!error || !currentQuestion) {
         return
       }
 
-      const data = {
-        claimId,
-        question:
-          (!!currentQuestion && (currentQuestion.id as RatingQuestionsEnum)) ||
-          (RatingQuestionsEnum.Q1 as RatingQuestionsEnum),
-        answerType:
-          (!!currentQuestion && (currentQuestion.type as RatingQuestionType)) ||
-          (RatingQuestionType.Value as RatingQuestionType),
-        answerValue: `${answer}`,
-      }
+      const data = createSubmitData(claimId, currentQuestion, answer)
 
       await submit(data)
         .then(() => {
@@ -67,7 +55,6 @@ export const RatingQuestion = React.memo(
         .catch(e => console.log('error', e))
     }
 
-
     return questions.length > 0 ? (
       <Content
         questionId={questionId}
@@ -79,8 +66,8 @@ export const RatingQuestion = React.memo(
         setAnswer={setAnswer}
       />
     ) : (
-        <p>⭐️⭐️⭐️⭐️⭐️</p>
-      )
+      <p>⭐️⭐️⭐️⭐️⭐️</p>
+    )
   },
 )
 

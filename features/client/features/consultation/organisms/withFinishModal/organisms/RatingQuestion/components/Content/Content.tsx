@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { isNull } from 'lodash';
-import { NextQuestionButton } from '../../../../molecules/NextQuestionButton';
-import { RatingQuestionI } from '../../types/RatingQuestionI';
-import { RatingQuestionType } from '../../types/RatingQuestionType';
-import { QuestionValue } from '../QuestionValue';
-import { QuestionComment } from '../QuestionComment';
-import { Dispatch, SetStateAction, ReactText } from 'react';
+import * as React from 'react'
+import { isNull } from 'lodash'
+import { NextQuestionButton } from '../../../../molecules/NextQuestionButton'
+import { RatingQuestionI } from '../../types/RatingQuestionI'
+import { RatingQuestionType } from '../../types/RatingQuestionType'
+import { QuestionValue } from '../QuestionValue'
+import { QuestionComment } from '../QuestionComment'
+import { Dispatch, SetStateAction, ReactText } from 'react'
 
 export interface ContentProps {
   questionId: number | null
@@ -17,10 +17,15 @@ export interface ContentProps {
   answer: any
 }
 
-export const Content: React.SFC<ContentProps> = ({ questionId, currentQuestion, styles, error, submitRatingQuestion,
-  setAnswer, answer
+export const Content: React.SFC<ContentProps> = ({
+  questionId,
+  currentQuestion,
+  styles,
+  error,
+  submitRatingQuestion,
+  setAnswer,
+  answer,
 }: ContentProps) => {
-
   const renderQuestionByType = (type: RatingQuestionType) => {
     switch (type) {
       case RatingQuestionType.Value:
@@ -47,7 +52,6 @@ export const Content: React.SFC<ContentProps> = ({ questionId, currentQuestion, 
       <NextQuestionButton submit={submitRatingQuestion} />
     </>
   ) : (
-      <p className={styles.finalText}>Спасибо за ваш ответ!</p>
-    )
+    <p className={styles.finalText}>Спасибо за ваш ответ!</p>
+  )
 }
-

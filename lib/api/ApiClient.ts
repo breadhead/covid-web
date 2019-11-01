@@ -23,7 +23,7 @@ import { TimeReport } from '@front/domain/statistics/model/time-report'
 import { Funnel } from '@app/models/Statistics/Funnel'
 import { RatingQuestionServerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionI'
 import { RatingValueQuestion } from '@app/features/admin/features/statistics/RatingValueQuestion'
-import { RatingAnswerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingAnswerI';
+import { RatingAnswerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingAnswerI'
 
 export interface UploadedFile {
   path: string

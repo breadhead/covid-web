@@ -42,20 +42,22 @@ const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
   )
   // TODO: return it
   // return STATUSES_WITH_VISIBLE_EXPERTS_BLOCK.includes(mainInfo.status) ? (
-  return <div className={styles.wholeBlock}>
-    <article id="feedback" className={styles.questionNotification}>
-      <div className={styles.container}>
-        <p className={styles.text}>
-          Нам важно получить обратную связь от{NON_BREAKING_SPACE}вас
+  return (
+    <div className={styles.wholeBlock}>
+      <article id="feedback" className={styles.questionNotification}>
+        <div className={styles.container}>
+          <p className={styles.text}>
+            Нам важно получить обратную связь от{NON_BREAKING_SPACE}вас
           </p>
-        {isAnswerClear ? (
-          <SimpleFeedback onNoButtonClick={onNoButtonClick} />
-        ) : (
+          {isAnswerClear ? (
+            <SimpleFeedback onNoButtonClick={onNoButtonClick} />
+          ) : (
             <ChatFeedback onClick={onChatButtonClick} />
           )}
-      </div>
-    </article>
-  </div>
+        </div>
+      </article>
+    </div>
+  )
   // ) : null
 }
 
