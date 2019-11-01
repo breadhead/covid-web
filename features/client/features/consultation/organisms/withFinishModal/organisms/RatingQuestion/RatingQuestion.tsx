@@ -7,15 +7,15 @@ import {
   DEFAULT_QUESTION_ID,
   FINAL_QUESTION_ID,
 } from './config/defaultValues'
-import { RatingAnswerI } from './RatingAnswerI'
-import { RatingQuestionI } from './RatingQuestionI'
-import { RatingQuestionsEnum } from './RatingQuestionsEnum'
+import { RatingQuestionI } from './types/RatingQuestionI'
 import { QuestionValue } from './components/QuestionValue'
-import { RatingQuestionType } from './RatingQuestionType'
 
 import * as s from './RatingQuestion.css'
 import { QuestionComment } from './components/QuestionComment'
 import { isNull } from 'lodash'
+import { RatingAnswerI } from './types/RatingAnswerI';
+import { RatingQuestionsEnum } from './types/RatingQuestionsEnum';
+import { RatingQuestionType } from './types/RatingQuestionType';
 
 interface RatingQuestionProps {
   error: string
@@ -94,11 +94,11 @@ export const RatingQuestion = React.memo(
           <NextQuestionButton submit={submitRatingQuestion} />
         </>
       ) : (
-        <p className={s.finalText}>Спасибо за ваш ответ!</p>
-      )
+          <p className={s.finalText}>Спасибо за ваш ответ!</p>
+        )
     ) : (
-      <p>⭐️⭐️⭐️⭐️⭐️</p>
-    )
+        <p>⭐️⭐️⭐️⭐️⭐️</p>
+      )
   },
 )
 

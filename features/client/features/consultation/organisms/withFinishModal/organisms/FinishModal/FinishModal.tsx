@@ -4,8 +4,8 @@ import * as styles from './FinishModal.css'
 
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { RatingQuestion } from '../RatingQuestion/RatingQuestion'
-import { RatingAnswerI } from '../RatingQuestion/RatingAnswerI'
-import { RatingQuestionI } from '../RatingQuestion/RatingQuestionI'
+import { RatingQuestionI } from '../RatingQuestion/types/RatingQuestionI'
+import { RatingAnswerI } from '../RatingQuestion/types/RatingAnswerI';
 
 interface Props {
   closeClaim: (id: string) => Promise<void>

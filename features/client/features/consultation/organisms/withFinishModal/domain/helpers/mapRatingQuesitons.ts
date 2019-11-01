@@ -1,8 +1,8 @@
 import {
   RatingQuestionI,
   RatingQuestionServerI,
-} from '../../organisms/RatingQuestion/RatingQuestionI'
-import { RatingQuestionType } from '../../organisms/RatingQuestion/RatingQuestionType'
+} from '../../organisms/RatingQuestion/types/RatingQuestionI'
+import { RatingQuestionType } from '../../organisms/RatingQuestion/types/RatingQuestionType';
 
 export const mapRatingQuesitons = (
   questions: RatingQuestionServerI[],

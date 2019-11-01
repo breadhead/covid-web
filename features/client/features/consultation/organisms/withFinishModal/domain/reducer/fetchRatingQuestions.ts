@@ -5,7 +5,7 @@ import {
   FetchingState,
   FetchingActions,
 } from '@app/lib/symbioteFactory'
-import { RatingQuestionI } from '../../organisms/RatingQuestion/RatingQuestionI'
+import { RatingQuestionI } from '../../organisms/RatingQuestion/types/RatingQuestionI'
 
 interface Actions extends FetchingActions {
   fetchRatingQuestions(data: RatingQuestionI[] | []): Action

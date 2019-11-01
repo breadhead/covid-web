@@ -30,7 +30,7 @@ import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 import { Funnel } from '@app/models/Statistics/Funnel'
 import { RatingAnswerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/RatingAnswerI'
-import { RatingQuestionServerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/RatingQuestionI'
+import { RatingQuestionServerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionI'
 import { RatingValueQuestion } from '@app/features/admin/features/statistics/RatingValueQuestion'
 
 export default class RealApiClient implements ApiClient {

@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react'
 import { useApi } from '@app/lib/api/useApi'
 import { RatingValueQuestion } from '../../RatingValueQuestion'
 import { mapRatingQuesitons } from '@app/features/client/features/consultation/organisms/withFinishModal/domain'
-import { RatingQuestionType } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/RatingQuestionType'
-import { RatingQuestionI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/RatingQuestionI'
+import { RatingQuestionI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionI'
 import { SPACE } from '@app/lib/config'
 import * as s from './Rating.css'
 import { fromQuestionIdToNum } from './helpers/fromQuestionIdToNum'
 import { getStars } from './helpers/getStars'
+import { RatingQuestionType } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionType';
 
 export const Rating = () => {
   const [data, setData] = useState<RatingValueQuestion[] | null>(null)
@@ -73,6 +73,6 @@ export const Rating = () => {
       ))}
     </>
   ) : (
-    <div>loading...</div>
-  )
+      <div>loading...</div>
+    )
 }
