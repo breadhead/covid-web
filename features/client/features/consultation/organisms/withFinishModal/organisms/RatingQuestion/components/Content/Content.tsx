@@ -1,12 +1,9 @@
 import * as React from 'react'
-import { isNull } from 'lodash'
-import { NextQuestionButton } from '../../../../molecules/NextQuestionButton'
 import { RatingQuestionI } from '../../types/RatingQuestionI'
-import { RatingQuestionType } from '../../types/RatingQuestionType'
-import { QuestionValue } from '../QuestionValue'
-import { QuestionComment } from '../QuestionComment'
+
 import { Dispatch, SetStateAction, ReactText } from 'react'
 import { ClientStory } from '../ClientStory';
+import { QuestionsContainer } from '../QuestionsContainer';
 
 export interface ContentProps {
   questionId: number | null
@@ -16,6 +13,7 @@ export interface ContentProps {
   submitRatingQuestion: () => void
   setAnswer: Dispatch<SetStateAction<ReactText>>
   answer: any
+  modalType: string
 }
 
 export const Content: React.SFC<ContentProps> = ({
@@ -26,33 +24,25 @@ export const Content: React.SFC<ContentProps> = ({
   submitRatingQuestion,
   setAnswer,
   answer,
+  modalType
 }: ContentProps) => {
-  const renderQuestionByType = (type: RatingQuestionType) => {
-    switch (type) {
-      case RatingQuestionType.Value:
-        return <QuestionValue setRating={setAnswer} answer={answer} />
-      case RatingQuestionType.Comment:
-        return <QuestionComment setAnswer={setAnswer} />
+
+
+  const renderContent = () => {
+    switch (modalType) {
+      case 'questions':
+        return <QuestionsContainer questionId={questionId}
+          currentQuestion={currentQuestion}
+          styles={styles}
+          error={error}
+          submitRatingQuestion={submitRatingQuestion}
+          setAnswer={setAnswer}
+          answer={answer} />
+      case 'story':
+        return <ClientStory />
       default:
         return null
     }
   }
-
-  return !isNull(questionId) ? (
-    <>
-      {!!currentQuestion && (
-        <>
-          <p className={styles.text}>
-            {questionId + 1}. {currentQuestion.question}
-          </p>
-          <p className={styles.hint}>{currentQuestion.hint}</p>
-          {renderQuestionByType(currentQuestion.type)}
-        </>
-      )}
-      {!!error && <p>Ошибка: {error}</p>}
-      <NextQuestionButton submit={submitRatingQuestion} />
-    </>
-  ) : (
-      <ClientStory />
-    )
+  return renderContent()
 }

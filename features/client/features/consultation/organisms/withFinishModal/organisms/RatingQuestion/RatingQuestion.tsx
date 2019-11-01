@@ -69,6 +69,7 @@ export const RatingQuestion = React.memo(
           submitRatingQuestion={submitRatingQuestion}
           answer={answer}
           setAnswer={setAnswer}
+          modalType={modalType}
         />
       ) : (
           <p>⭐️⭐️⭐️⭐️⭐️</p>

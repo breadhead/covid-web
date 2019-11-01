@@ -6,8 +6,6 @@ export interface TitleProps {
 }
 
 export const Title: React.SFC<TitleProps> = ({ styles, modalType }) => {
-
-
   const renderTitle = () => {
     switch (modalType) {
       case 'questions': return <>
