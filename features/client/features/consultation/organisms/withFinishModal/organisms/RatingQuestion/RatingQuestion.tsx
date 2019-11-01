@@ -20,10 +20,11 @@ interface RatingQuestionProps {
   submit: (data: RatingAnswerI) => Promise<void>
   claimId: string
   questions: RatingQuestionI[] | []
+  phone: string
 }
 
 export const RatingQuestion = React.memo(
-  ({ submit, error, claimId, questions }: RatingQuestionProps) => {
+  ({ submit, error, claimId, questions, phone }: RatingQuestionProps) => {
     const [questionId, setQuestionId] = useState<number | null>(
       DEFAULT_QUESTION_ID,
     )
@@ -70,6 +71,7 @@ export const RatingQuestion = React.memo(
           answer={answer}
           setAnswer={setAnswer}
           modalType={modalType}
+          phone={phone}
         />
       ) : (
           <p>⭐️⭐️⭐️⭐️⭐️</p>

@@ -19,6 +19,7 @@ import { selectRatingAnswerError } from './domain/selectors/selectRatingAnswerEr
 import { selectRatingQuestions } from './domain/selectors/selectRatingQuestions'
 import withLockScroll from '@breadhead/with-scroll-lock'
 import { RatingAnswerI } from './organisms/RatingQuestion/types/RatingAnswerI'
+import { selectPhone } from '@app/features/common/consultation/selectors';
 
 export const FINISH_MODAL_KEY = 'finish-modal'
 
@@ -27,6 +28,7 @@ const mapState = (state: State) => ({
   claimStatus: getClaimStatus(state),
   ratingError: selectRatingAnswerError(state),
   questions: selectRatingQuestions(state),
+  phone: selectPhone(state)
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({

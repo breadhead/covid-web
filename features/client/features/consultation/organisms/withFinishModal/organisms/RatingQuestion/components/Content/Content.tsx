@@ -14,6 +14,7 @@ export interface ContentProps {
   setAnswer: Dispatch<SetStateAction<ReactText>>
   answer: any
   modalType: string
+  phone: string
 }
 
 export const Content: React.SFC<ContentProps> = ({
@@ -24,7 +25,8 @@ export const Content: React.SFC<ContentProps> = ({
   submitRatingQuestion,
   setAnswer,
   answer,
-  modalType
+  modalType,
+  phone
 }: ContentProps) => {
 
 
@@ -39,7 +41,7 @@ export const Content: React.SFC<ContentProps> = ({
           setAnswer={setAnswer}
           answer={answer} />
       case 'story':
-        return <ClientStory />
+        return <ClientStory phone={phone} />
       default:
         return null
     }

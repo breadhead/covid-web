@@ -16,6 +16,7 @@ interface Props {
   ratingError: string
   fetchRatingQuestions: () => Promise<RatingQuestionI[]>
   questions: RatingQuestionI[]
+  phone: string
 }
 
 export class FinishModal extends React.Component<Props> {
@@ -35,7 +36,7 @@ export class FinishModal extends React.Component<Props> {
   }
 
   public render() {
-    const { submitRatingAnswer, ratingError, claimId, questions } = this.props
+    const { submitRatingAnswer, ratingError, claimId, questions, phone } = this.props
 
     return (
       <article className={styles.modal}>
@@ -44,6 +45,7 @@ export class FinishModal extends React.Component<Props> {
           submit={submitRatingAnswer}
           error={ratingError}
           questions={questions}
+          phone={phone}
         />
       </article>
     )
