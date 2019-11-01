@@ -18,6 +18,7 @@ import {
 import { selectRatingAnswerError } from './domain/selectors/selectRatingAnswerError'
 import { RatingAnswerI } from './organisms/RatingQuestion/RatingAnswerI'
 import { selectRatingQuestions } from './domain/selectors/selectRatingQuestions'
+import withLockScroll from '@breadhead/with-scroll-lock';
 
 export const FINISH_MODAL_KEY = 'finish-modal'
 
@@ -43,6 +44,7 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
 })
 
 export default compose(
+  withLockScroll,
   isModal(FINISH_MODAL_KEY),
   withModal,
   connect(

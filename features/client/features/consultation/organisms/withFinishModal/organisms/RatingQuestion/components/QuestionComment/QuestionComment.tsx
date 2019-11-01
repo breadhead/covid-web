@@ -13,7 +13,7 @@ export const QuestionComment: React.SFC<QuestionCommentProps> = ({
 }: QuestionCommentProps) => {
   const onTextAreaChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setAnswer(e.target.value)
+      setAnswer(JSON.stringify(e.target.value))
     },
     [setAnswer],
   )

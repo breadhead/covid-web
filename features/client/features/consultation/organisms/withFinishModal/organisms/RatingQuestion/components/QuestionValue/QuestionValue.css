@@ -6,6 +6,10 @@
 
 .buttonsContainer {
   margin-bottom: 16px;
+
+  @media (--smallDown) {
+    max-width: 300px;
+  }
 }
 
 .answer {
