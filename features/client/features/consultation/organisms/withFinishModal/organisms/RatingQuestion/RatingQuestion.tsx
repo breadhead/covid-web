@@ -75,10 +75,11 @@ export const RatingQuestion = React.memo(
             setAnswer={setAnswer}
             modalType={modalType}
             phone={phone}
+            claimId={claimId}
           />
         ) : (
-          <p>⭐️⭐️⭐️⭐️⭐️</p>
-        )}
+            <p>⭐️⭐️⭐️⭐️⭐️</p>
+          )}
       </>
     )
   },

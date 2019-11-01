@@ -15,6 +15,7 @@ export interface ContentProps {
   answer: any
   modalType: string
   phone: string
+  claimId: string
 }
 
 export const Content: React.SFC<ContentProps> = ({
@@ -27,6 +28,7 @@ export const Content: React.SFC<ContentProps> = ({
   answer,
   modalType,
   phone,
+  claimId
 }: ContentProps) => {
   const renderContent = () => {
     switch (modalType) {
@@ -43,7 +45,7 @@ export const Content: React.SFC<ContentProps> = ({
           />
         )
       case 'story':
-        return <ClientStory phone={phone} />
+        return <ClientStory claimId={claimId} phone={phone} />
       default:
         return null
     }

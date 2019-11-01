@@ -18,6 +18,8 @@ export const Title: React.SFC<TitleProps> = ({ styles, modalType }) => {
         )
       case 'story':
         return <>Спасибо за ваш отзыв</>
+      default:
+        return null
     }
   }
 
