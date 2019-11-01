@@ -24,6 +24,7 @@ import { Funnel } from '@app/models/Statistics/Funnel'
 import { RatingQuestionServerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionI'
 import { RatingValueQuestion } from '@app/features/admin/features/statistics/RatingValueQuestion'
 import { RatingAnswerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingAnswerI'
+import { ClientStoryData } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/components/ClientStory/ClientStoryData';
 
 export interface UploadedFile {
   path: string
@@ -89,4 +90,5 @@ export default interface ApiClient {
   sendRatingQuestionAnswer(data: RatingAnswerI): Promise<any>
   fetchRatingQuestions(): Promise<RatingQuestionServerI[]>
   fetchRatingReport(): Promise<RatingValueQuestion[]>
+  addStoryPhone(data: ClientStoryData): Promise<string>
 }
