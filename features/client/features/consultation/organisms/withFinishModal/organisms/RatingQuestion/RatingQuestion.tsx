@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useState, useMemo, useCallback } from 'react'
 
-import { NextQuestionButton } from '../../molecules/NextQuestionButton'
 import {
   DEFAULT_RATING_VALUE,
   DEFAULT_QUESTION_ID,
@@ -16,6 +15,7 @@ import { isNull } from 'lodash'
 import { RatingAnswerI } from './types/RatingAnswerI';
 import { RatingQuestionsEnum } from './types/RatingQuestionsEnum';
 import { RatingQuestionType } from './types/RatingQuestionType';
+import { Content } from './components/Content';
 
 interface RatingQuestionProps {
   error: string
@@ -67,35 +67,17 @@ export const RatingQuestion = React.memo(
         .catch(e => console.log('error', e))
     }
 
-    const renderQuestionByType = (type: RatingQuestionType) => {
-      switch (type) {
-        case RatingQuestionType.Value:
-          return <QuestionValue setRating={setAnswer} answer={answer} />
-        case RatingQuestionType.Comment:
-          return <QuestionComment setAnswer={setAnswer} />
-        default:
-          return null
-      }
-    }
 
     return questions.length > 0 ? (
-      !isNull(questionId) ? (
-        <>
-          {!!currentQuestion && (
-            <>
-              <p className={s.text}>
-                {questionId + 1}. {currentQuestion.question}
-              </p>
-              <p className={s.hint}>{currentQuestion.hint}</p>
-              {renderQuestionByType(currentQuestion.type)}
-            </>
-          )}
-          {!!error && <p>Ошибка: {error}</p>}
-          <NextQuestionButton submit={submitRatingQuestion} />
-        </>
-      ) : (
-          <p className={s.finalText}>Спасибо за ваш ответ!</p>
-        )
+      <Content
+        questionId={questionId}
+        currentQuestion={currentQuestion}
+        styles={s}
+        error={error}
+        submitRatingQuestion={submitRatingQuestion}
+        answer={answer}
+        setAnswer={setAnswer}
+      />
     ) : (
         <p>⭐️⭐️⭐️⭐️⭐️</p>
       )
