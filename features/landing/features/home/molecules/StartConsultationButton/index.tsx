@@ -22,20 +22,20 @@ const StartConsultationButton = ({
   children,
   token,
 }: Props & any) => (
-    <NavLink
-      className={containerClassName}
-      withoutUnderline
-      href={
-        token
-          ? '/client/new-claim/rules/'
-          : '/?signUp=true&wantTo=client/new-claim/rules/'
-      }
-    >
-      <Button size={size} className={className} kind={ButtonKind.Primary}>
-        {children}
-      </Button>
-    </NavLink>
-  )
+  <NavLink
+    className={containerClassName}
+    withoutUnderline
+    href={
+      token
+        ? '/client/new-claim/rules/'
+        : '/?signUp=true&wantTo=client/new-claim/rules/'
+    }
+  >
+    <Button size={size} className={className} kind={ButtonKind.Primary}>
+      {children}
+    </Button>
+  </NavLink>
+)
 
 const mapState = (state: any) => ({
   token: getToken(state),
