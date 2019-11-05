@@ -9,11 +9,7 @@ export const Title: React.SFC<TitleProps> = ({ styles, modalType }) => {
   const renderTitle = () => {
     switch (modalType) {
       case 'questions':
-        return (
-          <>
-            Мы рады, что ваша консультация прошла успешно
-          </>
-        )
+        return <>Мы рады, что ваша консультация прошла успешно</>
       case 'story':
         return <>Спасибо за ваш отзыв</>
       default:

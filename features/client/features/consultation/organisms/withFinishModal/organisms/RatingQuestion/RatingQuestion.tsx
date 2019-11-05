@@ -78,8 +78,8 @@ export const RatingQuestion = React.memo(
             claimId={claimId}
           />
         ) : (
-            <p>⭐️⭐️⭐️⭐️⭐️</p>
-          )}
+          <p>⭐️⭐️⭐️⭐️⭐️</p>
+        )}
       </>
     )
   },

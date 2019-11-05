@@ -28,7 +28,7 @@ export const Content: React.SFC<ContentProps> = ({
   answer,
   modalType,
   phone,
-  claimId
+  claimId,
 }: ContentProps) => {
   const renderContent = () => {
     switch (modalType) {

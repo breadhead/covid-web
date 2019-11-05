@@ -1,4 +1,4 @@
 export interface ClientStoryData {
-claimId: string
-phone: string
+  claimId: string
+  phone: string
 }
