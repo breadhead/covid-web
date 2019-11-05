@@ -3,13 +3,14 @@ import { useState, useEffect } from 'react'
 import { Table } from 'antd'
 import { useApi } from '@app/lib/api/useApi'
 import dayjs from 'dayjs'
+import { Story } from '@app/models/Story'
 
 export interface StoriesTableProps {}
 
 export const StoriesTable: React.SFC<StoriesTableProps> = () => {
   const api = useApi()
 
-  const [stories, setStories] = useState<any[]>([''])
+  const [stories, setStories] = useState<Story[] | null>(null)
 
   useEffect(() => {
     const fetch = async () => {
