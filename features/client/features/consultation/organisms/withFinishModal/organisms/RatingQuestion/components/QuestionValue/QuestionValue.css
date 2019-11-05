@@ -5,7 +5,7 @@
 }
 
 .buttonsContainer {
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 
   @media (--smallDown) {
     max-width: 300px;

@@ -1,16 +1,18 @@
 .text {
-  margin: 0;
+  margin: 0 0 8px 0;
   align-self: flex-start;
+  font: var(--title-tiny);
 }
 
 .hint {
-  margin: 0 0 12px 0;
+  margin: 0 0 32px 0;
   color: #82839b;
   align-self: flex-start;
+  font-size: 14px;
 }
 
 .buttonsContainer {
-  margin-bottom: 12px;
+  margin-bottom: 40px;
 }
 
 .finalText {

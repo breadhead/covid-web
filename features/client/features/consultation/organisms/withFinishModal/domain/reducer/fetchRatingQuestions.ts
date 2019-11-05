@@ -1,4 +1,4 @@
-import { Action } from 'redux'
+import { Action } from 'redux';
 import {
   createFetchingSymbiote,
   createInitialState,
@@ -26,12 +26,15 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   }),
   'client/fetch-rating-questions',
   {
-    fetchRatingQuestions: (state: State, data: RatingQuestionI[]) => ({
-      ...state,
-      data,
-      fetching: false,
-      error: false,
-    }),
+    fetchRatingQuestions: (state: State, data: RatingQuestionI[]) => {
+      console.log('data:', data)
+      return {
+        ...state,
+        data,
+        fetching: false,
+        error: false,
+      }
+    },
   },
 )
 

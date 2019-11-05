@@ -42,7 +42,8 @@ export const QuestionsContainer: React.SFC<QuestionsContainerProps> = ({
       {!!currentQuestion && (
         <>
           <p className={styles.text}>
-            {questionId + 1}. {currentQuestion.question}
+            {/* {questionId + 1}.  */}
+            {currentQuestion.question}
           </p>
           <p className={styles.hint}>{currentQuestion.hint}</p>
           {renderQuestionByType(currentQuestion.type)}

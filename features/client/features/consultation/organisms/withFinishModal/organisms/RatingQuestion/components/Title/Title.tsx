@@ -11,8 +11,6 @@ export const Title: React.SFC<TitleProps> = ({ styles, modalType }) => {
       case 'questions':
         return (
           <>
-            Спасибо!
-            <br />
             Мы рады, что ваша консультация прошла успешно
           </>
         )
