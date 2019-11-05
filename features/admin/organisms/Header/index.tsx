@@ -21,6 +21,7 @@ const Header = () => {
         <NavLink href="/admin"> Квоты</NavLink>
         <NavLink href="/admin/history">История операций</NavLink>
         <NavLink href="/admin/stats">Статистика</NavLink>
+        <NavLink href="/admin/stories">Истории пациентов</NavLink>
       </section>
 
       <section className={cx(styles.block, styles.buttonBlock)}>
