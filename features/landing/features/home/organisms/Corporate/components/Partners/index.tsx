@@ -15,9 +15,6 @@ const Partners = () => (
       Консультации проводятся на{NON_BREAKING_SPACE}пожертвования физических лиц
       и{NON_BREAKING_SPACE}компаний-партнёров
     </h2>
-    <p className={styles.subtitle}>
-      На 2019 год запланировано 5000 консультаций
-    </p>
     <Count />
     <PartnersList />
     <NavLink className={styles.link} href="/partners">

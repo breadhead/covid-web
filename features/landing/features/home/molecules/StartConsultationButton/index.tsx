@@ -28,7 +28,7 @@ const StartConsultationButton = ({
     href={
       token
         ? '/client/new-claim/rules/'
-        : '/?signUp=true&wantTo=/client/new-claim/rules/'
+        : '/?signUp=true&wantTo=client/new-claim/rules/'
     }
   >
     <Button size={size} className={className} kind={ButtonKind.Primary}>
