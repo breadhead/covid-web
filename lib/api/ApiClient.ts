@@ -25,7 +25,7 @@ import { RatingQuestionServerI } from '@app/features/client/features/consultatio
 import { RatingValueQuestion } from '@app/features/admin/features/statistics/RatingValueQuestion'
 import { RatingAnswerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingAnswerI'
 import { ClientStoryData } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/components/ClientStory/ClientStoryData'
-import { Story } from '@app/models/Story';
+import { Story } from '@app/models/Story'
 
 export interface UploadedFile {
   path: string

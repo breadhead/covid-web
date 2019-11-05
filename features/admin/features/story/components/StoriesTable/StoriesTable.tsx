@@ -50,11 +50,26 @@ export const StoriesTable: React.SFC<StoriesTableProps> = () => {
       title: 'Телефон',
       dataIndex: 'phone',
       key: 'phone',
+      render: (phone: string) => {
+        return (
+          <a rel="noopener noreferrer" href={`tel: ${phone && phone.trim()}`}>
+            {phone}
+          </a>
+        )
+      },
     },
     {
       title: 'Статус',
       dataIndex: 'status',
       key: 'status',
+      render: (status: string) => {
+        return (
+          <select name="status" id="status-select">
+            <option value="">{status}</option>
+            <option value="dog">Звонили</option>
+          </select>
+        )
+      },
     },
   ]
 
