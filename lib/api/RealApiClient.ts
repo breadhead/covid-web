@@ -33,6 +33,7 @@ import { RatingQuestionServerI } from '@app/features/client/features/consultatio
 import { RatingValueQuestion } from '@app/features/admin/features/statistics/RatingValueQuestion'
 import { RatingAnswerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingAnswerI'
 import { ClientStoryData } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/components/ClientStory/ClientStoryData'
+import { Story } from '@app/models/Story';
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -313,4 +314,9 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post('/story/add-phone', data)
       .then(res => res.data as string)
+
+  public fetchStories = () =>
+    this.axiosInstance
+      .get('/story')
+      .then(res => res.data as Story[])
 }
