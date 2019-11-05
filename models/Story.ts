@@ -1,7 +1,7 @@
 export interface Story {
   id: string
-  _claimId: string
-  _createdAt: string
+  claimId: string
+  createdAt: string
   phone: string
   status: string
 }

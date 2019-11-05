@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { Table } from 'antd'
 import { useApi } from '@app/lib/api/useApi'
-import { formatTimestamp } from './formatTimestamp'
+import { formatTimestamp } from '../../helpers/formatTimestamp'
 import { TimeReport as TimeReportModel } from '@app/src/domain/statistics/model/time-report'
 import { useColumnSearchProps } from './useColumnSearchProps'
 import RangePicker from '../../../history/molecule/RangePicker'
