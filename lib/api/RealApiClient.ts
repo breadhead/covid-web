@@ -311,6 +311,6 @@ export default class RealApiClient implements ApiClient {
 
   public addStoryPhone = (data: ClientStoryData) =>
     this.axiosInstance
-      .post('/claims/add-story-phone', data)
+      .post('/story/add-phone', data)
       .then(res => res.data as string)
 }
