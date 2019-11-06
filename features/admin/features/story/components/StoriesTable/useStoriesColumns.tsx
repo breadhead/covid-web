@@ -1,5 +1,7 @@
 import dayjs from 'dayjs'
 import { Story } from '@app/models/Story'
+import Select from '@app/ui/Select'
+import { StoriesSelect } from './components/stories-select'
 
 export const useStoriesColumns = () => {
   const columns = [
@@ -47,12 +49,7 @@ export const useStoriesColumns = () => {
       dataIndex: 'status',
       key: 'status',
       render: (status: string) => {
-        return (
-          <select name="status" id="status-select">
-            <option value="">{status}</option>
-            <option value="dog">Звонили</option>
-          </select>
-        )
+        return <StoriesSelect status={status} />
       },
     },
   ]
