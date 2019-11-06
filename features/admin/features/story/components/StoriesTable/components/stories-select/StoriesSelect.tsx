@@ -2,6 +2,7 @@ import * as React from 'react'
 import Select from '@app/ui/Select'
 import { useState } from 'react'
 import * as s from './StoriesSelect.css'
+import { StoryEnum } from '@app/models/Story/StoryEnum';
 
 interface StoriesSelectProps {
   status: string
@@ -18,12 +19,12 @@ export const StoriesSelect = ({ status }: StoriesSelectProps) => {
       onChange={setValue}
       options={[
         {
-          key: 'nope',
-          label: 'Не звонили',
+          key: StoryEnum.New,
+          label: StoryEnum.New,
         },
         {
-          key: 'yep',
-          label: 'Звонили',
+          key: StoryEnum.Called,
+          label: StoryEnum.Called,
         },
       ]}
     />

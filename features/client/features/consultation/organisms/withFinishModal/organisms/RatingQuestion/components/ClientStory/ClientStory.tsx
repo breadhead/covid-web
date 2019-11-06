@@ -5,6 +5,7 @@ import * as s from './ClientStory.css'
 import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 import { useState, useCallback } from 'react'
 import { useApi } from '@app/lib/api/useApi'
+import { StoryEnum } from '@app/models/Story/StoryEnum'
 
 export interface ClientStoryProps {
   claimId: string
@@ -28,7 +29,7 @@ export const ClientStory: React.SFC<ClientStoryProps> = ({
   )
 
   const submit = async () => {
-    await api.addStoryPhone({ claimId, phone: value })
+    await api.addStoryPhone({ claimId, phone: value, status: StoryEnum.New })
     setSended(true)
   }
 
