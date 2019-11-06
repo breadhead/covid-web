@@ -13,7 +13,6 @@ export const StoriesTable = () => {
   const dispatch = useThunk()
 
   useEffect(() => {
-
     const fetch = async () => {
       await dispatch(fetchStories())
     }
