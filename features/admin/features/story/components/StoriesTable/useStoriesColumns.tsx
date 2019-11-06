@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import { Story } from '@app/models/Story'
-import Select from '@app/ui/Select'
 import { StoriesSelect } from './components/stories-select'
+import { StoryEnum } from '@app/models/Story/StoryEnum';
 
 export const useStoriesColumns = () => {
   const columns = [
@@ -19,6 +19,14 @@ export const useStoriesColumns = () => {
             №{props.number}
           </a>
         )
+      },
+    },
+    {
+      title: 'Пациент',
+      dataIndex: `name`,
+      key: 'name',
+      render: (name: string) => {
+        return name
       },
     },
     {
@@ -48,8 +56,9 @@ export const useStoriesColumns = () => {
       title: 'Статус',
       dataIndex: 'status',
       key: 'status',
-      render: (status: string, props: Story) => {
-        return <StoriesSelect status={status} id={props.id} />
+      render: (status: StoryEnum, props: Story) => {
+        return <>
+          <StoriesSelect status={status} id={props.id} /></>
       },
     },
   ]

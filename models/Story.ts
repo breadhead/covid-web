@@ -1,8 +1,9 @@
 export interface Story {
   id: string
-  number: string
-  claimId: string
   createdAt: string
+  claimId: string
+  number: string
   phone: string
   status: string
+  name: string
 }

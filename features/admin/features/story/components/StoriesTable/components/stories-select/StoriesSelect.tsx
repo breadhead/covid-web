@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Select from '@app/ui/Select'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import * as s from './StoriesSelect.css'
 import { StoryEnum } from '@app/models/Story/StoryEnum'
 import { useApi } from '@app/lib/api/useApi'
@@ -14,9 +14,13 @@ export const StoriesSelect = ({ status, id }: StoriesSelectProps) => {
   const api = useApi()
   const [value, setValue] = useState<StoryEnum>(status)
 
+
+  useEffect(() => {
+    setValue(status)
+  }, [status])
+
   const submit = useCallback(
     (value: StoryEnum) => {
-      setValue(value)
       const updateStatus = async () => {
         await api.updateStoryStatus({ id, status: value })
       }
