@@ -48,8 +48,8 @@ export const useStoriesColumns = () => {
       title: 'Статус',
       dataIndex: 'status',
       key: 'status',
-      render: (status: string) => {
-        return <StoriesSelect status={status} />
+      render: (status: string, props: Story) => {
+        return <StoriesSelect status={status} id={props.id} />
       },
     },
   ]
