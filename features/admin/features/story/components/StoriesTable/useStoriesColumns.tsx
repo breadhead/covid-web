@@ -1,7 +1,9 @@
+/* eslint-disable react/display-name */
+import * as React from 'react';
 import dayjs from 'dayjs'
 import { Story } from '@app/models/Story'
 import { StoriesSelect } from './components/stories-select'
-import { StoryEnum } from '@app/models/Story/StoryEnum';
+import { StoryEnum } from '@app/models/Story/StoryEnum'
 
 export const useStoriesColumns = () => {
   const columns = [
@@ -57,8 +59,14 @@ export const useStoriesColumns = () => {
       dataIndex: 'status',
       key: 'status',
       render: (status: StoryEnum, props: Story) => {
-        return <>
-          <StoriesSelect status={status} id={props.id} /></>
+        return (
+          <>
+            <StoriesSelect status={status} id={props.id} />
+          </>
+        )
+      },
+      sorter: (a: any, b: any) => {
+        return a.status.length - b.status.length
       },
     },
   ]

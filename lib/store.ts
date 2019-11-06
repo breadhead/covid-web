@@ -117,7 +117,7 @@ import {
   RatingState,
   ratingReducer,
 } from '@app/features/client/features/consultation/organisms/withFinishModal/domain'
-import { adminReducer, AdminState } from '@app/features/admin/domain';
+import { adminReducer, AdminState } from '@app/features/admin/domain'
 
 export interface State {
   domain: DomainState
@@ -167,7 +167,7 @@ const reducer = combineReducers({
   landing: landingReducer,
   clientClaim: clientClaimsReducer,
   rating: ratingReducer,
-  admin: adminReducer
+  admin: adminReducer,
 } as any)
 
 export interface ExtraArgs {

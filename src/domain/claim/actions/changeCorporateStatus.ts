@@ -13,17 +13,17 @@ export const changeCorporateStatus = (
   dispatch: Dispatch<any>,
   getState: () => State,
   { getApi }: ExtraArgs,
-  ) => {
-    const api = getApi(getState)
-    dispatch(actions.request())
+) => {
+  const api = getApi(getState)
+  dispatch(actions.request())
 
-    try {
-      await api.changeCorporateStatus(claimId, newStatus)
+  try {
+    await api.changeCorporateStatus(claimId, newStatus)
 
-      await dispatch(fetchClaim(claimId))
-      dispatch(actions.success())
-    } catch (error) {
-      dispatch(actions.failure(error.message))
-      throw error
-    }
+    await dispatch(fetchClaim(claimId))
+    dispatch(actions.success())
+  } catch (error) {
+    dispatch(actions.failure(error.message))
+    throw error
   }
+}

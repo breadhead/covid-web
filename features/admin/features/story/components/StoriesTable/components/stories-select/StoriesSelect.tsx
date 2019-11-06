@@ -3,8 +3,8 @@ import Select from '@app/ui/Select'
 import { useState, useCallback, useEffect } from 'react'
 import * as s from './StoriesSelect.css'
 import { StoryEnum } from '@app/models/Story/StoryEnum'
-import { useThunk } from '@app/src/hooks/useThunk';
-import { updateStatus } from '@app/features/admin/domain';
+import { useThunk } from '@app/src/hooks/useThunk'
+import { updateStatus } from '@app/features/admin/domain'
 
 interface StoriesSelectProps {
   status: StoryEnum
@@ -15,9 +15,12 @@ export const StoriesSelect = ({ status, id }: StoriesSelectProps) => {
   const [value, setValue] = useState<StoryEnum>(status)
   const dispatch = useThunk()
 
-  useEffect(() => {
-    setValue(status)
-  }, [status])
+  useEffect(
+    () => {
+      setValue(status)
+    },
+    [status],
+  )
 
   const submit = useCallback(
     (value: StoryEnum) => {
