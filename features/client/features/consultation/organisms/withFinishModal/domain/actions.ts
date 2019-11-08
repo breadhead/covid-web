@@ -1,10 +1,10 @@
 import { ExtraArgs, State } from '@app/lib/store'
-import { Dispatch } from 'redux'
-import { actions as sendAnswerActions } from './reducer/submitRatingAnswer'
-import { actions as fetchQuesitonsActions } from './reducer/fetchRatingQuestions'
-import { RatingAnswerI } from '../organisms/RatingQuestion/RatingAnswerI'
 
+import { Dispatch } from 'redux'
+import { RatingAnswerI } from '../organisms/RatingQuestion/types/RatingAnswerI'
+import { actions as fetchQuesitonsActions } from './reducer/fetchRatingQuestions'
 import { mapRatingQuesitons } from './helpers/mapRatingQuesitons'
+import { actions as sendAnswerActions } from './reducer/submitRatingAnswer'
 
 export const submitRatingAnswerAction = (data: RatingAnswerI) => async (
   dispatch: Dispatch<any>,

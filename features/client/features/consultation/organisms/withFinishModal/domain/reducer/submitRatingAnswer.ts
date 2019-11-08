@@ -1,11 +1,12 @@
-import { Action } from 'redux'
 import {
+  FetchingActions,
+  FetchingState,
   createFetchingSymbiote,
   createInitialState,
-  FetchingState,
-  FetchingActions,
 } from '@app/lib/symbioteFactory'
-import { RatingAnswerI } from '../../organisms/RatingQuestion/RatingAnswerI'
+
+import { Action } from 'redux'
+import { RatingAnswerI } from '../../organisms/RatingQuestion/types/RatingAnswerI'
 
 interface Actions extends FetchingActions {
   submitRatingAnswer(data: RatingAnswerI | null): Action

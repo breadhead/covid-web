@@ -1,17 +1,17 @@
 import * as React from 'react'
-import { useCallback, useState } from 'react'
 import * as styles from './QuestionNotification.css'
 
-import withWindowSize, { WindowSize } from '@app/features/common/windowSize'
 import { CHAT_DEFAULT_OPEN_WIDTH, NON_BREAKING_SPACE } from '@app/lib/config'
+import { useCallback, useState } from 'react'
+import withWindowSize, { WindowSize } from '@app/features/common/windowSize'
 
 import { ChatFeedback } from './components/ChatFeedback'
-import { SimpleFeedback } from './components/SimpleFeedback'
-import { useAnswerClear } from './useAnswerClear'
-import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import { useMappedState } from 'redux-react-hook'
-import { getClientInfo } from '../selectors'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import { SimpleFeedback } from './components/SimpleFeedback'
+import { getClientInfo } from '../selectors'
+import { useAnswerClear } from './useAnswerClear'
+import { useMappedState } from 'redux-react-hook'
 
 interface Props {
   focusOnChat: () => void
@@ -41,8 +41,7 @@ const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
     [windowSize.width],
   )
   // TODO: return it
-  // return STATUSES_WITH_VISIBLE_EXPERTS_BLOCK.includes(mainInfo.status) ? (
-  return (
+  return STATUSES_WITH_VISIBLE_EXPERTS_BLOCK.includes(mainInfo.status) ? (
     <div className={styles.wholeBlock}>
       <article id="feedback" className={styles.questionNotification}>
         <div className={styles.container}>
@@ -57,8 +56,7 @@ const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
         </div>
       </article>
     </div>
-  )
-  // ) : null
+  ) : null
 }
 
 export default withWindowSize(QuestionNotification as any) as any

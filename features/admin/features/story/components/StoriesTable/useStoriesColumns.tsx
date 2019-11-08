@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import * as React from 'react';
+import * as React from 'react'
 import dayjs from 'dayjs'
 import { Story } from '@app/models/Story'
 import { StoriesSelect } from './components/stories-select'
