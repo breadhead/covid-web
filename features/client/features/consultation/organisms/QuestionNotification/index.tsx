@@ -40,7 +40,7 @@ const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
     },
     [windowSize.width],
   )
-  // TODO: return it
+
   return STATUSES_WITH_VISIBLE_EXPERTS_BLOCK.includes(mainInfo.status) ? (
     <div className={styles.wholeBlock}>
       <article id="feedback" className={styles.questionNotification}>

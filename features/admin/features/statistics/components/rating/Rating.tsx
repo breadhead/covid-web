@@ -6,9 +6,7 @@ import { mapRatingQuesitons } from '@app/features/client/features/consultation/o
 import { RatingQuestionI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionI'
 import { SPACE } from '@app/lib/config'
 import * as s from './Rating.css'
-import { getStars } from './helpers/getStars'
 import { RatingQuestionType } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionType'
-import { Table } from 'antd'
 import { RatingTable } from './components/rating-table/RatingTable'
 
 
