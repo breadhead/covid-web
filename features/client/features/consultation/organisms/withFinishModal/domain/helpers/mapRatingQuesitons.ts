@@ -9,6 +9,7 @@ export const mapRatingQuesitons = (
 ): RatingQuestionI[] => {
   return questions.map(q => ({
     id: q.id,
+    order: q._order,
     type: q._type as RatingQuestionType,
     question: q._question,
     hint: q._hint,

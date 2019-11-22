@@ -3,7 +3,7 @@ import { RatingQuestionType } from './RatingQuestionType'
 export interface RatingQuestionServerI {
   id: string
   _type: string
-  order: number
+  _order: number
   _question: string
   _hint: string
 }

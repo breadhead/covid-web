@@ -35,7 +35,7 @@ export const Rating = () => {
           {Object.entries(q).map(([questionKey, questionValue]) => {
             const currentQuesiton =
               questions && questions.find(q => q.id === questionKey)
-
+              console.log('currentQuesiton:', currentQuesiton)
             return (
               <article key={questionKey}>
                 {currentQuesiton && (
