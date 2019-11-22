@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { formatTimestamp } from './formatTimestamp'
+import { formatTimestamp } from '../../helpers/formatTimestamp'
 
 export const useCurrentColumns = (
   getColumnSearchProps: (val: string) => void,

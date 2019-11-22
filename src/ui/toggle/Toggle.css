@@ -28,7 +28,8 @@
     content: '';
     background-color: #fff;
     border-radius: 50%;
-    box-shadow: 0 0.5px 1px 0 rgba(21, 24, 51, 0.08), 0 1px 3px 0 rgba(21, 24, 51, 0.16);
+    box-shadow: 0 0.5px 1px 0 rgba(21, 24, 51, 0.08),
+      0 1px 3px 0 rgba(21, 24, 51, 0.16);
     transition: left var(--animation-duration);
   }
 }
@@ -43,7 +44,8 @@
     top: 2px;
     left: 54px;
   }
-  &:hover:not(.disabled), &:focus:not(.disabled) {
+  &:hover:not(.disabled),
+  &:focus:not(.disabled) {
     background-color: #354ad4;
   }
 }
@@ -58,7 +60,8 @@
     top: 2px;
     left: 0px;
   }
-  &:hover:not(.disabled), &:focus:not(.disabled) {
+  &:hover:not(.disabled),
+  &:focus:not(.disabled) {
     background-color: #dcdce7;
   }
 }

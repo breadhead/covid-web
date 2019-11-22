@@ -29,6 +29,12 @@ import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 import { Funnel } from '@app/models/Statistics/Funnel'
+import { RatingQuestionServerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionI'
+import { RatingValueQuestion } from '@app/features/admin/features/statistics/RatingValueQuestion'
+import { RatingAnswerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingAnswerI'
+import { ClientStoryData } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/components/ClientStory/ClientStoryData'
+import { Story } from '@app/models/Story'
+import { StoryUpdateStatusRequest } from '@app/models/Story/StoryUpdateStatusRequest'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -289,4 +295,32 @@ export default class RealApiClient implements ApiClient {
       .get(`/statistics/funnel-claims?${queryString({ from, to })}`)
       .then(res => res.data as Funnel)
   }
+
+  public sendRatingQuestionAnswer = (data: RatingAnswerI) =>
+    this.axiosInstance
+      .post('/rating/answer', data)
+      .then(res => res.data as string)
+
+  public fetchRatingQuestions = () =>
+    this.axiosInstance
+      .get('/rating/questions')
+      .then(res => res.data as RatingQuestionServerI[])
+
+  public fetchRatingReport = () =>
+    this.axiosInstance
+      .get('/statistics/rating-report')
+      .then(res => res.data as RatingValueQuestion[])
+
+  public addStoryPhone = (data: ClientStoryData) =>
+    this.axiosInstance
+      .post('/story/add-phone', data)
+      .then(res => res.data as string)
+
+  public fetchStories = () =>
+    this.axiosInstance.get('/story').then(res => res.data as Story[])
+
+  public updateStoryStatus = (data: StoryUpdateStatusRequest) =>
+    this.axiosInstance
+      .post('/story/update-status', data)
+      .then(res => res.data as string)
 }

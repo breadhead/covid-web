@@ -1,0 +1,12 @@
+.button {
+  margin-right: 8px;
+  width: 48px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media (--smallDown) {
+    margin-bottom: 8px;
+  }
+}

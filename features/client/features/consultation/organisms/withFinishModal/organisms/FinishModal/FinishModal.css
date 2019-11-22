@@ -1,0 +1,11 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 720px;
+  padding: 13px 40px 40px 40px;
+
+  @media (--smallDown) {
+    width: 100%;
+  }
+}

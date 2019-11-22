@@ -1,20 +1,17 @@
 import * as React from 'react'
-import { useCallback, useState } from 'react'
 import * as styles from './QuestionNotification.css'
 
-import { useMappedState } from 'redux-react-hook'
-
-import { ListedClaim } from '@app/models/Claim/ListedClaim'
-
-import ClaimStatus from '@app/models/Claim/ClaimStatus'
-
-import withWindowSize, { WindowSize } from '@app/features/common/windowSize'
 import { CHAT_DEFAULT_OPEN_WIDTH, NON_BREAKING_SPACE } from '@app/lib/config'
-import { getClientInfo } from '../selectors'
+import { useCallback, useState } from 'react'
+import withWindowSize, { WindowSize } from '@app/features/common/windowSize'
+
 import { ChatFeedback } from './components/ChatFeedback'
+import ClaimStatus from '@app/models/Claim/ClaimStatus'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { SimpleFeedback } from './components/SimpleFeedback'
+import { getClientInfo } from '../selectors'
 import { useAnswerClear } from './useAnswerClear'
-import { ClearMorning } from './components/clear-morning'
+import { useMappedState } from 'redux-react-hook'
 
 interface Props {
   focusOnChat: () => void
@@ -58,8 +55,6 @@ const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
           )}
         </div>
       </article>
-
-      <ClearMorning />
     </div>
   ) : null
 }

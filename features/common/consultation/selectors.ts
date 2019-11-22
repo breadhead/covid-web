@@ -56,3 +56,6 @@ export const getClaim = createSelector(
     return null
   },
 )
+
+export const selectPhone = (state: State) =>
+  !!state.claim.newClaim.claim && state.claim.newClaim.claim.personalData.phone

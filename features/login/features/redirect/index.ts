@@ -1,6 +1,6 @@
-import { Role } from '@app/models/Users/User';
-import { head } from 'lodash';
-import Router from 'next/router';
+import { Role } from '@app/models/Users/User'
+import { head } from 'lodash'
+import Router from 'next/router'
 
 export enum Condition {
   signIn = 'signIn',

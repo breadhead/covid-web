@@ -7,12 +7,11 @@
 
 .questionNotification {
   padding: 32px 16px;
-  margin: 64px -120px 0 -120px;
+  margin: 64px -120px -72px -120px;
   text-align: center;
   background-color: #ffd46d;
-
   @media (--smallDown) {
-    margin: 40px -16px 0;
+    margin: 40px -16px -48px;
   }
 }
 
@@ -28,7 +27,6 @@
 .title {
   margin: 0 0 24px 0;
   font: var(--title-medium);
-
   @media (--smallDown) {
     margin: 0 0 24px 0;
   }
@@ -41,7 +39,6 @@
 
 .finishButton.finishButton.finishButton {
   margin-right: 12px;
-
   @media (--xxsmallDown) {
     width: 100%;
     margin-bottom: 8px;
@@ -58,12 +55,10 @@
   color: var(--color-link);
   cursor: pointer;
   border-bottom: 1px solid transparent;
-
   &:hover {
     color: var(--color-link);
     border-bottom: 1px solid var(--color-link-underline);
   }
-
   &:active {
     color: var(--color-link);
     border-bottom: 1px solid var(--color-link-underline);

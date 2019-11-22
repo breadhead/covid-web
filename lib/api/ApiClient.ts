@@ -21,6 +21,12 @@ import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
 import { TimeReport } from '@front/domain/statistics/model/time-report'
 import { Funnel } from '@app/models/Statistics/Funnel'
+import { RatingQuestionServerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionI'
+import { RatingValueQuestion } from '@app/features/admin/features/statistics/RatingValueQuestion'
+import { RatingAnswerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingAnswerI'
+import { ClientStoryData } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/components/ClientStory/ClientStoryData'
+import { Story } from '@app/models/Story'
+import { StoryUpdateStatusRequest } from '@app/models/Story/StoryUpdateStatusRequest'
 
 export interface UploadedFile {
   path: string
@@ -83,4 +89,10 @@ export default interface ApiClient {
   fetchSuccessefulClosedClaims(): Promise<number>
   restorePassword(login: string): Promise<string>
   fetchFunnelStats(from: Date, to: Date): Promise<Funnel>
+  sendRatingQuestionAnswer(data: RatingAnswerI): Promise<any>
+  fetchRatingQuestions(): Promise<RatingQuestionServerI[]>
+  fetchRatingReport(): Promise<RatingValueQuestion[]>
+  addStoryPhone(data: ClientStoryData): Promise<string>
+  fetchStories(): Promise<Story[]>
+  updateStoryStatus(data: StoryUpdateStatusRequest): Promise<string>
 }

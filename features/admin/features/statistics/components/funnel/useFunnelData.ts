@@ -8,7 +8,10 @@ export const useFunnelData = (from: Date, to: Date) => {
 
   useEffect(
     () => {
-      api.fetchFunnelStats(from, to).then(setStats)
+      const fetch = async () => {
+        await api.fetchFunnelStats(from, to).then(setStats)
+      }
+      fetch()
     },
     [from, to],
   )

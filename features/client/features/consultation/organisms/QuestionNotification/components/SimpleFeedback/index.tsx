@@ -4,7 +4,7 @@ import routes from '@app/routes'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
-import FinishButton from '../../../../molecules/FinishButton'
+import { FinishButton } from '../../../../molecules/FinishButton'
 
 const { Router } = routes
 

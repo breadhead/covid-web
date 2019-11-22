@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { useMemo } from 'react'
+
 import Head from 'next/head'
 
 import cx from 'classnames'
@@ -21,6 +23,7 @@ import Theme from '../organisms/Theme'
 import { useDonationModalByUrl } from './useDonationModalByUrl'
 import { useMappedState } from 'redux-react-hook'
 import { selectQuotaCompanyName } from '@app/src/domain/landing/selectors/selectQuotaCompanyName'
+import { ClearMorning } from '@app/features/client/features/consultation/organisms/QuestionNotification/components/clear-morning'
 
 export interface Props {
   windowSize: WindowSize
@@ -54,6 +57,8 @@ export const Consultation = ({
   const [isChatOpen, setChatOpen] = React.useState(true)
   const [isChatOpensOnce, setChatOpensOnce] = React.useState(true)
   const [isChatFocused, setChatFocused] = React.useState(false)
+
+  const isClient = useMemo(() => roles.includes(Role.Client), [roles])
 
   const closeChat = () => setChatOpen(false)
 
@@ -125,6 +130,7 @@ export const Consultation = ({
               openChat={openChat}
             />
           )}
+          {isClient && <ClearMorning />}
           {renderFooter && renderFooter(claim)}
         </Layout>
       </div>

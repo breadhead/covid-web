@@ -113,6 +113,11 @@ import factory from './api/apiFactory'
 
 import { domainReducer } from '@front/domain/redux/domainReducer'
 import { DomainState } from '@front/domain/redux/DomainState'
+import {
+  RatingState,
+  ratingReducer,
+} from '@app/features/client/features/consultation/organisms/withFinishModal/domain'
+import { adminReducer, AdminState } from '@app/features/admin/domain'
 
 export interface State {
   domain: DomainState
@@ -135,6 +140,8 @@ export interface State {
   claim: ClaimState
   clientClaim: ClientClaimsState
   landing: LandingState
+  rating: RatingState
+  admin: AdminState
 }
 
 const reducer = combineReducers({
@@ -159,6 +166,8 @@ const reducer = combineReducers({
   claim: claimReducer,
   landing: landingReducer,
   clientClaim: clientClaimsReducer,
+  rating: ratingReducer,
+  admin: adminReducer,
 } as any)
 
 export interface ExtraArgs {
