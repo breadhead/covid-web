@@ -6,7 +6,6 @@ import { mapRatingQuesitons } from '@app/features/client/features/consultation/o
 import { RatingQuestionI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionI'
 import { SPACE } from '@app/lib/config'
 import * as s from './Rating.css'
-import { fromQuestionIdToNum } from './helpers/fromQuestionIdToNum'
 import { getStars } from './helpers/getStars'
 import { RatingQuestionType } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionType'
 
@@ -25,6 +24,7 @@ export const Rating = () => {
       .then(questions =>
         questions.filter(q => q.type === RatingQuestionType.Value),
       )
+      .then(questions => questions.sort((a, b) => a.order - b.order))
       .then(setQuestions)
   }, [])
 
@@ -40,7 +40,7 @@ export const Rating = () => {
               <article key={questionKey}>
                 {currentQuesiton && (
                   <h3 key={questionKey}>
-                    {fromQuestionIdToNum(currentQuesiton.id)}.{SPACE}
+                    {currentQuesiton.order}.{SPACE}
                     {currentQuesiton.question}
                   </h3>
                 )}

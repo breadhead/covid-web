@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Button, ButtonSize } from '@app/src/ui/button';
-import * as s from './NextQuestionButton.css';
+import * as React from 'react'
+import { Button, ButtonSize } from '@app/src/ui/button'
+import * as s from './NextQuestionButton.css'
 
 interface NextQuestionButtonProps {
-  submit: any;
+  submit: any
 }
 
 export const NextQuestionButton = React.memo(
@@ -16,8 +16,8 @@ export const NextQuestionButton = React.memo(
       >
         Дальше
       </Button>
-    );
+    )
   },
-);
+)
 
-NextQuestionButton.displayName = 'NextQuestionButton';
+NextQuestionButton.displayName = 'NextQuestionButton'

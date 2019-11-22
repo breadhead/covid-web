@@ -1,6 +1,4 @@
 import { RatingQuestionI } from '../types/RatingQuestionI'
-import { RatingQuestionsEnum } from '../types/RatingQuestionsEnum'
-import { RatingQuestionType } from '../types/RatingQuestionType'
 import { ReactText } from 'react'
 
 export const createSubmitData = (
@@ -10,12 +8,8 @@ export const createSubmitData = (
 ) => {
   return {
     claimId,
-    question:
-      (currentQuestion.id as RatingQuestionsEnum) ||
-      (RatingQuestionsEnum.Q1 as RatingQuestionsEnum),
-    answerType:
-      (currentQuestion.type as RatingQuestionType) ||
-      (RatingQuestionType.Value as RatingQuestionType),
+    question: currentQuestion.id || '',
+    answerType: currentQuestion.type || '',
     answerValue: `${answer}`,
   }
 }
