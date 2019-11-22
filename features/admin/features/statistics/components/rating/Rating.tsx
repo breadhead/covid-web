@@ -34,7 +34,7 @@ export const Rating = () => {
         <div key={`${q.id}`}>
           {Object.entries(q).map(([questionKey, questionValue]) => {
             const currentQuesiton =
-              questions && questions.filter(q => q.id === questionKey)[0]
+              questions && questions.find(q => q.id === questionKey)
 
             return (
               <article key={questionKey}>
