@@ -8,6 +8,9 @@ import { SPACE } from '@app/lib/config'
 import * as s from './Rating.css'
 import { getStars } from './helpers/getStars'
 import { RatingQuestionType } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionType'
+import { Table } from 'antd'
+import { RatingTable } from './components/rating-table/RatingTable'
+
 
 export const Rating = () => {
   const [data, setData] = useState<RatingValueQuestion[] | null>(null)
@@ -35,7 +38,6 @@ export const Rating = () => {
           {Object.entries(q).map(([questionKey, questionValue]) => {
             const currentQuesiton =
               questions && questions.find(q => q.id === questionKey)
-              console.log('currentQuesiton:', currentQuesiton)
             return (
               <article key={questionKey}>
                 {currentQuesiton && (
@@ -44,28 +46,7 @@ export const Rating = () => {
                     {currentQuesiton.question}
                   </h3>
                 )}
-                <table className={s.table}>
-                  <tr>
-                    <th>Количество звёзд</th>
-                    <th>Количество ответов</th>
-                    <th>Доля</th>
-                  </tr>
-                  {Object.entries(questionValue).map(([_, value]) => (
-                    <React.Fragment key={_}>
-                      {Object.entries(value).map(([key, val]) => (
-                        <React.Fragment key={key}>
-                          <tr>
-                            <td className={s.stars}>
-                              {key} {getStars(key)}
-                            </td>
-                            <td>{(val as any).count}</td>
-                            <td>{(val as any).percentage}%</td>
-                          </tr>
-                        </React.Fragment>
-                      ))}
-                    </React.Fragment>
-                  ))}
-                </table>
+                <RatingTable styles={s} data={questionValue} />
               </article>
             )
           })}
