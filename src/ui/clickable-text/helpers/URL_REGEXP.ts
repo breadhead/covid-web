@@ -5,4 +5,5 @@ export const URL_REGEXP = /(?:(?:https?|ftp):\/\/|\b(?:[a-z\d]+\.))(?:(?:[^\s()<
 
 export const PREVIEW_IMAGE_REGEXP = /\/preview-image.*/
 
-export const URL_FILE_REGEX = /((\/|\\|\/\/|https?:\\\\|https?:\/\/)[a-z0-9\s_@\-^!#$%&+={}.\/\\\[\]]+)+\.zip|rar|7z|tar|zipx|pdf|DMG$/
+export const URL_FILE_REGEX = /((\/|\\|\/\/|https?:\\\\|https?:\/\/)[a-z0-9\s_@\-^!#$%&+={}.\/\\\[\]]+)+\.zip|zip|rar|7z|tar|zipx|pdf|DMG$/
+
