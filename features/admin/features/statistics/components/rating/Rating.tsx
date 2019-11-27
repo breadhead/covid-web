@@ -16,7 +16,7 @@ export const Rating = () => {
   const api = useApi()
 
   useEffect(() => {
-    api.fetchRatingReport().then(setData)
+    api.fetchRatingReportValue().then(setData)
 
     api
       .fetchRatingQuestions()
