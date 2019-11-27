@@ -9,7 +9,6 @@ import * as s from './Rating.css'
 import { RatingQuestionType } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionType'
 import { RatingTable } from './components/rating-table/RatingTable'
 
-
 export const Rating = () => {
   const [data, setData] = useState<RatingValueQuestion[] | null>(null)
   const [questions, setQuestions] = useState<RatingQuestionI[] | null>(null)

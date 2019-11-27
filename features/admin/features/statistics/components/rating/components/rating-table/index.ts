@@ -1,1 +1,1 @@
-export {RatingTable} from './RatingTable'
+export { RatingTable } from './RatingTable'

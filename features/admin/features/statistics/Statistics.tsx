@@ -9,6 +9,7 @@ import { TimeReport } from './components/time-report'
 import s from './Statistics.css'
 import { ClaimsFunnel } from './components/funnel'
 import { Rating } from './components/rating'
+import { Comments } from './components/comments'
 
 export const Statistics = () => {
   return (
@@ -30,7 +31,18 @@ export const Statistics = () => {
           key="rating"
           className={s.tab}
         >
-          <Rating />
+          <Tabs defaultActiveKey="rating-questions">
+            <TabPane tab="Рейтинг" key="rating-questions" className={s.tab}>
+              <Rating />
+            </TabPane>
+            <TabPane
+              tab="Комментарии"
+              key="comment-questions"
+              className={s.tab}
+            >
+              <Comments />
+            </TabPane>
+          </Tabs>
         </TabPane>
       </Tabs>
     </Layout>
