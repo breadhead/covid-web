@@ -35,6 +35,7 @@ import { RatingAnswerI } from '@app/features/client/features/consultation/organi
 import { ClientStoryData } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/components/ClientStory/ClientStoryData'
 import { Story } from '@app/models/Story'
 import { StoryUpdateStatusRequest } from '@app/models/Story/StoryUpdateStatusRequest'
+import { RatingCommentQuestion } from '@app/features/admin/features/statistics/RatingCommentQuestion'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -306,10 +307,15 @@ export default class RealApiClient implements ApiClient {
       .get('/rating/questions')
       .then(res => res.data as RatingQuestionServerI[])
 
-  public fetchRatingReport = () =>
+  public fetchRatingReportValue = () =>
     this.axiosInstance
-      .get('/statistics/rating-report')
+      .get('/statistics/rating-report-value')
       .then(res => res.data as RatingValueQuestion[])
+
+  public fetchRatingReportComment = () =>
+    this.axiosInstance
+      .get('/statistics/rating-report-comment')
+      .then(res => res.data as RatingCommentQuestion[])
 
   public addStoryPhone = (data: ClientStoryData) =>
     this.axiosInstance

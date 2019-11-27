@@ -27,6 +27,7 @@ import { RatingAnswerI } from '@app/features/client/features/consultation/organi
 import { ClientStoryData } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/components/ClientStory/ClientStoryData'
 import { Story } from '@app/models/Story'
 import { StoryUpdateStatusRequest } from '@app/models/Story/StoryUpdateStatusRequest'
+import { RatingCommentQuestion } from '@app/features/admin/features/statistics/RatingCommentQuestion'
 
 export interface UploadedFile {
   path: string
@@ -91,7 +92,8 @@ export default interface ApiClient {
   fetchFunnelStats(from: Date, to: Date): Promise<Funnel>
   sendRatingQuestionAnswer(data: RatingAnswerI): Promise<any>
   fetchRatingQuestions(): Promise<RatingQuestionServerI[]>
-  fetchRatingReport(): Promise<RatingValueQuestion[]>
+  fetchRatingReportValue(): Promise<RatingValueQuestion[]>
+  fetchRatingReportComment(): Promise<RatingCommentQuestion[]>
   addStoryPhone(data: ClientStoryData): Promise<string>
   fetchStories(): Promise<Story[]>
   updateStoryStatus(data: StoryUpdateStatusRequest): Promise<string>
