@@ -42,7 +42,7 @@ export const Comments = () => {
               <React.Fragment key={item.question}>
                 <h3>{item.question}</h3>
                 {item.answers &&
-                  item.answers.map((a, key) => (
+                  item.answers.filter(a => a.length > 2).map((a, key) => (
                     <p key={a}>
                       {key + 1}. {JSON.parse(a)}
                     </p>
