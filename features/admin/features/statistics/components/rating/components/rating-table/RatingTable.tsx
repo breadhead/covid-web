@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Table } from 'antd'
-import { getStars } from '../../helpers/getStars'
+import { useMemo } from 'react'
+import { getDataSource } from './helpers/getDataSource'
 
 export interface RatingTableProps {
   data: {
@@ -13,22 +14,10 @@ export interface RatingTableProps {
 }
 
 export const RatingTable = ({ data, styles }: RatingTableProps) => {
-  const getDataSource = () => {
-    const source = Object.entries(data)
-      .map(([_, value]) =>
-        Object.entries(value as any).map(([key, val]) => ({
-          key,
-          starsCount: `${key}. ${getStars(key)}`,
-          answersCount: (val as any).count,
-          proportion: `${(val as any).percentage} %`,
-        })),
-      )
-      .map(el => el[0])
 
-    return source
-  }
-
-  const eee = getDataSource()
+  const dataSource = useMemo(() => {
+    return getDataSource(data)
+  }, [data])
 
   const columns = [
     {
@@ -63,7 +52,7 @@ export const RatingTable = ({ data, styles }: RatingTableProps) => {
   return (
     <Table
       rowClassName={styles.row as any}
-      dataSource={eee}
+      dataSource={dataSource}
       columns={columns}
     />
   )
