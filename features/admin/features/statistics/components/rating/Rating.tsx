@@ -28,27 +28,30 @@ export const Rating = () => {
       .then(setQuestions)
   }, [])
 
-  return !!data ? (
+  return !!data && !!questions ? (
     <>
-      {data.map(q => (
-        <div key={`${q.id}`}>
-          {Object.entries(q).map(([questionKey, questionValue]) => {
-            const currentQuesiton =
-              questions && questions.find(q => q.id === questionKey)
-            return (
-              <article key={questionKey}>
-                {currentQuesiton && (
-                  <h3 key={questionKey}>
-                    {currentQuesiton.order}.{SPACE}
-                    {currentQuesiton.question}
-                  </h3>
-                )}
-                <RatingTable styles={s} data={questionValue} />
-              </article>
-            )
-          })}
-        </div>
-      ))}
+      {data
+        .sort((a, b) => a.order - b.order)
+        .map(item => {
+          const currentQuesiton = questions.find(
+            question => question.id === item.question,
+          )
+          return (
+            <div key={item.question}>
+              {currentQuesiton && (
+                <h3>
+                  {item.order}.{SPACE}
+                  {currentQuesiton.question}
+                </h3>
+              )}
+              <RatingTable
+                questionId={item.question}
+                styles={s}
+                data={item.answers}
+              />
+            </div>
+          )
+        })}
     </>
   ) : (
     <div>loading...</div>

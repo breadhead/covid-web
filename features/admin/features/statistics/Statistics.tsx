@@ -10,6 +10,7 @@ import s from './Statistics.css'
 import { ClaimsFunnel } from './components/funnel'
 import { Rating } from './components/rating'
 import { Comments } from './components/comments'
+import { RatingDoctors } from './components/rating-doctors'
 
 export const Statistics = () => {
   return (
@@ -43,6 +44,9 @@ export const Statistics = () => {
               <Comments />
             </TabPane>
           </Tabs>
+        </TabPane>
+        <TabPane tab="Рейтинг врачей" key="rating-doctors" className={s.tab}>
+          <RatingDoctors />
         </TabPane>
       </Tabs>
     </Layout>

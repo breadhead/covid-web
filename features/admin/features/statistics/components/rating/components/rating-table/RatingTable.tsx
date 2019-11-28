@@ -11,13 +11,16 @@ export interface RatingTableProps {
     }
   }[]
   styles: { [key: string]: string }
+  questionId: string
 }
 
-export const RatingTable = ({ data, styles }: RatingTableProps) => {
-
-  const dataSource = useMemo(() => {
-    return getDataSource(data)
-  }, [data])
+export const RatingTable = ({ data, styles, questionId }: RatingTableProps) => {
+  const dataSource = useMemo(
+    () => {
+      return getDataSource(data, questionId)
+    },
+    [data],
+  )
 
   const columns = [
     {

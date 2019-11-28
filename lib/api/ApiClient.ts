@@ -28,6 +28,7 @@ import { ClientStoryData } from '@app/features/client/features/consultation/orga
 import { Story } from '@app/models/Story'
 import { StoryUpdateStatusRequest } from '@app/models/Story/StoryUpdateStatusRequest'
 import { RatingCommentQuestion } from '@app/features/admin/features/statistics/RatingCommentQuestion'
+import { RatingDoctorsType } from '@app/features/admin/features/statistics/RatingDoctors'
 
 export interface UploadedFile {
   path: string
@@ -93,6 +94,7 @@ export default interface ApiClient {
   sendRatingQuestionAnswer(data: RatingAnswerI): Promise<any>
   fetchRatingQuestions(): Promise<RatingQuestionServerI[]>
   fetchRatingReportValue(): Promise<RatingValueQuestion[]>
+  fetchRatingDoctors(): Promise<RatingDoctorsType[]>
   fetchRatingReportComment(): Promise<RatingCommentQuestion[]>
   addStoryPhone(data: ClientStoryData): Promise<string>
   fetchStories(): Promise<Story[]>

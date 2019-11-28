@@ -26,13 +26,14 @@ export const Comments = () => {
 
   return (
     <div>
-      {data &&
+      {!!data &&
+        !!questions &&
         data.map(item => {
           const info = Object.entries(item).map(([key, val]) => {
+            const currentQuestion = questions.find(q => q.id === key)
+
             return {
-              question:
-                questions &&
-                (questions.find(q => q.id === key) as any).question,
+              question: currentQuestion && currentQuestion.question,
               answers: val as any[],
             }
           })
@@ -42,11 +43,13 @@ export const Comments = () => {
               <React.Fragment key={item.question}>
                 <h3>{item.question}</h3>
                 {item.answers &&
-                  item.answers.map((a, key) => (
-                    <p key={a}>
-                      {key + 1}. {JSON.parse(a)}
-                    </p>
-                  ))}
+                  item.answers
+                    .filter(a => a.length > 2)
+                    .map((a, key) => (
+                      <p key={a}>
+                        {key + 1}. {JSON.parse(a)}
+                      </p>
+                    ))}
               </React.Fragment>
             )
           })

@@ -36,6 +36,7 @@ import { ClientStoryData } from '@app/features/client/features/consultation/orga
 import { Story } from '@app/models/Story'
 import { StoryUpdateStatusRequest } from '@app/models/Story/StoryUpdateStatusRequest'
 import { RatingCommentQuestion } from '@app/features/admin/features/statistics/RatingCommentQuestion'
+import { RatingDoctorsType } from '@app/features/admin/features/statistics/RatingDoctors'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -329,4 +330,9 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post('/story/update-status', data)
       .then(res => res.data as string)
+
+  public fetchRatingDoctors = () =>
+    this.axiosInstance
+      .get('/statistics/rating-report-doctors')
+      .then(res => res.data as RatingDoctorsType[])
 }

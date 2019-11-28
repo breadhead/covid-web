@@ -1,0 +1,1 @@
+export { GeneralTable } from './GeneralTable'
