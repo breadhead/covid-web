@@ -15,3 +15,4 @@ export const RatingDoctors = () => {
 
   return <div>{data ? <GeneralTable data={data} /> : 'loading'}</div>
 }
+

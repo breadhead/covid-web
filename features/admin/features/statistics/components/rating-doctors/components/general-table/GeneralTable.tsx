@@ -38,6 +38,9 @@ export const GeneralTable = ({ data }: GeneralTableProps) => {
       title: 'Средний рейтинг по всем вопросам',
       dataIndex: 'average',
       key: 'average',
+      sorter: (a: any, b: any) => {
+        return a.average - b.average
+      },
     },
     {
       title: '',
