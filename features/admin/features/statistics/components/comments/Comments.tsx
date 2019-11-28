@@ -24,15 +24,18 @@ export const Comments = () => {
       .then(setQuestions)
   }, [])
 
+
   return (
     <div>
-      {data &&
+      {!!data && !!questions &&
         data.map(item => {
           const info = Object.entries(item).map(([key, val]) => {
+
+            const currentQuestion = questions.find(q => q.id === key)
+
             return {
               question:
-                questions &&
-                (questions.find(q => q.id === key) as any).question,
+                currentQuestion && currentQuestion.question,
               answers: val as any[],
             }
           })
