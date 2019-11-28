@@ -1,0 +1,11 @@
+.row {
+  line-height: 6px;
+
+  & td:nth-of-type(2) {
+    text-align: center;
+  }
+}
+
+.stars {
+  margin-left: auto;
+}

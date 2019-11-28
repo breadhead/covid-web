@@ -30,20 +30,30 @@ export const Rating = () => {
 
   return !!data && !!questions ? (
     <>
-      {data.sort((a, b) => a.order - b.order).map(item => {
-        const currentQuesiton = questions.find(question => question.id === item.question)
-        return (
-          <div key={item.question}>
-            {currentQuesiton && <h3>
-              {item.order}.{SPACE}
-              {currentQuesiton.question}
-            </h3>}
-            <RatingTable questionId={item.question} styles={s} data={item.answers} />
-          </div>
-        )
-      })}
+      {data
+        .sort((a, b) => a.order - b.order)
+        .map(item => {
+          const currentQuesiton = questions.find(
+            question => question.id === item.question,
+          )
+          return (
+            <div key={item.question}>
+              {currentQuesiton && (
+                <h3>
+                  {item.order}.{SPACE}
+                  {currentQuesiton.question}
+                </h3>
+              )}
+              <RatingTable
+                questionId={item.question}
+                styles={s}
+                data={item.answers}
+              />
+            </div>
+          )
+        })}
     </>
   ) : (
-      <div>loading...</div>
-    )
+    <div>loading...</div>
+  )
 }

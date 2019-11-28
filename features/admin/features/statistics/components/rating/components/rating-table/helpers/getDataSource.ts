@@ -1,11 +1,14 @@
 import { getStars } from '../../../helpers/getStars'
 
-export const getDataSource = (data: {
-  [key: string]: {
-    count: number
-    percentage: string
-  }
-}[], questionId: string) => {
+export const getDataSource = (
+  data: {
+    [key: string]: {
+      count: number
+      percentage: string
+    }
+  }[],
+  questionId: string,
+) => {
   const source = Object.entries(data)
     .map(([_, value]) =>
       Object.entries(value as any).map(([key, val]) => ({

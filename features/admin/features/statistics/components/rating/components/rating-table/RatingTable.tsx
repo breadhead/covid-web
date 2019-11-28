@@ -10,15 +10,17 @@ export interface RatingTableProps {
       percentage: string
     }
   }[]
-  styles: { [key: string]: string },
+  styles: { [key: string]: string }
   questionId: string
 }
 
 export const RatingTable = ({ data, styles, questionId }: RatingTableProps) => {
-
-  const dataSource = useMemo(() => {
-    return getDataSource(data, questionId)
-  }, [data])
+  const dataSource = useMemo(
+    () => {
+      return getDataSource(data, questionId)
+    },
+    [data],
+  )
 
   const columns = [
     {
