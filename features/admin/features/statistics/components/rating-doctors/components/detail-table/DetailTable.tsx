@@ -8,6 +8,9 @@ import { RatingQuestionI } from '@app/features/client/features/consultation/orga
 import { mapRatingQuesitons } from '@app/features/client/features/consultation/organisms/withFinishModal/domain/helpers/mapRatingQuesitons';
 import { useApi } from '@app/lib/api/useApi';
 import { RatingQuestionType } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionType';
+import { Tabs } from 'antd'
+
+const { TabPane } = Tabs
 
 interface DetailTableProps {
   setCurrent: (value: null) => void
@@ -34,7 +37,7 @@ export const DetailTable = ({ setCurrent, content }: DetailTableProps) => {
 
   const { doctor, average, value, comment } = content
 
-  return (<div>
+return (<div>
     <Button
       kind={ButtonKind.Secondary}
       onClick={() => {
@@ -43,13 +46,21 @@ export const DetailTable = ({ setCurrent, content }: DetailTableProps) => {
 
     {!!content && !!questions && <section className={s.content}>
       <h1>{doctor}</h1>
-      <span>Средний рейтинг по всем вопросам: {average}</span>
 
-      <section className={s.valueContainer}>
-        {value.map((rating) => {
-          return <RatingTable order={rating.order} questions={questions} questionId={rating.question} data={rating.answers} />
-        })}
-      </section>
+      <Tabs defaultActiveKey="value">
+        <TabPane tab="Вопросы" key="value" className={s.tab}>
+          <span>Средний рейтинг по всем вопросам: {average}</span>
+          <section className={s.valueContainer}>
+            {value.map((rating) => {
+              return <RatingTable key={rating.question} order={rating.order} questions={questions} questionId={rating.question} data={rating.answers} />
+            })}
+          </section>
+        </TabPane>
+        <TabPane tab="Комментарии" key="comment" className={s.tab}>
+          {comment.map((item, key) => <p key={item}>{key + 1}. {JSON.parse(item)}</p>)}
+        </TabPane>
+      </Tabs>
+
 
     </section>}
   </div>)
