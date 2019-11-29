@@ -3,6 +3,11 @@ import { Button, ButtonKind } from '@app/src/ui/button';
 import { RatingDoctorsType } from '../../../../RatingDoctors';
 import * as s from './DetailTable.css'
 import { RatingTable } from '../../../rating/components/rating-table';
+import { useState, useEffect } from 'react';
+import { RatingQuestionI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionI';
+import { mapRatingQuesitons } from '@app/features/client/features/consultation/organisms/withFinishModal/domain/helpers/mapRatingQuesitons';
+import { useApi } from '@app/lib/api/useApi';
+import { RatingQuestionType } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionType';
 
 interface DetailTableProps {
   setCurrent: (value: null) => void
@@ -10,6 +15,22 @@ interface DetailTableProps {
 }
 
 export const DetailTable = ({ setCurrent, content }: DetailTableProps) => {
+  const [questions, setQuestions] = useState<RatingQuestionI[] | null>(null)
+
+  const api = useApi()
+
+  useEffect(() => {
+
+    api
+      .fetchRatingQuestions()
+      .then(mapRatingQuesitons)
+      .then(questions =>
+        questions.filter(q => q.type === RatingQuestionType.Value),
+      )
+      .then(questions => questions.sort((a, b) => a.order - b.order))
+      .then(setQuestions)
+  }, [])
+
 
   const { doctor, average, value, comment } = content
 
@@ -20,17 +41,13 @@ export const DetailTable = ({ setCurrent, content }: DetailTableProps) => {
         setCurrent(null)
       }}>Ко всем врачам</Button>
 
-    {!!content && <section className={s.content}>
+    {!!content && !!questions && <section className={s.content}>
       <h1>{doctor}</h1>
       <span>Средний рейтинг по всем вопросам: {average}</span>
 
       {value.map((rating) => {
-        return <RatingTable questionId={rating.question} data={rating.answers} />
+        return <RatingTable order={rating.order} questions={questions} questionId={rating.question} data={rating.answers} />
       })}
-
-
-
-
 
     </section>}
   </div>)
