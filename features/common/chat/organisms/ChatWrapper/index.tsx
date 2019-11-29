@@ -26,7 +26,7 @@ const ChatWrapper = React.forwardRef<HTMLDivElement, Props>(
         <div className={styles.chatWrapper} ref={ref!}>
           {messages.map(message => {
             if (message.content === YES_BUTTON) {
-              return <YesButton />
+              return <YesButton author={message.author} role={role} />
             }
             return (
               <Message key={message.id} message={message} />
