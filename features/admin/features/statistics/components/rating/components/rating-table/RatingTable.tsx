@@ -10,7 +10,7 @@ export interface RatingTableProps {
       percentage: string
     }
   }[]
-  styles: { [key: string]: string }
+  styles?: { [key: string]: string }
   questionId: string
 }
 
@@ -54,7 +54,7 @@ export const RatingTable = ({ data, styles, questionId }: RatingTableProps) => {
 
   return (
     <Table
-      rowClassName={styles.row as any}
+      rowClassName={styles && styles.row as any}
       dataSource={dataSource}
       columns={columns}
     />
