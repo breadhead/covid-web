@@ -7,9 +7,10 @@ import * as s from './GeneralTable.css'
 
 interface GeneralTableProps {
   data: RatingDoctorsType[]
+  setCurrent: (doctor: string) => void
 }
 
-export const GeneralTable = ({ data }: GeneralTableProps) => {
+export const GeneralTable = ({ data, setCurrent }: GeneralTableProps) => {
   const getDataSource = (data: RatingDoctorsType[]) => {
     return data.map(item => {
       return {
@@ -50,6 +51,15 @@ export const GeneralTable = ({ data }: GeneralTableProps) => {
   ]
 
   return (
-    <Table rowClassName={s.row} dataSource={dataSource} columns={columns} />
+    <Table
+      onRow={(record: any) => {
+        return {
+          onClick: () => {
+            setCurrent(record.doctor)
+          },
+        }
+      }}
+      rowClassName={s.row} dataSource={dataSource} columns={columns}
+    />
   )
 }

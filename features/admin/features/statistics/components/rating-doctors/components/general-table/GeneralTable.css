@@ -1,5 +1,6 @@
 .row {
   line-height: 6px;
+  cursor: pointer;
 
   & td:nth-of-type(2) {
     text-align: center;
