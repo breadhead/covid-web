@@ -37,8 +37,9 @@ export const DetailTable = ({ setCurrent, content }: DetailTableProps) => {
 
   const { doctor, average, value, comment } = content
 
-return (<div>
+  return (<div>
     <Button
+      className={s.button}
       kind={ButtonKind.Secondary}
       onClick={() => {
         setCurrent(null)
@@ -49,7 +50,7 @@ return (<div>
 
       <Tabs defaultActiveKey="value">
         <TabPane tab="Вопросы" key="value" className={s.tab}>
-          <span>Средний рейтинг по всем вопросам: {average}</span>
+          <span className={s.average}>Средний рейтинг по всем вопросам: {average}</span>
           <section className={s.valueContainer}>
             {value.map((rating) => {
               return <RatingTable key={rating.question} order={rating.order} questions={questions} questionId={rating.question} data={rating.answers} />
