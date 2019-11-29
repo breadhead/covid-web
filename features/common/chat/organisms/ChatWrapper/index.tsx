@@ -8,8 +8,9 @@ import * as styles from './ChatWrapper.css'
 import EmptyWindow from '../EmptyWindow'
 import Message from '../Message'
 import MessageLoader from '../MessageLoader'
-import { Button } from '@app/src/ui/button'
+
 import { YES_BUTTON } from '../../config'
+import { YesButton } from '../../atoms'
 
 interface Props {
   messages: ChatMessage[]
@@ -25,7 +26,7 @@ const ChatWrapper = React.forwardRef<HTMLDivElement, Props>(
         <div className={styles.chatWrapper} ref={ref!}>
           {messages.map(message => {
             if (message.content === YES_BUTTON) {
-              return <Button>Да, мне всё понятно</Button>
+              return <YesButton />
             }
             return (
               <Message key={message.id} message={message} />
