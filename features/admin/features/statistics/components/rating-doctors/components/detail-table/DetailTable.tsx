@@ -45,9 +45,11 @@ export const DetailTable = ({ setCurrent, content }: DetailTableProps) => {
       <h1>{doctor}</h1>
       <span>Средний рейтинг по всем вопросам: {average}</span>
 
-      {value.map((rating) => {
-        return <RatingTable order={rating.order} questions={questions} questionId={rating.question} data={rating.answers} />
-      })}
+      <section className={s.valueContainer}>
+        {value.map((rating) => {
+          return <RatingTable order={rating.order} questions={questions} questionId={rating.question} data={rating.answers} />
+        })}
+      </section>
 
     </section>}
   </div>)

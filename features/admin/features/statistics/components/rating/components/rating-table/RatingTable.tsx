@@ -5,6 +5,7 @@ import { getDataSource } from './helpers/getDataSource'
 import { RatingQuestionI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionI'
 import { SPACE } from '@app/lib/config'
 import { getColumns } from './helpers/getColumns'
+import * as s from './RatingTable.css'
 
 export interface RatingTableProps {
   data: {
@@ -19,7 +20,7 @@ export interface RatingTableProps {
   questions: RatingQuestionI[]
 }
 
-export const RatingTable = ({ data, styles, questionId, order, questions }: RatingTableProps) => {  
+export const RatingTable = ({ data, questionId, order, questions }: RatingTableProps) => {  
   const dataSource = useMemo(
     () => {
       return getDataSource(data, questionId)
@@ -44,7 +45,7 @@ export const RatingTable = ({ data, styles, questionId, order, questions }: Rati
         </h3>
       )}
       <Table
-        rowClassName={styles && styles.row as any}
+        rowClassName={s.row}
         dataSource={dataSource}
         columns={columns}
       />

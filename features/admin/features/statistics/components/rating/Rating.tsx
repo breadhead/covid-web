@@ -5,7 +5,6 @@ import { RatingValueQuestion } from '../../RatingValueQuestion'
 import { mapRatingQuesitons } from '@app/features/client/features/consultation/organisms/withFinishModal/domain'
 import { RatingQuestionI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionI'
 
-import * as s from './Rating.css'
 import { RatingQuestionType } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionType'
 import { RatingTable } from './components/rating-table/RatingTable'
 
@@ -38,7 +37,6 @@ export const Rating = () => {
               key={item.question}
               questionId={item.question}
               order={item.order}
-              styles={s}
               data={item.answers}
               questions={questions}
             />
