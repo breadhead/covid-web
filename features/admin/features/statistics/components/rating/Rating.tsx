@@ -4,8 +4,7 @@ import { useApi } from '@app/lib/api/useApi'
 import { RatingValueQuestion } from '../../RatingValueQuestion'
 import { mapRatingQuesitons } from '@app/features/client/features/consultation/organisms/withFinishModal/domain'
 import { RatingQuestionI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionI'
-import { SPACE } from '@app/lib/config'
-import * as s from './Rating.css'
+
 import { RatingQuestionType } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionType'
 import { RatingTable } from './components/rating-table/RatingTable'
 
@@ -33,27 +32,18 @@ export const Rating = () => {
       {data
         .sort((a, b) => a.order - b.order)
         .map(item => {
-          const currentQuesiton = questions.find(
-            question => question.id === item.question,
-          )
           return (
-            <div key={item.question}>
-              {currentQuesiton && (
-                <h3>
-                  {item.order}.{SPACE}
-                  {currentQuesiton.question}
-                </h3>
-              )}
-              <RatingTable
-                questionId={item.question}
-                styles={s}
-                data={item.answers}
-              />
-            </div>
+            <RatingTable
+              key={item.question}
+              questionId={item.question}
+              order={item.order}
+              data={item.answers}
+              questions={questions}
+            />
           )
         })}
     </>
   ) : (
-    <div>loading...</div>
-  )
+      <div>loading...</div>
+    )
 }

@@ -2,6 +2,10 @@ import * as React from 'react'
 import { Table } from 'antd'
 import { useMemo } from 'react'
 import { getDataSource } from './helpers/getDataSource'
+import { RatingQuestionI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionI'
+import { SPACE } from '@app/lib/config'
+import { getColumns } from './helpers/getColumns'
+import * as s from './RatingTable.css'
 
 export interface RatingTableProps {
   data: {
@@ -10,11 +14,13 @@ export interface RatingTableProps {
       percentage: string
     }
   }[]
-  styles: { [key: string]: string }
+  styles?: { [key: string]: string }
   questionId: string
+  order: number
+  questions: RatingQuestionI[]
 }
 
-export const RatingTable = ({ data, styles, questionId }: RatingTableProps) => {
+export const RatingTable = ({ data, questionId, order, questions }: RatingTableProps) => {  
   const dataSource = useMemo(
     () => {
       return getDataSource(data, questionId)
@@ -22,41 +28,27 @@ export const RatingTable = ({ data, styles, questionId }: RatingTableProps) => {
     [data],
   )
 
-  const columns = [
-    {
-      title: 'Количество звёзд',
-      dataIndex: 'starsCount',
-      key: 'starsCount',
-      sorter: (a: any, b: any) => {
-        return a.starsCount.length - b.starsCount.length
-      },
-    },
-    {
-      title: 'Количество ответов',
-      dataIndex: 'answersCount',
-      key: 'answersCount',
-      sorter: (a: any, b: any) => {
-        return a.answersCount - b.answersCount
-      },
-    },
-    {
-      title: 'Доля',
-      dataIndex: 'proportion',
-      key: 'proportion',
-      sorter: (a: any, b: any) => {
-        return (
-          Number(a.proportion.split('.')[0]) -
-          Number(b.proportion.split('.')[0])
-        )
-      },
-    },
-  ]
+  const currentQuesiton = useMemo(() => {
+    return questions && questions.find(
+      question => question.id === questionId,
+    )
+  }, [questionId, questions])
+
+  const columns = getColumns()
 
   return (
-    <Table
-      rowClassName={styles.row as any}
-      dataSource={dataSource}
-      columns={columns}
-    />
+    <>
+      {currentQuesiton && (
+        <h3>
+          {order}.{SPACE}
+          {currentQuesiton.question}
+        </h3>
+      )}
+      <Table
+        rowClassName={s.row}
+        dataSource={dataSource}
+        columns={columns}
+      />
+    </>
   )
 }
