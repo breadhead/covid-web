@@ -7,15 +7,17 @@ import { Icon } from '@front/ui/icon'
 import { IconsList } from '@front/ui/sprite'
 import { Button } from '@app/src/ui/button'
 import { Role } from '@app/models/Users/User'
+import { YES_BUTTON } from '../../config'
 
 interface Props {
   onCloseButtonClick?: () => void
   roles: Role[]
+  send: (data: any) => void
 }
 
 const authorizedUsers = [Role.CaseManager, Role.Doctor]
 
-const Header = ({ onCloseButtonClick, roles }: Props) => {
+const Header = ({ onCloseButtonClick, roles, send }: Props) => {
   const condition = authorizedUsers.includes(roles[0])
 
   return (
@@ -24,7 +26,10 @@ const Header = ({ onCloseButtonClick, roles }: Props) => {
         <Icon className={styles.iconChat} name={IconsList.Chat} />
       </button>
       <h3 className={styles.title}>«Просто спросить»</h3>
-      {condition && <Button onClick={() => console.log('yes i`m understand')}>Отправить кнопку «Да, мне всё понятно»</Button>}
+      {condition && <Button onClick={() => {
+        send({ message: YES_BUTTON })
+      }
+      }>Отправить кнопку «Да, мне всё понятно»</Button>}
       <button
         onClick={onCloseButtonClick}
         className={cx(styles.button, styles.closeButton)}

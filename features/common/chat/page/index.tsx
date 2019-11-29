@@ -89,7 +89,7 @@ const Chat = ({
   return (
     <section className={cx(styles.chat, shouldHide && styles.hide)}>
       <div>
-        <Header roles={roles} onCloseButtonClick={closeChat} />
+        <Header send={onFormSubmit} roles={roles} onCloseButtonClick={closeChat} />
       </div>
       <div className={styles.messageWrapper}>
         <ChatWrapper
