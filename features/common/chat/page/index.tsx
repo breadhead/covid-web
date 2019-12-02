@@ -103,7 +103,7 @@ const Chat = ({
           roles={roles}
           ref={forwardedRef}
           messages={messages}
-          claimId={mainInfo.id}
+          mainInfo={mainInfo}
         />
       </div>
       <Form

@@ -22,14 +22,19 @@ const authorizedUsers = [Role.CaseManager, Role.Doctor]
 
 const Header = ({ onCloseButtonClick, roles, send, mainInfo }: Props) => {
   const condition = authorizedUsers.includes(roles[0]) && mainInfo.dontUnderstand === DontUnderstandEnum.NO
-  
+
   return (
-    <header className={styles.header}>
-      <button className={cx(styles.button, styles.buttonChat)}>
-        <Icon className={styles.iconChat} name={IconsList.Chat} />
-      </button>
-      <h3 className={styles.title}>«Просто спросить»</h3>
-      {condition && <Button onClick={() => {
+    <header className={cx(styles.header, condition && styles.withButton)}>
+      <div className={styles.titleWrapper}>
+        <button className={cx(styles.button, styles.buttonChat)}>
+          <Icon className={styles.iconChat} name={IconsList.Chat} />
+        </button>
+        <h3 className={styles.title}>«Просто спросить»</h3>
+      </div>
+      {condition && <Button 
+      
+      className={styles.sendButton}
+      onClick={() => {
         send({ message: YES_BUTTON })
       }
       }>Отправить кнопку «Да, мне всё понятно»</Button>}

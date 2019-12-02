@@ -7,6 +7,16 @@
   border-bottom: 1px solid var(--divider-color);
 }
 
+.withButton {
+  flex-direction: column;
+  height: auto;
+}
+
+.titleWrapper {
+  display: flex;
+  align-self: flex-start;
+}
+
 .title {
   margin: 0;
   font: var(--text16-24);
@@ -35,4 +45,8 @@
 
 .iconChat {
   fill: lightgreen;
+}
+
+.sendButton {
+  margin-top: 16px;
 }

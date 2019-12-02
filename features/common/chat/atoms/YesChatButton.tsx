@@ -10,10 +10,11 @@ import { useSpecificModal } from '../../modal';
 interface YesChatButtonProps {
   roles: Role[]
   claimId: string
+  disabled: boolean
   author?: string | null
 }
 
-export const YesChatButton = ({ author = null, roles, claimId }: YesChatButtonProps) => {
+export const YesChatButton = ({ author = null, roles, claimId, disabled }: YesChatButtonProps) => {
   const api = useApi()
   const { open } = useSpecificModal('finish-modal')
 
@@ -27,6 +28,7 @@ export const YesChatButton = ({ author = null, roles, claimId }: YesChatButtonPr
   return <article
     className={!!author ? s.message : cx(s.message, s.messageSent)}
   ><Button
+    disabled={disabled}
     onClick={onYesButtonClick}
     className={s.button}>Да, мне всё понятно</Button></article>
 }
