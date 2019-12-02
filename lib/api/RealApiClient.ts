@@ -37,6 +37,7 @@ import { Story } from '@app/models/Story'
 import { StoryUpdateStatusRequest } from '@app/models/Story/StoryUpdateStatusRequest'
 import { RatingCommentQuestion } from '@app/features/admin/features/statistics/RatingCommentQuestion'
 import { RatingDoctorsType } from '@app/features/admin/features/statistics/RatingDoctors'
+import { UpdateDontUnderstandRequest } from './request/UpdateDontUnderstandRequest'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -335,4 +336,10 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .get('/statistics/rating-report-doctors')
       .then(res => res.data as RatingDoctorsType[])
+
+  public update = (data: UpdateDontUnderstandRequest) =>
+    this.axiosInstance
+      .post('/story/update-status', data)
+      .then(res => res.data as string)
+
 }
