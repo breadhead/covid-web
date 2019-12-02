@@ -39,6 +39,7 @@ export interface Props {
   focused?: boolean
   setUnfocused?: () => void
   host: string
+  claimId: string
 }
 
 const claimStatusesAfterAnswer = [
@@ -62,6 +63,7 @@ const Chat = ({
   focused,
   setUnfocused,
   host,
+  claimId
 }: Props) => {
   const shouldHide = !opensOnce || !isOpen
 
@@ -97,6 +99,7 @@ const Chat = ({
           role={roles[0]}
           ref={forwardedRef}
           messages={messages}
+          claimId={claimId}
         />
       </div>
       <Form

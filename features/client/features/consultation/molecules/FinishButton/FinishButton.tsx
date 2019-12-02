@@ -4,29 +4,27 @@ import { useSpecificModal } from '@app/features/common/modal'
 import { Button, ButtonSize } from '@front/ui/button'
 
 import { FINISH_MODAL_KEY } from '../../organisms/withFinishModal'
-import { useApi } from '@app/lib/api/useApi'
-import { DontUnderstandEnum } from '../../DontUnderstandEnum'
+import { useCallback } from 'react'
 
 interface Props {
   className?: string
-  claimId: string
+  onClick: () => Promise<void>
 }
 
-export const FinishButton = ({ className, claimId }: Props) => {
+export const FinishButton = ({ className, onClick }: Props) => {
   const { open } = useSpecificModal(FINISH_MODAL_KEY)
-  const api = useApi()
 
-  const onFinishButtonClick = async () => {
+  const onFinishButtonClick = useCallback(async () => {
     open()
-    await api.updateDontUnderstand({ id: claimId, status: DontUnderstandEnum.YES })
-  }
+    await onClick()
+  }, [open, onClick])
 
   return (
     <>
       <Button
         size={ButtonSize.ExtraLarge}
         className={className}
-        onClick={onFinishButtonClick as any}
+        onClick={onFinishButtonClick}
       >
         Да, мне всё понятно
       </Button>

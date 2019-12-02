@@ -62,6 +62,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
           forwardedRef={this.messages}
           onTextAreaFocus={this.onTextAreaFocus}
           scrollToBottom={this.scrollToBottom}
+          claimId={this.props.claimId}
           {...this.props}
         />
       )
