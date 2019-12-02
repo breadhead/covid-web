@@ -11,23 +11,25 @@ import MessageLoader from '../MessageLoader'
 
 import { YES_BUTTON } from '../../config'
 import { YesChatButton } from '../../atoms'
+import { Role } from '@app/models/Users/User'
 
 interface Props {
   messages: ChatMessage[]
-  role: string
+  roles: Role[]
   claimId: string
   loading?: boolean
 }
 
 const ChatWrapper = React.forwardRef<HTMLDivElement, Props>(
-  ({ messages, role, claimId, loading }: Props, ref) => {
+  ({ messages, roles, claimId, loading }: Props, ref) => {
+
     return messages.length === 0 ? (
-      <EmptyWindow role={role} />
+      <EmptyWindow role={roles[0]} />
     ) : (
         <div className={styles.chatWrapper} ref={ref!}>
           {messages.map(message => {
             if (message.content === YES_BUTTON) {
-              return <YesChatButton claimId={claimId} author={message.author} role={role} />
+              return <YesChatButton claimId={claimId} author={message.author} roles={roles} />
             }
             return (
               <Message key={message.id} message={message} />

@@ -7,18 +7,17 @@ import { useApi } from '@app/lib/api/useApi';
 import { DontUnderstandEnum } from '@app/features/client/features/consultation/DontUnderstandEnum';
 
 interface YesChatButtonProps {
-  author?: string | null
-  role: string
+  roles: Role[]
   claimId: string
+  author?: string | null
 }
 
-export const YesChatButton = ({ author = null, role, claimId }: YesChatButtonProps) => {
+export const YesChatButton = ({ author = null, roles, claimId }: YesChatButtonProps) => {
   const api = useApi()
 
-  console.log('claimId: YesChatButton', claimId)
-
   const onYesButtonClick = async () => {
-    if (role !== Role.Client) return
+    if (!roles.includes(Role.Client)) return
+    console.log('open finish modal')
     await api.updateDontUnderstand({ id: claimId, status: DontUnderstandEnum.YES })
   }
 

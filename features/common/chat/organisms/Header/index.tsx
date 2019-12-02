@@ -8,18 +8,21 @@ import { IconsList } from '@front/ui/sprite'
 import { Button } from '@app/src/ui/button'
 import { Role } from '@app/models/Users/User'
 import { YES_BUTTON } from '../../config'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import { DontUnderstandEnum } from '@app/features/client/features/consultation/DontUnderstandEnum'
 
 interface Props {
   onCloseButtonClick?: () => void
   roles: Role[]
   send: (data: any) => void
+  mainInfo: ListedClaim
 }
 
 const authorizedUsers = [Role.CaseManager, Role.Doctor]
 
-const Header = ({ onCloseButtonClick, roles, send }: Props) => {
-  const condition = authorizedUsers.includes(roles[0])
-
+const Header = ({ onCloseButtonClick, roles, send, mainInfo }: Props) => {
+  const condition = authorizedUsers.includes(roles[0]) && mainInfo.dontUnderstand === DontUnderstandEnum.NO
+  
   return (
     <header className={styles.header}>
       <button className={cx(styles.button, styles.buttonChat)}>
