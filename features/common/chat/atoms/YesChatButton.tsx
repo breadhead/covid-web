@@ -5,6 +5,7 @@ import cx from 'classnames'
 import { Role } from '@app/models/Users/User';
 import { useApi } from '@app/lib/api/useApi';
 import { DontUnderstandEnum } from '@app/features/client/features/consultation/DontUnderstandEnum';
+import { useSpecificModal } from '../../modal';
 
 interface YesChatButtonProps {
   roles: Role[]
@@ -14,10 +15,12 @@ interface YesChatButtonProps {
 
 export const YesChatButton = ({ author = null, roles, claimId }: YesChatButtonProps) => {
   const api = useApi()
+  const { open } = useSpecificModal('finish-modal')
+
 
   const onYesButtonClick = async () => {
     if (!roles.includes(Role.Client)) return
-    console.log('open finish modal')
+    open()
     await api.updateDontUnderstand({ id: claimId, status: DontUnderstandEnum.YES })
   }
 
