@@ -1,23 +1,24 @@
 import * as React from 'react'
 
 import { useSpecificModal } from '@app/features/common/modal'
-
-// import routes from '@app/routes'
 import { Button, ButtonSize } from '@front/ui/button'
 
 import { FINISH_MODAL_KEY } from '../../organisms/withFinishModal'
-
-// const { Router } = routes
+import { useApi } from '@app/lib/api/useApi'
+import { DontUnderstandEnum } from '../../DontUnderstandEnum'
 
 interface Props {
   className?: string
+  claimId: string
 }
 
-export const FinishButton = ({ className }: Props) => {
+export const FinishButton = ({ className, claimId }: Props) => {
   const { open } = useSpecificModal(FINISH_MODAL_KEY)
+  const api = useApi()
 
-  const openModal = () => {
+  const onFinishButtonClick = async () => {
     open()
+    await api.updateDontUnderstand({ id: claimId, status: DontUnderstandEnum.YES })
   }
 
   return (
@@ -25,9 +26,9 @@ export const FinishButton = ({ className }: Props) => {
       <Button
         size={ButtonSize.ExtraLarge}
         className={className}
-        onClick={openModal as any}
+        onClick={onFinishButtonClick as any}
       >
-        Да, мне все понятно
+        Да, мне всё понятно
       </Button>
     </>
   )

@@ -10,9 +10,10 @@ const { Router } = routes
 
 interface Props {
   onNoButtonClick: () => void
+  claimId: string
 }
 
-const SimpleFeedback = ({ onNoButtonClick }: Props) => {
+const SimpleFeedback = ({ onNoButtonClick, claimId }: Props) => {
   const denialClick = () => {
     onNoButtonClick()
     Router.pushRoute(`/?donation`)
@@ -23,7 +24,7 @@ const SimpleFeedback = ({ onNoButtonClick }: Props) => {
       <h3 className={styles.title}>
         Эксперт понятно ответил на{NON_BREAKING_SPACE}все ваши вопросы?
       </h3>
-      <FinishButton className={styles.finishButton} />
+      <FinishButton claimId={claimId} className={styles.finishButton} />
       <Button
         className={styles.refuseButton}
         onClick={denialClick}

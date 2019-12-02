@@ -17,11 +17,12 @@ interface Props {
   focusOnChat: () => void
   openChat: () => void
   windowSize: WindowSize
+  claimId: string
 }
 
 const STATUSES_WITH_VISIBLE_EXPERTS_BLOCK = [ClaimStatus.DeliveredToCustomer]
 
-const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
+const QuestionNotification = ({ focusOnChat, windowSize, openChat, claimId }: Props) => {
   const [isAnswerClear, setAnswerClear] = useState(true)
   const mainInfo: ListedClaim = useMappedState(getClientInfo) as ListedClaim
 
@@ -49,7 +50,7 @@ const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
             Нам важно получить обратную связь от{NON_BREAKING_SPACE}вас
           </p>
           {isAnswerClear ? (
-            <SimpleFeedback onNoButtonClick={onNoButtonClick} />
+            <SimpleFeedback claimId={claimId} onNoButtonClick={onNoButtonClick} />
           ) : (
             <ChatFeedback onClick={onChatButtonClick} />
           )}

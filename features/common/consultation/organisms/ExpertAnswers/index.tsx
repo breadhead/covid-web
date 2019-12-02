@@ -68,6 +68,7 @@ const ExpertAnswers = ({
           <QuestionNotification
             openChat={openChat}
             focusOnChat={onChatButtonClick}
+            claimId={claim.id}
           />
         )}
       </section>
