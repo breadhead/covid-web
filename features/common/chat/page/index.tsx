@@ -22,8 +22,7 @@ import { getClaimStatus } from '../../consultation'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { getDownloadLink } from './helpers/getDownloadLink'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
-import { useSpecificModal } from '../../modal'
-import { FINISH_MODAL_KEY } from '@app/features/client/features/consultation'
+
 export interface FormFileds {
   message: string
 }
