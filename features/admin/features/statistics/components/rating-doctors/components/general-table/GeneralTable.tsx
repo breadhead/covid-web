@@ -59,7 +59,9 @@ export const GeneralTable = ({ data, setCurrent }: GeneralTableProps) => {
           },
         }
       }}
-      rowClassName={s.row} dataSource={dataSource} columns={columns}
+      rowClassName={s.row}
+      dataSource={dataSource}
+      columns={columns}
     />
   )
 }

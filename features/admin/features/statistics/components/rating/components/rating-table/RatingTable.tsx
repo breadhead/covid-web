@@ -20,7 +20,12 @@ export interface RatingTableProps {
   questions: RatingQuestionI[]
 }
 
-export const RatingTable = ({ data, questionId, order, questions }: RatingTableProps) => {  
+export const RatingTable = ({
+  data,
+  questionId,
+  order,
+  questions,
+}: RatingTableProps) => {
   const dataSource = useMemo(
     () => {
       return getDataSource(data, questionId)
@@ -28,11 +33,12 @@ export const RatingTable = ({ data, questionId, order, questions }: RatingTableP
     [data],
   )
 
-  const currentQuesiton = useMemo(() => {
-    return questions && questions.find(
-      question => question.id === questionId,
-    )
-  }, [questionId, questions])
+  const currentQuesiton = useMemo(
+    () => {
+      return questions && questions.find(question => question.id === questionId)
+    },
+    [questionId, questions],
+  )
 
   const columns = getColumns()
 
@@ -44,11 +50,7 @@ export const RatingTable = ({ data, questionId, order, questions }: RatingTableP
           {currentQuesiton.question}
         </h3>
       )}
-      <Table
-        rowClassName={s.row}
-        dataSource={dataSource}
-        columns={columns}
-      />
+      <Table rowClassName={s.row} dataSource={dataSource} columns={columns} />
     </>
   )
 }
