@@ -15,19 +15,6 @@
   display: block;
 }
 
-.headerNotice {
-  width: 100%;
-  font-size: 16px;
-  background-color: #ffeab7;
-}
-
-.headerNotice .text {
-  max-width: 1000px;
-  padding: 20px;
-  text-align: center;
-  margin: auto;
-}
-
 .logo.logo.logo {
   display: flex;
   align-items: center;

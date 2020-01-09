@@ -19,13 +19,6 @@ interface Props {
 const Header = ({ token, signOutOfApp }: Props) => {
   return (
     <div className={styles.headerWrapper}>
-      <div className={styles.headerNotice}>
-        <div className={styles.text}>
-          {
-            'Мы понимаем, что вы переживаете за свое здоровье и здоровье своих близких. В новогодние праздники — с 1 по 8 января — время ответа специалиста может увеличиться. Если вы чувствуете, что вам необходима экстренная консультация, пожалуйста, не дожидайтесь ответа эксперта и срочно обратитесь к врачу или вызовите скорую помощь.'
-          }
-        </div>
-      </div>
       <header className={styles.header}>
         <Logo wrapperClassName={styles.logo} />
         <MediaQuery
