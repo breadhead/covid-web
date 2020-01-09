@@ -1,9 +1,11 @@
 import { getYears } from '../years'
 
+const curYear = new Date().getFullYear()
+
 test('year shouldbe valid', () => {
   expect(getYears(3)).toEqual([
-    { key: '2019', label: '2019' },
-    { key: '2018', label: '2018' },
-    { key: '2017', label: '2017' },
+    { key: `${curYear}`, label: `${curYear}` },
+    { key: `${curYear - 1}`, label: `${curYear - 1}` },
+    { key: `${curYear - 2}`, label: `${curYear - 2}` },
   ])
 })
