@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
 
+import { connect } from 'react-redux'
 import { fetchClaimBoardCard } from '@app/features/manager/features/quotaControl/actions'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
@@ -21,6 +21,7 @@ interface Query {
   getListOfClientClaims: (login: string) => Promise<any>
   openMessage: string
   host: string
+  avon: boolean
 }
 
 type Props = PageProps
@@ -62,6 +63,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
         roles: user.roles,
         openMessage: Object.prototype.hasOwnProperty.call(query, 'openMessage'),
         host,
+        avon: Object.prototype.hasOwnProperty.call(query, 'avon'),
       }
     }
 

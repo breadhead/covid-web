@@ -31,6 +31,8 @@ const Header = ({
   claimId,
   sponsor,
 }: Props) => {
+  const avonCondition = !!sponsor && sponsor.avon
+
   return (
     <header
       className={cx(styles.header, sponsor && sponsor.avon && styles.avon)}
@@ -55,7 +57,7 @@ const Header = ({
           )}
         </div>
       )}
-      {!!sponsor && sponsor.avon && <AvonSection />}
+      {avonCondition && <AvonSection />}
     </header>
   )
 }
