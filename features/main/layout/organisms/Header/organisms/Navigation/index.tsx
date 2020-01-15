@@ -19,44 +19,52 @@ interface Props {
   hide?: () => void
 }
 
-const Navigation = ({ className, hide, showLoginButton, signOut }: Props) => (
-  <nav className={cx(styles.menu, className)}>
-    <button className={styles.closeButton} onClick={hide}>
-      закрыть меню
-      <Icon className={styles.NavIcon} name={IconsList.CloseLight} />
-    </button>
-    <NavLink withoutUnderline href="/partners" className={styles.link}>
-      Партнёры
-      <NavIcon />
-    </NavLink>
-    <NavLink withoutUnderline href="/experts" className={styles.link}>
-      Эксперты
-      <NavIcon />
-    </NavLink>
-    <NavLink withoutUnderline href="/contacts" className={styles.link}>
-      Контакты
-      <NavIcon />
-    </NavLink>
-    <NavLink withoutUnderline href="/#donation" className={styles.link}>
-      Помочь проекту
-      <NavIcon />
-    </NavLink>
-    {!!showLoginButton ? (
-      <LoginButton className={styles.loginButton}>Войти</LoginButton>
-    ) : (
-      <>
-        <MediaQuery query={Query.FromExtraLarge}>
-          <ClientMenu className={styles.loginMenu} signOut={signOut} />
-        </MediaQuery>
-        <MediaQuery
-          className={styles.mobileMenuWrapper}
-          query={Query.ToExtraLarge}
-        >
-          <SignInMobileMenu signOut={signOut} />
-        </MediaQuery>
-      </>
-    )}
-  </nav>
-)
+const Navigation = ({ className, hide, showLoginButton, signOut }: Props) => {
+  const [val, set] = React.useState('')
+
+  return (
+    <nav className={cx(styles.menu, className)}>
+      <button className={styles.closeButton} onClick={hide}>
+        закрыть меню
+        <Icon className={styles.NavIcon} name={IconsList.CloseLight} />
+      </button>
+      <NavLink
+        withoutUnderline
+        onClick={() => set('eekeke')}
+        className={styles.link}
+      >
+        Партнёры
+        <NavIcon />
+      </NavLink>
+      <NavLink withoutUnderline href="/experts" className={styles.link}>
+        Эксперты
+        <NavIcon />
+      </NavLink>
+      <NavLink withoutUnderline href="/contacts" className={styles.link}>
+        Контакты
+        <NavIcon />
+      </NavLink>
+      <NavLink withoutUnderline href="/#donation" className={styles.link}>
+        Помочь проекту
+        <NavIcon />
+      </NavLink>
+      {!!showLoginButton ? (
+        <LoginButton className={styles.loginButton}>Войти</LoginButton>
+      ) : (
+        <>
+          <MediaQuery query={Query.FromExtraLarge}>
+            <ClientMenu className={styles.loginMenu} signOut={signOut} />
+          </MediaQuery>
+          <MediaQuery
+            className={styles.mobileMenuWrapper}
+            query={Query.ToExtraLarge}
+          >
+            <SignInMobileMenu signOut={signOut} />
+          </MediaQuery>
+        </>
+      )}
+    </nav>
+  )
+}
 
 export default Navigation
