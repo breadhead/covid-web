@@ -44,18 +44,18 @@ const Navigation = ({ className, hide, showLoginButton, signOut }: Props) => (
     {!!showLoginButton ? (
       <LoginButton className={styles.loginButton}>Войти</LoginButton>
     ) : (
-      <>
-        <MediaQuery query={Query.FromExtraLarge}>
-          <ClientMenu className={styles.loginMenu} signOut={signOut} />
-        </MediaQuery>
-        <MediaQuery
-          className={styles.mobileMenuWrapper}
-          query={Query.ToExtraLarge}
-        >
-          <SignInMobileMenu signOut={signOut} />
-        </MediaQuery>
-      </>
-    )}
+        <>
+          <MediaQuery query={Query.FromExtraLarge}>
+            <ClientMenu className={styles.loginMenu} signOut={signOut} />
+          </MediaQuery>
+          <MediaQuery
+            className={styles.mobileMenuWrapper}
+            query={Query.ToExtraLarge}
+          >
+            <SignInMobileMenu signOut={signOut} />
+          </MediaQuery>
+        </>
+      )}
   </nav>
 )
 
