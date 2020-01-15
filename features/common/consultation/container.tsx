@@ -61,9 +61,9 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       await reduxStore.dispatch(fetchDoctorsIfNeeded() as any)
       return {
         roles: user.roles,
-        openMessage: Object.prototype.hasOwnProperty.call(query, 'openMessage'),
+        openMessage: 'openMessage' in query,
         host,
-        avon: Object.prototype.hasOwnProperty.call(query, 'avon'),
+        avon: 'avon' in query,
       }
     }
 
