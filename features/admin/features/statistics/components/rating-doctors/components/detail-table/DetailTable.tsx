@@ -49,10 +49,13 @@ export const DetailTable = ({ setCurrent, content }: DetailTableProps) => {
       {!!content && !!questions && (
         <section className={s.content}>
           <h1>{doctor}</h1>
-
-          <Tabs defaultActiveKey="value">
+          <Tabs defaultActiveKey="common">
+            <TabPane tab="Общая инфоромация" key="common" className={s.tab}>
+              <p>график с показателями из таблицы относительно времени</p>
+            </TabPane>
             <TabPane tab="Вопросы" key="value" className={s.tab}>
               <span>Средний рейтинг по всем вопросам: {average}</span>
+              <span>Медианный рейтинг по всем вопросам</span>
               <section className={s.valueContainer}>
                 {value.map(rating => {
                   return (
