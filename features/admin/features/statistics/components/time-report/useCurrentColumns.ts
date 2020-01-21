@@ -42,6 +42,14 @@ export const useCurrentColumns = (
           sorter: (a: { max: number }, b: { max: number }) => a.max - b.max,
         },
         {
+          title: 'Всего заявок',
+          dataIndex: 'all',
+          key: 'all',
+          defaultSortOrder: 'descend',
+          sorter: (a: { all: number }, b: { all: number }) =>
+            a.all - b.all,
+        },
+        {
           title: 'Закрытых вовремя заявок',
           dataIndex: 'success',
           key: 'success',
@@ -58,6 +66,22 @@ export const useCurrentColumns = (
             a.closedByClient - b.closedByClient,
         },
         {
+          title: 'Средняя оценка',
+          dataIndex: 'rating-average',
+          key: 'rating-average',
+          defaultSortOrder: 'descend',
+          sorter: (a: { ratingAverage: number }, b: { ratingAverage: number }) =>
+            a.ratingAverage - b.ratingAverage,
+        },
+        {
+          title: 'Медианная оценка',
+          dataIndex: 'rating-median',
+          key: 'rating-median',
+          defaultSortOrder: 'descend',
+          sorter: (a: { ratingMedian: number }, b: { ratingMedian: number }) =>
+            a.ratingMedian - b.ratingMedian,
+        },
+        {
           title: 'Просроченных заявок',
           dataIndex: 'failure',
           key: 'failure',
@@ -69,7 +93,7 @@ export const useCurrentColumns = (
 
       setColumns(currentColumns)
     },
-    [getColumnSearchProps],
+    [],
   )
 
   return columns

@@ -14,13 +14,17 @@ const now = new Date()
 export const TimeReport = () => {
   const api = useApi()
   const [timeData, setTimeData] = useState<TimeReportModel | null>(null)
+  // const [ratingData, setRatingData] = useState<RatingDoctorsType[] | null>(null)
 
   const [from, setFrom] = useState<Date>(DEFAULT_START)
   const [to, setTo] = useState<Date>(now)
 
   useEffect(
     () => {
+      // TODO: in this data should be rating values
       api.fetchTimeReport(from, to).then(setTimeData)
+      // api.fetchRatingDoctors(from, to).then(setRatingData)
+      // api.fetchRatingDoctors().then(setRatingData)
     },
     [from, to],
   )
@@ -45,6 +49,10 @@ export const TimeReport = () => {
           <p>Максимальное время ответа: {formatTimestamp(max)}</p>
           <p>Всего заявок, закрытых вовремя: {success}</p>
           <p>Всего просроченных заявок: {failure}</p>
+        </div>
+        <div>
+          <p>Средний рейтинг по всем вопросам: </p>
+          <p>Медианный рейтинг по всем вопросам: </p>
         </div>
         <ReportCalendar from={from} to={to} setFrom={setFrom} setTo={setTo} />
       </section>

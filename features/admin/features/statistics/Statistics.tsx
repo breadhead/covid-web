@@ -25,14 +25,13 @@ export const Statistics = () => {
         <TabPane tab="Время ответа врачей" key="time" className={s.tab}>
           <TimeReport />
         </TabPane>
-        <TabPane tab="Рейтинг врачей" key="rating-doctors" className={s.tab}>
-          <RatingDoctors />
-        </TabPane>
         <TabPane
           tab="Оценка качества консультаций"
           key="rating"
           className={s.tab}
         >
+          <p>средняя оценка по всем вопросам</p>
+          <p>медианная оценка по всем вопросам</p>
           <Tabs defaultActiveKey="rating-questions">
             <TabPane tab="Рейтинг" key="rating-questions" className={s.tab}>
               <Rating />
@@ -45,6 +44,9 @@ export const Statistics = () => {
               <Comments />
             </TabPane>
           </Tabs>
+        </TabPane>
+        <TabPane tab="Рейтинг врачей" key="rating-doctors" className={s.tab}>
+          <RatingDoctors />
         </TabPane>
         <TabPane tab="Воронка продаж" key="funnel" className={s.tab}>
           <ClaimsFunnel />
