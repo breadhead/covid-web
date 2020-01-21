@@ -8,6 +8,7 @@ import { useCurrentColumns } from './useCurrentColumns'
 import { DEFAULT_START } from '../funnel/ClaimsFunnel'
 import { ReportCalendar } from './components/report-calendar'
 import { getTableData } from './helpers/getTableData'
+import * as s from './TimeReport.css'
 
 const now = new Date()
 
@@ -56,7 +57,7 @@ export const TimeReport = () => {
         </div>
         <ReportCalendar from={from} to={to} setFrom={setFrom} setTo={setTo} />
       </section>
-      <Table columns={columns} dataSource={tableData} />
+      <div className={s.tableContainer}><Table columns={columns} dataSource={tableData} /></div>
     </div>
   )
 }
