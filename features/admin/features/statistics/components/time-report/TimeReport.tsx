@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Table } from 'antd'
 import { useApi } from '@app/lib/api/useApi'
 import { formatTimestamp } from '../../helpers/formatTimestamp'
-import { TimeReport as TimeReportModel } from '@app/src/domain/statistics/model/time-report'
+import { TimeReport as TimeReportModel } from './../../types/TimeReport'
 import { useColumnSearchProps } from './useColumnSearchProps'
 import { useCurrentColumns } from './useCurrentColumns'
-import { DEFAULT_START } from '../funnel/ClaimsFunnel';
-import { ReportCalendar } from './components/report-calendar';
-import { getTableData } from './helpers/getTableData';
+import { DEFAULT_START } from '../funnel/ClaimsFunnel'
+import { ReportCalendar } from './components/report-calendar'
+import { getTableData } from './helpers/getTableData'
 
 const now = new Date()
 

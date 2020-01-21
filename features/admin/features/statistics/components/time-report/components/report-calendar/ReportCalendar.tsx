@@ -1,18 +1,18 @@
-import * as React from 'react';
+import * as React from 'react'
 
 import { Button } from '@app/src/ui/button'
-import RangePicker from '@app/features/admin/features/history/molecule/RangePicker';
-import { useCallback } from 'react';
-import { DEFAULT_START } from '../../../funnel/ClaimsFunnel';
+import RangePicker from '@app/features/admin/features/history/molecule/RangePicker'
+import { useCallback } from 'react'
+import { DEFAULT_START } from '../../../funnel/ClaimsFunnel'
 import saveFile from 'js-file-download'
-import { useApi } from '@app/lib/api/useApi';
-import formatDate from '@app/features/client/features/claims/helpers/formatDate';
+import { useApi } from '@app/lib/api/useApi'
+import formatDate from '@app/features/client/features/claims/helpers/formatDate'
 
 interface ReportCalendarProps {
-  from: Date,
-  to: Date,
-  setFrom: (val: Date) => void,
-  setTo: (val: Date) => void,
+  from: Date
+  to: Date
+  setFrom: (val: Date) => void
+  setTo: (val: Date) => void
 }
 
 const now = new Date()
@@ -21,10 +21,8 @@ export const ReportCalendar = ({
   from,
   to,
   setFrom,
-  setTo
+  setTo,
 }: ReportCalendarProps) => {
-
-
   const api = useApi()
 
   const changePeriod = useCallback(

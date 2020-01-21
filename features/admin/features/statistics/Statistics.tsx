@@ -10,8 +10,8 @@ import s from './Statistics.css'
 import { ClaimsFunnel } from './components/funnel'
 
 import { RatingDoctors } from './components/rating-doctors'
-import { Rating } from './components/rating';
-import { Comments } from './components/comments';
+import { Rating } from './components/rating'
+import { Comments } from './components/comments'
 
 export const Statistics = () => {
   return (
