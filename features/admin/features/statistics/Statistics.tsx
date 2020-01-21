@@ -9,7 +9,6 @@ import { TimeReport } from './components/time-report'
 import s from './Statistics.css'
 import { ClaimsFunnel } from './components/funnel'
 
-import { RatingDoctors } from './components/rating-doctors'
 import { Rating } from './components/rating'
 import { Comments } from './components/comments'
 
@@ -18,11 +17,11 @@ export const Statistics = () => {
     <Layout styles={s.statisticsContainer}>
       <h1>Статистика</h1>
 
-      <Tabs defaultActiveKey="archive">
+      <Tabs defaultActiveKey="doctors">
         <TabPane tab="Архив заявок" key="archive" className={s.tab}>
           <ClaimArchive />
         </TabPane>
-        <TabPane tab="Время ответа врачей" key="time" className={s.tab}>
+        <TabPane tab="Статистика по врачам" key="doctors" className={s.tab}>
           <TimeReport />
         </TabPane>
         <TabPane
@@ -45,9 +44,9 @@ export const Statistics = () => {
             </TabPane>
           </Tabs>
         </TabPane>
-        <TabPane tab="Рейтинг врачей" key="rating-doctors" className={s.tab}>
+        {/* <TabPane tab="Старый Рейтинг врачей" key="rating-doctors" className={s.tab}>
           <RatingDoctors />
-        </TabPane>
+        </TabPane> */}
         <TabPane tab="Воронка продаж" key="funnel" className={s.tab}>
           <ClaimsFunnel />
         </TabPane>

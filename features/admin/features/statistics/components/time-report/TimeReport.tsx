@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { Table } from 'antd'
 import { useApi } from '@app/lib/api/useApi'
 import { formatTimestamp } from '../../helpers/formatTimestamp'
@@ -9,13 +9,16 @@ import { DEFAULT_START } from '../funnel/ClaimsFunnel'
 import { ReportCalendar } from './components/report-calendar'
 import { getTableData } from './helpers/getTableData'
 import * as s from './TimeReport.css'
+import { RatingDoctorsType } from '../../RatingDoctors';
+import { DetailTable } from '../rating-doctors/components/detail-table';
 
 const now = new Date()
 
 export const TimeReport = () => {
   const api = useApi()
   const [timeData, setTimeData] = useState<TimeReportModel | null>(null)
-  // const [ratingData, setRatingData] = useState<RatingDoctorsType[] | null>(null)
+  const [ratingData, setRatingData] = useState<RatingDoctorsType[] | null>(null)
+  const [currentDoctorName, setCurrentDoctorName] = useState<string | null>(null)
 
   const [from, setFrom] = useState<Date>(DEFAULT_START)
   const [to, setTo] = useState<Date>(now)
@@ -25,9 +28,16 @@ export const TimeReport = () => {
       // TODO: in this data should be rating values
       api.fetchTimeReport(from, to).then(setTimeData)
       // api.fetchRatingDoctors(from, to).then(setRatingData)
-      // api.fetchRatingDoctors().then(setRatingData)
+      api.fetchRatingDoctors().then(setRatingData)
     },
     [from, to],
+  )
+
+  const currentDoctor = useMemo(
+    () => {
+      return !!ratingData && ratingData.find(item => item.doctor === currentDoctorName)
+    },
+    [currentDoctorName, ratingData],
   )
 
   const getColumnSearchProps = useColumnSearchProps()
@@ -41,7 +51,7 @@ export const TimeReport = () => {
 
   const tableData = getTableData(doctors)
 
-  return (
+  return (!!currentDoctorName && !!currentDoctor ? <DetailTable content={currentDoctor} setCurrent={setCurrentDoctorName} /> :
     <div>
       <section style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div>
@@ -57,7 +67,16 @@ export const TimeReport = () => {
         </div>
         <ReportCalendar from={from} to={to} setFrom={setFrom} setTo={setTo} />
       </section>
-      <div className={s.tableContainer}><Table columns={columns} dataSource={tableData} /></div>
+      <div className={s.tableContainer}><Table
+
+        onRow={(record: any) => {
+          return {
+            onClick: () => {
+              setCurrentDoctorName(record.name)
+            },
+          }
+        }}
+        columns={columns} dataSource={tableData} /></div>
     </div>
   )
 }

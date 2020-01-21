@@ -55,6 +55,7 @@ export const DetailTable = ({ setCurrent, content }: DetailTableProps) => {
             </TabPane>
             <TabPane tab="Вопросы" key="value" className={s.tab}>
               <span>Средний рейтинг по всем вопросам: {average}</span>
+              <br/>
               <span>Медианный рейтинг по всем вопросам</span>
               <section className={s.valueContainer}>
                 {value.map(rating => {
