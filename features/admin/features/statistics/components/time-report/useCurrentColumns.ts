@@ -50,6 +50,14 @@ export const useCurrentColumns = (
             a.success - b.success,
         },
         {
+          title: 'Закрытых клиентом заявок',
+          dataIndex: 'closed-by-client',
+          key: 'closed-by-client',
+          defaultSortOrder: 'descend',
+          sorter: (a: { closedByClient: number }, b: { closedByClient: number }) =>
+            a.closedByClient - b.closedByClient,
+        },
+        {
           title: 'Просроченных заявок',
           dataIndex: 'failure',
           key: 'failure',
