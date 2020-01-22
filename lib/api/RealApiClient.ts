@@ -15,7 +15,6 @@ import { Transaction } from '@app/models/Quota/Transaction'
 import { Doctor } from '@app/models/Users/Doctor'
 import { User } from '@app/models/Users/User'
 import { CorporateStatus } from '@front/domain/claim/enums/CorporateStatus'
-import { TimeReport } from '@front/domain/statistics/model/time-report'
 import ApiClient, { UploadedFile } from './ApiClient'
 import { queryString } from './helper/queryString'
 import { tapDate } from './helper/tapDate'
@@ -37,6 +36,8 @@ import { Story } from '@app/models/Story'
 import { StoryUpdateStatusRequest } from '@app/models/Story/StoryUpdateStatusRequest'
 import { RatingCommentQuestion } from '@app/features/admin/features/statistics/RatingCommentQuestion'
 import { RatingDoctorsType } from '@app/features/admin/features/statistics/RatingDoctors'
+import { DoctorStatsReport } from '@app/features/admin/features/statistics/types/DoctorStatsReport'
+import { TimeReport } from '@app/features/admin/features/statistics/types'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -335,4 +336,9 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .get('/statistics/rating-report-doctors')
       .then(res => res.data as RatingDoctorsType[])
+
+  public fetchDoctorReport = (from: Date, to: Date, name: string) =>
+    this.axiosInstance
+      .get(`/statistics/doctor-report?${queryString({ from, to, name })}`)
+      .then(res => res.data as DoctorStatsReport)
 }

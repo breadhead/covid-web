@@ -29,6 +29,7 @@ import { Story } from '@app/models/Story'
 import { StoryUpdateStatusRequest } from '@app/models/Story/StoryUpdateStatusRequest'
 import { RatingCommentQuestion } from '@app/features/admin/features/statistics/RatingCommentQuestion'
 import { RatingDoctorsType } from '@app/features/admin/features/statistics/RatingDoctors'
+import { DoctorStatsReport } from '@app/features/admin/features/statistics/types/DoctorStatsReport'
 
 export interface UploadedFile {
   path: string
@@ -99,4 +100,9 @@ export default interface ApiClient {
   addStoryPhone(data: ClientStoryData): Promise<string>
   fetchStories(): Promise<Story[]>
   updateStoryStatus(data: StoryUpdateStatusRequest): Promise<string>
+  fetchDoctorReport(
+    from: Date,
+    to: Date,
+    name: string,
+  ): Promise<DoctorStatsReport>
 }
