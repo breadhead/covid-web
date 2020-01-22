@@ -57,8 +57,8 @@ export const useCurrentColumns = (
       },
       {
         title: 'Закрытых клиентом заявок',
-        dataIndex: 'closed-by-client',
-        key: 'closed-by-client',
+        dataIndex: 'closedByClient',
+        key: 'closedByClient',
         defaultSortOrder: 'descend',
         sorter: (
           a: { closedByClient: number },
@@ -67,16 +67,16 @@ export const useCurrentColumns = (
       },
       {
         title: 'Средняя оценка',
-        dataIndex: 'rating-average',
-        key: 'rating-average',
+        dataIndex: 'ratingAverage',
+        key: 'ratingAverage',
         defaultSortOrder: 'descend',
         sorter: (a: { ratingAverage: number }, b: { ratingAverage: number }) =>
           a.ratingAverage - b.ratingAverage,
       },
       {
         title: 'Медианная оценка',
-        dataIndex: 'rating-median',
-        key: 'rating-median',
+        dataIndex: 'ratingMedian',
+        key: 'ratingMedian',
         defaultSortOrder: 'descend',
         sorter: (a: { ratingMedian: number }, b: { ratingMedian: number }) =>
           a.ratingMedian - b.ratingMedian,
