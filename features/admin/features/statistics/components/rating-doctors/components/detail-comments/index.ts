@@ -1,0 +1,1 @@
+export { DetailComments } from './DetailComments'
