@@ -29,8 +29,9 @@ export const Statistics = () => {
           key="rating"
           className={s.tab}
         >
-          <p>средняя оценка по всем вопросам</p>
-          <p>медианная оценка по всем вопросам</p>
+          {/* TODO: add info */}
+          {/* <p>средняя оценка по всем вопросам</p>
+          <p>медианная оценка по всем вопросам</p> */}
           <Tabs defaultActiveKey="rating-questions">
             <TabPane tab="Рейтинг" key="rating-questions" className={s.tab}>
               <Rating />

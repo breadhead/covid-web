@@ -52,7 +52,16 @@ export const TimeReport = () => {
     return <p>Загружаем...</p>
   }
 
-  const { median, max, average, doctors, success, failure } = timeData
+  const {
+    median,
+    max,
+    average,
+    doctors,
+    success,
+    failure,
+    ratingAverage,
+    ratingMedian,
+  } = timeData
 
   const tableData = getTableData(doctors)
 
@@ -69,8 +78,8 @@ export const TimeReport = () => {
           <p>Всего просроченных заявок: {failure}</p>
         </div>
         <div>
-          <p>Средний рейтинг по всем вопросам: </p>
-          <p>Медианный рейтинг по всем вопросам: </p>
+          <p>Средний рейтинг по всем вопросам: {ratingAverage}</p>
+          <p>Медианный рейтинг по всем вопросам: {ratingMedian}</p>
         </div>
         <ReportCalendar from={from} to={to} setFrom={setFrom} setTo={setTo} />
       </section>

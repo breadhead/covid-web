@@ -32,8 +32,7 @@ export const DetailTable = ({ setCurrent, content }: DetailTableProps) => {
       .then(questions => questions.sort((a, b) => a.order - b.order))
       .then(setQuestions)
   }, [])
-
-  const { doctor, average, value, comment } = content
+  const { doctor, average, median, value, comment } = content
 
   return (
     <div>
@@ -56,7 +55,7 @@ export const DetailTable = ({ setCurrent, content }: DetailTableProps) => {
             <TabPane tab="Вопросы" key="value" className={s.tab}>
               <span>Средний рейтинг по всем вопросам: {average}</span>
               <br />
-              <span>Медианный рейтинг по всем вопросам</span>
+              <span>Медианный рейтинг по всем вопросам: {median}</span>
               <section className={s.valueContainer}>
                 {value.map(rating => {
                   return (

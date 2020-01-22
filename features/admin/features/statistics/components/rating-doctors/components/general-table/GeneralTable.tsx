@@ -44,6 +44,14 @@ export const GeneralTable = ({ data, setCurrent }: GeneralTableProps) => {
       },
     },
     {
+      title: 'Медианный рейтинг по всем вопросам',
+      dataIndex: 'median',
+      key: 'median',
+      sorter: (a: any, b: any) => {
+        return a.median - b.median
+      },
+    },
+    {
       title: '',
       dataIndex: 'stars',
       key: 'stars',

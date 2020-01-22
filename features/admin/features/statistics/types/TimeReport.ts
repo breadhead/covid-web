@@ -8,4 +8,6 @@ export interface TimeReport {
   success: number
   failure: number
   doctors: DoctorTimeReport[]
+  ratingAverage: number
+  ratingMedian: number
 }
