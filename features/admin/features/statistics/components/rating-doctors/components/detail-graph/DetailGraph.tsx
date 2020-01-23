@@ -35,6 +35,7 @@ export const DetailGraph = ({ name }: DetailGraphProps) => {
 
   return (
     <div>
+      <h2>Количество заявок</h2>
       <LineChart
         width={1000}
         height={500}
@@ -46,14 +47,26 @@ export const DetailGraph = ({ name }: DetailGraphProps) => {
         <YAxis />
         <Tooltip />
         <Legend />
-        {/* <Line type="monotone" dataKey="median" stroke="#8884d8" />
-        <Line type="monotone" dataKey="average" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="max" stroke="#fcedaa" /> */}
-
-        <Line type="monotone" dataKey="success" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="failure" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="closedByClient" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="all" stroke="#82ca9d" />
+        {/* <Line type="monotone" dataKey="average" stroke="#888" strokeWidth="3" /> */}
+        <Line
+          type="monotone"
+          dataKey="success"
+          stroke="#82ca9d"
+          strokeWidth="3"
+        />
+        <Line
+          type="monotone"
+          dataKey="failure"
+          stroke="#ca8282"
+          strokeWidth="3"
+        />
+        <Line
+          type="monotone"
+          dataKey="closedByClient"
+          stroke="#f0ac3e"
+          strokeWidth="3"
+        />
+        <Line type="monotone" dataKey="all" stroke="#3c54ee" strokeWidth="3" />
       </LineChart>
     </div>
   )
