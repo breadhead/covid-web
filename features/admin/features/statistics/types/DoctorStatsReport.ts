@@ -1,5 +1,5 @@
 export interface DoctorStatsReport {
-  name: string
+  monthName: number
   average: number
   median: number
   min: number
@@ -8,6 +8,6 @@ export interface DoctorStatsReport {
   failure: number
   closedByClient: number
   all: number
-  ratingAverage: number
-  ratingMedian: number
+  ratingAverage?: number
+  ratingMedian?: number
 }
