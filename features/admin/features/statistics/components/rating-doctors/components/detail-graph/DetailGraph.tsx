@@ -1,19 +1,16 @@
 import * as React from 'react'
-
-import {
-  LineChart,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-  Line,
-} from 'recharts'
-
 import { useApi } from '@app/lib/api/useApi'
 import { useEffect, useState } from 'react'
 import { DoctorStatsReport } from '../../../../types/DoctorStatsReport'
-import { useChartData } from './useChartData'
+import { Select } from 'antd'
+import { DetailChart } from './components/detail-chart'
+
+const { Option } = Select
+
+export enum GraphType {
+  Count = 'count',
+  Time = 'time',
+}
 
 interface DetailGraphProps {
   name: string
@@ -23,6 +20,7 @@ export const DetailGraph = ({ name }: DetailGraphProps) => {
   const api = useApi()
 
   const [data, setData] = useState<DoctorStatsReport[] | null>(null)
+  const [current, setCurrent] = useState(GraphType.Count)
 
   useEffect(
     () => {
@@ -31,45 +29,19 @@ export const DetailGraph = ({ name }: DetailGraphProps) => {
     [name],
   )
 
-  const chartData = useChartData(data)
-
   return (
     <div>
-      <h2>Количество заявок</h2>
-      <LineChart
-        width={1000}
-        height={500}
-        data={chartData}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+      <Select
+        defaultValue={GraphType.Count}
+        style={{ width: 320, marginBottom: 44, marginLeft: 4 }}
+        onChange={val => {
+          setCurrent(val)
+        }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="monthName" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line
-          type="monotone"
-          dataKey="Закрыты вовремя"
-          stroke="#82ca9d"
-          strokeWidth="3"
-        />
-        <Line
-          type="monotone"
-          dataKey="Просрочены"
-          stroke="#ca8282"
-          strokeWidth="3"
-        />
-        <Line
-          type="monotone"
-          dataKey="Закрыты клиентом"
-          stroke="#f0ac3e"
-          strokeWidth="3"
-        />
-        <Line type="monotone" dataKey="Всего" stroke="#3c54ee" strokeWidth="3" />
-        <Line type="monotone" dataKey="Средняя оценка" stroke="#ffa6ed" strokeWidth="3" />
-        <Line type="monotone" dataKey="Медианная оценка" stroke=" #bca6ff" strokeWidth="3" />
-
-      </LineChart>
+        <Option value={GraphType.Count}>Количество заявок</Option>
+        <Option value={GraphType.Time}>Время ответа</Option>
+      </Select>
+      <DetailChart type={current} data={data} />
     </div>
   )
 }
