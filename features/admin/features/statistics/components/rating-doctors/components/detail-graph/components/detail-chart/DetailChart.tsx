@@ -4,6 +4,7 @@ import { useChartDataClaimsCount } from '../../useChartDataClaimsCount'
 import { DoctorStatsReport } from '@app/features/admin/features/statistics/types/DoctorStatsReport'
 import { GraphType } from '../../DetailGraph'
 import { ChartCount } from '../chart-count'
+import { ChartTime } from '../chart-time'
 
 interface DetailChartProps {
   type: GraphType
@@ -13,9 +14,12 @@ interface DetailChartProps {
 export const DetailChart = ({ type, data }: DetailChartProps) => {
   const chartData = useChartDataClaimsCount(type, data)
 
-  return (
-    <div>
-      <ChartCount data={chartData} />
-    </div>
-  )
+  switch (type) {
+    case GraphType.Count:
+      return <ChartCount data={chartData} />
+    case GraphType.Time:
+      return <ChartTime data={chartData} />
+    default:
+      return null
+  }
 }

@@ -26,7 +26,15 @@ export const useChartDataClaimsCount = (
         }
       })
     case GraphType.Time:
-      return null
+      return data.map(item => {
+        return {
+          ['monthName']: monthsMap[item.monthName],
+          ['Среднее время']: Math.round(item.average / 1000 / 60 / 60),
+          ['Медианное время']: Math.round(item.median / 1000 / 60 / 60),
+          ['Максимальное время']: Math.round(item.max / 1000 / 60 / 60),
+          ['Минимальное время']: Math.round(item.min / 1000 / 60 / 60),
+        }
+      })
     default:
       return null
   }
