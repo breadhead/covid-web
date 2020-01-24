@@ -47,18 +47,6 @@ export const ChartCount = ({ data }: ChartCountProps) => {
         strokeWidth="3"
       />
       <Line type="monotone" dataKey="Всего" stroke="#3c54ee" strokeWidth="3" />
-      <Line
-        type="monotone"
-        dataKey="Средняя оценка"
-        stroke="#ffa6ed"
-        strokeWidth="3"
-      />
-      <Line
-        type="monotone"
-        dataKey="Медианная оценка"
-        stroke=" #bca6ff"
-        strokeWidth="3"
-      />
     </LineChart>
   )
 }
