@@ -10,13 +10,13 @@ export const useChartData = (data: DoctorStatsReport[] | null) => {
     })
     .map(item => {
       return {
-        ...item,
         monthName: monthsMap[item.monthName],
-        median: {
-          name: 'mememm',
-          value: Math.round(item.median / 1000 / 60 / 60),
-        },
-        max: Math.round(item.max / 1000 / 60 / 60),
+        ['Всего']: item.all,
+        ['Закрыты вовремя']: item.success,
+        ['Просрочены']: item.failure,
+        ['Закрыты клиентом']: item.closedByClient,
+        ['Медианная оценка']: item.ratingMedian,
+        ['Средняя оценка']: item.ratingAverage,
       }
     })
 

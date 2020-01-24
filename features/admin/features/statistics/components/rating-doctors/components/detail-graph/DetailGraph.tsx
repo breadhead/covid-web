@@ -47,26 +47,28 @@ export const DetailGraph = ({ name }: DetailGraphProps) => {
         <YAxis />
         <Tooltip />
         <Legend />
-        {/* <Line type="monotone" dataKey="average" stroke="#888" strokeWidth="3" /> */}
         <Line
           type="monotone"
-          dataKey="success"
+          dataKey="Закрыты вовремя"
           stroke="#82ca9d"
           strokeWidth="3"
         />
         <Line
           type="monotone"
-          dataKey="failure"
+          dataKey="Просрочены"
           stroke="#ca8282"
           strokeWidth="3"
         />
         <Line
           type="monotone"
-          dataKey="closedByClient"
+          dataKey="Закрыты клиентом"
           stroke="#f0ac3e"
           strokeWidth="3"
         />
-        <Line type="monotone" dataKey="all" stroke="#3c54ee" strokeWidth="3" />
+        <Line type="monotone" dataKey="Всего" stroke="#3c54ee" strokeWidth="3" />
+        <Line type="monotone" dataKey="Средняя оценка" stroke="#ffa6ed" strokeWidth="3" />
+        <Line type="monotone" dataKey="Медианная оценка" stroke=" #bca6ff" strokeWidth="3" />
+
       </LineChart>
     </div>
   )
