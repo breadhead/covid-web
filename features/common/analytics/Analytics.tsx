@@ -15,10 +15,22 @@ export const Analytics = () => (
       })(window,document,'script','dataLayer','${GTM_ID}');`,
         }}
       />
+      <script
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `!function(){var t = document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?165",t.onload=function(){VK.Retargeting.Init("VK-RTRG-447034-ak54Y"),VK.Retargeting.Hit()},document.head.appendChild(t)}();`,
+        }}
+      />
     </Head>
     <noscript
       dangerouslySetInnerHTML={{
         __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden;"></iframe>`,
+      }}
+    />
+
+    <noscript
+      dangerouslySetInnerHTML={{
+        __html: `<img src="https://vk.com/rtrg?p=VK-RTRG-447034-ak54Y" style="position:fixed; left:-999px;" alt=""/>`,
       }}
     />
   </>

@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-computed-key */
 import { DoctorStatsReport } from '../../../../types/DoctorStatsReport'
 import { monthsMap } from './hepers/monthsMap'
 import { GraphType } from './DetailGraph'
