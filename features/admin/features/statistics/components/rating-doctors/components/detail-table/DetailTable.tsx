@@ -39,7 +39,7 @@ export const DetailTable = ({
       .then(questions => questions.sort((a, b) => a.order - b.order))
       .then(setQuestions)
   }, [])
-  console.log('ratingContent:', !!ratingContent && !!questions)
+
   return (
     <div>
       <Button
@@ -55,7 +55,7 @@ export const DetailTable = ({
         <section className={s.content}>
           <h1>{name}</h1>
           <Tabs defaultActiveKey="common">
-            <TabPane tab="Общая инфоромация" key="common" className={s.tab}>
+            <TabPane tab="Общая информация" key="common" className={s.tab}>
               <DetailGraph name={name} />
             </TabPane>
             {!!ratingContent && !!questions && (

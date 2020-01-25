@@ -1,0 +1,1 @@
+export { DetailCommon } from './DetailCommon'

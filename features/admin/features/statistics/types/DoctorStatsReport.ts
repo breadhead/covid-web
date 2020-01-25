@@ -1,4 +1,4 @@
-export interface DoctorStatsReport {
+export interface DoctorGraphInfo {
   monthName: number
   average: number
   median: number
@@ -8,6 +8,11 @@ export interface DoctorStatsReport {
   failure: number
   closedByClient: number
   all: number
-  ratingAverage?: number
-  ratingMedian?: number
+}
+export interface DoctorStatsReport {
+  success: number
+  failure: number
+  closedByClient: number
+  all: number
+  graphInfo: DoctorGraphInfo[]
 }

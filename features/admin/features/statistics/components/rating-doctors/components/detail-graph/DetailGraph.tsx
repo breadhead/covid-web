@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import { DoctorStatsReport } from '../../../../types/DoctorStatsReport'
 import { Select } from 'antd'
 import { DetailChart } from './components/detail-chart'
+import { DetailCommon } from './components/detail-common';
+import * as s from './DetailGraph.css'
 
 const { Option } = Select
 
@@ -19,7 +21,7 @@ interface DetailGraphProps {
 export const DetailGraph = ({ name }: DetailGraphProps) => {
   const api = useApi()
 
-  const [data, setData] = useState<DoctorStatsReport[] | null>(null)
+  const [data, setData] = useState<DoctorStatsReport | null>(null)
   const [current, setCurrent] = useState(GraphType.Count)
 
   useEffect(
@@ -29,19 +31,24 @@ export const DetailGraph = ({ name }: DetailGraphProps) => {
     [name],
   )
 
+  if (!data) return <div>download</div>
+
   return (
     <div>
-      <Select
-        defaultValue={GraphType.Count}
-        style={{ width: 320, marginBottom: 44, marginLeft: 4 }}
-        onChange={val => {
-          setCurrent(val)
-        }}
-      >
-        <Option value={GraphType.Count}>Количество заявок</Option>
-        <Option value={GraphType.Time}>Время ответа</Option>
-      </Select>
-      <DetailChart type={current} data={data} />
+      <div className={s.info}>
+        <Select
+          defaultValue={GraphType.Count}
+          style={{ width: 320, marginBottom: 44, marginLeft: 4 }}
+          onChange={val => {
+            setCurrent(val)
+          }}
+        >
+          <Option value={GraphType.Count}>Количество заявок</Option>
+          <Option value={GraphType.Time}>Время ответа</Option>
+        </Select>
+        <DetailCommon type={current} data={data} />
+      </div>
+      <DetailChart type={current} data={data.graphInfo} />
     </div>
   )
 }

@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-computed-key */
-import { DoctorStatsReport } from '../../../../types/DoctorStatsReport'
+import { DoctorGraphInfo } from '../../../../types/DoctorStatsReport'
 import { monthsMap } from './hepers/monthsMap'
 import { GraphType } from './DetailGraph'
 import { formatTimestampToDays } from '../../../../helpers/formatTimestampToDays'
@@ -10,7 +10,7 @@ export interface FormattedChatData {
 
 export const useChartData = (
   type: GraphType,
-  data: DoctorStatsReport[] | null,
+  data: DoctorGraphInfo[] | null,
 ): FormattedChatData[] | null => {
   if (!data) return null
 
@@ -23,8 +23,6 @@ export const useChartData = (
           ['Закрыты вовремя']: item.success,
           ['Просрочены']: item.failure,
           ['Закрыты клиентом']: item.closedByClient,
-          ['Медианная оценка']: item.ratingMedian,
-          ['Средняя оценка']: item.ratingAverage,
         }
       })
     case GraphType.Time:
