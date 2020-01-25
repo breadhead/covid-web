@@ -16,7 +16,7 @@ export const useChartData = (
 
   switch (type) {
     case GraphType.Count:
-      return data.map(item => {
+      return data.sort((a, b) => b.index - a.index).map(item => {
         return {
           ['monthName']: monthsMap[item.monthName],
           ['Всего']: item.all,
@@ -26,7 +26,7 @@ export const useChartData = (
         }
       })
     case GraphType.Time:
-      return data.map(item => {
+      return data.sort((a, b) => b.index - a.index).map(item => {
         return {
           ['monthName']: monthsMap[item.monthName],
           ['Среднее время']: formatTimestampToDays(item.average),

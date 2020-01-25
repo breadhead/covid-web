@@ -1,4 +1,5 @@
 export interface DoctorGraphInfo {
+  index: number
   monthName: number
   average: number
   median: number
