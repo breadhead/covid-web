@@ -39,7 +39,7 @@ export const DetailTable = ({
       .then(questions => questions.sort((a, b) => a.order - b.order))
       .then(setQuestions)
   }, [])
-
+  console.log('ratingContent:', !!ratingContent && !!questions)
   return (
     <div>
       <Button
@@ -51,28 +51,28 @@ export const DetailTable = ({
         Ко всем врачам
       </Button>
 
-      {!!questions && !!name && (
+      {!!name && (
         <section className={s.content}>
           <h1>{name}</h1>
           <Tabs defaultActiveKey="common">
             <TabPane tab="Общая инфоромация" key="common" className={s.tab}>
               <DetailGraph name={name} />
             </TabPane>
-            {ratingContent && (
-              <>
-                <TabPane tab="Вопросы" key="value" className={s.tab}>
-                  <DetailRating
-                    average={ratingContent.average}
-                    median={ratingContent.median}
-                    value={ratingContent.value}
-                    questions={questions}
-                  />
-                </TabPane>
-                <TabPane tab="Комментарии" key="comment" className={s.tab}>
-                  <DetailComments comment={ratingContent.comment} />
-                </TabPane>
-              </>
+            {!!ratingContent && !!questions && (
+
+              <TabPane tab="Вопросы" key="value" className={s.tab}>
+                <DetailRating
+                  average={ratingContent.average}
+                  median={ratingContent.median}
+                  value={ratingContent.value}
+                  questions={questions}
+                />
+              </TabPane>
             )}
+            {!!ratingContent && (
+              <TabPane tab="Комментарии" key="comment" className={s.tab}>
+                <DetailComments comment={ratingContent.comment} />
+              </TabPane>)}
           </Tabs>
         </section>
       )}
