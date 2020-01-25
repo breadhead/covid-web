@@ -11,6 +11,7 @@ import { ClaimsFunnel } from './components/funnel'
 
 import { Rating } from './components/rating'
 import { Comments } from './components/comments'
+import { CommonRating } from './components/common-rating';
 
 export const Statistics = () => {
   return (
@@ -29,9 +30,7 @@ export const Statistics = () => {
           key="rating"
           className={s.tab}
         >
-          {/* TODO: add info */}
-          {/* <p>средняя оценка по всем вопросам</p>
-          <p>медианная оценка по всем вопросам</p> */}
+          <CommonRating />
           <Tabs defaultActiveKey="rating-questions">
             <TabPane tab="Рейтинг" key="rating-questions" className={s.tab}>
               <Rating />
