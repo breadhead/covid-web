@@ -16,10 +16,15 @@ const { TabPane } = Tabs
 
 interface DetailTableProps {
   setCurrent: (value: null) => void
-  content: RatingDoctorsType
+  name: string
+  ratingContent?: RatingDoctorsType | null
 }
 
-export const DetailTable = ({ setCurrent, content }: DetailTableProps) => {
+export const DetailTable = ({
+  setCurrent,
+  ratingContent,
+  name,
+}: DetailTableProps) => {
   const [questions, setQuestions] = useState<RatingQuestionI[] | null>(null)
 
   const api = useApi()
@@ -35,8 +40,6 @@ export const DetailTable = ({ setCurrent, content }: DetailTableProps) => {
       .then(setQuestions)
   }, [])
 
-  const { doctor, average, median, value, comment } = content
-
   return (
     <div>
       <Button
@@ -48,24 +51,28 @@ export const DetailTable = ({ setCurrent, content }: DetailTableProps) => {
         Ко всем врачам
       </Button>
 
-      {!!content && !!questions && (
+      {!!questions && !!name && (
         <section className={s.content}>
-          <h1>{doctor}</h1>
+          <h1>{name}</h1>
           <Tabs defaultActiveKey="common">
             <TabPane tab="Общая инфоромация" key="common" className={s.tab}>
-              <DetailGraph name={doctor} />
+              <DetailGraph name={name} />
             </TabPane>
-            <TabPane tab="Вопросы" key="value" className={s.tab}>
-              <DetailRating
-                average={average}
-                median={median}
-                value={value}
-                questions={questions}
-              />
-            </TabPane>
-            <TabPane tab="Комментарии" key="comment" className={s.tab}>
-              <DetailComments comment={comment} />
-            </TabPane>
+            {ratingContent && (
+              <>
+                <TabPane tab="Вопросы" key="value" className={s.tab}>
+                  <DetailRating
+                    average={ratingContent.average}
+                    median={ratingContent.median}
+                    value={ratingContent.value}
+                    questions={questions}
+                  />
+                </TabPane>
+                <TabPane tab="Комментарии" key="comment" className={s.tab}>
+                  <DetailComments comment={ratingContent.comment} />
+                </TabPane>
+              </>
+            )}
           </Tabs>
         </section>
       )}

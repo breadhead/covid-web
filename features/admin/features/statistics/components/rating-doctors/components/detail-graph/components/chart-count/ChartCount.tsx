@@ -9,7 +9,7 @@ import {
   Legend,
   Line,
 } from 'recharts'
-import { FormattedChatData } from '../../useChartDataClaimsCount'
+import { FormattedChatData } from '../../useChartData'
 
 interface ChartCountProps {
   data: FormattedChatData[] | null

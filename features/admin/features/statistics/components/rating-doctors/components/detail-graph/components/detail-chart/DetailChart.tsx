@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { useChartDataClaimsCount } from '../../useChartDataClaimsCount'
+import { useChartData } from '../../useChartData'
 import { DoctorStatsReport } from '@app/features/admin/features/statistics/types/DoctorStatsReport'
 import { GraphType } from '../../DetailGraph'
 import { ChartCount } from '../chart-count'
@@ -12,7 +12,7 @@ interface DetailChartProps {
 }
 
 export const DetailChart = ({ type, data }: DetailChartProps) => {
-  const chartData = useChartDataClaimsCount(type, data)
+  const chartData = useChartData(type, data)
 
   switch (type) {
     case GraphType.Count:

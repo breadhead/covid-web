@@ -18,31 +18,24 @@ export const TimeReport = () => {
   const api = useApi()
   const [timeData, setTimeData] = useState<TimeReportModel | null>(null)
   const [ratingData, setRatingData] = useState<RatingDoctorsType[] | null>(null)
-  const [currentDoctorName, setCurrentDoctorName] = useState<string | null>(
-    null,
-  )
+  const [name, setName] = useState<string | null>(null)
 
   const [from, setFrom] = useState<Date>(DEFAULT_START)
   const [to, setTo] = useState<Date>(now)
 
   useEffect(
     () => {
-      // TODO: in this data should be rating values
       api.fetchTimeReport(from, to).then(setTimeData)
-      // api.fetchRatingDoctors(from, to).then(setRatingData)
       api.fetchRatingDoctors().then(setRatingData)
     },
     [from, to],
   )
 
-  const currentDoctor = useMemo(
+  const currentDoctorRating = useMemo(
     () => {
-      return (
-        !!ratingData &&
-        ratingData.find(item => item.doctor === currentDoctorName)
-      )
+      return !!ratingData ? ratingData.find(item => item.doctor === name) : null
     },
-    [currentDoctorName, ratingData],
+    [name, ratingData],
   )
 
   const getColumnSearchProps = useColumnSearchProps()
@@ -65,8 +58,12 @@ export const TimeReport = () => {
 
   const tableData = getTableData(doctors)
 
-  return !!currentDoctorName && !!currentDoctor ? (
-    <DetailTable content={currentDoctor} setCurrent={setCurrentDoctorName} />
+  return !!name ? (
+    <DetailTable
+      name={name}
+      ratingContent={currentDoctorRating}
+      setCurrent={setName}
+    />
   ) : (
     <div>
       <section style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -88,7 +85,7 @@ export const TimeReport = () => {
           onRow={(record: any) => {
             return {
               onClick: () => {
-                setCurrentDoctorName(record.name)
+                setName(record.name)
               },
             }
           }}

@@ -9,7 +9,7 @@ import {
   Legend,
   Line,
 } from 'recharts'
-import { FormattedChatData } from '../../useChartDataClaimsCount'
+import { FormattedChatData } from '../../useChartData'
 
 interface ChartCountProps {
   data: FormattedChatData[] | null
@@ -18,7 +18,7 @@ interface ChartCountProps {
 export const ChartTime = ({ data }: ChartCountProps) => {
   return (
     <>
-      <p>Время в часах</p>
+      <p>Время в днях</p>
       <LineChart
         width={1000}
         height={500}

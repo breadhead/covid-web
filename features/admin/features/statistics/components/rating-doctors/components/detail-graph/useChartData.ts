@@ -2,12 +2,13 @@
 import { DoctorStatsReport } from '../../../../types/DoctorStatsReport'
 import { monthsMap } from './hepers/monthsMap'
 import { GraphType } from './DetailGraph'
+import { formatTimestampToDays } from '../../../../helpers/formatTimestampToDays'
 
 export interface FormattedChatData {
   [key: string]: string | number | undefined
 }
 
-export const useChartDataClaimsCount = (
+export const useChartData = (
   type: GraphType,
   data: DoctorStatsReport[] | null,
 ): FormattedChatData[] | null => {
@@ -30,10 +31,10 @@ export const useChartDataClaimsCount = (
       return data.map(item => {
         return {
           ['monthName']: monthsMap[item.monthName],
-          ['Среднее время']: Math.round(item.average / 1000 / 60 / 60),
-          ['Медианное время']: Math.round(item.median / 1000 / 60 / 60),
-          ['Максимальное время']: Math.round(item.max / 1000 / 60 / 60),
-          ['Минимальное время']: Math.round(item.min / 1000 / 60 / 60),
+          ['Среднее время']: formatTimestampToDays(item.average),
+          ['Медианное время']: formatTimestampToDays(item.median),
+          ['Максимальное время']: formatTimestampToDays(item.max),
+          ['Минимальное время']: formatTimestampToDays(item.min),
         }
       })
     default:
