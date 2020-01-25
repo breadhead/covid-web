@@ -14,5 +14,9 @@ export interface DoctorStatsReport {
   failure: number
   closedByClient: number
   all: number
+  average: number
+  median: number
+  min: number
+  max: number
   graphInfo: DoctorGraphInfo[]
 }

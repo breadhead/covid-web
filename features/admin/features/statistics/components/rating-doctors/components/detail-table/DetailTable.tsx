@@ -59,7 +59,6 @@ export const DetailTable = ({
               <DetailGraph name={name} />
             </TabPane>
             {!!ratingContent && !!questions && (
-
               <TabPane tab="Вопросы" key="value" className={s.tab}>
                 <DetailRating
                   average={ratingContent.average}
@@ -72,7 +71,8 @@ export const DetailTable = ({
             {!!ratingContent && (
               <TabPane tab="Комментарии" key="comment" className={s.tab}>
                 <DetailComments comment={ratingContent.comment} />
-              </TabPane>)}
+              </TabPane>
+            )}
           </Tabs>
         </section>
       )}

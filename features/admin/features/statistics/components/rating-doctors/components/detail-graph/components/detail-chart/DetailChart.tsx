@@ -4,7 +4,7 @@ import { useChartData } from '../../useChartData'
 import { GraphType } from '../../DetailGraph'
 import { ChartCount } from '../chart-count'
 import { ChartTime } from '../chart-time'
-import { DoctorGraphInfo } from '@app/features/admin/features/statistics/types/DoctorStatsReport';
+import { DoctorGraphInfo } from '@app/features/admin/features/statistics/types/DoctorStatsReport'
 
 interface DetailChartProps {
   type: GraphType

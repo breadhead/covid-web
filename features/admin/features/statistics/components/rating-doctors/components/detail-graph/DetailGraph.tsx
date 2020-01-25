@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { DoctorStatsReport } from '../../../../types/DoctorStatsReport'
 import { Select } from 'antd'
 import { DetailChart } from './components/detail-chart'
-import { DetailCommon } from './components/detail-common';
+import { DetailCommon } from './components/detail-common'
 import * as s from './DetailGraph.css'
 
 const { Option } = Select
@@ -31,7 +31,7 @@ export const DetailGraph = ({ name }: DetailGraphProps) => {
     [name],
   )
 
-  if (!data) return <div>download</div>
+  if (!data) return <div>Загружаем...</div>
 
   return (
     <div>

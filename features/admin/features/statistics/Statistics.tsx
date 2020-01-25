@@ -11,7 +11,7 @@ import { ClaimsFunnel } from './components/funnel'
 
 import { Rating } from './components/rating'
 import { Comments } from './components/comments'
-import { CommonRating } from './components/common-rating';
+import { CommonRating } from './components/common-rating'
 
 export const Statistics = () => {
   return (
