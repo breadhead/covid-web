@@ -36,7 +36,6 @@ export const DetailCommon = ({ data, type }: DetailCommonProps) => {
           <p>Среднее время: {formatTimestampToDays(average)} д.</p>
           <p>Медианное время: {formatTimestampToDays(median)} д.</p>
           <p>Максимальное время: {formatTimestampToDays(max)} д.</p>
-          <p>Минимальное время: {formatTimestampToDays(min)} д.</p>
         </div>
       )
     default:

@@ -32,7 +32,6 @@ export const useChartData = (
           ['Среднее время']: formatTimestampToDays(item.average),
           ['Медианное время']: formatTimestampToDays(item.median),
           ['Максимальное время']: formatTimestampToDays(item.max),
-          ['Минимальное время']: formatTimestampToDays(item.min),
         }
       })
     default:

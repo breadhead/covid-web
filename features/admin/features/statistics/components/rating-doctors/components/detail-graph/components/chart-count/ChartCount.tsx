@@ -31,13 +31,13 @@ export const ChartCount = ({ data }: ChartCountProps) => {
       <Line
         type="monotone"
         dataKey="Закрыты вовремя"
-        stroke="#82ca9d"
+        stroke="#40d678"
         strokeWidth="3"
       />
       <Line
         type="monotone"
         dataKey="Просрочены"
-        stroke="#ca8282"
+        stroke="#fa5050"
         strokeWidth="3"
       />
       <Line

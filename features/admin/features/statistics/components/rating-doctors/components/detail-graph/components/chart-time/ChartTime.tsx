@@ -32,14 +32,8 @@ export const ChartTime = ({ data }: ChartCountProps) => {
         <Legend />
         <Line
           type="monotone"
-          dataKey="Минимальное время"
-          stroke="#82ca9d"
-          strokeWidth="3"
-        />
-        <Line
-          type="monotone"
           dataKey="Максимальное время"
-          stroke="#ca8282"
+          stroke="#fa5050"
           strokeWidth="3"
         />
         <Line
