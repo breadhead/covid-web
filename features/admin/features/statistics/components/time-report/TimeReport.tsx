@@ -75,8 +75,8 @@ export const TimeReport = () => {
           <p>Всего просроченных заявок: {failure}</p>
         </div>
         <div>
-          <p>Средний рейтинг по всем вопросам: {ratingAverage}</p>
-          <p>Медианный рейтинг по всем вопросам: {ratingMedian}</p>
+          <p>Средняя оценка по всем вопросам: {ratingAverage}</p>
+          <p>Медианная оценка по всем вопросам: {ratingMedian}</p>
         </div>
         <ReportCalendar from={from} to={to} setFrom={setFrom} setTo={setTo} />
       </section>

@@ -20,8 +20,8 @@ export const CommonRating = () => {
 
   return (
     <>
-      <p>Средний рейтинг по всем вопросам: {ratingAverage}</p>
-      <p>Медианный рейтинг по всем вопросам: {ratingMedian}</p>
+      <p>Средняя оценка по всем вопросам: {ratingAverage}</p>
+      <p>Медианная оценка по всем вопросам: {ratingMedian}</p>
     </>
   )
 }

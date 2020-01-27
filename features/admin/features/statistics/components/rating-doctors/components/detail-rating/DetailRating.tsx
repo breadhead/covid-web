@@ -20,9 +20,9 @@ export const DetailRating = ({
 }: DetailRatingProps) => {
   return (
     <>
-      <span>Средний рейтинг по всем вопросам: {average}</span>
+      <span>Средняя оценка по всем вопросам: {average}</span>
       <br />
-      <span>Медианный рейтинг по всем вопросам: {median}</span>
+      <span>Медианная оценка по всем вопросам: {median}</span>
       <section className={s.valueContainer}>
         {value.map(rating => {
           return (

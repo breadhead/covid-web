@@ -36,7 +36,7 @@ export const GeneralTable = ({ data, setCurrent }: GeneralTableProps) => {
       key: 'doctor',
     },
     {
-      title: 'Средний рейтинг по всем вопросам',
+      title: 'Средняя оценка по всем вопросам',
       dataIndex: 'average',
       key: 'average',
       sorter: (a: any, b: any) => {
@@ -44,7 +44,7 @@ export const GeneralTable = ({ data, setCurrent }: GeneralTableProps) => {
       },
     },
     {
-      title: 'Медианный рейтинг по всем вопросам',
+      title: 'Медианная оценка по всем вопросам',
       dataIndex: 'median',
       key: 'median',
       sorter: (a: any, b: any) => {
