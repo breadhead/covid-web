@@ -44,9 +44,6 @@ export const Statistics = () => {
             </TabPane>
           </Tabs>
         </TabPane>
-        {/* <TabPane tab="Старый Рейтинг врачей" key="rating-doctors" className={s.tab}>
-          <RatingDoctors />
-        </TabPane> */}
         <TabPane tab="Воронка продаж" key="funnel" className={s.tab}>
           <ClaimsFunnel />
         </TabPane>

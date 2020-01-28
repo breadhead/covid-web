@@ -44,12 +44,19 @@ export const Comments = () => {
                 <h3>{item.question}</h3>
                 {item.answers &&
                   item.answers
-                    .filter(a => a.length > 2)
-                    .map((a, key) => (
-                      <p key={a}>
-                        {key + 1}. {JSON.parse(a)}
-                      </p>
-                    ))}
+                    .filter(answer => answer.text.length > 2)
+                    .map((answer, key) => {
+                      return (
+                        <>
+                          <a href={`/manager/consultation/${answer.claimId}`} target="_blank">
+                            <span>Перейти к заявке</span>
+                          </a>
+                          <p key={answer.text}>
+                            {key + 1}. {JSON.parse(answer.text)}
+                          </p>
+                        </>
+                      )
+                    })}
               </React.Fragment>
             )
           })

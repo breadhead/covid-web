@@ -16,24 +16,28 @@ export const useChartData = (
 
   switch (type) {
     case GraphType.Count:
-      return data.sort((a, b) => b.index - a.index).map(item => {
-        return {
-          ['monthName']: monthsMap[item.monthName],
-          ['Всего']: item.all,
-          ['Закрыты вовремя']: item.success,
-          ['Просрочены']: item.failure,
-          ['Закрыты клиентом']: item.closedByClient,
-        }
-      })
+      return data
+        .sort((a, b) => b.index - a.index)
+        .map(item => {
+          return {
+            ['monthName']: monthsMap[item.monthName],
+            ['Всего']: item.all,
+            ['Закрыты вовремя']: item.success,
+            ['Просрочены']: item.failure,
+            ['Закрыты клиентом']: item.closedByClient,
+          }
+        })
     case GraphType.Time:
-      return data.sort((a, b) => b.index - a.index).map(item => {
-        return {
-          ['monthName']: monthsMap[item.monthName],
-          ['Среднее время']: formatTimestampToDays(item.average),
-          ['Медианное время']: formatTimestampToDays(item.median),
-          ['Максимальное время']: formatTimestampToDays(item.max),
-        }
-      })
+      return data
+        .sort((a, b) => b.index - a.index)
+        .map(item => {
+          return {
+            ['monthName']: monthsMap[item.monthName],
+            ['Среднее время']: formatTimestampToDays(item.average),
+            ['Медианное время']: formatTimestampToDays(item.median),
+            ['Максимальное время']: formatTimestampToDays(item.max),
+          }
+        })
     default:
       return null
   }
