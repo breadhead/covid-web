@@ -61,7 +61,7 @@ export const TimeReport = () => {
   return !!name ? (
     <DetailTable
       name={name}
-      ratingContent={currentDoctorRating}
+      content={currentDoctorRating}
       setCurrent={setName}
     />
   ) : (

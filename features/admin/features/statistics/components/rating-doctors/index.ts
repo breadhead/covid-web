@@ -1,1 +1,0 @@
-export { RatingDoctors } from './RatingDoctors'

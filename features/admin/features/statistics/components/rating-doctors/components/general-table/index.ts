@@ -1,1 +1,0 @@
-export { GeneralTable } from './GeneralTable'

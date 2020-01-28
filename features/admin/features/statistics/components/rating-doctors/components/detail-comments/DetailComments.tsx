@@ -1,17 +1,27 @@
 import * as React from 'react'
+import { RatingCommentQuestion } from '../../../../RatingCommentQuestion'
 
 interface DetailCommentsProps {
-  comment: string[]
+  comments: RatingCommentQuestion[]
 }
 
-export const DetailComments = ({ comment }: DetailCommentsProps) => {
+export const DetailComments = ({ comments: comment }: DetailCommentsProps) => {
   return (
     <>
-      {comment.map((item, key) => (
-        <p key={item}>
-          {key + 1}. {JSON.parse(item)}
-        </p>
-      ))}
+      {comment
+        .filter(it => it.text.length > 0)
+        .map((com, key) => {
+          return (
+            <div key={com.claimId}>
+              <a href={`/manager/consultation/${com.claimId}`} target="_blank">
+                <span>Перейти к заявке</span>
+              </a>
+              <p>
+                {key + 1}. {JSON.parse(com.text)}
+              </p>
+            </div>
+          )
+        })}
     </>
   )
 }

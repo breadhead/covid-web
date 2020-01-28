@@ -17,12 +17,12 @@ const { TabPane } = Tabs
 interface DetailTableProps {
   setCurrent: (value: null) => void
   name: string
-  ratingContent?: RatingDoctorsType | null
+  content?: RatingDoctorsType | null
 }
 
 export const DetailTable = ({
   setCurrent,
-  ratingContent,
+  content,
   name,
 }: DetailTableProps) => {
   const [questions, setQuestions] = useState<RatingQuestionI[] | null>(null)
@@ -58,19 +58,19 @@ export const DetailTable = ({
             <TabPane tab="Общая информация" key="common" className={s.tab}>
               <DetailGraph name={name} />
             </TabPane>
-            {!!ratingContent && !!questions && (
+            {!!content && !!questions && (
               <TabPane tab="Вопросы" key="value" className={s.tab}>
                 <DetailRating
-                  average={ratingContent.average}
-                  median={ratingContent.median}
-                  value={ratingContent.value}
+                  average={content.average}
+                  median={content.median}
+                  value={content.value}
                   questions={questions}
                 />
               </TabPane>
             )}
-            {!!ratingContent && (
+            {!!content && content.comment.length > 0 && (
               <TabPane tab="Комментарии" key="comment" className={s.tab}>
-                <DetailComments comment={ratingContent.comment} />
+                <DetailComments comments={content.comment} />
               </TabPane>
             )}
           </Tabs>
