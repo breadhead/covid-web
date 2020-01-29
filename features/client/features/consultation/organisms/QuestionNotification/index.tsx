@@ -22,7 +22,12 @@ interface Props {
 
 const STATUSES_WITH_VISIBLE_EXPERTS_BLOCK = [ClaimStatus.DeliveredToCustomer]
 
-const QuestionNotification = ({ focusOnChat, windowSize, openChat, mainInfo }: Props) => {
+const QuestionNotification = ({
+  focusOnChat,
+  windowSize,
+  openChat,
+  mainInfo,
+}: Props) => {
   const [isAnswerClear, setAnswerClear] = useState(true)
 
   useAnswerClear(setAnswerClear, false)
@@ -48,11 +53,15 @@ const QuestionNotification = ({ focusOnChat, windowSize, openChat, mainInfo }: P
           <p className={styles.text}>
             Нам важно получить обратную связь от{NON_BREAKING_SPACE}вас
           </p>
-          {mainInfo.dontUnderstand === DontUnderstandEnum.NO || !isAnswerClear ? (
+          {mainInfo.dontUnderstand === DontUnderstandEnum.NO ||
+          !isAnswerClear ? (
             <ChatFeedback onClick={onChatButtonClick} />
           ) : (
-              <SimpleFeedback claimId={mainInfo.id} onNoButtonClick={onNoButtonClick} />
-            )}
+            <SimpleFeedback
+              claimId={mainInfo.id}
+              onNoButtonClick={onNoButtonClick}
+            />
+          )}
         </div>
       </article>
     </div>

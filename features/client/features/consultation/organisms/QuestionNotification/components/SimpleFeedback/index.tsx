@@ -19,22 +19,37 @@ interface Props {
 const SimpleFeedback = ({ onNoButtonClick, claimId }: Props) => {
   const api = useApi()
 
-  const onFinishButtonClick = useCallback(async () => {
-    await api.updateDontUnderstand({ id: claimId, status: DontUnderstandEnum.YES })
-  }, [api, claimId])
+  const onFinishButtonClick = useCallback(
+    async () => {
+      await api.updateDontUnderstand({
+        id: claimId,
+        status: DontUnderstandEnum.YES,
+      })
+    },
+    [api, claimId],
+  )
 
-  const onNoClick = useCallback(async () => {
-    await api.updateDontUnderstand({ id: claimId, status: DontUnderstandEnum.NO })
-    onNoButtonClick()
-    // Router.pushRoute(`/?donation`)
-  }, [api, claimId])
+  const onNoClick = useCallback(
+    async () => {
+      await api.updateDontUnderstand({
+        id: claimId,
+        status: DontUnderstandEnum.NO,
+      })
+      onNoButtonClick()
+      // Router.pushRoute(`/?donation`)
+    },
+    [api, claimId],
+  )
 
   return (
     <>
       <h3 className={styles.title}>
         Эксперт понятно ответил на{NON_BREAKING_SPACE}все ваши вопросы?
       </h3>
-      <FinishButton onClick={onFinishButtonClick} className={styles.finishButton} />
+      <FinishButton
+        onClick={onFinishButtonClick}
+        className={styles.finishButton}
+      />
       <Button
         className={styles.refuseButton}
         onClick={onNoClick}

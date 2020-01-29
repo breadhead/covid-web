@@ -14,10 +14,13 @@ interface Props {
 export const FinishButton = ({ className, onClick }: Props) => {
   const { open } = useSpecificModal(FINISH_MODAL_KEY)
 
-  const onFinishButtonClick = useCallback(async () => {
-    open()
-    await onClick()
-  }, [open, onClick])
+  const onFinishButtonClick = useCallback(
+    async () => {
+      open()
+      await onClick()
+    },
+    [open, onClick],
+  )
 
   return (
     <>

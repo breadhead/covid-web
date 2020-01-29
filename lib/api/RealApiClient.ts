@@ -341,5 +341,4 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post('/claims/update-dont-understand', data)
       .then(res => res.data as string)
-
 }

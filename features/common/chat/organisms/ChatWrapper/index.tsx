@@ -24,22 +24,26 @@ interface Props {
 
 const ChatWrapper = React.forwardRef<HTMLDivElement, Props>(
   ({ messages, roles, mainInfo, loading }: Props, ref) => {
-
     return messages.length === 0 ? (
       <EmptyWindow role={roles[0]} />
     ) : (
-        <div className={styles.chatWrapper} ref={ref!}>
-          {messages.map(message => {
-            if (message.content === YES_BUTTON) {
-              return <YesChatButton disabled={mainInfo.dontUnderstand === DontUnderstandEnum.YES} claimId={mainInfo.id} author={message.author} roles={roles} />
-            }
+      <div className={styles.chatWrapper} ref={ref!}>
+        {messages.map(message => {
+          if (message.content === YES_BUTTON) {
             return (
-              <Message key={message.id} message={message} />
+              <YesChatButton
+                disabled={mainInfo.dontUnderstand === DontUnderstandEnum.YES}
+                claimId={mainInfo.id}
+                author={message.author}
+                roles={roles}
+              />
             )
-          })}
-          {loading && <MessageLoader />}
-        </div>
-      )
+          }
+          return <Message key={message.id} message={message} />
+        })}
+        {loading && <MessageLoader />}
+      </div>
+    )
   },
 )
 

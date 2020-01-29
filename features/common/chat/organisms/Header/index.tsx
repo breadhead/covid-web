@@ -21,7 +21,9 @@ interface Props {
 const authorizedUsers = [Role.CaseManager, Role.Doctor]
 
 const Header = ({ onCloseButtonClick, roles, send, mainInfo }: Props) => {
-  const condition = authorizedUsers.includes(roles[0]) && mainInfo.dontUnderstand === DontUnderstandEnum.NO
+  const condition =
+    authorizedUsers.includes(roles[0]) &&
+    mainInfo.dontUnderstand === DontUnderstandEnum.NO
 
   return (
     <header className={cx(styles.header, condition && styles.withButton)}>
@@ -31,13 +33,16 @@ const Header = ({ onCloseButtonClick, roles, send, mainInfo }: Props) => {
         </button>
         <h3 className={styles.title}>«Просто спросить»</h3>
       </div>
-      {condition && <Button 
-      
-      className={styles.sendButton}
-      onClick={() => {
-        send({ message: YES_BUTTON })
-      }
-      }>Отправить кнопку «Да, мне всё понятно»</Button>}
+      {condition && (
+        <Button
+          className={styles.sendButton}
+          onClick={() => {
+            send({ message: YES_BUTTON })
+          }}
+        >
+          Отправить кнопку «Да, мне всё понятно»
+        </Button>
+      )}
       <button
         onClick={onCloseButtonClick}
         className={cx(styles.button, styles.closeButton)}

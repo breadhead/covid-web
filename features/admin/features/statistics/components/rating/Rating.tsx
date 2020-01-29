@@ -44,6 +44,6 @@ export const Rating = () => {
         })}
     </>
   ) : (
-      <div>loading...</div>
-    )
+    <div>loading...</div>
+  )
 }

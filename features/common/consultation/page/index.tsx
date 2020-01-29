@@ -39,6 +39,7 @@ export interface Props {
   hideAnswers?: boolean
   openMessage: boolean
   host: string
+  avon: boolean
 }
 
 export const Consultation = ({
@@ -53,6 +54,7 @@ export const Consultation = ({
   hideAnswers,
   openMessage,
   host,
+  avon,
 }: Props) => {
   const [isChatOpen, setChatOpen] = React.useState(true)
   const [isChatOpensOnce, setChatOpensOnce] = React.useState(true)
@@ -114,7 +116,9 @@ export const Consultation = ({
             clientClaimsCount={clientClaimsCount}
             claimId={claim.mainInfo.id}
             authorLogin={authorLogin}
-            sponsor={{ avon: !!quotaCompany && quotaCompany === 'Avon' }}
+            sponsor={{
+              avon: (!!quotaCompany && quotaCompany === 'Avon') || avon,
+            }}
           />
           {renderSubHeader && renderSubHeader(claim)}
           <Theme

@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
 
+import { connect } from 'react-redux'
 import { fetchClaimBoardCard } from '@app/features/manager/features/quotaControl/actions'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
@@ -21,6 +21,7 @@ interface Query {
   getListOfClientClaims: (login: string) => Promise<any>
   openMessage: string
   host: string
+  avon: boolean
 }
 
 type Props = PageProps
@@ -60,8 +61,9 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
       await reduxStore.dispatch(fetchDoctorsIfNeeded() as any)
       return {
         roles: user.roles,
-        openMessage: Object.prototype.hasOwnProperty.call(query, 'openMessage'),
+        openMessage: 'openMessage' in query,
         host,
+        avon: 'avon' in query,
       }
     }
 

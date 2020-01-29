@@ -8,7 +8,6 @@ import { Form, TextArea } from '@app/features/common/form'
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import { Icon } from '@front/ui/icon'
 
-
 import { Role } from '@app/models/Users/User'
 import { IconsList } from '@front/ui/sprite'
 
@@ -66,7 +65,7 @@ const Chat = ({
   focused,
   setUnfocused,
   host,
-  mainInfo
+  mainInfo,
 }: Props) => {
   const shouldHide = !opensOnce || !isOpen
 
@@ -94,7 +93,12 @@ const Chat = ({
   return (
     <section className={cx(styles.chat, shouldHide && styles.hide)}>
       <div>
-        <Header send={onFormSubmit} roles={roles} onCloseButtonClick={closeChat} mainInfo={mainInfo} />
+        <Header
+          send={onFormSubmit}
+          roles={roles}
+          onCloseButtonClick={closeChat}
+          mainInfo={mainInfo}
+        />
       </div>
       <div className={styles.messageWrapper}>
         <ChatWrapper
