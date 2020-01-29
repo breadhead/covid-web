@@ -44,7 +44,7 @@ export const Comments = () => {
                 <h3>{item.question}</h3>
                 {item.answers &&
                   item.answers
-                    .filter(a => a.length > 2)
+                    .filter(a => a.length > 1)
                     .map((a, key) => (
                       <p key={a}>
                         {key + 1}. {JSON.parse(a)}

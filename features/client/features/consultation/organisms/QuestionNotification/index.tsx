@@ -9,21 +9,26 @@ import { ChatFeedback } from './components/ChatFeedback'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { ListedClaim } from '@app/models/Claim/ListedClaim'
 import { SimpleFeedback } from './components/SimpleFeedback'
-import { getClientInfo } from '../selectors'
 import { useAnswerClear } from './useAnswerClear'
-import { useMappedState } from 'redux-react-hook'
+import { DontUnderstandEnum } from '../../DontUnderstandEnum'
 
 interface Props {
   focusOnChat: () => void
   openChat: () => void
   windowSize: WindowSize
+  claimId: string
+  mainInfo: ListedClaim
 }
 
 const STATUSES_WITH_VISIBLE_EXPERTS_BLOCK = [ClaimStatus.DeliveredToCustomer]
 
-const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
+const QuestionNotification = ({
+  focusOnChat,
+  windowSize,
+  openChat,
+  mainInfo,
+}: Props) => {
   const [isAnswerClear, setAnswerClear] = useState(true)
-  const mainInfo: ListedClaim = useMappedState(getClientInfo) as ListedClaim
 
   useAnswerClear(setAnswerClear, false)
 
@@ -48,10 +53,14 @@ const QuestionNotification = ({ focusOnChat, windowSize, openChat }: Props) => {
           <p className={styles.text}>
             Нам важно получить обратную связь от{NON_BREAKING_SPACE}вас
           </p>
-          {isAnswerClear ? (
-            <SimpleFeedback onNoButtonClick={onNoButtonClick} />
-          ) : (
+          {mainInfo.dontUnderstand === DontUnderstandEnum.NO ||
+          !isAnswerClear ? (
             <ChatFeedback onClick={onChatButtonClick} />
+          ) : (
+            <SimpleFeedback
+              claimId={mainInfo.id}
+              onNoButtonClick={onNoButtonClick}
+            />
           )}
         </div>
       </article>

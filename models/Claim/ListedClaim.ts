@@ -2,6 +2,7 @@ import { CorporateStatus } from '@front/domain/claim/enums/CorporateStatus'
 
 import ClaimStatus from './ClaimStatus'
 import ClaimTarget from './ClaimTarget'
+import { DontUnderstandEnum } from '@app/features/client/features/consultation/DontUnderstandEnum'
 
 export interface ListedClaim {
   id: string
@@ -18,4 +19,5 @@ export interface ListedClaim {
   target: ClaimTarget
   closeComment?: string
   corporateStatus: CorporateStatus
+  dontUnderstand: DontUnderstandEnum
 }

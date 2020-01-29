@@ -1,33 +1,35 @@
 import * as React from 'react'
 
 import { useSpecificModal } from '@app/features/common/modal'
-
-// import routes from '@app/routes'
 import { Button, ButtonSize } from '@front/ui/button'
 
 import { FINISH_MODAL_KEY } from '../../organisms/withFinishModal'
-
-// const { Router } = routes
+import { useCallback } from 'react'
 
 interface Props {
   className?: string
+  onClick: () => Promise<void>
 }
 
-export const FinishButton = ({ className }: Props) => {
+export const FinishButton = ({ className, onClick }: Props) => {
   const { open } = useSpecificModal(FINISH_MODAL_KEY)
 
-  const openModal = () => {
-    open()
-  }
+  const onFinishButtonClick = useCallback(
+    async () => {
+      open()
+      await onClick()
+    },
+    [open, onClick],
+  )
 
   return (
     <>
       <Button
         size={ButtonSize.ExtraLarge}
         className={className}
-        onClick={openModal as any}
+        onClick={onFinishButtonClick}
       >
-        Да, мне все понятно
+        Да, мне всё понятно
       </Button>
     </>
   )
