@@ -49,7 +49,7 @@ export const DetailComments = ({ comments }: DetailCommentsProps) => {
       />
       {items
         .filter(it => it.text.length > 2)
-        .map((com, key) => {
+        .map(com => {
           return (
             <div key={com.claimId}>
               <a
