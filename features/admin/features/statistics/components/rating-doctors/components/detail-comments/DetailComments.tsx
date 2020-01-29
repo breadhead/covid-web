@@ -48,8 +48,8 @@ export const DetailComments = ({ comments }: DetailCommentsProps) => {
         prevCondition={index - STEP > 0}
       />
       {items
-        .filter(it => it.text.length > 0)
-        .map((com, key) => {
+        .filter(it => it.text.length > 2)
+        .map(com => {
           return (
             <div key={com.claimId}>
               <a
@@ -59,9 +59,7 @@ export const DetailComments = ({ comments }: DetailCommentsProps) => {
               >
                 <span>Перейти к заявке</span>
               </a>
-              <p>
-                {key + 1}. {JSON.parse(com.text)}
-              </p>
+              <p>{JSON.parse(com.text)}</p>
             </div>
           )
         })}
