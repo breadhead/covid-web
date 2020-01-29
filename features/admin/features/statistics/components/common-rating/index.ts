@@ -1,0 +1,1 @@
+export { CommonRating } from './CommonRating'

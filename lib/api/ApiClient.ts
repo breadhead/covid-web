@@ -19,7 +19,6 @@ import { QuotaTransferRequest } from './request/QuotaTransfer'
 import ShortClaimRequest from './request/ShortClaim'
 import { SituationClaimRequest } from './request/SituationClaim'
 import { QuotaTransferResponse } from './response/QuotaTransfer'
-import { TimeReport } from '@front/domain/statistics/model/time-report'
 import { Funnel } from '@app/models/Statistics/Funnel'
 import { RatingQuestionServerI } from '@app/features/client/features/consultation/organisms/withFinishModal/organisms/RatingQuestion/types/RatingQuestionI'
 import { RatingValueQuestion } from '@app/features/admin/features/statistics/RatingValueQuestion'
@@ -29,7 +28,9 @@ import { Story } from '@app/models/Story'
 import { StoryUpdateStatusRequest } from '@app/models/Story/StoryUpdateStatusRequest'
 import { RatingCommentQuestion } from '@app/features/admin/features/statistics/RatingCommentQuestion'
 import { RatingDoctorsType } from '@app/features/admin/features/statistics/RatingDoctors'
+import { DoctorStatsReport } from '@app/features/admin/features/statistics/types/DoctorStatsReport'
 import { UpdateDontUnderstandRequest } from './request/UpdateDontUnderstandRequest'
+import { TimeReport } from '@app/features/admin/features/statistics/types'
 
 export interface UploadedFile {
   path: string
@@ -100,5 +101,6 @@ export default interface ApiClient {
   addStoryPhone(data: ClientStoryData): Promise<string>
   fetchStories(): Promise<Story[]>
   updateStoryStatus(data: StoryUpdateStatusRequest): Promise<string>
+  fetchDoctorReport(name: string): Promise<DoctorStatsReport>
   updateDontUnderstand(data: UpdateDontUnderstandRequest): Promise<string>
 }

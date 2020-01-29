@@ -1,0 +1,1 @@
+export { DetailGraph } from './DetailGraph'

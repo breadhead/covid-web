@@ -1,3 +1,4 @@
 export interface RatingCommentQuestion {
-  [key: string]: string[]
+  claimId: string
+  text: string
 }

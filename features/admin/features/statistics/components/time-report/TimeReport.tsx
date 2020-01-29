@@ -1,75 +1,70 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { Table } from 'antd'
 import { useApi } from '@app/lib/api/useApi'
 import { formatTimestamp } from '../../helpers/formatTimestamp'
-import { TimeReport as TimeReportModel } from '@app/src/domain/statistics/model/time-report'
+import { TimeReport as TimeReportModel } from './../../types/TimeReport'
 import { useColumnSearchProps } from './useColumnSearchProps'
-import RangePicker from '../../../history/molecule/RangePicker'
-import { DEFAULT_START } from '../funnel/ClaimsFunnel'
 import { useCurrentColumns } from './useCurrentColumns'
-import { Button } from '@app/src/ui/button'
-import saveFile from 'js-file-download'
-import formatDate from '@app/features/client/features/claims/helpers/formatDate'
+import { DEFAULT_START } from '../funnel/ClaimsFunnel'
+import { ReportCalendar } from './components/report-calendar'
+import { getTableData } from './helpers/getTableData'
+import * as s from './TimeReport.css'
+import { RatingDoctorsType } from '../../RatingDoctors'
+import { DetailTable } from '../rating-doctors/components/detail-table'
+
+const now = new Date()
 
 export const TimeReport = () => {
   const api = useApi()
-  const now = new Date()
   const [timeData, setTimeData] = useState<TimeReportModel | null>(null)
+  const [ratingData, setRatingData] = useState<RatingDoctorsType[] | null>(null)
+  const [name, setName] = useState<string | null>(null)
+
   const [from, setFrom] = useState<Date>(DEFAULT_START)
   const [to, setTo] = useState<Date>(now)
 
   useEffect(
     () => {
       api.fetchTimeReport(from, to).then(setTimeData)
+      api.fetchRatingDoctors().then(setRatingData)
     },
     [from, to],
+  )
+
+  const currentDoctorRating = useMemo(
+    () => {
+      return !!ratingData ? ratingData.find(item => item.doctor === name) : null
+    },
+    [name, ratingData],
   )
 
   const getColumnSearchProps = useColumnSearchProps()
   const columns = useCurrentColumns(getColumnSearchProps)
 
-  const changePeriod = useCallback(
-    (dates: [Date, Date] | undefined) => {
-      if (!dates) {
-        setFrom(DEFAULT_START)
-        setTo(now)
-      } else {
-        const [newFrom, newTo] = dates
-        setFrom(newFrom)
-        setTo(newTo)
-      }
-    },
-    [setFrom],
-  )
-
-  const downloadFile = useCallback(
-    async () => {
-      if (!from || !to) {
-        return
-      }
-
-      const file = await api.fetchTimeReportTable(from, to)
-      saveFile(
-        file,
-        `Отчёт времени работы врачей ${formatDate(from)}-${formatDate(to)}.csv`,
-      )
-    },
-    [from, to],
-  )
   if (!timeData) {
     return <p>Загружаем...</p>
   }
 
-  const { median, max, average, doctors, success, failure } = timeData
+  const {
+    median,
+    max,
+    average,
+    doctors,
+    success,
+    failure,
+    ratingAverage,
+    ratingMedian,
+  } = timeData
 
-  const tableData =
-    doctors &&
-    doctors.map(doctor => ({
-      key: doctor.name,
-      ...doctor,
-    }))
+  const tableData = getTableData(doctors)
 
-  return (
+  return !!name ? (
+    <DetailTable
+      name={name}
+      content={currentDoctorRating}
+      setCurrent={setName}
+    />
+  ) : (
     <div>
       <section style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div>
@@ -79,19 +74,25 @@ export const TimeReport = () => {
           <p>Всего заявок, закрытых вовремя: {success}</p>
           <p>Всего просроченных заявок: {failure}</p>
         </div>
-        <div style={{ zIndex: 10 }}>
-          <RangePicker
-            dateIsDisabled={date => date < DEFAULT_START || date > now}
-            onChange={changePeriod}
-          />
-          {!!from && !!to && (
-            <div style={{ marginTop: '20px' }}>
-              <Button onClick={downloadFile}>Скачать отчёт</Button>
-            </div>
-          )}
+        <div>
+          <p>Средняя оценка по всем вопросам: {ratingAverage}</p>
+          <p>Медианная оценка по всем вопросам: {ratingMedian}</p>
         </div>
+        <ReportCalendar from={from} to={to} setFrom={setFrom} setTo={setTo} />
       </section>
-      <Table columns={columns} dataSource={tableData} />
+      <div className={s.tableContainer}>
+        <Table
+          onRow={(record: any) => {
+            return {
+              onClick: () => {
+                setName(record.name)
+              },
+            }
+          }}
+          columns={columns}
+          dataSource={tableData}
+        />
+      </div>
     </div>
   )
 }

@@ -75,7 +75,7 @@ export const useColumnSearchProps = () => {
         }}
         searchWords={[searchText]}
         autoEscape
-        textToHighlight={text.toString()}
+        textToHighlight={text ? text.toString() : ''}
       />
     ),
   })
