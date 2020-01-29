@@ -38,6 +38,7 @@ import { RatingCommentQuestion } from '@app/features/admin/features/statistics/R
 import { RatingDoctorsType } from '@app/features/admin/features/statistics/RatingDoctors'
 import { DoctorStatsReport } from '@app/features/admin/features/statistics/types/DoctorStatsReport'
 import { TimeReport } from '@app/features/admin/features/statistics/types'
+import { UpdateDontUnderstandRequest } from './request/UpdateDontUnderstandRequest'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -341,4 +342,8 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .get(`/statistics/doctor-report?${queryString({ name })}`)
       .then(res => res.data as DoctorStatsReport[])
+  public updateDontUnderstand = (data: UpdateDontUnderstandRequest) =>
+    this.axiosInstance
+      .post('/claims/update-dont-understand', data)
+      .then(res => res.data as string)
 }

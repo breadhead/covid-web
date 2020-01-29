@@ -52,7 +52,11 @@ export const DetailComments = ({ comments }: DetailCommentsProps) => {
         .map((com, key) => {
           return (
             <div key={com.claimId}>
-              <a href={`/manager/consultation/${com.claimId}`} rel="noopener noreferrer" target="_blank">
+              <a
+                href={`/manager/consultation/${com.claimId}`}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <span>Перейти к заявке</span>
               </a>
               <p>

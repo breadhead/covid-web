@@ -4,14 +4,13 @@ import * as styles from './Chat.css'
 import cx from 'classnames'
 
 import { Form, TextArea } from '@app/features/common/form'
-import { State as AppState } from '@app/lib/store'
+
 import { ChatMessage } from '@app/models/Claim/ChatMessage'
 import { Icon } from '@front/ui/icon'
 
-import { getRoles } from '@app/features/login'
 import { Role } from '@app/models/Users/User'
 import { IconsList } from '@front/ui/sprite'
-import { connect } from 'react-redux'
+
 import Uploader from '../../uploader'
 import ChatWrapper from '../organisms/ChatWrapper'
 import Header from '../organisms/Header'
@@ -21,6 +20,8 @@ import { useMappedState } from 'redux-react-hook'
 import { getClaimStatus } from '../../consultation'
 import ClaimStatus from '@app/models/Claim/ClaimStatus'
 import { getDownloadLink } from './helpers/getDownloadLink'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
+
 export interface FormFileds {
   message: string
 }
@@ -39,6 +40,8 @@ export interface Props {
   focused?: boolean
   setUnfocused?: () => void
   host: string
+  claimId: string
+  mainInfo: ListedClaim
 }
 
 const claimStatusesAfterAnswer = [
@@ -62,6 +65,7 @@ const Chat = ({
   focused,
   setUnfocused,
   host,
+  mainInfo,
 }: Props) => {
   const shouldHide = !opensOnce || !isOpen
 
@@ -89,14 +93,20 @@ const Chat = ({
   return (
     <section className={cx(styles.chat, shouldHide && styles.hide)}>
       <div>
-        <Header onCloseButtonClick={closeChat} />
+        <Header
+          send={onFormSubmit}
+          roles={roles}
+          onCloseButtonClick={closeChat}
+          mainInfo={mainInfo}
+        />
       </div>
       <div className={styles.messageWrapper}>
         <ChatWrapper
           loading={uploading}
-          role={roles[0]}
+          roles={roles}
           ref={forwardedRef}
           messages={messages}
+          mainInfo={mainInfo}
         />
       </div>
       <Form
@@ -138,8 +148,4 @@ const Chat = ({
   )
 }
 
-const mapState = (state: AppState) => ({
-  roles: getRoles(state),
-})
-
-export default connect(mapState)(Chat) as any
+export default Chat

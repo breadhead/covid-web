@@ -9,21 +9,38 @@ import EmptyWindow from '../EmptyWindow'
 import Message from '../Message'
 import MessageLoader from '../MessageLoader'
 
+import { YES_BUTTON } from '../../config'
+import { YesChatButton } from '../../atoms'
+import { Role } from '@app/models/Users/User'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import { DontUnderstandEnum } from '@app/features/client/features/consultation/DontUnderstandEnum'
+
 interface Props {
   messages: ChatMessage[]
-  role: string
+  roles: Role[]
+  mainInfo: ListedClaim
   loading?: boolean
 }
 
 const ChatWrapper = React.forwardRef<HTMLDivElement, Props>(
-  ({ messages, role, loading }: Props, ref) => {
+  ({ messages, roles, mainInfo, loading }: Props, ref) => {
     return messages.length === 0 ? (
-      <EmptyWindow role={role} />
+      <EmptyWindow role={roles[0]} />
     ) : (
       <div className={styles.chatWrapper} ref={ref!}>
-        {messages.map(message => (
-          <Message key={message.id} message={message} />
-        ))}
+        {messages.map(message => {
+          if (message.content === YES_BUTTON) {
+            return (
+              <YesChatButton
+                disabled={mainInfo.dontUnderstand === DontUnderstandEnum.YES}
+                claimId={mainInfo.id}
+                author={message.author}
+                roles={roles}
+              />
+            )
+          }
+          return <Message key={message.id} message={message} />
+        })}
         {loading && <MessageLoader />}
       </div>
     )

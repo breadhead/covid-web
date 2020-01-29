@@ -14,6 +14,10 @@ import withWindowSize, { WindowSize } from '../windowSize'
 import { fetch, send } from './actions'
 import { FormFileds, Props as PageProps } from './page'
 import { getLoaded, getMessages, isMuted } from './selectors'
+import { getMainInfo } from '../consultation/selectors'
+import { ListedClaim } from '@app/models/Claim/ListedClaim'
+import { getRoles } from '@app/features/login'
+import { Role } from '@app/models/Users/User'
 
 const MOBILE_WIDTH = 720
 
@@ -32,6 +36,8 @@ interface OwnProps {
   bodyScrolling: { lock: () => void; unlock: () => void }
   muted: boolean
   host: string
+  mainInfo: ListedClaim
+  roles: Role[]
 }
 
 type ResultPageProps = Omit<PageProps, 'messages' | 'onSubmit'>
@@ -62,6 +68,8 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => {
           forwardedRef={this.messages}
           onTextAreaFocus={this.onTextAreaFocus}
           scrollToBottom={this.scrollToBottom}
+          claimId={this.props.claimId}
+          roles={this.props.roles}
           {...this.props}
         />
       )
@@ -124,6 +132,8 @@ const mapState = (state: State) => ({
   query: getQuery<Query>(state),
   loaded: getLoaded(state),
   muted: isMuted(state),
+  mainInfo: getMainInfo(state),
+  roles: getRoles(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
