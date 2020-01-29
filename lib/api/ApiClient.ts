@@ -101,6 +101,6 @@ export default interface ApiClient {
   addStoryPhone(data: ClientStoryData): Promise<string>
   fetchStories(): Promise<Story[]>
   updateStoryStatus(data: StoryUpdateStatusRequest): Promise<string>
-  fetchDoctorReport(name: string): Promise<DoctorStatsReport[]>
+  fetchDoctorReport(name: string): Promise<DoctorStatsReport>
   updateDontUnderstand(data: UpdateDontUnderstandRequest): Promise<string>
 }

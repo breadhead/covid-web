@@ -341,7 +341,7 @@ export default class RealApiClient implements ApiClient {
   public fetchDoctorReport = (name: string) =>
     this.axiosInstance
       .get(`/statistics/doctor-report?${queryString({ name })}`)
-      .then(res => res.data as DoctorStatsReport[])
+      .then(res => res.data as DoctorStatsReport)
   public updateDontUnderstand = (data: UpdateDontUnderstandRequest) =>
     this.axiosInstance
       .post('/claims/update-dont-understand', data)

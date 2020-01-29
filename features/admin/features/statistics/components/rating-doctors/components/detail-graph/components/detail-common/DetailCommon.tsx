@@ -9,16 +9,7 @@ interface DetailCommonProps {
 }
 
 export const DetailCommon = ({ data, type }: DetailCommonProps) => {
-  const {
-    success,
-    failure,
-    closedByClient,
-    all,
-    average,
-    median,
-    min,
-    max,
-  } = data
+  const { success, failure, closedByClient, all, average, median, max } = data
 
   switch (type) {
     case GraphType.Count:
