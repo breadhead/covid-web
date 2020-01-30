@@ -4,6 +4,7 @@ export enum CloseType {
   Refuse = 'refuse',
   NoContact = 'no-contact',
   NoAnswerNeeded = 'no-answer-needed',
+  WithoutNotification = 'without-notification',
 }
 
 export interface CloseClaimRequest {

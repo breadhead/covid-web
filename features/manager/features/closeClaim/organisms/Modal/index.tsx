@@ -19,6 +19,7 @@ import {
   initial,
   InitialValues,
   refuseTypes,
+  showTextAreaTypes,
 } from './config'
 import styles from './Modal.css'
 
@@ -54,6 +55,9 @@ const Modal = ({ onFormSubmit, saveCloseData }: Props) => {
     >
       {values => {
         const currentCloseType = values.values.type
+
+        const showTextArea = showTextAreaTypes.includes(currentCloseType)
+
         return (
           <>
             <div className={styles.container}>
@@ -73,7 +77,7 @@ const Modal = ({ onFormSubmit, saveCloseData }: Props) => {
                 name="deallocateQuota"
                 defaultValue={initial.deallocateQuota}
               />
-              {refuseTypes.includes(currentCloseType) && (
+              {showTextArea && (
                 <div className={styles.comment}>
                   <TextArea name={getRefuseTextAreaName(currentCloseType)} />
                 </div>

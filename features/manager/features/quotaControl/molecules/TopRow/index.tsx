@@ -94,7 +94,6 @@ const TopRow = ({
                 </Button>
               </>
             )}
-
           </div>
         )}
       </div>

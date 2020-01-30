@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { useModal } from '@app/features/common/modal';
+import * as React from 'react'
+import { useModal } from '@app/features/common/modal'
 import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
 
 interface OpenCancelClaimButtonProps {
@@ -7,7 +7,11 @@ interface OpenCancelClaimButtonProps {
   children: any
 }
 
-export const CancelClaimButton = ({ className, children, ...rest }: OpenCancelClaimButtonProps) => {
+export const CancelClaimButton = ({
+  className,
+  children,
+  ...rest
+}: OpenCancelClaimButtonProps) => {
   const { open } = useModal()
 
   const openCloseClaimModal = React.useCallback(
