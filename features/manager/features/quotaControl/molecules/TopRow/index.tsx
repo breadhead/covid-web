@@ -92,13 +92,6 @@ const TopRow = ({
                 >
                   Закрыть
                 </Button>
-                <Button
-                  className={styles.button}
-                  onClick={() => console.log('cancel')}
-                  kind={ButtonKind.Extra}
-                >
-                  Отменить
-                </Button>
               </>
             )}
 
