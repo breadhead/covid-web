@@ -46,10 +46,17 @@ const deallocateQuotaTypes = [
   },
 ]
 
+const showTextAreaTypes = [
+  CloseType.Refuse,
+  CloseType.NoContact,
+  CloseType.NoAnswerNeeded,
+]
+
 const refuseTypes = [
   CloseType.Refuse,
   CloseType.NoContact,
   CloseType.NoAnswerNeeded,
+  CloseType.WithoutNotification,
 ]
 
 const addCommentFieldToValues = (values: InitialValues) => {
@@ -76,4 +83,5 @@ export {
   closeTypes,
   deallocateQuotaTypes,
   refuseTypes,
+  showTextAreaTypes,
 }
