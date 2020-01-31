@@ -111,7 +111,7 @@ export const Consultation = ({
           </Head>
           <OpenChatButton haveNewMessage onClick={openChat} />
           <Header
-            role={head(roles) as string}
+            role={head(roles) as Role}
             claimNumber={claim.mainInfo.number}
             clientClaimsCount={clientClaimsCount}
             claimId={claim.mainInfo.id}
