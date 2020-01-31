@@ -1,0 +1,17 @@
+.doctorsControl {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.password {
+  display: flex;
+  align-items: flex-end;
+}
+
+.button {
+  margin-top: 24px;
+}
+
+.buttonGenerate {
+  margin-left: 16px;
+}
