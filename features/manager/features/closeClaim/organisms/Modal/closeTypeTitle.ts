@@ -7,4 +7,5 @@ export default (type: CloseType) =>
     [CloseType.Refuse]: 'Отказать в консультации',
     [CloseType.NoContact]: 'Отказать по невозможности связаться',
     [CloseType.NoAnswerNeeded]: 'Закрыть, не требует ответа эксперта',
+    [CloseType.WithoutNotification]: 'Закрыть без уведомления клиента',
   }[type])
