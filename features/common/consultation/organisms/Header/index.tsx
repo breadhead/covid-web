@@ -16,7 +16,7 @@ interface Sponsor {
 
 interface Props {
   claimNumber: number
-  role: string
+  role: Role
   authorLogin: string
   clientClaimsCount: number
   claimId?: string
@@ -33,6 +33,8 @@ const Header = ({
 }: Props) => {
   const avonCondition = !!sponsor && sponsor.avon
 
+  const claimsCountVisible = [Role.CaseManager, Role.Doctor].includes(role)
+
   return (
     <header
       className={cx(styles.header, sponsor && sponsor.avon && styles.avon)}
@@ -42,7 +44,7 @@ const Header = ({
         <span className={styles.number}>№{claimNumber}</span>
       </h1>
 
-      {role === Role.CaseManager && (
+      {claimsCountVisible && (
         <div className={styles.linkWrapper}>
           {clientClaimsCount > 1 && (
             <>
