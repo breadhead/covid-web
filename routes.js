@@ -48,7 +48,11 @@ module.exports = nextRoutes()
   .add('admin-stats', '/admin/stats', 'admin/stats')
   .add('admin-stories', '/admin/stories', 'admin/stories')
   .add('admin-linechart', '/admin/linechart:id', 'admin/linechart')
-  .add('admin-doctors-control', '/admin/doctors-control', 'admin/doctors-control')
+  .add(
+    'admin-doctors-control',
+    '/admin/doctors-control',
+    'admin/doctors-control',
+  )
 
   // manager
   .add(
