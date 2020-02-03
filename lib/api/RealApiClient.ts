@@ -39,6 +39,7 @@ import { RatingDoctorsType } from '@app/features/admin/features/statistics/Ratin
 import { DoctorStatsReport } from '@app/features/admin/features/statistics/types/DoctorStatsReport'
 import { TimeReport } from '@app/features/admin/features/statistics/types'
 import { UpdateDontUnderstandRequest } from './request/UpdateDontUnderstandRequest'
+import { CreateDoctorRequest } from './request/CreateDoctorRequest'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -346,4 +347,9 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post('/claims/update-dont-understand', data)
       .then(res => res.data as string)
+
+  public createDoctor = (data: CreateDoctorRequest) =>
+    this.axiosInstance
+      .post('/users/create-doctor', data)
+      .then(res => res.data as User)
 }
