@@ -105,4 +105,5 @@ export default interface ApiClient {
   fetchDoctorReport(name: string): Promise<DoctorStatsReport>
   updateDontUnderstand(data: UpdateDontUnderstandRequest): Promise<string>
   createDoctor(data: CreateDoctorRequest): Promise<User>
+  generateDoctorsPassword(): Promise<any>
 }

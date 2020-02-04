@@ -15,13 +15,20 @@ export const DoctorsControl = () => {
   const [error, setError] = useState<string>('')
   const api = useApi()
 
-  const createDoctor = async (data: any) => {
+  const createDoctor = (data: any) => {
+    console.log('password:', password)
+    console.log('data:', data)
     api
       .createDoctor(data as CreateDoctorRequest)
       .then(setDoctor)
       .catch(error => setError(error.message))
+  }
 
-    setPassword(data.rawPassword)
+  const generatePassword = () => {
+    api
+      .generateDoctorsPassword()
+      .then(setPassword)
+      .catch(error => console.log('error', error))
   }
 
   return (
@@ -47,7 +54,7 @@ export const DoctorsControl = () => {
           )}
 
           <h1>Добавить врача</h1>
-          <Form onSubmit={createDoctor}>
+          <Form onSubmit={createDoctor} resetAfterSubmit>
             {() => (
               <>
                 <Input
@@ -85,15 +92,15 @@ export const DoctorsControl = () => {
                 <br />
                 <div className={s.password}>
                   <Input
-                    validate={schema.rawPassword}
                     name="rawPassword"
                     type={InputType.Text}
                     label="Пароль"
+                    value={password}
                   />
-                  {/* отправляем запрос на бэк, оттуда приходит пароль  */}
                   <Button
                     kind={ButtonKind.Secondary}
                     className={s.buttonGenerate}
+                    onClick={generatePassword}
                   >
                     сгенерировать
                   </Button>

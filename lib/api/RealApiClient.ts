@@ -343,6 +343,7 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .get(`/statistics/doctor-report?${queryString({ name })}`)
       .then(res => res.data as DoctorStatsReport)
+
   public updateDontUnderstand = (data: UpdateDontUnderstandRequest) =>
     this.axiosInstance
       .post('/claims/update-dont-understand', data)
@@ -352,4 +353,9 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post('/users/create-doctor', data)
       .then(res => res.data as User)
+
+  public generateDoctorsPassword = () =>
+    this.axiosInstance
+      .get('/users/generate-doctors-password')
+      .then(res => res.data)
 }
