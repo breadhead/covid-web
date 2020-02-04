@@ -8,6 +8,11 @@
   align-items: flex-end;
 }
 
+.passwordInput input {
+  width: 340px !important;
+  padding: 12px 16px !important;
+}
+
 .button {
   margin-top: 24px;
 }

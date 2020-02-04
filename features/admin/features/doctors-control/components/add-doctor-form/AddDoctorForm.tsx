@@ -65,6 +65,7 @@ export const AddDoctorForm = ({
                 label="Пароль"
                 value={password}
                 readOnly
+                className={s.passwordInput}
               />
               <Button
                 kind={ButtonKind.Secondary}
