@@ -12,6 +12,7 @@ export const DoctorsControl = () => {
   const [doctor, setDoctor] = useState<User | null>(null)
   const [password, setPassword] = useState<string>('')
   const [emptyPassword, setEmptyPassword] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false)
 
   const api = useApi()
 
@@ -35,9 +36,12 @@ export const DoctorsControl = () => {
   }
 
   const generatePassword = () => {
+    setLoading(true)
+
     api
       .generateDoctorsPassword()
       .then(setPassword)
+      .then(() => setLoading(false))
       .then(() => setEmptyPassword(false))
       .catch(error => console.log('generate password error:', error))
   }
@@ -61,6 +65,7 @@ export const DoctorsControl = () => {
             emptyPassword={emptyPassword}
             createDoctor={createDoctor}
             generatePassword={generatePassword}
+            loading={loading}
           />
         </div>
       </Layout>
