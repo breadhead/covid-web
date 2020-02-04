@@ -15,10 +15,6 @@ export const schema = {
     .string()
     .min(1, REQUIRED)
     .required(REQUIRED),
-  rawPassword: yup
-    .string()
-    .min(1, REQUIRED)
-    .required(`${REQUIRED}. Нажмите кнопку "сгенерировать"`),
 }
 
 export default schema

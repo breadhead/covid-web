@@ -12,14 +12,25 @@ import schema from './validation'
 export const DoctorsControl = () => {
   const [doctor, setDoctor] = useState<User | null>(null)
   const [password, setPassword] = useState<string>('')
+  const [emptyPassword, setEmptyPassword] = useState<boolean>(false)
   const [error, setError] = useState<string>('')
   const api = useApi()
 
   const createDoctor = (data: any) => {
-    console.log('password:', password)
-    console.log('data:', data)
+    if (!password) {
+      setEmptyPassword(true)
+      return
+    }
+    setEmptyPassword(false)
+
+    const finalData = {
+      ...data,
+      rawPassword: password,
+      boardUsername: data.boardUsername.replace('@', ''),
+    }
+
     api
-      .createDoctor(data as CreateDoctorRequest)
+      .createDoctor(finalData as CreateDoctorRequest)
       .then(setDoctor)
       .catch(error => setError(error.message))
   }
@@ -28,7 +39,8 @@ export const DoctorsControl = () => {
     api
       .generateDoctorsPassword()
       .then(setPassword)
-      .catch(error => console.log('error', error))
+      .then(() => setEmptyPassword(false))
+      .catch(error => console.log('generate password error:', error))
   }
 
   return (
@@ -81,7 +93,7 @@ export const DoctorsControl = () => {
                   validate={schema.boardUsername}
                   name="boardUsername"
                   type={InputType.Text}
-                  label="Трелло id"
+                  label="Трелло id (без @)"
                 />
                 <br />
                 <Input
@@ -96,6 +108,7 @@ export const DoctorsControl = () => {
                     type={InputType.Text}
                     label="Пароль"
                     value={password}
+                    readOnly
                   />
                   <Button
                     kind={ButtonKind.Secondary}
@@ -105,6 +118,11 @@ export const DoctorsControl = () => {
                     сгенерировать
                   </Button>
                 </div>
+                {!!emptyPassword ? (
+                  <div className={s.passwordError}>
+                    Обязательное поле. Нажмите кнопку "сгенерировать"
+                  </div>
+                ) : null}
                 <Button className={s.button} submit>
                   Добавить
                 </Button>

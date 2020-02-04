@@ -15,3 +15,10 @@
 .buttonGenerate {
   margin-left: 16px;
 }
+
+.passwordError {
+  display: block;
+  margin-top: 4px;
+  font: var(--text14-20);
+  color: var(--color-danger);
+}
