@@ -5,12 +5,14 @@ import { Button, ButtonKind } from '@app/src/ui/button'
 import * as s from './../../DoctorsControl.css'
 
 import schema from './../../validation'
+import Loader from '@app/ui/Loader'
 
 interface AddDoctorFormProps {
   createDoctor: (data: any) => void
   generatePassword: () => void
   password: string
   emptyPassword: boolean
+  loading: boolean
 }
 
 export const AddDoctorForm = ({
@@ -18,6 +20,7 @@ export const AddDoctorForm = ({
   generatePassword,
   password,
   emptyPassword,
+  loading,
 }: AddDoctorFormProps) => {
   return (
     <>
@@ -59,14 +62,18 @@ export const AddDoctorForm = ({
             />
             <br />
             <div className={s.password}>
-              <Input
-                name="rawPassword"
-                type={InputType.Text}
-                label="Пароль"
-                value={password}
-                readOnly
-                className={s.passwordInput}
-              />
+              {!!loading ? (
+                <Loader className={s.loader} />
+              ) : (
+                <Input
+                  name="rawPassword"
+                  type={InputType.Text}
+                  label="Пароль"
+                  value={password}
+                  readOnly
+                  className={s.passwordInput}
+                />
+              )}
               <Button
                 kind={ButtonKind.Secondary}
                 className={s.buttonGenerate}
@@ -77,7 +84,7 @@ export const AddDoctorForm = ({
             </div>
             {!!emptyPassword ? (
               <div className={s.passwordError}>
-                Обязательное поле. Нажмите кнопку "сгенерировать"
+                Обязательное поле. Нажмите кнопку «сгенерировать»
               </div>
             ) : null}
             <Button className={s.button} submit>
