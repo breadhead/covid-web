@@ -62,18 +62,21 @@ export const AddDoctorForm = ({
             />
             <br />
             <div className={s.password}>
-              {!!loading ? (
-                <Loader className={s.loader} />
-              ) : (
-                <Input
-                  name="rawPassword"
-                  type={InputType.Text}
-                  label="Пароль"
-                  value={password}
-                  readOnly
-                  className={s.passwordInput}
-                />
+              {!!loading && (
+                <div className={s.loaderContainer}>
+                  <p>пароль генерируется...</p>
+                  <Loader className={s.loader} />
+                </div>
               )}
+              <Input
+                name="rawPassword"
+                type={InputType.Text}
+                label="Пароль"
+                value={password}
+                readOnly
+                showField={!!password}
+                className={s.passwordInput}
+              />
               <Button
                 kind={ButtonKind.Secondary}
                 className={s.buttonGenerate}
@@ -87,7 +90,7 @@ export const AddDoctorForm = ({
                 Обязательное поле. Нажмите кнопку «сгенерировать»
               </div>
             ) : null}
-            <Button className={s.button} submit>
+            <Button disabled={!password} className={s.button} submit>
               Добавить
             </Button>
           </>
