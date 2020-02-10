@@ -31,6 +31,7 @@ import { RatingDoctorsType } from '@app/features/admin/features/statistics/Ratin
 import { DoctorStatsReport } from '@app/features/admin/features/statistics/types/DoctorStatsReport'
 import { UpdateDontUnderstandRequest } from './request/UpdateDontUnderstandRequest'
 import { TimeReport } from '@app/features/admin/features/statistics/types'
+import { CreateDoctorRequest } from './request/CreateDoctorRequest'
 
 export interface UploadedFile {
   path: string
@@ -103,4 +104,6 @@ export default interface ApiClient {
   updateStoryStatus(data: StoryUpdateStatusRequest): Promise<string>
   fetchDoctorReport(name: string): Promise<DoctorStatsReport>
   updateDontUnderstand(data: UpdateDontUnderstandRequest): Promise<string>
+  createDoctor(data: CreateDoctorRequest): Promise<User>
+  generateDoctorsPassword(): Promise<any>
 }

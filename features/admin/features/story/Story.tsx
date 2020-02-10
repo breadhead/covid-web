@@ -5,9 +5,7 @@ import { useThunk } from '@app/src/hooks/useThunk'
 import { fetchStories } from '../../domain'
 import { useEffect } from 'react'
 
-export interface StoryProps {}
-
-export const Story: React.SFC<StoryProps> = () => {
+export const Story = () => {
   const dispatch = useThunk()
 
   useEffect(() => {
