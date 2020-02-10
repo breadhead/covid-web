@@ -23,6 +23,7 @@ interface OwnProps {
   defaultValue?: string
   className?: string
   value?: string
+  showField?: boolean
 }
 
 export type Props = OwnProps & InputProps
@@ -34,6 +35,7 @@ const Input = ({
   error,
   className,
   value,
+  showField = true,
   ...rest
 }: Props) => {
   const currentValue = !!value && `${value}`.length > 0 ? `${value}` : undefined
@@ -44,13 +46,15 @@ const Input = ({
           {label}
         </label>
       )}
-      <AntInput
-        id={name}
-        type={type}
-        value={currentValue}
-        className={cx(styles.input, error && styles.error)}
-        {...rest}
-      />
+      {!!showField && (
+        <AntInput
+          id={name}
+          type={type}
+          value={currentValue}
+          className={cx(styles.input, error && styles.error)}
+          {...rest}
+        />
+      )}
     </div>
   )
 }

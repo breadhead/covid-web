@@ -32,3 +32,8 @@
   font: var(--text14-20);
   color: var(--color-danger);
 }
+
+.loaderContainer {
+  display: flex;
+  flex-direction: column;
+}
