@@ -40,6 +40,8 @@ import { DoctorStatsReport } from '@app/features/admin/features/statistics/types
 import { TimeReport } from '@app/features/admin/features/statistics/types'
 import { UpdateDontUnderstandRequest } from './request/UpdateDontUnderstandRequest'
 import { CreateDoctorRequest } from './request/CreateDoctorRequest'
+import { SearchDoctor } from '@app/models/Search/SearchDoctor'
+import { SearchClinic } from '@app/models/Search/SearchClinic'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -357,5 +359,15 @@ export default class RealApiClient implements ApiClient {
   public generateDoctorsPassword = () =>
     this.axiosInstance
       .get('/users/generate-doctors-password')
-      .then(res => res.data)
+      .then(res => res.data as string)
+
+  public searchDoctor = (query: string) =>
+    this.axiosInstance
+      .get(`/base/doctors?${queryString({ query })}`)
+      .then(res => res.data as SearchDoctor[])
+
+  public searchClinic = (query: string) =>
+    this.axiosInstance
+      .get(`/base/clinics?${queryString({ query })}`)
+      .then(res => res.data as SearchClinic[])
 }

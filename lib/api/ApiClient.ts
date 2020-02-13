@@ -32,6 +32,8 @@ import { DoctorStatsReport } from '@app/features/admin/features/statistics/types
 import { UpdateDontUnderstandRequest } from './request/UpdateDontUnderstandRequest'
 import { TimeReport } from '@app/features/admin/features/statistics/types'
 import { CreateDoctorRequest } from './request/CreateDoctorRequest'
+import { SearchDoctor } from '@app/models/Search/SearchDoctor'
+import { SearchClinic } from '@app/models/Search/SearchClinic'
 
 export interface UploadedFile {
   path: string
@@ -105,5 +107,7 @@ export default interface ApiClient {
   fetchDoctorReport(name: string): Promise<DoctorStatsReport>
   updateDontUnderstand(data: UpdateDontUnderstandRequest): Promise<string>
   createDoctor(data: CreateDoctorRequest): Promise<User>
-  generateDoctorsPassword(): Promise<any>
+  generateDoctorsPassword(): Promise<string>
+  searchDoctor(query: string): Promise<SearchDoctor[]>
+  searchClinic(query: string): Promise<SearchClinic[]>
 }
