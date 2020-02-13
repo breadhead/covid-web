@@ -9,6 +9,7 @@ export interface Props {
   className?: string
 }
 
+// TODO: rename
 const ComboClinic = ({ name, className, ...rest }: Props) => (
   <HintInput
     name={name}
