@@ -12,6 +12,7 @@ import {
   SelectMonths,
   SelectYears,
   TextArea,
+  ComboSearch,
 } from '@app/features/common/form'
 import { SPACE, StylesType } from '@app/lib/config'
 import AddFieldContainer, {
@@ -22,6 +23,7 @@ import AddFieldContainer, {
 import { FormContext } from '@app/features/common/form/components/Form'
 import { SelectToThisDay } from '@app/features/common/form/components/SelectToThisDay'
 import { SituationClaimFields } from '../../../types'
+import { ComboSearchType } from '@app/ui/organisms/CustomElements/ComboSearch'
 
 interface Props {
   styles: StylesType
@@ -118,8 +120,8 @@ const EmergingForm = ({ styles, initial, formContext }: Props) => (
               >
                 В какой клинике?
               </label>
-              <ComboClinic
-                className={styles.historyComboSingle}
+              <ComboSearch
+                type={ComboSearchType.Clinic}
                 name={`medicalsTreatments.${key}.clinic`}
               />
               <label
@@ -128,7 +130,10 @@ const EmergingForm = ({ styles, initial, formContext }: Props) => (
               >
                 ФИО врача
               </label>
-              <Input name={`medicalsTreatments.${key}.doctor`} />
+              <ComboSearch
+                type={ComboSearchType.Doctor}
+                name={`medicalsTreatments.${key}.doctor`}
+              />
               <label
                 htmlFor={`medicalsTreatments.${key}.cyclesCount`}
                 className={styles.label}

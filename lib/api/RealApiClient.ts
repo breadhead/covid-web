@@ -364,10 +364,10 @@ export default class RealApiClient implements ApiClient {
   public searchDoctor = (query: string) =>
     this.axiosInstance
       .get(`/base/doctors?${queryString({ query })}`)
-      .then(res => res.data as SearchDoctor[])
+      .then(res => res.data as string[])
 
   public searchClinic = (query: string) =>
     this.axiosInstance
       .get(`/base/clinics?${queryString({ query })}`)
-      .then(res => res.data as SearchClinic[])
+      .then(res => res.data as string[])
 }

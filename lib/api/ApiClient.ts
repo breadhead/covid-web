@@ -108,6 +108,6 @@ export default interface ApiClient {
   updateDontUnderstand(data: UpdateDontUnderstandRequest): Promise<string>
   createDoctor(data: CreateDoctorRequest): Promise<User>
   generateDoctorsPassword(): Promise<string>
-  searchDoctor(query: string): Promise<SearchDoctor[]>
-  searchClinic(query: string): Promise<SearchClinic[]>
+  searchDoctor(query: string): Promise<string[]>
+  searchClinic(query: string): Promise<string[]>
 }

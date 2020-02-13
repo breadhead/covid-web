@@ -3,14 +3,13 @@ import cx from 'classnames'
 import * as React from 'react'
 
 import {
-  ComboClinic,
   DateValidationTooltip,
   EmergingControlTypes,
   EmergingFormElement,
-  Input,
   SelectMonths,
   SelectYears,
   TextArea,
+  ComboSearch,
 } from '@app/features/common/form'
 
 import { FormContext } from '@app/features/common/form/components/Form'
@@ -22,6 +21,7 @@ import AddFieldContainer, {
 } from '@app/ui/organisms/AddFieldContainer'
 import { SituationClaimFields } from '../../../types'
 import { schema } from './schema'
+import { ComboSearchType } from '@app/ui/organisms/CustomElements/ComboSearch'
 
 interface Props {
   width: number
@@ -72,8 +72,8 @@ const EmergingForm = ({ styles, initial, formContext }: Props) => (
               >
                 Название клиники
               </label>
-              <ComboClinic
-                className={styles.historyComboSingle}
+              <ComboSearch
+                type={ComboSearchType.Clinic}
                 name={`radiationTreatments.${key}.clinic`}
               />
               <label
@@ -82,7 +82,11 @@ const EmergingForm = ({ styles, initial, formContext }: Props) => (
               >
                 ФИО врача
               </label>
-              <Input name={`radiationTreatments.${key}.doctor`} />
+              <ComboSearch
+                type={ComboSearchType.Doctor}
+                name={`radiationTreatments.${key}.doctor`}
+              />
+
               <label
                 htmlFor={`radiationTreatments.${key}.when.month`}
                 className={styles.label}

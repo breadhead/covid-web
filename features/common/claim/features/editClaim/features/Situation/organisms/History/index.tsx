@@ -9,7 +9,7 @@ import { ClaimData, SituationClaimFields } from '../..//types'
 import Main from './Main'
 import Medicals from './Medicals'
 import Rays from './Rays'
-import Surgery from './Surgery'
+import { Surgery } from './Surgery'
 
 interface Props {
   windowSize: WindowSize
@@ -27,6 +27,7 @@ const History = ({
   formContext,
 }: Props) => {
   const { width } = windowSize
+
   return (
     <article className={styles.article}>
       <Main claimData={claimData} width={width} styles={styles} />
