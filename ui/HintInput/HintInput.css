@@ -2,7 +2,9 @@
   padding: 0;
 }
 
-.hintInput .ant-input {
+.hintInput.hintInput.hintInput.hintInput.hintInput
+  .ant-input.ant-input.ant-input.ant-input.ant-input.ant-input.ant-input {
+  height: auto !important;
   background: #fff !important;
 }
 
