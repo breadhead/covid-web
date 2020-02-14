@@ -18,3 +18,7 @@ input[type='phone'] {
 .error {
   box-shadow: 0 0 0 1px var(--color-danger) !important;
 }
+
+.ant-select-auto-complete.ant-select .ant-input {
+  height: auto !important;
+}
