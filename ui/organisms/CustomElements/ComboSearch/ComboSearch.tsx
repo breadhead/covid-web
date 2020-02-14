@@ -33,6 +33,7 @@ export const ComboSearch = ({
         break
       case ComboSearchType.Clinic:
         api.searchClinic(query).then(setItems)
+        break
       default:
         break
     }
