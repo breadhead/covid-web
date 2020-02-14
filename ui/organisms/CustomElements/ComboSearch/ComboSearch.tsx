@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import HintInput from '@app/ui/HintInput'
 import { useApi } from '@app/lib/api/useApi'
@@ -13,10 +13,17 @@ export interface Props {
   name: string
   type: ComboSearchType
   className?: string
+  defaultItems?: string[]
 }
 
-export const ComboSearch = ({ name, className, type, ...rest }: Props) => {
-  const [items, setItems] = useState<string[]>([])
+export const ComboSearch = ({
+  name,
+  className,
+  type,
+  defaultItems = [],
+  ...rest
+}: Props) => {
+  const [items, setItems] = useState<string[]>(defaultItems)
   const api = useApi()
 
   const onSearch = (query: string) => {

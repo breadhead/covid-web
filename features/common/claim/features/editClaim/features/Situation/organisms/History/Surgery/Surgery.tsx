@@ -107,6 +107,7 @@ export const Surgery = ({ styles, initial, formContext }: Props) => {
                 <ComboSearch
                   type={ComboSearchType.Clinic}
                   name={`surgicalTreatments.${key}.clinic`}
+                  defaultItems={['rkbybr', 'mememe', 'nenen']}
                 />
                 <label
                   htmlFor={`surgicalTreatments.${key}.doctor`}
