@@ -32,8 +32,6 @@ import { DoctorStatsReport } from '@app/features/admin/features/statistics/types
 import { UpdateDontUnderstandRequest } from './request/UpdateDontUnderstandRequest'
 import { TimeReport } from '@app/features/admin/features/statistics/types'
 import { CreateDoctorRequest } from './request/CreateDoctorRequest'
-import { SearchDoctor } from '@app/models/Search/SearchDoctor'
-import { SearchClinic } from '@app/models/Search/SearchClinic'
 
 export interface UploadedFile {
   path: string

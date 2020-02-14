@@ -40,8 +40,6 @@ import { DoctorStatsReport } from '@app/features/admin/features/statistics/types
 import { TimeReport } from '@app/features/admin/features/statistics/types'
 import { UpdateDontUnderstandRequest } from './request/UpdateDontUnderstandRequest'
 import { CreateDoctorRequest } from './request/CreateDoctorRequest'
-import { SearchDoctor } from '@app/models/Search/SearchDoctor'
-import { SearchClinic } from '@app/models/Search/SearchClinic'
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
