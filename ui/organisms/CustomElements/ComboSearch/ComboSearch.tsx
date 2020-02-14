@@ -13,7 +13,7 @@ export interface Props {
   name: string
   type: ComboSearchType
   className?: string
-  defaultItems?: string[]
+  defaultItems: string[]
 }
 
 export const ComboSearch = ({
@@ -51,7 +51,9 @@ export const ComboSearch = ({
     [(rest as any).value],
   )
 
+  const options = items.length === 0 ? defaultItems : items
+
   return (
-    <HintInput name={name} className={className} options={items} {...rest} />
+    <HintInput name={name} className={className} options={options} {...rest} />
   )
 }

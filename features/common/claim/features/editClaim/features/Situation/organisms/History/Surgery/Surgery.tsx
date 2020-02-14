@@ -22,6 +22,7 @@ import { SituationClaimFields } from '../../../types'
 import { schema } from './schema'
 import { ComboSearchType } from '@app/ui/organisms/CustomElements/ComboSearch'
 import { useState, useEffect } from 'react'
+import { useApi } from '@app/lib/api/useApi'
 
 interface Props {
   width: number
@@ -33,6 +34,7 @@ interface Props {
 export const Surgery = ({ styles, initial, formContext }: Props) => {
   // TODO: вынести в хук
   const [regionClinics, setRegionClinics] = useState<string[]>([])
+  const api = useApi()
 
   const region = !!formContext.values.surgicalTreatments[0]
     ? formContext.values.surgicalTreatments[0].region
@@ -41,13 +43,11 @@ export const Surgery = ({ styles, initial, formContext }: Props) => {
   useEffect(
     () => {
       if (!!region) {
-        // фетчим клиники по региону
-        console.log('region:', region)
+        api.searchClinicByRegion(region).then(setRegionClinics)
       }
     },
     [region],
   )
-
   return (
     <>
       <h3 className={styles.subtitle}>Хирургическое лечение</h3>
