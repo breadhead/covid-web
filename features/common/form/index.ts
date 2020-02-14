@@ -29,3 +29,4 @@ export {
   ButtonSize,
   ButtonKind,
 } from './components/ButtonWithTooltip'
+export { default as ComboSearch } from './components/ComboSearch'

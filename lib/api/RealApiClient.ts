@@ -357,5 +357,19 @@ export default class RealApiClient implements ApiClient {
   public generateDoctorsPassword = () =>
     this.axiosInstance
       .get('/users/generate-doctors-password')
-      .then(res => res.data)
+      .then(res => res.data as string)
+
+  public searchDoctor = (query: string) =>
+    this.axiosInstance
+      .get(`/base/doctors?${queryString({ query })}`)
+      .then(res => res.data as string[])
+
+  public searchClinic = (query: string) =>
+    this.axiosInstance
+      .get(`/base/clinics?${queryString({ query })}`)
+      .then(res => res.data as string[])
+  public searchClinicByRegion = (query: string) =>
+    this.axiosInstance
+      .get(`/base/clinics-by-region?${queryString({ query })}`)
+      .then(res => res.data as string[])
 }
