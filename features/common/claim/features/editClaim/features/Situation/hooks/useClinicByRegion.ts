@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useApi } from '@app/lib/api/useApi'
 
 export const useClinicByRegion = (formContext: any, treatment: string) => {
+  const api = useApi()
   const currentRegion =
     formContext.values[`${treatment}`].length > 0 &&
     formContext.values.surgicalTreatments[0]
@@ -9,7 +10,6 @@ export const useClinicByRegion = (formContext: any, treatment: string) => {
       : null
 
   const [regionClinics, setRegionClinics] = useState<string[]>([])
-  const api = useApi()
 
   useEffect(
     () => {

@@ -51,6 +51,13 @@ export const ComboSearch = ({
     [(rest as any).value],
   )
 
+  useEffect(
+    () => {
+      setItems(defaultItems)
+    },
+    [defaultItems[0]],
+  )
+
   const options = items.length === 0 ? defaultItems : items
 
   return (
