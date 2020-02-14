@@ -21,6 +21,7 @@ import AddFieldContainer, {
 import { SituationClaimFields } from '../../../types'
 import { schema } from './schema'
 import { ComboSearchType } from '@app/ui/organisms/CustomElements/ComboSearch'
+import { useState, useEffect } from 'react'
 
 interface Props {
   width: number
@@ -30,6 +31,23 @@ interface Props {
 }
 
 export const Surgery = ({ styles, initial, formContext }: Props) => {
+  // TODO: вынести в хук
+  const [regionClinics, setRegionClinics] = useState<string[]>([])
+
+  const region = !!formContext.values.surgicalTreatments[0]
+    ? formContext.values.surgicalTreatments[0].region
+    : null
+
+  useEffect(
+    () => {
+      if (!!region) {
+        // фетчим клиники по региону
+        console.log('region:', region)
+      }
+    },
+    [region],
+  )
+
   return (
     <>
       <h3 className={styles.subtitle}>Хирургическое лечение</h3>
@@ -107,7 +125,7 @@ export const Surgery = ({ styles, initial, formContext }: Props) => {
                 <ComboSearch
                   type={ComboSearchType.Clinic}
                   name={`surgicalTreatments.${key}.clinic`}
-                  defaultItems={['rkbybr', 'mememe', 'nenen']}
+                  defaultItems={regionClinics}
                 />
                 <label
                   htmlFor={`surgicalTreatments.${key}.doctor`}
