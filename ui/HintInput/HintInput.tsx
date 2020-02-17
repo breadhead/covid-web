@@ -1,4 +1,5 @@
 import * as React from 'react'
+import cx from 'classnames'
 
 import { AutoComplete } from 'antd'
 import { AutoCompleteProps } from 'antd/lib/auto-complete'
@@ -74,7 +75,7 @@ export class HintInput extends React.Component<Props> {
         id={name}
         dataSource={currentOptions as any}
         showSearch
-        className="hintInput"
+        className={cx("hintInput", type === HintInputTypes.Complex && "complex")}
         onSearch={this.onSearch}
         filterOption={this.filterOptions}
         notFoundContent={null}
