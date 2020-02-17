@@ -23,6 +23,8 @@ import { schema } from './schema'
 import { ComboSearchType } from '@app/ui/organisms/CustomElements/ComboSearch'
 
 import { useClinicByRegion } from '../../../hooks/useClinicByRegion'
+import { HintInputTypes } from '@app/ui/HintInput/HintInput';
+import { getValueFromFormContext } from '../../../helpers/getValueFromFormContext';
 
 interface Props {
   width: number
@@ -111,7 +113,9 @@ export const Surgery = ({ styles, initial, formContext }: Props) => {
                 <ComboSearch
                   type={ComboSearchType.Clinic}
                   name={`surgicalTreatments.${key}.clinic`}
+                  optionsType={HintInputTypes.Complex}
                   defaultItems={regionClinics}
+                  region={getValueFromFormContext(formContext, 'surgicalTreatments', 'region')}
                 />
                 <label
                   htmlFor={`surgicalTreatments.${key}.doctor`}

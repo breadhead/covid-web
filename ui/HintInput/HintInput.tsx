@@ -1,16 +1,13 @@
-import * as React from 'react'
+import React, { useState, useEffect } from 'react'
 import cx from 'classnames'
 
 import { AutoComplete } from 'antd'
 import { AutoCompleteProps } from 'antd/lib/auto-complete'
 import { OptionProps } from 'antd/lib/select'
 
-import { toString } from 'lodash'
-
 import './HintInput.css?CSSModulesDisable'
-import { mapComplexOptions } from './helpers/mapComplexOptions';
 
-const { Option } = AutoComplete
+const { Option, OptGroup } = AutoComplete
 
 
 export interface ComplexOptions {
@@ -18,7 +15,7 @@ export interface ComplexOptions {
   children: string[]
 }
 
-enum HintInputTypes {
+export enum HintInputTypes {
   Simple = 'Simple',
   Complex = 'Complex'
 }
@@ -34,61 +31,58 @@ type Option = React.ReactElement<OptionProps>
 
 export type Props = OwnProps & AutoCompleteProps
 
+export const HintInput = ({
+  name,
+  className,
+  options,
+  type = HintInputTypes.Simple,
+  ...rest
+}: Props
+) => {
+  const [currentOptions, setCurrentOptions] = useState<string[] | JSX.Element[] | null>([])
 
-// const dataSource = [
-//   {
-//     title: 'Libraries',
-//     children: ['AntDesign', 'AntDesign UI'],
-//   },
-//   {
-//     title: 'Solutions',
-//     children: ['Саратовская областная поликлиника', 'Челябинский метеорит'],
-//   }
-// ];
-
-
-export class HintInput extends React.Component<Props> {
-  public state = {
-    value: '',
-  }
-
-  public render() {
-    const { name, className, options, type = HintInputTypes.Simple, ...rest } = this.props
-
-
-    let currentOptions
-
+  useEffect(() => {
     switch (type) {
       case HintInputTypes.Simple:
-        currentOptions = options
+        setCurrentOptions(options as string[])
         break;
       case HintInputTypes.Complex:
-        currentOptions = mapComplexOptions(options as ComplexOptions[])
+        const opts = (options as ComplexOptions[]).map((group) =>
+          <OptGroup key={group.title} label={group.title}>
+            {group.children.map((opt) => {
+              return (
+                <Option key={opt} value={opt} >
+                  {opt}
+                </Option>
+              )
+            }
+            )}
+          </OptGroup>
+        )
+
+        setCurrentOptions(opts as any[])
+
         break;
       default:
-        currentOptions = options
+        setCurrentOptions(options as string[])
         break;
     }
 
-    return (
-      <AutoComplete
-        id={name}
-        dataSource={currentOptions as any}
-        showSearch
-        className={cx("hintInput", type === HintInputTypes.Complex && "complex")}
-        onSearch={this.onSearch}
-        filterOption={this.filterOptions}
-        notFoundContent={null}
-        {...rest}
-      />
-    )
-  }
+  }, [options[0], type])
 
-  private onSearch = (value: string) => this.setState({ value })
 
-  private filterOptions = (input: string, option: Option) =>
-    toString(option.props.children)
-      .toLowerCase()
-      .includes(input.toLowerCase())
+  return (
+    <AutoComplete
+      id={name}
+      dataSource={currentOptions as any}
+      className={cx("hintInput", type === HintInputTypes.Complex && "complex")}
+      notFoundContent={null}
+      autoFocus={false}
+      {...rest}
+    />
+  )
 }
+
+
+
 

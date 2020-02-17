@@ -24,6 +24,8 @@ import { SelectToThisDay } from '@app/features/common/form/components/SelectToTh
 import { SituationClaimFields } from '../../../types'
 import { ComboSearchType } from '@app/ui/organisms/CustomElements/ComboSearch'
 import { useClinicByRegion } from '../../../hooks/useClinicByRegion'
+import { HintInputTypes } from '@app/ui/HintInput/HintInput';
+import { getValueFromFormContext } from '../../../helpers/getValueFromFormContext';
 
 interface Props {
   styles: StylesType
@@ -127,6 +129,8 @@ export const Medicals = ({ styles, initial, formContext }: Props) => {
                   type={ComboSearchType.Clinic}
                   name={`medicalsTreatments.${key}.clinic`}
                   defaultItems={regionClinics}
+                  optionsType={HintInputTypes.Complex}
+                  region={getValueFromFormContext(formContext, 'medicalsTreatments', 'region')}
                 />
                 <label
                   htmlFor={`medicalsTreatments.${key}.doctor`}
