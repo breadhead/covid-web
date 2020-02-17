@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import HintInput from '@app/ui/HintInput'
+import { HintInput } from '@app/ui/HintInput/HintInput'
 import { useApi } from '@app/lib/api/useApi'
 import { debounce } from 'lodash'
 
