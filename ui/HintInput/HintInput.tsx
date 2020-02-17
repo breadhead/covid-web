@@ -9,15 +9,14 @@ import './HintInput.css?CSSModulesDisable'
 
 const { Option, OptGroup } = AutoComplete
 
-
 export interface ComplexOptions {
-  title: string,
+  title: string
   children: string[]
 }
 
 export enum HintInputTypes {
   Simple = 'Simple',
-  Complex = 'Complex'
+  Complex = 'Complex',
 }
 
 interface OwnProps {
@@ -37,52 +36,51 @@ export const HintInput = ({
   options,
   type = HintInputTypes.Simple,
   ...rest
-}: Props
-) => {
-  const [currentOptions, setCurrentOptions] = useState<string[] | JSX.Element[] | null>([])
+}: Props) => {
+  const [currentOptions, setCurrentOptions] = useState<
+    string[] | JSX.Element[] | null
+  >([])
 
-  useEffect(() => {
-    switch (type) {
-      case HintInputTypes.Simple:
-        setCurrentOptions(options as string[])
-        break;
-      case HintInputTypes.Complex:
-        const opts = (options as ComplexOptions[]).map((group) =>
-          <OptGroup key={group.title} label={group.title}>
-            {group.children.map((opt) => {
-              return (
-                <Option key={opt} value={opt} >
-                  {opt}
-                </Option>
-              )
-            }
-            )}
-          </OptGroup>
-        )
+  useEffect(
+    () => {
+      switch (type) {
+        case HintInputTypes.Simple:
+          setCurrentOptions(options as string[])
+          break
+        case HintInputTypes.Complex:
+          const opts = (options as ComplexOptions[])
+            .filter(opt => opt.children.length > 0)
+            .map(group => (
+              <OptGroup key={group.title} label={group.title}>
+                {group.children.map(opt => {
+                  return (
+                    <Option key={opt} value={opt}>
+                      {opt}
+                    </Option>
+                  )
+                })}
+              </OptGroup>
+            ))
 
-        setCurrentOptions(opts as any[])
+          setCurrentOptions(opts as any[])
 
-        break;
-      default:
-        setCurrentOptions(options as string[])
-        break;
-    }
-
-  }, [options[0], type])
-
+          break
+        default:
+          setCurrentOptions(options as string[])
+          break
+      }
+    },
+    [options[0], type],
+  )
 
   return (
     <AutoComplete
       id={name}
       dataSource={currentOptions as any}
-      className={cx("hintInput", type === HintInputTypes.Complex && "complex")}
+      className={cx('hintInput', type === HintInputTypes.Complex && 'complex')}
       notFoundContent={null}
       autoFocus={false}
       {...rest}
     />
   )
 }
-
-
-
-

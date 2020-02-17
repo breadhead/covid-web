@@ -371,7 +371,7 @@ export default class RealApiClient implements ApiClient {
 
   public searchClinicByRegion = (region: string, name: string) => {
     return this.axiosInstance
-      .get(`/base/clinics-by-region?${queryString({ region,  name })}`)
+      .get(`/base/clinics-by-region?${queryString({ region, name })}`)
       .then(res => res.data as any[])
   }
 }

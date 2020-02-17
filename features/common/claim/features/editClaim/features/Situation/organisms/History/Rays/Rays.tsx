@@ -23,8 +23,8 @@ import { SituationClaimFields } from '../../../types'
 import { schema } from './schema'
 import { ComboSearchType } from '@app/ui/organisms/CustomElements/ComboSearch'
 import { useClinicByRegion } from '../../../hooks/useClinicByRegion'
-import { HintInputTypes } from '@app/ui/HintInput/HintInput';
-import { getValueFromFormContext } from '../../../helpers/getValueFromFormContext';
+import { HintInputTypes } from '@app/ui/HintInput/HintInput'
+import { getValueFromFormContext } from '../../../helpers/getValueFromFormContext'
 
 interface Props {
   width: number
@@ -83,7 +83,11 @@ export const Rays = ({ styles, initial, formContext }: Props) => {
                   name={`radiationTreatments.${key}.clinic`}
                   defaultItems={regionClinics}
                   optionsType={HintInputTypes.Complex}
-                  region={getValueFromFormContext(formContext, 'radiationTreatments', 'region')}
+                  region={getValueFromFormContext(
+                    formContext,
+                    'radiationTreatments',
+                    'region',
+                  )}
                 />
                 <label
                   htmlFor={`radiationTreatments.${key}.doctor`}

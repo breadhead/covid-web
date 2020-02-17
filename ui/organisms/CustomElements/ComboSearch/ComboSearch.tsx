@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
-import { HintInput, HintInputTypes, ComplexOptions } from '@app/ui/HintInput/HintInput'
+import {
+  HintInput,
+  HintInputTypes,
+  ComplexOptions,
+} from '@app/ui/HintInput/HintInput'
 import { useApi } from '@app/lib/api/useApi'
 import { debounce } from 'lodash'
 
@@ -64,8 +68,14 @@ export const ComboSearch = ({
   )
 
   const options = items.length === 0 ? defaultItems : items
-  
+
   return (
-    <HintInput name={name} className={className} options={options} type={optionsType} {...rest} />
+    <HintInput
+      name={name}
+      className={className}
+      options={options}
+      type={optionsType}
+      {...rest}
+    />
   )
 }
