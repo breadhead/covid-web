@@ -90,6 +90,15 @@
   background-color: #fff;
 }
 
+.ant-select-dropdown-menu-item-group-title.ant-select-dropdown-menu-item-group-title.complex {
+  position: static;
+  height: auto;
+  padding-bottom: 4px;
+  font: var(--text14-20);
+  color: #82839b;
+  background-color: #fff;
+}
+
 .not-found {
   font: var(--text14-20);
   color: #82839b;

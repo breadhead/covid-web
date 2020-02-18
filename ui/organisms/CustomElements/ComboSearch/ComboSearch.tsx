@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
-import HintInput from '@app/ui/HintInput'
+import {
+  HintInput,
+  HintInputTypes,
+  ComplexOptions,
+} from '@app/ui/HintInput/HintInput'
 import { useApi } from '@app/lib/api/useApi'
 import { debounce } from 'lodash'
 
@@ -12,18 +16,22 @@ export enum ComboSearchType {
 export interface Props {
   name: string
   type: ComboSearchType
+  defaultItems?: string[] | ComplexOptions[]
+  optionsType?: HintInputTypes
   className?: string
-  defaultItems: string[]
+  region?: string
 }
 
 export const ComboSearch = ({
   name,
   className,
   type,
+  optionsType,
   defaultItems = [],
+  region = '',
   ...rest
 }: Props) => {
-  const [items, setItems] = useState<string[]>(defaultItems)
+  const [items, setItems] = useState<string[] | ComplexOptions[]>(defaultItems)
   const api = useApi()
 
   const onSearch = (query: string) => {
@@ -32,7 +40,7 @@ export const ComboSearch = ({
         api.searchDoctor(query).then(setItems)
         break
       case ComboSearchType.Clinic:
-        api.searchClinic(query).then(setItems)
+        api.searchClinicByRegion(region, query).then(setItems)
         break
       default:
         break
@@ -62,6 +70,12 @@ export const ComboSearch = ({
   const options = items.length === 0 ? defaultItems : items
 
   return (
-    <HintInput name={name} className={className} options={options} {...rest} />
+    <HintInput
+      name={name}
+      className={className}
+      options={options}
+      type={optionsType}
+      {...rest}
+    />
   )
 }

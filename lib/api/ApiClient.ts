@@ -108,5 +108,5 @@ export default interface ApiClient {
   generateDoctorsPassword(): Promise<string>
   searchDoctor(query: string): Promise<string[]>
   searchClinic(query: string): Promise<string[]>
-  searchClinicByRegion(region: string): Promise<string[]>
+  searchClinicByRegion(region: string, name: string): Promise<string[]>
 }
