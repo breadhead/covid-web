@@ -4,6 +4,7 @@ import cx from 'classnames'
 import { AutoComplete } from 'antd'
 import { AutoCompleteProps } from 'antd/lib/auto-complete'
 import { OptionProps } from 'antd/lib/select'
+import { toString } from 'lodash'
 
 import './HintInput.css?CSSModulesDisable'
 
@@ -73,6 +74,11 @@ export const HintInput = ({
     [options[0], type],
   )
 
+  const getfilterOptions = (input: string, option: Option) =>
+    toString(option.props.children)
+      .toLowerCase()
+      .includes(input.toLowerCase())
+
   return (
     <AutoComplete
       id={name}
@@ -80,6 +86,7 @@ export const HintInput = ({
       className={cx('hintInput', type === HintInputTypes.Complex && 'complex')}
       notFoundContent={null}
       autoFocus={false}
+      filterOption={getfilterOptions}
       {...rest}
     />
   )
