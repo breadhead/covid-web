@@ -11,9 +11,8 @@ import StartConsultationButton from '../../../../molecules/StartConsultationButt
 const Intro = () => (
   <section className={styles.intro}>
     <h1 className={styles.title}>
-      Бесплатная справочная служба для онкологических пациентов и
-      {NON_BREAKING_SPACE}их
-      {NON_BREAKING_SPACE}близких
+      Справочная{NON_BREAKING_SPACE}служба по вопросам коронавируса COVID-19
+     
     </h1>
     <div className={styles.logos}>
       <p className={styles.status}>
