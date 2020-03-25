@@ -5,57 +5,8 @@ import cx from 'classnames'
 import { Button, ButtonSize } from '@front/ui/button'
 import { genderRadioGroup } from '@app/features/common/claim/features/newClaim/organisms/Patient/genderRadioGroup'
 import RegionSelect from '@app/features/client/features/regionSelect'
-import { RadioButtonStyles } from '@app/ui/RadioGroup'
 
-const beginningRadioGroup = [
-  {
-    id: 'moreThanMonthAgo',
-    value: 'Более месяца назад',
-  },
-  {
-    id: 'severalWeeksAgo',
-    value: 'Несколько недель назад',
-  },
-  {
-    id: '7-10DaysAgo',
-    value: '7-10 дней назад',
-  },
-  {
-    id: '3-7DaysAgo',
-    value: '3-7 дней назад',
-  },
-  {
-    id: '0-2DaysAgo',
-    value: '0-2 дня назад',
-  },
-]
-
-
-const temperatureRadioGroup = [
-  {
-    id: '37-38',
-    value: '37-38 градусов',
-  },
-  {
-    id: '38-39',
-    value: '38-39 градусов',
-  },
-  {
-    id: '39',
-    value: 'выше 39 градусов',
-  },
-]
-
-const targetRadioGroup = [
-  {
-    id: 'self',
-    value: 'Для себя',
-  },
-  {
-    id: 'other',
-    value: 'Для близкого человека',
-  },
-]
+import { targetRadioGroup, temperatureRadioGroup, beginningRadioGroup } from './config'
 
 export const RequestForm = () => {
   const onFormSubmit = (data: any) => {
