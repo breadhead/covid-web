@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import * as styles from './Conclution.css'
 interface ConclutionProps {
   children: string

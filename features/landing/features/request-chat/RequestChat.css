@@ -41,3 +41,8 @@
 .progressBar.progressBar {
   margin-bottom: 36px;
 }
+
+.button {
+  display: block;
+  margin: 40px auto 0;
+}
