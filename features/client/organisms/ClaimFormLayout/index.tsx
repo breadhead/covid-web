@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import ProgressBar from '@app/features/common/progressBar'
 import { ProgressBarKind } from '@app/features/common/progressBar'
-import Layout from '../Layout'
+import ClientLayout from '../Layout'
 import * as styles from './Layout.css'
 
 export interface Props {
@@ -19,14 +19,14 @@ const ClaimFormLayout: React.StatelessComponent<Props> = ({
   children,
 }) => {
   return (
-    <Layout>
+    <ClientLayout>
       <main className={styles.claimPage}>
         <ProgressBar kind={ProgressBarKind.Client} step={step} />
         {title && <h1 className={styles.title}>{title}</h1>}
         {info && <p className={styles.infoText}>{info}</p>}
         {children}
       </main>
-    </Layout>
+    </ClientLayout>
   )
 }
 

@@ -1,0 +1,43 @@
+.page {
+  background-color: #fff !important;
+}
+
+.mainHeader {
+  background-color: #fff !important;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.image {
+  align-self: center;
+  width: 192px;
+}
+
+.title {
+  margin-bottom: 28px;
+  font: var(--title-medium);
+  text-align: center;
+
+  @media (--smallDown) {
+    padding: 0 16px;
+    margin-bottom: 16px;
+  }
+}
+
+.text {
+  max-width: 510px;
+  margin: auto;
+  text-align: center;
+
+  @media (--smallDown) {
+    padding: 0 16px;
+  }
+}
+
+.progressBar.progressBar {
+  margin-bottom: 36px;
+}

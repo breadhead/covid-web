@@ -2,14 +2,14 @@
 import React from 'react'
 import createConsultationPage from '@app/features/common/consultation'
 
-import Layout from '../../organisms/Layout'
+import ClientLayout from '../../organisms/Layout'
 import Subheader from './organisms/Subheader'
 
 const ClientConsultation = createConsultationPage(
   {
     renderSubHeader: ({ quota }: any) => <Subheader quotaClaim={quota} />,
   },
-  Layout as any,
+  ClientLayout as any,
 )
 
 export default ClientConsultation
