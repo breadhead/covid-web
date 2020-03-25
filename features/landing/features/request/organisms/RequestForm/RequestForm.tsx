@@ -8,12 +8,19 @@ import RegionSelect from '@app/features/client/features/regionSelect'
 import { Symptoms } from './components/symptoms'
 import { targetList } from './config'
 
+import { saveRequestFormData } from '../../reducer/actions'
+import { useThunk } from '@app/src/hooks/useThunk'
+
 
 export const RequestForm = () => {
+  const dispatch = useThunk()
+
   const onFormSubmit = (data: any) => {
     console.log('data:', data)
+    dispatch(saveRequestFormData(data))
     setCheked([])
   }
+
   const [checked, setCheked] = React.useState<string[]>([])
 
 
