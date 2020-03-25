@@ -11,6 +11,7 @@ import { targetList } from './config'
 import { saveRequestFormData } from '../../reducer/actions'
 import { useThunk } from '@app/src/hooks/useThunk'
 import { saveRequestFormDraft, getRequestFormDraft } from './localStorage'
+import { schema } from './schema'
 
 
 export const RequestForm = () => {
@@ -45,26 +46,30 @@ export const RequestForm = () => {
             Для кого вы ищете информацию?
           </label>
           <RadioGroup
-            // validate={'schema.gender'}
+            validate={schema.target}
             name="target"
             buttons={targetList}
           />
+
           <RegionSelect
             changeField={() => null}
+            validate={schema.region}
             name={`region`}
             styles={styles}
             textRegion="Регион"
             textCountry="Страна, где проходили лечение"
             textSwitch="Вы проходили лечение в России?"
           />
+
           <label htmlFor="gender" className={cx(styles.label, styles.field)}>
             Пол
           </label>
           <RadioGroup
-            // validate={gender}
+            validate={schema.gender}
             name="gender"
             buttons={genderRadioGroup}
           />
+
           <label
             htmlFor="personalData.age"
             className={cx(styles.label, styles.field)}
@@ -72,15 +77,17 @@ export const RequestForm = () => {
             Возраст (полных лет)
           </label>
           <Input
-            // validate={age}
+            validate={schema.age}
             name="age"
             type={InputType.Number}
           />
+
           <Symptoms
             initialFields={!!initialFields && initialFields.symptoms}
             checked={checked}
             setCheked={setCheked}
           />
+          
           <Button size={ButtonSize.Large} className={styles.button} submit>
             Отправить
           </Button>
