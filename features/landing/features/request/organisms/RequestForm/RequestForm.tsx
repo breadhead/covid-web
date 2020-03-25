@@ -13,13 +13,11 @@ import { useThunk } from '@app/src/hooks/useThunk'
 import { saveRequestFormDraft, getRequestFormDraft } from './localStorage'
 import { schema } from './schema'
 
-
 export const RequestForm = () => {
   const [checked, setCheked] = useState<string[]>([])
   const [initialFields, setInitialFields] = useState<any>(null)
 
   const dispatch = useThunk()
-
 
   useEffect(() => {
     const draft = getRequestFormDraft()
@@ -76,18 +74,14 @@ export const RequestForm = () => {
           >
             Возраст (полных лет)
           </label>
-          <Input
-            validate={schema.age}
-            name="age"
-            type={InputType.Number}
-          />
+          <Input validate={schema.age} name="age" type={InputType.Number} />
 
           <Symptoms
             initialFields={!!initialFields && initialFields.symptoms}
             checked={checked}
             setCheked={setCheked}
           />
-          
+
           <Button size={ButtonSize.Large} className={styles.button} submit>
             Отправить
           </Button>
