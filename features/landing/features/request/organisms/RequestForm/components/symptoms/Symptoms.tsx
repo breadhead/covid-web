@@ -6,11 +6,11 @@ import { temperatureList, symptomsSinceList, symptomsList, coughList, chestPainL
 import * as styles from '../../RequestForm.css'
 
 interface SymptomsProps {
-  reset?: () => void
+  checked: string[]
+  setCheked: (arr: string[]) => void
 }
 
-export const Symptoms = ({ reset }: SymptomsProps) => {
-  const [checked, setCheked] = React.useState<string[]>([])
+export const Symptoms = ({ checked, setCheked }: SymptomsProps) => {
 
   const toggleSymptom = (id: string) => {
     if (checked.includes(id)) {
@@ -92,15 +92,15 @@ export const Symptoms = ({ reset }: SymptomsProps) => {
       </>}
 
       {checked.length > 0 && <>
-          <label htmlFor="since" className={cx(styles.label, styles.field)}>
-            Когда появились симптомы?
+        <label htmlFor="since" className={cx(styles.label, styles.field)}>
+          Когда появились симптомы?
             </label>
-          <RadioGroup
-            // validate={temperature}
-            name="symptoms.sinceOptions"
-            buttons={symptomsSinceList}
-          />
-        </>
+        <RadioGroup
+          // validate={temperature}
+          name="symptoms.sinceOptions"
+          buttons={symptomsSinceList}
+        />
+      </>
       }
     </>
 

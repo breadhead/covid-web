@@ -5,14 +5,17 @@ import cx from 'classnames'
 import { Button, ButtonSize } from '@front/ui/button'
 import { genderRadioGroup } from '@app/features/common/claim/features/newClaim/organisms/Patient/genderRadioGroup'
 import RegionSelect from '@app/features/client/features/regionSelect'
-import {Symptoms} from './components/symptoms'
+import { Symptoms } from './components/symptoms'
 import { targetList } from './config'
 
 
 export const RequestForm = () => {
   const onFormSubmit = (data: any) => {
     console.log('data:', data)
+    setCheked([])
   }
+  const [checked, setCheked] = React.useState<string[]>([])
+
 
   return (
     <Form
@@ -58,7 +61,10 @@ export const RequestForm = () => {
             name="age"
             type={InputType.Number}
           />
-          <Symptoms />
+          <Symptoms
+            checked={checked}
+            setCheked={setCheked}
+          />
           <Button size={ButtonSize.Large} className={styles.button} submit>
             Отправить
           </Button>
