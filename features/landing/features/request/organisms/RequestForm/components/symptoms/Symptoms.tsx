@@ -43,10 +43,13 @@ export const Symptoms = ({ checked, setCheked }: SymptomsProps) => {
         <label htmlFor="cough" className={cx(styles.label, styles.field)}>
           Какой кашель?
         </label>
-        <RadioGroup
-          name="symptoms.coughOptions"
-          buttons={coughList}
-        />
+        <div >
+          <RadioGroup
+            className={styles.symptomsRadioGroup}
+            name="symptoms.coughOptions"
+            buttons={coughList}
+          />
+        </div>
       </>}
 
       {checked.includes('chest-pain') && <>
@@ -69,10 +72,13 @@ export const Symptoms = ({ checked, setCheked }: SymptomsProps) => {
         <label htmlFor="temperature" className={cx(styles.label, styles.field)}>
           Какая температура
         </label>
-        <RadioGroup
-          name="symptoms.temperatureOptions"
-          buttons={temperatureList}
-        />
+        <div >
+          <RadioGroup
+            className={styles.symptomsRadioGroup}
+            name="symptoms.temperatureOptions"
+            buttons={temperatureList}
+          />
+        </div>
       </>}
 
       {checked.includes('dyspnea') && <>
@@ -95,11 +101,14 @@ export const Symptoms = ({ checked, setCheked }: SymptomsProps) => {
         <label htmlFor="since" className={cx(styles.label, styles.field)}>
           Когда появились симптомы?
             </label>
-        <RadioGroup
-          // validate={temperature}
-          name="symptoms.sinceOptions"
-          buttons={symptomsSinceList}
-        />
+        <div >
+          <RadioGroup
+            className={styles.symptomsRadioGroup}
+            // validate={temperature}
+            name="symptoms.sinceOptions"
+            buttons={symptomsSinceList}
+          />
+        </div>
       </>
       }
     </>
