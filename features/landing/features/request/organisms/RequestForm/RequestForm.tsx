@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Form, Input, RadioGroup, InputType } from '@app/features/common/form'
 import * as styles from './RequestForm.css'
 import cx from 'classnames'
@@ -10,26 +10,34 @@ import { targetList } from './config'
 
 import { saveRequestFormData } from '../../reducer/actions'
 import { useThunk } from '@app/src/hooks/useThunk'
+import { saveRequestFormDraft, getRequestFormDraft } from './localStorage'
 
 
 export const RequestForm = () => {
+  const [checked, setCheked] = useState<string[]>([])
+  const [initialFields, setInitialFields] = useState<any>(null)
+
   const dispatch = useThunk()
 
+
+  useEffect(() => {
+    const draft = getRequestFormDraft('default')
+    setInitialFields(draft)
+  }, [])
+
   const onFormSubmit = (data: any) => {
-    console.log('data:', data)
     dispatch(saveRequestFormData(data))
     setCheked([])
   }
 
-  const [checked, setCheked] = React.useState<string[]>([])
-
-
   return (
     <Form
-      // initialValues={'initial'}
       onSubmit={onFormSubmit as any}
+      initialValues={initialFields}
       resetAfterSubmit
-      className={styles.form}
+      className={styles.form}      
+      saveDebounced={saveRequestFormDraft('default')}
+      saveOnBlur={saveRequestFormDraft('default')}
     >
       {() => (
         <>

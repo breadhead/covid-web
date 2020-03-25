@@ -16,7 +16,7 @@ interface Actions extends FetchingActions {
 }
 
 const initialState = createInitialState({
-  requestFormData: null,
+  requestFormData: undefined,
 })
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
