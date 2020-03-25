@@ -101,7 +101,7 @@ jobs:
           name: Setup Env
           command: |
             echo 'export IMAGE_TAG=${CIRCLE_TAG:-latest}' >> $BASH_ENV
-            echo 'export IMAGE_NAME=oncohelp-web' >> $BASH_ENV
+            echo 'export IMAGE_NAME=coronavirus-web' >> $BASH_ENV
       - run:
           name: Build and push Docker image
           command: |
@@ -123,7 +123,7 @@ jobs:
           name: Setup Env
           command: |
             echo 'export IMAGE_TAG=stable' >> $BASH_ENV
-            echo 'export IMAGE_NAME=oncohelp-web' >> $BASH_ENV
+            echo 'export IMAGE_NAME=coronavirus-web' >> $BASH_ENV
       - run:
           name: Build and push Docker image
           command: |
@@ -138,9 +138,9 @@ jobs:
     steps:
       - run:
           name: Deploy Over SSH
-          command: ssh $SSH_USER@$SSH_HOST "cd /home/cloud-user/www/oncohelp &&
+          command: ssh $SSH_USER@$SSH_HOST "cd /root/web/covid &&
             sudo docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" &&
-            sudo docker pull breadheadhub/oncohelp-web &&
+            sudo docker pull breadheadhub/coronavirus-web &&
             sudo docker logout &&
             sudo docker-compose down &&
             sudo docker-compose up -d &&
@@ -160,7 +160,7 @@ jobs:
             source $BASH_ENV
             ssh $SSH_PROD_USER@$SSH_PROD_HOST "cd /root/web &&
             sudo docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" &&
-            sudo docker pull breadheadhub/oncohelp-web:$IMAGE_TAG &&
+            sudo docker pull breadheadhub/coronavirus-web:$IMAGE_TAG &&
             sudo docker logout &&
             sudo docker-compose down &&
             sudo docker-compose up -d &&
