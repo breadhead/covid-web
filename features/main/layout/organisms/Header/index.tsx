@@ -9,7 +9,7 @@ import MediaQuery, { Query } from '@app/ui/MediaQuery'
 import { connect } from 'react-redux'
 import { AnyAction, Dispatch } from 'redux'
 import Menu from './organisms/Menu'
-import Navigation from './organisms/Navigation'
+import { Navigation } from './organisms/Navigation'
 
 interface Props {
   token: string
