@@ -110,9 +110,8 @@ import {
 
 import {
   requestFormReducer,
-  RequestFormReducerState
+  RequestFormReducerState,
 } from '@app/features/landing/features/request/reducer'
-
 
 import ApiClient from './api/ApiClient'
 import factory from './api/apiFactory'

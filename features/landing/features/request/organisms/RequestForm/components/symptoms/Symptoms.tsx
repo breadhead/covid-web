@@ -1,8 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
 import cx from 'classnames'
 
 import { RadioGroup, Checkbox } from '@app/features/common/form'
-import { temperatureList, symptomsSinceList, symptomsList, coughList, chestPainList, dyspneaList } from '../../config';
+import {
+  temperatureList,
+  symptomsSinceList,
+  symptomsList,
+  coughList,
+  chestPainList,
+  dyspneaList,
+} from '../../config'
 import * as styles from '../../RequestForm.css'
 
 interface SymptomsProps {
@@ -11,7 +18,11 @@ interface SymptomsProps {
   initialFields?: any
 }
 
-export const Symptoms = ({ checked, setCheked, initialFields }: SymptomsProps) => {
+export const Symptoms = ({
+  checked,
+  setCheked,
+  initialFields,
+}: SymptomsProps) => {
   const toggleSymptom = (id: string) => {
     if (checked.includes(id)) {
       setCheked(checked.filter(it => it !== id))
@@ -20,104 +31,126 @@ export const Symptoms = ({ checked, setCheked, initialFields }: SymptomsProps) =
     }
   }
 
-  useEffect(() => {
-    if (!!initialFields) {
-      setCheked(Object.keys(initialFields))
-    }
-  }, [initialFields])
-
+  useEffect(
+    () => {
+      if (!!initialFields) {
+        setCheked(Object.keys(initialFields))
+      }
+    },
+    [initialFields],
+  )
 
   return (
     <>
       <label htmlFor="symptoms" className={cx(styles.label, styles.field)}>
         Есть ли у вас какие-то из этих симптомов?
-    </label>
+      </label>
       <div className={styles.symptomsList}>
         {symptomsList.map(it => {
-          return <Checkbox
-            onClick={() => toggleSymptom(it.id)}
-            key={it.id}
-            name={`symptoms.${it.id}`}
-            type="checkbox"
-            className={styles.checkbox}
-          >
-            {it.value}
-          </Checkbox>
+          return (
+            <Checkbox
+              onClick={() => toggleSymptom(it.id)}
+              key={it.id}
+              name={`symptoms.${it.id}`}
+              type="checkbox"
+              className={styles.checkbox}
+            >
+              {it.value}
+            </Checkbox>
+          )
         })}
       </div>
 
-      {checked.includes('cough') && <>
+      {checked.includes('cough') && (
+        <>
           <label htmlFor="cough" className={cx(styles.label, styles.field)}>
             Какой кашель?
-        </label>
-          <div >
+          </label>
+          <div>
             <RadioGroup
               className={styles.symptomsRadioGroup}
               name="symptoms.coughOptions"
               buttons={coughList}
             />
           </div>
-        </>}
+        </>
+      )}
 
-      {checked.includes('chest-pain') && <>
-          <label htmlFor="chest-pain" className={cx(styles.label, styles.field)}>
+      {checked.includes('chest-pain') && (
+        <>
+          <label
+            htmlFor="chest-pain"
+            className={cx(styles.label, styles.field)}
+          >
             Опишите боль в груди:
-        </label>
+          </label>
           {chestPainList.map(it => {
-            return <Checkbox
-              key={it.id}
-              name={`symptoms.chestPainOptions.${it.id}`}
-              type="checkbox"
-              className={styles.checkbox}
-            >
-              {it.value}
-            </Checkbox>
+            return (
+              <Checkbox
+                key={it.id}
+                name={`symptoms.chestPainOptions.${it.id}`}
+                type="checkbox"
+                className={styles.checkbox}
+              >
+                {it.value}
+              </Checkbox>
+            )
           })}
-        </>}
+        </>
+      )}
 
-      {checked.includes('temperature') && <>
-          <label htmlFor="temperature" className={cx(styles.label, styles.field)}>
+      {checked.includes('temperature') && (
+        <>
+          <label
+            htmlFor="temperature"
+            className={cx(styles.label, styles.field)}
+          >
             Какая температура
-        </label>
-          <div >
+          </label>
+          <div>
             <RadioGroup
               className={styles.symptomsRadioGroup}
               name="symptoms.temperatureOptions"
               buttons={temperatureList}
             />
           </div>
-        </>}
+        </>
+      )}
 
-      {checked.includes('dyspnea') && <>
+      {checked.includes('dyspnea') && (
+        <>
           <label htmlFor="dyspnea" className={cx(styles.label, styles.field)}>
             Какая одышка?
-        </label>
+          </label>
           {dyspneaList.map(it => {
-            return <Checkbox
-              key={it.id}
-              name={`symptoms.dyspneaOptions.${it.id}`}
-              type="checkbox"
-              className={styles.checkbox}
-            >
-              {it.value}
-            </Checkbox>
+            return (
+              <Checkbox
+                key={it.id}
+                name={`symptoms.dyspneaOptions.${it.id}`}
+                type="checkbox"
+                className={styles.checkbox}
+              >
+                {it.value}
+              </Checkbox>
+            )
           })}
-        </>}
+        </>
+      )}
 
-      {checked.length > 0 && <>
-        <label htmlFor="since" className={cx(styles.label, styles.field)}>
-          Когда появились симптомы?
-            </label>
-        <div >
-          <RadioGroup
-            className={styles.symptomsRadioGroup}
-            name="symptoms.sinceOptions"
-            buttons={symptomsSinceList}
-          />
-        </div>
-      </>
-      }
+      {checked.length > 0 && (
+        <>
+          <label htmlFor="since" className={cx(styles.label, styles.field)}>
+            Когда появились симптомы?
+          </label>
+          <div>
+            <RadioGroup
+              className={styles.symptomsRadioGroup}
+              name="symptoms.sinceOptions"
+              buttons={symptomsSinceList}
+            />
+          </div>
+        </>
+      )}
     </>
-
   )
 }

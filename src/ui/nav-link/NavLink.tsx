@@ -30,7 +30,7 @@ export const NavLink = ({
   }
 
   return (
-    <NextLink href={href}>
+    <NextLink href={href} as={href}>
       <a
         className={cx(
           styles.navlink,

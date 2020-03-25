@@ -1,4 +1,4 @@
-import { Action } from 'redux';
+import { Action } from 'redux'
 
 import {
   createFetchingSymbiote,
@@ -22,10 +22,10 @@ const initialState = createInitialState({
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
   (state: State, requestFormData: string) => {
-    return ({
+    return {
       ...state,
       requestFormData,
-    })
+    }
   },
   'saveRequestForm',
 )

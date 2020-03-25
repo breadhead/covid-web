@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: oncohelp-web
+    image: coronavirus-web
     ports:
       - '4001:3001'
     environment:

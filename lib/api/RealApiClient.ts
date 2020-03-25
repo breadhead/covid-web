@@ -375,10 +375,11 @@ export default class RealApiClient implements ApiClient {
       .then(res => res.data as any[])
   }
 
-  public saveCoronaRequestForm = (data: any) => this.axiosInstance
-    .post('/form/save', {
-      type: 'corona', fields: JSON.parse(data)
-    })
-    .then(res => res.data as any)
-
+  public saveCoronaRequestForm = (data: any) =>
+    this.axiosInstance
+      .post('/form/save', {
+        type: 'corona',
+        fields: JSON.stringify(data),
+      })
+      .then(res => res.data as any)
 }

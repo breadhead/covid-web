@@ -20,17 +20,8 @@ const StartConsultationButton = ({
   containerClassName,
   size,
   children,
-  token,
 }: Props & any) => (
-  <NavLink
-    className={containerClassName}
-    withoutUnderline
-    href={
-      token
-        ? '/client/new-claim/rules/'
-        : '/?signUp=true&wantTo=client/new-claim/rules/'
-    }
-  >
+  <NavLink className={containerClassName} withoutUnderline href="/request">
     <Button size={size} className={className} kind={ButtonKind.Primary}>
       {children}
     </Button>
