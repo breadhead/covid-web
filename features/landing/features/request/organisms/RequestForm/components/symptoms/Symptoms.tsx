@@ -8,10 +8,12 @@ import * as styles from '../../RequestForm.css'
 interface SymptomsProps {
   checked: string[]
   setCheked: (arr: string[]) => void
+  initialFields?: any
 }
 
-export const Symptoms = ({ checked, setCheked }: SymptomsProps) => {
+const getInitialCondition = (initialFields: any, key: string) => !!initialFields && !!initialFields[key]
 
+export const Symptoms = ({ checked, setCheked, initialFields }: SymptomsProps) => {
   const toggleSymptom = (id: string) => {
     if (checked.includes(id)) {
       setCheked(checked.filter(it => it !== id))
@@ -39,7 +41,7 @@ export const Symptoms = ({ checked, setCheked }: SymptomsProps) => {
         })}
       </div>
 
-      {checked.includes('cough') && <>
+      {checked.includes('cough') || getInitialCondition(initialFields, 'coughOptions') && <>
         <label htmlFor="cough" className={cx(styles.label, styles.field)}>
           Какой кашель?
         </label>
@@ -52,7 +54,7 @@ export const Symptoms = ({ checked, setCheked }: SymptomsProps) => {
         </div>
       </>}
 
-      {checked.includes('chest-pain') && <>
+      {checked.includes('chest-pain') || getInitialCondition(initialFields, 'chestPainOptions') && <>
         <label htmlFor="chest-pain" className={cx(styles.label, styles.field)}>
           Опишите боль в груди:
         </label>
@@ -68,7 +70,7 @@ export const Symptoms = ({ checked, setCheked }: SymptomsProps) => {
         })}
       </>}
 
-      {checked.includes('temperature') && <>
+      {checked.includes('temperature') || getInitialCondition(initialFields, 'temperatureOptions') &&  <>
         <label htmlFor="temperature" className={cx(styles.label, styles.field)}>
           Какая температура
         </label>
@@ -81,7 +83,7 @@ export const Symptoms = ({ checked, setCheked }: SymptomsProps) => {
         </div>
       </>}
 
-      {checked.includes('dyspnea') && <>
+      {checked.includes('dyspnea') || getInitialCondition(initialFields, 'dyspneaOptions') && <>
         <label htmlFor="dyspnea" className={cx(styles.label, styles.field)}>
           Какая одышка?
         </label>
@@ -97,7 +99,7 @@ export const Symptoms = ({ checked, setCheked }: SymptomsProps) => {
         })}
       </>}
 
-      {checked.length > 0 && <>
+      {checked.length > 0 || !!initialFields && Object.keys(initialFields).length > 0 && <>
         <label htmlFor="since" className={cx(styles.label, styles.field)}>
           Когда появились симптомы?
             </label>

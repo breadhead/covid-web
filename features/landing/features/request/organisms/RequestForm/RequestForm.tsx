@@ -35,7 +35,7 @@ export const RequestForm = () => {
       onSubmit={onFormSubmit as any}
       initialValues={initialFields}
       resetAfterSubmit
-      className={styles.form}      
+      className={styles.form}
       saveDebounced={saveRequestFormDraft('default')}
       saveOnBlur={saveRequestFormDraft('default')}
     >
@@ -77,6 +77,7 @@ export const RequestForm = () => {
             type={InputType.Number}
           />
           <Symptoms
+            initialFields={!!initialFields && initialFields.symptoms}
             checked={checked}
             setCheked={setCheked}
           />
