@@ -7,10 +7,10 @@ export const saveRequestFormData = (requestFormData: any) => async (
   getState: () => State,
   { getApi }: ExtraArgs,
 ) => {
-  // const api = getApi(getState)
+  const api = getApi(getState)
   try {
-    // dispatch(actions.request())
-    // const quota = await api.saveRequestFormData(quotaFields)
+    dispatch(actions.request())
+    await api.saveCoronaRequestForm(requestFormData)
     return dispatch(actions.success(requestFormData))
   } catch (error) {
     return dispatch(actions.error(error.message))

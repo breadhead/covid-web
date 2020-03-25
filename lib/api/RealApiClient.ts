@@ -374,4 +374,11 @@ export default class RealApiClient implements ApiClient {
       .get(`/base/clinics-by-region?${queryString({ region, name })}`)
       .then(res => res.data as any[])
   }
+
+  public saveCoronaRequestForm = (data: any) => this.axiosInstance
+    .post('/form/save', {
+      type: 'corona', fields: JSON.parse(data)
+    })
+    .then(res => res.data as any)
+
 }
