@@ -1,12 +1,13 @@
 import * as React from 'react'
-import { Form, Input, RadioGroup, InputType } from '@app/features/common/form'
+import { Form, Input, RadioGroup, InputType, Checkbox } from '@app/features/common/form'
 import * as styles from './RequestForm.css'
 import cx from 'classnames'
 import { Button, ButtonSize } from '@front/ui/button'
 import { genderRadioGroup } from '@app/features/common/claim/features/newClaim/organisms/Patient/genderRadioGroup'
 import RegionSelect from '@app/features/client/features/regionSelect'
+import {Symptoms} from './components/symptoms'
+import { targetRadioGroup, beginningRadioGroup } from './config'
 
-import { targetRadioGroup, temperatureRadioGroup, beginningRadioGroup } from './config'
 
 export const RequestForm = () => {
   const onFormSubmit = (data: any) => {
@@ -57,21 +58,7 @@ export const RequestForm = () => {
             name="age"
             type={InputType.Number}
           />
-          <label htmlFor="symptoms" className={cx(styles.label, styles.field)}>
-            Есть ли у вас какие-то из этих симптомов?
-          </label>
-          <div>чекбоксы</div>
-
-
-          <label htmlFor="temperature" className={cx(styles.label, styles.field)}>
-            Какая температура
-          </label>
-          <RadioGroup
-            // validate={temperature}
-            name="temperature"
-            buttons={temperatureRadioGroup}
-          />
-
+          <Symptoms styles={styles} />
           <label htmlFor="beginning" className={cx(styles.label, styles.field)}>
             Когда появились симптомы?
           </label>

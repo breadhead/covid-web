@@ -47,3 +47,62 @@ export const targetRadioGroup = [
     value: 'Для близкого человека',
   },
 ]
+
+export const symptomsList = [
+  {
+    id: 'cough',
+    value: 'Кашель'
+  },
+  {
+    id: 'sneezing',
+    value: 'Чихание'
+  },
+  {
+    id: 'sore-throat',
+    value: 'Боль в горле'
+  },
+  {
+    id: 'runny-nose',
+    value: 'Насморк'
+  },
+  {
+    id: 'chest-pain',
+    value: 'Боль в грудной клетке'
+  },
+  {
+    id: 'weakness',
+    value: 'Усталость и слабость'
+  },
+  {
+    id: 'temperature',
+    value: 'Температура'
+  },
+  {
+    id: 'body-aches',
+    value: 'Ломота во всем теле'
+  },
+  {
+    id: 'chills',
+    value: 'Озноб'
+  },
+  {
+    id: 'headache',
+    value: 'Головная боль'
+  },
+  {
+    id: 'dyspnea',
+    value: 'Одышка'
+  },
+  {
+    id: 'nausea',
+    value: 'Тошнота'
+  },
+  {
+    id: 'loose-stools',
+    value: 'Частый жидкий стул'
+  },
+  {
+    id: 'abdominal-pain',
+    value: 'Боль в животе'
+  },
+]
