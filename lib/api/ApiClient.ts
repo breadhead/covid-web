@@ -109,4 +109,5 @@ export default interface ApiClient {
   searchDoctor(query: string): Promise<string[]>
   searchClinic(query: string): Promise<string[]>
   searchClinicByRegion(region: string, name: string): Promise<string[]>
+  saveCoronaRequestForm(data: any): Promise<any>
 }
