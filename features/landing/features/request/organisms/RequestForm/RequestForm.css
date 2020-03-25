@@ -129,3 +129,16 @@
   height: 24px;
   margin-right: 8px;
 }
+
+
+.button {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  margin-top: 40px;
+
+  @media (--smallDown) {
+    max-width: 328px;
+  }
+}
