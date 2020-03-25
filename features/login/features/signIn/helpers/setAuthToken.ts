@@ -1,6 +1,5 @@
-import ApiClient from '@app/lib/api/ApiClient';
-import Cookies from 'js-cookie';
-
+import ApiClient from '@app/lib/api/ApiClient'
+import Cookies from 'js-cookie'
 
 const getCookieExpiration = () =>
   new Date(
@@ -9,10 +8,13 @@ const getCookieExpiration = () =>
 
 const isDev = process.env.NODE_ENV === 'development'
 
-const sameSiteAttrs: any = isDev ? {} : { sameSite: 'none', secure: true };
+const sameSiteAttrs: any = isDev ? {} : { sameSite: 'none', secure: true }
 
 export const setCookie = (token: string) => {
-  Cookies.set('token', token, { expires: getCookieExpiration(), ...sameSiteAttrs });
+  Cookies.set('token', token, {
+    expires: getCookieExpiration(),
+    ...sameSiteAttrs,
+  })
 }
 
 export const setAuthToken = (token: string, apiClient: ApiClient) => {
@@ -21,6 +23,5 @@ export const setAuthToken = (token: string, apiClient: ApiClient) => {
 }
 
 export const resetCookie = () => {
-  Cookies.set('token', '', { expires: getCookieExpiration(), ...sameSiteAttrs });
+  Cookies.set('token', '', { expires: getCookieExpiration(), ...sameSiteAttrs })
 }
-

@@ -12,7 +12,6 @@ const Intro = () => (
   <section className={styles.intro}>
     <h1 className={styles.title}>
       Справочная{NON_BREAKING_SPACE}служба по вопросам коронавируса COVID-19
-     
     </h1>
     <div className={styles.logos}>
       <p className={styles.status}>

@@ -108,6 +108,12 @@ import {
   ClientClaimsState,
 } from '@app/features/common/consultation'
 
+import {
+  requestFormReducer,
+  RequestFormReducerState
+} from '@app/features/landing/features/request/reducer'
+
+
 import ApiClient from './api/ApiClient'
 import factory from './api/apiFactory'
 
@@ -142,9 +148,11 @@ export interface State {
   landing: LandingState
   rating: RatingState
   admin: AdminState
+  requestForm: RequestFormReducerState
 }
 
 const reducer = combineReducers({
+  requestForm: requestFormReducer,
   domain: domainReducer,
   login: loginReducer,
   quotas: quotasReducer,

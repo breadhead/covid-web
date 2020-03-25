@@ -8,24 +8,26 @@ import {
 } from '@app/lib/symbioteFactory'
 
 interface State extends FetchingState {
-  quotaId?: string
+  requestFormData?: any
 }
 
 interface Actions extends FetchingActions {
-  success(quotaId: string): Action
+  success(requestFormData: string): Action
 }
 
 const initialState = createInitialState({
-  quotaId: undefined,
+  requestFormData: undefined,
 })
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  (state: State, quotaId: string) => ({
-    ...state,
-    quotaId,
-  }),
-  'createQuota',
+  (state: State, requestFormData: string) => {
+    return ({
+      ...state,
+      requestFormData,
+    })
+  },
+  'saveRequestForm',
 )
 
 export { State, reducer, Actions, actions }

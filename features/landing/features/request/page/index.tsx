@@ -7,7 +7,7 @@ import * as styles from './Request.css'
 import { AppContext } from '@app/lib/server-types'
 
 import Notification from '../molecules/Notification'
-
+import { RequestForm } from '../organisms/RequestForm'
 
 interface Props {
   id: string
@@ -30,10 +30,10 @@ class RequstPage extends React.Component<Props> {
         <Head>
           <title>Новое обращение | Просто спросить</title>
         </Head>
-        
+
         <h1 className={styles.title}>Новое обращение</h1>
         <Notification />
-        
+        <RequestForm />
       </Layout>
     )
   }
