@@ -22,7 +22,7 @@ export const RequestForm = () => {
 
 
   useEffect(() => {
-    const draft = getRequestFormDraft('default')
+    const draft = getRequestFormDraft()
     setInitialFields(draft)
   }, [])
 
@@ -37,8 +37,8 @@ export const RequestForm = () => {
       initialValues={initialFields}
       resetAfterSubmit
       className={styles.form}
-      saveDebounced={saveRequestFormDraft('default')}
-      saveOnBlur={saveRequestFormDraft('default')}
+      saveDebounced={saveRequestFormDraft()}
+      saveOnBlur={saveRequestFormDraft()}
     >
       {() => (
         <>
