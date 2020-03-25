@@ -1,8 +1,7 @@
-import { useEffect } from 'react'
-
-import { useModal } from '@app/features/common/modal'
-import { MODAL_KEY as SIGN_IN_MODAL } from '@app/features/login/features/signIn/const'
-import { MODAL_KEY as SIGN_UP_MODAL } from '@app/features/login/features/signUp/const'
+import { useModal } from '@app/features/common/modal';
+import { MODAL_KEY as SIGN_IN_MODAL } from '@app/features/login/features/signIn/const';
+import { MODAL_KEY as SIGN_UP_MODAL } from '@app/features/login/features/signUp/const';
+import { useEffect } from 'react';
 
 const SIGN_IN_URL = 'signIn'
 const SIGN_UP_URL = 'signUp'

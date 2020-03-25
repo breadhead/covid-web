@@ -5,12 +5,14 @@ import { FooterTheme } from '@app/ui/organisms/Footer';
 import ClientLayout from '@app/features/client/organisms/Layout';
 import { Conclution } from './components/conclution';
 import { getConclutionText } from './getConclutionText';
-import { Button, ButtonKind } from '@app/src/ui/button';
 import { ArticlesList } from './components/articles';
+import { AskButton } from './components/askButton';
 
 
 
 export const RequestChat = () => {
+
+
   return (
     <ClientLayout
       headerClassName={styles.mainHeader}
@@ -22,7 +24,7 @@ export const RequestChat = () => {
       </div>
       <ArticlesList />
       <Conclution>{getConclutionText()}</Conclution>
-      <Button className={styles.button} kind={ButtonKind.Secondary}>Спросить в чате 🤖👩🏻‍⚕️ >️</Button>
+      <AskButton>Спросить в чате 🤖👩🏻‍⚕️ >️</AskButton>
     </ClientLayout>
   )
 }
