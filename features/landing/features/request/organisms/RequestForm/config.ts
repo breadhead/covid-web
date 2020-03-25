@@ -1,4 +1,4 @@
-export const beginningRadioGroup = [
+export const symptomsSinceList = [
   {
     id: 'moreThanMonthAgo',
     value: 'Более месяца назад',
@@ -21,8 +21,18 @@ export const beginningRadioGroup = [
   },
 ]
 
+export const coughList = [
+  {
+    id: 'dry',
+    value: 'Сухой без мокроты',
+  },
+  {
+    id: 'moist',
+    value: 'Влажный с мокротой',
+  },
+]
 
-export const temperatureRadioGroup = [
+export const temperatureList = [
   {
     id: '37-38',
     value: '37-38 градусов',
@@ -37,7 +47,7 @@ export const temperatureRadioGroup = [
   },
 ]
 
-export const targetRadioGroup = [
+export const targetList = [
   {
     id: 'self',
     value: 'Для себя',
@@ -47,6 +57,39 @@ export const targetRadioGroup = [
     value: 'Для близкого человека',
   },
 ]
+
+
+export const chestPainList = [
+  {
+    id: 'inhale',
+    value: 'Возникает при вдохе',
+  },
+  {
+    id: 'coughing',
+    value: 'Возникает только при кашле',
+  },
+  {
+    id: 'rest',
+    value: 'В покое',
+  },
+  {
+    id: 'physical-activity',
+    value: 'При физической нагрузке',
+  },
+]
+
+
+export const dyspneaList = [
+  {
+    id: 'rest',
+    value: 'В покое',
+  },
+  {
+    id: 'physical-activity',
+    value: 'При физической нагрузке',
+  },
+]
+
 
 export const symptomsList = [
   {

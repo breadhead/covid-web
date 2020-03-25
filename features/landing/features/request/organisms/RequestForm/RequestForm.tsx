@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { Form, Input, RadioGroup, InputType, Checkbox } from '@app/features/common/form'
+import { Form, Input, RadioGroup, InputType } from '@app/features/common/form'
 import * as styles from './RequestForm.css'
 import cx from 'classnames'
 import { Button, ButtonSize } from '@front/ui/button'
 import { genderRadioGroup } from '@app/features/common/claim/features/newClaim/organisms/Patient/genderRadioGroup'
 import RegionSelect from '@app/features/client/features/regionSelect'
 import {Symptoms} from './components/symptoms'
-import { targetRadioGroup, beginningRadioGroup } from './config'
+import { targetList } from './config'
 
 
 export const RequestForm = () => {
@@ -29,10 +29,10 @@ export const RequestForm = () => {
           <RadioGroup
             // validate={'schema.gender'}
             name="target"
-            buttons={targetRadioGroup}
+            buttons={targetList}
           />
           <RegionSelect
-            changeField={(name, value) => null}
+            changeField={() => null}
             name={`region`}
             styles={styles}
             textRegion="Регион"
@@ -58,16 +58,7 @@ export const RequestForm = () => {
             name="age"
             type={InputType.Number}
           />
-          <Symptoms styles={styles} />
-          <label htmlFor="beginning" className={cx(styles.label, styles.field)}>
-            Когда появились симптомы?
-          </label>
-          <RadioGroup
-            // validate={temperature}
-            name="beginning"
-            buttons={beginningRadioGroup}
-          />
-
+          <Symptoms />
           <Button size={ButtonSize.Large} className={styles.button} submit>
             Отправить
           </Button>

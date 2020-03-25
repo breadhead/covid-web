@@ -142,3 +142,8 @@
     max-width: 328px;
   }
 }
+
+.symptomsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
