@@ -4,6 +4,7 @@ module.exports = nextRoutes()
   // main routes
   .add('landing', '/', 'landing')
   .add('request', '/request', 'landing/request')
+  .add('request-chat', '/request/chat', 'landing/request-chat')
   .add('landing-partners', '/partners/:id?', 'landing/partners')
   .add('landing-contacts', '/contacts', 'landing/contacts')
   .add('landing-experts', '/experts', 'landing/experts')
