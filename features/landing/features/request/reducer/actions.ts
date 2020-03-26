@@ -10,8 +10,8 @@ export const saveRequestFormData = (requestFormData: any) => async (
   const api = getApi(getState)
   try {
     dispatch(actions.request())
+    dispatch(actions.success(requestFormData))
     await api.saveCoronaRequestForm(requestFormData)
-    return dispatch(actions.success(requestFormData))
   } catch (error) {
     return dispatch(actions.error(error.message))
   }

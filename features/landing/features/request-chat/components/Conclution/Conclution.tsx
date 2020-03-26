@@ -1,9 +1,18 @@
 import * as React from 'react'
 import * as styles from './Conclution.css'
-interface ConclutionProps {
-  children: string
-}
+import { getConclutionText } from '../../getConclutionText'
 
-export const Conclution = ({ children }: ConclutionProps) => {
-  return <p className={styles.text}>{children}</p>
+
+import { useMappedState } from 'redux-react-hook'
+import { selectRequestForm } from './selectors'
+import { ArticlesList } from '../articles'
+
+
+export const Conclution = () => {
+  const data = useMappedState(selectRequestForm)
+
+  return <>
+    <ArticlesList />
+    <p className={styles.text}>{getConclutionText(data)}</p>
+  </>
 }

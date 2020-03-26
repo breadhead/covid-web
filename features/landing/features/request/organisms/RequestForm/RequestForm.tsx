@@ -12,6 +12,9 @@ import { saveRequestFormData } from '../../reducer/actions'
 import { useThunk } from '@app/src/hooks/useThunk'
 import { saveRequestFormDraft, getRequestFormDraft } from './localStorage'
 import { schema } from './schema'
+import routes from '@app/routes'
+
+const { Router } = routes
 
 export const RequestForm = () => {
   const [checked, setCheked] = useState<string[]>([])
@@ -27,13 +30,13 @@ export const RequestForm = () => {
   const onFormSubmit = (data: any) => {
     dispatch(saveRequestFormData(data))
     setCheked([])
+    Router.pushRoute('/request/chat')
   }
 
   return (
     <Form
       onSubmit={onFormSubmit as any}
       initialValues={initialFields}
-      resetAfterSubmit
       className={styles.form}
       saveDebounced={saveRequestFormDraft()}
       saveOnBlur={saveRequestFormDraft()}

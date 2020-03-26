@@ -5,5 +5,14 @@
   gap: 16px;
   max-width: 924px;
   margin: 0 auto;
-  margin-bottom: 96px;
+}
+
+
+.first {
+  justify-self: end;
+}
+
+
+.last {
+  justify-self: start;
 }
