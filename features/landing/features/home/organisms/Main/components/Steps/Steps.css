@@ -14,3 +14,14 @@
     margin-left: 0;
   }
 }
+
+.wrap {
+  padding-top: 64px;
+  padding-bottom: 96px;
+}
+
+.title {
+  font: var(--title-regular);
+  margin-bottom: 48px;
+  max-width: 700px;
+}
