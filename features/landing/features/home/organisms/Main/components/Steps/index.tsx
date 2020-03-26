@@ -14,7 +14,7 @@ const Steps = () => (
           src='/static/images/1-step.png'
           alt='Пройдите короткий тест и получите рекомендации' />
         <p className={styles.text}>
-          1. Пройдите <Link href="/request"><a className={styles.link}>короткий тест</a></Link> 
+          1. Пройдите <Link href="/request"><a className={styles.link}>короткий{NON_BREAKING_SPACE}тест</a></Link>
           и{NON_BREAKING_SPACE}получите рекомендации
         </p>
       </article>
@@ -28,7 +28,7 @@ const Steps = () => (
       </article>
       <article className={styles.step}>
         <img className={styles.img}
-          src='/static/images/2-step.png' alt='Подождите пока эксперт ответит вам' />
+          src='/static/images/3-step.png' alt='Подождите пока эксперт ответит вам' />
         <p className={styles.text}>
           3. Подождите пока эксперт ответит вам
         </p>
