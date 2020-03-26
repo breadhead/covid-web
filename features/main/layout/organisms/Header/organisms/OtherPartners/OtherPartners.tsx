@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NavLink } from '@front/ui/nav-link'
 import * as styles from './OtherPartners.css'
+import cx from 'classnames';
 
 
 export const OtherPartners = () => {
@@ -8,7 +9,7 @@ export const OtherPartners = () => {
     <div className={styles.otherPartners}>
 
       <div className={styles.tabLinks}>
-        <NavLink blank className={styles.tablink} href="https://nenaprasno.ru/">
+        <NavLink blank className={cx(styles.tablink, styles.tablinkLight)} href="https://nenaprasno.ru/">
           COVID-19
         </NavLink>
 

@@ -3,7 +3,7 @@
   cursor: pointer;
   background-color: transparent;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   transition: border-color 0.2s, background-color 0.2s;
   &[disabled] {
     opacity: 0.4;
@@ -65,6 +65,7 @@
 .extra-large {
   transition: border-color 0.2s, background-color 0.2s;
   padding: 22px 36px 26px 36px;
+  border-radius: 12px;
 
   font: var(--text18-28);
   @media (--smallDown) {
