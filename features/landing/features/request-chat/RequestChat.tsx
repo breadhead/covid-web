@@ -3,19 +3,14 @@ import React from 'react'
 import * as styles from './RequestChat.css'
 import { FooterTheme } from '@app/ui/organisms/Footer'
 import ClientLayout from '@app/features/client/organisms/Layout'
-import { Conclution } from './components/Conclution'
-import { getConclutionText } from './getConclutionText'
-import { ArticlesList } from './components/articles'
+
 import { AskButton } from './components/askButton'
 import { Chat } from './Chat'
-// import Intercom from 'react-intercom';
+import { Conclution } from './components/conclution'
+
 
 export const RequestChat = () => {
-  // const user = {
-  //   user_id: 'appUser.id',
-  //   email: 'appUser.email',
-  //   name: 'appUser.nam'
-  // };
+
 
   return (
     <ClientLayout
@@ -26,8 +21,7 @@ export const RequestChat = () => {
       <div className={styles.logo}>
         <img className={styles.image} src="/static/images/2-step.png" />
       </div>
-      <ArticlesList />
-      <Conclution>{getConclutionText()}</Conclution>
+      <Conclution />
       <AskButton>Спросить в чате 🤖👩🏻‍⚕️ &gt;</AskButton>
       <Chat />
     </ClientLayout>
