@@ -1,30 +1,30 @@
-import { set } from "@app/features/common/browserQuery";
-import { getRoles } from "@app/features/login";
-import { getSmsPhone } from "@app/features/login/features/confirm";
-import { getUserEmail } from "@app/features/login/features/confirm/reducer/selectors";
-import ShortClaimRequest from "@app/lib/api/request/ShortClaim";
-import { AppContext } from "@app/lib/server-types";
-import { State } from "@app/lib/store";
-import { ShortClaim } from "@app/models/Claim/ShortClaim";
-import { Role } from "@app/models/Users/User";
-import routes from "@app/routes";
-import nanomerge from "nanomerge";
-import Head from "next/head";
-import * as React from "react";
-import { connect } from "react-redux";
-import { AnyAction, Dispatch } from "redux";
-import { createClaim, fetchShortClaim } from "./actions";
-import { DEFAULT_ID, getNewClaimDraft } from "./localStorage";
-import { FooterType, ShortClaimFields } from "./organisms/ClaimForm";
-import { Props as PageProps } from "./page";
-import { getNewClaimLoading, getNewClaimError } from "./selectors";
-import { compose } from "recompose";
-import { hitYM } from "@app/features/common/analytics/config";
+import { set } from '@app/features/common/browserQuery'
+import { getRoles } from '@app/features/login'
+import { getSmsPhone } from '@app/features/login/features/confirm'
+import { getUserEmail } from '@app/features/login/features/confirm/reducer/selectors'
+import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
+import { AppContext } from '@app/lib/server-types'
+import { State } from '@app/lib/store'
+import { ShortClaim } from '@app/models/Claim/ShortClaim'
+import { Role } from '@app/models/Users/User'
+import routes from '@app/routes'
+import nanomerge from 'nanomerge'
+import Head from 'next/head'
+import * as React from 'react'
+import { connect } from 'react-redux'
+import { AnyAction, Dispatch } from 'redux'
+import { createClaim, fetchShortClaim } from './actions'
+import { DEFAULT_ID, getNewClaimDraft } from './localStorage'
+import { FooterType, ShortClaimFields } from './organisms/ClaimForm'
+import { Props as PageProps } from './page'
+import { getNewClaimLoading, getNewClaimError } from './selectors'
+import { compose } from 'recompose'
+import { hitYM } from '@app/features/common/analytics/config'
 
-const { Router } = routes;
+const { Router } = routes
 
 interface Query {
-  id?: string;
+  id?: string
 }
 
 const mapState = (state: State) => ({
@@ -32,51 +32,51 @@ const mapState = (state: State) => ({
   loading: getNewClaimLoading(state),
   roles: getRoles(state),
   smsPhone: getSmsPhone(state),
-  userLogin: getUserEmail(state)
-});
+  userLogin: getUserEmail(state),
+})
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({
   createClaim: (claimRequest: ShortClaimRequest) =>
     dispatch(createClaim(claimRequest) as any),
-  setIdInQuery: (id: string) => dispatch(set({ id }))
-});
+  setIdInQuery: (id: string) => dispatch(set({ id })),
+})
 
 const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
   layout: React.ComponentType,
-  footer: FooterType
+  footer: FooterType,
 ) => {
   return compose(
     connect(
       mapState,
-      mapDipatch
-    )
+      mapDipatch,
+    ),
   )(
     class ContaineredComponent extends React.Component<any> {
       public static async getInitialProps({
         query,
-        reduxStore
+        reduxStore,
       }: AppContext<Query>) {
-        const { id } = query;
+        const { id } = query
 
         if (id) {
           const shortClaim = await reduxStore.dispatch(fetchShortClaim(
-            id
-          ) as any);
+            id,
+          ) as any)
 
           return {
             shortClaim,
-            id
-          };
+            id,
+          }
         }
 
-        return { id };
+        return { id }
       }
 
       public render() {
-        const { error, loading, shortClaim, id } = this.props;
+        const { error, loading, shortClaim, id } = this.props
 
-        const initialFields = this.getInitialFields(shortClaim);
-        const Layout = layout;
+        const initialFields = this.getInitialFields(shortClaim)
+        const Layout = layout
 
         return (
           <Layout>
@@ -92,75 +92,75 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) => (
               footer={footer}
             />
           </Layout>
-        );
+        )
       }
 
       private getInitialFields = (claim?: ShortClaim) => {
-        const draft = getNewClaimDraft((!!claim && claim.id) || DEFAULT_ID);
+        const draft = getNewClaimDraft((!!claim && claim.id) || DEFAULT_ID)
 
-        const { smsPhone, userLogin } = this.props;
+        const { smsPhone, userLogin } = this.props
         if (!!claim) {
           return {
             ...claim,
             localizationPresence: !!claim.localization,
-            companyPresence: !!claim.company
-          };
+            companyPresence: !!claim.company,
+          }
         }
 
         return nanomerge(
           {
             personalData: { phone: smsPhone, email: userLogin },
-            companyPresence: false
+            companyPresence: false,
           },
-          draft
-        );
-      };
+          draft,
+        )
+      }
 
       private createRequest = (claimFields: ShortClaimFields) => {
-        const { id } = this.props;
-        const fields = claimFields;
+        const { id } = this.props
+        const fields = claimFields
 
         if (!claimFields.localizationPresence) {
-          fields.localization = null;
+          fields.localization = null
         }
         if (!claimFields.companyPresence) {
-          fields.company = null;
+          fields.company = null
         }
 
         if (id) {
-          fields.id = id;
+          fields.id = id
         }
 
-        return fields;
-      };
+        return fields
+      }
 
       private onFormSubmit = async (claimFields: ShortClaimFields) => {
-        const request = this.createRequest(claimFields);
+        const request = this.createRequest(claimFields)
 
         const { id } = await this.props.createClaim(
-          request as ShortClaimRequest
-        );
+          request as ShortClaimRequest,
+        )
 
-        const { error, roles } = this.props;
+        const { error, roles } = this.props
 
         if (!error) {
-          this.redirect(id, roles);
+          this.redirect(id, roles)
         }
 
-        this.props.setIdInQuery(id);
-      };
+        this.props.setIdInQuery(id)
+      }
 
       private redirect(id: string, roles: Role[]) {
         if (roles.includes(Role.Client)) {
           Router.pushRoute(`/client/claim/${id}/situation/`).then(() =>
-            hitYM(`client/claim/${id}/situation/`)
-          );
+            hitYM(`client/claim/${id}/situation/`),
+          )
         } else if (roles.includes(Role.CaseManager)) {
-          Router.pushRoute(`/manager/consultation/${id}`);
+          Router.pushRoute(`/manager/consultation/${id}`)
         }
       }
-    }
-  );
-};
+    },
+  )
+}
 
-export default Container;
+export default Container

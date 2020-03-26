@@ -10,9 +10,15 @@ import { ArticlesList } from '../articles'
 
 export const Conclution = () => {
   const data = useMappedState(selectRequestForm)
+  const [currentConclution, setConclution] = React.useState(null)
+
+  React.useEffect(() => {
+    const conclution = getConclutionText(data) as any
+    setConclution(conclution)
+  }, [data])
 
   return <>
-    <ArticlesList />
-    <p className={styles.text}>{getConclutionText(data)}</p>
+    {!!currentConclution && !!(currentConclution as any).text && <p className={styles.text}>{(currentConclution as any).text}</p>}
+    {!!currentConclution && !!(currentConclution as any).articles && <ArticlesList articles={(currentConclution as any).articles} />}
   </>
 }

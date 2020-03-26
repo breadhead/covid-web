@@ -8,7 +8,7 @@ export const CovidButtons = () => {
   return (
     <div className={styles.buttons}>
       <NavLink className={styles.first} withoutUnderline blank 
-      href="faq.defeatcovid.ru">
+      href="http://faq.defeatcovid.ru/ru/">
         <Button size={ButtonSize.ExtraLarge}>Полный справочник по COVID-19</Button>
       </NavLink>
       <NavLink className={styles.last}  withoutUnderline href="/request">
