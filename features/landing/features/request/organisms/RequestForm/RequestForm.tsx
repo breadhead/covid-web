@@ -33,7 +33,6 @@ export const RequestForm = () => {
     <Form
       onSubmit={onFormSubmit as any}
       initialValues={initialFields}
-      resetAfterSubmit
       className={styles.form}
       saveDebounced={saveRequestFormDraft()}
       saveOnBlur={saveRequestFormDraft()}
