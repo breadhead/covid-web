@@ -4,27 +4,28 @@ import * as styles from './Experts.css'
 
 import { NavLink } from '@front/ui/nav-link'
 import Photos from './components/Photos'
+import { CovidButtons } from '../Main/components/CovidButtons/CovidButtons'
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
 
 const Experts = () => (
-  <div className={styles.expertsWrapper}>
-    <section className={styles.experts}>
-      <div className={styles.textWrapper}>
-        <h2 className={styles.title}>Наши эксперты</h2>
-        <p className={styles.text}>
-          Фонд профилактики рака отбирает консультантов сервиса из
-          {NON_BREAKING_SPACE}числа выпускников Высшей школы онкологии и
-          {NON_BREAKING_SPACE}специалистов, рекомендованных экспертным советом
-          Фонда.
-        </p>
-        <NavLink className={styles.link} href="/experts">
-          Посмотреть всех экспертов
-        </NavLink>
-      </div>
-      <Photos />
-    </section>
-  </div>
+  <>
+    <div className={styles.expertsWrapper}>
+      <section className={styles.experts}>
+        <div className={styles.textWrapper}>
+          <h2 className={styles.title}>Кто консультирует</h2>
+          <p className={styles.text}>
+            На большинство вопросов в нашей службе отвечают терапевты-волонтёры. Ответы постоянно подвергаются супервизии проверенных экспертов-инфекционистов Санкт-Петербурга и Москвы.
+          </p>
+          <NavLink className={styles.link} href="/experts">
+            Посмотреть всех экспертов
+          </NavLink>
+        </div>
+        <Photos />
+      </section>
+    </div>
+    <CovidButtons />
+  </>
+
 )
 
 export default Experts

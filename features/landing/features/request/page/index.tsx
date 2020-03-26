@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import Layout from '@app/features/main/layout'
+import { MainLayout } from '@app/features/main/layout'
 import Head from 'next/head'
 import * as styles from './Request.css'
 
@@ -26,7 +26,7 @@ class RequstPage extends React.Component<Props> {
 
   public render() {
     return (
-      <Layout className={styles.main}>
+      <MainLayout className={styles.main}>
         <Head>
           <title>Новое обращение | Просто спросить</title>
         </Head>
@@ -34,7 +34,7 @@ class RequstPage extends React.Component<Props> {
         <h1 className={styles.title}>Новое обращение</h1>
         <Notification />
         <RequestForm />
-      </Layout>
+      </MainLayout>
     )
   }
 }

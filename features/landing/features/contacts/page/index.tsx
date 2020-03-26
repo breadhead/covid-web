@@ -3,7 +3,7 @@ import * as React from 'react'
 import Head from 'next/head'
 import * as styles from './Contacts.css'
 
-import Layout from '@app/features/main/layout'
+import { MainLayout } from '@app/features/main/layout'
 import FeedbackForm from '../organisms/FeedbackForm'
 import YandexMap from '../organisms/YandexMap'
 
@@ -12,7 +12,7 @@ export interface Props {
 }
 
 const ContactsPage = ({ claimNumber }: Props) => (
-  <Layout className={styles.main}>
+  <MainLayout className={styles.main}>
     <Head>
       <title>Контакты | Просто спросить</title>
     </Head>
@@ -21,7 +21,7 @@ const ContactsPage = ({ claimNumber }: Props) => (
       <YandexMap />
     </div>
     <FeedbackForm claimNumber={claimNumber} />
-  </Layout>
+  </MainLayout>
 )
 
 export default ContactsPage

@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 48px;
+  background-color: var(--color-beige);
 
   @media (--mediumDown) {
     padding: 0 16px;
