@@ -11,8 +11,8 @@ export interface Props {
 
 const SignInMobileMenu = ({ signOut }: Props) => (
   <>
-    <NavLink className={styles.menuItem} withoutUnderline href="/client/">
-      Мои консультации
+    <NavLink className={styles.menuItem} withoutUnderline href="/request/chat">
+      Мои рекомендации
       <NavIcon />
     </NavLink>
     <NavLink
