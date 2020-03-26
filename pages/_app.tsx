@@ -22,6 +22,7 @@ import '@app/ui/config.css?CSSModulesDisable'
 import '@front/ui/config.css?CSSModulesDisable'
 
 import { Analytics } from '@app/features/common/analytics'
+import { Intercom } from '@app/features/common/intercom'
 import { set as setQuery } from '@app/features/common/browserQuery'
 import { setToken } from '@app/features/login'
 import NotFound, { getFound } from '@app/features/main/notFound'
@@ -186,6 +187,7 @@ class OncohelpWeb extends App<Props> {
               />
               <meta property="fb:306467899461959" content="306467899461959" />
             </Head>
+            <Intercom />
             <Sprite />
             <Provider store={reduxStore}>
               <StoreContext.Provider value={reduxStore}>

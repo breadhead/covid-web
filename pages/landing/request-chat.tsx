@@ -2,10 +2,8 @@ import * as React from 'react'
 
 import Head from 'next/head'
 
-
 import { AppContext } from '@app/lib/server-types'
 import { RequestChat } from '@app/features/landing/features/request-chat'
-
 
 interface Props {
   id: string
