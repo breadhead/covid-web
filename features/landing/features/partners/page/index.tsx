@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import Layout from '@app/features/main/layout'
+import { MainLayout } from '@app/features/main/layout'
 import Head from 'next/head'
 import * as styles from './Partners.css'
 
@@ -26,14 +26,14 @@ class PartnersPage extends React.Component<Props> {
 
   public render() {
     return (
-      <Layout className={styles.main}>
+      <MainLayout className={styles.main}>
         <Head>
           <title>Партнёры | Просто спросить</title>
         </Head>
         <h1 className={styles.title}>Партнёры</h1>
         <Notification />
         <PartnersList type={this.props.id} />
-      </Layout>
+      </MainLayout>
     )
   }
 }

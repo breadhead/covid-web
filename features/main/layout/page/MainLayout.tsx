@@ -14,7 +14,7 @@ interface Props {
   className?: string
 }
 
-class Layout extends React.Component<Props> {
+export class MainLayout extends React.Component<Props> {
   public static defaultProps: Partial<Props> = {
     footerType: FooterType.Primary,
     footerTheme: FooterTheme.Default,
@@ -33,4 +33,3 @@ class Layout extends React.Component<Props> {
   }
 }
 
-export default Layout

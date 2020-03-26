@@ -6,7 +6,6 @@
 }
 
 .title {
-  max-width: 740px;
   margin: 0 auto 24px;
   font: var(--title-extra);
 }
@@ -99,6 +98,8 @@
   font-size: 20px;
   background-color: #fff;
   overflow: hidden;
+  max-height: 306px;
+  height: 100%;
 
   @media (--smallDown) {
     width: 100%;

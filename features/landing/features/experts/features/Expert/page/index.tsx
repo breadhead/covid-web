@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import * as styles from './ExpertPage.css'
 
-import Layout from '@app/features/main/layout'
+import { MainLayout } from '@app/features/main/layout'
 import { NavLink } from '@front/ui/nav-link'
 
 export interface ExpertInterface {
@@ -20,7 +20,7 @@ interface Props {
 const ExpertPage = ({ expert }: Props) => {
   const { photo, name, specialization, info } = expert
   return (
-    <Layout className={styles.main}>
+    <MainLayout className={styles.main}>
       <div className={styles.container}>
         <NavLink className={styles.link} href="/experts">
           Все эксперты
@@ -38,7 +38,7 @@ const ExpertPage = ({ expert }: Props) => {
           </div>
         </section>
       </div>
-    </Layout>
+    </MainLayout>
   )
 }
 
