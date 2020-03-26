@@ -18,7 +18,7 @@
   text-transform: uppercase;
 
   &:hover {
-    border-bottom: 1px solid transparent  !important;
+    border-bottom: 1px solid transparent !important;
   }
 }
 
@@ -28,6 +28,10 @@
 
 .links {
   display: flex;
+
+  @media (--smallDown) {
+    flex-direction: column;
+  }
 }
 
 .link {
