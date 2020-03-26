@@ -32,4 +32,3 @@ export class MainLayout extends React.Component<Props> {
     )
   }
 }
-
