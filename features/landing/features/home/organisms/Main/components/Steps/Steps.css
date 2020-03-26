@@ -3,7 +3,6 @@
   justify-content: space-between;
   padding: 0 40px;
   margin: 0 auto;
-  margin-bottom: 120px;
 
   @media (--smallDown) {
     flex-direction: column;
@@ -13,4 +12,15 @@
     margin-bottom: 64px;
     margin-left: 0;
   }
+}
+
+.wrap {
+  padding-top: 64px;
+  padding-bottom: 96px;
+}
+
+.title {
+  font: var(--title-regular);
+  margin-bottom: 48px;
+  max-width: 700px;
 }

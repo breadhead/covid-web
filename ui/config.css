@@ -32,7 +32,7 @@ body {
     'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue',
     sans-serif;
 
-  --title-extra: 48px/56px var(--fontFamily-title);
+  --title-extra: 64px/72px var(--fontFamily-title);
   --title-regular: 40px/48px var(--fontFamily-title);
   --title-medium: 32px/40px var(--fontFamily-title);
   --title-small: 24px/32px var(--fontFamily-title);
@@ -64,7 +64,6 @@ body {
   --text-color-primary: #151833;
   --text-color-secondary: #616681;
 
-  --background-beige: #EFEEEB;
   --background-color: #faf9f7;
   --divider-color: rgba(21, 24, 51, 0.08);
 

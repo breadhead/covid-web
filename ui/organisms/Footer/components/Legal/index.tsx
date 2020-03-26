@@ -14,7 +14,7 @@ interface Props {
 const Legal = ({ className }: Props) => (
   <div className={cx(styles.bottom, className)}>
     <div className={styles.oncohelp}>
-      <span className={styles.copyright}>© Просто спросить, 2018</span>
+      <span className={styles.copyright}>© Просто спросить, 2020</span>
       <NavLink
         blank
         className={styles.infoLink}

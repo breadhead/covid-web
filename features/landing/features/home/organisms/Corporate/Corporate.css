@@ -1,5 +1,6 @@
 .corporate {
-  padding: 120px 0;
+  border-top: 1px solid var(--color-inactive);
+  padding: 64px 0 96px;
 
   @media (--mediumDown) {
     padding: 40px 16px 48px 16px;

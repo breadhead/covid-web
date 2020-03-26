@@ -2,11 +2,12 @@ import * as React from 'react'
 import * as styles from './Intro.css'
 import cx from 'classnames'
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 import { IconsList } from '@front/ui/sprite'
-import StartConsultationButton from '../../../../molecules/StartConsultationButton'
+
+import { CovidButtons } from '../CovidButtons/CovidButtons'
+
 
 export const Intro = () => (
   <section className={styles.intro}>
@@ -25,7 +26,7 @@ export const Intro = () => (
       <NavLink
         className={cx(styles.buttonContainer, styles.containerLarge)}
         withoutUnderline
-        href="#donation"
+        href="http://faq.defeatcovid.ru/ru/articles/3831105-%D1%87%D1%82%D0%BE-%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C-%D0%B5%D1%81%D0%BB%D0%B8-%D1%83-%D0%B2%D0%B0%D1%81-%D0%B5%D1%81%D1%82%D1%8C-%D1%81%D0%B8%D0%BC%D0%BF%D1%82%D0%BE%D0%BC%D1%8B"
       >
         <span className={styles.buttonText}>Хочу быть в курсе. Как защитить себя и близких?</span>
         <img className={cx(styles.image, styles.imageStudents)}
@@ -35,7 +36,7 @@ export const Intro = () => (
       <NavLink
         className={cx(styles.buttonContainer, styles.containerLarge)}
         withoutUnderline
-        href="#donation"
+        href="http://faq.defeatcovid.ru/ru/articles/3831105-%D1%87%D1%82%D0%BE-%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C-%D0%B5%D1%81%D0%BB%D0%B8-%D1%83-%D0%B2%D0%B0%D1%81-%D0%B5%D1%81%D1%82%D1%8C-%D1%81%D0%B8%D0%BC%D0%BF%D1%82%D0%BE%D0%BC%D1%8B"
       >
         <span className={styles.buttonText}>
           Есть симптомы COVID.
@@ -50,7 +51,8 @@ export const Intro = () => (
         withoutUnderline
         href="#donation"
       >
-        <span className={styles.buttonText}>Я врач. Где найти актуальные инструкции?</span>
+        <span className={styles.buttonTextSmall}>Я врач. Где найти
+самые{NON_BREAKING_SPACE}актуальные инструкции?</span>
         <img className={cx(styles.image, styles.imageSmall)}
           src="/static/images/landing/doc.png"
           srcSet="/static/images/landing/doc2x.png 2x" />
@@ -60,12 +62,17 @@ export const Intro = () => (
         withoutUnderline
         href="#donation"
       >
-        <span className={styles.buttonText}>Что делать если диагностировали COVID?</span>
+        <span className={styles.buttonTextSmall}>
+          Что делать,
+        если{NON_BREAKING_SPACE}диагностировали COVID?</span>
         <img className={cx(styles.image, styles.imageSmall)}
           src="/static/images/landing/crown.png"
           srcSet="/static/images/landing/crown2x.png 2x" />
       </NavLink>
     </div>
+
+    <CovidButtons />
+
   </section>
 )
 
