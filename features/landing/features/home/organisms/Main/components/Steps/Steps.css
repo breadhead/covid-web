@@ -17,6 +17,10 @@
 .wrap {
   padding-top: 64px;
   padding-bottom: 96px;
+
+  @media (--smallDown) {
+    padding: 0 12px;
+  }
 }
 
 .title {
@@ -39,7 +43,7 @@
   margin-bottom: 0;
   white-space: pre-line;
   text-align: center;
-  max-width: 240px;
+  max-width: 260px;
 }
 
 .img {
