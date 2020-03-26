@@ -158,7 +158,7 @@ jobs:
           name: Deploy Over SSH
           command: |
             source $BASH_ENV
-            ssh $SSH_PROD_USER@$SSH_PROD_HOST "cd /root/web &&
+            ssh $SSH_PROD_USER@$SSH_PROD_HOST "cd /root/web/covid &&
             sudo docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" &&
             sudo docker pull breadheadhub/coronavirus-web:$IMAGE_TAG &&
             sudo docker logout &&
