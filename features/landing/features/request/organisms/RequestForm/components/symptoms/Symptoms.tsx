@@ -69,7 +69,10 @@ export const Symptoms = ({
 
       {checked.includes('cough') && (
         <>
-          <label htmlFor="symptoms.caughtType" className={cx(styles.label, styles.field)}>
+          <label
+            htmlFor="symptoms.caughtType"
+            className={cx(styles.label, styles.field)}
+          >
             Какой кашель?
           </label>
           <div>
@@ -125,7 +128,10 @@ export const Symptoms = ({
 
       {checked.includes('dyspnea') && (
         <>
-          <label htmlFor="symptoms.dyspneaType" className={cx(styles.label, styles.field)}>
+          <label
+            htmlFor="symptoms.dyspneaType"
+            className={cx(styles.label, styles.field)}
+          >
             Какая одышка?
           </label>
           {dyspneaList.map(it => {
@@ -145,7 +151,10 @@ export const Symptoms = ({
 
       {checked.length > 0 && (
         <>
-          <label htmlFor="symptoms.symptomsSince" className={cx(styles.label, styles.field)}>
+          <label
+            htmlFor="symptoms.symptomsSince"
+            className={cx(styles.label, styles.field)}
+          >
             Когда появились симптомы?
           </label>
           <div>

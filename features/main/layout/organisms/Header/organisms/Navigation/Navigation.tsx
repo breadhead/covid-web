@@ -12,8 +12,6 @@ import { Button, ButtonKind } from '@app/src/ui/button'
 
 import LoginButton from '../../atoms/LoginButton'
 
-
-
 interface Props {
   showLoginButton?: boolean
   signOut: () => void
@@ -39,11 +37,14 @@ export const Navigation = ({ className, hide }: Props) => (
       Контакты
       <NavIcon />
     </NavLink>
-    <NavLink withoutUnderline href="#donation" className={cx(styles.link, styles.linkHelp)}>
+    <NavLink
+      withoutUnderline
+      href="#donation"
+      className={cx(styles.link, styles.linkHelp)}
+    >
       <Button kind={ButtonKind.Secondary}>Помочь проекту</Button>
       <NavIcon />
     </NavLink>
     <LoginButton className={styles.loginButton}>Войти</LoginButton>
   </nav>
 )
-

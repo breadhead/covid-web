@@ -34,19 +34,19 @@ const Menu = ({
   children,
   showLoginButton,
 }: Props) => (
-    <Transition in={isVisible} timeout={{ enter: 0, exit: 250 }} unmountOnExit>
-      {(status: string) => (
-        <>
-          <Navigation
-            signOut={signOut}
-            className={ANIMATION_STYLES[status]}
-            hide={hide}
-            showLoginButton={showLoginButton}
-          />
-          {isMobile && children}
-        </>
-      )}
-    </Transition>
-  )
+  <Transition in={isVisible} timeout={{ enter: 0, exit: 250 }} unmountOnExit>
+    {(status: string) => (
+      <>
+        <Navigation
+          signOut={signOut}
+          className={ANIMATION_STYLES[status]}
+          hide={hide}
+          showLoginButton={showLoginButton}
+        />
+        {isMobile && children}
+      </>
+    )}
+  </Transition>
+)
 
 export default Menu

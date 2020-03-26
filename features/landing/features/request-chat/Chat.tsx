@@ -1,38 +1,22 @@
-import * as React from 'react';
-import { canUseDOM } from '@app/lib/helpers/canUseDOM';
-
+import * as React from 'react'
+import { APP_ID } from '@app/features/common/intercom/config'
 
 export const Chat = () => {
+  //  const [chat, setChat] = React.useState<any>(<div></div>)
 
-
-  const [chat, setChat] = React.useState<any>(null)
+  const token = true //useMappedState(selectToken)
 
   React.useEffect(() => {
-
-    if (canUseDOM) {
-      // const Intercom = require("intercom-react");
-
-      setChat(<div>
-        
-        {/* <Intercom
-          open
-          appId="pxkfd7bu"
-          user={{
-            user_id: "211133434",
-            Age: "70"
-          }}
-        /> */}
-
-      </div>)
-
-
-    } else {
-      setChat(<div>nothing</div>)
+    if (!!token) {
+      window.Intercom('boot', {
+        app_id: APP_ID,
+        email: 'john.doe@example.com',
+        created_at: 1234567890,
+        name: 'John Doe',
+        user_id: '9876',
+      })
     }
+  })
 
-  }, [canUseDOM])
-
-
-
-  return chat
+  return <></>
 }
