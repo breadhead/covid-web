@@ -1,4 +1,6 @@
 .intro {
+  padding-bottom: 96px;
+
   @media (--smallDown) {
     width: 100vw;
     padding: 0 16px;
@@ -8,6 +10,7 @@
 .title {
   margin: 0 auto 24px;
   font: var(--title-extra);
+  text-align: center;
 }
 
 .logos {
@@ -34,9 +37,10 @@
 .buttons {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 120px;
+  gap: 8px;
+  margin-bottom: 48px;
   text-align: center;
+  box-shadow: 0 24px 40px 0 rgba(21,24,51,0.08);
 
   @media (--smallDown) {
     flex-direction: column;
@@ -121,7 +125,11 @@
 
 .buttonText {
   font-size: 24px;
+  line-height: 28px;
   white-space: normal;
+  text-align: left;
+  margin: 0 16px;
+  font-family: var(--fontFamily-title);
 }
 
 .buttonContainerHighlight {
@@ -159,4 +167,21 @@
 
 .imagePatient {
   object-fit: contain;
+}
+
+.bottomButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 924px;
+  margin: 0 auto;
+  margin-bottom: 96px;
+}
+
+.buttonTextSmall {
+  font-family: var(--fontFamily-title);
+  font-size: 20px;
+  line-height: 28px;
+  white-space: normal;
+  text-align: left;
 }

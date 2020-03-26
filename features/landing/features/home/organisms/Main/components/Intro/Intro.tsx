@@ -5,6 +5,7 @@ import { NON_BREAKING_SPACE } from '@app/lib/config'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 import { IconsList } from '@front/ui/sprite'
+import { Button, ButtonSize } from '@app/src/ui/button'
 
 
 export const Intro = () => (
@@ -49,7 +50,8 @@ export const Intro = () => (
         withoutUnderline
         href="#donation"
       >
-        <span className={styles.buttonText}>Я врач. Где найти актуальные инструкции?</span>
+        <span className={styles.buttonTextSmall}>Я врач. Где найти
+самые{NON_BREAKING_SPACE}актуальные инструкции?</span>
         <img className={cx(styles.image, styles.imageSmall)}
           src="/static/images/landing/doc.png"
           srcSet="/static/images/landing/doc2x.png 2x" />
@@ -59,12 +61,20 @@ export const Intro = () => (
         withoutUnderline
         href="#donation"
       >
-        <span className={styles.buttonText}>Что делать если диагностировали COVID?</span>
+        <span className={styles.buttonTextSmall}>
+          Что делать,
+        если{NON_BREAKING_SPACE}диагностировали COVID?</span>
         <img className={cx(styles.image, styles.imageSmall)}
           src="/static/images/landing/crown.png"
           srcSet="/static/images/landing/crown2x.png 2x" />
       </NavLink>
     </div>
+
+    <div className={styles.bottomButtons}>
+      <Button size={ButtonSize.ExtraLarge}>Полный справочник по COVID-19</Button>
+      <Button size={ButtonSize.ExtraLarge}>Персональная консультация</Button>
+    </div>
+
   </section>
 )
 
