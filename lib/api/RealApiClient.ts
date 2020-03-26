@@ -379,7 +379,7 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post('/form/save', {
         type: 'corona',
-        fields: JSON.stringify(data),
+        fields: data,
       })
       .then(res => res.data as any)
 }
