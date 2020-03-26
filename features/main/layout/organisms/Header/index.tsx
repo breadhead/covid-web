@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 import { AnyAction, Dispatch } from 'redux'
 import Menu from './organisms/Menu'
 import { Navigation } from './organisms/Navigation'
+import { OtherPartners } from './organisms/OtherPartners'
 
 interface Props {
   token: string
@@ -19,6 +20,7 @@ interface Props {
 const Header = ({ token, signOutOfApp }: Props) => {
   return (
     <div className={styles.headerWrapper}>
+      <OtherPartners />
       <header className={styles.header}>
         <Logo wrapperClassName={styles.logo} />
         <MediaQuery

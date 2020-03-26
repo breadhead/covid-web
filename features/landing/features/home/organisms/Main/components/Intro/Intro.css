@@ -6,7 +6,8 @@
 }
 
 .title {
-  margin-bottom: 24px;
+  max-width: 740px;
+  margin: 0 auto 24px;
   font: var(--title-extra);
 }
 
@@ -32,8 +33,9 @@
 }
 
 .buttons {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
   margin-bottom: 120px;
   text-align: center;
 
@@ -89,9 +91,24 @@
 }
 
 .buttonContainer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  font-size: 20px;
+  background-color: #fff;
+  overflow: hidden;
+
   @media (--smallDown) {
     width: 100%;
   }
+}
+
+.buttonContainerLast {
+  border-radius: 8px;
+  grid-column: 3;
+  grid-row: 2;
 }
 
 .status {
@@ -99,4 +116,46 @@
   font: var(--text12-16);
   font-weight: 500;
   text-align: right;
+}
+
+.buttonText {
+  font-size: 24px;
+  white-space: normal;
+}
+
+.buttonContainerHighlight {
+  grid-row: 1;
+  border-radius: 8px;
+  background: linear-gradient(0deg, #ffc751, #ffe094 100%);
+}
+
+.image {
+  display: block;
+  object-fit: cover;
+}
+
+.imageStudents {
+}
+
+.containerLarge {
+  padding: 16px 0 0 0;
+  grid-row: 1 / 3;
+  border-radius: 12px;
+
+  & .buttonText {
+    margin-bottom: 40px;
+  }
+}
+
+.imageSmall {
+  width: 80px;
+  height: 80px;
+  margin-left: auto;
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+}
+
+.imagePatient {
+  object-fit: contain;
 }

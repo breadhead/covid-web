@@ -12,6 +12,8 @@ export const NavLink = ({
   blank = false,
   withoutUnderline = false,
 }: NavLinkProps) => {
+
+  console.log('className:', className)
   if (blank) {
     return (
       <a
