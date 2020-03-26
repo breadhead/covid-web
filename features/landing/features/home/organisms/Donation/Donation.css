@@ -12,6 +12,14 @@
   }
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 960px;
+  margin: 0 auto;
+
+}
+
 .title {
   margin-bottom: 48px;
   font: var(--title-regular);
