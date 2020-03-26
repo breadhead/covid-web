@@ -1,0 +1,27 @@
+.article {
+  height: 150px;
+  border-radius: 12px;
+  box-shadow: 0 24px 40px 0 rgba(21, 24, 51, 0.08);
+  transition: all ease-in 0.2s !important;
+  margin-top: 64px;
+  padding: 20px 16px;
+
+
+  &:hover {
+    box-shadow: 0 24px 40px 0 rgba(21, 24, 51, 0.16);
+  }
+}
+
+.title {
+  font: var(--title-small);
+}
+
+.wrapper {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @media (--smallDown) {
+    grid-template-columns: 1fr;
+  }
+}
