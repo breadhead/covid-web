@@ -6,7 +6,7 @@ import About from './components/About'
 import Intro from './components/Intro'
 import Steps from './components/Steps'
 
-const Main = () => (
+export const Main = () => (
   <section className={styles.main}>
     <Intro />
     <Steps />
@@ -14,4 +14,3 @@ const Main = () => (
   </section>
 )
 
-export default Main

@@ -16,7 +16,7 @@ const Logo = ({ className, wrapperClassName }: Props) => (
     withoutUnderline
     href="/"
   >
-    <Icon className={cx(styles.logo, className)} name={IconsList.LogoFull} />
+    <Icon className={cx(styles.logo, className)} name={IconsList.CovidLogo} />
   </NavLink>
 )
 

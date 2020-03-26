@@ -6,7 +6,8 @@
 }
 
 .title {
-  margin-bottom: 24px;
+  max-width: 740px;
+  margin: 0 auto 24px;
   font: var(--title-extra);
 }
 
