@@ -1,1 +1,1 @@
-export { default } from './Intercom'
+export { Intercom } from './Intercom'

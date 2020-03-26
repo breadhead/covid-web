@@ -21,6 +21,12 @@
       "@front/*": ["src/*"],
       "redux-windowsize": ["src/types/reduxWindowsize.d.ts"],
       "plural-ru": ["src/types/plural-ru.d.ts"]
-    }
-  }
+    },
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

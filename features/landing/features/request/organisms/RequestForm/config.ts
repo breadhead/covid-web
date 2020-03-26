@@ -58,7 +58,7 @@ export const targetList = [
   },
 ]
 
-export const chestPainList = [
+export const thoraxList = [
   {
     id: 'inhale',
     value: 'Возникает при вдохе',
@@ -106,7 +106,7 @@ export const symptomsList = [
     value: 'Насморк',
   },
   {
-    id: 'chest-pain',
+    id: 'thorax',
     value: 'Боль в грудной клетке',
   },
   {

@@ -15,7 +15,7 @@ interface Props {
   footerTheme?: FooterTheme
 }
 
-const Layout = ({
+const ClientLayout = ({
   children,
   className,
   pageClassName,
@@ -35,4 +35,4 @@ const Layout = ({
   </>
 )
 
-export default Layout
+export default ClientLayout

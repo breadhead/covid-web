@@ -8,7 +8,9 @@ import { NavLink } from '@front/ui/nav-link'
 import { IconsList } from '@front/ui/sprite'
 
 import NavIcon from '../../atoms/NavIcon'
+import { Button, ButtonKind } from '@app/src/ui/button'
 
+import LoginButton from '../../atoms/LoginButton'
 
 interface Props {
   showLoginButton?: boolean
@@ -24,21 +26,25 @@ export const Navigation = ({ className, hide }: Props) => (
       <Icon className={styles.NavIcon} name={IconsList.CloseLight} />
     </button>
     <NavLink withoutUnderline href="/partners" className={styles.link}>
-      Партнёры
+      Вклад в борьбу с COVID
       <NavIcon />
     </NavLink>
     <NavLink withoutUnderline href="/experts" className={styles.link}>
-      Эксперты
+      Экспертный совет
       <NavIcon />
     </NavLink>
     <NavLink withoutUnderline href="/contacts" className={styles.link}>
       Контакты
       <NavIcon />
     </NavLink>
-    <NavLink withoutUnderline href="/#donation" className={styles.link}>
-      Помочь проекту
+    <NavLink
+      withoutUnderline
+      href="#donation"
+      className={cx(styles.link, styles.linkHelp)}
+    >
+      <Button kind={ButtonKind.Secondary}>Помочь проекту</Button>
       <NavIcon />
     </NavLink>
+    <LoginButton className={styles.loginButton}>Войти</LoginButton>
   </nav>
 )
-

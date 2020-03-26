@@ -7,7 +7,7 @@ import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 
 import ProgressBar, { ProgressBarKind } from '@app/features/common/progressBar'
 import { FooterTheme } from '@app/ui/organisms/Footer'
-import Layout from '../../../organisms/Layout'
+import ClientLayout from '../../../organisms/Layout'
 import { progressBarSteps } from './config'
 
 export interface Props {
@@ -15,7 +15,7 @@ export interface Props {
 }
 
 const WaitingAnswer = ({ email }: Props) => (
-  <Layout footerTheme={FooterTheme.White} pageClassName={styles.layout}>
+  <ClientLayout footerTheme={FooterTheme.White} pageClassName={styles.layout}>
     <Head>
       <title>Дождитесь ответа нашего сотрудника | Просто спросить</title>
     </Head>
@@ -37,7 +37,7 @@ const WaitingAnswer = ({ email }: Props) => (
       сможете заполнить ваши медицинские данные и{NON_BREAKING_SPACE}вопросы
       эксперту.
     </p>
-  </Layout>
+  </ClientLayout>
 )
 
 export default WaitingAnswer
