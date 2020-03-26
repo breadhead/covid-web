@@ -1,0 +1,9 @@
+.text {
+  max-width: 510px;
+  margin: auto;
+  text-align: center;
+
+  @media (--smallDown) {
+    padding: 0 16px;
+  }
+}

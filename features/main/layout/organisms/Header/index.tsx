@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as styles from './Header.css'
 
-import { getToken } from '@app/features/landing/features/home/molecules/StartConsultationButton/selectors'
+import { selectToken } from '@app/features/landing/features/home/molecules/StartConsultationButton/selectors'
 import signOut from '@app/features/login/features/signOut'
 import { State } from '@app/lib/store'
 import Logo from '@app/ui/Logo'
@@ -39,7 +39,7 @@ const Header = ({ token, signOutOfApp }: Props) => {
 }
 
 const mapState = (state: State) => ({
-  token: getToken(state),
+  token: selectToken(state),
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({

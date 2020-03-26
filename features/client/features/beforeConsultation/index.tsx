@@ -7,7 +7,7 @@ import { getQuotasAvailable } from '@app/features/login/features/user/selectors'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import dayjs from 'dayjs'
-import Layout from '../../organisms/Layout'
+import ClientLayout from '../../organisms/Layout'
 import * as styles from './BeforeConsultation.css'
 import {
   MAY_HOLIDAYS_BEGINS,
@@ -27,7 +27,7 @@ const BeforeConsultation: SFC<PageProps> = ({ next }) => {
     dayjs(new Date()).isAfter(dayjs(MAY_HOLIDAYS_BEGINS)) &&
     dayjs(new Date()).isBefore(dayjs(MAY_HOLIDAYS_ENDS))
   return (
-    <Layout>
+    <ClientLayout>
       <Head>
         <title>Условия консультации | Просто спросить</title>
       </Head>
@@ -66,7 +66,7 @@ const BeforeConsultation: SFC<PageProps> = ({ next }) => {
           <Terms next={next} />
         </article>
       </section>
-    </Layout>
+    </ClientLayout>
   )
 }
 

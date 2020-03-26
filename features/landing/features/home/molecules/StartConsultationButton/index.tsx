@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'recompose'
-import { getToken } from './selectors'
+import { selectToken } from './selectors'
 
 import { withSignUpModal } from '@app/features/login'
 import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
@@ -29,7 +29,7 @@ const StartConsultationButton = ({
 )
 
 const mapState = (state: any) => ({
-  token: getToken(state),
+  token: selectToken(state),
 })
 
 export default compose<any, Props>(

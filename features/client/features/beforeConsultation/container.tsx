@@ -3,7 +3,7 @@ import * as React from 'react'
 import { compose } from 'recompose'
 
 import { withModal, WithModalProps } from '@app/features/common/modal'
-import { getToken } from '@app/features/landing/features/home/molecules/StartConsultationButton/selectors'
+import { selectToken } from '@app/features/landing/features/home/molecules/StartConsultationButton/selectors'
 import { MODAL_KEY } from '@app/features/login/features/confirm'
 import { actions as userActions } from '@app/features/login/features/user'
 import apiFactory from '@app/lib/api/apiFactory'
@@ -23,7 +23,7 @@ const Container = (WrappedComponent: React.ComponentType<PageProps>) =>
     public static isSecure = true
 
     public static async getInitialProps({ reduxStore }: AppContext) {
-      const api = apiFactory(getToken(reduxStore.getState()))
+      const api = apiFactory(selectToken(reduxStore.getState()))
 
       const quotasAvailable = await api
         .commonQuotasAvailable()
