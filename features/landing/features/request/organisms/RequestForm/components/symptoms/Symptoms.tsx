@@ -11,6 +11,7 @@ import {
   dyspneaList
 } from "../../config";
 import * as styles from "../../RequestForm.css";
+import { requiredSchema } from "../../schema";
 
 interface SymptomsProps {
   checked: string[];
@@ -79,6 +80,7 @@ export const Symptoms = ({
           </label>
           <div>
             <RadioGroup
+              validate={requiredSchema}
               className={styles.symptomsRadioGroup}
               name="symptoms.caughtType"
               buttons={coughList}
@@ -120,6 +122,8 @@ export const Symptoms = ({
           </label>
           <div>
             <RadioGroup
+              validate={requiredSchema}
+
               className={styles.symptomsRadioGroup}
               name="symptoms.temperatureType"
               buttons={temperatureList}
@@ -139,6 +143,7 @@ export const Symptoms = ({
           {dyspneaList.map(it => {
             return (
               <Checkbox
+
                 key={it.id}
                 name={`symptoms.dyspneaType.${it.id}`}
                 type="checkbox"
@@ -161,6 +166,8 @@ export const Symptoms = ({
           </label>
           <div>
             <RadioGroup
+              validate={requiredSchema}
+
               className={styles.symptomsRadioGroup}
               name="symptoms.symptomsSince"
               buttons={symptomsSinceList}

@@ -11,3 +11,6 @@ export const schema = {
   gender: yup.string().required(REQUIRED_MESSAGE),
   region: yup.string().required(REQUIRED_MESSAGE)
 };
+
+
+export const requiredSchema = yup.string().required(REQUIRED_MESSAGE)

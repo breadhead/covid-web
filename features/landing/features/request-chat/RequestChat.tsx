@@ -5,9 +5,16 @@ import { Chat } from "./Chat";
 import { AskButton } from "./components/askButton";
 import { Conclution } from "./components/Conclution";
 import * as styles from "./RequestChat.css";
+import Router from "next/router";
+import { isFormRequestFinished } from "../request/organisms/RequestForm/localStorage";
 
 
 export const RequestChat = () => {
+  const formFinished = isFormRequestFinished()
+  if (!formFinished && typeof window !== 'undefined') {
+    Router.push('/request')
+  }
+
   return (
     <ClientLayout
       headerClassName={styles.mainHeader}

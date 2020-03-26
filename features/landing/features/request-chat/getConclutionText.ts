@@ -4,6 +4,7 @@ import * as text from './conslutionText'
 export const getCovidSymptoms = (data: any) => data.symptoms.includes('cough') || data.deseases.includes('temperature') || data.deseases.includes('dyspnea') || data.deseases.includes('sore-throat') || data.deseases.includes('chills') || data.deseases.includes('body-aches')
 
 
+
 export const getNoCovidSymptoms = (data: any) => data.symptoms.includes('sneezing') || data.deseases.includes('runny-nose') || data.deseases.includes('loose-stools') || data.deseases.includes('nausea') || data.deseases.includes('abdominal-pain')
 
 
