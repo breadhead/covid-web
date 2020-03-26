@@ -9,20 +9,20 @@ export const OtherPartners = () => {
     <div className={styles.otherPartners}>
 
       <div className={styles.tabLinks}>
-        <NavLink blank className={cx(styles.tablink, styles.tablinkLight)} href="https://nenaprasno.ru/">
+        <div className={cx(styles.tablink, styles.tablinkLight, styles.current)}>
           COVID-19
-        </NavLink>
+        </div>
 
-        <NavLink blank className={styles.tablink} href="https://nenaprasno.ru/">
+        <NavLink withoutUnderline blank className={styles.tablink} href="https://ask.nenaprasno.ru/">
           Онкология
         </NavLink>
       </div>
 
       <div className={styles.links}>
-        <NavLink blank className={styles.link} href="https://nenaprasno.ru/">
+        <NavLink withoutUnderline blank className={styles.link} href="https://nenaprasno.ru/">
           Фонд профилактики рака
         </NavLink>
-        <NavLink blank className={styles.link} href="https://breadhead.ru/">
+        <NavLink withoutUnderline blank className={styles.link} href="https://breadhead.ru/">
           Breadhead
          </NavLink>
       </div>

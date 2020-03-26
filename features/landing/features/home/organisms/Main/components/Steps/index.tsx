@@ -1,19 +1,38 @@
 import * as React from 'react'
+import Link from 'next/link'
 
 import * as styles from './Steps.css'
-
-import Step from './Step'
-
-import { steps } from './config'
+import { NON_BREAKING_SPACE } from '@app/lib/config'
 
 const Steps = () => (
   <div className={styles.wrap}>
-    <h2 className={styles.title}>Как работает персональная 
+    <h2 className={styles.title}>Как работает персональная
     консультация</h2>
     <section className={styles.steps}>
-      {steps.map(step => (
-        <Step key={step.index} step={step} />
-      ))}
+      <article className={styles.step}>
+        <img className={styles.img}
+          src='/static/images/1-step.png'
+          alt='Пройдите короткий тест и получите рекомендации' />
+        <p className={styles.text}>
+          1. Пройдите <Link href="/request"><a className={styles.link}>короткий тест</a></Link> 
+          и{NON_BREAKING_SPACE}получите рекомендации
+        </p>
+      </article>
+      <article className={styles.step}>
+        <img className={styles.img}
+          src='/static/images/landing/computer2x.png'
+          alt='Если останутся вопросы, задайте их в чате' />
+        <p className={styles.text}>
+          2. Если останутся вопросы, задайте их в чате
+        </p>
+      </article>
+      <article className={styles.step}>
+        <img className={styles.img}
+          src='/static/images/2-step.png' alt='Подождите пока эксперт ответит вам' />
+        <p className={styles.text}>
+          3. Подождите пока эксперт ответит вам
+        </p>
+      </article>
     </section>
   </div>
 )
