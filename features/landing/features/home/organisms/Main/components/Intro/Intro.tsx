@@ -5,7 +5,8 @@ import { NON_BREAKING_SPACE } from '@app/lib/config'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 import { IconsList } from '@front/ui/sprite'
-import { Button, ButtonSize } from '@app/src/ui/button'
+
+import { CovidButtons } from '../CovidButtons/CovidButtons'
 
 
 export const Intro = () => (
@@ -25,7 +26,7 @@ export const Intro = () => (
       <NavLink
         className={cx(styles.buttonContainer, styles.containerLarge)}
         withoutUnderline
-        href="#donation"
+        href="http://faq.defeatcovid.ru/ru/articles/3831105-%D1%87%D1%82%D0%BE-%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C-%D0%B5%D1%81%D0%BB%D0%B8-%D1%83-%D0%B2%D0%B0%D1%81-%D0%B5%D1%81%D1%82%D1%8C-%D1%81%D0%B8%D0%BC%D0%BF%D1%82%D0%BE%D0%BC%D1%8B"
       >
         <span className={styles.buttonText}>Хочу быть в курсе. Как защитить себя и близких?</span>
         <img className={cx(styles.image, styles.imageStudents)}
@@ -35,7 +36,7 @@ export const Intro = () => (
       <NavLink
         className={cx(styles.buttonContainer, styles.containerLarge)}
         withoutUnderline
-        href="#donation"
+        href="http://faq.defeatcovid.ru/ru/articles/3831105-%D1%87%D1%82%D0%BE-%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C-%D0%B5%D1%81%D0%BB%D0%B8-%D1%83-%D0%B2%D0%B0%D1%81-%D0%B5%D1%81%D1%82%D1%8C-%D1%81%D0%B8%D0%BC%D0%BF%D1%82%D0%BE%D0%BC%D1%8B"
       >
         <span className={styles.buttonText}>
           Есть симптомы COVID.
@@ -70,10 +71,7 @@ export const Intro = () => (
       </NavLink>
     </div>
 
-    <div className={styles.bottomButtons}>
-      <Button size={ButtonSize.ExtraLarge}>Полный справочник по COVID-19</Button>
-      <Button size={ButtonSize.ExtraLarge}>Персональная консультация</Button>
-    </div>
+    <CovidButtons />
 
   </section>
 )
