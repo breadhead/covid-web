@@ -26,6 +26,7 @@
 
   @media (--smallDown) {
     margin-bottom: 16px;
+    padding-left: 16px;
   }
 }
 

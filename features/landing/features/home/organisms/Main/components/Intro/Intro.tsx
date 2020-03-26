@@ -26,7 +26,7 @@ export const Intro = () => (
       <NavLink
         className={cx(styles.buttonContainer, styles.containerLarge)}
         withoutUnderline
-        href="http://faq.defeatcovid.ru/ru/articles/3831105-%D1%87%D1%82%D0%BE-%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C-%D0%B5%D1%81%D0%BB%D0%B8-%D1%83-%D0%B2%D0%B0%D1%81-%D0%B5%D1%81%D1%82%D1%8C-%D1%81%D0%B8%D0%BC%D0%BF%D1%82%D0%BE%D0%BC%D1%8B"
+        href="http://faq.defeatcovid.ru/ru/articles/3830701-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B5-covid-2019"
       >
         <span className={styles.buttonText}>Хочу быть в курсе. Как защитить себя и близких?</span>
         <img className={cx(styles.image, styles.imageStudents)}
