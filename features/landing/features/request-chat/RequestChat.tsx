@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import * as styles from './RequestChat.css'
 import { FooterTheme } from '@app/ui/organisms/Footer';
@@ -7,11 +7,15 @@ import { Conclution } from './components/conclution';
 import { getConclutionText } from './getConclutionText';
 import { ArticlesList } from './components/articles';
 import { AskButton } from './components/askButton';
-
-
+import Intercom from 'react-intercom';
 
 export const RequestChat = () => {
 
+  const user = {
+    user_id: 'appUser.id',
+    email: 'appUser.email',
+    name: 'appUser.nam'
+  };
 
   return (
     <ClientLayout
@@ -25,6 +29,9 @@ export const RequestChat = () => {
       <ArticlesList />
       <Conclution>{getConclutionText()}</Conclution>
       <AskButton>Спросить в чате 🤖👩🏻‍⚕️ >️</AskButton>
+
+
+      <Intercom open appID={"pxkfd7bu" as any} {...user} />
     </ClientLayout>
   )
 }
