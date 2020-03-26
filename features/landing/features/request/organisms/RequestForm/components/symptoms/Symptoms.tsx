@@ -11,6 +11,7 @@ import {
   dyspneaList,
 } from '../../config'
 import * as styles from '../../RequestForm.css'
+import { requiredSchema } from '../../schema'
 
 interface SymptomsProps {
   checked: string[]
@@ -34,11 +35,13 @@ export const Symptoms = ({
   useEffect(
     () => {
       if (!!initialFields) {
-        const checked = Object.entries(initialFields).map(([k, v]) => {
-          if (!!v) {
-            return k
-          }
-        }).filter(it => !!it)
+        const checked = Object.entries(initialFields)
+          .map(([k, v]) => {
+            if (!!v) {
+              return k
+            }
+          })
+          .filter(it => !!it)
 
         setCheked(checked as any)
       }
@@ -77,6 +80,7 @@ export const Symptoms = ({
           </label>
           <div>
             <RadioGroup
+              validate={requiredSchema}
               className={styles.symptomsRadioGroup}
               name="symptoms.caughtType"
               buttons={coughList}
@@ -118,6 +122,7 @@ export const Symptoms = ({
           </label>
           <div>
             <RadioGroup
+              validate={requiredSchema}
               className={styles.symptomsRadioGroup}
               name="symptoms.temperatureType"
               buttons={temperatureList}
@@ -159,6 +164,7 @@ export const Symptoms = ({
           </label>
           <div>
             <RadioGroup
+              validate={requiredSchema}
               className={styles.symptomsRadioGroup}
               name="symptoms.symptomsSince"
               buttons={symptomsSinceList}

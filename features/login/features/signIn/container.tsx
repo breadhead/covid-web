@@ -1,17 +1,16 @@
+import { isModal } from '@app/features/common/modal'
 import { State } from '@app/lib/store'
+import Router from 'next/router'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AnyAction, compose, Dispatch } from 'redux'
-import { loginAction } from './actions'
-
-import { isModal } from '@app/features/common/modal'
 import * as yup from 'yup'
 import withSignUpModal, { WithSignUpModal } from '../signUp/withSignUpModal'
-import { getViolateState } from './selectors'
-
-import Router from 'next/router'
+import { loginAction } from './actions'
 import { MODAL_KEY } from './const'
+import { getViolateState } from './selectors'
 import { getSignInError } from './selectors/getSignInError'
+
 export { MODAL_KEY }
 
 export interface Credentials {
@@ -23,6 +22,7 @@ interface ContainerProps extends WithSignUpModal {
   login: (credentials: Credentials, wantTo?: string | string[]) => any
   onFormSubmit: () => Promise<any>
   violateState?: boolean
+  closeModal: () => void
 }
 
 export const schema = {
@@ -50,6 +50,7 @@ const Container = (WrappedComponent: React.ComponentType<ContainerProps>) => {
       const { wantTo } = Router.query as any
 
       await this.props.login(credentials, wantTo)
+
       if (violateState) {
         return {
           login: 'Неверный логин или пароль',
@@ -66,16 +67,13 @@ const mapState = (state: State) => ({
 })
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
-  login: (credentials: Credentials, wantTo: string) =>
-    dispatch(loginAction(
-      credentials.login,
-      credentials.password,
-      wantTo,
-    ) as any),
+  login: (credentials: Credentials) =>
+    dispatch(loginAction(credentials.login, credentials.password) as any),
 })
 
 export default compose(
   isModal(MODAL_KEY),
+
   withSignUpModal,
   connect(
     mapState,

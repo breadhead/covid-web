@@ -5,6 +5,7 @@ import * as React from 'react'
 import { Props } from '../../container'
 import { countries } from './countries'
 import { regions } from './regions'
+import localStyles from './RegionSelect.css'
 
 const RegionSelect = ({
   clientInRussia,
@@ -17,17 +18,19 @@ const RegionSelect = ({
   validate,
 }: Props) => (
   <>
-    <label
-      htmlFor="personalData.russia"
-      className={cx(styles.label, styles.field)}
-    >
-      {textSwitch}
-    </label>
-    <Toggle
-      name="personalData.russia"
-      onChange={onChangeInRussia}
-      value={clientInRussia}
-    />
+    <div className={localStyles.visuallyHidden}>
+      <label
+        htmlFor="personalData.russia"
+        className={cx(styles.label, styles.field)}
+      >
+        {textSwitch}
+      </label>
+      <Toggle
+        name="personalData.russia"
+        onChange={onChangeInRussia}
+        value={clientInRussia}
+      />
+    </div>
     {clientInRussia && (
       <>
         <label htmlFor={name} className={cx(styles.label, styles.field)}>

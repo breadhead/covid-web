@@ -19,7 +19,7 @@ export const AskButton = ({ children }: AskButtonProps) => {
 
   const onButtonClick = () => {
     if (!!token) {
-      window.Intercom('show')
+      ;(window as any).Intercom('show')
     } else {
       open(SIGN_IN_MODAL)
     }

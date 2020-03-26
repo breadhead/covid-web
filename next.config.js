@@ -57,7 +57,7 @@ module.exports = withPlugins(
         BUGSNAG_API_KEY: process.env.BUGSNAG_SERVER_API_KEY || 'mememe',
       },
       publicRuntimeConfig: {
-        backUrl: process.env.BACK_URL || 'http://localhost:3000',
+        backUrl: process.env.BACK_URL || 'https://api.defeatcovid.ru/',
         siteUrl: process.env.SITE_URL || 'http://localhost:3001',
         BUGSNAG_API_KEY: process.env.BUGSNAG_BROWSER_API_KEY || 'mememe',
       },

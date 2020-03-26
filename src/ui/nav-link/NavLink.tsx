@@ -12,7 +12,6 @@ export const NavLink = ({
   blank = false,
   withoutUnderline = false,
 }: NavLinkProps) => {
-
   if (blank) {
     return (
       <a

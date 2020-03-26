@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Input, RadioGroup, InputType, Checkbox } from '@app/features/common/form'
+import {
+  Form,
+  Input,
+  RadioGroup,
+  InputType,
+  Checkbox,
+} from '@app/features/common/form'
 import * as styles from './RequestForm.css'
+import Router from 'next/router'
+
 import cx from 'classnames'
 import { Button, ButtonSize } from '@front/ui/button'
 import { genderRadioGroup } from '@app/features/common/claim/features/newClaim/organisms/Patient/genderRadioGroup'
@@ -10,11 +18,12 @@ import { targetList, deseasesList } from './config'
 
 import { saveRequestFormData } from '../../reducer/actions'
 import { useThunk } from '@app/src/hooks/useThunk'
-import { saveRequestFormDraft, getRequestFormDraft } from './localStorage'
+import {
+  saveRequestFormDraft,
+  getRequestFormDraft,
+  isFormRequestFinished,
+} from './localStorage'
 import { schema } from './schema'
-import routes from '@app/routes'
-
-const { Router } = routes
 
 export const RequestForm = () => {
   const [checked, setCheked] = useState<string[]>([])
@@ -27,11 +36,16 @@ export const RequestForm = () => {
     setInitialFields(draft)
   }, [])
 
-  const onFormSubmit = (data: any) => {
-    dispatch(saveRequestFormData(data))
-    setCheked([])
-    Router.pushRoute('/request/chat')
+  const onFormSubmit = async (data: any) => {
+    await dispatch(saveRequestFormData(data))
   }
+
+  useEffect(() => {
+    const isFormFinished = isFormRequestFinished()
+    if (isFormFinished) {
+      Router.push('/request/chat')
+    }
+  }, [])
 
   return (
     <Form
@@ -51,7 +65,6 @@ export const RequestForm = () => {
             name="target"
             buttons={targetList}
           />
-
           <RegionSelect
             changeField={() => null}
             validate={schema.region}
@@ -61,7 +74,6 @@ export const RequestForm = () => {
             textCountry="Страна, где проходили лечение"
             textSwitch="Вы проходили лечение в России?"
           />
-
           <label htmlFor="gender" className={cx(styles.label, styles.field)}>
             Пол
           </label>
@@ -84,8 +96,6 @@ export const RequestForm = () => {
             checked={checked}
             setCheked={setCheked}
           />
-
-
 
           <label htmlFor="deseases" className={cx(styles.label, styles.field)}>
             Сопутствующие заболевания

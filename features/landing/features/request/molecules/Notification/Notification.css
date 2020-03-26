@@ -26,6 +26,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  flex-direction: column;
 
   @media (--smallDown) {
     flex-direction: column;
@@ -36,6 +37,7 @@
 .text {
   margin: 0;
   text-align: left;
+  margin-bottom: 16px;
 
   @media (--smallDown) {
     margin-bottom: 16px;

@@ -26,6 +26,7 @@ class RequstChatPage extends React.Component<Props> {
         <Head>
           <title>Ваш результат | Просто спросить </title>
         </Head>
+
         <RequestChat />
       </>
     )

@@ -1,7 +1,7 @@
 import { set } from '@app/features/common/browserQuery'
 import { getRoles } from '@app/features/login'
 import { getSmsPhone } from '@app/features/login/features/confirm'
-import { getUserLogin } from '@app/features/login/features/confirm/reducer/selectors'
+import { getUserEmail } from '@app/features/login/features/confirm/reducer/selectors'
 import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
@@ -32,7 +32,7 @@ const mapState = (state: State) => ({
   loading: getNewClaimLoading(state),
   roles: getRoles(state),
   smsPhone: getSmsPhone(state),
-  userLogin: getUserLogin(state),
+  userLogin: getUserEmail(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({

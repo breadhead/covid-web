@@ -1,16 +1,18 @@
-import React from 'react'
-
-import * as styles from './RequestChat.css'
-import { FooterTheme } from '@app/ui/organisms/Footer'
 import ClientLayout from '@app/features/client/organisms/Layout'
-
-import { AskButton } from './components/askButton'
+import { FooterTheme } from '@app/ui/organisms/Footer'
+import React from 'react'
 import { Chat } from './Chat'
-import { Conclution } from './components/conclution'
-
+import { AskButton } from './components/askButton'
+import { Conclution } from './components/Conclution'
+import * as styles from './RequestChat.css'
+import Router from 'next/router'
+import { isFormRequestFinished } from '../request/organisms/RequestForm/localStorage'
 
 export const RequestChat = () => {
-
+  const formFinished = isFormRequestFinished()
+  if (!formFinished && typeof window !== 'undefined') {
+    Router.push('/request')
+  }
 
   return (
     <ClientLayout
