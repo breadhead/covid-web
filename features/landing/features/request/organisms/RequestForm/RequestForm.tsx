@@ -7,6 +7,7 @@ import {
   Checkbox
 } from "@app/features/common/form";
 import * as styles from "./RequestForm.css";
+import Router from "next/router";
 
 import cx from "classnames";
 import { Button, ButtonSize } from "@front/ui/button";
@@ -17,7 +18,12 @@ import { targetList, deseasesList } from "./config";
 
 import { saveRequestFormData } from "../../reducer/actions";
 import { useThunk } from "@app/src/hooks/useThunk";
-import { saveRequestFormDraft, getRequestFormDraft } from "./localStorage";
+import {
+  saveRequestFormDraft,
+  getRequestFormDraft,
+  setFormRequestFinished,
+  isFormRequestFinished
+} from "./localStorage";
 import { schema } from "./schema";
 
 export const RequestForm = () => {
@@ -31,10 +37,16 @@ export const RequestForm = () => {
     setInitialFields(draft);
   }, []);
 
-  const onFormSubmit = (data: any) => {
-    dispatch(saveRequestFormData(data));
-    setCheked([]);
+  const onFormSubmit = async (data: any) => {
+    await dispatch(saveRequestFormData(data));
   };
+
+  useEffect(() => {
+    const isFormFinished = isFormRequestFinished();
+    if (isFormFinished) {
+      Router.push("/request/chat");
+    }
+  }, []);
 
   return (
     <Form
