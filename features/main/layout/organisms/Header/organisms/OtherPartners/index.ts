@@ -1,0 +1,1 @@
+export { OtherPartners } from './OtherPartners'
