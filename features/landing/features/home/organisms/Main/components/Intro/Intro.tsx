@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as styles from './Intro.css'
 import cx from 'classnames'
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { NON_BREAKING_SPACE, NON_BREAKING_HYPHEN } from '@app/lib/config'
 import { Icon } from '@front/ui/icon'
 import { NavLink } from '@front/ui/nav-link'
 import { IconsList } from '@front/ui/sprite'
@@ -12,7 +12,7 @@ import { CovidButtons } from '../CovidButtons/CovidButtons'
 export const Intro = () => (
   <section className={styles.intro}>
     <h1 className={styles.title}>
-      Справочная{NON_BREAKING_SPACE}служба по вопросам коронавируса COVID-19
+      Справочная{NON_BREAKING_SPACE}служба по{NON_BREAKING_SPACE}вопросам инфекции COVID{NON_BREAKING_HYPHEN}19
     </h1>
     <div className={styles.logos}>
       <p className={styles.status}>

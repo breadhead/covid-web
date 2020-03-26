@@ -1,10 +1,10 @@
 import * as text from './conslutionText'
 
 
-// const getCovidSymptoms = (data: any) => data.symptoms.includes('cough') || data.deseases.includes('temperature') || data.deseases.includes('dyspnea') || data.deseases.includes('sore-throat') || data.deseases.includes('chills') || data.deseases.includes('body-aches')
+export const getCovidSymptoms = (data: any) => data.symptoms.includes('cough') || data.deseases.includes('temperature') || data.deseases.includes('dyspnea') || data.deseases.includes('sore-throat') || data.deseases.includes('chills') || data.deseases.includes('body-aches')
 
 
-// const getNoCovidSymptoms = (data: any) => data.symptoms.includes('sneezing') || data.deseases.includes('runny-nose') || data.deseases.includes('loose-stools') || data.deseases.includes('nausea') || data.deseases.includes('abdominal-pain')
+export const getNoCovidSymptoms = (data: any) => data.symptoms.includes('sneezing') || data.deseases.includes('runny-nose') || data.deseases.includes('loose-stools') || data.deseases.includes('nausea') || data.deseases.includes('abdominal-pain')
 
 
 const successLinks = [
@@ -26,7 +26,7 @@ const oncoLinks = [
 ]
 
 export const getConclutionText = (data: any) => {
-  console.log('data:', data)
+  if (!data) return null
 
   if (data.age < 60 && !data.deseases || data.deseases && data.deseases.length === 0) {
     return {
