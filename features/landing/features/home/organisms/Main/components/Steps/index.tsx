@@ -6,33 +6,39 @@ import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
 
 const Steps = () => (
   <div className={styles.wrap}>
-    <h2 className={styles.title}>Как работает персональная
-    консультация</h2>
+    <h2 className={styles.title}>Как работает персональная консультация</h2>
     <section className={styles.steps}>
       <article className={styles.step}>
-        <img className={styles.img}
-          src='/static/images/1-step.png'
-          alt='Пройдите короткий тест и получите рекомендации' />
+        <img
+          className={styles.img}
+          src="/static/images/1-step.png"
+          alt="Пройдите короткий тест и получите рекомендации"
+        />
         <p className={styles.text}>
-          1. Пройдите <Link href="/request"><a className={styles.link}>короткий{NON_BREAKING_SPACE}тест</a></Link>
-         {SPACE}и{NON_BREAKING_SPACE}получите рекомендации
+          1. Пройдите{' '}
+          <Link href="/request">
+            <a className={styles.link}>короткий{NON_BREAKING_SPACE}тест</a>
+          </Link>
+          {SPACE}и{NON_BREAKING_SPACE}получите рекомендации
         </p>
       </article>
       <article className={styles.step}>
-        <img className={styles.img}
-          src='/static/images/3-step.png'
-          alt='Если останутся вопросы, задайте их в чате' />
+        <img
+          className={styles.img}
+          src="/static/images/3-step.png"
+          alt="Если останутся вопросы, задайте их в чате"
+        />
         <p className={styles.text}>
           2. Если останутся вопросы, задайте их в чате
         </p>
       </article>
       <article className={styles.step}>
-        <img className={styles.img}
-          src='/static/images/landing/computer2x.png'
-          alt='Подождите пока эксперт ответит вам' />
-        <p className={styles.text}>
-          3. Подождите пока эксперт ответит вам
-        </p>
+        <img
+          className={styles.img}
+          src="/static/images/landing/computer2x.png"
+          alt="Подождите пока эксперт ответит вам"
+        />
+        <p className={styles.text}>3. Подождите пока эксперт ответит вам</p>
       </article>
     </section>
   </div>

@@ -42,5 +42,5 @@ export enum IconsList {
   RotateIcon = 'rotate-icon',
   Avon = 'avon',
   CovidLogo = 'covid-logo',
-  CovidLogoDark = 'covid-logo-dark'
+  CovidLogoDark = 'covid-logo-dark',
 }

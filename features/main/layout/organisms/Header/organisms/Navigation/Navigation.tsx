@@ -12,7 +12,6 @@ import { Button, ButtonKind } from '@app/src/ui/button'
 
 import LoginButton from '../../atoms/LoginButton'
 
-
 import { default as ClientMenu } from '@app/features/client/features/menu/organisms/Menu'
 import MediaQuery, { Query } from '@app/ui/MediaQuery'
 
@@ -25,7 +24,12 @@ interface Props {
   hide?: () => void
 }
 
-export const Navigation = ({ className, hide, showLoginButton, signOut }: Props) => (
+export const Navigation = ({
+  className,
+  hide,
+  showLoginButton,
+  signOut,
+}: Props) => (
   <nav className={cx(styles.menu, className)}>
     <button className={styles.closeButton} onClick={hide}>
       закрыть меню
@@ -56,22 +60,20 @@ export const Navigation = ({ className, hide, showLoginButton, signOut }: Props)
       <NavIcon />
     </NavLink>
 
-
     {!!showLoginButton ? (
       <LoginButton className={styles.loginButton}>Войти</LoginButton>
     ) : (
-        <>
-          <MediaQuery query={Query.FromExtraLarge}>
-            <ClientMenu className={styles.loginMenu} signOut={signOut} />
-          </MediaQuery>
-          <MediaQuery
-            className={styles.mobileMenuWrapper}
-            query={Query.ToExtraLarge}
-          >
-            <SignInMobileMenu signOut={signOut} />
-          </MediaQuery>
-        </>
-      )}
-
+      <>
+        <MediaQuery query={Query.FromExtraLarge}>
+          <ClientMenu className={styles.loginMenu} signOut={signOut} />
+        </MediaQuery>
+        <MediaQuery
+          className={styles.mobileMenuWrapper}
+          query={Query.ToExtraLarge}
+        >
+          <SignInMobileMenu signOut={signOut} />
+        </MediaQuery>
+      </>
+    )}
   </nav>
 )

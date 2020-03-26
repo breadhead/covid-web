@@ -1,52 +1,51 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 import {
   Form,
   Input,
   RadioGroup,
   InputType,
-  Checkbox
-} from "@app/features/common/form";
-import * as styles from "./RequestForm.css";
-import Router from "next/router";
+  Checkbox,
+} from '@app/features/common/form'
+import * as styles from './RequestForm.css'
+import Router from 'next/router'
 
-import cx from "classnames";
-import { Button, ButtonSize } from "@front/ui/button";
-import { genderRadioGroup } from "@app/features/common/claim/features/newClaim/organisms/Patient/genderRadioGroup";
-import RegionSelect from "@app/features/client/features/regionSelect";
-import { Symptoms } from "./components/symptoms";
-import { targetList, deseasesList } from "./config";
+import cx from 'classnames'
+import { Button, ButtonSize } from '@front/ui/button'
+import { genderRadioGroup } from '@app/features/common/claim/features/newClaim/organisms/Patient/genderRadioGroup'
+import RegionSelect from '@app/features/client/features/regionSelect'
+import { Symptoms } from './components/symptoms'
+import { targetList, deseasesList } from './config'
 
-import { saveRequestFormData } from "../../reducer/actions";
-import { useThunk } from "@app/src/hooks/useThunk";
+import { saveRequestFormData } from '../../reducer/actions'
+import { useThunk } from '@app/src/hooks/useThunk'
 import {
   saveRequestFormDraft,
   getRequestFormDraft,
-
-  isFormRequestFinished
-} from "./localStorage";
-import { schema } from "./schema";
+  isFormRequestFinished,
+} from './localStorage'
+import { schema } from './schema'
 
 export const RequestForm = () => {
-  const [checked, setCheked] = useState<string[]>([]);
-  const [initialFields, setInitialFields] = useState<any>(null);
+  const [checked, setCheked] = useState<string[]>([])
+  const [initialFields, setInitialFields] = useState<any>(null)
 
-  const dispatch = useThunk();
+  const dispatch = useThunk()
 
   useEffect(() => {
-    const draft = getRequestFormDraft();
-    setInitialFields(draft);
-  }, []);
+    const draft = getRequestFormDraft()
+    setInitialFields(draft)
+  }, [])
 
   const onFormSubmit = async (data: any) => {
-    await dispatch(saveRequestFormData(data));
-  };
+    await dispatch(saveRequestFormData(data))
+  }
 
   useEffect(() => {
-    const isFormFinished = isFormRequestFinished();
+    const isFormFinished = isFormRequestFinished()
     if (isFormFinished) {
-      Router.push("/request/chat");
+      Router.push('/request/chat')
     }
-  }, []);
+  }, [])
 
   return (
     <Form
@@ -111,7 +110,7 @@ export const RequestForm = () => {
               >
                 {it.value}
               </Checkbox>
-            );
+            )
           })}
           <Button size={ButtonSize.Large} className={styles.button} submit>
             Отправить
@@ -119,5 +118,5 @@ export const RequestForm = () => {
         </>
       )}
     </Form>
-  );
-};
+  )
+}
