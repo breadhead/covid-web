@@ -13,7 +13,6 @@ export const NavLink = ({
   withoutUnderline = false,
 }: NavLinkProps) => {
 
-  console.log('className:', className)
   if (blank) {
     return (
       <a

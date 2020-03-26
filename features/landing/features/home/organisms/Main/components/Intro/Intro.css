@@ -40,7 +40,6 @@
   gap: 8px;
   margin-bottom: 48px;
   text-align: center;
-  box-shadow: 0 24px 40px 0 rgba(21,24,51,0.08);
 
   @media (--smallDown) {
     flex-direction: column;
@@ -104,9 +103,16 @@
   overflow: hidden;
   max-height: 306px;
   height: 100%;
+  box-shadow: 0 24px 40px 0 rgba(21,24,51,0.08);
+  transition: all ease-in 0.2s !important;
 
   @media (--smallDown) {
     width: 100%;
+  }
+
+  &:hover {
+    box-shadow: 0 24px 40px 0 rgba(21,24,51,0.16);
+    transform: scale(1.02);
   }
 }
 
@@ -143,8 +149,6 @@
   object-fit: cover;
 }
 
-.imageStudents {
-}
 
 .containerLarge {
   padding: 16px 0 0 0;
@@ -175,4 +179,32 @@
   line-height: 28px;
   white-space: normal;
   text-align: left;
+}
+
+.disable {
+  opacity: 0.4;
+
+  &:hover {
+    transform: none !important;
+  }
+}
+
+.withHint {
+  position: relative;
+  opacity: 1;
+  z-index: 20;
+}
+
+.hint {
+  padding: 4px;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 20px;
+  background-color: var(--color-highlight);
+  text-transform: lowercase;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  opacity: 1;
+  z-index: 20;
 }

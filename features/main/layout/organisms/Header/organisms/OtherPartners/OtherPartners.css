@@ -12,6 +12,7 @@
 
 .tablink {
   font-size: 14px;
+  font-family: var(--fontFamily-title);
   padding: 6px 20px;
   color: var(--color-text-secondary) !important;
   text-transform: uppercase;

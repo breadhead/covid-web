@@ -46,29 +46,35 @@ export const Intro = () => (
           src="/static/images/landing/withPatient.png"
           srcSet="/static/images/landing/withPatient2x.png 2x" />
       </NavLink>
-      <NavLink
-        className={cx(styles.buttonContainer, styles.buttonContainerHighlight)}
-        withoutUnderline
-        href="#donation"
-      >
-        <span className={styles.buttonTextSmall}>Я врач. Где найти
-самые{NON_BREAKING_SPACE}актуальные инструкции?</span>
-        <img className={cx(styles.image, styles.imageSmall)}
-          src="/static/images/landing/doc.png"
-          srcSet="/static/images/landing/doc2x.png 2x" />
-      </NavLink>
-      <NavLink
-        className={cx(styles.buttonContainer, styles.buttonContainerLast)}
-        withoutUnderline
-        href="#donation"
-      >
-        <span className={styles.buttonTextSmall}>
-          Что делать,
+
+      <div className={styles.withHint}>
+        <span className={styles.hint}>скоро</span>
+
+        <div
+          className={cx(styles.buttonContainer, styles.buttonContainerHighlight, styles.disable)}
+        >
+          <span className={cx(styles.buttonTextSmall)}>Я врач. Где найти
+  самые{NON_BREAKING_SPACE}актуальные инструкции?</span>
+          <img className={cx(styles.image, styles.imageSmall)}
+            src="/static/images/landing/doc.png"
+            srcSet="/static/images/landing/doc2x.png 2x" />
+        </div>
+      </div>
+
+
+      <div className={styles.withHint}>
+        <span className={styles.hint}>готовим</span>
+
+        <div className={cx(styles.buttonContainer, styles.buttonContainerLast, styles.disable)}>
+          <span className={styles.buttonTextSmall}>
+            Что делать,
         если{NON_BREAKING_SPACE}диагностировали COVID?</span>
-        <img className={cx(styles.image, styles.imageSmall)}
-          src="/static/images/landing/crown.png"
-          srcSet="/static/images/landing/crown2x.png 2x" />
-      </NavLink>
+          <img className={cx(styles.image, styles.imageSmall)}
+            src="/static/images/landing/crown.png"
+            srcSet="/static/images/landing/crown2x.png 2x" />
+        </div>
+      </div>
+
     </div>
 
     <CovidButtons />
