@@ -1,10 +1,11 @@
-import { ComboBox, Toggle } from '@app/features/common/form'
-import { mapString } from '@app/ui/Select'
-import cx from 'classnames'
-import * as React from 'react'
-import { Props } from '../../container'
-import { countries } from './countries'
-import { regions } from './regions'
+import { ComboBox, Toggle } from "@app/features/common/form";
+import { mapString } from "@app/ui/Select";
+import cx from "classnames";
+import * as React from "react";
+import { Props } from "../../container";
+import { countries } from "./countries";
+import { regions } from "./regions";
+import localStyles from "./RegionSelect.css";
 
 const RegionSelect = ({
   clientInRussia,
@@ -14,20 +15,22 @@ const RegionSelect = ({
   textRegion,
   textCountry,
   textSwitch,
-  validate,
+  validate
 }: Props) => (
   <>
-    <label
-      htmlFor="personalData.russia"
-      className={cx(styles.label, styles.field)}
-    >
-      {textSwitch}
-    </label>
-    <Toggle
-      name="personalData.russia"
-      onChange={onChangeInRussia}
-      value={clientInRussia}
-    />
+    <div className={localStyles.visuallyHidden}>
+      <label
+        htmlFor="personalData.russia"
+        className={cx(styles.label, styles.field)}
+      >
+        {textSwitch}
+      </label>
+      <Toggle
+        name="personalData.russia"
+        onChange={onChangeInRussia}
+        value={clientInRussia}
+      />
+    </div>
     {clientInRussia && (
       <>
         <label htmlFor={name} className={cx(styles.label, styles.field)}>
@@ -61,6 +64,6 @@ const RegionSelect = ({
       </>
     )}
   </>
-)
+);
 
-export default RegionSelect
+export default RegionSelect;

@@ -1,50 +1,52 @@
-import React, { useEffect } from 'react'
-import cx from 'classnames'
+import React, { useEffect } from "react";
+import cx from "classnames";
 
-import { RadioGroup, Checkbox } from '@app/features/common/form'
+import { RadioGroup, Checkbox } from "@app/features/common/form";
 import {
   temperatureList,
   symptomsSinceList,
   symptomsList,
   coughList,
   thoraxList,
-  dyspneaList,
-} from '../../config'
-import * as styles from '../../RequestForm.css'
+  dyspneaList
+} from "../../config";
+import * as styles from "../../RequestForm.css";
 
 interface SymptomsProps {
-  checked: string[]
-  setCheked: (arr: string[]) => void
-  initialFields?: any
+  checked: string[];
+  setCheked: (arr: string[]) => void;
+  initialFields?: any;
 }
 
 export const Symptoms = ({
   checked,
   setCheked,
-  initialFields,
+  initialFields
 }: SymptomsProps) => {
   const toggleSymptom = (id: string) => {
     if (checked.includes(id)) {
-      setCheked(checked.filter(it => it !== id))
+      setCheked(checked.filter(it => it !== id));
     } else {
-      setCheked([...checked, id])
+      setCheked([...checked, id]);
     }
-  }
+  };
 
   useEffect(
     () => {
       if (!!initialFields) {
-        const checked = Object.entries(initialFields).map(([k, v]) => {
-          if (!!v) {
-            return k
-          }
-        }).filter(it => !!it)
+        const checked = Object.entries(initialFields)
+          .map(([k, v]) => {
+            if (!!v) {
+              return k;
+            }
+          })
+          .filter(it => !!it);
 
-        setCheked(checked as any)
+        setCheked(checked as any);
       }
     },
-    [initialFields],
-  )
+    [initialFields]
+  );
 
   return (
     <>
@@ -63,11 +65,11 @@ export const Symptoms = ({
             >
               {it.value}
             </Checkbox>
-          )
+          );
         })}
       </div>
 
-      {checked.includes('cough') && (
+      {checked.includes("cough") && (
         <>
           <label
             htmlFor="symptoms.caughtType"
@@ -85,7 +87,7 @@ export const Symptoms = ({
         </>
       )}
 
-      {checked.includes('thorax') && (
+      {checked.includes("thorax") && (
         <>
           <label
             htmlFor="symptoms.thoraxType"
@@ -103,12 +105,12 @@ export const Symptoms = ({
               >
                 {it.value}
               </Checkbox>
-            )
+            );
           })}
         </>
       )}
 
-      {checked.includes('temperature') && (
+      {checked.includes("temperature") && (
         <>
           <label
             htmlFor="symptoms.temperatureType"
@@ -126,7 +128,7 @@ export const Symptoms = ({
         </>
       )}
 
-      {checked.includes('dyspnea') && (
+      {checked.includes("dyspnea") && (
         <>
           <label
             htmlFor="symptoms.dyspneaType"
@@ -144,7 +146,7 @@ export const Symptoms = ({
               >
                 {it.value}
               </Checkbox>
-            )
+            );
           })}
         </>
       )}
@@ -167,5 +169,5 @@ export const Symptoms = ({
         </>
       )}
     </>
-  )
-}
+  );
+};

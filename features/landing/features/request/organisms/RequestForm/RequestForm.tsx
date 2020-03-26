@@ -1,33 +1,40 @@
-import React, { useState, useEffect } from 'react'
-import { Form, Input, RadioGroup, InputType, Checkbox } from '@app/features/common/form'
-import * as styles from './RequestForm.css'
-import cx from 'classnames'
-import { Button, ButtonSize } from '@front/ui/button'
-import { genderRadioGroup } from '@app/features/common/claim/features/newClaim/organisms/Patient/genderRadioGroup'
-import RegionSelect from '@app/features/client/features/regionSelect'
-import { Symptoms } from './components/symptoms'
-import { targetList, deseasesList } from './config'
+import React, { useState, useEffect } from "react";
+import {
+  Form,
+  Input,
+  RadioGroup,
+  InputType,
+  Checkbox
+} from "@app/features/common/form";
+import * as styles from "./RequestForm.css";
 
-import { saveRequestFormData } from '../../reducer/actions'
-import { useThunk } from '@app/src/hooks/useThunk'
-import { saveRequestFormDraft, getRequestFormDraft } from './localStorage'
-import { schema } from './schema'
+import cx from "classnames";
+import { Button, ButtonSize } from "@front/ui/button";
+import { genderRadioGroup } from "@app/features/common/claim/features/newClaim/organisms/Patient/genderRadioGroup";
+import RegionSelect from "@app/features/client/features/regionSelect";
+import { Symptoms } from "./components/symptoms";
+import { targetList, deseasesList } from "./config";
+
+import { saveRequestFormData } from "../../reducer/actions";
+import { useThunk } from "@app/src/hooks/useThunk";
+import { saveRequestFormDraft, getRequestFormDraft } from "./localStorage";
+import { schema } from "./schema";
 
 export const RequestForm = () => {
-  const [checked, setCheked] = useState<string[]>([])
-  const [initialFields, setInitialFields] = useState<any>(null)
+  const [checked, setCheked] = useState<string[]>([]);
+  const [initialFields, setInitialFields] = useState<any>(null);
 
-  const dispatch = useThunk()
+  const dispatch = useThunk();
 
   useEffect(() => {
-    const draft = getRequestFormDraft()
-    setInitialFields(draft)
-  }, [])
+    const draft = getRequestFormDraft();
+    setInitialFields(draft);
+  }, []);
 
   const onFormSubmit = (data: any) => {
-    dispatch(saveRequestFormData(data))
-    setCheked([])
-  }
+    dispatch(saveRequestFormData(data));
+    setCheked([]);
+  };
 
   return (
     <Form
@@ -48,7 +55,6 @@ export const RequestForm = () => {
             name="target"
             buttons={targetList}
           />
-
           <RegionSelect
             changeField={() => null}
             validate={schema.region}
@@ -58,7 +64,6 @@ export const RequestForm = () => {
             textCountry="Страна, где проходили лечение"
             textSwitch="Вы проходили лечение в России?"
           />
-
           <label htmlFor="gender" className={cx(styles.label, styles.field)}>
             Пол
           </label>
@@ -82,8 +87,6 @@ export const RequestForm = () => {
             setCheked={setCheked}
           />
 
-
-
           <label htmlFor="deseases" className={cx(styles.label, styles.field)}>
             Сопутствующие заболевания
           </label>
@@ -97,7 +100,7 @@ export const RequestForm = () => {
               >
                 {it.value}
               </Checkbox>
-            )
+            );
           })}
           <Button size={ButtonSize.Large} className={styles.button} submit>
             Отправить
@@ -105,5 +108,5 @@ export const RequestForm = () => {
         </>
       )}
     </Form>
-  )
-}
+  );
+};
