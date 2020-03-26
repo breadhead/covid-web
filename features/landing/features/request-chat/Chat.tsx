@@ -1,22 +1,23 @@
-import * as React from 'react'
-import { APP_ID } from '@app/features/common/intercom/config'
+import * as React from "react";
+import { APP_ID } from "@app/features/common/intercom/config";
+import { useMappedState } from "redux-react-hook";
+import { getUserEmail } from "@app/features/login/features/confirm/reducer/selectors";
 
 export const Chat = () => {
-  //  const [chat, setChat] = React.useState<any>(<div></div>)
-
-  const token = true //useMappedState(selectToken)
+  const email = useMappedState(getUserEmail);
+  const highRisk = true;
 
   React.useEffect(() => {
-    if (!!token) {
-      window.Intercom('boot', {
+    if (!!email) {
+      (window as any).Intercom("boot", {
         app_id: APP_ID,
-        email: 'john.doe@example.com',
+        email: email,
         created_at: 1234567890,
-        name: 'John Doe',
-        user_id: '9876',
-      })
+        name: `${highRisk ? "[!]" : ""}${email}`,
+        user_id: email
+      });
     }
-  })
+  }, []);
 
-  return <></>
-}
+  return <></>;
+};

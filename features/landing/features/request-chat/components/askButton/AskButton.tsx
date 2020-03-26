@@ -1,29 +1,29 @@
-import * as React from 'react'
-import { Button, ButtonKind } from '@app/src/ui/button'
+import * as React from "react";
+import { Button, ButtonKind } from "@app/src/ui/button";
 
-import * as styles from './AskButton.css'
-import { useModal } from '@app/features/common/modal'
-import { useMappedState } from 'redux-react-hook'
-import { selectToken } from '../../../home/molecules/StartConsultationButton/selectors'
+import * as styles from "./AskButton.css";
+import { useModal } from "@app/features/common/modal";
+import { useMappedState } from "redux-react-hook";
+import { selectToken } from "../../../home/molecules/StartConsultationButton/selectors";
 
-const SIGN_IN_MODAL = 'signIn'
+const SIGN_IN_MODAL = "signIn";
 
 interface AskButtonProps {
-  children: any
+  children: any;
 }
 
 export const AskButton = ({ children }: AskButtonProps) => {
-  const { open } = useModal()
+  const { open } = useModal();
 
-  const token = useMappedState(selectToken)
+  const token = useMappedState(selectToken);
 
   const onButtonClick = () => {
     if (!!token) {
-      window.Intercom('show')
+      (window as any).Intercom("show");
     } else {
-      open(SIGN_IN_MODAL)
+      open(SIGN_IN_MODAL);
     }
-  }
+  };
 
   return (
     <Button
@@ -33,5 +33,5 @@ export const AskButton = ({ children }: AskButtonProps) => {
     >
       {children}
     </Button>
-  )
-}
+  );
+};

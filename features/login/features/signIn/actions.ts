@@ -1,34 +1,39 @@
-import { ExtraArgs, State } from '@app/lib/store'
-import { Dispatch } from 'redux'
-import redirectUser from '../redirect'
-import { actions as userActions } from '../user'
-import { setCookie } from './helpers/setAuthToken'
-import { actions } from './reducer'
+import { ExtraArgs, State } from "@app/lib/store";
+import { Dispatch } from "redux";
+import { actions as modalActions } from "@app/features/common/modal/reducer";
 
-export const loginAction = (
-  username: string,
-  password: string,
-  wantTo: string,
-) => async (
+import { actions as userActions, currentUser } from "../user";
+import { setCookie } from "./helpers/setAuthToken";
+import { actions } from "./reducer";
+
+export const loginAction = (username: string, password: string) => async (
   dispatch: Dispatch<any>,
   getState: () => State,
-  { getApi }: ExtraArgs,
+  { getApi }: ExtraArgs
 ) => {
-  const api = getApi(getState)
+  const api = getApi(getState);
   try {
-    dispatch(actions.request())
-    const { token, roles } = await api.login(username, password)
+    dispatch(actions.request());
+    const { token } = await api.login(username, password);
 
-    setCookie(token)
-    dispatch(userActions.setToken(token))
+    setCookie(token);
+    dispatch(userActions.setToken(token));
+    dispatch(modalActions.close());
+    await dispatch(currentUser());
 
-    redirectUser(roles, wantTo)
-    return dispatch(actions.success(token))
+    if (typeof window !== "undefined") {
+      const pathname = window.location.pathname;
+
+      if (pathname.includes("/request/chat")) {
+        (window as any).Intercom("show");
+      }
+    }
+    return dispatch(actions.success(token));
   } catch (error) {
-    const { message, fields, code } = error.response.data
+    const { message, fields, code } = error.response.data;
 
-    dispatch(actions.error(error.message))
-    dispatch(actions.signInError({ message, fields, code }))
-    throw error
+    dispatch(actions.error(error.message));
+    dispatch(actions.signInError({ message, fields, code }));
+    throw error;
   }
-}
+};
