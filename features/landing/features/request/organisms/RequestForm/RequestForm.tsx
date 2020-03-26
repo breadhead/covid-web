@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Input, RadioGroup, InputType } from '@app/features/common/form'
+import { Form, Input, RadioGroup, InputType, Checkbox } from '@app/features/common/form'
 import * as styles from './RequestForm.css'
 import cx from 'classnames'
 import { Button, ButtonSize } from '@front/ui/button'
 import { genderRadioGroup } from '@app/features/common/claim/features/newClaim/organisms/Patient/genderRadioGroup'
 import RegionSelect from '@app/features/client/features/regionSelect'
 import { Symptoms } from './components/symptoms'
-import { targetList } from './config'
+import { targetList, deseasesList } from './config'
 
 import { saveRequestFormData } from '../../reducer/actions'
 import { useThunk } from '@app/src/hooks/useThunk'
@@ -82,6 +82,23 @@ export const RequestForm = () => {
             setCheked={setCheked}
           />
 
+
+
+          <label htmlFor="deseases" className={cx(styles.label, styles.field)}>
+            Сопутствующие заболевания
+          </label>
+          {deseasesList.map(it => {
+            return (
+              <Checkbox
+                key={it.id}
+                name={`deseases.${it.id}`}
+                type="checkbox"
+                className={styles.checkbox}
+              >
+                {it.value}
+              </Checkbox>
+            )
+          })}
           <Button size={ButtonSize.Large} className={styles.button} submit>
             Отправить
           </Button>

@@ -34,7 +34,13 @@ export const Symptoms = ({
   useEffect(
     () => {
       if (!!initialFields) {
-        setCheked(Object.keys(initialFields))
+        const checked = Object.entries(initialFields).map(([k, v]) => {
+          if (!!v) {
+            return k
+          }
+        }).filter(it => !!it)
+
+        setCheked(checked as any)
       }
     },
     [initialFields],
