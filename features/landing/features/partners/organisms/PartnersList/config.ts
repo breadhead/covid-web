@@ -1,5 +1,3 @@
-import { NON_BREAKING_SPACE } from '@app/lib/config'
-
 interface Partner {
   id: string
   type: string
@@ -28,50 +26,17 @@ const partners = [
     id: '10',
     type: PartnersType.InfrastructurePartner,
     typeLabel: PartnersLabel.InfrastructurePartner,
-    img: '/static/images/partners/Holdingoavya_kompaniya_Adamant.png',
-    label: 'Холдинговая компания «Адамант»',
+    img: '/static/images/partners/foundation-logo.svg',
+    label: 'Фонд профилактика рака',
+    description: 'Инициатива и реализация',
   },
   {
     id: '20',
     type: PartnersType.Donor,
     typeLabel: PartnersLabel.Donor,
-    img: '/static/images/partners/Pravoslavie_i_Mir.png',
-    label: `БФ «Православие и${NON_BREAKING_SPACE}мир»`,
-  },
-  {
-    id: '30',
-    type: PartnersType.Donor,
-    typeLabel: PartnersLabel.Donor,
-    img: '/static/images/partners/Etam_Logo-01.png',
-    label: 'Etam',
-  },
-  {
-    id: '40',
-    type: PartnersType.Donor,
-    typeLabel: PartnersLabel.Donor,
-    img: '/static/images/partners/IconSuit_logo.png',
-    label: 'IconSuit',
-  },
-  {
-    id: '50',
-    type: PartnersType.InfrastructurePartner,
-    typeLabel: PartnersLabel.Donor,
-    img: '/static/images/partners/Yasnoe_utro_Logo.jpg',
-    label: 'Ясное Утро',
-  },
-  {
-    id: '60',
-    type: PartnersType.Donor,
-    typeLabel: PartnersLabel.Donor,
-    img: '/static/images/partners/Avon_logo.png',
-    label: 'Avon',
-  },
-  {
-    id: '70',
-    type: PartnersType.InfrastructurePartner,
-    typeLabel: PartnersLabel.InfrastructurePartner,
-    img: '/static/images/partners/hands-up.png',
-    label: 'Поднимите руки',
+    img: '/static/images/partners/breadhead-logo-line.png',
+    label: `Студия Breadhead`,
+    description: 'Инициатива и реализация',
   },
 ]
 

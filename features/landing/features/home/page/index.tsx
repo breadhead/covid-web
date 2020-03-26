@@ -26,9 +26,9 @@ const LandingPage = () => {
       <Main />
       <div className={styles.wrapper}>
         <Steps />
+        <Corporate />
         <About />
         <Experts />
-        <Corporate />
         <Donation />
       </div>
       <Footer type={FooterType.Primary} theme={FooterTheme.Default} />

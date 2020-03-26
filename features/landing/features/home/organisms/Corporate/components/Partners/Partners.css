@@ -1,6 +1,6 @@
 .title {
   max-width: 800px;
-  margin: 0 auto 40px auto;
+  margin-bottom: 24px;
   font: var(--title-regular);
 
   @media (--smallDown) {
@@ -38,4 +38,16 @@
   @media (--smallDown) {
     width: calc(100% - 32px);
   }
+}
+
+.text {
+  max-width: 768px;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.link {
+  font-size: 18px;
+  line-height: 28px;
 }

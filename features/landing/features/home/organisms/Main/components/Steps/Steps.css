@@ -3,7 +3,6 @@
   justify-content: space-between;
   padding: 0 40px;
   margin: 0 auto;
-  margin-bottom: 120px;
 
   @media (--smallDown) {
     flex-direction: column;
