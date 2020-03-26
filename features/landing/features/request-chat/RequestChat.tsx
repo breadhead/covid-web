@@ -1,13 +1,11 @@
-import React from "react";
-
-import * as styles from "./RequestChat.css";
-import { FooterTheme } from "@app/ui/organisms/Footer";
 import ClientLayout from "@app/features/client/organisms/Layout";
-import { Conclution } from "./components/Conclution";
-import { getConclutionText } from "./getConclutionText";
-import { ArticlesList } from "./components/articles";
-import { AskButton } from "./components/askButton";
+import { FooterTheme } from "@app/ui/organisms/Footer";
+import React from "react";
 import { Chat } from "./Chat";
+import { AskButton } from "./components/askButton";
+import { Conclution } from "./components/Conclution";
+import * as styles from "./RequestChat.css";
+
 
 export const RequestChat = () => {
   return (
@@ -19,8 +17,7 @@ export const RequestChat = () => {
       <div className={styles.logo}>
         <img className={styles.image} src="/static/images/2-step.png" />
       </div>
-      <ArticlesList />
-      <Conclution>{getConclutionText()}</Conclution>
+      <Conclution />
       <AskButton>Спросить в чате 🤖👩🏻‍⚕️ &gt;</AskButton>
       <Chat />
     </ClientLayout>

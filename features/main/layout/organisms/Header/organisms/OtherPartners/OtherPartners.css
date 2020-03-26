@@ -12,13 +12,13 @@
 
 .tablink {
   font-size: 14px;
-  line-height: 20px;
+  font-family: var(--fontFamily-title);
   padding: 6px 20px;
   color: var(--color-text-secondary) !important;
   text-transform: uppercase;
 
   &:hover {
-    border-bottom: none !important;
+    border-bottom: 1px solid transparent  !important;
   }
 }
 
@@ -37,6 +37,11 @@
   color: var(--color-text-secondary) !important;
 
   &:hover {
-    border-bottom: none !important;
+    border-bottom: 1px solid transparent !important;
   }
+}
+
+.current {
+  display: flex;
+  align-items: center;
 }

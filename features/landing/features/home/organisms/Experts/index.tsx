@@ -8,7 +8,7 @@ import { CovidButtons } from '../Main/components/CovidButtons/CovidButtons'
 
 
 const Experts = () => (
-  <>
+  <div className={styles.wrap}>
     <div className={styles.expertsWrapper}>
       <section className={styles.experts}>
         <div className={styles.textWrapper}>
@@ -24,7 +24,7 @@ const Experts = () => (
       </section>
     </div>
     <CovidButtons />
-  </>
+  </div>
 
 )
 

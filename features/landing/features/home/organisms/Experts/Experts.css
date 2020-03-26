@@ -1,3 +1,7 @@
+.wrap {
+  padding-bottom: 96px;
+}
+
 .expertsWrapper {
   width: 100vw;
   min-width: 100%;

@@ -8,12 +8,14 @@ import Info from '../Info'
 const Donation = () => (
   <>
     <div id="donation" className={styles.donationWrapper}>
-      <h2 className={styles.title}>Помочь проекту</h2>
-      <div className={styles.content}>
-        <div className={styles.widget}>
-          <DonationWidget />
+      <div className={styles.wrapper}>
+        <h2 className={styles.title}>Помочь проекту</h2>
+        <div className={styles.content}>
+          <div className={styles.widget}>
+            <DonationWidget />
+          </div>
+          <Info />
         </div>
-        <Info />
       </div>
     </div>
   </>

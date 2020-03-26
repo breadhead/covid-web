@@ -21,7 +21,7 @@ import { useThunk } from "@app/src/hooks/useThunk";
 import {
   saveRequestFormDraft,
   getRequestFormDraft,
-  setFormRequestFinished,
+
   isFormRequestFinished
 } from "./localStorage";
 import { schema } from "./schema";
@@ -52,7 +52,6 @@ export const RequestForm = () => {
     <Form
       onSubmit={onFormSubmit as any}
       initialValues={initialFields}
-      resetAfterSubmit
       className={styles.form}
       saveDebounced={saveRequestFormDraft()}
       saveOnBlur={saveRequestFormDraft()}
