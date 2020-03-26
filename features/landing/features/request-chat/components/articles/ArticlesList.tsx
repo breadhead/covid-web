@@ -10,12 +10,17 @@ interface ArticlesListProps {
 }
 
 export const ArticlesList = ({ articles }: ArticlesListProps) => {
-  return <section className={s.wrapper}>
-    {articles.map(art => {
-      return <NavLink className={s.article} href={art.link} key={art.link}>
-        <h3 className={s.title}>{art.title}</h3>
-      </NavLink>
-    })}
-  </section>
-
+  return (
+    <section className={s.wrapper}>
+      {articles.map(art => {
+        return (
+          <NavLink
+            withoutUnderline
+            className={s.article} blank href={art.link} key={art.link}>
+            <h3 className={s.title}>{art.title}</h3>
+          </NavLink>
+        )
+      })}
+    </section>
+  )
 }

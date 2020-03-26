@@ -6,7 +6,6 @@
   margin-top: 64px;
   padding: 20px 16px;
 
-
   &:hover {
     box-shadow: 0 24px 40px 0 rgba(21, 24, 51, 0.16);
   }
@@ -14,6 +13,7 @@
 
 .title {
   font: var(--title-small);
+  white-space: normal;
 }
 
 .wrapper {

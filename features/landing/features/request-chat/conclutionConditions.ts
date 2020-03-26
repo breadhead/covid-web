@@ -1,6 +1,6 @@
 export const fail = {
-  gender: "Мужской",
-  age: "76678",
+  gender: 'Мужской',
+  age: '76678',
   symptoms: {
     temperature: true,
     'sore-throat': true,
@@ -15,15 +15,20 @@ export const fail = {
     'body-aches': true,
     headache: true,
     nausea: true,
-    'abdominal-pain': true
+    'abdominal-pain': true,
   },
-  caughtType: "Сухой без мокроты",
-  thoraxType: { coughing: true, inhale: true, 'physical-activity': true, rest: true },
-  temperatureType: "38-39 градусов",
+  caughtType: 'Сухой без мокроты',
+  thoraxType: {
+    coughing: true,
+    inhale: true,
+    'physical-activity': true,
+    rest: true,
+  },
+  temperatureType: '38-39 градусов',
   dyspneaType: { rest: true, 'physical-activity': true },
-  symptomsSince: "Несколько недель назад",
-  target: "Для себя",
-  region: "Ивановская область",
+  symptomsSince: 'Несколько недель назад',
+  target: 'Для себя',
+  region: 'Ивановская область',
   deseases: {
     diabetes: true,
     cardiovascular: true,
