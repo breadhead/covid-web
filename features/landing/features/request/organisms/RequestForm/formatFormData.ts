@@ -1,9 +1,13 @@
-
+import { isEmpty } from "lodash";
 import * as symptomsMap from './config'
+import { flattenDepth } from "lodash";
 
-const symptomIds = Object.values(symptomsMap).map(item => [...item])
+const symptomIds = flattenDepth(Object.values(symptomsMap), 1)
+
 
 export const formatFormData = ({ symptoms, deseases, ...rest }) => {
+  if (isEmpty(rest)) return {}
+
   const result = rest;
   result.symptoms = [];
   result.deseases = [];
@@ -27,7 +31,10 @@ export const formatFormData = ({ symptoms, deseases, ...rest }) => {
       result.deseases.push(value);
     });
 
-  return result;
+  result.symptoms = result.symptoms.join(', ');
+  result.deseases = result.deseases.join(', ');
+
+  return result
 };
 const transformValue = ([key, value]) => {
   if (typeof value === "boolean") {
