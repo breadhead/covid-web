@@ -1,8 +1,11 @@
 .button {
   display: block;
-  margin: 48px auto 16px;
+  margin: 0;
+  padding-top: 34px !important;
+  padding-bottom: 34px !important;
+  width: 100%;
 
   @media (--smallDown) {
-    margin: 32px auto 16px;
+    
   }
 }

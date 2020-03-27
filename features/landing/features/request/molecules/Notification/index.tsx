@@ -7,7 +7,7 @@ import { NavLink } from '@front/ui/nav-link'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 
-const Notification = () => (
+export const Notification = () => (
   <article className={styles.notification}>
     <img
       className={styles.logo}
@@ -46,4 +46,3 @@ const Notification = () => (
   </article>
 )
 
-export default Notification

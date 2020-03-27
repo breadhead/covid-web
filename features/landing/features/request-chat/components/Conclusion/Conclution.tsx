@@ -30,10 +30,13 @@ export const Conclution = () => {
   }
 
   const { text, articles } = currentConclution as any
-  console.log('text:', text)
+
   return (
     <>
-      <p className={styles.text}>{htmlParser(text)}</p>
+      <div className={styles.notification}>
+        <img className={styles.image} src="/static/images/doc-attention.png" alt="врач"/>
+        <div className={styles.text}>{htmlParser(text)}</div>
+      </div>
       <ArticlesList articles={articles} />
     </>
   )

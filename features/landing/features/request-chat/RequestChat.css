@@ -44,12 +44,12 @@
 }
 
 .registrationDisclamer {
-  max-width: 286px;
   color: #82839b;
   font-size: 14px;
   margin: 0 auto;
   line-height: 20px;
   text-align: center;
+  margin-top: 16px;
 }
 
 .repeatTestButton {
