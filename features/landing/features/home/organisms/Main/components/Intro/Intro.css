@@ -194,6 +194,10 @@
   & .buttonText {
     margin-bottom: 40px;
   }
+
+  @media (--smallDown) {
+    border-radius: 8px;
+  }
 }
 
 .imageSmall {
