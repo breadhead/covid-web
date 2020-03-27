@@ -6,7 +6,7 @@ import * as styles from './Request.css'
 
 import { AppContext } from '@app/lib/server-types'
 
-import Notification from '../molecules/Notification'
+import { Notification } from '../molecules/Notification'
 import { RequestForm } from '../organisms/RequestForm'
 
 interface Props {

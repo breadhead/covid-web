@@ -44,7 +44,7 @@ export const getConclutionText = (data: any) => {
 
 
   // в любой группе с основными симптомами ковида 
-  if (getDangerSymptoms(data)) {
+  if (!!data.symptoms && getDangerSymptoms(data)) {
     return {
       text: content.DANGER,
       articles: content.WITH_OTHER_SYMPTOMS_LINKS,

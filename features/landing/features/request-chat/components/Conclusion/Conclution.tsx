@@ -33,7 +33,10 @@ export const Conclution = () => {
 
   return (
     <>
-      <p className={styles.text}>{htmlParser(text)}</p>
+      <div className={styles.notification}>
+        <img className={styles.image} src="/static/images/doc-attention.png" alt="врач"/>
+        <div className={styles.text}>{htmlParser(text)}</div>
+      </div>
       <ArticlesList articles={articles} />
     </>
   )

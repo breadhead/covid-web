@@ -37,22 +37,21 @@ export const RequestChat = () => {
       pageClassName={styles.page}
       footerTheme={FooterTheme.White}
     >
-      <div className={styles.logo}>
-        <img className={styles.image} src="/static/images/bigdoc.png" />
+      <div className={styles.wrapper}>
+        <Conclution />
+  
+        <AskButton>Спросить в чате</AskButton>
+        {email ? (
+          <button onClick={onRepeatTestClick} className={styles.repeatTestButton}>
+            Пройти тест заново
+          </button>
+        ) : (
+            <p className={styles.registrationDisclamer}>
+              Потребуется регистрация, чтобы вы могли вернуться к чату в любой
+              момент
+            </p>
+          )}
       </div>
-      <Conclution />
-
-      <AskButton>Спросить в чате</AskButton>
-      {email ? (
-        <button onClick={onRepeatTestClick} className={styles.repeatTestButton}>
-          Пройти тест заново
-        </button>
-      ) : (
-        <p className={styles.registrationDisclamer}>
-          Потребуется регистрация, чтобы вы могли вернуться к чату в любой
-          момент
-        </p>
-      )}
       <Chat />
     </ClientLayout>
   )

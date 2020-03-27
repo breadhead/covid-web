@@ -1,6 +1,6 @@
 .footer {
   padding: 24px 48px 32px 48px;
-  background-color: var(--background-color);
+  background-color: var(--color-beige);
   border-top: 1px solid var(--divider-color);
 
   @media (--smallDown) {
@@ -9,7 +9,7 @@
 }
 
 .white {
-  background-color: #fff;
+  background-color: var(--color-beige);
 }
 
 .row {
