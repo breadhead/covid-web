@@ -27,11 +27,17 @@ const LandingPage = () => {
       <Main />
       <div className={styles.wrapper}>
         <Steps />
-        <Divider />
+      </div>
+      <Divider />
+      <div className={styles.wrapper}>
         <Corporate />
-        <Divider />
+      </div>
+      <Divider />
+      <div className={styles.wrapper}>
         <About />
-        <Divider />
+      </div>
+      <Divider />
+      <div className={styles.wrapper}>
         <Experts />
         <Donation />
       </div>

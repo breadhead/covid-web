@@ -19,7 +19,7 @@
 }
 
 .buttonWrapper {
-  width: 176px;
+  width: 220px;
   @media (--smallDown) {
     width: 120px;
     padding-right: 16px;

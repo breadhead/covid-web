@@ -34,9 +34,9 @@ const partners = [
     id: '20',
     type: PartnersType.Donor,
     typeLabel: PartnersLabel.Donor,
-    img: '/static/images/partners/breadhead-logo-line.png',
+    img: '/static/images/partners/breadhead-logo.svg',
     label: `Студия Breadhead`,
-    description: 'Инициатива и реализация',
+    description: 'Проектирование, IT-разработка',
   },
 ]
 

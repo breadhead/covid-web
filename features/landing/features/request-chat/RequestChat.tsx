@@ -36,7 +36,7 @@ export const RequestChat = () => {
       footerTheme={FooterTheme.White}
     >
       <div className={styles.logo}>
-        <img className={styles.image} src="/static/images/2-step-transparent.png" />
+        <img className={styles.image} src="/static/images/bigdoc.png" />
       </div>
       <Conclution />
 
