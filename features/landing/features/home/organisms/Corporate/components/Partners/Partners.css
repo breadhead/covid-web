@@ -52,8 +52,3 @@
   line-height: 28px;
 }
 
-.partners {
-  @media (--smallDown) {
-    padding: 0 16px;
-  }
-}
