@@ -9,7 +9,6 @@ export const dataSuccess = {
   deseases: {},
 }
 
-
 export const dataRisk = {
   target: 'Для себя',
   region: 'Ивановская область',
@@ -25,19 +24,23 @@ export const dataOncological = {
   age: '78',
   gender: 'Мужской',
   symptoms: {},
-  deseases: { diabetes: true, cardiovascular: true, oncological: true, COPD: true },
+  deseases: {
+    diabetes: true,
+    cardiovascular: true,
+    oncological: true,
+    COPD: true,
+  },
 }
 
-export const dataOtherSymptoms = {
+export const noCovidSymptomsAndNoRiskGroup = {
   target: 'Для себя',
   region: 'Ивановская область',
   age: '56',
   gender: 'Мужской',
   symptoms: {
     sneezing: true,
-  }
+  },
 }
-
 
 export const dataOtherSymptomsAndRisk = {
   target: 'Для себя',
@@ -46,9 +49,8 @@ export const dataOtherSymptomsAndRisk = {
   gender: 'Мужской',
   symptoms: {
     sneezing: true,
-  }
+  },
 }
-
 
 export const dataDanger = {
   target: 'Для себя',
@@ -58,7 +60,7 @@ export const dataDanger = {
   symptoms: {
     temperature: true,
     temperatureType: temperatureList[1].value,
-  }
+  },
 }
 
 export const dataDanger2 = {
@@ -69,7 +71,7 @@ export const dataDanger2 = {
   symptoms: {
     dyspnea: true,
     temperatureType: temperatureList[0].value,
-  }
+  },
 }
 
 export const dataDangerMultiple = {
@@ -82,7 +84,7 @@ export const dataDangerMultiple = {
     thorax: true,
     dyspnea: true,
     temperatureType: temperatureList[1].value,
-  }
+  },
 }
 
 export const dataDangerAndRisk = {
@@ -93,7 +95,7 @@ export const dataDangerAndRisk = {
   symptoms: {
     temperature: true,
     temperatureType: temperatureList[0].value,
-  }
+  },
 }
 
 export const dataDangerAndRisk2 = {
@@ -104,7 +106,12 @@ export const dataDangerAndRisk2 = {
   symptoms: {
     sneezing: true,
   },
-  deseases: { diabetes: true, cardiovascular: true, oncological: true, COPD: true },
+  deseases: {
+    diabetes: true,
+    cardiovascular: true,
+    oncological: true,
+    COPD: true,
+  },
 }
 
 // export const dataOncological = {
