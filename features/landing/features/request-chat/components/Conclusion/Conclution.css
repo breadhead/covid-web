@@ -5,10 +5,6 @@
   white-space: pre-line;
   font: var(--text16-24);
 
-  @media (--smallDown) {
-    padding: 0 16px;
-  }
-
   & ul {
     text-align: left;
   }
@@ -20,12 +16,22 @@
   border: 1px solid rgba(21,24,51,0.12);
   border-radius: 8px;
   margin-bottom: 24px;
+
+  @media (--smallDown) {
+   border: none;
+   flex-direction: column;
+   padding: 24px 0;
+  }
 }
 
 .image {
   width: 80px;
   height: 80px;
   margin-right: 16px;
+
+  @media (--smallDown) {
+    margin-bottom: 8px;
+   }
 }
 
 .text li {

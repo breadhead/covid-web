@@ -2,6 +2,10 @@
   background-color: var(--color-beige) !important;
 }
 
+.wrapper {
+  padding: 0 16px;
+}
+
 .mainHeader {
   background-color: #fff !important;
 }

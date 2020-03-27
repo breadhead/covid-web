@@ -7,9 +7,13 @@
   background-color: #fff;
   border: 1px solid rgba(97, 102, 129, 0.04);
   margin-bottom: 24px;
-  
+
   &:hover {
     box-shadow: 0 24px 40px 0 rgba(21, 24, 51, 0.16);
+  }
+
+  @media (--smallDown) {
+    min-width: 280px;
   }
 }
 
@@ -24,6 +28,14 @@
   grid-template-columns: 1fr 1fr 1fr;
 
   @media (--smallDown) {
+    grid-auto-flow: column;
     grid-template-columns: 1fr;
+    overflow-y: scroll;
+    overscroll-behavior: contain;
   }
+}
+
+
+.wrapper::-webkit-scrollbar {
+  display: none;
 }

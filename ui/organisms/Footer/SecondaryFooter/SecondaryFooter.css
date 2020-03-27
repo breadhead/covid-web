@@ -9,7 +9,7 @@
 }
 
 .white {
-  background-color: #fff;
+  background-color: var(--color-beige);
 }
 
 .row {
