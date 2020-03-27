@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button, ButtonKind } from '@app/src/ui/button'
+import { Button, ButtonKind, ButtonSize } from '@app/src/ui/button'
 
 import * as styles from './AskButton.css'
 import { useModal } from '@app/features/common/modal'
@@ -19,18 +19,15 @@ export const AskButton = ({ children }: AskButtonProps) => {
 
   const onButtonClick = () => {
     if (!!token) {
-      ;(window as any).Intercom('show')
+      ; (window as any).Intercom('show')
     } else {
       open(SIGN_IN_MODAL)
     }
   }
 
   return (
-    <Button
-      onClick={onButtonClick}
-      className={styles.button}
-      kind={ButtonKind.Secondary}
-    >
+
+    <Button className={styles.button} onClick={onButtonClick} size={ButtonSize.ExtraLarge}>
       {children}
     </Button>
   )

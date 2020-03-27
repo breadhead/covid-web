@@ -5,6 +5,7 @@ import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
 import { actions } from './reducer'
 import { showIntercom } from "../../../landing/features/request-chat/showIntercom"
+import { setUserEmailLocalStorage, getUserEmailLocalStorage } from "../signIn/userLocalStorage"
 
 export const signUp = (
   login: string,
@@ -17,13 +18,17 @@ export const signUp = (
   ) => {
     const api = getApi(getState)
     try {
-      const { token, } = await api.signUp(login, password, confirm)
+      const { token } = await api.signUp(login, password, confirm)
 
       setCookie(token)
       dispatch(userActions.setToken(token))
       dispatch(modalActions.close())
+
+      setUserEmailLocalStorage(login)
+      console.log(getUserEmailLocalStorage());
+
       await dispatch(currentUser())
-      debugger
+
 
       showIntercom()
 
