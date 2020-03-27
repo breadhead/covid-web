@@ -123,7 +123,7 @@ export const RequestForm = () => {
                 </Checkbox>
               )
             })}
-            <Button size={ButtonSize.Large} className={styles.button} submit>
+            <Button size={ButtonSize.ExtraLarge} className={cx(styles.button, styles.largeButton)} submit>
               Отправить
             </Button>
           </>

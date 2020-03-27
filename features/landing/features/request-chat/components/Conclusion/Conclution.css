@@ -1,14 +1,14 @@
 .text {
-  max-width: 700px;
-  margin: auto;
+  width: 100%;
   text-align: left;
-  white-space: pre-line;
+
   font: var(--text16-24);
   margin-left: 0;
 
   & ul {
     padding: 0;
     text-align: left;
+    margin-bottom: 0;
   }
 }
 
@@ -23,6 +23,8 @@
     border: none;
     flex-direction: column;
     padding: 24px 0;
+
+    padding-bottom: 0;
   }
 }
 

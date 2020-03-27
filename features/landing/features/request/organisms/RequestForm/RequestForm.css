@@ -142,6 +142,17 @@
   }
 }
 
+.largeButton {
+  padding-top: 34px !important;
+  padding-bottom: 34px !important;
+  width: 100%;
+
+  @media (--smallDown) {
+    padding-top: 17px !important;
+    padding-bottom: 19px !important;
+  }
+}
+
 .symptomsList {
   display: grid;
   grid-template-columns: 1fr 1fr;

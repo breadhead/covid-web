@@ -4,7 +4,7 @@ import cx from 'classnames'
 import Container from '@app/ui/Container'
 import Footer, { FooterTheme, FooterType } from '@app/ui/organisms/Footer'
 
-import Header from '../Header'
+import Header from "@app/features/main/layout/organisms/Header/index.tsx";
 import styles from './Layout.css'
 
 interface Props {
@@ -22,17 +22,17 @@ const ClientLayout = ({
   headerClassName,
   footerTheme,
 }: Props) => (
-  <>
-    <Header className={headerClassName} />
+    <>
 
-    <Container pageClassName={cx(styles.page, pageClassName)}>
-      {(containerClassName: string) => (
-        <main className={cx(className, containerClassName)}>{children}</main>
-      )}
-    </Container>
+      <Header>c</Header>
+      <Container pageClassName={cx(styles.page, pageClassName)}>
+        {(containerClassName: string) => (
+          <main className={cx(className, containerClassName)}>{children}</main>
+        )}
+      </Container>
 
-    <Footer theme={footerTheme} type={FooterType.Secondary} />
-  </>
-)
+      <Footer theme={footerTheme} type={FooterType.Secondary} />
+    </>
+  )
 
 export default ClientLayout

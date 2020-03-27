@@ -9,6 +9,8 @@
   @media (--smallDown) {
     margin-bottom: 32px;
     flex-direction: column;
+    border: none;
+    padding: 0;
   }
 }
 

@@ -11,7 +11,7 @@ export const Notification = () => (
   <article className={styles.notification}>
     <img
       className={styles.logo}
-      src="/static/images/partners.png"
+      src="/static/images/doc-recommendation.png"
       alt="пожертвования"
     />
     <div className={styles.infoWrapper}>
@@ -37,11 +37,7 @@ export const Notification = () => (
         Сервис работает за счет благотворительных пожертвований и является
         абсолютно бесплатным для всех пользователей.
       </p>
-      <NavLink withoutUnderline href="/contacts">
-        <Button className={styles.button} kind={ButtonKind.Secondary}>
-          Связаться с{NON_BREAKING_SPACE}нами
-        </Button>
-      </NavLink>
+
     </div>
   </article>
 )
