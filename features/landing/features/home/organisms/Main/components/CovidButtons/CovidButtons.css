@@ -14,13 +14,27 @@
   justify-self: end;
 
   @media (--smallDown) {
+    width: 100%;
     justify-self: center;
+
+    & button {
+      padding-top: 16px !important;
+      padding-bottom: 16px !important;
+      width: 100%;
+    }
   }
 }
 
 .last {
   justify-self: start;
   @media (--smallDown) {
+    width: 100%;
     justify-self: center;
+
+    & button {
+      padding-top: 16px !important;
+      padding-bottom: 16px !important;
+      width: 100%;
+    }
   }
 }
