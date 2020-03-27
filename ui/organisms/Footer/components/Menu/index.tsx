@@ -13,10 +13,11 @@ const linksShort = [
 ]
 
 const linksLong = [
-  { title: 'Партнёры', href: '/partners' },
+  { title: 'О проекте', href: '/' },
   { title: 'Контакты', href: '/contacts' },
   { title: 'Помочь проекту', href: '#donation' },
   { title: 'Обратная связь', href: '/contacts' },
+  { title: 'Вклад в борьбу с COVID', href: '/partners' },
   { title: 'Эксперты', href: '/experts' },
 ]
 
