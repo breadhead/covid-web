@@ -3,7 +3,10 @@ import { setCookie } from '@app/features/login/features/signIn/helpers/setAuthTo
 import { actions as userActions } from '@app/features/login/features/user'
 import Router from 'next/router'
 import { Dispatch } from 'redux'
-import { resetUserEmailLocalStorage, getUserEmailLocalStorage } from "../signIn/userLocalStorage"
+import {
+  resetUserEmailLocalStorage,
+  getUserEmailLocalStorage,
+} from '../signIn/userLocalStorage'
 
 export default () => (dispatch: Dispatch<any>) => {
   setCookie('')
@@ -13,11 +16,10 @@ export default () => (dispatch: Dispatch<any>) => {
   setFormRequestFinished(false)
 
   resetUserEmailLocalStorage()
-  console.log(getUserEmailLocalStorage());
-
+  console.log(getUserEmailLocalStorage())
 
   if ((window as any).Intercom) {
-    (window as any).Intercom('shutdown')
+    ;(window as any).Intercom('shutdown')
   }
 
   return dispatch(userActions.setToken(''))

@@ -55,7 +55,8 @@
   }
 
   @media (--smallDown) {
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     display: flex;
     margin-bottom: 48px;
     margin-right: -16px;

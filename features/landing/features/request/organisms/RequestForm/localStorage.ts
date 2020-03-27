@@ -1,5 +1,5 @@
-import store from "store2";
-import { formatFormData } from "./formatFormData";
+import store from 'store2'
+import { formatFormData } from './formatFormData'
 
 const getKey = () => 'request_form'
 
@@ -22,5 +22,3 @@ export const getFormattedForm = () => {
 
   return result || {}
 }
-
-

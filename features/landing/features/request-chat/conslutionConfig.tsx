@@ -1,6 +1,6 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import { NON_BREAKING_SPACE } from "@app/lib/config";
+import { NON_BREAKING_SPACE } from '@app/lib/config'
 
 export const SUCCESS = () => (
   <div>
@@ -10,7 +10,7 @@ export const SUCCESS = () => (
       умный бот и врачи-волонтёры помогут разобраться.
     </p>
   </div>
-);
+)
 
 export const RISK_GROUP = () => (
   <div>
@@ -21,7 +21,7 @@ export const RISK_GROUP = () => (
       помогут разобраться.
     </p>
   </div>
-);
+)
 
 export const ONCOLOGICAL = (
   <div>
@@ -33,7 +33,7 @@ export const ONCOLOGICAL = (
       - волонтёры помогут разобраться.
     </p>
   </div>
-);
+)
 
 export const WITH_OTHER_SYMPTOMS = (
   <div>
@@ -58,7 +58,7 @@ export const WITH_OTHER_SYMPTOMS = (
       волонтёры помогут разобраться.
     </p>
   </div>
-);
+)
 
 export const WITH_OTHER_SYMPTOMS_AND_RISK_GROUP = (
   <div>
@@ -83,7 +83,7 @@ export const WITH_OTHER_SYMPTOMS_AND_RISK_GROUP = (
       волонтёры помогут разобраться.
     </p>
   </div>
-);
+)
 
 export const DANGER = (
   <div>
@@ -102,7 +102,7 @@ export const DANGER = (
       <li>Спутанность сознания, сильная слабость Посинение губ или лица</li>
     </ul>
   </div>
-);
+)
 
 export const DANGER_AND_RISK_GROUP = (
   <div>
@@ -120,88 +120,92 @@ export const DANGER_AND_RISK_GROUP = (
       <li>Спутанность сознания, сильная слабость, посинение губ или лица</li>
     </ul>
   </div>
-);
+)
 
 export const SUCCESS_LINKS = [
   {
-    title: "Профилактика COVID-2019",
+    title: 'Профилактика COVID-2019',
     link:
-      "http://faq.defeatcovid.ru/ru/collections/2213145-профилактика-covid-2019"
+      'http://faq.defeatcovid.ru/ru/collections/2213145-профилактика-covid-2019',
   },
   {
-    title: "Мифы",
-    link: "http://faq.defeatcovid.ru/ru/collections/2222612-мифы"
+    title: 'Мифы',
+    link: 'http://faq.defeatcovid.ru/ru/collections/2222612-мифы',
   },
   {
-    title: "Прогнозы",
-    link: "http://faq.defeatcovid.ru/ru/collections/2222638-прогнозы"
-  }
-];
+    title: 'Прогнозы',
+    link: 'http://faq.defeatcovid.ru/ru/collections/2222638-прогнозы',
+  },
+]
 
 export const RISK_LINKS = [
   {
-    title: "Профилактика COVID-2019",
+    title: 'Профилактика COVID-2019',
     link:
-      "http://faq.defeatcovid.ru/ru/collections/2213145-профилактика-covid-2019"
+      'http://faq.defeatcovid.ru/ru/collections/2213145-профилактика-covid-2019',
   },
   {
     title: `Симптомы и${NON_BREAKING_SPACE} передача`,
-    link: "http://faq.defeatcovid.ru/ru/collections/2221891-симптомы-и-передача"
+    link:
+      'http://faq.defeatcovid.ru/ru/collections/2221891-симптомы-и-передача',
   },
   {
-    title: "Здоровье в период эпидемии",
+    title: 'Здоровье в период эпидемии',
     link:
-      "http://faq.defeatcovid.ru/ru/collections/2222733-здоровье-в-период-эпидемии"
-  }
-];
+      'http://faq.defeatcovid.ru/ru/collections/2222733-здоровье-в-период-эпидемии',
+  },
+]
 
 export const ONCO_LINKS = [
   {
-    title: "Профилактика COVID-2019",
+    title: 'Профилактика COVID-2019',
     link:
-      "http://faq.defeatcovid.ru/ru/collections/2213145-профилактика-covid-2019"
+      'http://faq.defeatcovid.ru/ru/collections/2213145-профилактика-covid-2019',
   },
   {
     title: `Симптомы и${NON_BREAKING_SPACE} передача`,
-    link: "http://faq.defeatcovid.ru/ru/collections/2221891-симптомы-и-передача"
+    link:
+      'http://faq.defeatcovid.ru/ru/collections/2221891-симптомы-и-передача',
   },
   {
-    title: "Здоровье в период эпидемии",
+    title: 'Здоровье в период эпидемии',
     link:
-      "http://faq.defeatcovid.ru/ru/collections/2222733-здоровье-в-период-эпидемии"
-  }
-];
+      'http://faq.defeatcovid.ru/ru/collections/2222733-здоровье-в-период-эпидемии',
+  },
+]
 
 export const WITH_OTHER_SYMPTOMS_LINKS = [
   {
     title: `Симптомы и${NON_BREAKING_SPACE} передача`,
-    link: "http://faq.defeatcovid.ru/ru/collections/2221891-симптомы-и-передача"
+    link:
+      'http://faq.defeatcovid.ru/ru/collections/2221891-симптомы-и-передача',
   },
   {
     title:
-      "Как ухаживать за человеком с симптомами ковид и не заразиться самому?",
+      'Как ухаживать за человеком с симптомами ковид и не заразиться самому?',
     link:
-      "http://faq.defeatcovid.ru/ru/articles/3811646-как-ухаживать-за-человеком-с-симптомами-ковид-и-не-заразиться-самому"
+      'http://faq.defeatcovid.ru/ru/articles/3811646-как-ухаживать-за-человеком-с-симптомами-ковид-и-не-заразиться-самому',
   },
   {
-    title: "Лечение COVID-2019",
-    link: "http://faq.defeatcovid.ru/ru/collections/2222135-лечение-covid-2019"
-  }
-];
+    title: 'Лечение COVID-2019',
+    link: 'http://faq.defeatcovid.ru/ru/collections/2222135-лечение-covid-2019',
+  },
+]
 
 export const WITH_OTHER_SYMPTOMS_AND_RISK_LINKS = [
   {
     title: `Симптомы и${NON_BREAKING_SPACE} передача`,
-    link: "http://faq.defeatcovid.ru/ru/collections/2221891-симптомы-и-передача"
+    link:
+      'http://faq.defeatcovid.ru/ru/collections/2221891-симптомы-и-передача',
   },
   {
     title:
-      "Как ухаживать за человеком с симптомами ковид и не заразиться самому?",
+      'Как ухаживать за человеком с симптомами ковид и не заразиться самому?',
     link:
-      "http://faq.defeatcovid.ru/ru/articles/3811646-как-ухаживать-за-человеком-с-симптомами-ковид-и-не-заразиться-самому"
+      'http://faq.defeatcovid.ru/ru/articles/3811646-как-ухаживать-за-человеком-с-симптомами-ковид-и-не-заразиться-самому',
   },
   {
-    title: "Лечение COVID-2019",
-    link: "http://faq.defeatcovid.ru/ru/collections/2222135-лечение-covid-2019"
-  }
-];
+    title: 'Лечение COVID-2019',
+    link: 'http://faq.defeatcovid.ru/ru/collections/2222135-лечение-covid-2019',
+  },
+]

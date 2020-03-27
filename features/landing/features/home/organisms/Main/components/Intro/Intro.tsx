@@ -100,6 +100,6 @@ export const Intro = () => (
       className={cx(styles.mobileLink)}
     >
       Помочь проекту
-     </NavLink>
+    </NavLink>
   </section>
 )

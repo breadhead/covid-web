@@ -58,14 +58,13 @@ export const RequestForm = () => {
       saveOnBlur={saveRequestFormDraft()}
     >
       {(...args) => {
-        console.log(args);
-
+        console.log(args)
 
         return (
           <>
             <label htmlFor="target" className={cx(styles.label, styles.field)}>
               Для кого вы ищете информацию?
-          </label>
+            </label>
             <RadioGroup
               validate={schema.target}
               name="target"
@@ -82,7 +81,7 @@ export const RequestForm = () => {
             />
             <label htmlFor="gender" className={cx(styles.label, styles.field)}>
               Пол
-          </label>
+            </label>
             <RadioGroup
               validate={schema.gender}
               name="gender"
@@ -94,8 +93,13 @@ export const RequestForm = () => {
               className={cx(styles.label, styles.field)}
             >
               Возраст (полных лет)
-          </label>
-            <Input validate={schema.age} name="age" type={InputType.Number} />
+            </label>
+            <Input
+              className={styles.ageField}
+              validate={schema.age}
+              name="age"
+              type={InputType.Number}
+            />
 
             <Symptoms
               initialFields={!!initialFields && initialFields.symptoms}
@@ -103,9 +107,12 @@ export const RequestForm = () => {
               setCheked={setCheked}
             />
 
-            <label htmlFor="deseases" className={cx(styles.label, styles.field)}>
+            <label
+              htmlFor="deseases"
+              className={cx(styles.label, styles.field)}
+            >
               Сопутствующие заболевания
-          </label>
+            </label>
             {deseasesList.map(it => {
               return (
                 <Checkbox
@@ -120,7 +127,7 @@ export const RequestForm = () => {
             })}
             <Button size={ButtonSize.Large} className={styles.button} submit>
               Отправить
-          </Button>
+            </Button>
           </>
         )
       }}
