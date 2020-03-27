@@ -39,7 +39,7 @@ export const temperatureList = [
   },
   {
     id: '38.5-39.5',
-    value: '38.5-39.5 градусов',
+    value: '38.5—39.5 градусов',
   },
   {
     id: '39.5',

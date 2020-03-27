@@ -30,46 +30,43 @@ export const Navigation = ({
   showLoginButton,
   signOut,
 }: Props) => (
-  <nav className={cx(styles.menu, className)}>
-    <button className={styles.closeButton} onClick={hide}>
-      закрыть меню
+    <nav className={cx(styles.menu, className)}>
+      <button className={styles.closeButton} onClick={hide}>
+        закрыть меню
       <Icon className={styles.NavIcon} name={IconsList.CloseLight} />
-    </button>
-    <NavLink withoutUnderline href="/partners" className={styles.link}>
-      Вклад в борьбу с COVID
-      <NavIcon />
-    </NavLink>
-    <NavLink withoutUnderline href="/experts" className={styles.link}>
-      Эксперты
-      <NavIcon />
-    </NavLink>
-    <NavLink withoutUnderline href="/contacts" className={styles.link}>
-      Контакты
-      <NavIcon />
-    </NavLink>
-    <NavLink
-      withoutUnderline
-      href="#donation"
-      className={cx(styles.link, styles.linkHelp)}
-    >
-      <Button kind={ButtonKind.Secondary}>Помочь проекту</Button>
-      <NavIcon />
-    </NavLink>
+      </button>
 
-    {!!showLoginButton ? (
-      <LoginButton className={styles.loginButton}>Войти</LoginButton>
-    ) : (
-      <>
-        <MediaQuery query={Query.FromExtraLarge}>
-          <ClientMenu className={styles.loginMenu} signOut={signOut} />
-        </MediaQuery>
-        <MediaQuery
-          className={styles.mobileMenuWrapper}
-          query={Query.ToExtraLarge}
-        >
-          <SignInMobileMenu signOut={signOut} />
-        </MediaQuery>
-      </>
-    )}
-  </nav>
-)
+      <NavLink withoutUnderline href="/experts" className={styles.link}>
+        Эксперты
+      <NavIcon />
+      </NavLink>
+      <NavLink withoutUnderline href="/contacts" className={styles.link}>
+        Контакты
+      <NavIcon />
+      </NavLink>
+      <NavLink
+        withoutUnderline
+        href="#donation"
+        className={cx(styles.link, styles.linkHelp)}
+      >
+        <Button kind={ButtonKind.Secondary}>Помочь проекту</Button>
+        <NavIcon />
+      </NavLink>
+
+      {!!showLoginButton ? (
+        <LoginButton className={styles.loginButton}>Войти</LoginButton>
+      ) : (
+          <>
+            <MediaQuery query={Query.FromExtraLarge}>
+              <ClientMenu className={styles.loginMenu} signOut={signOut} />
+            </MediaQuery>
+            <MediaQuery
+              className={styles.mobileMenuWrapper}
+              query={Query.ToExtraLarge}
+            >
+              <SignInMobileMenu signOut={signOut} />
+            </MediaQuery>
+          </>
+        )}
+    </nav>
+  )
