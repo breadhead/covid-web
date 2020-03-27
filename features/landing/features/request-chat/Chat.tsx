@@ -1,11 +1,8 @@
-import * as React from 'react'
 import { APP_ID } from '@app/features/common/intercom/config'
-import { useMappedState } from 'redux-react-hook'
 import { getUserEmail } from '@app/features/login/features/confirm/reducer/selectors'
-import {
-  getRequestFormDraft,
-  getFormattedForm,
-} from '../request/organisms/RequestForm/localStorage'
+import * as React from 'react'
+import { useMappedState } from 'redux-react-hook'
+import { getFormattedForm } from '../request/organisms/RequestForm/localStorage'
 import { getCovidSymptoms } from './getConclutionText'
 
 function getCovid() {
@@ -22,16 +19,20 @@ export const Chat = () => {
 
   React.useEffect(() => {
     if (!!email) {
-      ;(window as any).Intercom('boot', {
+      const result = {
         app_id: APP_ID,
         email: email,
         created_at: 1234567890,
         name: `${getCovid() ? '[!]' : ''}${email}`,
         user_id: email,
         ...getFormattedForm(),
-      })
+      }
+        ; (window as any).Intercom('boot', result)
+
+      console.log("Chat -> result", result)
+
     }
-  }, [])
+  })
 
   return <></>
 }

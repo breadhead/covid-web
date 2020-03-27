@@ -5,6 +5,7 @@ import { actions as modalActions } from '@app/features/common/modal/reducer'
 import { actions as userActions, currentUser } from '../user'
 import { setCookie } from './helpers/setAuthToken'
 import { actions } from './reducer'
+import { showIntercom } from "../../../landing/features/request-chat/showIntercom"
 
 export const loginAction = (username: string, password: string) => async (
   dispatch: Dispatch<any>,
@@ -21,13 +22,7 @@ export const loginAction = (username: string, password: string) => async (
     dispatch(modalActions.close())
     await dispatch(currentUser())
 
-    if (typeof window !== 'undefined') {
-      const pathname = window.location.pathname
-
-      if (pathname.includes('/request/chat')) {
-        ;(window as any).Intercom('show')
-      }
-    }
+    showIntercom()
     return dispatch(actions.success(token))
   } catch (error) {
     const { message, fields, code } = error.response.data
@@ -37,3 +32,4 @@ export const loginAction = (username: string, password: string) => async (
     throw error
   }
 }
+
