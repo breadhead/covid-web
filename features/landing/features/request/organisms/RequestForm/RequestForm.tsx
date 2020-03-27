@@ -91,7 +91,7 @@ export const RequestForm = () => {
           >
             Возраст (полных лет)
           </label>
-          <Input validate={schema.age} name="age" type={InputType.Number} />
+          <Input className={styles.ageField} validate={schema.age} name="age" type={InputType.Number} />
 
           <Symptoms
             initialFields={!!initialFields && initialFields.symptoms}
