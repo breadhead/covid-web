@@ -4,7 +4,8 @@
   font: var(--fontFamily-title);
   font-size: 24px;
   line-height: 28px;
-  text-align: center;
+  text-align: left;
+  white-space: pre-line;
 
   @media (--smallDown) {
     padding: 0 16px;

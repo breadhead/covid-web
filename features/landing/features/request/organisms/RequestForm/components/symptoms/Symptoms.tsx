@@ -167,7 +167,7 @@ export const Symptoms = ({
               validate={requiredSchema}
               className={styles.symptomsRadioGroup}
               name="symptoms.symptomsSince"
-              buttons={symptomsSinceList}
+              buttons={symptomsSinceList.reverse()}
             />
           </div>
         </>

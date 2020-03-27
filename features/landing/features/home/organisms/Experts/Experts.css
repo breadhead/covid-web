@@ -31,9 +31,11 @@
   flex-direction: column;
   justify-content: center;
   text-align: left;
+  margin-right: 32px;
 
   @media (--smallDown) {
     margin-bottom: 32px;
+    margin-right: 0;
   }
 }
 

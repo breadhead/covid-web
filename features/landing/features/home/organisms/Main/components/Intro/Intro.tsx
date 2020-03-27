@@ -15,9 +15,6 @@ export const Intro = () => (
       инфекции COVID{NON_BREAKING_HYPHEN}19
     </h1>
     <div className={styles.logos}>
-      <p className={styles.status}>
-        Проект фонда <br /> профилактики рака
-      </p>
       <NavLink withoutUnderline href="https://nenaprasno.ru" blank>
         <Icon className={styles.logo} name={IconsList.FoundationLogo} />
       </NavLink>

@@ -48,7 +48,7 @@
   margin: 0 0 12px 0;
   text-align: left;
   background-color: #f7f6f2;
-  border-radius: 16px 16px 16px 0;
+  border-radius: 32px 32px 32px 4px;
   font: var(--text18-28);
 
   &:last-of-type {
