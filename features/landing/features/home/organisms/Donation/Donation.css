@@ -7,7 +7,7 @@
   transform: translateX(-50%);
 
   @media (--smallDown) {
-    padding: 40px 0 80px;
+    padding: 40px 0 56px;
     margin-bottom: -48px;
   }
 }

@@ -1,13 +1,13 @@
 .wrap {
   padding-bottom: 96px;
+
+  @media (--mediumDown) {
+    padding: 40px 16px 56px;
+  }
 }
 
 .expertsWrapper {
-  width: 100vw;
-  min-width: 100%;
-  margin-left: 50%;
   background-color: #fff;
-  transform: translateX(-50%);
 }
 
 .experts {
@@ -17,14 +17,10 @@
   padding: 64px 0;
   margin: 0 auto;
 
-  @media (--mediumDown) {
-    padding: 32px 16px;
-  }
-
   @media (--smallDown) {
     flex-direction: column;
-    width: 100vw;
-    padding: 40px 16px 48px 16px;
+    padding: 0;
+    padding-bottom: 56px;
     margin-left: 0;
   }
 }

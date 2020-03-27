@@ -6,8 +6,8 @@
   @media (--smallDown) {
     flex-direction: column;
     width: 100vw;
-    padding: 0 16px;
-    margin-bottom: 48px;
+    padding: 40px 16px 56px;
+    margin: 0;
   }
 }
 
@@ -52,7 +52,7 @@
   font: var(--text18-28);
 
   &:last-of-type {
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
 }
 
