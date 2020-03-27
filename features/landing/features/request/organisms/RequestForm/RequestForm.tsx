@@ -58,8 +58,6 @@ export const RequestForm = () => {
       saveOnBlur={saveRequestFormDraft()}
     >
       {(...args) => {
-        console.log(args)
-
         return (
           <>
             <label htmlFor="target" className={cx(styles.label, styles.field)}>
