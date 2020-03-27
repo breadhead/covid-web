@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { Button, ButtonKind, ButtonSize } from '@app/src/ui/button'
+import { Button, ButtonSize } from '@app/src/ui/button'
 
 import * as styles from './AskButton.css'
 import { useModal } from '@app/features/common/modal'
 import { useMappedState } from 'redux-react-hook'
 import { selectToken } from '../../../home/molecules/StartConsultationButton/selectors'
 
-const SIGN_IN_MODAL = 'signIn'
+const SIGN_IN_MODAL = 'sign-up'
 
 interface AskButtonProps {
   children: any
