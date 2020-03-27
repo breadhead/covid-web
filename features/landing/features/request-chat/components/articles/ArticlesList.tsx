@@ -16,7 +16,11 @@ export const ArticlesList = ({ articles }: ArticlesListProps) => {
         return (
           <NavLink
             withoutUnderline
-            className={styles.article} blank href={art.link} key={art.link}>
+            className={styles.article}
+            blank
+            href={art.link}
+            key={art.link}
+          >
             <h3 className={styles.title}>{art.title}</h3>
           </NavLink>
         )

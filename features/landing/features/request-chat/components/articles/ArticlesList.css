@@ -6,7 +6,7 @@
   padding: 20px 16px;
   min-height: 150px;
   background-color: #fff;
-  border: 1px solid rgba(97,102,129,0.04);
+  border: 1px solid rgba(97, 102, 129, 0.04);
 
   &:hover {
     box-shadow: 0 24px 40px 0 rgba(21, 24, 51, 0.16);

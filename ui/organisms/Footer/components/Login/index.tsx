@@ -17,18 +17,10 @@ const Login = () => (
       blank
       href="http://faq.defeatcovid.ru/ru/"
     >
-      <Button kind={ButtonKind.Secondary}>
-        Справочник
-      </Button>
+      <Button kind={ButtonKind.Secondary}>Справочник</Button>
     </NavLink>
-    <NavLink
-      withoutUnderline
-      blank
-      href="/request"
-    >
-      <Button kind={ButtonKind.Secondary}>
-        Консультация
-      </Button>
+    <NavLink withoutUnderline blank href="/request">
+      <Button kind={ButtonKind.Secondary}>Консультация</Button>
     </NavLink>
   </div>
 )

@@ -45,7 +45,7 @@
 
 .registrationDisclamer {
   max-width: 286px;
-  color: #82839B;
+  color: #82839b;
   font-size: 14px;
   margin: 0 auto;
   line-height: 20px;
@@ -58,11 +58,10 @@
   padding: 0;
   border: none;
 
-
   line-height: 28px;
   display: block;
   margin: 0 auto;
-  color: #2D47EA;
+  color: #2d47ea;
 
   font-size: 18px;
   letter-spacing: 0.2px;

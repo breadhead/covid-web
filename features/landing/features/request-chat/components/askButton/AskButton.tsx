@@ -19,15 +19,18 @@ export const AskButton = ({ children }: AskButtonProps) => {
 
   const onButtonClick = () => {
     if (!!token) {
-      ; (window as any).Intercom('show')
+      ;(window as any).Intercom('show')
     } else {
       open(SIGN_IN_MODAL)
     }
   }
 
   return (
-
-    <Button className={styles.button} onClick={onButtonClick} size={ButtonSize.ExtraLarge}>
+    <Button
+      className={styles.button}
+      onClick={onButtonClick}
+      size={ButtonSize.ExtraLarge}
+    >
       {children}
     </Button>
   )

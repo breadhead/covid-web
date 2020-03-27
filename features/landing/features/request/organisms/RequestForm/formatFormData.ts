@@ -1,51 +1,50 @@
-import { isEmpty } from "lodash";
+import { isEmpty } from 'lodash'
 import * as symptomsMap from './config'
-import { flattenDepth } from "lodash";
+import { flattenDepth } from 'lodash'
 
 const symptomIds = flattenDepth(Object.values(symptomsMap), 1)
 
-
-export const formatFormData = ({ symptoms, deseases, ...rest }) => {
+export const formatFormData = ({ symptoms = {}, deseases = {}, ...rest }) => {
   if (isEmpty(rest)) return {}
 
-  const result = rest;
-  result.symptoms = [];
-  result.deseases = [];
+  const result = rest
+  result.symptoms = []
+  result.deseases = []
 
   Object.entries(symptoms).forEach(([key, value]) => {
-    if (typeof value === "object") {
+    if (typeof value === 'object' && !!value) {
       result[key] = Object.entries(value)
         .filter(([key, value]) => !!value)
         .map(transformValue)
-        .join(", ");
-    } else if (typeof value === "boolean") {
-      result.symptoms.push(getValueFromId(key, symptomIds));
+        .join(', ')
+    } else if (typeof value === 'boolean') {
+      result.symptoms.push(getValueFromId(key, symptomIds))
     } else {
-      result[key] = value;
+      result[key] = value
     }
-  });
+  })
 
   Object.entries(deseases)
     .map(transformValue)
     .forEach(value => {
-      result.deseases.push(value);
-    });
+      result.deseases.push(value)
+    })
 
-  result.symptoms = result.symptoms.join(', ');
-  result.deseases = result.deseases.join(', ');
+  result.symptoms = result.symptoms.join(', ')
+  result.deseases = result.deseases.join(', ')
 
   return result
-};
+}
 const transformValue = ([key, value]) => {
-  if (typeof value === "boolean") {
-    const newValue = getValueFromId(key, symptomIds);
-    return newValue;
+  if (typeof value === 'boolean') {
+    const newValue = getValueFromId(key, symptomIds)
+    return newValue
   }
-  return value;
-};
+  return value
+}
 
 const getValueFromId = (id, array) => {
-  const result = array.find(item => item.id === id);
+  const result = array.find(item => item.id === id)
 
-  return (result || {}).value;
-};
+  return (result || {}).value
+}
