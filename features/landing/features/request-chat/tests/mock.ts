@@ -3,8 +3,8 @@ export const dataSuccess = {
   region: 'Ивановская область',
   age: '40',
   gender: 'Мужской',
-  symptoms: { },
-  deseases: { },
+  symptoms: {},
+  deseases: {},
 }
 
 
@@ -13,17 +13,27 @@ export const dataRisk = {
   region: 'Ивановская область',
   age: '65',
   gender: 'Мужской',
-  symptoms: { },
+  symptoms: {},
   deseases: { diabetes: true, cardiovascular: true, COPD: true },
 }
 
 export const dataOncological = {
   target: 'Для себя',
   region: 'Ивановская область',
-  age: '76678',
+  age: '78',
   gender: 'Мужской',
-  symptoms: { },
+  symptoms: {},
   deseases: { diabetes: true, cardiovascular: true, oncological: true, COPD: true },
+}
+
+export const dataOtherSymptoms = {
+  target: 'Для себя',
+  region: 'Ивановская область',
+  age: '56',
+  gender: 'Мужской',
+  symptoms: {
+    sneezing: true,
+  }
 }
 
 // export const dataOncological = {

@@ -3,7 +3,7 @@ import * as content from './conslutionConfig'
 export const getCovidSymptoms = (data: any) =>
   data.symptoms.cough ||
   !!data.symptoms.temperature ||
-  !!data.symptom.dyspnea ||
+  !!data.symptoms.dyspnea ||
   !!data.symptoms['sore-throat'] ||
   !!data.symptoms.chills ||
   data.symptoms['body-aches']
@@ -25,20 +25,21 @@ export const getConclutionText = (data: any) => {
       articles: content.ONCO_LINKS,
     }
 
+  const age = Number(data.age)
 
   const withoutSymptoms = !data.symptoms || Object.keys(data.symptoms).length === 0
   const withoutDeseases = !data.deseases || Object.keys(data.deseases).length === 0
   const withSymptoms = !!data.symptoms && Object.keys(data.symptoms).length > 0
   const withDeseases = !!data.deseases && Object.keys(data.deseases).length > 0
 
-  if (Number(data.age) < 60 && withoutSymptoms && withoutDeseases) {
+  if (age < 60 && withoutSymptoms && withoutDeseases) {
     return {
       text: content.SUCCESS,
       articles: content.SUCCESS_LINKS,
     }
   }
 
-  if (Number(data.age) >= 60 && withoutSymptoms && withDeseases && !data.deseases.oncological) {
+  if (age >= 60 && withoutSymptoms && withDeseases && !data.deseases.oncological) {
     return {
       text: content.RISK,
       articles: content.RISK_LINKS,
@@ -52,7 +53,14 @@ export const getConclutionText = (data: any) => {
     }
   }
 
-  // if (Number(data.age) < 60 &&
+  if (age < 60 && withSymptoms && !getCovidSymptoms(data)) {
+    return {
+      text: content.WITH_OTHER_SYMPTOMS,
+      articles: content.WITH_OTHER_SYMPTOMS_LINKS
+    }
+  }
+
+  // if (age < 60 &&
   //   data.symptoms &&
   //   Object.keys(data.symptoms).length > 0 &&
   //   getNoCovidSymptoms(data)) {
@@ -62,7 +70,7 @@ export const getConclutionText = (data: any) => {
   //   }
   // }
 
-  // if (Number(data.age) < 60 &&
+  // if (age < 60 &&
   //   data.symptoms &&
   //   Object.keys(data.symptoms).length > 0 &&
   //   getCovidSymptoms(data)) {
@@ -72,7 +80,7 @@ export const getConclutionText = (data: any) => {
   //   }
   // }
 
-  // if (Number(data.age) > 60 &&
+  // if (age > 60 &&
   //   data.symptoms &&
   //   Object.keys(data.symptoms).length > 0 &&
   //   getNoCovidSymptoms(data)) {
@@ -82,7 +90,7 @@ export const getConclutionText = (data: any) => {
   //   }
   // }
 
-  // if (Number(data.age) > 60 &&
+  // if (age > 60 &&
   //   data.symptoms &&
   //   Object.keys(data.symptoms).length > 0 &&
   //   getCovidSymptoms(data)) {
