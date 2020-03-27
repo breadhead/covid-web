@@ -2,7 +2,7 @@ import * as content from './../conslutionConfig'
 import { getConclutionText } from '../getConclutionText';
 import {
   dataSuccess, dataRisk, dataOncological, dataDanger2,
-  dataOtherSymptoms, dataOtherSymptomsAndRisk, dataDanger
+  dataOtherSymptoms, dataOtherSymptomsAndRisk, dataDanger, dataDangerAndRisk, dataDangerAndRisk2
 } from './mock';
 
 
@@ -86,4 +86,29 @@ describe('getConclutionText', () => {
       articles: content.WITH_OTHER_SYMPTOMS_LINKS
     })
   })
+
+
+  test('should return danger-and-risk values for danger-and-risk data', () => {
+    const income = dataDangerAndRisk
+
+    const res = getConclutionText(income);
+
+    expect(res).toMatchObject({
+      text: content.DANGER_AND_RISK,
+      articles: content.WITH_OTHER_SYMPTOMS_LINKS
+    })
+  })
+
+
+  test('should return danger-and-risk2 values for danger-and-risk data', () => {
+    const income = dataDangerAndRisk2
+
+    const res = getConclutionText(income);
+
+    expect(res).toMatchObject({
+      text: content.DANGER_AND_RISK,
+      articles: content.WITH_OTHER_SYMPTOMS_LINKS
+    })
+  })
+
 })

@@ -45,6 +45,20 @@ export const getConclutionText = (data: any) => {
     }
   }
 
+  if (age >= 60 && withSymptoms && !!data.symptoms.temperature) {
+    return {
+      text: content.DANGER_AND_RISK,
+      articles: content.WITH_OTHER_SYMPTOMS_LINKS
+    }
+  }
+
+  if (age >= 60 && withSymptoms && withDeseases) {
+    return {
+      text: content.DANGER_AND_RISK,
+      articles: content.WITH_OTHER_SYMPTOMS_LINKS
+    }
+  }
+
   if (age < 60 && withoutSymptoms && withoutDeseases) {
     return {
       text: content.SUCCESS,
@@ -80,43 +94,8 @@ export const getConclutionText = (data: any) => {
     }
   }
 
-  // if (age < 60 &&
-  //   data.symptoms &&
-  //   Object.keys(data.symptoms).length > 0 &&
-  //   getNoCovidSymptoms(data)) {
-  //   return {
-  //     text: content.SUCCESS,
-  //     articles: content.successLinks
-  //   }
-  // }
-
-  // if (age < 60 &&
-  //   data.symptoms &&
-  //   Object.keys(data.symptoms).length > 0 &&
-  //   getCovidSymptoms(data)) {
-  //   return {
-  //     text: content.SUCCESS,
-  //     articles: content.successLinks
-  //   }
-  // }
-
-  // if (age > 60 &&
-  //   data.symptoms &&
-  //   Object.keys(data.symptoms).length > 0 &&
-  //   getNoCovidSymptoms(data)) {
-  //   return {
-  //     text: content.SUCCESS,
-  //     articles: content.successLinks
-  //   }
-  // }
-
-  // if (age > 60 &&
-  //   data.symptoms &&
-  //   Object.keys(data.symptoms).length > 0 &&
-  //   getCovidSymptoms(data)) {
-  //   return {
-  //     text: content.SUCCESS,
-  //     articles: content.successLinks
-  //   }
-  // }
+  return {
+    text: content.SUCCESS,
+    articles: content.SUCCESS_LINKS,
+  }
 }

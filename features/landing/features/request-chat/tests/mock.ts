@@ -85,6 +85,28 @@ export const dataDangerMultiple = {
   }
 }
 
+export const dataDangerAndRisk = {
+  target: 'Для себя',
+  region: 'Ивановская область',
+  age: '66',
+  gender: 'Мужской',
+  symptoms: {
+    temperature: true,
+    temperatureType: temperatureList[0].value,
+  }
+}
+
+export const dataDangerAndRisk2 = {
+  target: 'Для себя',
+  region: 'Ивановская область',
+  age: '66',
+  gender: 'Мужской',
+  symptoms: {
+    sneezing: true,
+  },
+  deseases: { diabetes: true, cardiovascular: true, oncological: true, COPD: true },
+}
+
 // export const dataOncological = {
 //   target: 'Для себя',
 //   region: 'Ивановская область',
