@@ -1,10 +1,10 @@
-import * as text from './conslutionText'
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import * as content from './conslutionConfig'
+import { temperatureList } from '../request/organisms/RequestForm/config'
 
 export const getCovidSymptoms = (data: any) =>
   data.symptoms.cough ||
   !!data.symptoms.temperature ||
-  !!data.symptom.dyspnea ||
+  !!data.symptoms.dyspnea ||
   !!data.symptoms['sore-throat'] ||
   !!data.symptoms.chills ||
   data.symptoms['body-aches']
@@ -16,137 +16,86 @@ export const getNoCovidSymptoms = (data: any) =>
   !!data.symptoms.nausea ||
   !!data.symptoms['abdominal-pain']
 
-export const successLinks = [
-  {
-    title: 'Профилактика COVID-2019',
-    link:
-      'http://faq.defeatcovid.ru/ru/collections/2213145-профилактика-covid-2019',
-  },
-  {
-    title: 'Мифы',
-    link: 'http://faq.defeatcovid.ru/ru/collections/2222612-мифы',
-  },
-  {
-    title: 'Прогнозы',
-    link: 'http://faq.defeatcovid.ru/ru/collections/2222638-прогнозы',
-  },
-]
+export const getDangerSymptoms = (data: any) => !!data.symptoms.thorax
+  || !!data.symptoms.dyspnea
+  || !!data.symptoms.temperatureType
+  && data.symptoms.temperatureType === temperatureList[1].value
+  || data.symptoms.temperatureType === temperatureList[2].value
 
-export const riskLinks = [
-  {
-    title: 'Профилактика COVID-2019',
-    link:
-      'http://faq.defeatcovid.ru/ru/collections/2213145-профилактика-covid-2019',
-  },
-  {
-    title: `Симптомы и${NON_BREAKING_SPACE}передача`,
-    link:
-      'http://faq.defeatcovid.ru/ru/collections/2221891-симптомы-и-передача',
-  },
-  {
-    title: 'Здоровье в период эпидемии',
-    link:
-      'http://faq.defeatcovid.ru/ru/collections/2222733-здоровье-в-период-эпидемии',
-  },
-]
 
-export const oncoLinks = [
-  {
-    title: 'Профилактика COVID-2019',
-    link:
-      'http://faq.defeatcovid.ru/ru/collections/2213145-профилактика-covid-2019',
-  },
-  {
-    title: `Симптомы и${NON_BREAKING_SPACE}передача`,
-    link:
-      'http://faq.defeatcovid.ru/ru/collections/2221891-симптомы-и-передача',
-  },
-  {
-    title: 'Здоровье в период эпидемии',
-    link:
-      'http://faq.defeatcovid.ru/ru/collections/2222733-здоровье-в-период-эпидемии',
-  },
-]
 
 export const getConclutionText = (data: any) => {
   if (!data)
     return {
       text: 'no data',
-      articles: oncoLinks,
+      articles: content.ONCO_LINKS,
     }
 
-  if (
-    Number(data.age) < 60 &&
-    (!data.deseases ||
-      (data.deseases && Object.keys(data.deseases).length === 0))
-  ) {
+  const age = Number(data.age)
+
+  const withoutSymptoms = !data.symptoms || Object.keys(data.symptoms).length === 0
+  const withoutDeseases = !data.deseases || Object.keys(data.deseases).length === 0
+  const withSymptoms = !!data.symptoms && Object.keys(data.symptoms).length > 0
+  const withDeseases = !!data.deseases && Object.keys(data.deseases).length > 0
+
+  if (getDangerSymptoms(data)) {
     return {
-      text: text.SUCCESS,
-      articles: successLinks,
+      text: content.DANGER,
+      articles: content.WITH_OTHER_SYMPTOMS_LINKS
     }
   }
 
-  if (
-    Number(data.age) >= 60 &&
-    !!data.deseases &&
-    Object.keys(data.deseases).length > 0 &&
-    !data.deseases.oncological
-  ) {
+  if (age >= 60 && withSymptoms && !!data.symptoms.temperature) {
     return {
-      text: text.RISK,
-      articles: riskLinks,
+      text: content.DANGER_AND_RISK,
+      articles: content.WITH_OTHER_SYMPTOMS_LINKS
     }
   }
 
-  if (
-    !!data.deseases &&
-    Object.keys(data.deseases).length > 0 &&
-    !!data.deseases.oncological
-  ) {
-    console.log('here')
+  if (age >= 60 && withSymptoms && withDeseases) {
     return {
-      text: text.ONCOLOGICAL,
-      articles: oncoLinks,
+      text: content.DANGER_AND_RISK,
+      articles: content.WITH_OTHER_SYMPTOMS_LINKS
     }
   }
 
-  // if (Number(data.age) < 60 &&
-  //   data.symptoms &&
-  //   Object.keys(data.symptoms).length > 0 &&
-  //   getNoCovidSymptoms(data)) {
-  //   return {
-  //     text: text.SUCCESS,
-  //     articles: successLinks
-  //   }
-  // }
+  if (age < 60 && withoutSymptoms && withoutDeseases) {
+    return {
+      text: content.SUCCESS,
+      articles: content.SUCCESS_LINKS,
+    }
+  }
 
-  // if (Number(data.age) < 60 &&
-  //   data.symptoms &&
-  //   Object.keys(data.symptoms).length > 0 &&
-  //   getCovidSymptoms(data)) {
-  //   return {
-  //     text: text.SUCCESS,
-  //     articles: successLinks
-  //   }
-  // }
+  if (age >= 60 && withoutSymptoms && withDeseases && !data.deseases.oncological) {
+    return {
+      text: content.RISK,
+      articles: content.RISK_LINKS,
+    }
+  }
 
-  // if (Number(data.age) > 60 &&
-  //   data.symptoms &&
-  //   Object.keys(data.symptoms).length > 0 &&
-  //   getNoCovidSymptoms(data)) {
-  //   return {
-  //     text: text.SUCCESS,
-  //     articles: successLinks
-  //   }
-  // }
+  if (withoutSymptoms && withDeseases && !!data.deseases.oncological) {
+    return {
+      text: content.ONCOLOGICAL,
+      articles: content.ONCO_LINKS,
+    }
+  }
 
-  // if (Number(data.age) > 60 &&
-  //   data.symptoms &&
-  //   Object.keys(data.symptoms).length > 0 &&
-  //   getCovidSymptoms(data)) {
-  //   return {
-  //     text: text.SUCCESS,
-  //     articles: successLinks
-  //   }
-  // }
+  if (age < 60 && withSymptoms && !getCovidSymptoms(data)) {
+    return {
+      text: content.WITH_OTHER_SYMPTOMS,
+      articles: content.WITH_OTHER_SYMPTOMS_LINKS
+    }
+  }
+
+  if (age >= 60 && withSymptoms && !getCovidSymptoms(data)) {
+    return {
+      text: content.WITH_OTHER_SYMPTOMS_AND_RISK,
+      articles: content.WITH_OTHER_SYMPTOMS_AND_RISK_LINKS
+    }
+  }
+
+  return {
+    text: content.SUCCESS,
+    articles: content.SUCCESS_LINKS,
+  }
 }
