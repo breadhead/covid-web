@@ -96,5 +96,13 @@ export const Intro = () => (
     </div>
 
     <CovidButtons />
+
+    <NavLink
+      withoutUnderline
+      href="#donation"
+      className={cx(styles.mobileLink)}
+    >
+      Помочь проекту
+     </NavLink>
   </section>
 )

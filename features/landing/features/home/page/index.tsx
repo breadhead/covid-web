@@ -13,6 +13,7 @@ import Footer, { FooterTheme, FooterType } from '@app/ui/organisms/Footer'
 import Header from '@app/features/main/layout/organisms/Header'
 import About from '../organisms/Main/components/About'
 import Steps from '../organisms/Main/components/Steps'
+import { Divider } from '@app/src/ui/divider/Divider'
 
 const LandingPage = () => {
   useAuthModalByUrl()
@@ -26,8 +27,11 @@ const LandingPage = () => {
       <Main />
       <div className={styles.wrapper}>
         <Steps />
+        <Divider />
         <Corporate />
+        <Divider />
         <About />
+        <Divider />
         <Experts />
         <Donation />
       </div>

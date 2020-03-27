@@ -3,7 +3,7 @@
 
   @media (--smallDown) {
     width: 100vw;
-    padding: 40px 16px;
+    padding: 24px 16px 56px;
   }
 }
 
@@ -20,7 +20,7 @@
   margin-bottom: 40px;
 
   @media (--smallDown) {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
 }
 
@@ -41,11 +41,27 @@
   margin-bottom: 48px;
   text-align: center;
 
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & > * {
+    min-width: 0;
+    min-height: 0;
+  }
+
   @media (--smallDown) {
+    overflow: scroll;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     margin-bottom: 48px;
+    margin-right: -16px;
+    margin-left: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 
@@ -93,6 +109,23 @@
   }
 }
 
+.withHint {
+  position: relative;
+  opacity: 1;
+  z-index: 20;
+
+  @media (--smallDown) {
+    min-width: 280px;
+    height: 304px;
+    margin-right: 8px;
+    box-shadow: none;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 .buttonContainer {
   display: flex;
   position: relative;
@@ -108,8 +141,10 @@
   transition: all ease-in 0.2s !important;
 
   @media (--smallDown) {
-    width: 100%;
-    margin-bottom: 16px;
+    min-width: 280px;
+    height: 304px;
+    margin-right: 8px;
+    box-shadow: none;
 
     &:last-child {
       margin-bottom: 0;
@@ -163,6 +198,10 @@
   & .buttonText {
     margin-bottom: 40px;
   }
+
+  @media (--smallDown) {
+    border-radius: 8px;
+  }
 }
 
 .imageSmall {
@@ -194,21 +233,6 @@
   }
 }
 
-.withHint {
-  position: relative;
-  opacity: 1;
-  z-index: 20;
-
-  @media (--smallDown) {
-    margin-right: 0;
-    margin-bottom: 16px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
 .hint {
   padding: 4px;
   border-radius: 4px;
@@ -221,4 +245,16 @@
   right: 4px;
   opacity: 1;
   z-index: 20;
+}
+
+.mobileLink {
+  display: none;
+  font-size: 18px !important;
+  margin: 24px auto 0 auto;
+  text-align: center;
+  color: var(--color-primary);
+
+  @media (--smallDown) {
+    display: block;
+  }
 }

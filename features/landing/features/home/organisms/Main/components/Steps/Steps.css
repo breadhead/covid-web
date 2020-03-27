@@ -7,10 +7,9 @@
   @media (--smallDown) {
     flex-direction: column;
     align-items: center;
-    width: 100vw;
-    padding: 0 16px;
     margin-bottom: 64px;
     margin-left: 0;
+    padding: 0;
   }
 }
 
@@ -19,19 +18,26 @@
   padding-bottom: 96px;
 
   @media (--smallDown) {
-    padding: 0 12px;
+    padding: 0 16px;
   }
 }
 
 .title {
   font: var(--title-regular);
-  margin-bottom: 48px;
+  margin-bottom: 40px;
   max-width: 700px;
+
+  @media (--smallDown) {
+    font: var(--title-medium);
+  }
 }
 
 .step {
   @media (--smallDown) {
-    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
 
     &:last-of-type {
       margin-bottom: 0;
@@ -44,6 +50,7 @@
   white-space: pre-line;
   text-align: center;
   max-width: 260px;
+  font: var(--text18-28);
 }
 
 .img {

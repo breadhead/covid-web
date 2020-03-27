@@ -6,6 +6,7 @@
   @media (--smallDown) {
     max-width: 100vw;
     margin: 0 0 24px 0;
+    font: var(--title-medium);
     text-align: left;
   }
 }
@@ -51,8 +52,3 @@
   line-height: 28px;
 }
 
-.partners {
-  @media (--smallDown) {
-    padding: 0 12px;
-  }
-}
