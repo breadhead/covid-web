@@ -7,7 +7,7 @@ import {
   Checkbox,
 } from '@app/features/common/form'
 import * as styles from './RequestForm.css'
-import Router from 'next/router'
+import routes from '@app/routes'
 
 import cx from 'classnames'
 import { Button, ButtonSize } from '@front/ui/button'
@@ -24,6 +24,8 @@ import {
   isFormRequestFinished,
 } from './localStorage'
 import { schema } from './schema'
+
+const { Router } = routes
 
 export const RequestForm = () => {
   const [checked, setCheked] = useState<string[]>([])
@@ -43,7 +45,7 @@ export const RequestForm = () => {
   useEffect(() => {
     const isFormFinished = isFormRequestFinished()
     if (isFormFinished) {
-      Router.push('/request/chat')
+      Router.pushRoute('/request/chat')
     }
   }, [])
 

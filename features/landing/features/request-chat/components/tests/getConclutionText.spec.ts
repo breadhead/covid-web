@@ -1,9 +1,40 @@
-import { getConclutionText } from '../../getConclutionText'
+import { getConclutionText, oncoLinks, successLinks, riskLinks } from '../../getConclutionText'
+import { dataSuccess, dataRisk, dataOncological } from './mock'
+import * as text from '../../conslutionText';
+
 
 describe('getConclutionText', () => {
-  test('should return false for non-link text', () => {
-    const text = 'Hello world!'
+  test('should return success values for success data', () => {
+    const income = dataSuccess
 
-    expect(getConclutionText(text)).toBeFalsy()
+    const res = getConclutionText(income);
+
+    expect(res).toMatchObject({
+      text: text.SUCCESS,
+      articles: successLinks,
+    })
+  })
+
+  test('should return risk values for risk data', () => {
+    const income = dataRisk
+
+    const res = getConclutionText(income);
+
+    expect(res).toMatchObject({
+      text: text.RISK,
+      articles: riskLinks,
+    })
+  })
+
+
+  test('should return onco values for onco data', () => {
+    const income = dataOncological
+
+    const res = getConclutionText(income);
+
+    expect(res).toMatchObject({
+      text: text.ONCOLOGICAL,
+      articles: oncoLinks
+    })
   })
 })
