@@ -47,10 +47,6 @@ export const Navigation = ({
       Контакты
       <NavIcon />
     </NavLink>
-    <NavLink withoutUnderline href="/contacts" className={styles.link}>
-      Контакты
-      <NavIcon />
-    </NavLink>
     <NavLink
       withoutUnderline
       href="#donation"

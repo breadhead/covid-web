@@ -13,11 +13,15 @@ export const CovidButtons = () => {
         href="http://faq.defeatcovid.ru/ru/"
       >
         <Button size={ButtonSize.ExtraLarge}>
-          Полный справочник по COVID-19
+          <span>Справочник по COVID-19</span>
+          <img className={styles.image} src="/static/images/landing/check.png" alt="Полный справочник по COVID-19" />
         </Button>
       </NavLink>
       <NavLink className={styles.last} withoutUnderline href="/request">
-        <Button size={ButtonSize.ExtraLarge}>Персональная консультация</Button>
+        <Button size={ButtonSize.ExtraLarge}>
+          <span>Персональная консультация</span>
+          <img className={styles.image} src="/static/images/landing/result.png" alt="Полный справочник по COVID-19" />
+        </Button>
       </NavLink>
     </div>
   )

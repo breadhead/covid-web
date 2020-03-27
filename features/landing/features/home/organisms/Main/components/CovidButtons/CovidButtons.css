@@ -2,17 +2,22 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  max-width: 924px;
+  max-width: 960px;
   margin: 0 auto;
 
   @media (--smallDown) {
     grid-template-columns: 1fr;
     gap: 4px;
   }
+
+  & button {
+    width: 100%;
+  }
 }
 
 .first {
   justify-self: end;
+  width: 100%;
 
   @media (--smallDown) {
     width: 100%;
@@ -22,13 +27,18 @@
       padding-top: 16px !important;
       padding-bottom: 16px !important;
       width: 100%;
-      font: var(--text18-28) !important;
+
+      & span {
+        font: var(--text18-28) !important;
+      }
     }
   }
 }
 
 .last {
   justify-self: start;
+  width: 100%;
+
   @media (--smallDown) {
     width: 100%;
     justify-self: center;
@@ -37,7 +47,16 @@
       padding-top: 16px !important;
       padding-bottom: 16px !important;
       width: 100%;
-      font: var(--text18-28) !important;
+
+      & span {
+        font: var(--text18-28) !important;
+      }
     }
   }
+}
+
+.image {
+  width: 48px;
+  height: 48px;
+  margin-left: 16px;
 }

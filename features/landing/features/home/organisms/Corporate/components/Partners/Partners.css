@@ -43,8 +43,7 @@
 .text {
   max-width: 768px;
   margin: 0 0 20px 0;
-  font-size: 18px;
-  line-height: 28px;
+  font: var(--text18-28);
 }
 
 .link {
