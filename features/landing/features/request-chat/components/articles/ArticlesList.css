@@ -1,5 +1,5 @@
 .article {
-  height: 150px;
+  min-height: 150px;
   border-radius: 12px;
   box-shadow: 0 24px 40px 0 rgba(21, 24, 51, 0.08);
   transition: all ease-in 0.2s !important;

@@ -41,3 +41,30 @@
 .progressBar.progressBar {
   margin-bottom: 36px;
 }
+
+.registrationDisclamer {
+  max-width: 286px;
+  color: #82839B;
+  font-size: 14px;
+  margin: 0 auto;
+  line-height: 20px;
+  text-align: center;
+}
+
+.repeatTestButton {
+  cursor: pointer;
+  background: transparent;
+  padding: 0;
+  border: none;
+
+
+  line-height: 28px;
+  display: block;
+  margin: 0 auto;
+  color: #2D47EA;
+
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  line-height: 28px;
+  text-align: center;
+}
