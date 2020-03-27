@@ -32,7 +32,7 @@ export const dataOncological = {
   },
 }
 
-export const noCovidSymptomsAndNoRiskGroup = {
+export const withOtherSymptomsAndNoRiskGroup = {
   target: 'Для себя',
   region: 'Ивановская область',
   age: '56',
@@ -55,7 +55,7 @@ export const dataOtherSymptomsAndRisk = {
 export const dataDanger = {
   target: 'Для себя',
   region: 'Ивановская область',
-  age: '60',
+  age: '57',
   gender: 'Мужской',
   symptoms: {
     temperature: true,
@@ -98,21 +98,6 @@ export const dataDangerAndRisk = {
   },
 }
 
-export const dataDangerAndRisk2 = {
-  target: 'Для себя',
-  region: 'Ивановская область',
-  age: '66',
-  gender: 'Мужской',
-  symptoms: {
-    sneezing: true,
-  },
-  deseases: {
-    diabetes: true,
-    cardiovascular: true,
-    oncological: true,
-    COPD: true,
-  },
-}
 
 // export const dataOncological = {
 //   target: 'Для себя',
