@@ -4,10 +4,7 @@ import { temperatureList } from '../request/organisms/RequestForm/config'
 export const getCovidSymptoms = (data: any) =>
   data.symptoms.cough ||
   !!data.symptoms.temperature ||
-  !!data.symptoms.dyspnea ||
-  !!data.symptoms['sore-throat'] ||
-  !!data.symptoms.chills ||
-  data.symptoms['body-aches']
+  !!data.symptoms.dyspnea || !!data.symptoms.thorax
 
 export const getNoCovidSymptoms = (data: any) =>
   !!data.symptoms.sneezing ||

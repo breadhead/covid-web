@@ -2,16 +2,16 @@ import * as React from 'react'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 
-export const SUCCESS = (
+export const SUCCESS =
   `<div>
     <p>Судя по всему, сейчас с вами всё в порядке. Но рекомендуем быть на чеку и
       почитать наши инструкции. А если останутся вопросы — используйте чат. Наш
       умный бот и врачи-волонтёры помогут разобраться.
     </p>
   </div>`
-)
 
-export const RISK_GROUP = (
+
+export const RISK_GROUP =
   `<div>
     <p>Судя по всему, сейчас всё в порядке. Тем не менее, мы рекомендуем
       оставаться начеку и ознакомиться с нашими материалами по теме.Если
@@ -19,9 +19,9 @@ export const RISK_GROUP = (
       помогут разобраться.
     </p>
   </div>`
-)
 
-export const ONCOLOGICAL = (
+
+export const ONCOLOGICAL =
   `<div>
     <p>Если ваш вопрос связан с онкологическим заболеванием, мы рекомендуем вам
       обратиться в нашу справочную службу для онкологических пациентов и их
@@ -30,9 +30,9 @@ export const ONCOLOGICAL = (
       — волонтёры помогут разобраться.
     </p>
   </div>`
-)
 
-export const WITH_OTHER_SYMPTOMS = (
+
+export const WITH_OTHER_SYMPTOMS =
   `  <div>
     <p>Судя по всему, сейчас всё в порядке — симптомы, описанные вами не
       характерны для тяжелой формы инфекции. Тем не менее, мы рекомендуем
@@ -53,9 +53,9 @@ export const WITH_OTHER_SYMPTOMS = (
       волонтёры помогут разобраться.
     </p>
   </div>`
-)
 
-export const WITH_OTHER_SYMPTOMS_AND_RISK_GROUP = (
+
+export const WITH_OTHER_SYMPTOMS_AND_RISK_GROUP =
   `  <div>
     <p>Судя по всему, сейчас всё в порядке — симптомы, описанные вами не
       характерны для тяжелой формы инфекции. Тем не менее, мы рекомендуем
@@ -76,7 +76,7 @@ export const WITH_OTHER_SYMPTOMS_AND_RISK_GROUP = (
       волонтёры помогут разобраться.
     </p>
   </div>`
-)
+
 
 export const DANGER = (
   `  <div>
@@ -96,7 +96,7 @@ export const DANGER = (
   </div>`
 )
 
-export const DANGER_AND_RISK_GROUP = (
+export const DANGER_AND_RISK_GROUP =
   `  <div>
     <p>ВНИМАНИЕ! 
     Симптомы, которые вы указали могут быть опасными, пожалуйста,
@@ -111,7 +111,7 @@ export const DANGER_AND_RISK_GROUP = (
       <li>— Спутанность сознания, сильная слабость, посинение губ или лица</li>
     </ul>
   </div>`
-)
+
 
 export const SUCCESS_LINKS = [
   {

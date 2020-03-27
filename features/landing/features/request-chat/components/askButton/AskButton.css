@@ -6,6 +6,7 @@
   width: 100%;
 
   @media (--smallDown) {
-    
+    padding-top: 17px !important;
+    padding-bottom: 19px !important;
   }
 }

@@ -4,8 +4,10 @@
   text-align: left;
   white-space: pre-line;
   font: var(--text16-24);
+  margin-left: 0;
 
   & ul {
+    padding: 0;
     text-align: left;
   }
 }
@@ -18,9 +20,9 @@
   margin-bottom: 24px;
 
   @media (--smallDown) {
-   border: none;
-   flex-direction: column;
-   padding: 24px 0;
+    border: none;
+    flex-direction: column;
+    padding: 24px 0;
   }
 }
 
