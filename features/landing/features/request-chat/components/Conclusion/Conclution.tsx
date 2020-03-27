@@ -30,7 +30,7 @@ export const Conclution = () => {
   }
 
   const { text, articles } = currentConclution as any
-
+  console.log('text:', text)
   return (
     <>
       <p className={styles.text}>{htmlParser(text)}</p>
