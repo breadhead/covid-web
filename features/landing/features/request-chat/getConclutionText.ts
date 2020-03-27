@@ -2,7 +2,6 @@ import * as content from './conslutionConfig'
 import { temperatureList } from '../request/organisms/RequestForm/config'
 
 export const getCovidSymptoms = (data: any) =>
-  data.symptoms.cough ||
   !!data.symptoms.temperature ||
   !!data.symptoms.dyspnea || !!data.symptoms.thorax
 
