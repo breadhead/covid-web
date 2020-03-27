@@ -5,11 +5,10 @@ import {
   dataRisk,
   dataOncological,
   dataDanger2,
-  noCovidSymptomsAndNoRiskGroup,
+  withOtherSymptomsAndNoRiskGroup,
   dataOtherSymptomsAndRisk,
   dataDanger,
   dataDangerAndRisk,
-  dataDangerAndRisk2,
 } from './mock'
 
 describe('getConclutionText', () => {
@@ -47,13 +46,13 @@ describe('getConclutionText', () => {
   })
 
   test('should return success values for for success data', () => {
-    const income = noCovidSymptomsAndNoRiskGroup
+    const income = withOtherSymptomsAndNoRiskGroup
 
     const res = getConclutionText(income)
 
     expect(res).toMatchObject({
-      text: content.SUCCESS,
-      articles: content.SUCCESS_LINKS,
+      text: content.WITH_OTHER_SYMPTOMS,
+      articles: content.WITH_OTHER_SYMPTOMS_LINKS
     })
   })
 
@@ -68,7 +67,7 @@ describe('getConclutionText', () => {
     })
   })
 
-  test('should return danger values for danger data', () => {
+  test('should return danger values for danger data 1', () => {
     const income = dataDanger
 
     const res = getConclutionText(income)
@@ -79,7 +78,7 @@ describe('getConclutionText', () => {
     })
   })
 
-  test('should return danger values for danger data', () => {
+  test('should return danger values for danger data 2', () => {
     const income = dataDanger2
 
     const res = getConclutionText(income)
@@ -92,17 +91,6 @@ describe('getConclutionText', () => {
 
   test('should return danger-and-risk values for danger-and-risk data', () => {
     const income = dataDangerAndRisk
-
-    const res = getConclutionText(income)
-
-    expect(res).toMatchObject({
-      text: content.DANGER_AND_RISK_GROUP,
-      articles: content.WITH_OTHER_SYMPTOMS_LINKS,
-    })
-  })
-
-  test('should return danger-and-risk2 values for danger-and-risk data', () => {
-    const income = dataDangerAndRisk2
 
     const res = getConclutionText(income)
 

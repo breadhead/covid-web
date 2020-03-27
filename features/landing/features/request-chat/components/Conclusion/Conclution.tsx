@@ -33,7 +33,7 @@ export const Conclution = () => {
 
   return (
     <>
-      <p className={styles.text}>{text}</p>
+      <p className={styles.text}>{htmlParser(text)}</p>
       <ArticlesList articles={articles} />
     </>
   )
