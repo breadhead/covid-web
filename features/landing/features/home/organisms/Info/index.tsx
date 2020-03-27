@@ -1,20 +1,23 @@
-import * as React from 'react'
+import * as React from "react";
 
-import * as styles from './Info.css'
+import * as styles from "./Info.css";
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { NON_BREAKING_SPACE } from "@app/lib/config";
 
 const Info = () => (
   <article className={styles.quote}>
     <p className={styles.message}>
-      Все собранные средства идут на{NON_BREAKING_SPACE}оплату экспертов,
-      задействованных в{NON_BREAKING_SPACE}консультациях и{NON_BREAKING_SPACE}на
-      {NON_BREAKING_SPACE}поддержание работоспособности сервиса. Поддерживая
-      системные проекты: образование талантливых врачей, просвещение населения
-      РФ, внедрение технологий скрининга рака, можно спасти сотни и
-      {NON_BREAKING_SPACE}тысячи неизвестных вам людей. И{NON_BREAKING_SPACE}Бог
-      знает, кто будут эти люди – возможно они будут дороги и
-      {NON_BREAKING_SPACE}лично вам.
+      <div>
+        Мы создали сервис, помогающий найти ответы на вопросы о COVID-19. Это справочник с проверенной информацией, консультации с экспертами и мероприятия для просвещения врачей всей страны.
+      </div>
+      <br />
+      <div>
+        Мы собираем средства на координацию работы врачей-волонтеров и обеспечение технической работы сервиса.
+      </div>
+      <br />
+      <div>
+        Поддерживая справочную службу, вы помогаете снизить нагрузку на систему здравоохранения, чтобы быстрее победить эпидемию и сохранить здоровье людей.
+      </div>
     </p>
     <div className={styles.author}>
       <img
@@ -32,6 +35,6 @@ const Info = () => (
       </div>
     </div>
   </article>
-)
+);
 
-export default Info
+export default Info;

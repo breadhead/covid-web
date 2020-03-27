@@ -12,6 +12,20 @@
 
   & button {
     width: 100%;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    line-height: 28px;
+    justify-content: center;
+
+
+    @media (--smallDown) {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      font: var(--text18-28) !important;
+    }
   }
 }
 
@@ -24,13 +38,7 @@
     justify-self: center;
 
     & button {
-      padding-top: 16px !important;
-      padding-bottom: 16px !important;
       width: 100%;
-
-      & span {
-        font: var(--text18-28) !important;
-      }
     }
   }
 }
@@ -44,13 +52,7 @@
     justify-self: center;
 
     & button {
-      padding-top: 16px !important;
-      padding-bottom: 16px !important;
       width: 100%;
-
-      & span {
-        font: var(--text18-28) !important;
-      }
     }
   }
 }
@@ -59,4 +61,9 @@
   width: 48px;
   height: 48px;
   margin-left: 16px;
+
+  @media (--smallDown) {
+    width: 32px;
+    height: 32px;
+  }
 }

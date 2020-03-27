@@ -14,8 +14,6 @@ export const IconsSprite = () => (
     <defs>
       <symbol
         id={IconsList.CovidLogoDark}
-        width="238px"
-        height="48px"
         viewBox="0 0 238 48"
         version="1.1"
       >
