@@ -1,5 +1,4 @@
-import * as text from './conslutionText'
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import * as content from './conslutionConfig'
 
 export const getCovidSymptoms = (data: any) =>
   data.symptoms.cough ||
@@ -16,97 +15,40 @@ export const getNoCovidSymptoms = (data: any) =>
   !!data.symptoms.nausea ||
   !!data.symptoms['abdominal-pain']
 
-export const successLinks = [
-  {
-    title: 'Профилактика COVID-2019',
-    link:
-      'http://faq.defeatcovid.ru/ru/collections/2213145-профилактика-covid-2019',
-  },
-  {
-    title: 'Мифы',
-    link: 'http://faq.defeatcovid.ru/ru/collections/2222612-мифы',
-  },
-  {
-    title: 'Прогнозы',
-    link: 'http://faq.defeatcovid.ru/ru/collections/2222638-прогнозы',
-  },
-]
 
-export const riskLinks = [
-  {
-    title: 'Профилактика COVID-2019',
-    link:
-      'http://faq.defeatcovid.ru/ru/collections/2213145-профилактика-covid-2019',
-  },
-  {
-    title: `Симптомы и${NON_BREAKING_SPACE}передача`,
-    link:
-      'http://faq.defeatcovid.ru/ru/collections/2221891-симптомы-и-передача',
-  },
-  {
-    title: 'Здоровье в период эпидемии',
-    link:
-      'http://faq.defeatcovid.ru/ru/collections/2222733-здоровье-в-период-эпидемии',
-  },
-]
 
-export const oncoLinks = [
-  {
-    title: 'Профилактика COVID-2019',
-    link:
-      'http://faq.defeatcovid.ru/ru/collections/2213145-профилактика-covid-2019',
-  },
-  {
-    title: `Симптомы и${NON_BREAKING_SPACE}передача`,
-    link:
-      'http://faq.defeatcovid.ru/ru/collections/2221891-симптомы-и-передача',
-  },
-  {
-    title: 'Здоровье в период эпидемии',
-    link:
-      'http://faq.defeatcovid.ru/ru/collections/2222733-здоровье-в-период-эпидемии',
-  },
-]
 
 export const getConclutionText = (data: any) => {
   if (!data)
     return {
       text: 'no data',
-      articles: oncoLinks,
+      articles: content.ONCO_LINKS,
     }
 
-  if (
-    Number(data.age) < 60 &&
-    (!data.deseases ||
-      (data.deseases && Object.keys(data.deseases).length === 0))
-  ) {
-    return {
-      text: text.SUCCESS,
-      articles: successLinks,
-    }
-  }
 
-  if (
-    Number(data.age) >= 60 &&
-    !!data.deseases &&
-    Object.keys(data.deseases).length > 0 &&
-    !data.deseases.oncological
-  ) {
+  const withoutSymptoms = !data.symptoms || Object.keys(data.symptoms).length === 0
+  const withoutDeseases = !data.deseases || Object.keys(data.deseases).length === 0
+  const withSymptoms = !!data.symptoms && Object.keys(data.symptoms).length > 0
+  const withDeseases = !!data.deseases && Object.keys(data.deseases).length > 0
+
+  if (Number(data.age) < 60 && withoutSymptoms && withoutDeseases) {
     return {
-      text: text.RISK,
-      articles: riskLinks,
+      text: content.SUCCESS,
+      articles: content.SUCCESS_LINKS,
     }
   }
 
-  if (
-    !!data.deseases &&
-    Object.keys(data.deseases).length > 0 &&
-    !!data.deseases.oncological
-  ) {
-    console.log('here')
+  if (Number(data.age) >= 60 && withoutSymptoms && withDeseases && !data.deseases.oncological) {
     return {
-      text: text.ONCOLOGICAL,
-      articles: oncoLinks,
+      text: content.RISK,
+      articles: content.RISK_LINKS,
+    }
+  }
+
+  if (withoutSymptoms && withDeseases && !!data.deseases.oncological) {
+    return {
+      text: content.ONCOLOGICAL,
+      articles: content.ONCO_LINKS,
     }
   }
 
@@ -115,8 +57,8 @@ export const getConclutionText = (data: any) => {
   //   Object.keys(data.symptoms).length > 0 &&
   //   getNoCovidSymptoms(data)) {
   //   return {
-  //     text: text.SUCCESS,
-  //     articles: successLinks
+  //     text: content.SUCCESS,
+  //     articles: content.successLinks
   //   }
   // }
 
@@ -125,8 +67,8 @@ export const getConclutionText = (data: any) => {
   //   Object.keys(data.symptoms).length > 0 &&
   //   getCovidSymptoms(data)) {
   //   return {
-  //     text: text.SUCCESS,
-  //     articles: successLinks
+  //     text: content.SUCCESS,
+  //     articles: content.successLinks
   //   }
   // }
 
@@ -135,8 +77,8 @@ export const getConclutionText = (data: any) => {
   //   Object.keys(data.symptoms).length > 0 &&
   //   getNoCovidSymptoms(data)) {
   //   return {
-  //     text: text.SUCCESS,
-  //     articles: successLinks
+  //     text: content.SUCCESS,
+  //     articles: content.successLinks
   //   }
   // }
 
@@ -145,8 +87,8 @@ export const getConclutionText = (data: any) => {
   //   Object.keys(data.symptoms).length > 0 &&
   //   getCovidSymptoms(data)) {
   //   return {
-  //     text: text.SUCCESS,
-  //     articles: successLinks
+  //     text: content.SUCCESS,
+  //     articles: content.successLinks
   //   }
   // }
 }

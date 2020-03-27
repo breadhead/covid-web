@@ -1,6 +1,6 @@
-import { getConclutionText, oncoLinks, successLinks, riskLinks } from '../../getConclutionText'
-import { dataSuccess, dataRisk, dataOncological } from './mock'
-import * as text from '../../conslutionText';
+import * as content from './../conslutionConfig'
+import { getConclutionText } from '../getConclutionText';
+import { dataSuccess, dataRisk, dataOncological } from './mock';
 
 
 describe('getConclutionText', () => {
@@ -10,8 +10,8 @@ describe('getConclutionText', () => {
     const res = getConclutionText(income);
 
     expect(res).toMatchObject({
-      text: text.SUCCESS,
-      articles: successLinks,
+      text: content.SUCCESS,
+      articles: content.SUCCESS_LINKS,
     })
   })
 
@@ -21,8 +21,8 @@ describe('getConclutionText', () => {
     const res = getConclutionText(income);
 
     expect(res).toMatchObject({
-      text: text.RISK,
-      articles: riskLinks,
+      text: content.RISK,
+      articles: content.RISK_LINKS,
     })
   })
 
@@ -33,8 +33,8 @@ describe('getConclutionText', () => {
     const res = getConclutionText(income);
 
     expect(res).toMatchObject({
-      text: text.ONCOLOGICAL,
-      articles: oncoLinks
+      text: content.ONCOLOGICAL,
+      articles: content.ONCO_LINKS
     })
   })
 })
