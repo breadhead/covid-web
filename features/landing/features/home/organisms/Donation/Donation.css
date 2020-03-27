@@ -41,12 +41,15 @@
 }
 
 .widget {
-  margin-right: 76px;
+  margin-right: 32px;
 
   flex-grow: 1;
 
 
   @media (--smallDown) {
     margin-right: 0;
+margin-right: 0;
+    width: 100%;
+
   }
 }
