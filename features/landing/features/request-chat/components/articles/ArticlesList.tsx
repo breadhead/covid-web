@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { NavLink } from '@front/ui/nav-link'
-import * as s from './ArticlesList.css'
+import * as styles from './ArticlesList.css'
 interface Article {
   title: string
   link: string
@@ -11,13 +11,13 @@ interface ArticlesListProps {
 
 export const ArticlesList = ({ articles }: ArticlesListProps) => {
   return (
-    <section className={s.wrapper}>
+    <section className={styles.wrapper}>
       {articles.map(art => {
         return (
           <NavLink
             withoutUnderline
-            className={s.article} blank href={art.link} key={art.link}>
-            <h3 className={s.title}>{art.title}</h3>
+            className={styles.article} blank href={art.link} key={art.link}>
+            <h3 className={styles.title}>{art.title}</h3>
           </NavLink>
         )
       })}

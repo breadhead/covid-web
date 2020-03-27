@@ -40,7 +40,7 @@ export const Navigation = ({
       <NavIcon />
     </NavLink>
     <NavLink withoutUnderline href="/experts" className={styles.link}>
-      Экспертный совет
+      Эксперты
       <NavIcon />
     </NavLink>
     <NavLink withoutUnderline href="/contacts" className={styles.link}>
