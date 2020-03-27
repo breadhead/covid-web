@@ -1,6 +1,6 @@
 import * as content from './../conslutionConfig'
 import { getConclutionText } from '../getConclutionText';
-import { dataSuccess, dataRisk, dataOncological, dataOtherSymptoms } from './mock';
+import { dataSuccess, dataRisk, dataOncological, dataOtherSymptoms, dataOtherSymptomsAndRisk } from './mock';
 
 
 describe('getConclutionText', () => {
@@ -47,6 +47,18 @@ describe('getConclutionText', () => {
     expect(res).toMatchObject({
       text: content.WITH_OTHER_SYMPTOMS,
       articles: content.WITH_OTHER_SYMPTOMS_LINKS
+    })
+  })
+
+
+  test('should return with-other-symtoms-and-risk values for with-other-symtoms-and-risk data', () => {
+    const income = dataOtherSymptomsAndRisk
+
+    const res = getConclutionText(income);
+
+    expect(res).toMatchObject({
+      text: content.WITH_OTHER_SYMPTOMS_AND_RISK,
+      articles: content.WITH_OTHER_SYMPTOMS_AND_RISK_LINKS
     })
   })
 })

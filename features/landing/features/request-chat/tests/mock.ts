@@ -36,6 +36,17 @@ export const dataOtherSymptoms = {
   }
 }
 
+
+export const dataOtherSymptomsAndRisk = {
+  target: 'Для себя',
+  region: 'Ивановская область',
+  age: '60',
+  gender: 'Мужской',
+  symptoms: {
+    sneezing: true,
+  }
+}
+
 // export const dataOncological = {
 //   target: 'Для себя',
 //   region: 'Ивановская область',

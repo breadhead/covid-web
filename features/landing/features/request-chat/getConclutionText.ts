@@ -60,6 +60,13 @@ export const getConclutionText = (data: any) => {
     }
   }
 
+  if (age >= 60 && withSymptoms && !getCovidSymptoms(data)) {
+    return {
+      text: content.WITH_OTHER_SYMPTOMS_AND_RISK,
+      articles: content.WITH_OTHER_SYMPTOMS_AND_RISK_LINKS
+    }
+  }
+
   // if (age < 60 &&
   //   data.symptoms &&
   //   Object.keys(data.symptoms).length > 0 &&
