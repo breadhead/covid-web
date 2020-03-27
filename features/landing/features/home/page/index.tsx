@@ -25,21 +25,23 @@ const LandingPage = () => {
       </Head>
       <Header />
       <Main />
-      <div className={styles.wrapper}>
-        <Steps />
-      </div>
-      <Divider />
-      <div className={styles.wrapper}>
-        <Corporate />
-      </div>
-      <Divider />
-      <div className={styles.wrapper}>
-        <About />
-      </div>
-      <Divider />
-      <div className={styles.wrapper}>
-        <Experts />
-        <Donation />
+      <div className={styles.backgroundWrapper}>
+        <div className={styles.wrapper}>
+          <Steps />
+        </div>
+        <Divider />
+        <div className={styles.wrapper}>
+          <Corporate />
+        </div>
+        <Divider />
+        <div className={styles.wrapper}>
+          <About />
+        </div>
+        <Divider />
+        <div className={styles.wrapper}>
+          <Experts />
+          <Donation />
+        </div>
       </div>
       <Footer type={FooterType.Primary} theme={FooterTheme.Default} />
     </>
