@@ -16,7 +16,7 @@ export const getNoCovidSymptoms = (data: any) =>
   !!data.symptoms.nausea ||
   !!data.symptoms['abdominal-pain']
 
-const successLinks = [
+export const successLinks = [
   {
     title: 'Профилактика COVID-2019',
     link:
@@ -32,7 +32,7 @@ const successLinks = [
   },
 ]
 
-const riskLinks = [
+export const riskLinks = [
   {
     title: 'Профилактика COVID-2019',
     link:
@@ -50,7 +50,7 @@ const riskLinks = [
   },
 ]
 
-const oncoLinks = [
+export const oncoLinks = [
   {
     title: 'Профилактика COVID-2019',
     link:
@@ -71,7 +71,7 @@ const oncoLinks = [
 export const getConclutionText = (data: any) => {
   if (!data)
     return {
-      text: text.SUCCESS,
+      text: 'no data',
       articles: oncoLinks,
     }
 
