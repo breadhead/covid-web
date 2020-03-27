@@ -3,7 +3,7 @@
 
   @media (--smallDown) {
     width: 100vw;
-    padding: 40px 16px;
+    padding: 24px 16px 56px;
   }
 }
 
@@ -20,7 +20,7 @@
   margin-bottom: 40px;
 
   @media (--smallDown) {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
 }
 
