@@ -28,7 +28,7 @@ export const dataOncological = {
   deseases: { diabetes: true, cardiovascular: true, oncological: true, COPD: true },
 }
 
-export const dataOtherSymptoms = {
+export const noCovidSymptomsAndNoRiskGroup = {
   target: 'Для себя',
   region: 'Ивановская область',
   age: '56',

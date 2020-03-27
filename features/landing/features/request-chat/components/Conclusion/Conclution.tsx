@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import * as styles from './Conclution.css'
 import { getConclutionText } from '../../getConclutionText'
+import htmlParser from "react-html-parser";
 import store from "store2";
 
 import { useMappedState } from 'redux-react-hook'

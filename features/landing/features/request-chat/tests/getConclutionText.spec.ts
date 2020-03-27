@@ -2,7 +2,7 @@ import * as content from './../conslutionConfig'
 import { getConclutionText } from '../getConclutionText';
 import {
   dataSuccess, dataRisk, dataOncological, dataDanger2,
-  dataOtherSymptoms, dataOtherSymptomsAndRisk, dataDanger, dataDangerAndRisk, dataDangerAndRisk2
+  noCovidSymptomsAndNoRiskGroup, dataOtherSymptomsAndRisk, dataDanger, dataDangerAndRisk, dataDangerAndRisk2
 } from './mock';
 
 
@@ -24,7 +24,7 @@ describe('getConclutionText', () => {
     const res = getConclutionText(income);
 
     expect(res).toMatchObject({
-      text: content.RISK,
+      text: content.RISK_GROUP,
       articles: content.RISK_LINKS,
     })
   })
@@ -42,14 +42,14 @@ describe('getConclutionText', () => {
   })
 
 
-  test('should return with-other-symtoms values for with-other-symtoms data', () => {
-    const income = dataOtherSymptoms
+  test('should return success values for for success data', () => {
+    const income = noCovidSymptomsAndNoRiskGroup
 
     const res = getConclutionText(income);
 
     expect(res).toMatchObject({
-      text: content.WITH_OTHER_SYMPTOMS,
-      articles: content.WITH_OTHER_SYMPTOMS_LINKS
+      text: content.SUCCESS,
+      articles: content.SUCCESS_LINKS
     })
   })
 
@@ -60,7 +60,7 @@ describe('getConclutionText', () => {
     const res = getConclutionText(income);
 
     expect(res).toMatchObject({
-      text: content.WITH_OTHER_SYMPTOMS_AND_RISK,
+      text: content.WITH_OTHER_SYMPTOMS_AND_RISK_GROUP,
       articles: content.WITH_OTHER_SYMPTOMS_AND_RISK_LINKS
     })
   })
@@ -94,7 +94,7 @@ describe('getConclutionText', () => {
     const res = getConclutionText(income);
 
     expect(res).toMatchObject({
-      text: content.DANGER_AND_RISK,
+      text: content.DANGER_AND_RISK_GROUP,
       articles: content.WITH_OTHER_SYMPTOMS_LINKS
     })
   })
@@ -106,7 +106,7 @@ describe('getConclutionText', () => {
     const res = getConclutionText(income);
 
     expect(res).toMatchObject({
-      text: content.DANGER_AND_RISK,
+      text: content.DANGER_AND_RISK_GROUP,
       articles: content.WITH_OTHER_SYMPTOMS_LINKS
     })
   })

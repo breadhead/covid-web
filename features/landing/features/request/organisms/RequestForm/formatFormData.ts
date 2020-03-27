@@ -5,7 +5,7 @@ import { flattenDepth } from "lodash";
 const symptomIds = flattenDepth(Object.values(symptomsMap), 1)
 
 
-export const formatFormData = ({ symptoms, deseases, ...rest }) => {
+export const formatFormData = ({ symptoms = {}, deseases = {}, ...rest }) => {
   if (isEmpty(rest)) return {}
 
   const result = rest;
@@ -13,7 +13,7 @@ export const formatFormData = ({ symptoms, deseases, ...rest }) => {
   result.deseases = [];
 
   Object.entries(symptoms).forEach(([key, value]) => {
-    if (typeof value === "object") {
+    if (typeof value === "object" && !!value) {
       result[key] = Object.entries(value)
         .filter(([key, value]) => !!value)
         .map(transformValue)

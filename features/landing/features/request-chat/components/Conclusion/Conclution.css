@@ -9,4 +9,8 @@
   @media (--smallDown) {
     padding: 0 16px;
   }
+
+  & ul {
+    text-align: left;
+  }
 }

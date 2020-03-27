@@ -1,4 +1,5 @@
 import * as content from './conslutionConfig'
+import { get } from "lodash";
 import { temperatureList } from '../request/organisms/RequestForm/config'
 
 export const getCovidSymptoms = (data: any) =>
@@ -16,11 +17,19 @@ export const getNoCovidSymptoms = (data: any) =>
   !!data.symptoms.nausea ||
   !!data.symptoms['abdominal-pain']
 
-export const getDangerSymptoms = (data: any) => !!data.symptoms.thorax
-  || !!data.symptoms.dyspnea
-  || !!data.symptoms.temperatureType
-  && data.symptoms.temperatureType === temperatureList[1].value
-  || data.symptoms.temperatureType === temperatureList[2].value
+export const getDangerSymptomsForYoung = (data: any) => {
+  return !!data.symptoms.thorax
+    || !!data.symptoms.dyspnea
+    || !!data.symptoms.temperatureType
+    && (data.symptoms.temperatureType === temperatureList[1].value
+      || data.symptoms.temperatureType === temperatureList[2].value)
+
+}
+
+export const getDangerSymptomsForElderly = (data: any) => {
+  return Number(data.age) >= 60 && !!get(data, 'symptoms.temperature')
+}
+
 
 
 
@@ -38,61 +47,85 @@ export const getConclutionText = (data: any) => {
   const withSymptoms = !!data.symptoms && Object.keys(data.symptoms).length > 0
   const withDeseases = !!data.deseases && Object.keys(data.deseases).length > 0
 
-  if (getDangerSymptoms(data)) {
+
+
+  if (getDangerSymptomsForElderly(data)) {
+    return {
+      text: content.DANGER_AND_RISK_GROUP,
+      articles: content.WITH_OTHER_SYMPTOMS_LINKS
+    }
+  }
+
+  if (getDangerSymptomsForYoung(data)) {
     return {
       text: content.DANGER,
       articles: content.WITH_OTHER_SYMPTOMS_LINKS
     }
   }
 
-  if (age >= 60 && withSymptoms && !!data.symptoms.temperature) {
+  if (age >= 60 && (getCovidSymptoms(data))) {
     return {
-      text: content.DANGER_AND_RISK,
+      text: content.WITH_OTHER_SYMPTOMS_AND_RISK_GROUP,
       articles: content.WITH_OTHER_SYMPTOMS_LINKS
     }
   }
 
-  if (age >= 60 && withSymptoms && withDeseases) {
+  if (age < 60 && (getCovidSymptoms(data) || getDangerSymptomsForYoung(data))) {
     return {
-      text: content.DANGER_AND_RISK,
+      text: content.DANGER,
       articles: content.WITH_OTHER_SYMPTOMS_LINKS
     }
   }
 
-  if (age < 60 && withoutSymptoms && withoutDeseases) {
-    return {
-      text: content.SUCCESS,
-      articles: content.SUCCESS_LINKS,
-    }
-  }
-
-  if (age >= 60 && withoutSymptoms && withDeseases && !data.deseases.oncological) {
-    return {
-      text: content.RISK,
-      articles: content.RISK_LINKS,
-    }
-  }
-
-  if (withoutSymptoms && withDeseases && !!data.deseases.oncological) {
+  if (!!data.deseases && !!data.deseases.oncological) {
     return {
       text: content.ONCOLOGICAL,
       articles: content.ONCO_LINKS,
     }
   }
 
-  if (age < 60 && withSymptoms && !getCovidSymptoms(data)) {
+  if (age >= 60) {
     return {
-      text: content.WITH_OTHER_SYMPTOMS,
-      articles: content.WITH_OTHER_SYMPTOMS_LINKS
+      text: content.RISK_GROUP,
+      articles: content.RISK_LINKS,
     }
   }
 
-  if (age >= 60 && withSymptoms && !getCovidSymptoms(data)) {
-    return {
-      text: content.WITH_OTHER_SYMPTOMS_AND_RISK,
-      articles: content.WITH_OTHER_SYMPTOMS_AND_RISK_LINKS
-    }
-  }
+
+  // if (age < 60 && withoutSymptoms && withoutDeseases) {
+  //   return {
+  //     text: content.SUCCESS,
+  //     articles: content.SUCCESS_LINKS,
+  //   }
+  // }
+
+  // if (age >= 60 && withoutSymptoms && withDeseases && !data.deseases.oncological) {
+  //   return {
+  //     text: content.RISK_GROUP,
+  //     articles: content.RISK_LINKS,
+  //   }
+  // }
+
+  // if (withoutSymptoms && withDeseases && !!data.deseases.oncological) {
+  //   return {
+  //     text: content.ONCOLOGICAL,
+  //     articles: content.ONCO_LINKS,
+  //   }
+  // }
+
+  // if (age < 60 && withSymptoms && !getCovidSymptoms(data)) {
+  //   return {
+  //     text: content.WITH_OTHER_SYMPTOMS,
+  //     articles: content.WITH_OTHER_SYMPTOMS_LINKS
+  //   }
+  // }
+
+  // if (age >= 60 && withSymptoms && !getCovidSymptoms(data)) {
+  //   return {
+  //     text: content.WITH_OTHER_SYMPTOMS_AND_RISK_GROUP,
+  //     articles: content.WITH_OTHER_SYMPTOMS_AND_RISK_LINKS
+  //   }
+  // }
 
   return {
     text: content.SUCCESS,
