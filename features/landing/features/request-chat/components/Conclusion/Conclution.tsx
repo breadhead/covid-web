@@ -1,34 +1,42 @@
 import React, { useEffect, useState } from 'react'
 import * as styles from './Conclution.css'
 import { getConclutionText } from '../../getConclutionText'
+import store from "store2";
 
 import { useMappedState } from 'redux-react-hook'
 import { selectRequestForm } from './selectors'
 import { ArticlesList } from '../articles'
 
 export const Conclution = () => {
-  const data = useMappedState(selectRequestForm)
+
+  const data = useMappedState(selectRequestForm) || store.get('request_form') || {}
   const [currentConclution, setConclution] = useState(null)
+
 
   useEffect(
     () => {
+
+      console.log('data:', data)
       if (!!data) {
         const conclution = getConclutionText(data) as any
+
         setConclution(conclution)
       }
 
     },
-    [data],
+    [data.target],
   )
 
   if (!currentConclution) {
     return <div className={styles.text}>Загружаем...</div>
   }
 
+  const { text, articles } = currentConclution as any
+
   return (
     <>
-      <p className={styles.text}>{(currentConclution as any).text}</p>
-      <ArticlesList articles={(currentConclution as any).articles} />
+      <p className={styles.text}>{text}</p>
+      <ArticlesList articles={articles} />
     </>
   )
 }
