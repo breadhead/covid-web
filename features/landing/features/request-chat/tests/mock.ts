@@ -1,3 +1,5 @@
+import { temperatureList } from '../../request/organisms/RequestForm/config'
+
 export const dataSuccess = {
   target: 'Для себя',
   region: 'Ивановская область',
@@ -47,6 +49,42 @@ export const dataOtherSymptomsAndRisk = {
   }
 }
 
+
+export const dataDanger = {
+  target: 'Для себя',
+  region: 'Ивановская область',
+  age: '60',
+  gender: 'Мужской',
+  symptoms: {
+    temperature: true,
+    temperatureType: temperatureList[1].value,
+  }
+}
+
+export const dataDanger2 = {
+  target: 'Для себя',
+  region: 'Ивановская область',
+  age: '60',
+  gender: 'Мужской',
+  symptoms: {
+    dyspnea: true,
+    temperatureType: temperatureList[0].value,
+  }
+}
+
+export const dataDangerMultiple = {
+  target: 'Для себя',
+  region: 'Ивановская область',
+  age: '60',
+  gender: 'Мужской',
+  symptoms: {
+    temperature: true,
+    thorax: true,
+    dyspnea: true,
+    temperatureType: temperatureList[1].value,
+  }
+}
+
 // export const dataOncological = {
 //   target: 'Для себя',
 //   region: 'Ивановская область',
@@ -69,7 +107,7 @@ export const dataOtherSymptomsAndRisk = {
 //     ['abdominal-pain']: true,
 //     caughtType: 'Влажный с мокротой',
 //     thoraxType: { coughing: true, inhale: true, ['physical-activity']: true, rest: true },
-//     temperatureType: '38 - 39 градусов',
+//     temperatureType: temperatureList[1].value,
 //     dyspneaType: { rest: true, ['physical-activity']: true },
 //     symptomsSince: 'Несколько недель назад'
 //   },

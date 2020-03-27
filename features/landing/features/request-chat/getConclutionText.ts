@@ -1,4 +1,5 @@
 import * as content from './conslutionConfig'
+import { temperatureList } from '../request/organisms/RequestForm/config'
 
 export const getCovidSymptoms = (data: any) =>
   data.symptoms.cough ||
@@ -15,6 +16,11 @@ export const getNoCovidSymptoms = (data: any) =>
   !!data.symptoms.nausea ||
   !!data.symptoms['abdominal-pain']
 
+export const getDangerSymptoms = (data: any) => !!data.symptoms.thorax
+  || !!data.symptoms.dyspnea
+  || !!data.symptoms.temperatureType
+  && data.symptoms.temperatureType === temperatureList[1].value
+  || data.symptoms.temperatureType === temperatureList[2].value
 
 
 
@@ -31,6 +37,13 @@ export const getConclutionText = (data: any) => {
   const withoutDeseases = !data.deseases || Object.keys(data.deseases).length === 0
   const withSymptoms = !!data.symptoms && Object.keys(data.symptoms).length > 0
   const withDeseases = !!data.deseases && Object.keys(data.deseases).length > 0
+
+  if (getDangerSymptoms(data)) {
+    return {
+      text: content.DANGER,
+      articles: content.WITH_OTHER_SYMPTOMS_LINKS
+    }
+  }
 
   if (age < 60 && withoutSymptoms && withoutDeseases) {
     return {
