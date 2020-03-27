@@ -105,7 +105,6 @@
   }
 }
 
-
 .withHint {
   position: relative;
   opacity: 1;
@@ -122,7 +121,6 @@
     }
   }
 }
-
 
 .buttonContainer {
   display: flex;
@@ -227,7 +225,6 @@
   }
 }
 
-
 .hint {
   padding: 4px;
   border-radius: 4px;
@@ -240,4 +237,16 @@
   right: 4px;
   opacity: 1;
   z-index: 20;
+}
+
+.mobileLink {
+  display: none;
+  font-size: 18px !important;
+  margin: 24px auto 0 auto;
+  text-align: center;
+  color: var(--color-primary);
+
+  @media (--smallDown) {
+    display: block;
+  }
 }
