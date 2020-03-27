@@ -6,6 +6,7 @@ import { actions as userActions, currentUser } from '../user'
 import { setCookie } from './helpers/setAuthToken'
 import { actions } from './reducer'
 import { showIntercom } from "../../../landing/features/request-chat/showIntercom"
+import { setUserEmailLocalStorage, getUserEmailLocalStorage } from "./userLocalStorage"
 
 export const loginAction = (username: string, password: string) => async (
   dispatch: Dispatch<any>,
@@ -16,6 +17,9 @@ export const loginAction = (username: string, password: string) => async (
   try {
     dispatch(actions.request())
     const { token } = await api.login(username, password)
+    setUserEmailLocalStorage(username)
+
+    console.log(getUserEmailLocalStorage());
 
     setCookie(token)
     dispatch(userActions.setToken(token))
