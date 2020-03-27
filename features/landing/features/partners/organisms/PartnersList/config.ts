@@ -36,7 +36,7 @@ const partners = [
     typeLabel: PartnersLabel.Donor,
     img: '/static/images/partners/breadhead-logo-line.png',
     label: `Студия Breadhead`,
-    description: 'Инициатива и реализация',
+    description: 'Проектирование, IT-разработка',
   },
 ]
 
