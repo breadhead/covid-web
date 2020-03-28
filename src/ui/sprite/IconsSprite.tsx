@@ -20,9 +20,9 @@ export const IconsSprite = () => (
         <g
           id="Заказчик"
           stroke="none"
-          stroke-width="1"
+          strokeWidth="1"
           fill="none"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         >
           <g
             id="covid_desktop-1360-copy-2"
@@ -50,9 +50,9 @@ export const IconsSprite = () => (
                 >
                   <text
                     id="COVID-19"
-                    font-family="Helvetica"
-                    font-size="16"
-                    font-weight="normal"
+                    fontFamily="Helvetica"
+                    fontSize="16"
+                    fontWeight="normal"
                     line-spacing="20"
                   >
                     <tspan x="0" y="15">
@@ -80,9 +80,9 @@ export const IconsSprite = () => (
         <g
           id="Заказчик"
           stroke="none"
-          stroke-width="1"
+          strokeWidth="1"
           fill="none"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         >
           <g
             id="covid_desktop-1360"
@@ -110,9 +110,9 @@ export const IconsSprite = () => (
                 >
                   <text
                     id="COVID-19"
-                    font-family="Helvetica"
-                    font-size="16"
-                    font-weight="normal"
+                    fontFamily="Helvetica"
+                    fontSize="16"
+                    fontWeight="normal"
                     line-spacing="20"
                   >
                     <tspan x="0" y="15">
@@ -197,14 +197,14 @@ export const IconsSprite = () => (
         <g
           id="Заказчик"
           stroke="none"
-          stroke-width="1"
+          strokeWidth="1"
           fill="none"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         >
           <g
             id="covid_desktop-1360_states"
             transform="translate(-613.000000, -417.000000)"
-            fill-rule="nonzero"
+            fillRule="nonzero"
           >
             <g id="start" transform="translate(0.000000, 32.000000)">
               <g

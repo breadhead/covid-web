@@ -30,6 +30,7 @@ export const Symptoms = ({
     } else {
       setCheked([...checked, id])
     }
+    return null
   }
 
   useEffect(
@@ -40,6 +41,7 @@ export const Symptoms = ({
             if (!!v) {
               return k
             }
+            return null
           })
           .filter(it => !!it)
 
