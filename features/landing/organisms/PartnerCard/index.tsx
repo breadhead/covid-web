@@ -5,7 +5,7 @@ import * as styles from './PartnerCard.css'
 import cx from 'classnames'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
-import { description } from '@app/pages/SEO'
+
 export interface PartnerCardInterface {
   img: string
   label: string
