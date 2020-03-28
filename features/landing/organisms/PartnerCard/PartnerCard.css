@@ -26,8 +26,13 @@
   object-fit: contain;
 
   &:first-child {
-    width: 184px;
+    width: 100%;
   }
+
+  @media (--xxsmallDown) {
+    margin-right: 40px;
+  }
+
 }
 
 .logoWrapper {
