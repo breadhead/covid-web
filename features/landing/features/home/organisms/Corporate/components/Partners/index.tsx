@@ -9,7 +9,7 @@ import PartnersList from './components/PartnersList'
 
 const Partners = () => (
   <article className={styles.partners}>
-    <h2 className={styles.title}>Кто делает этот сервис</h2>
+    <h2 className={styles.title}>О проекте</h2>
     <p className={styles.text}>
       Проект реализует{' '}
       <NavLink className={styles.link} blank href="https://nenaprasno.ru/">
@@ -25,7 +25,7 @@ const Partners = () => (
     <p className={styles.text}>
       Мы можем значительно снизить нагрузку на систему здравоохранения при
       помощи простого и эмпатичного информирования населения по конкретным
-      вопросам. Как минимум — это снизит нагрузка на систему неотложной помощи,
+      вопросам. Как минимум — это снизит нагрузку на систему неотложной помощи,
       что неизбежно приведет к спасению значительного количества жизней тех, кто
       действительно в ней нуждается.
       </p>

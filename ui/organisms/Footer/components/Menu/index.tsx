@@ -17,7 +17,6 @@ const linksLong = [
   { title: 'Контакты', href: '/contacts' },
   { title: 'Помочь проекту', href: '#donation' },
   { title: 'Обратная связь', href: '/contacts' },
-  { title: 'Вклад в борьбу с COVID', href: '/partners' },
   { title: 'Эксперты', href: '/experts' },
 ]
 
