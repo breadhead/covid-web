@@ -109,7 +109,7 @@ class OncohelpWeb extends App<Props> {
               />
               <meta name="keywords" content={keywords.join(', ')} />
               <meta name="description" content={description} />
-              <link rel="canonical" href="https://ask.nenaprasno.ru" />
+              <link rel="canonical" href="https://defeatcovid.ru/" />
               <link
                 rel="apple-touch-icon"
                 sizes="180x180"
@@ -140,50 +140,50 @@ class OncohelpWeb extends App<Props> {
               <meta name="theme-color" content="#ffffff" />
               <meta
                 property="og:title"
-                content="Справочная служба | Просто спросить"
+                content="Просто спросить | COVID-19"
               />
-              <meta property="og:site_name" content="ask.nenaprasno.ru" />
-              <meta property="og:url" content="http://ask.nenaprasno.ru" />
+              <meta property="og:site_name" content="https://defeatcovid.ru/" />
+              <meta property="og:url" content="http://https://defeatcovid.ru/" />
               <meta
                 property="og:description"
-                content="Просто спросить — справочная служба для онкологических пациентов и их близких"
+                content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
               />
               <meta property="og:type" content="website" />
               <meta
                 property="og:image"
                 content={`${
                   publicRuntimeConfig.siteUrl
-                }/static/images/prosto-sprosit_facebook-post.jpg`}
+                }/static/images/covid-image.png`}
               />
               <meta
                 property="og:image:secure_url"
                 content={`${
                   publicRuntimeConfig.siteUrl
-                }/static/images/prosto-sprosit_facebook-post.jpg`}
+                }/static/images/covid-image.png`}
               />
               <meta property="og:image:type" content="image/jpeg" />
               <meta property="og:image:width" content="600" />
               <meta property="og:image:height" content="315" />
               <meta
                 property="og:image:alt"
-                content="Просто спросить — справочная служба для онкологических пациентов и их близких"
+                content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
               />
               <meta name="twitter:card" content="summary_large_image" />
               <meta
                 name="twitter:title"
-                content="Справочная служба | Просто спросить"
+                content="Просто спросить | COVID-19"
               />
               <meta
                 name="twitter:description"
-                content="Просто спросить — справочная служба для онкологических пациентов и их близких"
+                content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
               />
               <meta
                 name="twitter:image"
-                content="/static/images/prosto-sprosit_facebook-post.jpg"
+                content="/static/images/covid-image.png"
               />
               <meta
                 name="twitter:image:alt"
-                content="Справочная служба | Просто спросить"
+                content="Просто спросить | COVID-19"
               />
               <meta property="fb:306467899461959" content="306467899461959" />
             </Head>

@@ -21,7 +21,7 @@ const LandingPage = () => {
   return (
     <>
       <Head>
-        <title>Справочная служба | Просто спросить</title>
+        <title>Просто спросить | COVID-19</title>
       </Head>
       <Header />
       <Main />
