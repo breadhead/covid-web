@@ -148,7 +148,6 @@
     min-width: 280px;
     height: 304px;
     margin-right: 8px;
-    box-shadow: none;
 
     &:last-child {
       margin-bottom: 0;

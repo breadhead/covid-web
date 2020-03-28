@@ -11,7 +11,7 @@ const Steps = () => (
       <article className={styles.step}>
         <img
           className={styles.img}
-          src="/static/images/1-step.png"
+          src="/static/images/process_step-1.png"
           alt="Пройдите короткий тест и получите рекомендации"
         />
         <p className={styles.text}>
@@ -25,7 +25,7 @@ const Steps = () => (
       <article className={styles.step}>
         <img
           className={styles.img}
-          src="/static/images/3-step.png"
+          src="/static/images/process_step-2.png"
           alt="Если останутся вопросы, задайте их в чате"
         />
         <p className={styles.text}>
@@ -35,7 +35,7 @@ const Steps = () => (
       <article className={styles.step}>
         <img
           className={styles.img}
-          src="/static/images/landing/computer2x.png"
+          src="/static/images/process_step-3.png"
           alt="Подождите пока эксперт ответит вам"
         />
         <p className={styles.text}>3. Подождите пока эксперт ответит вам</p>
