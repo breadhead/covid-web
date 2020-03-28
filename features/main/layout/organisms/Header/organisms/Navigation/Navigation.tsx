@@ -46,7 +46,7 @@ export const Navigation = ({
       </NavLink>
       <NavLink
         withoutUnderline
-        href="#donation"
+        href="/#donation"
         className={cx(styles.link, styles.linkHelp)}
       >
         <Button kind={ButtonKind.Secondary}>Помочь проекту</Button>
