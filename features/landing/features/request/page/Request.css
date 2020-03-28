@@ -1,7 +1,7 @@
 .main.main {
   position: relative;
   width: 100%;
-  max-width: 960px;
+  max-width: 928px;
   padding: 64px 0 88px;
   text-align: left;
 
@@ -31,7 +31,7 @@
 .title {
   margin: 0 0 40px 0;
   font: var(--title-extra);
-  text-align: center;
+  text-align: left;
 
   @media (--smallDown) {
     margin: 0 0 24px 0;

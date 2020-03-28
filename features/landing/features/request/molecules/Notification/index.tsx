@@ -2,11 +2,6 @@ import * as React from 'react'
 
 import * as styles from './Notification.css'
 
-import { Button, ButtonKind } from '@front/ui/button'
-import { NavLink } from '@front/ui/nav-link'
-
-import { NON_BREAKING_SPACE } from '@app/lib/config'
-
 export const Notification = () => (
   <article className={styles.notification}>
     <img

@@ -90,7 +90,7 @@ body {
 @custom-media --xsmallUp (min-width: 501px);
 @custom-media --smallUp (min-width: 768px);
 @custom-media --mediumSecondUp (min-width: 833px);
-@custom-media --mediumUp (min-width: 960px);
+@custom-media --mediumUp (min-width: 928px);
 
 #__next {
   display: flex;

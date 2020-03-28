@@ -1,5 +1,5 @@
 .main.main {
-  max-width: 960px;
+  max-width: 928px;
   padding: 80px 0 0 0;
 
   @media (--smallDown) {
@@ -8,7 +8,7 @@
 }
 
 .wrapper {
-  max-width: 960px;
+  max-width: 928px;
   margin: 0 auto;
 
   @media (--smallDown) {

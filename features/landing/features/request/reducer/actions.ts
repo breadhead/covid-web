@@ -17,8 +17,8 @@ export const saveRequestFormData = (requestFormData: any) => async (
     dispatch(actions.request())
     await api.saveCoronaRequestForm(requestFormData)
     setFormRequestFinished()
-    dispatch(actions.success(requestFormData))
     Router.pushRoute('/request/chat')
+    return dispatch(actions.success(requestFormData))
   } catch (error) {
     return dispatch(actions.error(error.message))
   }

@@ -1,6 +1,5 @@
-# oncohelp-web
-### stage http://oncohelp-dev.breadhead.ru
-### prod https://ask.nenaprasno.ru
+# coronairus-web
+### prod https://defeatcovid.ru/
 
 ## Development
 + `git clone`

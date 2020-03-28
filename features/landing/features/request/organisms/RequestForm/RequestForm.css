@@ -1,15 +1,18 @@
 .form {
   position: relative;
-  max-width: 800px;
-  padding: 0;
+  width: 100%;
   margin: 0 auto;
+  padding: 24px 32px;
+  border-radius: 8px;
+  background-color: #fff;
   margin-top: 40px;
   text-align: left;
 
   @media (--smallDown) {
-    width: 100%;
-    padding: 0;
+    width: 100vw;
     margin-top: 24px;
+    margin-left: -16px;
+    padding: 16px;
   }
 }
 
@@ -146,6 +149,7 @@
   padding-top: 34px !important;
   padding-bottom: 34px !important;
   width: 100%;
+  max-width: initial;
 
   @media (--smallDown) {
     padding-top: 17px !important;

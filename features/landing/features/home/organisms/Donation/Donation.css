@@ -15,7 +15,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  max-width: 960px;
+  max-width: 928px;
   margin: 0 auto;
 }
 
@@ -45,11 +45,10 @@
 
   flex-grow: 1;
 
-
   @media (--smallDown) {
     margin-right: 0;
-margin-right: 0;
+    margin-right: 0;
     width: 100%;
-
+    width: 423px;
   }
 }
