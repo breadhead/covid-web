@@ -6,7 +6,7 @@ interface Window {
   }
 }
 
-export const GTM_ID = 'GTM-NGQHJ49'
+export const GTM_ID = 'GTM-MJ3WR2P'
 export const YANDEX_METRIKA_ID = '52214086'
 
 export const DATA_LAYER_NAME = 'dataLayer'
