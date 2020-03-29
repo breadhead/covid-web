@@ -1,22 +1,16 @@
-// import { get } from "lodash";
+import { get } from 'lodash'
 import * as content from './conslutionConfig'
 import { temperatureList } from '../request/organisms/RequestForm/config'
 
 export const getCovidSymptoms = (data: any) =>
-  !!data.symptoms.temperature ||
-  !!data.symptoms.dyspnea || !!data.symptoms.thorax
-
-export const getNoCovidSymptoms = (data: any) =>
-  !!data.symptoms.sneezing ||
-  !!data.symptoms['runny-nose'] ||
-  !!data.symptoms['loose-stools'] ||
-  !!data.symptoms.nausea ||
-  !!data.symptoms['abdominal-pain']
+  !!get(data, 'symptoms.temperature') ||
+  !!get(data, 'symptoms.dyspnea') ||
+  !!get(data, 'symptoms.thorax')
 
 export const getDangerSymptoms = (data: any) => {
   return (
-    !!data.symptoms.thorax ||
-    !!data.symptoms.dyspnea ||
+    !!get(data, 'symptoms.thorax') ||
+    !!get(data, 'symptoms.dyspnea') ||
     (!!data.symptoms.temperatureType &&
       (data.symptoms.temperatureType === temperatureList[1].value ||
         data.symptoms.temperatureType === temperatureList[2].value))
@@ -39,8 +33,7 @@ export const getConclutionText = (data: any) => {
   const withSymptoms = !!data.symptoms && Object.keys(data.symptoms).length > 0
   const withDeseases = !!data.deseases && Object.keys(data.deseases).length > 0
 
-
-  // в любой группе с основными симптомами ковида 
+  // в любой группе с основными симптомами ковида
   if (!!data.symptoms && getDangerSymptoms(data)) {
     return {
       text: content.DANGER,
@@ -48,7 +41,7 @@ export const getConclutionText = (data: any) => {
     }
   }
 
-  // в любой группе без симптомов, с болезнями онкологии 
+  // в любой группе без симптомов, с болезнями онкологии
   if (withoutSymptoms && withDeseases && !!data.deseases.oncological) {
     return {
       text: content.ONCOLOGICAL,
@@ -56,7 +49,7 @@ export const getConclutionText = (data: any) => {
     }
   }
 
-  // не в группе риска без симптомов, без болезней 
+  // не в группе риска без симптомов, без болезней
   if (age < 60 && withoutSymptoms && withoutDeseases) {
     return {
       text: content.SUCCESS,
@@ -68,12 +61,17 @@ export const getConclutionText = (data: any) => {
   if (age < 60 && withSymptoms && !getCovidSymptoms(data)) {
     return {
       text: content.WITH_OTHER_SYMPTOMS,
-      articles: content.WITH_OTHER_SYMPTOMS_LINKS
+      articles: content.WITH_OTHER_SYMPTOMS_LINKS,
     }
   }
 
-  // в группе риска, без симптомов, с болезнями, без онкологии 
-  if (age >= 60 && withoutSymptoms && withDeseases && !data.deseases.oncological) {
+  // в группе риска, без симптомов, с болезнями, без онкологии
+  if (
+    age >= 60 &&
+    withoutSymptoms &&
+    withDeseases &&
+    !data.deseases.oncological
+  ) {
     return {
       text: content.RISK_GROUP,
       articles: content.RISK_LINKS,
@@ -84,7 +82,7 @@ export const getConclutionText = (data: any) => {
   if (age >= 60 && withSymptoms && !getCovidSymptoms(data)) {
     return {
       text: content.WITH_OTHER_SYMPTOMS_AND_RISK_GROUP,
-      articles: content.WITH_OTHER_SYMPTOMS_AND_RISK_LINKS
+      articles: content.WITH_OTHER_SYMPTOMS_AND_RISK_LINKS,
     }
   }
 

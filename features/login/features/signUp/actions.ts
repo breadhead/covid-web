@@ -10,7 +10,7 @@ import { actions } from './reducer'
 import { showIntercom } from '../../../landing/features/request-chat/showIntercom'
 
 import { updateRequestFormData } from "@app/features/landing/features/request/reducer/actions"
-import { getUserEmail } from "../signIn/selectors/getUserEmail"
+import { setUserEmailLocalStorage, getUserEmailLocalStorage } from "../signIn/userEmailLocalStorage"
 
 export const signUp = (
   login: string,
@@ -29,8 +29,10 @@ export const signUp = (
       dispatch(userActions.setToken(token))
       dispatch(modalActions.close())
 
-      userActions.setEmail(login)
-      console.log(getUserEmail(getState()))
+
+      setUserEmailLocalStorage(login)
+
+      console.log(getUserEmailLocalStorage())
 
       await dispatch(currentUser())
       await dispatch(updateRequestFormData())

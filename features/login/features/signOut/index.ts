@@ -5,7 +5,7 @@ import { State } from '@app/lib/store'
 import { actions as userActions } from '@app/features/login/features/user'
 import Router from 'next/router'
 import { Dispatch } from 'redux'
-import { getUserEmail } from "../signIn/selectors/getUserEmail"
+import { resetUserEmailLocalStorage, getUserEmailLocalStorage } from "../signIn/userEmailLocalStorage"
 
 
 
@@ -19,8 +19,8 @@ export default () => (dispatch: Dispatch<any>,
 
   setFormRequestFinished(false)
 
-  userActions.setEmail()
-  console.log(getUserEmail(getState()))
+  resetUserEmailLocalStorage()
+  console.log(getUserEmailLocalStorage())
 
   if ((window as any).Intercom) {
     ; (window as any).Intercom('shutdown')

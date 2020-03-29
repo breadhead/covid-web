@@ -8,6 +8,7 @@ import { actions } from './reducer'
 import { showIntercom } from '../../../landing/features/request-chat/showIntercom'
 
 import { updateRequestFormData } from "@app/features/landing/features/request/reducer/actions"
+import { setUserEmailLocalStorage } from "./userEmailLocalStorage"
 
 
 export const loginAction = (username: string, password: string) => async (
@@ -19,7 +20,7 @@ export const loginAction = (username: string, password: string) => async (
   try {
     dispatch(actions.request())
     const { token } = await api.login(username, password)
-    userActions.setEmail(username)
+    setUserEmailLocalStorage(username)
 
 
 

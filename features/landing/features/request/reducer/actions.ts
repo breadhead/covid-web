@@ -4,7 +4,7 @@ import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
 import { actions } from './reducer'
 import { setFormRequestFinished, setFormId, getFormId, resetFormId } from '../organisms/RequestForm/localStorage'
-import { getUserEmail } from "@app/features/login/features/signIn/selectors/getUserEmail"
+import { getUserEmailLocalStorage } from "@app/features/login/features/signIn/userEmailLocalStorage"
 
 const { Router } = routes
 
@@ -18,7 +18,7 @@ export const saveRequestFormData = (requestFormData: any) => async (
 
 
     dispatch(actions.request())
-    const email = getUserEmail(getState())
+    const email = getUserEmailLocalStorage()
     const { id } = await api.saveCoronaRequestForm({ ...requestFormData, email })
     setFormId(id)
     setFormRequestFinished()
@@ -38,14 +38,13 @@ export const updateRequestFormData = () => async (
   const api = getApi(getState)
   try {
     const formId = getFormId()
+    const email = getUserEmailLocalStorage()
     if (formId) {
-      await api.updateCoronaRequestForm({ id: formId, email: getUserEmail(getState()) })
+      await api.updateCoronaRequestForm({ id: formId, email: email })
       resetFormId()
     }
-
-
-
   } catch (error) {
+    console.log("error", error)
 
   }
 }

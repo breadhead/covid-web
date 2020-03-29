@@ -19,7 +19,7 @@ import { Props as PageProps } from './page'
 import { getNewClaimLoading, getNewClaimError } from './selectors'
 import { compose } from 'recompose'
 import { hitYM } from '@app/features/common/analytics/config'
-import { getUserEmail } from "@app/features/login/features/signIn/selectors/getUserEmail"
+import { getUserLogin } from "@app/features/login/features/user/selectors"
 
 const { Router } = routes
 
@@ -32,7 +32,7 @@ const mapState = (state: State) => ({
   loading: getNewClaimLoading(state),
   roles: getRoles(state),
   smsPhone: getSmsPhone(state),
-  userLogin: getUserEmail(state),
+  userLogin: getUserLogin(state),
 })
 
 const mapDipatch = (dispatch: Dispatch<AnyAction>) => ({

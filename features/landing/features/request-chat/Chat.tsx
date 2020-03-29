@@ -7,7 +7,7 @@ import {
 import { getCovidSymptoms } from './getConclutionText'
 import { useMappedState } from 'redux-react-hook'
 import { getUserLogin } from '@app/features/login/features/user/selectors'
-import { getUserEmail } from "@app/features/login/features/signIn/selectors/getUserEmail"
+import { getUserEmailLocalStorage } from "@app/features/login/features/signIn/userEmailLocalStorage"
 
 function getCovid() {
   try {
@@ -22,11 +22,11 @@ export const Chat = () => {
   console.log('Chat -> getCovid()', getCovid())
 
   const login = useMappedState(getUserLogin)
-  const email = useMappedState(getUserEmail)
+
   console.log('Chat -> login', login)
 
   React.useEffect(() => {
-
+    const email = getUserEmailLocalStorage()
     console.log('Chat -> email', email)
 
     if (!!email) {
