@@ -1,7 +1,6 @@
 import { set } from '@app/features/common/browserQuery'
 import { getRoles } from '@app/features/login'
 import { getSmsPhone } from '@app/features/login/features/confirm'
-import { getUserEmail } from '@app/features/login/features/confirm/reducer/selectors'
 import ShortClaimRequest from '@app/lib/api/request/ShortClaim'
 import { AppContext } from '@app/lib/server-types'
 import { State } from '@app/lib/store'
@@ -20,6 +19,7 @@ import { Props as PageProps } from './page'
 import { getNewClaimLoading, getNewClaimError } from './selectors'
 import { compose } from 'recompose'
 import { hitYM } from '@app/features/common/analytics/config'
+import { getUserEmail } from "@app/features/login/features/signIn/selectors/getUserEmail"
 
 const { Router } = routes
 

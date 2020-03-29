@@ -1,5 +1,4 @@
 import { APP_ID } from '@app/features/common/intercom/config'
-import { getUserEmailLocalStorage } from '@app/features/login/features/signIn/userLocalStorage'
 import * as React from 'react'
 import {
   getFormattedForm,
@@ -8,6 +7,7 @@ import {
 import { getCovidSymptoms } from './getConclutionText'
 import { useMappedState } from 'redux-react-hook'
 import { getUserLogin } from '@app/features/login/features/user/selectors'
+import { getUserEmail } from "@app/features/login/features/signIn/selectors/getUserEmail"
 
 function getCovid() {
   try {
@@ -22,10 +22,11 @@ export const Chat = () => {
   console.log('Chat -> getCovid()', getCovid())
 
   const login = useMappedState(getUserLogin)
+  const email = useMappedState(getUserEmail)
   console.log('Chat -> login', login)
 
   React.useEffect(() => {
-    const email = getUserEmailLocalStorage()
+
     console.log('Chat -> email', email)
 
     if (!!email) {
@@ -37,7 +38,7 @@ export const Chat = () => {
         user_id: email,
         ...getFormattedForm(),
       }
-      ;(window as any).Intercom('boot', result)
+        ; (window as any).Intercom('boot', result)
 
       console.log('Chat -> result', result)
     }

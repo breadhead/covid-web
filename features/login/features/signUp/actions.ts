@@ -8,10 +8,9 @@ import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
 import { actions } from './reducer'
 import { showIntercom } from '../../../landing/features/request-chat/showIntercom'
-import {
-  setUserEmailLocalStorage,
-  getUserEmailLocalStorage,
-} from '../signIn/userLocalStorage'
+
+import { updateRequestFormData } from "@app/features/landing/features/request/reducer/actions"
+import { getUserEmail } from "../signIn/selectors/getUserEmail"
 
 export const signUp = (
   login: string,
@@ -21,28 +20,29 @@ export const signUp = (
   dispatch: Dispatch<any>,
   getState: () => State,
   { getApi }: ExtraArgs,
-) => {
-  const api = getApi(getState)
-  try {
-    const { token } = await api.signUp(login, password, confirm)
+  ) => {
+    const api = getApi(getState)
+    try {
+      const { token } = await api.signUp(login, password, confirm)
 
-    setCookie(token)
-    dispatch(userActions.setToken(token))
-    dispatch(modalActions.close())
+      setCookie(token)
+      dispatch(userActions.setToken(token))
+      dispatch(modalActions.close())
 
-    setUserEmailLocalStorage(login)
-    console.log(getUserEmailLocalStorage())
+      userActions.setEmail(login)
+      console.log(getUserEmail(getState()))
 
-    await dispatch(currentUser())
+      await dispatch(currentUser())
+      await dispatch(updateRequestFormData())
 
-    showIntercom()
+      showIntercom()
 
-    return dispatch(actions.success(token))
-  } catch (error) {
-    const { message, fields, code } = error.response.data
+      return dispatch(actions.success(token))
+    } catch (error) {
+      const { message, fields, code } = error.response.data
 
-    dispatch(actions.error(error.message))
-    dispatch(actions.signUpError({ message, fields, code }))
-    throw error
+      dispatch(actions.error(error.message))
+      dispatch(actions.signUpError({ message, fields, code }))
+      throw error
+    }
   }
-}

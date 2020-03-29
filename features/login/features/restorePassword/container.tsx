@@ -34,7 +34,7 @@ const Container = (
   }
 
   const onLoginFormSubmit = async (props: any) => {
-    await dispatch(loginAction(login!, props.password, ''))
+    await dispatch(loginAction(login!, props.password))
   }
 
   return (

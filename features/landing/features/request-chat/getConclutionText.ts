@@ -1,3 +1,4 @@
+// import { get } from "lodash";
 import * as content from './conslutionConfig'
 import { temperatureList } from '../request/organisms/RequestForm/config'
 

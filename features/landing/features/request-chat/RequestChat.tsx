@@ -39,9 +39,9 @@ export const RequestChat = () => {
     >
       <div className={styles.wrapper}>
         <Conclution />
-  
+
         <AskButton>Спросить в чате</AskButton>
-        {email ? (
+        {formFinished ? (
           <button onClick={onRepeatTestClick} className={styles.repeatTestButton}>
             Пройти тест заново
           </button>

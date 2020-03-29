@@ -35,6 +35,7 @@ import { currentUser, getToken } from '@app/features/login/features/user'
 import { pushRoute } from '@app/features/routing/pushRoute'
 import { normalizeWantTo } from './config'
 import { description, keywords } from './SEO'
+import { updateRequestFormData } from "@app/features/landing/features/request/reducer/actions"
 
 interface Props {
   reduxStore: Store
@@ -72,8 +73,10 @@ class OncohelpWeb extends App<Props> {
     return App.getInitialProps(context)
   }
 
-  public componentDidMount() {
+  public async  componentDidMount() {
     const authViolate = getViolateState(this.props.reduxStore.getState())
+    await this.props.reduxStore.dispatch(updateRequestFormData() as any)
+
     if (authViolate) {
       this.props.reduxStore.dispatch(authViolateStatus(false))
       this.props.reduxStore.dispatch(setToken(''))
@@ -153,13 +156,13 @@ class OncohelpWeb extends App<Props> {
                 property="og:image"
                 content={`${
                   publicRuntimeConfig.siteUrl
-                }/static/images/covid-image.png`}
+                  }/static/images/covid-image.png`}
               />
               <meta
                 property="og:image:secure_url"
                 content={`${
                   publicRuntimeConfig.siteUrl
-                }/static/images/covid-image.png`}
+                  }/static/images/covid-image.png`}
               />
               <meta property="og:image:type" content="image/jpeg" />
               <meta property="og:image:width" content="600" />

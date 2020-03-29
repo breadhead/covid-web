@@ -3,6 +3,7 @@ import { Action } from 'redux'
 import { createSymbiote } from 'redux-symbiote'
 
 interface State {
+  email?: string,
   token: string
   login: string
   roles: Role[]
@@ -12,6 +13,7 @@ interface State {
 interface Actions {
   setToken(token: string): Action
   setLogin(login: string): Action
+  setEmail(email?: string): Action
   setUser(roles: Role[]): Action
   setQuotasAvailable(available: boolean): Action
 }
@@ -19,6 +21,7 @@ interface Actions {
 const initialState: State = {
   token: '',
   login: '',
+  email: undefined,
   roles: [],
   quotasAvailable: false,
 }
@@ -33,6 +36,10 @@ const { actions, reducer } = createSymbiote<State, Actions>(
     setLogin: (state, login: string) => ({
       ...state,
       login,
+    }),
+    setEmail: (state, email: string) => ({
+      ...state,
+      email,
     }),
     setUser: (state, roles: Role[]) => ({
       ...state,

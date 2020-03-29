@@ -14,6 +14,7 @@ export const currentUser = () => async (
     const user = await api.currentUser()
     dispatch(userActions.setUser(user.roles))
     dispatch(userActions.setLogin(user.login))
+    dispatch(userActions.setEmail(user.email))
     return user
   } catch (error) {
     dispatch(actions.error(error.message))

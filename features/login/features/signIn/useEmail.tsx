@@ -1,10 +1,8 @@
 import { useMappedState } from 'redux-react-hook'
-import { getUserLogin } from '@app/features/login/features/user/selectors'
-import { getUserEmailLocalStorage } from '@app/features/login/features/signIn/userLocalStorage'
+import { getUserEmail } from "./selectors/getUserEmail"
 
 export function useEmail() {
-  const login = useMappedState(getUserLogin)
-  const emailLocalStorage = getUserEmailLocalStorage()
-  const email = login && emailLocalStorage ? emailLocalStorage : undefined
+  const emailLocalStorage = useMappedState(getUserEmail)
+  const email = emailLocalStorage || undefined
   return email
 }

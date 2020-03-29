@@ -382,4 +382,9 @@ export default class RealApiClient implements ApiClient {
         fields: data,
       })
       .then(res => res.data as any)
+
+  public updateCoronaRequestForm = (data: any) =>
+    this.axiosInstance
+      .post('/form/update', data)
+      .then(res => res.data as any)
 }
