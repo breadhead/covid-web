@@ -146,7 +146,7 @@ class OncohelpWeb extends App<Props> {
                 content="Просто спросить | COVID-19"
               />
               <meta property="og:site_name" content="https://defeatcovid.ru/" />
-              <meta property="og:url" content="http://https://defeatcovid.ru/" />
+              <meta property="og:url" content="https://defeatcovid.ru/" />
               <meta
                 property="og:description"
                 content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
