@@ -29,6 +29,16 @@ const partners = [
     img: '/static/images/partners/foundation-logo.svg',
     label: 'Фонд профилактика рака',
     description: 'Инициатива и реализация',
+    link: 'https://nenaprasno.ru/'
+  },
+  {
+    id: '30',
+    type: PartnersType.InfoPartner,
+    typeLabel: PartnersLabel.InfoPartner,
+    img: '/static/images/partners/vk.png',
+    label: `ВКонтакте`,
+    description: 'Информационный партнёр',
+    link: 'https://vk.com/'
   },
   {
     id: '20',
@@ -37,6 +47,7 @@ const partners = [
     img: '/static/images/partners/breadhead-logo.svg',
     label: `Студия Breadhead`,
     description: 'Проектирование, IT-разработка',
+    link: 'https://breadhead.ru'
   },
 ]
 

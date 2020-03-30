@@ -5,10 +5,12 @@ import * as styles from './PartnerCard.css'
 import cx from 'classnames'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { NavLink } from '@app/src/ui/nav-link'
 
 export interface PartnerCardInterface {
   img: string
   label: string
+  link: string
   sum?: string
   description?: string
 }
@@ -19,9 +21,9 @@ interface Props {
 }
 
 const PartnerCard = ({ card, className }: Props) => {
-  const { img, label, sum, description: carddDescription } = card
+  const { img, label, sum, description: carddDescription, link } = card
   return (
-    <article className={cx(styles.card, className)}>
+    <NavLink blank withoutUnderline href={link} className={cx(styles.card, className)}>
       <div className={styles.logoWrapper}>
         <img className={styles.logo} src={img} alt={label} />
       </div>
@@ -33,7 +35,8 @@ const PartnerCard = ({ card, className }: Props) => {
           {NON_BREAKING_SPACE}₽
         </p>
       )}
-    </article>
+    </NavLink>
+
   )
 }
 
