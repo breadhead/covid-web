@@ -31,6 +31,14 @@ const partners = [
     description: 'Инициатива и реализация',
   },
   {
+    id: '30',
+    type: PartnersType.InfoPartner,
+    typeLabel: PartnersLabel.InfoPartner,
+    img: '/static/images/partners/vk.png',
+    label: `ВКонтакте`,
+    description: 'Информационный партнёр',
+  },
+  {
     id: '20',
     type: PartnersType.Donor,
     typeLabel: PartnersLabel.Donor,
