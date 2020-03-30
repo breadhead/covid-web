@@ -4,6 +4,7 @@
   align-items: center;
   max-width: 220px;
   margin-right: 24px;
+  color: var(--text-color-primary); 
 
   &:first-child {
     flex-grow: 1;
@@ -25,10 +26,6 @@
   max-height: 100%;
   object-fit: contain;
 
-  &:first-child {
-    width: 100%;
-  }
-
   @media (--xxsmallDown) {
     margin-right: 40px;
   }
@@ -45,6 +42,7 @@
 .label {
   margin: 0 0 4px 0;
   font: var(--text14-20);
+  color: var(--text-color-primary) !important;
 }
 
 .sum {
