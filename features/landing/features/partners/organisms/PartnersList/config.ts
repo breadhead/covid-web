@@ -26,28 +26,37 @@ const partners = [
     id: '10',
     type: PartnersType.InfrastructurePartner,
     typeLabel: PartnersLabel.InfrastructurePartner,
-    img: '/static/images/partners/foundation-logo.svg',
+    img: '/static/images/partners/foundation-logo-partner.svg',
     label: 'Фонд профилактика рака',
     description: 'Инициатива и реализация',
     link: 'https://nenaprasno.ru/'
   },
   {
-    id: '30',
+    id: '20',
     type: PartnersType.InfoPartner,
     typeLabel: PartnersLabel.InfoPartner,
-    img: '/static/images/partners/vk.png',
+    img: '/static/images/partners/vk-logo.svg',
     label: `ВКонтакте`,
     description: 'Информационный партнёр',
     link: 'https://vk.com/'
   },
   {
-    id: '20',
-    type: PartnersType.Donor,
-    typeLabel: PartnersLabel.Donor,
+    id: '30',
+    type: PartnersType.InfoPartner,
+    typeLabel: PartnersLabel.InfoPartner,
     img: '/static/images/partners/breadhead-logo.svg',
     label: `Студия Breadhead`,
     description: 'Проектирование, IT-разработка',
     link: 'https://breadhead.ru'
+  },
+  {
+    id: '40',
+    type: PartnersType.InfoPartner,
+    typeLabel: PartnersLabel.InfoPartner,
+    img: '/static/images/partners/zenit-logo.svg',
+    label: `ФК «Зенит»`,
+    description: 'Помощь врачам',
+    link: 'https://fc-zenit.ru/'
   },
 ]
 

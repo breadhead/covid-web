@@ -50,3 +50,9 @@
   font-size: 18px !important;
   line-height: 28px !important;
 }
+
+.anchor {
+  visibility: hidden;
+  position: relative;
+  top: -30px;
+}

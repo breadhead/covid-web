@@ -20,7 +20,7 @@
 }
 
 .title {
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   font: var(--title-regular);
 
   @media (--smallDown) {
@@ -42,7 +42,7 @@
 
 .widget {
   margin-right: 32px;
-
+  max-width: 608px;
   flex-grow: 1;
 
   @media (--smallDown) {
