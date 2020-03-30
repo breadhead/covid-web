@@ -6,14 +6,13 @@
 
 .message {
   position: relative;
-  max-width: 280px;
+  max-width: 288px;
   padding: 16px;
   margin: 0 0 8px 0;
   font: var(--text14-20);
   text-align: left;
   background-color: #ffeab7;
-  border-radius: 20px;
-  border-bottom-left-radius: 0;
+  border-radius: 32px 32px 32px 4px;
 
   @media (--smallDown) {
     max-width: none;
