@@ -3,21 +3,21 @@
   flex-direction: column;
   align-items: center;
   max-width: 220px;
-  margin-right: 24px;
+  margin-right: 16px;
   color: var(--text-color-primary); 
 
   &:first-child {
     flex-grow: 1;
   }
 
-
+/* 
   @media (--smallDown) {
     margin-right: 40px;
   }
 
   @media (--xxsmallDown) {
     margin-right: 40px;
-  }
+  } */
 }
 
 .logo {
@@ -34,7 +34,7 @@
 
 .logoWrapper {
   display: flex;
-  height: 112px;
+  height: 64px;
   margin-bottom: 24px;
   width: 100%;
 }
