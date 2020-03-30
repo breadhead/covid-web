@@ -9,6 +9,7 @@ import PartnersList from './components/PartnersList'
 
 const Partners = () => (
   <article className={styles.partners}>
+    <div id="about" className={styles.anchor} />
     <h2 className={styles.title}>О проекте</h2>
     <p className={styles.text}>
       Проект реализует{' '}
