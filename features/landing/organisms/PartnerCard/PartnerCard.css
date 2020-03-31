@@ -2,15 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 220px;
+  width: 220px;
   margin-right: 16px;
   color: var(--text-color-primary); 
 
-  &:first-child {
-    flex-grow: 1;
-  }
-
-  &:nth-child(5) {
+  &:nth-child(4) {
     margin-right: 0 !important;
   }
 
@@ -58,5 +54,6 @@
 .description {
   font-size: 14px;
   line-height: 20px;
-  color: #82839b;
+  color: var(--text-color-secondary);
+  white-space: pre-line;
 }
