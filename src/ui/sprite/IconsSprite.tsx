@@ -1003,7 +1003,7 @@ export const IconsSprite = () => (
       >
         <path
           d="M3 13a1 1 0 0 1 0-2h18a1 1 0 0 1 0 2H3zm0-8a1 1 0 1 1 0-2h18a1 1 0 0 1 0 2H3zm0 16a1 1 0 0 1 0-2h18a1 1 0 0 1 0 2H3z"
-          fill="var(--text-color-secondary)"
+          fill="var(--color-dark)"
         />
       </symbol>
       <symbol
