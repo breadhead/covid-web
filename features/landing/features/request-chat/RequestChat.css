@@ -1,5 +1,6 @@
 .page {
   background-color: var(--color-beige) !important;
+  padding: 24px 0 80px !important;
 }
 
 .wrapper {

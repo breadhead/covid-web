@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   max-width: 928px;
-  padding: 64px 0 88px;
+  padding: 24px 0 88px;
   text-align: left;
 
   &::after {
@@ -23,13 +23,13 @@
   }
 
   @media (--smallDown) {
-    padding: 32px 16px 56px 16px;
+    padding: 24px 16px 56px 16px;
     margin-bottom: -48px;
   }
 }
 
 .title {
-  margin: 0 0 40px 0;
+  margin: 0 0 24px 0;
   font: var(--title-extra);
   text-align: left;
 

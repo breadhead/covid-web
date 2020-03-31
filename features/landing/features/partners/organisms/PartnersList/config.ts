@@ -58,6 +58,15 @@ const partners = [
     description: 'Помощь врачам',
     link: 'https://fc-zenit.ru/'
   },
+  {
+    id: '50',
+    type: PartnersType.InfoPartner,
+    typeLabel: PartnersLabel.InfoPartner,
+    img: '/static/images/partners/hva-logo.svg',
+    label: `Хваловские воды`,
+    description: 'Помощь врачам',
+    link: 'https://hvalwaters.ru/'
+  },
 ]
 
 const getCurrentPartnersOptions = (currentPartners: Partner[]) => {
