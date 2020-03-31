@@ -10,14 +10,19 @@
     flex-grow: 1;
   }
 
-/* 
-  @media (--smallDown) {
-    margin-right: 40px;
+  &:nth-child(5) {
+    margin-right: 0 !important;
   }
 
-  @media (--xxsmallDown) {
-    margin-right: 40px;
-  } */
+  @media (--smallDown) {
+
+    margin-right: 16px;
+
+    &:nth-child(5) {
+      margin-right: 16px !important;
+    }
+  }
+
 }
 
 .logo {
