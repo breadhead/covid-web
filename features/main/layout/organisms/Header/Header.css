@@ -6,9 +6,7 @@
   background-color: var(--color-beige);
 
   @media (--mediumDown) {
-    padding: 0 16px;
-
-    padding-top: 8px;
+    padding: 8px 16px 6px;
   }
 }
 
@@ -23,8 +21,8 @@
   padding: 24px 0;
 
   @media (--smallDown) {
-    height: 48px;
-    padding: 8px 0;
+    height: 34px;
+    padding: 0;
   }
 }
 

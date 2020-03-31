@@ -4,13 +4,17 @@
   height: 48px !important;
 
   @media (--smallDown) {
-    width: 198px;
-    height: 48px;
+    display: none;
   }
+}
 
-  @media (--xxsmallDown) {
-    width: 159px !important;
-    height: 48px !important;
+.logoMobile.logoMobile {
+  display: none;
+  width: 135px;
+  height: 34px;
+  
+  @media (--smallDown) {
+    display: flex;
   }
 }
 
@@ -20,12 +24,7 @@
   cursor: pointer;
 
   @media (--smallDown) {
-    max-width: 198px;
-    max-height: 48px;
-  }
-
-  @media (--xxsmallDown) {
-    width: 159px !important;
-    height: 48px !important;
+    width: 135px;
+    height: 34px;
   }
 }

@@ -20,6 +20,7 @@ const Logo = ({ className, wrapperClassName }: Props) => (
       className={cx(styles.logo, className)}
       name={IconsList.CovidLogoDark}
     />
+    <Icon className={styles.logoMobile} name={IconsList.CovidLogoMobile} />
   </NavLink>
 )
 
