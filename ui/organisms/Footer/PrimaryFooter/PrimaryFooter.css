@@ -1,5 +1,6 @@
 .footer {
   padding: 48px 48px 32px 48px;
+  background-color: #fff;
 
   @media (--mediumDown) {
     padding: 80px 16px 56px 16px;
