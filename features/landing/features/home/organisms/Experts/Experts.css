@@ -1,5 +1,7 @@
 .wrap {
   padding-bottom: 96px;
+  max-width: 928px;
+  padding: 64px 0;
 
   @media (--mediumDown) {
     padding: 40px 16px 56px;
@@ -8,14 +10,8 @@
 
 .expertsWrapper {
   background-color: #fff;
-}
-
-.experts {
   display: flex;
-  justify-content: space-between;
-  max-width: 928px;
-  padding: 64px 0;
-  margin: 0 auto;
+  padding-bottom: 96px;
 
   @media (--smallDown) {
     flex-direction: column;
@@ -25,12 +21,20 @@
   }
 }
 
-.textWrapper {
+.experts {
   display: flex;
-  flex-basis: 50%;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
+  justify-content: space-between;
+
+  margin: 0 auto;
+
+  @media (--smallDown) {
+    flex-direction: column;
+    padding: 0;
+    margin-left: 0;
+  }
+}
+
+.textWrapper {
   margin-right: 32px;
 
   @media (--smallDown) {

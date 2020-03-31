@@ -20,6 +20,31 @@
   position: relative;
   width: 100%;
   height: 100%;
+
+  &:nth-child(1) {
+    & .photo {
+      border-radius: 32px 32px 4px 32px;
+    }
+  }
+
+  &:nth-child(3) {
+    & .photo {
+      border-radius: 32px 32px 32px 4px;
+    }
+  }
+
+  &:nth-child(4) {
+    & .photo {
+      border-radius: 32px 4px 32px 32px;
+    }
+  }
+
+  &:nth-child(6) {
+    & .photo {
+      border-radius: 4px 32px 32px 32px;
+    }
+  }
+
   @media (--mediumDown) {
     &:after {
       content: '';

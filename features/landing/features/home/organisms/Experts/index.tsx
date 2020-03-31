@@ -21,8 +21,8 @@ const Experts = () => (
             Посмотреть всех экспертов
           </NavLink>
         </div>
-        <Photos />
       </section>
+      <Photos />
     </div>
     <CovidButtons />
   </div>
