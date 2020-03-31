@@ -1,7 +1,7 @@
 .steps {
   display: flex;
   justify-content: space-between;
-  padding: 0 40px;
+  padding: 0;
   margin: 0 auto;
 
   @media (--smallDown) {
@@ -9,7 +9,6 @@
     align-items: center;
     margin-bottom: 64px;
     margin-left: 0;
-    padding: 0;
   }
 }
 
