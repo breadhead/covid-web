@@ -25,10 +25,6 @@
   }
 }
 
-.tablinkLight {
-  background-color: var(--color-beige);
-}
-
 .links {
   display: flex;
 
@@ -55,4 +51,5 @@
 .current {
   display: flex;
   align-items: center;
+  background-color: var(--color-beige);
 }

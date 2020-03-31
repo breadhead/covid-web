@@ -8,7 +8,7 @@ export const OtherPartners = () => {
     <div className={styles.otherPartners}>
       <div className={styles.tabLinks}>
         <div
-          className={cx(styles.tablink, styles.tablinkLight, styles.current)}
+          className={cx(styles.tablink, styles.current)}
         >
           COVID-19
         </div>
