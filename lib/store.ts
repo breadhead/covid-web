@@ -12,11 +12,6 @@ export type Store = ReduxStore<State>
 
 
 import {
-  reducer as landingReducer,
-  State as LandingState,
-} from '@app/src/domain/landing'
-
-import {
   notFoundMiddleware,
   reducer as notFoundReducer,
   State as NotFoundState,
@@ -52,30 +47,23 @@ import {
 import ApiClient from './api/ApiClient'
 import factory from './api/apiFactory'
 
-import { domainReducer } from '@front/domain/redux/domainReducer'
-import { DomainState } from '@front/domain/redux/DomainState'
-
 export interface State {
-  domain: DomainState
   modal: ModalState
   browserQuery: BrowserQueryState
   feedback: SendFeedbackState
   notFound: NotFoundState
-  landing: LandingState
   login: LoginState
   requestForm: RequestFormReducerState
 }
 
 const reducer = combineReducers({
   requestForm: requestFormReducer,
-  domain: domainReducer,
   login: loginReducer,
   modal: modalReducer,
   [REDUCER_KEY]: windowSize,
   browserQuery: browserQueryReducer,
   feedback: sendFeedbackReducer,
   notFound: notFoundReducer,
-  landing: landingReducer,
 } as any)
 
 export interface ExtraArgs {
