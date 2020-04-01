@@ -7,7 +7,6 @@ import Donation from '../organisms/Donation'
 import Experts from '../organisms/Experts'
 import { Main } from '../organisms/Main'
 import { useAuthModalByUrl } from './useAuthModalByUrl'
-import { AppContext } from '@app/lib/server-types'
 import Footer, { FooterTheme, FooterType } from '@app/ui/organisms/Footer'
 import Header from '@app/features/main/layout/organisms/Header'
 import About from '../organisms/Main/components/About'
@@ -47,8 +46,5 @@ const LandingPage = () => {
   )
 }
 
-LandingPage.getInitialProps = async (context: AppContext) => {
-  return {}
-}
 
 export default LandingPage
