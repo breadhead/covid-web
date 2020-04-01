@@ -3,7 +3,6 @@ import { head } from 'lodash'
 import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { useMappedState } from 'redux-react-hook'
 
-import { push } from '@app/features/admin/features/toast'
 import { getToken } from '@app/features/login'
 import factory from '@app/lib/api/apiFactory'
 import { Button, ButtonKind } from '@front/ui/button'
@@ -12,6 +11,7 @@ import ProgressBar from './atoms/ProgressBar'
 import { displayFileName } from './displayFileName'
 import * as styles from './Uploader.css'
 import { getPreviewLink } from '@app/src/helpers/getPreviewLink'
+import { push } from '@app/features/admin/features/toast'
 
 interface Props {
   initialValue?: string
