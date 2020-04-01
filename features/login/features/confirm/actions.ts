@@ -1,7 +1,6 @@
 import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
 
-import { GENERIC_CLAIM_ERROR } from '@app/features/client/values'
 import { actions } from './reducer'
 
 const CODE_VALIDATION_ERROR =
@@ -19,7 +18,7 @@ export const sendSms = (phone: string) => async (
     dispatch(actions.smsPhone.addPhone(phone))
     dispatch(actions.sendSms.success())
   } catch (error) {
-    dispatch(actions.sendSms.error(GENERIC_CLAIM_ERROR))
+    dispatch(actions.sendSms.error('error'))
     throw error
   }
 }
@@ -43,7 +42,7 @@ export const validateCode = (code: string) => async (
     const errorMessage = // TODO: add error message types
       error.message === CODE_VALIDATION_ERROR
         ? CODE_VALIDATION_ERROR
-        : GENERIC_CLAIM_ERROR
+        : 'error'
 
     dispatch(actions.validateCode.success(false))
     dispatch(actions.validateCode.error(errorMessage))

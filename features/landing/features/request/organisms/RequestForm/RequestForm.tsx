@@ -11,8 +11,8 @@ import routes from '@app/routes'
 
 import cx from 'classnames'
 import { Button, ButtonSize } from '@front/ui/button'
-import { genderRadioGroup } from '@app/features/common/claim/features/newClaim/organisms/Patient/genderRadioGroup'
-import RegionSelect from '@app/features/client/features/regionSelect'
+
+import RegionSelect from '@app/ui/regionSelect'
 import { Symptoms } from './components/symptoms'
 import { targetList, deseasesList } from './config'
 
@@ -24,6 +24,7 @@ import {
   isFormRequestFinished,
 } from './localStorage'
 import { schema } from './schema'
+import { genderRadioGroup } from '@app/src/helpers/genderRadioGroup'
 
 const { Router } = routes
 

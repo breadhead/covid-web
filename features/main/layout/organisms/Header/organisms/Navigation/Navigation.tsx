@@ -12,10 +12,10 @@ import { Button, ButtonKind } from '@app/src/ui/button'
 
 import LoginButton from '../../atoms/LoginButton'
 
-import { default as ClientMenu } from '@app/features/client/features/menu/organisms/Menu'
 import MediaQuery, { Query } from '@app/ui/MediaQuery'
 
 import SignInMobileMenu from '../SignInMobileMenu'
+import { CLientMenu } from '../ClientMenu'
 
 interface Props {
   showLoginButton?: boolean
@@ -58,7 +58,7 @@ export const Navigation = ({
       ) : (
           <>
             <MediaQuery query={Query.FromExtraLarge}>
-              <ClientMenu className={styles.loginMenu} signOut={signOut} />
+              <CLientMenu className={styles.loginMenu} signOut={signOut} />
             </MediaQuery>
             <MediaQuery
               className={styles.mobileMenuWrapper}

@@ -1,4 +1,3 @@
-import ClientLayout from '@app/features/client/organisms/Layout'
 import { FooterTheme } from '@app/ui/organisms/Footer'
 import React from 'react'
 import { Chat } from './Chat'
@@ -13,6 +12,7 @@ import {
 } from '../request/organisms/RequestForm/localStorage'
 import routes from '@app/routes'
 import { useEmail } from '../../../login/features/signIn/useEmail'
+import { ClientLayout } from '@app/features/common/client-layout'
 
 const { Router } = routes
 

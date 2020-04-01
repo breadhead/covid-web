@@ -1,9 +1,0 @@
-.AnswerButton {
-  margin-top: 48px;
-  margin-right: 16px;
-  margin-bottom: 64px;
-  @media (--smallDown) {
-    margin-top: 24px;
-    margin-bottom: 48px;
-  }
-}

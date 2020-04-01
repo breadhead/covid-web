@@ -10,10 +10,6 @@ import windowSize, { REDUCER_KEY } from 'redux-windowsize'
 
 export type Store = ReduxStore<State>
 
-import {
-  reducer as claimReducer,
-  State as ClaimState,
-} from '@app/features/common/claim'
 
 import {
   reducer as landingReducer,
@@ -25,31 +21,6 @@ import {
   reducer as notFoundReducer,
   State as NotFoundState,
 } from '@app/features/main/notFound'
-
-import {
-  reducer as chatReducer,
-  State as ChatState,
-} from '@app/features/common/chat'
-
-import {
-  reducer as consultationReducer,
-  State as ConsultationState,
-} from '@app/features/common/consultation'
-
-import {
-  reducer as managerReducer,
-  State as ManagerState,
-} from '@app/features/manager'
-
-import {
-  reducer as doctorReducer,
-  State as DoctorState,
-} from '@app/features/doctor'
-
-import {
-  reducer as clientReducer,
-  State as ClientState,
-} from '@app/features/client'
 
 import {
   reducer as createQuotaReducer,
@@ -104,11 +75,6 @@ import {
 } from '@app/features/landing/features/contacts/organisms/FeedbackForm'
 
 import {
-  clientClaimsReducer,
-  ClientClaimsState,
-} from '@app/features/common/consultation'
-
-import {
   requestFormReducer,
   RequestFormReducerState,
 } from '@app/features/landing/features/request/reducer'
@@ -118,10 +84,7 @@ import factory from './api/apiFactory'
 
 import { domainReducer } from '@front/domain/redux/domainReducer'
 import { DomainState } from '@front/domain/redux/DomainState'
-import {
-  RatingState,
-  ratingReducer,
-} from '@app/features/client/features/consultation/organisms/withFinishModal/domain'
+
 import { adminReducer, AdminState } from '@app/features/admin/domain'
 
 export interface State {
@@ -134,18 +97,10 @@ export interface State {
   transfer: TransferState
   history: HistoryState
   modal: ModalState
-  client: ClientState
   browserQuery: BrowserQueryState
-  manager: ManagerState
-  chat: ChatState
-  consultation: ConsultationState
   feedback: SendFeedbackState
-  doctor: DoctorState
   notFound: NotFoundState
-  claim: ClaimState
-  clientClaim: ClientClaimsState
   landing: LandingState
-  rating: RatingState
   admin: AdminState
   requestForm: RequestFormReducerState
 }
@@ -162,18 +117,10 @@ const reducer = combineReducers({
   history: historyReducer,
   modal: modalReducer,
   [REDUCER_KEY]: windowSize,
-  client: clientReducer,
   browserQuery: browserQueryReducer,
-  manager: managerReducer,
-  chat: chatReducer,
-  consultation: consultationReducer,
   feedback: sendFeedbackReducer,
-  doctor: doctorReducer,
   notFound: notFoundReducer,
-  claim: claimReducer,
   landing: landingReducer,
-  clientClaim: clientClaimsReducer,
-  rating: ratingReducer,
   admin: adminReducer,
 } as any)
 

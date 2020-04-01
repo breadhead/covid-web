@@ -11,7 +11,7 @@ import { NavLink } from '@front/ui/nav-link'
 import ProgressBar from './atoms/ProgressBar'
 import { displayFileName } from './displayFileName'
 import * as styles from './Uploader.css'
-import { getPreviewLink } from '@app/features/client/features/preview-image'
+import { getPreviewLink } from '@app/src/helpers/getPreviewLink'
 
 interface Props {
   initialValue?: string
