@@ -33,9 +33,9 @@ import { AppContext } from '@app/lib/server-types'
 import { resetCookie } from '@app/features/login/features/signIn/helpers/setAuthToken'
 import { currentUser, getToken } from '@app/features/login/features/user'
 import { pushRoute } from '@app/features/routing/pushRoute'
-import { normalizeWantTo } from './config'
 import { description, keywords } from './SEO'
 import { updateRequestFormData } from "@app/features/landing/features/request/reducer/actions"
+import { normalizeWantTo } from '@app/src/helpers/normalizeWantTo'
 
 interface Props {
   reduxStore: Store

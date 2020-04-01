@@ -62,6 +62,7 @@ export interface State {
   feedback: SendFeedbackState
   notFound: NotFoundState
   landing: LandingState
+  login: LoginState
   requestForm: RequestFormReducerState
 }
 

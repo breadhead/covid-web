@@ -1,5 +1,7 @@
-import Gender from '@app/models/Gender'
-
+enum Gender {
+  Male = 'Мужской',
+  Female = 'Женский',
+}
 export const genderRadioGroup = Object.entries(Gender).map(([id, value]) => ({
   id,
   value,

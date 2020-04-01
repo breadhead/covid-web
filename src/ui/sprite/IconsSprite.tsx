@@ -16,7 +16,7 @@ export const IconsSprite = () => (
       <symbol
         id={IconsList.CovidLogoMobile}
         width="170px" height="32px" viewBox="0 0 170 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <g id="Заказчик" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Заказчик" stroke="none" strokeWidth="1" fill="none" fill-rule="evenodd">
           <g id="covid_mobile-360" transform="translate(-16.000000, -48.000000)">
             <g id="mobile-header" transform="translate(0.000000, 40.000000)">
               <g id="logo_mobile" transform="translate(16.000000, 8.000000)">
@@ -35,7 +35,7 @@ export const IconsSprite = () => (
       <symbol
         id={IconsList.CovidLogo}
         width="238px" height="48px" viewBox="0 0 238 48" version="1.1" xmlns="http://www.w3.org/2000/svg" >
-        <g id="Заказчик" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Заказчик" stroke="none" strokeWidth="1" fill="none" fill-rule="evenodd">
           <g id="covid_desktop-1360_states" transform="translate(-48.000000, -56.000000)">
             <g id="start" transform="translate(0.000000, 32.000000)">
               <g id="header">
