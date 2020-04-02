@@ -2,7 +2,7 @@ version: 2
 jobs:
   check-pr:
     docker:
-      - image: circleci/node:8.11.1
+      - image: circleci/node:10
 
     working_directory: ~/repo
 
