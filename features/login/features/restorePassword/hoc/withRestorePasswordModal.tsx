@@ -1,9 +1,11 @@
-import React from 'react'
-import { withModal, WithModalProps } from '@app/features/common/modal'
-import { RESTORE_PASSWORD_MODAL_KEY } from '../organisms/Modal'
+import React from 'react';
+
+import { withModal, WithModalProps } from '@app/features/common/modal';
+
+import { RESTORE_PASSWORD_MODAL_KEY } from '../organisms/Modal';
 
 export interface WithRestorePasswordModal {
-  openModal: () => void
+  openModal: () => void;
 }
 
 const withRestorePasswordModal = (
@@ -14,6 +16,6 @@ const withRestorePasswordModal = (
       {...props}
       openModal={() => modal.open(RESTORE_PASSWORD_MODAL_KEY)}
     />
-  ))
+  ));
 
-export default withRestorePasswordModal
+export default withRestorePasswordModal;

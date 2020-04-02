@@ -1,15 +1,15 @@
-import cx from 'classnames'
-import * as React from 'react'
+import cx from 'classnames';
+import * as React from 'react';
 
-import Logo from '@app/ui/Logo'
+import Logo from '@app/ui/Logo';
 
-import Legal from '../components/Legal'
-import Menu from '../components/Menu'
-import FooterTheme from '../FooterTheme'
-import * as styles from './SecondaryFooter.css'
+import Legal from '../components/Legal';
+import Menu from '../components/Menu';
+import FooterTheme from '../FooterTheme';
+import * as styles from './SecondaryFooter.css';
 
 interface Props {
-  theme?: FooterTheme
+  theme?: FooterTheme;
 }
 
 const SecondaryFooter = ({ theme = FooterTheme.Default }: Props) => (
@@ -20,6 +20,6 @@ const SecondaryFooter = ({ theme = FooterTheme.Default }: Props) => (
     </div>
     <Legal className={styles.row} />
   </footer>
-)
+);
 
-export default SecondaryFooter
+export default SecondaryFooter;

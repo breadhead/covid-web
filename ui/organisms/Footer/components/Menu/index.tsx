@@ -1,16 +1,16 @@
-import React from 'react'
-import { NavLink } from '@front/ui/nav-link'
+import React from 'react';
 
-import stylesLong from './MenuLong.css'
-import stylesShort from './MenuShort.css'
+import { NavLink } from '@front/ui/nav-link';
 
-import NavIcon from '../NavIcon'
+import stylesLong from './MenuLong.css';
+import stylesShort from './MenuShort.css';
+import NavIcon from '../NavIcon';
 
 const linksShort = [
   { title: 'О проекте', href: '/#about' },
   { title: 'Помочь проекту', href: '/#donation' },
   { title: 'Обратная связь', href: '/contacts' },
-]
+];
 
 const linksLong = [
   { title: 'О проекте', href: '/#about' },
@@ -18,17 +18,17 @@ const linksLong = [
   { title: 'Помочь проекту', href: '#donation' },
   { title: 'Обратная связь', href: '/contacts' },
   { title: 'Эксперты', href: '/experts' },
-]
+];
 
 interface Props {
-  long?: boolean
-  blank?: boolean
+  long?: boolean;
+  blank?: boolean;
 }
 
 const Menu = ({ long, blank = false }: Props) => {
-  const links = !!long ? linksLong : linksShort
+  const links = !!long ? linksLong : linksShort;
 
-  const styles = !!long ? stylesLong : stylesShort
+  const styles = !!long ? stylesLong : stylesShort;
 
   return (
     <nav className={styles.menu}>
@@ -45,7 +45,7 @@ const Menu = ({ long, blank = false }: Props) => {
         </NavLink>
       ))}
     </nav>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;

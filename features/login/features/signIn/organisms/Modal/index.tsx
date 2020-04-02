@@ -1,25 +1,28 @@
-import { InputType } from '@app/features/common/form'
-import Form from '@app/features/common/form/components/Form/Form'
-import Input from '@app/features/common/form/components/Input'
-import OpenModalButton from '@app/features/login/atoms/OpenModalButton'
-import { SPACE } from '@app/lib/config'
-import { Button } from '@front/ui/button'
-import * as React from 'react'
-import { schema } from '../../container'
-import { isClientConsultationUrl } from './config'
-import * as styles from './SignIn.css'
-import OpenRestorePasswordModalButton from '../../../restorePassword/molecules/open-restore-password-modal-button/OpenRestorePasswordModalButton'
+import * as React from 'react';
+
+import { InputType } from '@app/features/common/form';
+import Form from '@app/features/common/form/components/Form/Form';
+import Input from '@app/features/common/form/components/Input';
+import OpenModalButton from '@app/features/login/atoms/OpenModalButton';
+import { SPACE } from '@app/lib/config';
+
+import { Button } from '@front/ui/button';
+
+import { schema } from '../../container';
+import { isClientConsultationUrl } from './config';
+import * as styles from './SignIn.css';
+import OpenRestorePasswordModalButton from '../../../restorePassword/molecules/open-restore-password-modal-button/OpenRestorePasswordModalButton';
 
 interface Props {
-  onFormSubmit: () => Promise<any>
-  error: boolean | string
-  openSignUp: () => void
+  onFormSubmit: () => Promise<any>;
+  error: boolean | string;
+  openSignUp: () => void;
 }
 
 const SignIn = ({ onFormSubmit, openSignUp, error }: Props) => {
   const title = isClientConsultationUrl()
     ? 'Войдите, чтобы увидеть свою заявку'
-    : 'Войти'
+    : 'Войти';
 
   return (
     <article className={styles.popup}>
@@ -57,7 +60,7 @@ const SignIn = ({ onFormSubmit, openSignUp, error }: Props) => {
         )}
       </Form>
     </article>
-  )
-}
+  );
+};
 
-export default SignIn
+export default SignIn;

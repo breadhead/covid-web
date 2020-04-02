@@ -1,1 +1,0 @@
-export { Medicals } from './Medicals'

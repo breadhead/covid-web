@@ -1,16 +1,16 @@
-import escapeStringRegexp from 'escape-string-regexp'
-import { flatten } from 'lodash'
+import escapeStringRegexp from 'escape-string-regexp';
+import { flatten } from 'lodash';
 
 const createDelimiterRegExp = (delimiter: string): RegExp =>
-  new RegExp(`(${escapeStringRegexp(delimiter)})`, 'g')
+  new RegExp(`(${escapeStringRegexp(delimiter)})`, 'g');
 
 export const splitText = (text: string, by: string[]) => {
-  let strings = [text]
+  let strings = [text];
 
   for (const delimiter of by) {
-    const regExp = createDelimiterRegExp(delimiter)
-    strings = flatten(strings.map(s => s.split(regExp)))
+    const regExp = createDelimiterRegExp(delimiter);
+    strings = flatten(strings.map((s) => s.split(regExp)));
   }
 
-  return strings.filter(Boolean)
-}
+  return strings.filter(Boolean);
+};

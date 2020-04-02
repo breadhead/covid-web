@@ -1,8 +1,7 @@
-import * as React from 'react'
-import './TimePicker.css?CSSModulesDisable'
+import * as React from 'react';
+import { TimePicker as AntTimePicker } from 'antd';
 
-import { TimePicker as AntTimePicker } from 'antd'
+import './TimePicker.css?CSSModulesDisable';
+const TimePicker = () => <AntTimePicker className="time-picker" />;
 
-const TimePicker = () => <AntTimePicker className="time-picker" />
-
-export default TimePicker
+export default TimePicker;

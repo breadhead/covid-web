@@ -1,6 +1,6 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import * as styles from './Notification.css'
+import * as styles from './Notification.css';
 
 export const Notification = () => (
   <article className={styles.notification}>
@@ -32,8 +32,6 @@ export const Notification = () => (
         Сервис работает за счет благотворительных пожертвований и является
         абсолютно бесплатным для всех пользователей.
       </p>
-
     </div>
   </article>
-)
-
+);

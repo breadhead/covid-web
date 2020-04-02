@@ -19,7 +19,7 @@ export const symptomsSinceList = [
     id: 'moreThanMonthAgo',
     value: 'Более месяца назад',
   },
-]
+];
 
 export const coughList = [
   {
@@ -30,7 +30,7 @@ export const coughList = [
     id: 'moist',
     value: 'Влажный с мокротой',
   },
-]
+];
 
 export const temperatureList = [
   {
@@ -45,7 +45,7 @@ export const temperatureList = [
     id: '39.5',
     value: 'выше 39.5 градусов',
   },
-]
+];
 
 export const targetList = [
   {
@@ -56,7 +56,7 @@ export const targetList = [
     id: 'other',
     value: 'Для близкого человека',
   },
-]
+];
 
 export const thoraxList = [
   {
@@ -75,7 +75,7 @@ export const thoraxList = [
     id: 'physical-activity',
     value: 'При физической нагрузке',
   },
-]
+];
 
 export const dyspneaList = [
   {
@@ -86,7 +86,7 @@ export const dyspneaList = [
     id: 'physical-activity',
     value: 'При физической нагрузке',
   },
-]
+];
 
 export const symptomsList = [
   {
@@ -145,7 +145,7 @@ export const symptomsList = [
     id: 'abdominal-pain',
     value: 'Боль в животе',
   },
-]
+];
 
 export const deseasesList = [
   {
@@ -165,4 +165,4 @@ export const deseasesList = [
     value:
       'Заболевания дыхательных путей (ХОБЛ, бронхиальная астма, интерстициальные заболеванияя лёгких)',
   },
-]
+];

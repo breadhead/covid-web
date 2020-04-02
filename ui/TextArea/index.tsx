@@ -1,58 +1,59 @@
-import { Input as AntInput } from 'antd'
-import { TextAreaProps } from 'antd/lib/input'
-import cx from 'classnames'
-import * as React from 'react'
-import * as styles from './TextArea.css'
+import { Input as AntInput } from 'antd';
+import { TextAreaProps } from 'antd/lib/input';
+import cx from 'classnames';
+import * as React from 'react';
 
-import './TextArea.css?CSSModulesDisable'
+import * as styles from './TextArea.css';
+
+import './TextArea.css?CSSModulesDisable';
 
 interface RowsNum {
-  minRows: number
-  maxRows: number
+  minRows: number;
+  maxRows: number;
 }
 
 interface OwnProps {
-  className?: string
-  label?: React.ReactNode
-  name: string
-  error?: string
-  autosize?: boolean | RowsNum
-  disableResizeOnEnter?: boolean
-  focused?: boolean
-  setUnfocused?: () => void
+  className?: string;
+  label?: React.ReactNode;
+  name: string;
+  error?: string;
+  autosize?: boolean | RowsNum;
+  disableResizeOnEnter?: boolean;
+  focused?: boolean;
+  setUnfocused?: () => void;
 }
 
-export type Props = OwnProps & TextAreaProps
+export type Props = OwnProps & TextAreaProps;
 
 const onEnterPress = (disableResizeOnEnter: boolean) => (e: any) => {
   if (e.keyCode === 13 && e.shiftKey === false && disableResizeOnEnter) {
-    e.preventDefault()
+    e.preventDefault();
   }
-}
+};
 
 class TextArea extends React.Component<Props> {
-  public static defaultProps = { autosize: true }
-  public inputRef = React.createRef<HTMLDivElement>()
+  public static defaultProps = { autosize: true };
+  public inputRef = React.createRef<HTMLDivElement>();
 
   public state = {
     mount: false,
-  }
+  };
 
   public componentDidMount() {
-    this.setState({ mount: true })
+    this.setState({ mount: true });
   }
 
   public componentDidUpdate(prevProps: Props) {
     if (prevProps.focused !== this.props.focused && this.props.focused) {
-      this.inputRef.current!.focus()
+      this.inputRef.current!.focus();
     }
   }
 
   public onBlur = () => {
     if (!!this.props.setUnfocused) {
-      this.props.setUnfocused()
+      this.props.setUnfocused();
     }
-  }
+  };
 
   public render() {
     const {
@@ -65,8 +66,8 @@ class TextArea extends React.Component<Props> {
       focused,
       setUnfocused,
       ...rest
-    } = this.props
-    const { mount } = this.state
+    } = this.props;
+    const { mount } = this.state;
     return (
       <>
         {label && (
@@ -87,7 +88,7 @@ class TextArea extends React.Component<Props> {
           />
         </div>
       </>
-    )
+    );
   }
 }
-export default TextArea
+export default TextArea;

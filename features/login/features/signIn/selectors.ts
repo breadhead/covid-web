@@ -1,4 +1,4 @@
-import { State } from '@app/lib/store'
+import { State } from '@app/lib/store';
 
 export const getViolateState = (state: State) =>
-  state.login.signIn.authViolateStatus
+  state.login.signIn.authViolateStatus;

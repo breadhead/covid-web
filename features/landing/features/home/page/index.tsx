@@ -1,22 +1,23 @@
-import Head from 'next/head'
-import * as React from 'react'
-import * as styles from './Home.css'
+import Head from 'next/head';
+import * as React from 'react';
 
-import Corporate from '../organisms/Corporate'
-import Donation from '../organisms/Donation'
-import Experts from '../organisms/Experts'
-import { Main } from '../organisms/Main'
-import { useAuthModalByUrl } from './useAuthModalByUrl'
-import { fetchSuccessefulClosedClaimsAction } from '@app/src/domain/landing/actions/fetchSuccessefulClosedClaimsAction'
-import { AppContext } from '@app/lib/server-types'
-import Footer, { FooterTheme, FooterType } from '@app/ui/organisms/Footer'
-import Header from '@app/features/main/layout/organisms/Header'
-import About from '../organisms/Main/components/About'
-import Steps from '../organisms/Main/components/Steps'
-import { Divider } from '@app/src/ui/divider/Divider'
+import Footer, { FooterTheme, FooterType } from '@app/ui/organisms/Footer';
+import Header from '@app/features/main/layout/organisms/Header';
+import { Divider } from '@app/src/ui/divider/Divider';
+import { AppContext } from '@app/lib/server-types';
+import { getPartnersFromSanity } from '@app/features/common/partnerReducer';
+
+import * as styles from './Home.css';
+import Corporate from '../organisms/Corporate';
+import Donation from '../organisms/Donation';
+import Experts from '../organisms/Experts';
+import { Main } from '../organisms/Main';
+import { useAuthModalByUrl } from './useAuthModalByUrl';
+import About from '../organisms/Main/components/About';
+import Steps from '../organisms/Main/components/Steps';
 
 const LandingPage = () => {
-  useAuthModalByUrl()
+  useAuthModalByUrl();
 
   return (
     <>
@@ -45,13 +46,13 @@ const LandingPage = () => {
       </div>
       <Footer type={FooterType.Primary} theme={FooterTheme.Default} />
     </>
-  )
-}
+  );
+};
 
 LandingPage.getInitialProps = async (context: AppContext) => {
-  await context.reduxStore.dispatch(fetchSuccessefulClosedClaimsAction() as any)
+  await context.reduxStore.dispatch(getPartnersFromSanity() as any);
 
-  return {}
-}
+  return {};
+};
 
-export default LandingPage
+export default LandingPage;

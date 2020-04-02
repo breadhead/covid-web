@@ -1,1 +1,0 @@
-export { DetailRating } from './DetailRating'

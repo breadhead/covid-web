@@ -1,35 +1,33 @@
-import ClientLayout from '@app/features/client/organisms/Layout'
-import { FooterTheme } from '@app/ui/organisms/Footer'
-import React from 'react'
-import { Chat } from './Chat'
-import { AskButton } from './components/askButton'
-import { Conclution } from './components/Conclusion'
-import * as styles from './RequestChat.css'
+import React from 'react';
 
+import { FooterTheme } from '@app/ui/organisms/Footer';
+import routes from '@app/routes';
+import { ClientLayout } from '@app/features/common/client-layout';
+
+import { Chat } from './Chat';
+import { AskButton } from './components/askButton';
+import { Conclution } from './components/Conclusion';
+import * as styles from './RequestChat.css';
 import {
   isFormRequestFinished,
   setFormRequestFinished,
   resetRequestFormDraft,
-} from '../request/organisms/RequestForm/localStorage'
-import routes from '@app/routes'
-import { useEmail } from '../../../login/features/signIn/useEmail'
+} from '../request/organisms/RequestForm/localStorage';
 
-const { Router } = routes
+const { Router } = routes;
 
 export const RequestChat = () => {
-  const email = useEmail()
-
-  const formFinished = isFormRequestFinished()
+  const formFinished = isFormRequestFinished();
   if (!formFinished && typeof window !== 'undefined') {
-    Router.pushRoute('/request')
+    Router.pushRoute('/request');
   }
 
   const onRepeatTestClick = () => {
-    setFormRequestFinished(false)
-    resetRequestFormDraft()
+    setFormRequestFinished(false);
+    resetRequestFormDraft();
 
-    Router.pushRoute('/request')
-  }
+    Router.pushRoute('/request');
+  };
 
   return (
     <ClientLayout
@@ -42,17 +40,20 @@ export const RequestChat = () => {
 
         <AskButton>Спросить в чате</AskButton>
         {formFinished ? (
-          <button onClick={onRepeatTestClick} className={styles.repeatTestButton}>
+          <button
+            onClick={onRepeatTestClick}
+            className={styles.repeatTestButton}
+          >
             Пройти тест заново
           </button>
         ) : (
-            <p className={styles.registrationDisclamer}>
-              Потребуется регистрация, чтобы вы могли вернуться к чату в любой
-              момент
-            </p>
-          )}
+          <p className={styles.registrationDisclamer}>
+            Потребуется регистрация, чтобы вы могли вернуться к чату в любой
+            момент
+          </p>
+        )}
       </div>
       <Chat />
     </ClientLayout>
-  )
-}
+  );
+};

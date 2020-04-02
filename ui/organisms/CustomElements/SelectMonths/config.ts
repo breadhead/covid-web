@@ -47,4 +47,4 @@ export const OPTIONS_MONTHS = [
     key: '12',
     label: 'Декабрь',
   },
-]
+];

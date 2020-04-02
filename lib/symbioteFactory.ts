@@ -1,9 +1,9 @@
-import { Action } from 'redux'
-import { createSymbiote, Symbiote } from 'redux-symbiote'
+import { Action } from 'redux';
+import { createSymbiote, Symbiote } from 'redux-symbiote';
 
 export interface FetchingState {
-  fetching: boolean
-  error: boolean | string
+  fetching: boolean;
+  error: boolean | string;
 }
 
 export const createInitialState = <AdditionalState>(state: AdditionalState) =>
@@ -11,11 +11,11 @@ export const createInitialState = <AdditionalState>(state: AdditionalState) =>
     fetching: false,
     error: false,
     ...((state || {}) as object),
-  } as AdditionalState & FetchingState)
+  } as AdditionalState & FetchingState);
 
 export interface FetchingActions {
-  request(): Action
-  error(error: string | boolean): Action
+  request(): Action;
+  error(error: string | boolean): Action;
 }
 
 export const requestSymbiote = <AnyState extends FetchingState>(
@@ -25,7 +25,7 @@ export const requestSymbiote = <AnyState extends FetchingState>(
     ...((state || {}) as object),
     fetching: true,
     error: false,
-  } as AnyState)
+  } as AnyState);
 
 export const errorSymbiote = <AnyState extends FetchingState>(
   state: AnyState,
@@ -35,7 +35,7 @@ export const errorSymbiote = <AnyState extends FetchingState>(
     ...((state || {}) as object),
     error,
     fetching: false,
-  } as AnyState)
+  } as AnyState);
 
 export const createFetchingSymbiote = <
   State extends FetchingState,
@@ -59,4 +59,4 @@ export const createFetchingSymbiote = <
       ...additionalSymbiotes,
     } as any,
     prefix,
-  )
+  );

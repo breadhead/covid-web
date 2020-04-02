@@ -1,22 +1,24 @@
-import * as React from 'react'
-import { Field, FieldRenderProps } from 'react-final-form'
-import { Omit } from 'utility-types'
-import { getShouldValidate } from './helpers/getShouldValidate'
-import { Schema, ValidateCb, validator } from './helpers/validator'
+import * as React from 'react';
+import { Field, FieldRenderProps } from 'react-final-form';
+import { Omit } from 'utility-types';
+
+import { getShouldValidate } from './helpers/getShouldValidate';
+import { ValidateCb, validator } from './helpers/validator';
+import { Schema } from './helpers/validator';
 
 interface OwnProps {
-  name: string
-  type?: string
-  validate?: Schema
-  validateCb?: ValidateCb
-  validateOnBlur?: boolean
+  name: string;
+  type?: string;
+  validate?: Schema;
+  validateCb?: ValidateCb;
+  validateOnBlur?: boolean;
 }
 
-export const FORM_ERROR_CLASSNAME = 'finalFormError'
+export const FORM_ERROR_CLASSNAME = 'finalFormError';
 
-type InputProps = Pick<FieldRenderProps, 'input'>['input']
+type InputProps = Pick<FieldRenderProps, 'input'>['input'];
 
-type WrappedProps = OwnProps & InputProps
+type WrappedProps = OwnProps & InputProps;
 
 const withFinalForm = <T extends WrappedProps>(
   WrappedComponent: React.ComponentType<T>,
@@ -32,7 +34,7 @@ const withFinalForm = <T extends WrappedProps>(
     schema || validateCb
       ? (value: any, values: any) =>
           validator({ value, schema, values, validateCb })
-      : undefined
+      : undefined;
 
   return (
     <Field
@@ -47,11 +49,11 @@ const withFinalForm = <T extends WrappedProps>(
         const shouldValidate = getShouldValidate({
           ...meta,
           eagerValidation: !validateOnBlur,
-        })
+        });
 
         const error = shouldValidate
           ? meta.submitError || meta.error
-          : undefined
+          : undefined;
         return (
           <span className={error ? FORM_ERROR_CLASSNAME : undefined}>
             <WrappedComponent
@@ -62,12 +64,12 @@ const withFinalForm = <T extends WrappedProps>(
               {...rest}
             />
           </span>
-        )
+        );
       }}
     </Field>
-  )
-}
+  );
+};
 
-export default withFinalForm
+export default withFinalForm;
 
-export { Schema }
+export type { Schema };

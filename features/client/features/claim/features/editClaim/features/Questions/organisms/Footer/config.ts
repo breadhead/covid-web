@@ -1,1 +1,0 @@
-export const NARROW_MOBILE_WIDTH = 400

@@ -14,4 +14,4 @@ export const steps = [
     img: '/static/images/2-step.png',
     text: 'Подождите пока эксперт\nответит вам',
   },
-]
+];

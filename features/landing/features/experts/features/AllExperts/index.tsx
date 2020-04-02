@@ -1,9 +1,10 @@
-import Head from 'next/head'
-import * as React from 'react'
-import * as styles from './AllExperts.css'
+import Head from 'next/head';
+import * as React from 'react';
 
-import { MainLayout } from '@app/features/main/layout'
-import ExpertsList from '../../organisms/ExpertsList'
+import { MainLayout } from '@app/features/main/layout';
+
+import * as styles from './AllExperts.css';
+import ExpertsList from '../../organisms/ExpertsList';
 
 const AllExperts = () => (
   <MainLayout className={styles.main}>
@@ -13,6 +14,6 @@ const AllExperts = () => (
     <h1 className={styles.title}>Наши эксперты</h1>
     <ExpertsList />
   </MainLayout>
-)
+);
 
-export default AllExperts
+export default AllExperts;

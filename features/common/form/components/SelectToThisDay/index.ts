@@ -1,1 +1,1 @@
-export { SelectToThisDay } from './SelectToThisDay'
+export { SelectToThisDay } from './SelectToThisDay';

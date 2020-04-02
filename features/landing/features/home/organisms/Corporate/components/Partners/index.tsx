@@ -1,11 +1,11 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import * as styles from './Partners.css'
+import { NON_BREAKING_SPACE } from '@app/lib/config';
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { NavLink } from '@front/ui/nav-link';
 
-import { NavLink } from '@front/ui/nav-link'
-import PartnersList from './components/PartnersList'
+import * as styles from './Partners.css';
+import PartnersList from './components/PartnersList';
 
 const Partners = () => (
   <article className={styles.partners}>
@@ -22,15 +22,18 @@ const Partners = () => (
       закончилась как можно скорее. Для этого мы объединились с
       {NON_BREAKING_SPACE}коллегами-инфекционистами и решили использовать наши
       ресурсы для совместной работы.
-      </p>
+    </p>
     <p className={styles.text}>
-      Мы можем значительно снизить нагрузку на систему здравоохранения при помощи информирования населения по конкретным вопросам. Как минимум — разгрузить службу неотложной помощи, что неизбежно приведет к спасению значительного количества жизней тех, кто действительно в ней нуждается.
-      </p>
+      Мы можем значительно снизить нагрузку на систему здравоохранения при
+      помощи информирования населения по конкретным вопросам. Как минимум —
+      разгрузить службу неотложной помощи, что неизбежно приведет к спасению
+      значительного количества жизней тех, кто действительно в ней нуждается.
+    </p>
     {/* <NavLink className={styles.link} href="/partners">
       Подробнее
     </NavLink> */}
     <PartnersList />
   </article>
-)
+);
 
-export default Partners
+export default Partners;

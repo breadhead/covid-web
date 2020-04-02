@@ -1,8 +1,8 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import * as styles from './About.css'
+import { NON_BREAKING_SPACE } from '@app/lib/config';
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import * as styles from './About.css';
 
 const About = () => (
   <>
@@ -34,6 +34,6 @@ const About = () => (
       </div>
     </section>
   </>
-)
+);
 
-export default About
+export default About;

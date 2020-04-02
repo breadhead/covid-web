@@ -1,7 +1,8 @@
-export { reducer, State } from './reducer'
-export { getQuery } from './selectors'
+export { reducer } from './reducer';
+export type { State } from './reducer';
+export { getQuery } from './selectors';
 
-import { actions } from './reducer'
-const { set } = actions
+import { actions } from './reducer';
+const { set } = actions;
 
-export { set }
+export { set };

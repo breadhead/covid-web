@@ -1,19 +1,19 @@
-import { Action } from 'redux'
+import { Action } from 'redux';
 
 import {
   createFetchingSymbiote,
   createInitialState,
   FetchingActions,
   FetchingState,
-} from '@app/lib/symbioteFactory'
+} from '@app/lib/symbioteFactory';
 
-type State = FetchingState
+type State = FetchingState;
 
 interface Actions extends FetchingActions {
-  success(): Action
+  success(): Action;
 }
 
-const initialState = createInitialState({})
+const initialState = createInitialState({});
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
@@ -23,6 +23,7 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
     fetching: false,
   }),
   'sendFeedback',
-)
+);
 
-export { State, reducer, Actions, actions }
+export { reducer, actions };
+export type { State, Actions };

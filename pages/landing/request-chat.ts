@@ -1,1 +1,1 @@
-export { RequstChatPage as default } from '@app/features/landing'
+export { RequstChatPage as default } from '@app/features/landing';

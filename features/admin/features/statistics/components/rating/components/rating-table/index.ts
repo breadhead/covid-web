@@ -1,1 +1,0 @@
-export { RatingTable } from './RatingTable'

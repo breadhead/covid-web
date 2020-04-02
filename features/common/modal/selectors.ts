@@ -1,3 +1,3 @@
-import { State } from '@app/lib/store'
+import { State } from '@app/lib/store';
 
-export const getModal = (state: State) => state.modal
+export const getModal = (state: State) => state.modal;

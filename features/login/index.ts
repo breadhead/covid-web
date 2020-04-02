@@ -1,16 +1,11 @@
 export {
-  default as SmsConfirmModal,
-  MODAL_KEY as SMS_CONFIRM_MODAL,
-} from './features/confirm'
-
-export {
   default as SignUpModal,
   MODAL_KEY as SIGN_UP_MODAL,
   withSignUpModal,
-  WithSignUpModal,
-} from './features/signUp'
+} from './features/signUp';
+export type { WithSignUpModal } from './features/signUp';
 
-export { getToken } from './features/user'
+export { getToken } from './features/user';
 
 export {
   default as SignInModal,
@@ -19,13 +14,14 @@ export {
   authViolateStatus,
   getViolateState,
   withSignInModal as withLoginModal,
-  WithSignInModal,
-} from './features/signIn'
+} from './features/signIn';
+export type { WithSignInModal } from './features/signIn';
 
-export { State, reducer } from './reducer'
+export { reducer } from './reducer';
+export type { State } from './reducer';
 
-import { actions, getRoles } from './features/user'
+import { actions, getRoles } from './features/user';
 
-const { setToken } = actions
+const { setToken } = actions;
 
-export { setToken, getRoles }
+export { setToken, getRoles };

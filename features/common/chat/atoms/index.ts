@@ -1,1 +1,0 @@
-export { YesChatButton } from './YesChatButton'

@@ -1,20 +1,21 @@
-import * as React from 'react'
-import * as styles from './Header.css'
+import * as React from 'react';
+import { connect } from 'react-redux';
+import { AnyAction, Dispatch } from 'redux';
 
-import { selectToken } from '@app/features/landing/features/home/molecules/StartConsultationButton/selectors'
-import signOut from '@app/features/login/features/signOut'
-import { State } from '@app/lib/store'
-import Logo from '@app/ui/Logo'
-import MediaQuery, { Query } from '@app/ui/MediaQuery'
-import { connect } from 'react-redux'
-import { AnyAction, Dispatch } from 'redux'
-import Menu from './organisms/Menu'
-import { Navigation } from './organisms/Navigation'
-import { OtherPartners } from './organisms/OtherPartners'
+import { selectToken } from '@app/features/landing/features/home/molecules/StartConsultationButton/selectors';
+import signOut from '@app/features/login/features/signOut';
+import { State } from '@app/lib/store';
+import Logo from '@app/ui/Logo';
+import MediaQuery, { Query } from '@app/ui/MediaQuery';
+
+import * as styles from './Header.css';
+import Menu from './organisms/Menu';
+import { Navigation } from './organisms/Navigation';
+import { OtherPartners } from './organisms/OtherPartners';
 
 interface Props {
-  token: string
-  signOutOfApp: () => void
+  token: string;
+  signOutOfApp: () => void;
 }
 
 const Header = ({ token, signOutOfApp }: Props) => {
@@ -37,18 +38,15 @@ const Header = ({ token, signOutOfApp }: Props) => {
         </MediaQuery>
       </header>
     </div>
-  )
-}
+  );
+};
 
 const mapState = (state: State) => ({
   token: selectToken(state),
-})
+});
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   signOutOfApp: () => dispatch(signOut() as any),
-})
+});
 
-export default connect(
-  mapState,
-  mapDispatch,
-)(Header)
+export default connect(mapState, mapDispatch)(Header);

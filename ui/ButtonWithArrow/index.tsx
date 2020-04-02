@@ -1,11 +1,12 @@
-import cx from 'classnames'
-import * as React from 'react'
-import * as styles from './ButtonWithArrow.css'
+import cx from 'classnames';
+import * as React from 'react';
+
+import * as styles from './ButtonWithArrow.css';
 
 export interface ButtonWithArrowProps {
-  children: string
-  className?: string
-  onClick: (e: React.SyntheticEvent<HTMLButtonElement>) => void
+  children: string;
+  className?: string;
+  onClick: (e: React.SyntheticEvent<HTMLButtonElement>) => void;
 }
 
 const ButtonWithArrow: React.SFC<ButtonWithArrowProps> = ({
@@ -22,7 +23,7 @@ const ButtonWithArrow: React.SFC<ButtonWithArrowProps> = ({
     >
       {children} <span className={styles.arrowDown} />
     </button>
-  )
-}
+  );
+};
 
-export default ButtonWithArrow
+export default ButtonWithArrow;

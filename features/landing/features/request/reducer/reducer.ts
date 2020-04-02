@@ -1,23 +1,23 @@
-import { Action } from 'redux'
+import { Action } from 'redux';
 
 import {
   createFetchingSymbiote,
   createInitialState,
   FetchingActions,
   FetchingState,
-} from '@app/lib/symbioteFactory'
+} from '@app/lib/symbioteFactory';
 
 interface State extends FetchingState {
-  requestFormData?: any
+  requestFormData?: any;
 }
 
 interface Actions extends FetchingActions {
-  success(requestFormData: string): Action
+  success(requestFormData: string): Action;
 }
 
 const initialState = createInitialState({
   requestFormData: undefined,
-})
+});
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
@@ -25,9 +25,10 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
     return {
       ...state,
       requestFormData,
-    }
+    };
   },
   'saveRequestForm',
-)
+);
 
-export { State, reducer, Actions, actions }
+export { reducer, actions };
+export type { State, Actions };

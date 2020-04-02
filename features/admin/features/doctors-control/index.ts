@@ -1,1 +1,0 @@
-export { DoctorsControl } from './DoctorsControl'

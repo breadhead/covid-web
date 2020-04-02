@@ -1,17 +1,18 @@
-import { ClearAction, createClearRedux } from 'redux-clear'
+import { ClearAction, createClearRedux } from 'redux-clear';
 
-type State = object
+type State = object;
 
 interface Actions {
-  set: ClearAction<[object]>
+  set: ClearAction<[object]>;
 }
 
 const { actions, reducer } = createClearRedux<State, Actions>(
   {
-    set: () => query => query,
+    set: () => (query) => query,
   },
   {},
   'browser-query',
-)
+);
 
-export { State, reducer, Actions, actions }
+export { reducer, actions };
+export type { State, Actions };

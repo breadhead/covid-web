@@ -1,7 +1,7 @@
-export { ErrorCode } from './erorCodes'
+export { ErrorCode } from './erorCodes';
 
-export { shouldValidateDates } from './shouldValidateDates'
+export { shouldValidateDates } from './shouldValidateDates';
 
-export { validateDates } from './validateDates'
+export { validateDates } from './validateDates';
 
-export { DateInterface } from './types'
+export type { DateInterface } from './types';

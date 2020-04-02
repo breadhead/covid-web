@@ -1,1 +1,1 @@
-export { OtherPartners } from './OtherPartners'
+export { OtherPartners } from './OtherPartners';

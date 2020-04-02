@@ -1,6 +1,5 @@
 const withCSS = require('next-css-unpluggable')
 const withPlugins = require('next-compose-plugins')
-const withTypescript = require('@zeit/next-typescript')
 const withLess = require('@zeit/next-less')
 const withOptimizedImages = require('next-optimized-images')
 const withTM = require('next-transpile-modules')
@@ -30,7 +29,6 @@ module.exports = withPlugins(
         transpileModules: ['query-string'],
       },
     ],
-    [withTypescript],
     [
       withOptimizedImages,
       {

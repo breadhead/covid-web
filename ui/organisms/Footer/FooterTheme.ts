@@ -3,4 +3,4 @@ enum FooterTheme {
   White = 'white',
 }
 
-export default FooterTheme
+export default FooterTheme;

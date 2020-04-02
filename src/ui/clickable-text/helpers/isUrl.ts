@@ -1,31 +1,31 @@
-import { isDate } from './isDate'
-import { isEmail } from './isEmail'
-import { URL_REGEXP, URL_FILE_REGEX } from './URL_REGEXP'
+import { isDate } from './isDate';
+import { isEmail } from './isEmail';
+import { URL_REGEXP, URL_FILE_REGEX } from './URL_REGEXP';
 
 export const isUrl = (text: string): boolean => {
   if (text.startsWith('/preview-image')) {
-    return true
+    return true;
   }
 
   if (isEmail(text)) {
-    return false
+    return false;
   }
 
   if (isDate(text)) {
-    return false
+    return false;
   }
 
-  const regularMatch = text.match(URL_REGEXP)
+  const regularMatch = text.match(URL_REGEXP);
 
   if (regularMatch) {
-    return regularMatch[0] === text
+    return regularMatch[0] === text;
   }
 
-  const zipMatch = text.match(URL_FILE_REGEX)
+  const zipMatch = text.match(URL_FILE_REGEX);
 
   if (zipMatch) {
-    return true
+    return true;
   }
 
-  return false
-}
+  return false;
+};

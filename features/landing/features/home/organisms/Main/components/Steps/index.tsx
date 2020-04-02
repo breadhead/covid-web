@@ -1,8 +1,9 @@
-import * as React from 'react'
-import Link from 'next/link'
+import * as React from 'react';
+import Link from 'next/link';
 
-import * as styles from './Steps.css'
-import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
+import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config';
+
+import * as styles from './Steps.css';
 
 const Steps = () => (
   <div className={styles.wrap}>
@@ -42,6 +43,6 @@ const Steps = () => (
       </article>
     </section>
   </div>
-)
+);
 
-export default Steps
+export default Steps;

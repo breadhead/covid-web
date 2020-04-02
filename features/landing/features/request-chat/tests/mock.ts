@@ -1,4 +1,4 @@
-import { temperatureList } from '../../request/organisms/RequestForm/config'
+import { temperatureList } from '../../request/organisms/RequestForm/config';
 
 export const dataSuccess = {
   target: 'Для себя',
@@ -7,7 +7,7 @@ export const dataSuccess = {
   gender: 'Мужской',
   symptoms: {},
   deseases: {},
-}
+};
 
 export const dataRisk = {
   target: 'Для себя',
@@ -16,7 +16,7 @@ export const dataRisk = {
   gender: 'Мужской',
   symptoms: {},
   deseases: { diabetes: true, cardiovascular: true, COPD: true },
-}
+};
 
 export const dataOncological = {
   target: 'Для себя',
@@ -30,7 +30,7 @@ export const dataOncological = {
     oncological: true,
     COPD: true,
   },
-}
+};
 
 export const withOtherSymptomsAndNoRiskGroup = {
   target: 'Для себя',
@@ -40,7 +40,7 @@ export const withOtherSymptomsAndNoRiskGroup = {
   symptoms: {
     sneezing: true,
   },
-}
+};
 
 export const dataOtherSymptomsAndRisk = {
   target: 'Для себя',
@@ -50,7 +50,7 @@ export const dataOtherSymptomsAndRisk = {
   symptoms: {
     sneezing: true,
   },
-}
+};
 
 export const dataDanger = {
   target: 'Для себя',
@@ -61,7 +61,7 @@ export const dataDanger = {
     temperature: true,
     temperatureType: temperatureList[1].value,
   },
-}
+};
 
 export const dataDanger2 = {
   target: 'Для себя',
@@ -72,7 +72,7 @@ export const dataDanger2 = {
     dyspnea: true,
     temperatureType: temperatureList[0].value,
   },
-}
+};
 
 export const dataDangerMultiple = {
   target: 'Для себя',
@@ -85,7 +85,7 @@ export const dataDangerMultiple = {
     dyspnea: true,
     temperatureType: temperatureList[1].value,
   },
-}
+};
 
 export const dataDangerAndRisk = {
   target: 'Для себя',
@@ -96,8 +96,7 @@ export const dataDangerAndRisk = {
     temperature: true,
     temperatureType: temperatureList[0].value,
   },
-}
-
+};
 
 // export const dataOncological = {
 //   target: 'Для себя',

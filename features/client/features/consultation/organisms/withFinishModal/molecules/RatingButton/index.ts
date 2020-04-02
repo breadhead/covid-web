@@ -1,1 +1,0 @@
-export { RatingButton } from './RatingButton'

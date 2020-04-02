@@ -1,209 +1,193 @@
-import Modal from '@app/features/common/modal'
-import { authViolateStatus, getViolateState } from '@app/features/login'
-import { Store } from '@app/lib/store'
-import withReduxStore from '@app/lib/with-redux-store'
-import bugsnagClient from '@app/pages/bugsnag'
-import '@app/ui/antd-styles.less'
-import { Sprite } from '@front/ui/sprite'
-import getConfig from 'next/config'
-import { Option } from 'tsoption'
+import getConfig from 'next/config';
+import { Option } from 'tsoption';
+import App, { Container } from 'next/app';
+import Head from 'next/head';
+import Router from 'next/router';
+import React, { Component as ReactComponent } from 'react';
+import { Provider } from 'react-redux';
+import { StoreContext } from 'redux-react-hook';
+import { createSizeAction, listenResize } from 'redux-windowsize';
 
-import ErrorComponent from './_error'
+import bugsnagClient from '@app/features/common/bugsnag/bugsnag';
+import withReduxStore from '@app/lib/with-redux-store';
+import { Store } from '@app/lib/store';
+import { authViolateStatus, getViolateState } from '@app/features/login';
+import Modal from '@app/features/common/modal';
+import { Analytics } from '@app/features/common/analytics';
+import { Intercom } from '@app/features/common/intercom';
+import { setToken } from '@app/features/login';
+import NotFound, { getFound } from '@app/features/main/notFound';
+import { canUseDOM } from '@app/lib/helpers/canUseDOM';
+import registerModals from '@app/lib/register-modals';
+import { AppContext } from '@app/lib/server-types';
+import { resetCookie } from '@app/features/login/features/signIn/helpers/setAuthToken';
+import { currentUser, getToken } from '@app/features/login/features/user';
+import { pushRoute } from '@app/features/routing/pushRoute';
+import { updateRequestFormData } from '@app/features/landing/features/request/reducer/actions';
+import { normalizeWantTo } from '@app/src/helpers/normalizeWantTo';
 
-import App, { Container, NextAppContext } from 'next/app'
-import Head from 'next/head'
-import Router from 'next/router'
-import React, { Component as ReactComponent } from 'react'
-import { Provider } from 'react-redux'
-import { StoreContext } from 'redux-react-hook'
-import { createSizeAction, listenResize } from 'redux-windowsize'
+import { Sprite } from '@front/ui/sprite';
 
-import '@app/ui/config.css?CSSModulesDisable'
-import '@front/ui/config.css?CSSModulesDisable'
-
-import { Analytics } from '@app/features/common/analytics'
-import { Intercom } from '@app/features/common/intercom'
-import { set as setQuery } from '@app/features/common/browserQuery'
-import { setToken } from '@app/features/login'
-import NotFound, { getFound } from '@app/features/main/notFound'
-import { canUseDOM } from '@app/lib/helpers/canUseDOM'
-import registerModals from '@app/lib/register-modals'
-import { AppContext } from '@app/lib/server-types'
-
-import { resetCookie } from '@app/features/login/features/signIn/helpers/setAuthToken'
-import { currentUser, getToken } from '@app/features/login/features/user'
-import { pushRoute } from '@app/features/routing/pushRoute'
-import { normalizeWantTo } from './config'
-import { description, keywords } from './SEO'
-import { updateRequestFormData } from "@app/features/landing/features/request/reducer/actions"
+import ErrorComponent from './_error';
+import { description, keywords } from '../features/common/seo/SEO';
+import '@app/ui/antd-styles.less';
+import '@app/ui/config.css?CSSModulesDisable';
+import '@front/ui/config.css?CSSModulesDisable';
 
 interface Props {
-  reduxStore: Store
-  pageProps: any
-  Component: ReactComponent
+  reduxStore: Store;
+  pageProps: any;
+  Component: ReactComponent;
 }
 
 Router.events.on('routeChangeComplete', () => {
-  window.scrollTo(0, 0)
-})
+  window.scrollTo(0, 0);
+});
 
-const ErrorBoundary = bugsnagClient.getPlugin('react')
+const ErrorBoundary = bugsnagClient.getPlugin('react');
 
 class OncohelpWeb extends App<Props> {
-  public static async getInitialProps(context: NextAppContext) {
-    const ctx: AppContext = context.ctx as any
+  public static async getInitialProps(context) {
+    const ctx: AppContext = context.ctx as any;
     if (ctx.req) {
       // eslint-disable-next-line prefer-destructuring
-      const token: string = (ctx.req as any).cookies.token
+      const token: string = (ctx.req as any).cookies.token;
       if (!!token && token.length > 1) {
-        ctx.reduxStore.dispatch(setToken(token))
-        await ctx.reduxStore.dispatch(currentUser() as any) // it's important to dispatch this action after token is set to omit 401 infinite loop
+        ctx.reduxStore.dispatch(setToken(token));
+        await ctx.reduxStore.dispatch(currentUser() as any); // it's important to dispatch this action after token is set to omit 401 infinite loop
       }
     }
 
-    registerModals()
-    const { isSecure } = context.Component as any
-    const loggedIn = (getToken(ctx.reduxStore.getState()) || '').length > 0
+    registerModals();
+    const { isSecure } = context.Component as any;
+    const loggedIn = (getToken(ctx.reduxStore.getState()) || '').length > 0;
 
     if (isSecure && !loggedIn) {
-      const wantTo = normalizeWantTo(context.router.asPath!)
-      await pushRoute('/', Option.of(ctx), { query: { signIn: true, wantTo } })
+      const wantTo = normalizeWantTo(context.router.asPath!);
+      await pushRoute('/', Option.of(ctx), { query: { signIn: true, wantTo } });
     }
 
-    return App.getInitialProps(context)
+    return App.getInitialProps(context);
   }
 
-  public async  componentDidMount() {
-    const authViolate = getViolateState(this.props.reduxStore.getState())
-    await this.props.reduxStore.dispatch(updateRequestFormData() as any)
+  public async componentDidMount() {
+    const authViolate = getViolateState(this.props.reduxStore.getState());
+    await this.props.reduxStore.dispatch(updateRequestFormData() as any);
 
     if (authViolate) {
-      this.props.reduxStore.dispatch(authViolateStatus(false))
-      this.props.reduxStore.dispatch(setToken(''))
-      resetCookie()
+      this.props.reduxStore.dispatch(authViolateStatus(false));
+      this.props.reduxStore.dispatch(setToken(''));
+      resetCookie();
 
-      const wantTo = normalizeWantTo(this.props.router.asPath!)
-      Router.push({ pathname: '/', query: { signIn: true, wantTo } })
-      return
+      const wantTo = normalizeWantTo(this.props.router.asPath!);
+      Router.push({ pathname: '/', query: { signIn: true, wantTo } });
     }
-
-    this.props.reduxStore.dispatch(setQuery(this.props.router.query || {}))
   }
 
   public render() {
-    const { Component, pageProps, reduxStore } = this.props
-    const { publicRuntimeConfig } = getConfig()
+    const { Component, pageProps, reduxStore } = this.props;
+    const { publicRuntimeConfig } = getConfig();
 
-    const authViolate = getViolateState(reduxStore.getState())
-    const notFound = !getFound(reduxStore.getState())
+    const authViolate = getViolateState(reduxStore.getState());
+    const notFound = !getFound(reduxStore.getState());
 
     if (canUseDOM) {
-      reduxStore.dispatch(createSizeAction(window))
-      listenResize(reduxStore, window, 100)
+      reduxStore.dispatch(createSizeAction(window));
+      listenResize(reduxStore, window, 100);
     }
-    return (
-      !authViolate && (
-        <ErrorBoundary FallbackComponent={ErrorComponent}>
-          <Container>
-            <Head>
-              <meta
-                name="viewport"
-                content="width=device-width, initial=scale=1"
-              />
-              <meta name="keywords" content={keywords.join(', ')} />
-              <meta name="description" content={description} />
-              <link rel="canonical" href="https://defeatcovid.ru/" />
-              <link
-                rel="apple-touch-icon"
-                sizes="180x180"
-                href="/static/images/favicons/apple-touch-icon.png"
-              />
-              <link
-                rel="icon"
-                type="image/png"
-                sizes="32x32"
-                href="/static/images/favicons/favicon-32x32.png"
-              />
-              <link
-                rel="icon"
-                type="image/png"
-                sizes="16x16"
-                href="/static/images/favicons/favicon-16x16.png"
-              />
-              <link
-                rel="manifest"
-                href="/static/images/favicons/site.webmanifest"
-              />
-              <link
-                rel="mask-icon"
-                href="/static/images/favicons/safari-pinned-tab.svg"
-                color="#ffc40d"
-              />
-              <meta name="msapplication-TileColor" content="#ffc40d" />
-              <meta name="theme-color" content="#ffffff" />
-              <meta
-                property="og:title"
-                content="Просто спросить | COVID-19"
-              />
-              <meta property="og:site_name" content="https://defeatcovid.ru/" />
-              <meta property="og:url" content="https://defeatcovid.ru/" />
-              <meta
-                property="og:description"
-                content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
-              />
-              <meta property="og:type" content="website" />
-              <meta
-                property="og:image"
-                content={`${
-                  publicRuntimeConfig.siteUrl
-                  }/static/images/covid-image.png`}
-              />
-              <meta
-                property="og:image:secure_url"
-                content={`${
-                  publicRuntimeConfig.siteUrl
-                  }/static/images/covid-image.png`}
-              />
-              <meta property="og:image:type" content="image/jpeg" />
-              <meta property="og:image:width" content="600" />
-              <meta property="og:image:height" content="315" />
-              <meta
-                property="og:image:alt"
-                content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
-              />
-              <meta name="twitter:card" content="summary_large_image" />
-              <meta
-                name="twitter:title"
-                content="Просто спросить | COVID-19"
-              />
-              <meta
-                name="twitter:description"
-                content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
-              />
-              <meta
-                name="twitter:image"
-                content="/static/images/covid-image.png"
-              />
-              <meta
-                name="twitter:image:alt"
-                content="Просто спросить | COVID-19"
-              />
-              <meta property="fb:306467899461959" content="306467899461959" />
-            </Head>
-            <Intercom />
-            <Sprite />
-            <Provider store={reduxStore}>
-              <StoreContext.Provider value={reduxStore}>
-                {notFound ? <NotFound /> : <Component {...pageProps} />}
-                <Modal />
-                <Analytics />
-              </StoreContext.Provider>
-            </Provider>
-          </Container>
-        </ErrorBoundary>
-      )
-    )
+    return !authViolate ? (
+      <ErrorBoundary FallbackComponent={ErrorComponent}>
+        <Container>
+          <Head>
+            <meta
+              name="viewport"
+              content="width=device-width, initial=scale=1"
+            />
+            <meta name="keywords" content={keywords.join(', ')} />
+            <meta name="description" content={description} />
+            <link rel="canonical" href="https://defeatcovid.ru/" />
+            <link
+              rel="apple-touch-icon"
+              sizes="180x180"
+              href="/static/images/favicons/apple-touch-icon.png"
+            />
+            <link
+              rel="icon"
+              type="image/png"
+              sizes="32x32"
+              href="/static/images/favicons/favicon-32x32.png"
+            />
+            <link
+              rel="icon"
+              type="image/png"
+              sizes="16x16"
+              href="/static/images/favicons/favicon-16x16.png"
+            />
+            <link
+              rel="manifest"
+              href="/static/images/favicons/site.webmanifest"
+            />
+            <link
+              rel="mask-icon"
+              href="/static/images/favicons/safari-pinned-tab.svg"
+              color="#ffc40d"
+            />
+            <meta name="msapplication-TileColor" content="#ffc40d" />
+            <meta name="theme-color" content="#ffffff" />
+            <meta property="og:title" content="Просто спросить | COVID-19" />
+            <meta property="og:site_name" content="https://defeatcovid.ru/" />
+            <meta property="og:url" content="https://defeatcovid.ru/" />
+            <meta
+              property="og:description"
+              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+            />
+            <meta property="og:type" content="website" />
+            <meta
+              property="og:image"
+              content={`${publicRuntimeConfig.siteUrl}/static/images/covid-image.png`}
+            />
+            <meta
+              property="og:image:secure_url"
+              content={`${publicRuntimeConfig.siteUrl}/static/images/covid-image.png`}
+            />
+            <meta property="og:image:type" content="image/jpeg" />
+            <meta property="og:image:width" content="600" />
+            <meta property="og:image:height" content="315" />
+            <meta
+              property="og:image:alt"
+              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+            />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Просто спросить | COVID-19" />
+            <meta
+              name="twitter:description"
+              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+            />
+            <meta
+              name="twitter:image"
+              content="/static/images/covid-image.png"
+            />
+            <meta
+              name="twitter:image:alt"
+              content="Просто спросить | COVID-19"
+            />
+            <meta property="fb:306467899461959" content="306467899461959" />
+          </Head>
+          <Intercom />
+          <Sprite />
+          <Provider store={reduxStore}>
+            <StoreContext.Provider value={reduxStore}>
+              {notFound ? <NotFound /> : <Component {...pageProps} />}
+              <Modal />
+              <Analytics />
+            </StoreContext.Provider>
+          </Provider>
+        </Container>
+      </ErrorBoundary>
+    ) : (
+      <div>Загружаем...</div>
+    );
   }
 }
 
-export default withReduxStore(OncohelpWeb)
+export default withReduxStore(OncohelpWeb);

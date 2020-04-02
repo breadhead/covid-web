@@ -1,1 +1,0 @@
-export { AvonSection } from './AvonSection'

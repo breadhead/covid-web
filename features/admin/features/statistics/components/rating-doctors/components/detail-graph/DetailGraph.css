@@ -1,6 +1,0 @@
-.info {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  align-items: flex-start;
-  column-gap: 48px;
-}

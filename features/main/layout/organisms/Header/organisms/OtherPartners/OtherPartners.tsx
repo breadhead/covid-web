@@ -1,17 +1,15 @@
-import * as React from 'react'
-import { NavLink } from '@front/ui/nav-link'
-import * as styles from './OtherPartners.css'
-import cx from 'classnames'
+import * as React from 'react';
+import cx from 'classnames';
+
+import { NavLink } from '@front/ui/nav-link';
+
+import * as styles from './OtherPartners.css';
 
 export const OtherPartners = () => {
   return (
     <div className={styles.otherPartners}>
       <div className={styles.tabLinks}>
-        <div
-          className={cx(styles.tablink, styles.current)}
-        >
-          COVID-19
-        </div>
+        <div className={cx(styles.tablink, styles.current)}>COVID-19</div>
 
         <NavLink
           withoutUnderline
@@ -42,5 +40,5 @@ export const OtherPartners = () => {
         </NavLink>
       </div>
     </div>
-  )
-}
+  );
+};

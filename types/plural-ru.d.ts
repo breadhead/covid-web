@@ -4,5 +4,5 @@ declare module 'plural-ru' {
     first: string,
     second: string,
     third: string = second,
-  ): string
+  ): string;
 }

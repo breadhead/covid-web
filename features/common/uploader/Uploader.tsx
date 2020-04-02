@@ -1,25 +1,26 @@
-import cx from 'classnames'
-import { head } from 'lodash'
-import React, { useCallback, useMemo, useRef, useState } from 'react'
-import { useMappedState } from 'redux-react-hook'
+import cx from 'classnames';
+import { head } from 'lodash';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
+import { useMappedState } from 'redux-react-hook';
 
-import { push } from '@app/features/admin/features/toast'
-import { getToken } from '@app/features/login'
-import factory from '@app/lib/api/apiFactory'
-import { Button, ButtonKind } from '@front/ui/button'
-import { NavLink } from '@front/ui/nav-link'
-import ProgressBar from './atoms/ProgressBar'
-import { displayFileName } from './displayFileName'
-import * as styles from './Uploader.css'
-import { getPreviewLink } from '@app/features/client/features/preview-image'
+import { getToken } from '@app/features/login';
+import factory from '@app/lib/api/apiFactory';
+import { getPreviewLink } from '@app/src/helpers/getPreviewLink';
+
+import { Button, ButtonKind } from '@front/ui/button';
+import { NavLink } from '@front/ui/nav-link';
+
+import ProgressBar from './atoms/ProgressBar';
+import { displayFileName } from './displayFileName';
+import * as styles from './Uploader.css';
 
 interface Props {
-  initialValue?: string
-  onUploaded?: (url: string) => void
-  id?: string
-  remove?: () => void
-  children?: React.ReactNode
-  className?: string
+  initialValue?: string;
+  onUploaded?: (url: string) => void;
+  id?: string;
+  remove?: () => void;
+  children?: React.ReactNode;
+  className?: string;
 }
 
 const Uploader = ({
@@ -30,53 +31,50 @@ const Uploader = ({
   children,
   className,
 }: Props) => {
-  const token = useMappedState(getToken)
-  const api = useMemo(() => factory(token), [token])
+  const token = useMappedState(getToken);
+  const api = useMemo(() => factory(token), [token]);
 
-  const [path, setPath] = useState(initialValue)
-  const [uploading, setUploading] = useState(false)
-  const [precentage, setPercentage] = useState(0)
+  const [path, setPath] = useState(initialValue);
+  const [uploading, setUploading] = useState(false);
+  const [precentage, setPercentage] = useState(0);
 
-  const fileInput = useRef<HTMLInputElement>(null)
+  const fileInput = useRef<HTMLInputElement>(null);
 
-  const onChange = useCallback(
-    async () => {
-      if (!fileInput.current) {
-        return
+  const onChange = useCallback(async () => {
+    if (!fileInput.current) {
+      return;
+    }
+
+    const currentFile = head(fileInput.current.files);
+
+    if (!currentFile) {
+      return;
+    }
+
+    try {
+      setUploading(true);
+      setPercentage(0);
+
+      const { path: newPath } = await api.uploadFile(
+        currentFile,
+        setPercentage,
+      );
+
+      // push({ message: 'Файл загружен' })
+      setPath(newPath);
+
+      if (onUploaded) {
+        onUploaded(newPath);
       }
-
-      const currentFile = head(fileInput.current.files)
-
-      if (!currentFile) {
-        return
-      }
-
-      try {
-        setUploading(true)
-        setPercentage(0)
-
-        const { path: newPath } = await api.uploadFile(
-          currentFile,
-          setPercentage,
-        )
-
-        push({ message: 'Файл загружен' })
-        setPath(newPath)
-
-        if (onUploaded) {
-          onUploaded(newPath)
-        }
-      } catch (e) {
-        push({
+    } catch (e) {
+      /*push({
           message: 'Что-то пошло не так',
           description: 'Попробуйте, пожалуйста, позже',
-        })
-      } finally {
-        setUploading(false)
-      }
-    },
-    [path, fileInput, api],
-  )
+        })*/
+    } finally {
+      setUploading(false);
+    }
+  }, [path, fileInput, api]);
 
   return (
     <div className={cx(styles.container, className)}>
@@ -105,7 +103,7 @@ const Uploader = ({
         </NavLink>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Uploader
+export default Uploader;

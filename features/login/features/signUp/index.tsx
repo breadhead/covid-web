@@ -1,16 +1,12 @@
-import Container from './container'
-import Modal from './organisms/Modal'
+import Container from './container';
+import Modal from './organisms/Modal';
 
-export default Container(Modal)
+export default Container(Modal);
 
-export {
-  State,
-  reducer,
-  Actions,
-  actions,
-  ACCOUNT_EXISTS_STATUS,
-} from './reducer'
+export { reducer, actions, ACCOUNT_EXISTS_STATUS } from './reducer';
+export type { State, Actions } from './reducer';
 
-export { default as withSignUpModal, WithSignUpModal } from './withSignUpModal'
+export { default as withSignUpModal } from './withSignUpModal';
+export type { WithSignUpModal } from './withSignUpModal';
 
-export { MODAL_KEY } from './container'
+export { MODAL_KEY } from './container';

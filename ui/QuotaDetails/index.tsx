@@ -1,11 +1,11 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import styles from './QuotaDetails.css'
+import styles from './QuotaDetails.css';
 
 interface Props {
-  type: string
-  name: string
-  comment: string
+  type: string;
+  name: string;
+  comment: string;
 }
 
 const QuotaDetails = ({ type, name, comment }: Props) => (
@@ -14,6 +14,6 @@ const QuotaDetails = ({ type, name, comment }: Props) => (
     <span>{name}</span>
     <span>({comment})</span>
   </p>
-)
+);
 
-export default QuotaDetails
+export default QuotaDetails;

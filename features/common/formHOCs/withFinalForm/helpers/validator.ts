@@ -1,28 +1,28 @@
-import * as yup from 'yup'
+import * as yup from 'yup';
 
-export type Schema = yup.Schema<any>
+export type Schema = yup.Schema<any>;
 
-export type ValidateCb = (value: any, values: object) => void
+export type ValidateCb = (value: any, values: object) => void;
 interface ValidatorParams {
-  value: any
-  values: any
-  schema?: Schema
-  validateCb?: ValidateCb
+  value: any;
+  values: any;
+  schema?: Schema;
+  validateCb?: ValidateCb;
 }
-export type Validator = (params: ValidatorParams) => undefined | string
+export type Validator = (params: ValidatorParams) => undefined | string;
 
 // eslint-disable-next-line consistent-return
 const validator: Validator = ({ value, values, schema, validateCb }) => {
   try {
     if (schema) {
-      schema.validateSync(value)
+      schema.validateSync(value);
     }
     if (validateCb) {
-      validateCb(value, values)
+      validateCb(value, values);
     }
   } catch (error) {
-    return error.message
+    return error.message;
   }
-}
+};
 
-export { validator }
+export { validator };

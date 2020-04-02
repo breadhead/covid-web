@@ -1,21 +1,21 @@
-import { Role } from '@app/models/Users/User'
-import { Action } from 'redux'
-import { createSymbiote } from 'redux-symbiote'
+import { Action } from 'redux';
+import { createSymbiote } from 'redux-symbiote';
+
+import { Role } from '@app/models/Users/User';
 
 interface State {
-
-  token: string
-  login: string
-  roles: Role[]
-  quotasAvailable: boolean
+  token: string;
+  login: string;
+  roles: Role[];
+  quotasAvailable: boolean;
 }
 
 interface Actions {
-  setToken(token: string): Action
-  setLogin(login: string): Action
+  setToken(token: string): Action;
+  setLogin(login: string): Action;
 
-  setUser(roles: Role[]): Action
-  setQuotasAvailable(available: boolean): Action
+  setUser(roles: Role[]): Action;
+  setQuotasAvailable(available: boolean): Action;
 }
 
 const initialState: State = {
@@ -24,7 +24,7 @@ const initialState: State = {
 
   roles: [],
   quotasAvailable: false,
-}
+};
 
 const { actions, reducer } = createSymbiote<State, Actions>(
   initialState,
@@ -48,6 +48,7 @@ const { actions, reducer } = createSymbiote<State, Actions>(
     }),
   },
   'user',
-)
+);
 
-export { State, reducer, Actions, actions }
+export { reducer, actions };
+export type { State, Actions };

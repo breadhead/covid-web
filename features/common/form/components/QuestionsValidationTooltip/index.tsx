@@ -1,9 +1,10 @@
-import React from 'react'
-import ValidationTooltip from '../ValidationTooltip'
-import * as styles from './QuestionsValidationTooltip.css'
-import { validateCb } from './validateCb'
+import React from 'react';
+
+import ValidationTooltip from '../ValidationTooltip';
+import * as styles from './QuestionsValidationTooltip.css';
+import { validateCb } from './validateCb';
 interface Props {
-  name: string
+  name: string;
 }
 
 const QuestionsValidationTooltip = ({ name }: Props) => (
@@ -13,6 +14,6 @@ const QuestionsValidationTooltip = ({ name }: Props) => (
     validateCb={validateCb}
     className={styles.tooltip}
   />
-)
+);
 
-export default QuestionsValidationTooltip
+export default QuestionsValidationTooltip;

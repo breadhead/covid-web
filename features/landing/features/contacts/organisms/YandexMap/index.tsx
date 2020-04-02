@@ -1,14 +1,14 @@
-import * as React from 'react'
+import * as React from 'react';
+import { Map, Placemark, YMaps } from 'react-yandex-maps';
 
-import * as styles from './YandexMap.css'
+import { NON_BREAKING_SPACE } from '@app/lib/config';
 
-import { Map, Placemark, YMaps } from 'react-yandex-maps'
+import { NavLink } from '@front/ui/nav-link';
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
-import { NavLink } from '@front/ui/nav-link'
+import * as styles from './YandexMap.css';
 
-const LAT = 59.94416343318767
-const LON = 30.28458858355316
+const LAT = 59.94416343318767;
+const LON = 30.28458858355316;
 
 class YandexMap extends React.Component {
   public render() {
@@ -21,7 +21,7 @@ class YandexMap extends React.Component {
             defaultOptions={{ behaviors: [{ scrollZoom: false }] }}
             instanceRef={(ref: any) => {
               if (ref) {
-                ref.behaviors.disable('scrollZoom')
+                ref.behaviors.disable('scrollZoom');
               }
             }}
           >
@@ -56,8 +56,8 @@ class YandexMap extends React.Component {
           </Map>
         </YMaps>
       </div>
-    )
+    );
   }
 }
 
-export default YandexMap
+export default YandexMap;

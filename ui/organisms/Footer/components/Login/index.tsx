@@ -1,13 +1,9 @@
-import * as React from 'react'
-import { Button, ButtonSize, ButtonKind } from '@app/src/ui/button'
-import { NavLink } from '@app/src/ui/nav-link'
-import styles from './Login.css'
+import * as React from 'react';
 
-// import LoginButton from '@app/features/main/layout/organisms/Header/atoms/LoginButton'
+import { Button, ButtonKind } from '@app/src/ui/button';
+import { NavLink } from '@app/src/ui/nav-link';
 
-// interface Props {
-//   showLoginButton: boolean
-// }
+import styles from './Login.css';
 
 const Login = () => (
   <div className={styles.buttons}>
@@ -23,6 +19,6 @@ const Login = () => (
       <Button kind={ButtonKind.Secondary}>Консультация</Button>
     </NavLink>
   </div>
-)
+);
 
-export default Login
+export default Login;

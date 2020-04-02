@@ -1,1 +1,1 @@
-export { RequestChat } from './RequestChat'
+export { RequestChat } from './RequestChat';

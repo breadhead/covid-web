@@ -1,1 +1,1 @@
-declare module 'react-yandex-maps'
+declare module 'react-yandex-maps';

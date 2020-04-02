@@ -1,12 +1,12 @@
-import cx from 'classnames'
-import * as React from 'react'
+import cx from 'classnames';
+import * as React from 'react';
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { NON_BREAKING_SPACE } from '@app/lib/config';
 
-import styles from './Partners.css'
+import styles from './Partners.css';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 const partners = [
@@ -29,7 +29,7 @@ const partners = [
     logo: '/static/images/footer/screen_logo.png',
     href: 'https://nenaprasno.ru/screen',
   },
-]
+];
 
 const Partners = ({ className }: Props) => (
   <div className={cx(styles.middle, className)}>
@@ -46,6 +46,6 @@ const Partners = ({ className }: Props) => (
       </a>
     ))}
   </div>
-)
+);
 
-export default Partners
+export default Partners;

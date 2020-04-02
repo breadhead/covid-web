@@ -1,7 +1,0 @@
-.list {
-  margin-top: 12px;
-}
-
-.list > *:not(:last-child) {
-  margin-bottom: 12px;
-}

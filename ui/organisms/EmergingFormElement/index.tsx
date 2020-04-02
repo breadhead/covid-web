@@ -1,11 +1,11 @@
-import { RadioChangeEvent } from 'antd/lib/radio'
-import cx from 'classnames'
-import * as React from 'react'
+import { RadioChangeEvent } from 'antd/lib/radio';
+import cx from 'classnames';
+import * as React from 'react';
 
-import * as styles from './EmergingFormElement.css'
+import { Toggle } from '@front/ui/toggle';
 
-import { Toggle } from '@front/ui/toggle'
-import RadioGroupElement, { radioButtons } from './RadioGroupElement'
+import * as styles from './EmergingFormElement.css';
+import RadioGroupElement, { radioButtons } from './RadioGroupElement';
 
 export enum ControlTypes {
   Switch = 'Switch',
@@ -13,18 +13,18 @@ export enum ControlTypes {
 }
 
 export interface Props {
-  controlType: string
-  name: string
-  defaultVisible?: boolean
-  defaultValue?: string
-  className?: string
-  children?: React.ReactNode
-  value?: string
-  onChange?: (value?: boolean) => void
+  controlType: string;
+  name: string;
+  defaultVisible?: boolean;
+  defaultValue?: string;
+  className?: string;
+  children?: React.ReactNode;
+  value?: string;
+  onChange?: (value?: boolean) => void;
 }
 
 interface State {
-  isVisible: boolean
+  isVisible: boolean;
 }
 
 class EmergingFormElement extends React.Component<Props, State> {
@@ -33,30 +33,30 @@ class EmergingFormElement extends React.Component<Props, State> {
       return {
         ...state,
         isVisible: props.value,
-      }
+      };
     }
 
-    return state
+    return state;
   }
 
   public state = {
     isVisible: this.props.defaultVisible,
-  } as State
+  } as State;
 
   public switchChangeHandler = () => {
-    const { onChange } = this.props
+    const { onChange } = this.props;
 
-    const isVisible = !this.state.isVisible
+    const isVisible = !this.state.isVisible;
 
-    this.setState({ isVisible }, () => onChange && onChange(isVisible))
-  }
+    this.setState({ isVisible }, () => onChange && onChange(isVisible));
+  };
 
   public radioGroupChangeHandler = (evt: RadioChangeEvent) => {
-    const { onChange } = this.props
-    const { value } = evt.target
-    const isVisible = value === radioButtons[0].value
-    this.setState({ isVisible }, () => onChange && onChange(isVisible))
-  }
+    const { onChange } = this.props;
+    const { value } = evt.target;
+    const isVisible = value === radioButtons[0].value;
+    this.setState({ isVisible }, () => onChange && onChange(isVisible));
+  };
 
   public render() {
     const {
@@ -66,8 +66,8 @@ class EmergingFormElement extends React.Component<Props, State> {
       className,
       defaultVisible,
       ...rest
-    } = this.props
-    const { isVisible } = this.state
+    } = this.props;
+    const { isVisible } = this.state;
 
     return (
       <React.Fragment>
@@ -97,8 +97,8 @@ class EmergingFormElement extends React.Component<Props, State> {
           </div>
         )}
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default EmergingFormElement
+export default EmergingFormElement;

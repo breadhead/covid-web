@@ -1,11 +1,11 @@
-import Router from 'next/router'
-import * as React from 'react'
-import * as styles from './StepPointer.css'
+import Router from 'next/router';
+import * as React from 'react';
+import cx from 'classnames';
 
-import cx from 'classnames'
+import { Icon } from '@front/ui/icon';
+import { IconsList } from '@front/ui/sprite';
 
-import { Icon } from '@front/ui/icon'
-import { IconsList } from '@front/ui/sprite'
+import * as styles from './StepPointer.css';
 
 export enum StepPointerType {
   Empty = 'empty',
@@ -15,34 +15,34 @@ export enum StepPointerType {
 }
 
 export interface StepPointerModel {
-  title: string
-  type: StepPointerType
-  disabled?: boolean
-  onClick?: () => void
-  href?: string
+  title: string;
+  type: StepPointerType;
+  disabled?: boolean;
+  onClick?: () => void;
+  href?: string;
 }
 
 interface Props {
-  index: number
-  step: StepPointerModel
-  className?: string
+  index: number;
+  step: StepPointerModel;
+  className?: string;
 }
 
 const StepPointer = ({ step, index, className }: Props) => {
-  const { type, title, disabled, href = '' } = step
+  const { type, title, disabled, href = '' } = step;
 
   const currentContent =
     type === StepPointerType.Success ? (
       <Icon className={styles.successIcon} name={IconsList.InputValid} />
     ) : (
       index + 1
-    )
+    );
 
   const currentClassName = cx(
     styles.StepPointer,
     styles[type],
     disabled && styles.disabled,
-  )
+  );
 
   return (
     <div className={className}>
@@ -53,14 +53,14 @@ const StepPointer = ({ step, index, className }: Props) => {
         className={currentClassName}
         onClick={() => {
           if (!disabled) {
-            Router.push(href)
+            Router.push(href);
           }
         }}
       >
         {currentContent}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default StepPointer
+export default StepPointer;
