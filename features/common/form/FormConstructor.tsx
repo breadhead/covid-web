@@ -1,12 +1,29 @@
+import { getFormComponent } from '@app/features/common/form/getFormComponent'
 import React from 'react';
 import { Form } from './';
 
 export enum FormComponentType {
-
+  ButtonWithTooltip = 'buttonWithTooltip',
+  Checkbox = 'checkbox',
+  ComboBox = 'comboBox',
+  ComboSearch = 'comboSearch',
+  EmergingFormElement = 'emergingFormElement',
+  Input = 'input',
+  PhoneInput = 'phoneInput',
+  RadioButton = 'radioButton',
+  RadioGroup = 'radioGroup',
+  Select = 'select',
+  SelectMonths = 'selectMonths',
+  SelectYears = 'selectYears',
+  Switch = 'switch',
+  TextArea = 'textArea',
+  Toggle = 'toggle',
+  ValidationTooltip = 'validationTooltip',
 }
 
 export interface FormComponentOptions {
   title: string
+  name: string
   options?: string[]
   type: FormComponentType
   className?: string
@@ -34,7 +51,7 @@ export const FormConstructor = ({ options, onSubmit, saveDraft, initialValues, c
       initialValues={initialValues}
       className={className}
     >
-
+      { options.map(getFormComponent) }
     </Form>
    );
 }
