@@ -119,6 +119,7 @@ export const RequestForm = () => {
         options={formConfig}
         onSubmit={onFormSubmit}
         saveDraft={saveRequestFormDraft()}
+        initialValues={initialFields}
       >
         <Symptoms
           initialFields={!!initialFields && initialFields.symptoms}

@@ -31,7 +31,8 @@ interface LabelOptions {
 export interface FormComponentOptions {
   props?: any[]
   type: FormComponentType
-  label: LabelOptions
+  label?: LabelOptions
+  condition?: (values: any[]) => boolean
 }
 
 interface FormOptions {
@@ -63,9 +64,11 @@ export const FormConstructor = ({
       initialValues={initialValues}
       className={className}
     >
-      {(...args) => (
+      {({ values }) => (
         <>
-          {options.steps.map((step, i) => renderFormComponent(step, i))}
+          {options.steps
+            .filter(({ condition }) => !condition || condition(values))
+            .map((step, i) => renderFormComponent(step, i))}
           {children}
         </>
       )}
