@@ -83,7 +83,7 @@ class OncohelpWeb extends App<Props> {
 
       const wantTo = normalizeWantTo(this.props.router.asPath!)
       Router.push({ pathname: '/', query: { signIn: true, wantTo } })
-      return
+      
     }
 
   }
