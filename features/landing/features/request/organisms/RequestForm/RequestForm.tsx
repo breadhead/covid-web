@@ -56,15 +56,13 @@ export const RequestForm = () => {
   const formConfig = {
     steps: [
       {
-        type: FormComponentType.Label,
-        props: {
-          htmlFor: 'target',
-          text: 'Для кого вы ищете информацию?',
-          className: cx(styles.label, styles.field),
-        },
-      },
-      {
         type: FormComponentType.RadioGroup,
+        label: {
+          text: 'Для кого вы ищете информацию?',
+          props: {
+            className: cx(styles.label, styles.field),
+          },
+        },
         props: {
           validate: schema.target,
           name: 'target',
@@ -81,13 +79,6 @@ export const RequestForm = () => {
           textRegion: 'Регион',
           textCountry: 'Страна, где проходили лечение',
           textSwitch: 'Вы проходили лечение в России?',
-        },
-      },
-      {
-        type: FormComponentType.Label,
-        props: {
-          htmlFor: 'gender',
-          className: cx(styles.label, styles.field),
         },
       },
       {

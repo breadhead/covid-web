@@ -1,4 +1,4 @@
-import { getFormComponent } from '@app/features/common/form/getFormComponent'
+import { renderFormComponent } from '@app/features/common/form/getFormComponent'
 import React from 'react'
 import { Form } from './'
 
@@ -23,9 +23,15 @@ export enum FormComponentType {
   Label = 'label',
 }
 
+interface LabelOptions {
+  text: string
+  props: any[]
+}
+
 export interface FormComponentOptions {
   props?: any[]
   type: FormComponentType
+  label: LabelOptions
 }
 
 interface FormOptions {
@@ -55,7 +61,9 @@ export const FormConstructor = ({
       initialValues={initialValues}
       className={className}
     >
-      {(...args) => options.steps.map(getFormComponent)}
+      {(...args) =>
+        options.steps.map((step, i) => renderFormComponent(step, i))
+      }
     </Form>
   )
 }

@@ -22,7 +22,7 @@ import {
 } from '@app/features/common/form/FormConstructor'
 import Combobox from '@app/ui/Combobox'
 
-export const getFormComponent = ({ type, props }: FormComponentOptions) => {
+const getFormComponent = (type: FormComponentType, props: any[]) => {
   switch (type) {
     case FormComponentType.ButtonWithTooltip:
       return <ButtonWithTooltip {...props} />
@@ -63,4 +63,20 @@ export const getFormComponent = ({ type, props }: FormComponentOptions) => {
     default:
       return <></>
   }
+}
+
+export const renderFormComponent = (
+  { type, label, props }: FormComponentOptions,
+  key: any,
+) => {
+  return (
+    <React.Fragment key={key}>
+      {label &&
+        getFormComponent(FormComponentType.Label, {
+          ...label.props,
+          text: label.text,
+        })}
+      {getFormComponent(type, props)}
+    </React.Fragment>
+  )
 }
