@@ -31,7 +31,7 @@ export const saveRequestFormData = (requestFormData: any) => async (
 
 
 export const updateRequestFormData = () => async (
-  dispatch: Dispatch<any>,
+  _dispatch: Dispatch<any>,
   getState: () => State,
   { getApi }: ExtraArgs,
 ) => {

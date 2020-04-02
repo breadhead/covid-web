@@ -38,4 +38,6 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   },
 )
 
-export { State, reducer, Actions, actions }
+export { reducer, actions }
+export type { State, Actions }
+

@@ -23,11 +23,6 @@ import {
 } from '@app/features/common/modal'
 
 import {
-  reducer as browserQueryReducer,
-  State as BrowserQueryState,
-} from '@app/features/common/browserQuery'
-
-import {
   getToken,
   reducer as loginReducer,
   State as LoginState,
@@ -49,7 +44,6 @@ import factory from './api/apiFactory'
 
 export interface State {
   modal: ModalState
-  browserQuery: BrowserQueryState
   feedback: SendFeedbackState
   notFound: NotFoundState
   login: LoginState
@@ -61,7 +55,6 @@ const reducer = combineReducers({
   login: loginReducer,
   modal: modalReducer,
   [REDUCER_KEY]: windowSize,
-  browserQuery: browserQueryReducer,
   feedback: sendFeedbackReducer,
   notFound: notFoundReducer,
 } as any)

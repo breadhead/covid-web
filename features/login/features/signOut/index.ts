@@ -10,7 +10,7 @@ import { resetUserEmailLocalStorage, getUserEmailLocalStorage } from "../signIn/
 
 
 export default () => (dispatch: Dispatch<any>,
-  getState: () => State,
+  _getState: () => State,
 
 ) => {
   setCookie('')

@@ -11,13 +11,11 @@ import {
   resetRequestFormDraft,
 } from '../request/organisms/RequestForm/localStorage'
 import routes from '@app/routes'
-import { useEmail } from '../../../login/features/signIn/useEmail'
 import { ClientLayout } from '@app/features/common/client-layout'
 
 const { Router } = routes
 
 export const RequestChat = () => {
-  const email = useEmail()
 
   const formFinished = isFormRequestFinished()
   if (!formFinished && typeof window !== 'undefined') {

@@ -12,16 +12,16 @@ import Menu from '../components/Menu'
 import Partners from '../components/Partners'
 import * as styles from './PrimaryFooter.css'
 
-interface Props {
-  token: string
-}
+// interface Props {
+//   token: string
+// }
 
-const PrimaryFooter = ({ token }: Props) => (
+const PrimaryFooter = () => (
   <footer className={styles.footer}>
     <div className={cx(styles.top, styles.row)}>
       <Logo wrapperClassName={styles.logoWrapper} className={styles.logo} />
       <Menu long />
-      <Login showLoginButton={token.length === 0} />
+      <Login />
     </div>
 
     <Partners className={styles.row} />

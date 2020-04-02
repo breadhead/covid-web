@@ -50,4 +50,6 @@ const { actions, reducer } = createSymbiote<State, Actions>(
   'user',
 )
 
-export { State, reducer, Actions, actions }
+export { reducer, actions }
+export type { State, Actions }
+

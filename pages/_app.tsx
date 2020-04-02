@@ -10,7 +10,7 @@ import { Option } from 'tsoption'
 
 import ErrorComponent from './_error'
 
-import App, { Container, NextAppContext } from 'next/app'
+import App, { Container } from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
 import React, { Component as ReactComponent } from 'react'
@@ -23,7 +23,6 @@ import '@front/ui/config.css?CSSModulesDisable'
 
 import { Analytics } from '@app/features/common/analytics'
 import { Intercom } from '@app/features/common/intercom'
-import { set as setQuery } from '@app/features/common/browserQuery'
 import { setToken } from '@app/features/login'
 import NotFound, { getFound } from '@app/features/main/notFound'
 import { canUseDOM } from '@app/lib/helpers/canUseDOM'
@@ -50,7 +49,7 @@ Router.events.on('routeChangeComplete', () => {
 const ErrorBoundary = bugsnagClient.getPlugin('react')
 
 class OncohelpWeb extends App<Props> {
-  public static async getInitialProps(context: NextAppContext) {
+  public static async getInitialProps(context) {
     const ctx: AppContext = context.ctx as any
     if (ctx.req) {
       // eslint-disable-next-line prefer-destructuring
@@ -87,7 +86,6 @@ class OncohelpWeb extends App<Props> {
       return
     }
 
-    this.props.reduxStore.dispatch(setQuery(this.props.router.query || {}))
   }
 
   public render() {
@@ -102,7 +100,7 @@ class OncohelpWeb extends App<Props> {
       listenResize(reduxStore, window, 100)
     }
     return (
-      !authViolate && (
+      !authViolate ? (
         <ErrorBoundary FallbackComponent={ErrorComponent}>
           <Container>
             <Head>
@@ -201,7 +199,7 @@ class OncohelpWeb extends App<Props> {
             </Provider>
           </Container>
         </ErrorBoundary>
-      )
+      ) : <div>Загружаем...</div>
     )
   }
 }

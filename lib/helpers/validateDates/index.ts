@@ -4,4 +4,4 @@ export { shouldValidateDates } from './shouldValidateDates'
 
 export { validateDates } from './validateDates'
 
-export { DateInterface } from './types'
+export type { DateInterface } from './types'

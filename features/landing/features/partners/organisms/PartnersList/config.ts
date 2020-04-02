@@ -81,11 +81,6 @@ const getCurrentPartnersOptions = (currentPartners: Partner[]) => {
 
 const currentPartnersOptions = getCurrentPartnersOptions(partners)
 
-export {
-  Partner,
-  PartnersType,
-  PartnersLabel,
-  partners,
-  currentPartnersOptions,
-  getCurrentPartnersOptions,
-}
+export { PartnersType, PartnersLabel, partners, currentPartnersOptions, getCurrentPartnersOptions }
+export type { Partner }
+

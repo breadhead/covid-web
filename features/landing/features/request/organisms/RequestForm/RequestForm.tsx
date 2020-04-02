@@ -58,7 +58,7 @@ export const RequestForm = () => {
       saveDebounced={saveRequestFormDraft()}
       saveOnBlur={saveRequestFormDraft()}
     >
-      {(...args) => {
+      {() => {
         return (
           <>
             <label htmlFor="target" className={cx(styles.label, styles.field)}>

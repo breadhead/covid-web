@@ -18,4 +18,6 @@ const { actions, reducer } = createClearRedux<State, Actions>(
   'modals',
 )
 
-export { State, reducer, Actions, actions }
+export { reducer, actions }
+export type { State, Actions }
+

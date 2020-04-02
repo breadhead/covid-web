@@ -5,7 +5,7 @@ import { AppContext } from '@app/lib/server-types'
 
 import NextRoutes from '../../routes'
 
-const redirectOnServer = (route: string, context: any, query: object) => {
+const redirectOnServer = (route: string, context: any, query: any) => {
   const sq = stringify(query)
   context.res.writeHead(302, { Location: `${route}?${sq}` })
   context.res.end()

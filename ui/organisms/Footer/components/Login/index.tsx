@@ -1,13 +1,8 @@
 import * as React from 'react'
-import { Button, ButtonSize, ButtonKind } from '@app/src/ui/button'
+import { Button, ButtonKind } from '@app/src/ui/button'
 import { NavLink } from '@app/src/ui/nav-link'
 import styles from './Login.css'
 
-// import LoginButton from '@app/features/main/layout/organisms/Header/atoms/LoginButton'
-
-// interface Props {
-//   showLoginButton: boolean
-// }
 
 const Login = () => (
   <div className={styles.buttons}>

@@ -30,7 +30,7 @@ export const formatFormData = ({ symptoms = {}, deseases = {}, ...rest }) => {
   Object.entries(symptoms).forEach(([key, value]) => {
     if (typeof value === 'object' && !!value) {
       result[key] = Object.entries(value)
-        .filter(([key, value]) => !!value)
+        .filter(([_, value]) => !!value)
         .map(transformValue)
         .join(', ')
     } else if (typeof value === 'boolean') {
