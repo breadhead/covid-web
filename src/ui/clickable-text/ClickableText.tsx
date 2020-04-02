@@ -1,17 +1,17 @@
-import React, { useCallback, useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react';
 
-import { displayFileName } from '@app/features/common/uploader/displayFileName'
+import { displayFileName } from '@app/features/common/uploader/displayFileName';
 
-import { NavLink } from '../nav-link'
-import { findUrls } from './helpers/findUrls'
-import { isUrl } from './helpers/isUrl'
-import { normalizeUrl } from './helpers/normalizeUrl'
-import { splitText } from './helpers/splitText'
+import { NavLink } from '../nav-link';
+import { findUrls } from './helpers/findUrls';
+import { isUrl } from './helpers/isUrl';
+import { normalizeUrl } from './helpers/normalizeUrl';
+import { splitText } from './helpers/splitText';
 
 interface Props {
-  className?: string
-  linkClassName?: string
-  children?: string
+  className?: string;
+  linkClassName?: string;
+  children?: string;
 }
 
 export const ClickableText = ({
@@ -19,18 +19,15 @@ export const ClickableText = ({
   linkClassName,
   children,
 }: Props) => {
-  const pieces = useMemo(
-    () => {
-      if (!children) {
-        return []
-      }
+  const pieces = useMemo(() => {
+    if (!children) {
+      return [];
+    }
 
-      const links = findUrls(children)
+    const links = findUrls(children);
 
-      return splitText(children, links)
-    },
-    [children],
-  )
+    return splitText(children, links);
+  }, [children]);
 
   const renderLink = useCallback(
     (url: string) => (
@@ -39,15 +36,15 @@ export const ClickableText = ({
       </NavLink>
     ),
     [linkClassName],
-  )
+  );
 
   if (!children) {
-    return null
+    return null;
   }
 
   return (
     <p className={className}>
-      {pieces.map(piece => (isUrl(piece) ? renderLink(piece) : piece))}
+      {pieces.map((piece) => (isUrl(piece) ? renderLink(piece) : piece))}
     </p>
-  )
-}
+  );
+};

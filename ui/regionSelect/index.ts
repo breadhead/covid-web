@@ -1,4 +1,4 @@
-import Container from './container'
-import RegionSelect from './organisms/RegionSelect'
+import Container from './container';
+import RegionSelect from './organisms/RegionSelect';
 
-export default Container(RegionSelect)
+export default Container(RegionSelect);

@@ -1,33 +1,35 @@
-import { APP_ID } from '@app/features/common/intercom/config'
-import * as React from 'react'
+import * as React from 'react';
+import { useMappedState } from 'redux-react-hook';
+
+import { APP_ID } from '@app/features/common/intercom/config';
+import { getUserLogin } from '@app/features/login/features/user/selectors';
+import { getUserEmailLocalStorage } from '@app/features/login/features/signIn/userEmailLocalStorage';
+
+import { getCovidSymptoms } from './getConclutionText';
 import {
   getFormattedForm,
   getRequestFormDraft,
-} from '../request/organisms/RequestForm/localStorage'
-import { getCovidSymptoms } from './getConclutionText'
-import { useMappedState } from 'redux-react-hook'
-import { getUserLogin } from '@app/features/login/features/user/selectors'
-import { getUserEmailLocalStorage } from '@app/features/login/features/signIn/userEmailLocalStorage'
+} from '../request/organisms/RequestForm/localStorage';
 
 function getCovid() {
   try {
-    const result = getCovidSymptoms(getRequestFormDraft())
-    return result
+    const result = getCovidSymptoms(getRequestFormDraft());
+    return result;
   } catch (error) {
-    return false
+    return false;
   }
 }
 
 export const Chat = () => {
-  console.log('Chat -> getCovid()', getCovid())
+  console.log('Chat -> getCovid()', getCovid());
 
-  const login = useMappedState(getUserLogin)
+  const login = useMappedState(getUserLogin);
 
-  console.log('Chat -> login', login)
+  console.log('Chat -> login', login);
 
   React.useEffect(() => {
-    const email = getUserEmailLocalStorage()
-    console.log('Chat -> email', email)
+    const email = getUserEmailLocalStorage();
+    console.log('Chat -> email', email);
 
     if (!!email) {
       const result = {
@@ -37,12 +39,12 @@ export const Chat = () => {
         name: `${getCovid() ? '[!]' : ''}${email}`,
         user_id: email,
         ...getFormattedForm(),
-      }
-      ;(window as any).Intercom('boot', result)
+      };
+      (window as any).Intercom('boot', result);
 
-      console.log('Chat -> result', result)
+      console.log('Chat -> result', result);
     }
-  })
+  });
 
-  return <></>
-}
+  return <></>;
+};

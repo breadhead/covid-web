@@ -1,11 +1,13 @@
-import React from 'react'
-import { Icon } from '@front/ui/icon'
-import { IconsList } from '@front/ui/sprite'
-import * as styles from './SectionHeader.css'
+import React from 'react';
+
+import { Icon } from '@front/ui/icon';
+import { IconsList } from '@front/ui/sprite';
+
+import * as styles from './SectionHeader.css';
 
 export interface SectionHeaderProps {
-  index: number
-  onRemoveClick: () => void
+  index: number;
+  onRemoveClick: () => void;
 }
 
 const SectionHeader: React.SFC<SectionHeaderProps> = ({
@@ -14,7 +16,7 @@ const SectionHeader: React.SFC<SectionHeaderProps> = ({
 }) => {
   switch (index) {
     case 0:
-      return null
+      return null;
     case 1:
       return (
         <div className={styles.header}>
@@ -28,7 +30,7 @@ const SectionHeader: React.SFC<SectionHeaderProps> = ({
             <span>Удалить</span>
           </button>
         </div>
-      )
+      );
 
     default:
       return (
@@ -42,8 +44,8 @@ const SectionHeader: React.SFC<SectionHeaderProps> = ({
             <span>Удалить</span>
           </button>
         </div>
-      )
+      );
   }
-}
+};
 
-export default SectionHeader
+export default SectionHeader;

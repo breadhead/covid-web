@@ -1,22 +1,21 @@
-import * as React from 'react'
+import * as React from 'react';
+import Head from 'next/head';
+import cx from 'classnames';
 
-import Head from 'next/head'
+export { default as notFoundMiddleware } from './notFoundMiddleware';
+export { reducer } from './reducer';
+export type { State } from './reducer';
+export { getFound } from './selectors';
 
-import cx from 'classnames'
+import StartConsultationButton from '@app/features/landing/features/home/molecules/StartConsultationButton';
+import { NON_BREAKING_SPACE } from '@app/lib/config';
 
-export { default as notFoundMiddleware } from './notFoundMiddleware'
-export { reducer } from './reducer'
-export type { State } from './reducer'
-export { getFound } from './selectors'
+import { Button, ButtonKind, ButtonSize } from '@front/ui/button';
+import { Icon } from '@front/ui/icon';
+import { NavLink } from '@front/ui/nav-link';
+import { IconsList } from '@front/ui/sprite';
 
-import * as styles from './NotFound.css'
-
-import StartConsultationButton from '@app/features/landing/features/home/molecules/StartConsultationButton'
-import { NON_BREAKING_SPACE } from '@app/lib/config'
-import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
-import { Icon } from '@front/ui/icon'
-import { NavLink } from '@front/ui/nav-link'
-import { IconsList } from '@front/ui/sprite'
+import * as styles from './NotFound.css';
 
 const NotFound = () => (
   <>
@@ -55,6 +54,6 @@ const NotFound = () => (
       </div>
     </div>
   </>
-)
+);
 
-export default NotFound
+export default NotFound;

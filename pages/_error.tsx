@@ -1,28 +1,28 @@
-import bugsnagClient from '@app/pages/bugsnag'
-import React from 'react'
+import React from 'react';
 
-import NotFound from '@app/features/main/notFound'
+import bugsnagClient from '@app/features/common/bugsnag/bugsnag';
+import NotFound from '@app/features/main/notFound';
 
 interface Props {
-  statusCode: number
+  statusCode: number;
 }
 
 export default class Error extends React.Component<Props> {
   public static getInitialProps({ res, err }: any) {
-    const statusCode = res ? res.statusCode : err ? err.statusCode : null
+    const statusCode = res ? res.statusCode : err ? err.statusCode : null;
 
     if (err) {
-      bugsnagClient.notify(err)
+      bugsnagClient.notify(err);
     }
 
-    return { statusCode }
+    return { statusCode };
   }
 
   public render() {
     if (this.props.statusCode === 404) {
-      return <NotFound />
+      return <NotFound />;
     }
 
-    return null
+    return null;
   }
 }

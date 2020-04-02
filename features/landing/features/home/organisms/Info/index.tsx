@@ -1,6 +1,6 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import * as styles from './Info.css'
+import * as styles from './Info.css';
 
 const Info = () => (
   <article className={styles.quote}>
@@ -33,6 +33,6 @@ const Info = () => (
       </div>
     </div>
   </article>
-)
+);
 
-export default Info
+export default Info;

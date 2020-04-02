@@ -1,18 +1,20 @@
-import * as React from 'react'
-import { NavLink } from '@front/ui/nav-link'
-import * as styles from './ArticlesList.css'
+import * as React from 'react';
+
+import { NavLink } from '@front/ui/nav-link';
+
+import * as styles from './ArticlesList.css';
 interface Article {
-  title: string
-  link: string
+  title: string;
+  link: string;
 }
 interface ArticlesListProps {
-  articles: Article[]
+  articles: Article[];
 }
 
 export const ArticlesList = ({ articles }: ArticlesListProps) => {
   return (
     <section className={styles.wrapper}>
-      {articles.map(art => {
+      {articles.map((art) => {
         return (
           <NavLink
             withoutUnderline
@@ -23,8 +25,8 @@ export const ArticlesList = ({ articles }: ArticlesListProps) => {
           >
             <h3 className={styles.title}>{art.title}</h3>
           </NavLink>
-        )
+        );
       })}
     </section>
-  )
-}
+  );
+};

@@ -1,10 +1,10 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import * as styles from './Experts.css'
+import { NavLink } from '@front/ui/nav-link';
 
-import { NavLink } from '@front/ui/nav-link'
-import Photos from './components/Photos'
-import { CovidButtons } from '../Main/components/CovidButtons/CovidButtons'
+import * as styles from './Experts.css';
+import Photos from './components/Photos';
+import { CovidButtons } from '../Main/components/CovidButtons/CovidButtons';
 
 const Experts = () => (
   <div className={styles.wrap}>
@@ -26,6 +26,6 @@ const Experts = () => (
     </div>
     <CovidButtons />
   </div>
-)
+);
 
-export default Experts
+export default Experts;

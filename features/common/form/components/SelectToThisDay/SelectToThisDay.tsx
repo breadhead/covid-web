@@ -1,32 +1,31 @@
-import Checkbox from '@app/ui/Checkbox'
-import cx from 'classnames'
-import React, { useEffect, useState } from 'react'
-import { SelectMonths, SelectYears } from '../..'
-import { FormContext } from '../Form'
-import { getCurrentDate } from './getCurrentDate'
-import styles from './SelectToThisDay.css'
+import cx from 'classnames';
+import React, { useEffect, useState } from 'react';
+
+import Checkbox from '@app/ui/Checkbox';
+
+import { SelectMonths, SelectYears } from '../..';
+import { FormContext } from '../Form';
+import { getCurrentDate } from './getCurrentDate';
+import styles from './SelectToThisDay.css';
 
 interface Props {
-  formContext: FormContext
-  name: string
+  formContext: FormContext;
+  name: string;
 }
 
 export const SelectToThisDay = ({ name, formContext }: Props) => {
-  const [toThisDate, setToThisDate] = useState(false)
+  const [toThisDate, setToThisDate] = useState(false);
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setToThisDate(e.target.checked)
-  }
-  useEffect(
-    () => {
-      if (toThisDate) {
-        formContext.changeField(name, {
-          ...getCurrentDate(),
-          toThisDate,
-        })
-      }
-    },
-    [toThisDate],
-  )
+    setToThisDate(e.target.checked);
+  };
+  useEffect(() => {
+    if (toThisDate) {
+      formContext.changeField(name, {
+        ...getCurrentDate(),
+        toThisDate,
+      });
+    }
+  }, [toThisDate]);
 
   return (
     <>
@@ -52,5 +51,5 @@ export const SelectToThisDay = ({ name, formContext }: Props) => {
         />
       </div>
     </>
-  )
-}
+  );
+};

@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
-import cx from 'classnames'
+import React, { useEffect } from 'react';
+import cx from 'classnames';
 
-import { RadioGroup, Checkbox } from '@app/features/common/form'
+import { RadioGroup, Checkbox } from '@app/features/common/form';
+
 import {
   temperatureList,
   symptomsSinceList,
@@ -9,14 +10,14 @@ import {
   coughList,
   thoraxList,
   dyspneaList,
-} from '../../config'
-import * as styles from '../../RequestForm.css'
-import { requiredSchema } from '../../schema'
+} from '../../config';
+import * as styles from '../../RequestForm.css';
+import { requiredSchema } from '../../schema';
 
 interface SymptomsProps {
-  checked: string[]
-  setCheked: (arr: string[]) => void
-  initialFields?: any
+  checked: string[];
+  setCheked: (arr: string[]) => void;
+  initialFields?: any;
 }
 
 export const Symptoms = ({
@@ -26,30 +27,27 @@ export const Symptoms = ({
 }: SymptomsProps) => {
   const toggleSymptom = (id: string) => {
     if (checked.includes(id)) {
-      setCheked(checked.filter(it => it !== id))
+      setCheked(checked.filter((it) => it !== id));
     } else {
-      setCheked([...checked, id])
+      setCheked([...checked, id]);
     }
-    return null
-  }
+    return null;
+  };
 
-  useEffect(
-    () => {
-      if (!!initialFields) {
-        const checked = Object.entries(initialFields)
-          .map(([k, v]) => {
-            if (!!v) {
-              return k
-            }
-            return null
-          })
-          .filter(it => !!it)
+  useEffect(() => {
+    if (!!initialFields) {
+      const checked = Object.entries(initialFields)
+        .map(([k, v]) => {
+          if (!!v) {
+            return k;
+          }
+          return null;
+        })
+        .filter((it) => !!it);
 
-        setCheked(checked as any)
-      }
-    },
-    [initialFields],
-  )
+      setCheked(checked as any);
+    }
+  }, [initialFields]);
 
   return (
     <>
@@ -57,7 +55,7 @@ export const Symptoms = ({
         Есть ли у вас какие-то из этих симптомов?
       </label>
       <div className={styles.symptomsList}>
-        {symptomsList.map(it => {
+        {symptomsList.map((it) => {
           return (
             <Checkbox
               onClick={() => toggleSymptom(it.id)}
@@ -68,7 +66,7 @@ export const Symptoms = ({
             >
               {it.value}
             </Checkbox>
-          )
+          );
         })}
       </div>
 
@@ -99,7 +97,7 @@ export const Symptoms = ({
           >
             Опишите боль в груди:
           </label>
-          {thoraxList.map(it => {
+          {thoraxList.map((it) => {
             return (
               <Checkbox
                 key={it.id}
@@ -109,7 +107,7 @@ export const Symptoms = ({
               >
                 {it.value}
               </Checkbox>
-            )
+            );
           })}
         </>
       )}
@@ -141,7 +139,7 @@ export const Symptoms = ({
           >
             Какая одышка?
           </label>
-          {dyspneaList.map(it => {
+          {dyspneaList.map((it) => {
             return (
               <Checkbox
                 key={it.id}
@@ -151,7 +149,7 @@ export const Symptoms = ({
               >
                 {it.value}
               </Checkbox>
-            )
+            );
           })}
         </>
       )}
@@ -175,5 +173,5 @@ export const Symptoms = ({
         </>
       )}
     </>
-  )
-}
+  );
+};

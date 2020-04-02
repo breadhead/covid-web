@@ -1,19 +1,19 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import * as styles from './Step.css'
+import * as styles from './Step.css';
 
 export interface Step {
-  img: string
-  index: number
-  text: string
+  img: string;
+  index: number;
+  text: string;
 }
 
 interface StepProps {
-  step: Step
+  step: Step;
 }
 
 const Step = ({ step }: StepProps) => {
-  const { img, text, index } = step
+  const { img, text, index } = step;
   return (
     <article className={styles.step}>
       <img className={styles.img} src={img} alt={text} />
@@ -21,7 +21,7 @@ const Step = ({ step }: StepProps) => {
         {index}. {text}
       </p>
     </article>
-  )
-}
+  );
+};
 
-export default Step
+export default Step;

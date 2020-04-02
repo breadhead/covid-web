@@ -1,11 +1,13 @@
-import { ComboBox, Toggle } from '@app/features/common/form'
-import { mapString } from '@app/ui/Select'
-import cx from 'classnames'
-import * as React from 'react'
-import { Props } from '../../container'
-import { countries } from './countries'
-import { regions } from './regions'
-import localStyles from './RegionSelect.css'
+import cx from 'classnames';
+import * as React from 'react';
+
+import { ComboBox, Toggle } from '@app/features/common/form';
+import { mapString } from '@app/ui/Select';
+
+import { Props } from '../../container';
+import { countries } from './countries';
+import { regions } from './regions';
+import localStyles from './RegionSelect.css';
 
 const RegionSelect = ({
   clientInRussia,
@@ -64,6 +66,6 @@ const RegionSelect = ({
       </>
     )}
   </>
-)
+);
 
-export default RegionSelect
+export default RegionSelect;

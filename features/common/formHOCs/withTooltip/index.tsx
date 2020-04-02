@@ -1,17 +1,18 @@
 /* eslint-disable react/display-name */
-import cx from 'classnames'
-import * as React from 'react'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import * as styles from './index.css'
-import * as transitionStyles from './transitionStyles.css'
+import cx from 'classnames';
+import * as React from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
+import * as styles from './index.css';
+import * as transitionStyles from './transitionStyles.css';
 
 interface OwnProps {
-  error?: string
-  loading?: boolean
-  className?: string
-  innerClassName?: string
+  error?: string;
+  loading?: boolean;
+  className?: string;
+  innerClassName?: string;
 }
-type WrappedComponentProps = Pick<OwnProps, 'error' | 'loading' | 'className'>
+type WrappedComponentProps = Pick<OwnProps, 'error' | 'loading' | 'className'>;
 
 const withTooltip = <T extends {}>(
   WrappedComponent: React.ComponentType<WrappedComponentProps>,
@@ -31,6 +32,6 @@ const withTooltip = <T extends {}>(
       )}
     </TransitionGroup>
   </div>
-)
+);
 
-export default withTooltip
+export default withTooltip;

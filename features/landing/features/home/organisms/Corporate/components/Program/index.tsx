@@ -1,8 +1,8 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import * as styles from './Program.css'
+import { NON_BREAKING_SPACE } from '@app/lib/config';
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import * as styles from './Program.css';
 
 const Program = () => (
   <section className={styles.program}>
@@ -23,6 +23,6 @@ const Program = () => (
       {NON_BREAKING_SPACE}специальному приглашению.
     </p>
   </section>
-)
+);
 
-export default Program
+export default Program;

@@ -1,4 +1,4 @@
-import { Partner } from '@app/models/sanity/Partner'
+import { Partner } from '@app/models/sanity/Partner';
 
 enum PartnersType {
   Donor = 'donor',
@@ -20,12 +20,12 @@ enum PageType {
 }
 
 const getCurrentPartnersOptions = (currentPartners: Partner[]) => {
-  const types = currentPartners.map((partner: Partner) => partner.type)
+  const types = currentPartners.map((partner: Partner) => partner.type);
 
-  const uniqueTypes = Array.from(new Set(types))
-  const uniqueLabels = Array.from(new Set(types))
+  const uniqueTypes = Array.from(new Set(types));
+  const uniqueLabels = Array.from(new Set(types));
 
-  return uniqueTypes.map((type, i) => ({ type, label: uniqueLabels[i] }))
-}
+  return uniqueTypes.map((type, i) => ({ type, label: uniqueLabels[i] }));
+};
 
-export { PartnersType, PartnersLabel, PageType, getCurrentPartnersOptions }
+export { PartnersType, PartnersLabel, PageType, getCurrentPartnersOptions };

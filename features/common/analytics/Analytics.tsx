@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import * as React from 'react'
+import Head from 'next/head';
+import * as React from 'react';
 
-import { GTM_ID } from './config'
+import { GTM_ID } from './config';
 
 export const Analytics = () => (
   <>
@@ -34,4 +34,4 @@ export const Analytics = () => (
       }}
     />
   </>
-)
+);

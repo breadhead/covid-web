@@ -1,15 +1,15 @@
-import { stringify } from 'query-string'
-import { Option } from 'tsoption'
+import { stringify } from 'query-string';
+import { Option } from 'tsoption';
 
-import { AppContext } from '@app/lib/server-types'
+import { AppContext } from '@app/lib/server-types';
 
-import NextRoutes from '../../routes'
+import NextRoutes from '../../routes';
 
 const redirectOnServer = (route: string, context: any, query: any) => {
-  const sq = stringify(query)
-  context.res.writeHead(302, { Location: `${route}?${sq}` })
-  context.res.end()
-}
+  const sq = stringify(query);
+  context.res.writeHead(302, { Location: `${route}?${sq}` });
+  context.res.end();
+};
 
 export const pushRoute = async (
   route: string,
@@ -17,8 +17,8 @@ export const pushRoute = async (
   options: any = {},
 ): Promise<void> => {
   if (context.nonEmpty()) {
-    return redirectOnServer(route, context.get(), options.query)
+    return redirectOnServer(route, context.get(), options.query);
   }
 
-  return NextRoutes.Router.pushRoute(route, options)
-}
+  return NextRoutes.Router.pushRoute(route, options);
+};

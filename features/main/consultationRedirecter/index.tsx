@@ -1,52 +1,52 @@
-import * as React from 'react'
-import { Option } from 'tsoption'
+import * as React from 'react';
+import { Option } from 'tsoption';
 
-import { currentUser } from '@app/features/login/features/user'
-import { pushRoute } from '@app/features/routing/pushRoute'
-import { AppContext } from '@app/lib/server-types'
-import { Role } from '@app/models/Users/User'
+import { currentUser } from '@app/features/login/features/user';
+import { pushRoute } from '@app/features/routing/pushRoute';
+import { AppContext } from '@app/lib/server-types';
+import { Role } from '@app/models/Users/User';
 
 interface Props {
-  roles: Role[]
-  id: string
+  roles: Role[];
+  id: string;
 }
 
 interface Query {
-  id: string
+  id: string;
 }
 
 class ConsultationRedirecter extends React.Component<Props> {
   public static async getInitialProps(ctx: AppContext<Query>) {
-    const { id } = ctx.query
+    const { id } = ctx.query;
 
     try {
-      const { roles } = await ctx.reduxStore.dispatch(currentUser() as any)
+      const { roles } = await ctx.reduxStore.dispatch(currentUser() as any);
 
-      const createUrl = (path: string) => `/${path}/consultation/${id}`
+      const createUrl = (path: string) => `/${path}/consultation/${id}`;
       const redirect = (path: string) =>
-        pushRoute(createUrl(path), Option.of(ctx))
+        pushRoute(createUrl(path), Option.of(ctx));
 
       if (roles.includes(Role.Client)) {
-        redirect('client')
+        redirect('client');
       }
 
       if (roles.includes(Role.CaseManager)) {
-        redirect('manager')
+        redirect('manager');
       }
 
       if (roles.includes(Role.Doctor)) {
-        redirect('doctor')
+        redirect('doctor');
       }
     } catch (e) {
-      pushRoute('/', Option.of(ctx), { query: { signIn: true } })
+      pushRoute('/', Option.of(ctx), { query: { signIn: true } });
     }
 
-    return {}
+    return {};
   }
 
   public render() {
-    return null
+    return null;
   }
 }
 
-export default ConsultationRedirecter
+export default ConsultationRedirecter;

@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import * as React from 'react'
+import Head from 'next/head';
+import * as React from 'react';
 
-import { APP_ID } from './config'
+import { APP_ID } from './config';
 
 export const Intercom = () => (
   <>
@@ -14,4 +14,4 @@ export const Intercom = () => (
       />
     </Head>
   </>
-)
+);

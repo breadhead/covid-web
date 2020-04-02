@@ -1,13 +1,15 @@
-import { Icon } from '@front/ui/icon'
-import { NavLink } from '@front/ui/nav-link'
-import { IconsList } from '@front/ui/sprite'
-import cx from 'classnames'
-import * as React from 'react'
-import styles from './Logo.css'
+import cx from 'classnames';
+import * as React from 'react';
+
+import { Icon } from '@front/ui/icon';
+import { NavLink } from '@front/ui/nav-link';
+import { IconsList } from '@front/ui/sprite';
+
+import styles from './Logo.css';
 
 interface Props {
-  className?: string
-  wrapperClassName?: string
+  className?: string;
+  wrapperClassName?: string;
 }
 
 const Logo = ({ className, wrapperClassName }: Props) => (
@@ -19,6 +21,6 @@ const Logo = ({ className, wrapperClassName }: Props) => (
     <Icon className={cx(styles.logo, className)} name={IconsList.CovidLogo} />
     <Icon className={styles.logoMobile} name={IconsList.CovidLogoMobile} />
   </NavLink>
-)
+);
 
-export default Logo
+export default Logo;

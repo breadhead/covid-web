@@ -1,39 +1,40 @@
+import { Action } from 'redux';
+
 import {
   createFetchingSymbiote,
   createInitialState,
   FetchingActions,
   FetchingState,
-} from '@app/lib/symbioteFactory'
-import { Action } from 'redux'
+} from '@app/lib/symbioteFactory';
 
 export interface SignUpErrorFields {
-  password?: boolean
-  confirm?: boolean
-  login?: boolean
+  password?: boolean;
+  confirm?: boolean;
+  login?: boolean;
 }
 
-export const ACCOUNT_EXISTS_STATUS = 409
+export const ACCOUNT_EXISTS_STATUS = 409;
 
 export interface SignUpError {
-  fields: SignUpErrorFields
-  message: string
-  code?: number
+  fields: SignUpErrorFields;
+  message: string;
+  code?: number;
 }
 
 interface State extends FetchingState {
-  token: string
-  signUpError?: SignUpError
+  token: string;
+  signUpError?: SignUpError;
 }
 
 interface Actions extends FetchingActions {
-  success(token: string): Action
-  signUpError(value?: SignUpError): Action
+  success(token: string): Action;
+  signUpError(value?: SignUpError): Action;
 }
 
 const initialState = createInitialState({
   token: '',
   signUpError: undefined,
-})
+});
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
@@ -50,8 +51,7 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
       signUpError,
     }),
   },
-)
+);
 
-export { reducer, actions }
-export type { State, Actions }
-
+export { reducer, actions };
+export type { State, Actions };

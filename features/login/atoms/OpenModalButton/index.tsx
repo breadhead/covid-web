@@ -1,10 +1,12 @@
-import { Button, ButtonKind } from '@front/ui/button'
-import * as React from 'react'
-import * as styles from './OpenModalButton.css'
+import * as React from 'react';
+
+import { Button, ButtonKind } from '@front/ui/button';
+
+import * as styles from './OpenModalButton.css';
 
 interface Props {
-  onClick: () => void
-  children: string
+  onClick: () => void;
+  children: string;
 }
 
 const OpenModalButton = ({ onClick, children }: Props) => (
@@ -15,6 +17,6 @@ const OpenModalButton = ({ onClick, children }: Props) => (
   >
     {children}
   </Button>
-)
+);
 
-export default OpenModalButton
+export default OpenModalButton;

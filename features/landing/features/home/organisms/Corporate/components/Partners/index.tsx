@@ -1,11 +1,11 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import * as styles from './Partners.css'
+import { NON_BREAKING_SPACE } from '@app/lib/config';
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { NavLink } from '@front/ui/nav-link';
 
-import { NavLink } from '@front/ui/nav-link'
-import PartnersList from './components/PartnersList'
+import * as styles from './Partners.css';
+import PartnersList from './components/PartnersList';
 
 const Partners = () => (
   <article className={styles.partners}>
@@ -34,6 +34,6 @@ const Partners = () => (
     </NavLink> */}
     <PartnersList />
   </article>
-)
+);
 
-export default Partners
+export default Partners;

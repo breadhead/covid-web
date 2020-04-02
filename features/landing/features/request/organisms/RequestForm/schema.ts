@@ -1,6 +1,6 @@
-import * as yup from 'yup'
+import * as yup from 'yup';
 
-const REQUIRED_MESSAGE = 'Обязательное поле'
+const REQUIRED_MESSAGE = 'Обязательное поле';
 
 export const schema = {
   target: yup.string().required(REQUIRED_MESSAGE),
@@ -10,6 +10,6 @@ export const schema = {
     .required(REQUIRED_MESSAGE),
   gender: yup.string().required(REQUIRED_MESSAGE),
   region: yup.string().required(REQUIRED_MESSAGE),
-}
+};
 
-export const requiredSchema = yup.string().required(REQUIRED_MESSAGE)
+export const requiredSchema = yup.string().required(REQUIRED_MESSAGE);

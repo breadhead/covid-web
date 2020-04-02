@@ -1,7 +1,9 @@
-import * as React from 'react'
-import * as styles from './CovidButtons.css'
-import { Button, ButtonSize } from '@app/src/ui/button'
-import { NavLink } from '@app/src/ui/nav-link'
+import * as React from 'react';
+
+import { Button, ButtonSize } from '@app/src/ui/button';
+import { NavLink } from '@app/src/ui/nav-link';
+
+import * as styles from './CovidButtons.css';
 
 export const CovidButtons = () => {
   return (
@@ -32,5 +34,5 @@ export const CovidButtons = () => {
         </Button>
       </NavLink>
     </div>
-  )
-}
+  );
+};

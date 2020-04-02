@@ -1,20 +1,19 @@
-import * as React from 'react'
+import * as React from 'react';
+import { useMappedState } from 'redux-react-hook';
 
-import * as styles from './PartnersList.css'
+import PartnerCard from '@app/features/landing/organisms/PartnerCard';
+import { selectPartnersForMainPage } from '@app/features/common/partnerReducer/selectPartners';
 
-import PartnerCard from '@app/features/landing/organisms/PartnerCard'
+import { NavLink } from '@front/ui/nav-link';
 
-import { NavLink } from '@front/ui/nav-link'
-
-import { useMappedState } from 'redux-react-hook'
-import { selectPartnersForMainPage } from '@app/features/common/partnerReducer/selectPartners'
+import * as styles from './PartnersList.css';
 
 const PartnersList = () => {
-  const partners = useMappedState(selectPartnersForMainPage)
+  const partners = useMappedState(selectPartnersForMainPage);
 
   return (
     <section className={styles.partnersList}>
-      {partners.map(partner => (
+      {partners.map((partner) => (
         <PartnerCard key={partner._id} partner={partner} />
       ))}
       <div className={styles.buttonWrapper}>
@@ -33,7 +32,7 @@ const PartnersList = () => {
         </p>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default PartnersList
+export default PartnersList;

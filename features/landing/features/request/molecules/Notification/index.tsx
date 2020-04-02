@@ -1,6 +1,6 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import * as styles from './Notification.css'
+import * as styles from './Notification.css';
 
 export const Notification = () => (
   <article className={styles.notification}>
@@ -34,4 +34,4 @@ export const Notification = () => (
       </p>
     </div>
   </article>
-)
+);

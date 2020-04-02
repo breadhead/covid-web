@@ -1,9 +1,9 @@
 export function showIntercom() {
   if (typeof window !== 'undefined') {
-    const { pathname } = window.location
+    const { pathname } = window.location;
 
     if (pathname.includes('/request/chat')) {
-      ;(window as any).Intercom('show')
+      (window as any).Intercom('show');
     }
   }
 }

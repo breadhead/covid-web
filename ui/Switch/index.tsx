@@ -1,16 +1,16 @@
-import { Switch as AntSwitch } from 'antd'
-import { SwitchProps } from 'antd/lib/switch'
-import * as React from 'react'
+import { Switch as AntSwitch } from 'antd';
+import { SwitchProps } from 'antd/lib/switch';
+import * as React from 'react';
 
-import './Switch.css?CSSModulesDisable'
+import './Switch.css?CSSModulesDisable';
 
 interface OwnProps {
-  label?: string
-  name: string
-  className?: string
+  label?: string;
+  name: string;
+  className?: string;
 }
 
-export type Props = OwnProps & SwitchProps
+export type Props = OwnProps & SwitchProps;
 
 const Switch = ({ label, name, className, ...rest }: Props) => (
   <>
@@ -22,6 +22,6 @@ const Switch = ({ label, name, className, ...rest }: Props) => (
       {...rest}
     />
   </>
-)
+);
 
-export default Switch
+export default Switch;

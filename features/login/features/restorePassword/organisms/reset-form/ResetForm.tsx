@@ -1,13 +1,16 @@
-import { InputType } from '@app/features/common/form'
-import Form from '@app/features/common/form/components/Form/Form'
-import Input from '@app/features/common/form/components/Input'
-import { Button } from '@front/ui/button'
-import * as React from 'react'
-import * as styles from './ResetForm.css'
-import { schema } from './schema'
+import * as React from 'react';
+
+import { InputType } from '@app/features/common/form';
+import Form from '@app/features/common/form/components/Form/Form';
+import Input from '@app/features/common/form/components/Input';
+
+import { Button } from '@front/ui/button';
+
+import * as styles from './ResetForm.css';
+import { schema } from './schema';
 interface Props {
-  openSignUp: () => void
-  onFormSubmit: () => void
+  openSignUp: () => void;
+  onFormSubmit: () => void;
 }
 
 export const ResetForm = ({ openSignUp, onFormSubmit }: Props) => {
@@ -34,5 +37,5 @@ export const ResetForm = ({ openSignUp, onFormSubmit }: Props) => {
         )}
       </Form>
     </>
-  )
-}
+  );
+};

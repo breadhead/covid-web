@@ -1,5 +1,4 @@
-import withEnchancers from '@app/features/common/formHOCs/withEnchancers'
+import withEnchancers from '@app/features/common/formHOCs/withEnchancers';
+import PhoneInput from '@app/ui/PhoneInput';
 
-import PhoneInput from '@app/ui/PhoneInput'
-
-export default withEnchancers<any, any>()(PhoneInput)
+export default withEnchancers<any, any>()(PhoneInput);

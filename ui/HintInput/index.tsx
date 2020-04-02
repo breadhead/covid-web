@@ -1,1 +1,1 @@
-export { HintInput } from './HintInput'
+export { HintInput } from './HintInput';

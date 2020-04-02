@@ -1,5 +1,6 @@
-import * as React from 'react'
-import { IconsList } from './IconsList'
+import * as React from 'react';
+
+import { IconsList } from './IconsList';
 
 export const IconsSprite = () => (
   <svg
@@ -1252,4 +1253,4 @@ export const IconsSprite = () => (
       </symbol>
     </defs>
   </svg>
-)
+);

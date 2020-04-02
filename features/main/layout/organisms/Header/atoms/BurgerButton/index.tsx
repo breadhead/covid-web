@@ -1,11 +1,12 @@
-import * as React from 'react'
-import * as styles from './BurgerButton.css'
+import * as React from 'react';
 
-import { Icon } from '@front/ui/icon'
-import { IconsList } from '@front/ui/sprite'
+import { Icon } from '@front/ui/icon';
+import { IconsList } from '@front/ui/sprite';
+
+import * as styles from './BurgerButton.css';
 
 export interface Props {
-  show: () => void
+  show: () => void;
 }
 
 const BurgerButton = ({ show }: Props) => (
@@ -13,6 +14,6 @@ const BurgerButton = ({ show }: Props) => (
     открыть меню
     <Icon className={styles.NavIcon} name={IconsList.BurgerMenu} />
   </button>
-)
+);
 
-export default BurgerButton
+export default BurgerButton;

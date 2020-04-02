@@ -1,23 +1,24 @@
-import { size } from 'lodash'
-import { getDateInSeconds } from './getDateInSeconds'
-import { getValidators } from './getValidators'
-import { DateInterface } from './types'
+import { size } from 'lodash';
+
+import { getDateInSeconds } from './getDateInSeconds';
+import { getValidators } from './getValidators';
+import { DateInterface } from './types';
 
 const validateDates = (dates: DateInterface[]) => {
-  let errorMessage
+  let errorMessage;
 
-  const datesInSeconds = dates.map(getDateInSeconds)
+  const datesInSeconds = dates.map(getDateInSeconds);
 
-  getValidators(size(dates)).some(validator => {
-    const errorCode = validator(datesInSeconds)
+  getValidators(size(dates)).some((validator) => {
+    const errorCode = validator(datesInSeconds);
     if (errorCode) {
-      errorMessage = errorCode
-      return true
+      errorMessage = errorCode;
+      return true;
     }
-    return false
-  })
+    return false;
+  });
 
-  return errorMessage
-}
+  return errorMessage;
+};
 
-export { validateDates }
+export { validateDates };

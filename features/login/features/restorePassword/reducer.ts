@@ -1,25 +1,26 @@
+import { Action } from 'redux';
+
 import {
   createFetchingSymbiote,
   createInitialState,
   FetchingActions,
   FetchingState,
-} from '@app/lib/symbioteFactory'
-import { Action } from 'redux'
+} from '@app/lib/symbioteFactory';
 
 interface State extends FetchingState {
-  token: string
-  authViolateStatus?: boolean
+  token: string;
+  authViolateStatus?: boolean;
 }
 
 interface Actions extends FetchingActions {
-  success(token: string): Action
-  authViolateStatus(value: boolean): Action
+  success(token: string): Action;
+  authViolateStatus(value: boolean): Action;
 }
 
 const initialState = createInitialState({
   token: '',
   authViolateStatus: undefined,
-})
+});
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
@@ -36,8 +37,7 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
       authViolateStatus,
     }),
   },
-)
+);
 
-export { reducer, actions }
-export type { State, Actions }
-
+export { reducer, actions };
+export type { State, Actions };
