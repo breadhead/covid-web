@@ -12,7 +12,6 @@ module.exports = function(req, res) {
   switch (type) {
     case 'query':
       return getFromRedis(params)
-        .then(data => JSON.parse(data))
         .then(data => {
           data = JSON.parse(data)
           if (data === null) {
@@ -25,7 +24,7 @@ module.exports = function(req, res) {
           sanityClient
             .fetch(params, {})
             .then(data => {
-              if (typeof data == 'object') {
+              if (typeof data === 'object') {
                 res.json(data)
                 data = JSON.stringify(data)
               }

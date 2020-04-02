@@ -17,7 +17,7 @@ export const getProxyPath = (src: string | '') => {
   const newSrc =
     typeof parsedURL !== 'object' || parsedURL === null
       ? src
-      : '/content/' + parsedURL.query + parsedURL.pathname
+      : `/content/${parsedURL.query}${parsedURL.pathname}`
 
   return getFromConfig('prodUrl') + newSrc
 }

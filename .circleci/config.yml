@@ -197,12 +197,12 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - sanity
       - dev:
           filters:
             branches:
               only:
-                - master
+                - sanity
           requires:
             - push
   deploy-prod:

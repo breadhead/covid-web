@@ -13,6 +13,12 @@ export const logErrorMessage = (message: string) => {
   errorLogger.error(message)
 }
 
+export const displayMessage = (req: any) => {
+  return `url: ${
+    (req.config.url || '').split(req.config.baseURL)[1]
+  }?${qs.stringify(req.config.params)} ==== duration: ${req.duration}ms`
+}
+
 export const useLogger = (axios: AxiosInstance) => {
   axios.interceptors.request.use(
     (config: any) => {
@@ -43,10 +49,4 @@ export const useLogger = (axios: AxiosInstance) => {
       return Promise.reject(error)
     },
   )
-}
-
-export const displayMessage = (req: any) => {
-  return `url: ${
-    (req.config.url || '').split(req.config.baseURL)[1]
-  }?${qs.stringify(req.config.params)} ==== duration: ${req.duration}ms`
 }
