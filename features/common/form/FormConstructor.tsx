@@ -44,6 +44,7 @@ interface Props {
   saveDraft: (data: any) => any
   initialValues?: any
   className?: string
+  children?: React.ReactNode
 }
 
 export const FormConstructor = ({
@@ -52,6 +53,7 @@ export const FormConstructor = ({
   saveDraft,
   initialValues,
   className,
+  children,
 }: Props) => {
   return (
     <Form
@@ -61,9 +63,12 @@ export const FormConstructor = ({
       initialValues={initialValues}
       className={className}
     >
-      {(...args) =>
-        options.steps.map((step, i) => renderFormComponent(step, i))
-      }
+      {(...args) => (
+        <>
+          {options.steps.map((step, i) => renderFormComponent(step, i))}
+          {children}
+        </>
+      )}
     </Form>
   )
 }
