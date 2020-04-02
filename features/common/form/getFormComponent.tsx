@@ -22,44 +22,44 @@ import {
 } from '@app/features/common/form/FormConstructor'
 import Combobox from '@app/ui/Combobox'
 
-export const getFormComponent = ({ type, options }: FormComponentOptions) => {
+export const getFormComponent = ({ type, props }: FormComponentOptions) => {
   switch (type) {
     case FormComponentType.ButtonWithTooltip:
-      return <ButtonWithTooltip {...options} />
+      return <ButtonWithTooltip {...props} />
     case FormComponentType.Checkbox:
-      return <Checkbox {...options} />
+      return <Checkbox {...props} />
     case FormComponentType.ComboBox:
-      return <Combobox {...options} />
+      return <Combobox {...props} />
     case FormComponentType.ComboSearch:
-      return <ComboSearch {...options} />
+      return <ComboSearch {...props} />
     case FormComponentType.EmergingFormElement:
-      return <EmergingFormElement {...options} />
+      return <EmergingFormElement {...props} />
     case FormComponentType.Input:
-      return <Input {...options} />
+      return <Input {...props} />
     case FormComponentType.PhoneInput:
-      return <PhoneInput {...options} />
+      return <PhoneInput {...props} />
     case FormComponentType.RadioButton:
-      return <RadioButton {...options} />
+      return <RadioButton {...props} />
     case FormComponentType.RegionSelect:
-      return <RegionSelect {...options} />
+      return <RegionSelect {...props} />
     case FormComponentType.Select:
-      return <Select {...options} />
+      return <Select {...props} />
     case FormComponentType.SelectMonths:
-      return <SelectMonths {...options} />
+      return <SelectMonths {...props} />
     case FormComponentType.SelectYears:
-      return <SelectYears {...options} />
+      return <SelectYears {...props} />
     case FormComponentType.RadioGroup:
-      return <RadioGroup {...options} />
+      return <RadioGroup {...props} />
     case FormComponentType.Switch:
-      return <Switch {...options} />
+      return <Switch {...props} />
     case FormComponentType.TextArea:
-      return <TextArea {...options} />
+      return <TextArea {...props} />
     case FormComponentType.Toggle:
-      return <Toggle {...options} />
+      return <Toggle {...props} />
     case FormComponentType.ValidationTooltip:
-      return <ValidationTooltip {...options} />
+      return <ValidationTooltip {...props} />
     case FormComponentType.Label:
-      return <label {...options}>options.text</label>
+      return <label {...props}>{props.text}</label>
     default:
       return <></>
   }

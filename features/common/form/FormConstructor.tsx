@@ -24,11 +24,8 @@ export enum FormComponentType {
 }
 
 export interface FormComponentOptions {
-  title: string
-  name: string
-  options?: string[]
+  props?: any[]
   type: FormComponentType
-  className?: string
 }
 
 interface FormOptions {
@@ -58,7 +55,7 @@ export const FormConstructor = ({
       initialValues={initialValues}
       className={className}
     >
-      {options.steps.map(getFormComponent)}
+      {(...args) => options.steps.map(getFormComponent)}
     </Form>
   )
 }

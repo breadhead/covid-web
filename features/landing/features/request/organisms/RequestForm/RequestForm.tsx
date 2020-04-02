@@ -57,36 +57,46 @@ export const RequestForm = () => {
     steps: [
       {
         type: FormComponentType.Label,
-        htmlFor: 'target',
-        text: 'Для кого вы ищете информацию?',
-        className: cx(styles.label, styles.field),
+        props: {
+          htmlFor: 'target',
+          text: 'Для кого вы ищете информацию?',
+          className: cx(styles.label, styles.field),
+        },
       },
       {
         type: FormComponentType.RadioGroup,
-        validate: schema.target,
-        name: 'target',
-        buttons: targetList,
+        props: {
+          validate: schema.target,
+          name: 'target',
+          buttons: targetList,
+        },
       },
       {
         type: FormComponentType.RegionSelect,
-        changeField: () => null,
-        validate: schema.region,
-        name: 'name',
-        styles: styles,
-        textRegion: 'Регион',
-        textCountry: 'Страна, где проходили лечение',
-        textSwitch: 'Вы проходили лечение в России?',
+        props: {
+          changeField: () => null,
+          validate: schema.region,
+          name: 'name',
+          styles: styles,
+          textRegion: 'Регион',
+          textCountry: 'Страна, где проходили лечение',
+          textSwitch: 'Вы проходили лечение в России?',
+        },
       },
       {
         type: FormComponentType.Label,
-        htmlFor: 'gender',
-        className: cx(styles.label, styles.field),
+        props: {
+          htmlFor: 'gender',
+          className: cx(styles.label, styles.field),
+        },
       },
       {
         type: FormComponentType.RadioGroup,
-        validate: schema.gender,
-        name: 'gender',
-        buttons: genderRadioGroup,
+        props: {
+          validate: schema.gender,
+          name: 'gender',
+          buttons: genderRadioGroup,
+        },
       },
     ],
   }
