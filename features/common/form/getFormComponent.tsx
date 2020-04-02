@@ -75,6 +75,7 @@ export const renderFormComponent = (
         getFormComponent(FormComponentType.Label, {
           ...label.props,
           text: label.text,
+          htmlFor: props.name,
         })}
       {getFormComponent(type, props)}
     </React.Fragment>
