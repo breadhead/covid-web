@@ -12,6 +12,8 @@ import Header from '@app/features/main/layout/organisms/Header'
 import About from '../organisms/Main/components/About'
 import Steps from '../organisms/Main/components/Steps'
 import { Divider } from '@app/src/ui/divider/Divider'
+import { AppContext } from '@app/lib/server-types'
+import { getPartnersFromSanity } from '@app/features/common/partnerReducer'
 
 const LandingPage = () => {
   useAuthModalByUrl()
@@ -46,5 +48,10 @@ const LandingPage = () => {
   )
 }
 
+LandingPage.getInitialProps = async (context: AppContext) => {
+  await context.reduxStore.dispatch(getPartnersFromSanity() as any)
+
+  return {}
+}
 
 export default LandingPage

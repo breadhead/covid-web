@@ -50,7 +50,6 @@
   text-align: center;
   position: relative;
 
-
   &::after {
     content: '';
     height: 100px;

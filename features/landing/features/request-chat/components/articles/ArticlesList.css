@@ -9,8 +9,6 @@
   margin-bottom: 24px;
   line-height: 28px;
 
-
-
   &:hover {
     box-shadow: 0 24px 40px 0 rgba(21, 24, 51, 0.16);
     transform: scale(1.02);

@@ -5,26 +5,27 @@ import * as styles from './PartnersList.css'
 import routes from '@app/routes'
 const { Router } = routes
 
-import PartnerCard, {
-  PartnerCardInterface,
-} from '@app/features/landing/organisms/PartnerCard'
+import PartnerCard from '@app/features/landing/organisms/PartnerCard'
 import PartnersRadioGroup from '../../molecules/PartnersRadioGroup'
 
 import { NON_BREAKING_SPACE } from '@app/lib/config'
 import { SelectValue } from 'antd/lib/select'
 import PartnersGroupSelect from '../../molecules/PartnersGroupSelect'
-import { partners, PartnersType } from './config'
+import { PartnersType } from './config'
+import { useMappedState } from 'redux-react-hook'
+import { selectPartnersForPartnerPage } from '@app/features/common/partnerReducer/selectPartners'
+import { Partner } from '@app/models/sanity/Partner'
 
 interface Props {
   type: string
 }
 interface State {
-  list: PartnerCardInterface[]
+  list: Partner[]
   value: string | SelectValue
   scrollPosition: number
 }
 
-const DEFAULT_VALUE = PartnersType.Donor
+const DEFAULT_VALUE = PartnersType.InfrastructurePartner
 
 class PartnersList extends React.Component<Props, State> {
   public static defaultProps = {
@@ -32,12 +33,14 @@ class PartnersList extends React.Component<Props, State> {
   }
 
   public state = {
-    list: partners.filter(partner => partner.type === this.props.type),
+    list: useMappedState(selectPartnersForPartnerPage),
     value: this.props.type,
     scrollPosition: 0,
   }
 
   public onValueChange = (value: string | SelectValue) => {
+    const partners = useMappedState(selectPartnersForPartnerPage)
+
     this.setState({
       list: partners.filter(partner => partner.type === value),
       value,
@@ -79,8 +82,8 @@ class PartnersList extends React.Component<Props, State> {
         <div className={styles.partnersList}>
           {list.map(partner => (
             <PartnerCard
-              key={partner.id}
-              card={partner}
+              key={partner._id}
+              partner={partner}
               className={styles.partnerCard}
             />
           ))}

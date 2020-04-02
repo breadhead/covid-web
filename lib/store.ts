@@ -10,7 +10,6 @@ import windowSize, { REDUCER_KEY } from 'redux-windowsize'
 
 export type Store = ReduxStore<State>
 
-
 import {
   notFoundMiddleware,
   reducer as notFoundReducer,
@@ -39,6 +38,11 @@ import {
   RequestFormReducerState,
 } from '@app/features/landing/features/request/reducer'
 
+import {
+  reducer as PartnersReducer,
+  State as PartnersState,
+} from '@app/features/common/partnerReducer/reducer'
+
 import ApiClient from './api/ApiClient'
 import factory from './api/apiFactory'
 
@@ -48,6 +52,7 @@ export interface State {
   notFound: NotFoundState
   login: LoginState
   requestForm: RequestFormReducerState
+  partners: PartnersState
 }
 
 const reducer = combineReducers({
@@ -57,6 +62,7 @@ const reducer = combineReducers({
   [REDUCER_KEY]: windowSize,
   feedback: sendFeedbackReducer,
   notFound: notFoundReducer,
+  partners: PartnersReducer,
 } as any)
 
 export interface ExtraArgs {

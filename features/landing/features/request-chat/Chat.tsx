@@ -7,7 +7,7 @@ import {
 import { getCovidSymptoms } from './getConclutionText'
 import { useMappedState } from 'redux-react-hook'
 import { getUserLogin } from '@app/features/login/features/user/selectors'
-import { getUserEmailLocalStorage } from "@app/features/login/features/signIn/userEmailLocalStorage"
+import { getUserEmailLocalStorage } from '@app/features/login/features/signIn/userEmailLocalStorage'
 
 function getCovid() {
   try {
@@ -38,7 +38,7 @@ export const Chat = () => {
         user_id: email,
         ...getFormattedForm(),
       }
-        ; (window as any).Intercom('boot', result)
+      ;(window as any).Intercom('boot', result)
 
       console.log('Chat -> result', result)
     }

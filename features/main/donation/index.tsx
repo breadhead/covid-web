@@ -18,7 +18,6 @@ const DonationWidget = () => (
       width="100%"
       scrolling="no"
       frameBorder="0"
-
     />
   </>
 )

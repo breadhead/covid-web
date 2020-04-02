@@ -5,14 +5,12 @@ import { State } from '@app/lib/store'
 import { actions as userActions } from '@app/features/login/features/user'
 import Router from 'next/router'
 import { Dispatch } from 'redux'
-import { resetUserEmailLocalStorage, getUserEmailLocalStorage } from "../signIn/userEmailLocalStorage"
+import {
+  resetUserEmailLocalStorage,
+  getUserEmailLocalStorage,
+} from '../signIn/userEmailLocalStorage'
 
-
-
-export default () => (dispatch: Dispatch<any>,
-  _getState: () => State,
-
-) => {
+export default () => (dispatch: Dispatch<any>, _getState: () => State) => {
   setCookie('')
 
   Router.push('/')
@@ -23,7 +21,7 @@ export default () => (dispatch: Dispatch<any>,
   console.log(getUserEmailLocalStorage())
 
   if ((window as any).Intercom) {
-    ; (window as any).Intercom('shutdown')
+    ;(window as any).Intercom('shutdown')
   }
 
   return dispatch(userActions.setToken(''))

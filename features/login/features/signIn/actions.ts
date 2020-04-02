@@ -7,9 +7,8 @@ import { setCookie } from './helpers/setAuthToken'
 import { actions } from './reducer'
 import { showIntercom } from '../../../landing/features/request-chat/showIntercom'
 
-import { updateRequestFormData } from "@app/features/landing/features/request/reducer/actions"
-import { setUserEmailLocalStorage } from "./userEmailLocalStorage"
-
+import { updateRequestFormData } from '@app/features/landing/features/request/reducer/actions'
+import { setUserEmailLocalStorage } from './userEmailLocalStorage'
 
 export const loginAction = (username: string, password: string) => async (
   dispatch: Dispatch<any>,
@@ -21,9 +20,6 @@ export const loginAction = (username: string, password: string) => async (
     dispatch(actions.request())
     const { token } = await api.login(username, password)
     setUserEmailLocalStorage(username)
-
-
-
 
     setCookie(token)
     dispatch(userActions.setToken(token))

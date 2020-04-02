@@ -4,7 +4,6 @@ import { flattenDepth } from 'lodash'
 
 const symptomIds = flattenDepth(Object.values(symptomsMap), 1)
 
-
 const getValueFromId = (id, array) => {
   const result = array.find(item => item.id === id)
 
@@ -18,7 +17,6 @@ const transformValue = ([key, value]) => {
   }
   return value
 }
-
 
 export const formatFormData = ({ symptoms = {}, deseases = {}, ...rest }) => {
   if (isEmpty(rest)) return {}
@@ -51,5 +49,3 @@ export const formatFormData = ({ symptoms = {}, deseases = {}, ...rest }) => {
 
   return result
 }
-
-

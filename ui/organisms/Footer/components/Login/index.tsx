@@ -3,7 +3,6 @@ import { Button, ButtonKind } from '@app/src/ui/button'
 import { NavLink } from '@app/src/ui/nav-link'
 import styles from './Login.css'
 
-
 const Login = () => (
   <div className={styles.buttons}>
     <NavLink

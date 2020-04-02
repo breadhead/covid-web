@@ -1,13 +1,14 @@
-import { User } from '@app/models/Users/User';
+import { User } from '@app/models/Users/User'
+import { Partner } from '@app/models/sanity/Partner'
 
 export interface UploadedFile {
   path: string
 }
 
 export default interface ApiClient {
-  token: string  
+  token: string
   login(login: string, password: string): Promise<User>
-  signUp(login: string, password: string, confirm: string): Promise<User>  
+  signUp(login: string, password: string, confirm: string): Promise<User>
   currentUser(): Promise<User>
   sendFeedback(feedbackFields: any): Promise<any>
   uploadFile(
@@ -19,4 +20,5 @@ export default interface ApiClient {
   searchClinicByRegion(region: string, name: string): Promise<string[]>
   saveCoronaRequestForm(data: any): Promise<any>
   updateCoronaRequestForm(data: any): Promise<any>
+  getPartners(): Promise<Partner[]>
 }

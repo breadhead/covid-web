@@ -1,11 +1,11 @@
 import axios, { AxiosInstance } from 'axios'
 
-
 import ApiClient, { UploadedFile } from './ApiClient'
 import { queryString } from './helper/queryString'
 import { SendFeedbackRequest } from './request/SendFeedback'
 import { User } from '@app/models/Users/User'
 
+const { sanityClient } = require('@app/lib/sanity-client')
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance
@@ -45,7 +45,6 @@ export default class RealApiClient implements ApiClient {
     this.axiosInstance
       .post('/feedback/send', feedback)
       .then(response => response.data as SendFeedbackRequest)
-
 
   public set token(newToken: string) {
     this._token = newToken
@@ -92,7 +91,9 @@ export default class RealApiClient implements ApiClient {
       .then(res => res.data as any)
 
   public updateCoronaRequestForm = (data: any) =>
-    this.axiosInstance
-      .post('/form/update', data)
-      .then(res => res.data as any)
+    this.axiosInstance.post('/form/update', data).then(res => res.data as any)
+
+  public getPartners = () => {
+    return sanityClient.fetch(`*[_type == "partner"]`, { active: true })
+  }
 }

@@ -34,4 +34,3 @@ export const ClientLayout = ({
     <Footer theme={footerTheme} type={FooterType.Secondary} />
   </>
 )
-

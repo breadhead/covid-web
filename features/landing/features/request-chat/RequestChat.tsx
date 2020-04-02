@@ -16,7 +16,6 @@ import { ClientLayout } from '@app/features/common/client-layout'
 const { Router } = routes
 
 export const RequestChat = () => {
-
   const formFinished = isFormRequestFinished()
   if (!formFinished && typeof window !== 'undefined') {
     Router.pushRoute('/request')
@@ -40,15 +39,18 @@ export const RequestChat = () => {
 
         <AskButton>Спросить в чате</AskButton>
         {formFinished ? (
-          <button onClick={onRepeatTestClick} className={styles.repeatTestButton}>
+          <button
+            onClick={onRepeatTestClick}
+            className={styles.repeatTestButton}
+          >
             Пройти тест заново
           </button>
         ) : (
-            <p className={styles.registrationDisclamer}>
-              Потребуется регистрация, чтобы вы могли вернуться к чату в любой
-              момент
-            </p>
-          )}
+          <p className={styles.registrationDisclamer}>
+            Потребуется регистрация, чтобы вы могли вернуться к чату в любой
+            момент
+          </p>
+        )}
       </div>
       <Chat />
     </ClientLayout>

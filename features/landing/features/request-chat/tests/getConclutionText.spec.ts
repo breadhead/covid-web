@@ -52,7 +52,7 @@ describe('getConclutionText', () => {
 
     expect(res).toMatchObject({
       text: content.WITH_OTHER_SYMPTOMS,
-      articles: content.WITH_OTHER_SYMPTOMS_LINKS
+      articles: content.WITH_OTHER_SYMPTOMS_LINKS,
     })
   })
 
