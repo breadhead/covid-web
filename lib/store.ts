@@ -39,6 +39,11 @@ import {
 } from '@app/features/landing/features/request/reducer'
 
 import {
+  reducer as browserQueryReducer,
+  State as BrowserQueryState,
+} from '@app/features/common/browserQuery'
+
+import {
   reducer as PartnersReducer,
   State as PartnersState,
 } from '@app/features/common/partnerReducer/reducer'
@@ -47,6 +52,7 @@ import ApiClient from './api/ApiClient'
 import factory from './api/apiFactory'
 
 export interface State {
+  browserQuery: BrowserQueryState
   modal: ModalState
   feedback: SendFeedbackState
   notFound: NotFoundState
@@ -56,6 +62,7 @@ export interface State {
 }
 
 const reducer = combineReducers({
+  browserQuery: browserQueryReducer,
   requestForm: requestFormReducer,
   login: loginReducer,
   modal: modalReducer,

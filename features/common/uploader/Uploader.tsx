@@ -11,7 +11,6 @@ import ProgressBar from './atoms/ProgressBar'
 import { displayFileName } from './displayFileName'
 import * as styles from './Uploader.css'
 import { getPreviewLink } from '@app/src/helpers/getPreviewLink'
-import { push } from '@app/features/admin/features/toast'
 
 interface Props {
   initialValue?: string
@@ -60,17 +59,17 @@ const Uploader = ({
           setPercentage,
         )
 
-        push({ message: 'Файл загружен' })
+       // push({ message: 'Файл загружен' })
         setPath(newPath)
 
         if (onUploaded) {
           onUploaded(newPath)
         }
       } catch (e) {
-        push({
+        /*push({
           message: 'Что-то пошло не так',
           description: 'Попробуйте, пожалуйста, позже',
-        })
+        })*/
       } finally {
         setUploading(false)
       }

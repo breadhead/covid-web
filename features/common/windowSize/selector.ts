@@ -17,4 +17,4 @@ const getWindowSize = createSelector<any, any, any, WindowSize>(
 
 export default getWindowSize
 
-export { WindowSize }
+export type { WindowSize }
