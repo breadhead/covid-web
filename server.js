@@ -18,7 +18,7 @@ app.prepare().then(() => {
   server.use(cookieParser())
   server.use(handler)
 
-  server.get('/sanity/:type/:params?', apiProxy)
+  server.get('/api/:type/:params?', apiProxy)
 
   server.get('*', (req, res) => {
     app.render(req, res, req.path, req.query)
