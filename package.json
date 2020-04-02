@@ -1,5 +1,5 @@
 {
-  "name": "oncohelp-web",
+  "name": "covid-web",
   "version": "1.0.0",
   "scripts": {
     "dev": "node server.js",
@@ -143,8 +143,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn soda lint-staged",
-      "commit-msg": "yarn soda commitlint"
+      "pre-commit": "yarn soda lint --fix"
     }
   },
   "publishConfig": {
