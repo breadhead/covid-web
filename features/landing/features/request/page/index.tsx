@@ -1,27 +1,26 @@
-import * as React from 'react'
+import * as React from 'react';
+import Head from 'next/head';
 
-import { MainLayout } from '@app/features/main/layout'
-import Head from 'next/head'
-import * as styles from './Request.css'
+import { MainLayout } from '@app/features/main/layout';
+import { AppContext } from '@app/lib/server-types';
 
-import { AppContext } from '@app/lib/server-types'
-
-import { Notification } from '../molecules/Notification'
-import { RequestForm } from '../organisms/RequestForm'
+import * as styles from './Request.css';
+import { Notification } from '../molecules/Notification';
+import { RequestForm } from '../organisms/RequestForm';
 
 interface Props {
-  id: string
+  id: string;
 }
 
 interface Query {
-  id: string
+  id: string;
 }
 
 class RequstPage extends React.Component<Props> {
   public static getInitialProps({ query }: AppContext<Query>) {
-    const { id } = query
+    const { id } = query;
 
-    return { id }
+    return { id };
   }
 
   public render() {
@@ -35,8 +34,8 @@ class RequstPage extends React.Component<Props> {
         <Notification />
         <RequestForm />
       </MainLayout>
-    )
+    );
   }
 }
 
-export default RequstPage
+export default RequstPage;

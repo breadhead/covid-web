@@ -1,16 +1,16 @@
-import { Action } from 'redux'
-import { createSymbiote } from 'redux-symbiote'
+import { Action } from 'redux';
+import { createSymbiote } from 'redux-symbiote';
 
 export interface State {
-  found: boolean
+  found: boolean;
 }
 
 const initial = {
   found: true,
-}
+};
 
 interface Actions {
-  set: (found: boolean) => Action
+  set: (found: boolean) => Action;
 }
 
 export const { actions, reducer } = createSymbiote<State, Actions>(
@@ -22,4 +22,4 @@ export const { actions, reducer } = createSymbiote<State, Actions>(
     }),
   },
   'not-found-state',
-)
+);

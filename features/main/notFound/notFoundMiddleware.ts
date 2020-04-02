@@ -1,17 +1,18 @@
-import { createErrorMiddleware } from '@breadhead/thunk-error'
+import { createErrorMiddleware } from '@breadhead/thunk-error';
 
-import { canUseDOM } from '@app/lib/helpers/canUseDOM'
-import { actions } from './reducer'
+import { canUseDOM } from '@app/lib/helpers/canUseDOM';
+
+import { actions } from './reducer';
 
 export default createErrorMiddleware(
-  err => err && err.response && err.response.status === 404,
+  (err) => err && err.response && err.response.status === 404,
   () => {
     if (!canUseDOM) {
-      const e: any = new Error('Response not found')
-      e.code = 'ENOENT' // Triggers a 404
-      throw e
+      const e: any = new Error('Response not found');
+      e.code = 'ENOENT'; // Triggers a 404
+      throw e;
     }
 
-    return actions.set(false)
+    return actions.set(false);
   },
-)
+);

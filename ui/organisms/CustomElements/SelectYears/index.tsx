@@ -1,18 +1,18 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import Select from '@app/ui/Select'
+import Select from '@app/ui/Select';
 
-import { getYears } from './years'
+import { getYears } from './years';
 
 export interface Props {
-  name: string
-  isMobile?: boolean
-  className?: string
-  placeholder?: string
+  name: string;
+  isMobile?: boolean;
+  className?: string;
+  placeholder?: string;
 }
 
-const YEARS_AMOUNT = 70
-const years = getYears(YEARS_AMOUNT)
+const YEARS_AMOUNT = 70;
+const years = getYears(YEARS_AMOUNT);
 
 const SelectYears = ({
   isMobile,
@@ -28,6 +28,6 @@ const SelectYears = ({
     {...rest}
     className={className}
   />
-)
+);
 
-export default SelectYears
+export default SelectYears;

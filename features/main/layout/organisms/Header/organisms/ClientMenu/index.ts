@@ -1,4 +1,4 @@
-import Container from './container'
-import Menu from './organisms/Menu'
+import Container from './container';
+import Menu from './organisms/Menu';
 
-export const CLientMenu = Container(Menu) as any
+export const CLientMenu = Container(Menu) as any;

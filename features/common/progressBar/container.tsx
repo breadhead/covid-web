@@ -1,18 +1,20 @@
-import { getQuery } from '@app/features/common/browserQuery'
-import { State } from '@app/lib/store'
-import * as React from 'react'
-import { connect } from 'react-redux'
-import { compose } from 'recompose'
-import { Omit } from 'utility-types'
-import { getStepsFactory, ProgressBarKind } from './helpers/getSteps'
-import { Props as ComponentProps } from './organisms/ProgressBar'
+import * as React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+import { Omit } from 'utility-types';
+
+import { State } from '@app/lib/store';
+import { getQuery } from '@app/features/common/browserQuery';
+
+import { getStepsFactory, ProgressBarKind } from './helpers/getSteps';
+import { Props as ComponentProps } from './organisms/ProgressBar';
 
 interface Props {
-  className?: string
-  step?: number
-  query?: any
-  stepNames?: string[]
-  kind: ProgressBarKind
+  className?: string;
+  step?: number;
+  query?: any;
+  stepNames?: string[];
+  kind: ProgressBarKind;
 }
 
 // eslint-disable-next-line react/display-name
@@ -22,18 +24,18 @@ const Container = (WrappedComponent: React.ComponentType<ComponentProps>) => ({
   kind,
   ...rest
 }: Props) => {
-  const current = step - 1
-  const id = query && query.id
-  const steps = getStepsFactory(kind)(id, current)
+  const current = step - 1;
+  const id = query && query.id;
+  const steps = getStepsFactory(kind)(id, current);
 
-  return <WrappedComponent steps={steps} {...rest} />
-}
+  return <WrappedComponent steps={steps} {...rest} />;
+};
 
 const mapState = (state: State) => ({
   query: getQuery(state),
-})
+});
 
 export default compose<ComponentProps, Omit<Props, 'query'>>(
   connect(mapState),
   Container,
-)
+);

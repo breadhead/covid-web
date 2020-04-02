@@ -1,14 +1,17 @@
-import * as React from 'react'
-import * as styles from './NewPasswordForm.css'
-import { InputType } from '@app/features/common/form'
-import Form from '@app/features/common/form/components/Form/Form'
-import Input from '@app/features/common/form/components/Input'
-import { Button } from '@front/ui/button'
-import { schema } from './schema'
+import * as React from 'react';
+
+import { InputType } from '@app/features/common/form';
+import Form from '@app/features/common/form/components/Form/Form';
+import Input from '@app/features/common/form/components/Input';
+
+import { Button } from '@front/ui/button';
+
+import * as styles from './NewPasswordForm.css';
+import { schema } from './schema';
 
 interface Props {
-  phone: string
-  onFormSubmit: () => void
+  phone: string;
+  onFormSubmit: () => void;
 }
 
 export const NewPasswordForm = ({ phone, onFormSubmit }: Props) => {
@@ -32,5 +35,5 @@ export const NewPasswordForm = ({ phone, onFormSubmit }: Props) => {
         )}
       </Form>
     </>
-  )
-}
+  );
+};

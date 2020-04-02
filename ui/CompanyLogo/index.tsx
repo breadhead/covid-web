@@ -1,25 +1,25 @@
-import * as React from 'react'
+import * as React from 'react';
+import { Col } from 'antd';
 
-import { Col } from 'antd'
+import ServerImage from '@app/ui/ServerImage';
 
-import ServerImage from '@app/ui/ServerImage'
+import { NavLink } from '@front/ui/nav-link';
 
-import { NavLink } from '@front/ui/nav-link'
-import styles from './CompanyLogo.css'
+import styles from './CompanyLogo.css';
 
 interface Props {
-  logo: string
-  site?: string
-  name?: string
+  logo: string;
+  site?: string;
+  name?: string;
 }
 
 const Logo = ({ src, name }: { src: string; name?: string }) => (
   <ServerImage src={src} className={styles.CompanyLogo} alt={name} />
-)
+);
 
 const CompanyLogo = ({ logo, site, name }: Props) => {
   if (!logo) {
-    return null
+    return null;
   }
 
   if (!site) {
@@ -27,7 +27,7 @@ const CompanyLogo = ({ logo, site, name }: Props) => {
       <Col span={6}>
         <Logo src={logo} name={name} />
       </Col>
-    )
+    );
   }
 
   return (
@@ -36,7 +36,7 @@ const CompanyLogo = ({ logo, site, name }: Props) => {
         <Logo src={logo} name={name} />
       </NavLink>
     </Col>
-  )
-}
+  );
+};
 
-export default CompanyLogo
+export default CompanyLogo;

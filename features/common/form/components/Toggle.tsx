@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { Field } from 'react-final-form'
+import * as React from 'react';
+import { Field } from 'react-final-form';
 
-import { Props as ToggleProps, Toggle as SimpleToggle } from '@front/ui/toggle'
+import { Props as ToggleProps, Toggle as SimpleToggle } from '@front/ui/toggle';
 
 const Toggle = ({ name, ...rest }: ToggleProps) => (
   <Field name={name}>
@@ -9,6 +9,6 @@ const Toggle = ({ name, ...rest }: ToggleProps) => (
       <SimpleToggle name={name} {...input} value={input.value} {...rest} />
     )}
   </Field>
-)
+);
 
-export default Toggle
+export default Toggle;

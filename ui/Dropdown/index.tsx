@@ -1,12 +1,13 @@
-import cx from 'classnames'
-import * as React from 'react'
+import cx from 'classnames';
+import * as React from 'react';
 
-import * as styles from './Dropdown.css'
+import { SPACE } from '@app/lib/config';
 
-import { SPACE } from '@app/lib/config'
-import { Icon } from '@front/ui/icon'
-import { NavLink } from '@front/ui/nav-link'
-import { IconsList } from '@front/ui/sprite'
+import { Icon } from '@front/ui/icon';
+import { NavLink } from '@front/ui/nav-link';
+import { IconsList } from '@front/ui/sprite';
+
+import * as styles from './Dropdown.css';
 
 export enum DropdownPositions {
   Left = 'left',
@@ -14,8 +15,8 @@ export enum DropdownPositions {
   Center = 'center',
 }
 interface Props {
-  position?: DropdownPositions
-  signOut: () => void
+  position?: DropdownPositions;
+  signOut: () => void;
 }
 
 const Dropdown = ({ signOut, position = DropdownPositions.Left }: Props) => (
@@ -35,6 +36,6 @@ const Dropdown = ({ signOut, position = DropdownPositions.Left }: Props) => (
       </div>
     </div>
   </div>
-)
+);
 
-export default Dropdown
+export default Dropdown;

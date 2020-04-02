@@ -1,22 +1,22 @@
-import { Select as AntSelect } from 'antd'
-import { LabeledValue, SelectProps } from 'antd/lib/select'
-import cx from 'classnames'
-import * as React from 'react'
+import { Select as AntSelect } from 'antd';
+import { LabeledValue, SelectProps } from 'antd/lib/select';
+import cx from 'classnames';
+import * as React from 'react';
 
-import './SelectGlobal.css?CSSModulesDisable'
+import './SelectGlobal.css?CSSModulesDisable';
 
-const { Option } = AntSelect
+const { Option } = AntSelect;
 
 interface OwnProps {
-  name: string
-  options: LabeledValue[]
-  label?: string
-  error?: string
-  className?: string
-  placeholder?: string
+  name: string;
+  options: LabeledValue[];
+  label?: string;
+  error?: string;
+  className?: string;
+  placeholder?: string;
 }
 
-export type Props = OwnProps & SelectProps
+export type Props = OwnProps & SelectProps;
 
 const Select = ({
   name,
@@ -28,14 +28,14 @@ const Select = ({
   placeholder,
   ...rest
 }: Props) => {
-  const [check, setCheck] = React.useState(false)
+  const [check, setCheck] = React.useState(false);
 
   React.useEffect(() => {
-    setCheck(true)
-  }, [])
+    setCheck(true);
+  }, []);
 
-  const currentValue = `${value}`.length > 0 ? `${value}` : undefined
-  const currentPlaceholder = !currentValue && placeholder
+  const currentValue = `${value}`.length > 0 ? `${value}` : undefined;
+  const currentPlaceholder = !currentValue && placeholder;
   return (
     check && (
       <div className={className}>
@@ -50,7 +50,7 @@ const Select = ({
             currentPlaceholder && 'placeholder-pale',
           )}
         >
-          {options.map(option => (
+          {options.map((option) => (
             <Option key={option.key} value={option.key}>
               {option.label}
             </Option>
@@ -58,9 +58,9 @@ const Select = ({
         </AntSelect>
       </div>
     )
-  )
-}
+  );
+};
 
-export default Select as any
+export default Select as any;
 
-export { mapEnum, mapString } from './mappers'
+export { mapEnum, mapString } from './mappers';

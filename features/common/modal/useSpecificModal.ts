@@ -1,17 +1,17 @@
-import { useCallback } from 'react'
-import { useDispatch } from 'redux-react-hook'
+import { useCallback } from 'react';
+import { useDispatch } from 'redux-react-hook';
 
-import { actions } from './reducer'
+import { actions } from './reducer';
 
 export const useSpecificModal = (key: string) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const open = useCallback(() => dispatch(actions.open(key)), [key])
+  const open = useCallback(() => dispatch(actions.open(key)), [key]);
 
-  const close = useCallback(() => dispatch(actions.close()), [])
+  const close = useCallback(() => dispatch(actions.close()), []);
 
   return {
     open,
     close,
-  }
-}
+  };
+};

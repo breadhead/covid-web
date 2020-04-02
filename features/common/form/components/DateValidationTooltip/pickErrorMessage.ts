@@ -1,6 +1,6 @@
-import { ErrorCode } from '@app/lib/helpers/validateDates'
+import { ErrorCode } from '@app/lib/helpers/validateDates';
 
 const pickErrorMessage = (errorMessages: any, errorCode?: ErrorCode) =>
-  errorCode ? errorMessages[errorCode] : undefined
+  errorCode ? errorMessages[errorCode] : undefined;
 
-export { pickErrorMessage }
+export { pickErrorMessage };

@@ -1,16 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-import { clearPhoneForLink } from './clearPhoneForLink'
-import { preparePhoneForTypography } from './preparePhoneForTypography'
+import { clearPhoneForLink } from './clearPhoneForLink';
+import { preparePhoneForTypography } from './preparePhoneForTypography';
 
 interface Props {
-  children: string
-  label?: string
+  children: string;
+  label?: string;
 }
 
 export const PhoneLink = ({ children, label }: Props) => {
-  const link = clearPhoneForLink(children)
-  const text = preparePhoneForTypography(children)
+  const link = clearPhoneForLink(children);
+  const text = preparePhoneForTypography(children);
 
   return (
     <a
@@ -21,5 +21,5 @@ export const PhoneLink = ({ children, label }: Props) => {
     >
       {text}
     </a>
-  )
-}
+  );
+};

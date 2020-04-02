@@ -1,18 +1,20 @@
-import * as React from 'react'
-import { connect } from 'react-redux'
-import { compose } from 'recompose'
-import { selectToken } from './selectors'
+import * as React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
 
-import { withSignUpModal } from '@app/features/login'
-import { Button, ButtonKind, ButtonSize } from '@front/ui/button'
-import { NavLink } from '@front/ui/nav-link'
+import { withSignUpModal } from '@app/features/login';
+
+import { Button, ButtonKind, ButtonSize } from '@front/ui/button';
+import { NavLink } from '@front/ui/nav-link';
+
+import { selectToken } from './selectors';
 
 interface Props {
-  children: string
-  token?: string
-  className?: string
-  containerClassName?: string
-  size?: ButtonSize
+  children: string;
+  token?: string;
+  className?: string;
+  containerClassName?: string;
+  size?: ButtonSize;
 }
 
 const StartConsultationButton = ({
@@ -26,13 +28,13 @@ const StartConsultationButton = ({
       {children}
     </Button>
   </NavLink>
-)
+);
 
 const mapState = (state: any) => ({
   token: selectToken(state),
-})
+});
 
 export default compose<any, Props>(
   connect(mapState),
   withSignUpModal,
-)(StartConsultationButton)
+)(StartConsultationButton);

@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { debounce } from 'lodash';
 
 import {
   HintInput,
   HintInputTypes,
   ComplexOptions,
-} from '@app/ui/HintInput/HintInput'
-import { useApi } from '@app/lib/api/useApi'
-import { debounce } from 'lodash'
+} from '@app/ui/HintInput/HintInput';
+import { useApi } from '@app/lib/api/useApi';
 
 export enum ComboSearchType {
   Doctor = 'Doctor',
@@ -14,12 +14,12 @@ export enum ComboSearchType {
 }
 
 export interface Props {
-  name: string
-  type: ComboSearchType
-  defaultItems?: string[] | ComplexOptions[]
-  optionsType?: HintInputTypes
-  className?: string
-  region?: string
+  name: string;
+  type: ComboSearchType;
+  defaultItems?: string[] | ComplexOptions[];
+  optionsType?: HintInputTypes;
+  className?: string;
+  region?: string;
 }
 
 export const ComboSearch = ({
@@ -31,43 +31,37 @@ export const ComboSearch = ({
   region = '',
   ...rest
 }: Props) => {
-  const [items, setItems] = useState<string[] | ComplexOptions[]>(defaultItems)
-  const api = useApi()
+  const [items, setItems] = useState<string[] | ComplexOptions[]>(defaultItems);
+  const api = useApi();
 
   const onSearch = (query: string) => {
     switch (type) {
       case ComboSearchType.Doctor:
-        api.searchDoctor(query).then(setItems)
-        break
+        api.searchDoctor(query).then(setItems);
+        break;
       case ComboSearchType.Clinic:
-        api.searchClinicByRegion(region, query).then(setItems)
-        break
+        api.searchClinicByRegion(region, query).then(setItems);
+        break;
       default:
-        break
+        break;
     }
-  }
+  };
 
-  const delayedQuery = debounce((q: string) => onSearch(q), 1000)
+  const delayedQuery = debounce((q: string) => onSearch(q), 1000);
 
-  useEffect(
-    () => {
-      const value = (rest as any).value || ''
+  useEffect(() => {
+    const value = (rest as any).value || '';
 
-      if (value.length > 2) {
-        delayedQuery(value)
-      }
-    },
-    [(rest as any).value],
-  )
+    if (value.length > 2) {
+      delayedQuery(value);
+    }
+  }, [(rest as any).value]);
 
-  useEffect(
-    () => {
-      setItems(defaultItems)
-    },
-    [defaultItems[0]],
-  )
+  useEffect(() => {
+    setItems(defaultItems);
+  }, [defaultItems[0]]);
 
-  const options = items.length === 0 ? defaultItems : items
+  const options = items.length === 0 ? defaultItems : items;
 
   return (
     <HintInput
@@ -77,5 +71,5 @@ export const ComboSearch = ({
       type={optionsType}
       {...rest}
     />
-  )
-}
+  );
+};

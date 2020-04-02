@@ -1,7 +1,7 @@
-import EventPusher from './EventPusher'
+import EventPusher from './EventPusher';
 
 export const useGoogleAnalyticsPush = (sourceName: string) => {
-  const gtmPush = new EventPusher(sourceName)
+  const gtmPush = new EventPusher(sourceName);
 
-  return gtmPush
-}
+  return gtmPush;
+};

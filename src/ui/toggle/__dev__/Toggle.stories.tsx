@@ -1,10 +1,10 @@
-import { action } from '@storybook/addon-actions'
-import { storiesOf } from '@storybook/react'
-import React from 'react'
+import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
+import React from 'react';
 
-import { Toggle } from '../Toggle'
+import { Toggle } from '../Toggle';
 
-const onChange = action('toggle clicked')
+const onChange = action('toggle clicked');
 
 storiesOf('Toggle', module)
   .add('Simple toggle', () => <Toggle name="test-toggle" />)
@@ -22,4 +22,4 @@ storiesOf('Toggle', module)
       <Toggle name="test-toggle" value={true} onChange={onChange} />
       <Toggle name="test-toggle" value={false} onChange={onChange} />
     </>
-  ))
+  ));

@@ -1,24 +1,25 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import * as styles from './ExpertPage.css'
+import { MainLayout } from '@app/features/main/layout';
 
-import { MainLayout } from '@app/features/main/layout'
-import { NavLink } from '@front/ui/nav-link'
+import { NavLink } from '@front/ui/nav-link';
+
+import * as styles from './ExpertPage.css';
 
 export interface ExpertInterface {
-  id: string
-  photo: string
-  name: string
-  specialization: string
-  info: string[]
+  id: string;
+  photo: string;
+  name: string;
+  specialization: string;
+  info: string[];
 }
 
 interface Props {
-  expert: ExpertInterface
+  expert: ExpertInterface;
 }
 
 const ExpertPage = ({ expert }: Props) => {
-  const { photo, name, specialization, info } = expert
+  const { photo, name, specialization, info } = expert;
   return (
     <MainLayout className={styles.main}>
       <div className={styles.container}>
@@ -31,7 +32,7 @@ const ExpertPage = ({ expert }: Props) => {
             <h1 className={styles.title}>{name}</h1>
             <p className={styles.description}>{specialization}</p>
             <div className={styles.info}>
-              {info.map(text => (
+              {info.map((text) => (
                 <p key={text}>{text}</p>
               ))}
             </div>
@@ -39,7 +40,7 @@ const ExpertPage = ({ expert }: Props) => {
         </section>
       </div>
     </MainLayout>
-  )
-}
+  );
+};
 
-export default ExpertPage
+export default ExpertPage;

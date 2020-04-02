@@ -1,12 +1,12 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import { NavLink } from '@front/ui/nav-link'
+import { NavLink } from '@front/ui/nav-link';
 
-import NavIcon from '../../atoms/NavIcon'
-import * as styles from './SignInMobileMenu.css'
+import NavIcon from '../../atoms/NavIcon';
+import * as styles from './SignInMobileMenu.css';
 
 export interface Props {
-  signOut: () => void
+  signOut: () => void;
 }
 
 const SignInMobileMenu = ({ signOut }: Props) => (
@@ -28,6 +28,6 @@ const SignInMobileMenu = ({ signOut }: Props) => (
       <NavIcon />
     </div>
   </>
-)
+);
 
-export default SignInMobileMenu
+export default SignInMobileMenu;

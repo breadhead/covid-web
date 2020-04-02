@@ -1,58 +1,57 @@
-import * as React from 'react'
+import { SelectValue } from 'antd/lib/select';
+import * as React from 'react';
+import { useMappedState } from 'redux-react-hook';
 
-import * as styles from './PartnersList.css'
+import { selectPartnersForPartnerPage } from '@app/features/common/partnerReducer/selectPartners';
+import PartnerCard from '@app/features/landing/organisms/PartnerCard';
+import { NON_BREAKING_SPACE } from '@app/lib/config';
+import { Partner } from '@app/models/sanity/Partner';
+import routes from '@app/routes';
 
-import routes from '@app/routes'
-const { Router } = routes
+import PartnersGroupSelect from '../../molecules/PartnersGroupSelect';
+import PartnersRadioGroup from '../../molecules/PartnersRadioGroup';
+import { PartnersType } from './config';
+import * as styles from './PartnersList.css';
 
-import PartnerCard from '@app/features/landing/organisms/PartnerCard'
-import PartnersRadioGroup from '../../molecules/PartnersRadioGroup'
-
-import { NON_BREAKING_SPACE } from '@app/lib/config'
-import { SelectValue } from 'antd/lib/select'
-import PartnersGroupSelect from '../../molecules/PartnersGroupSelect'
-import { PartnersType } from './config'
-import { useMappedState } from 'redux-react-hook'
-import { selectPartnersForPartnerPage } from '@app/features/common/partnerReducer/selectPartners'
-import { Partner } from '@app/models/sanity/Partner'
+const { Router } = routes;
 
 interface Props {
-  type: string
+  type: string;
 }
 interface State {
-  list: Partner[]
-  value: string | SelectValue
-  scrollPosition: number
+  list: Partner[];
+  value: string | SelectValue;
+  scrollPosition: number;
 }
 
-const DEFAULT_VALUE = PartnersType.InfrastructurePartner
+const DEFAULT_VALUE = PartnersType.InfrastructurePartner;
 
 class PartnersList extends React.Component<Props, State> {
   public static defaultProps = {
     type: DEFAULT_VALUE,
-  }
+  };
 
   public state = {
     list: useMappedState(selectPartnersForPartnerPage),
     value: this.props.type,
     scrollPosition: 0,
-  }
+  };
 
   public onValueChange = (value: string | SelectValue) => {
-    const partners = useMappedState(selectPartnersForPartnerPage)
+    const partners = useMappedState(selectPartnersForPartnerPage);
 
     this.setState({
-      list: partners.filter(partner => partner.type === value),
+      list: partners.filter((partner) => partner.type === value),
       value,
       scrollPosition: window.scrollY,
-    })
+    });
     Router.pushRoute(`/partners/${value}`).then(() =>
       window.scrollTo(0, this.state.scrollPosition),
-    )
-  }
+    );
+  };
 
   public render() {
-    const { list, value } = this.state
+    const { list, value } = this.state;
     return (
       <>
         <header className={styles.header}>
@@ -80,7 +79,7 @@ class PartnersList extends React.Component<Props, State> {
           </div>
         ) : null}
         <div className={styles.partnersList}>
-          {list.map(partner => (
+          {list.map((partner) => (
             <PartnerCard
               key={partner._id}
               partner={partner}
@@ -89,8 +88,8 @@ class PartnersList extends React.Component<Props, State> {
           ))}
         </div>
       </>
-    )
+    );
   }
 }
 
-export default PartnersList
+export default PartnersList;

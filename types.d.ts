@@ -1,2 +1,2 @@
-declare module '*.css'
-declare module '*.svg?sprite'
+declare module '*.css';
+declare module '*.svg?sprite';

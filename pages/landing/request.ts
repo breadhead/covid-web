@@ -1,1 +1,1 @@
-export { Request as default } from '@app/features/landing'
+export { Request as default } from '@app/features/landing';

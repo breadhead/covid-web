@@ -1,34 +1,31 @@
-import { useCallback } from 'react'
+import { useCallback } from 'react';
 
 export const useHandleChange = (
   internalValue: boolean,
   setInternalValue: (v: boolean) => void,
   externalValue?: boolean,
   setExternalValue?: (v: boolean) => void,
-  disabled: boolean = false,
+  disabled = false,
 ) => {
-  return useCallback(
-    () => {
-      if (!disabled) {
-        const newValue = !internalValue
+  return useCallback(() => {
+    if (!disabled) {
+      const newValue = !internalValue;
 
-        if (setExternalValue) {
-          setExternalValue(newValue)
-        }
-
-        if (externalValue !== undefined) {
-          setInternalValue(externalValue)
-        } else {
-          setInternalValue(newValue)
-        }
+      if (setExternalValue) {
+        setExternalValue(newValue);
       }
-    },
-    [
-      internalValue,
-      setInternalValue,
-      externalValue,
-      setExternalValue,
-      disabled,
-    ],
-  )
-}
+
+      if (externalValue !== undefined) {
+        setInternalValue(externalValue);
+      } else {
+        setInternalValue(newValue);
+      }
+    }
+  }, [
+    internalValue,
+    setInternalValue,
+    externalValue,
+    setExternalValue,
+    disabled,
+  ]);
+};

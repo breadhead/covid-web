@@ -1,5 +1,4 @@
-import withEnchancers from '@app/features/common/formHOCs/withEnchancers'
+import withEnchancers from '@app/features/common/formHOCs/withEnchancers';
+import SimpleTextArea, { Props } from '@app/ui/TextArea';
 
-import SimpleTextArea, { Props } from '@app/ui/TextArea'
-
-export default withEnchancers<Props, any>()(SimpleTextArea)
+export default withEnchancers<Props, any>()(SimpleTextArea);

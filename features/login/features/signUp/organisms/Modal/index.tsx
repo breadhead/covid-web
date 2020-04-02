@@ -1,19 +1,20 @@
-import { SignUpError } from '@app/features/login/features/signUp/reducer'
-import * as React from 'react'
-import styles from './SignUp.css'
+import * as React from 'react';
 
-import { ButtonWithTooltip, InputType } from '@app/features/common/form'
-import Form from '@app/features/common/form/components/Form/Form'
-import Input from '@app/features/common/form/components/Input'
-import OpenModalButton from '@app/features/login/atoms/OpenModalButton'
-import ModalFooter from '@app/features/login/organisms/Footer'
-import { SPACE } from '@app/lib/config'
-import { confirmCb, schema } from './schema'
+import { SignUpError } from '@app/features/login/features/signUp/reducer';
+import { ButtonWithTooltip, InputType } from '@app/features/common/form';
+import Form from '@app/features/common/form/components/Form/Form';
+import Input from '@app/features/common/form/components/Input';
+import OpenModalButton from '@app/features/login/atoms/OpenModalButton';
+import ModalFooter from '@app/features/login/organisms/Footer';
+import { SPACE } from '@app/lib/config';
+
+import styles from './SignUp.css';
+import { confirmCb, schema } from './schema';
 
 interface Props {
-  onFormSubmit: () => Promise<any>
-  error?: SignUpError
-  openSignIn: () => void
+  onFormSubmit: () => Promise<any>;
+  error?: SignUpError;
+  openSignIn: () => void;
 }
 
 const SignUp = ({ onFormSubmit, error, openSignIn }: Props) => (
@@ -68,6 +69,6 @@ const SignUp = ({ onFormSubmit, error, openSignIn }: Props) => (
     </Form>
     <ModalFooter onOpenModalClick={openSignIn} />
   </article>
-)
+);
 
-export default SignUp
+export default SignUp;

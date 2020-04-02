@@ -1,16 +1,16 @@
-import cx from 'classnames'
-import * as React from 'react'
+import cx from 'classnames';
+import * as React from 'react';
+import { connect } from 'react-redux';
 
-import Logo from '@app/ui/Logo'
+import Logo from '@app/ui/Logo';
+import { getToken } from '@app/features/login';
+import { State } from '@app/lib/store';
 
-import { getToken } from '@app/features/login'
-import { State } from '@app/lib/store'
-import { connect } from 'react-redux'
-import Legal from '../components/Legal'
-import Login from '../components/Login'
-import Menu from '../components/Menu'
-import Partners from '../components/Partners'
-import * as styles from './PrimaryFooter.css'
+import Legal from '../components/Legal';
+import Login from '../components/Login';
+import Menu from '../components/Menu';
+import Partners from '../components/Partners';
+import * as styles from './PrimaryFooter.css';
 
 // interface Props {
 //   token: string
@@ -27,10 +27,10 @@ const PrimaryFooter = () => (
     <Partners className={styles.row} />
     <Legal className={styles.row} />
   </footer>
-)
+);
 
 const mapState = (state: State) => ({
   token: getToken(state),
-})
+});
 
-export default connect(mapState)(PrimaryFooter)
+export default connect(mapState)(PrimaryFooter);

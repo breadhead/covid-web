@@ -1,4 +1,4 @@
-import { getShouldValidate } from '../getShouldValidate'
+import { getShouldValidate } from '../getShouldValidate';
 
 describe('getShouldValidate', () => {
   test('should return false if is active, isnt submitFailed', () => {
@@ -9,8 +9,8 @@ describe('getShouldValidate', () => {
         touched: true,
         pristine: true,
       }),
-    ).toBe(false)
-  })
+    ).toBe(false);
+  });
   test('should return true if field isnt active and submitFailed', () => {
     expect(
       getShouldValidate({
@@ -19,8 +19,8 @@ describe('getShouldValidate', () => {
         touched: true,
         pristine: true,
       }),
-    ).toBe(true)
-  })
+    ).toBe(true);
+  });
   test('should return true if field isnt active, isnt submitFailed, touched and pristine', () => {
     expect(
       getShouldValidate({
@@ -29,8 +29,8 @@ describe('getShouldValidate', () => {
         touched: true,
         pristine: true,
       }),
-    ).toBe(false)
-  })
+    ).toBe(false);
+  });
   test('should return false if field isnt active, isnt submitFailed, isnt touched and pristine', () => {
     expect(
       getShouldValidate({
@@ -39,8 +39,8 @@ describe('getShouldValidate', () => {
         touched: false,
         pristine: true,
       }),
-    ).toBe(false)
-  })
+    ).toBe(false);
+  });
   test('should return if eager validation is true', () => {
     expect(
       getShouldValidate({
@@ -50,6 +50,6 @@ describe('getShouldValidate', () => {
         touched: false,
         pristine: true,
       }),
-    ).toBe(true)
-  })
-})
+    ).toBe(true);
+  });
+});

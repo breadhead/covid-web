@@ -1,3 +1,1 @@
-export {
-  default as OpenRestorePasswordModalButton,
-} from './OpenRestorePasswordModalButton'
+export { default as OpenRestorePasswordModalButton } from './OpenRestorePasswordModalButton';

@@ -1,13 +1,13 @@
-import getConfig from 'next/config'
+import getConfig from 'next/config';
 
-import ApiClient from './ApiClient'
-import RealApiClient from './RealApiClient'
+import ApiClient from './ApiClient';
+import RealApiClient from './RealApiClient';
 
-const { publicRuntimeConfig } = getConfig()
+const { publicRuntimeConfig } = getConfig();
 
-type Factory = (token: string) => ApiClient
+type Factory = (token: string) => ApiClient;
 
-const factory: Factory = token =>
-  new RealApiClient(publicRuntimeConfig.backUrl, token)
+const factory: Factory = (token) =>
+  new RealApiClient(publicRuntimeConfig.backUrl, token);
 
-export default factory
+export default factory;

@@ -3,4 +3,4 @@ enum FooterType {
   Secondary = 'Secondary',
 }
 
-export default FooterType
+export default FooterType;

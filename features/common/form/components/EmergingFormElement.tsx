@@ -1,9 +1,8 @@
-import withEnchancers from '@app/features/common/formHOCs/withEnchancers'
-
+import withEnchancers from '@app/features/common/formHOCs/withEnchancers';
 import SimpleEmergingFormElement, {
   Props,
-} from '@app/ui/organisms/EmergingFormElement'
+} from '@app/ui/organisms/EmergingFormElement';
 
-export default withEnchancers<Props, any>()(SimpleEmergingFormElement)
+export default withEnchancers<Props, any>()(SimpleEmergingFormElement);
 
-export { ControlTypes } from '@app/ui/organisms/EmergingFormElement'
+export { ControlTypes } from '@app/ui/organisms/EmergingFormElement';

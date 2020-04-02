@@ -1,9 +1,9 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import * as styles from './Donation.css'
+import DonationWidget from '@app/features/main/donation';
 
-import DonationWidget from '@app/features/main/donation'
-import Info from '../Info'
+import * as styles from './Donation.css';
+import Info from '../Info';
 
 const Donation = () => (
   <>
@@ -19,6 +19,6 @@ const Donation = () => (
       </div>
     </div>
   </>
-)
+);
 
-export default Donation
+export default Donation;

@@ -1,13 +1,13 @@
-import { Radio } from 'antd'
-import cx from 'classnames'
-import * as React from 'react'
+import { Radio } from 'antd';
+import cx from 'classnames';
+import * as React from 'react';
 
-import './RadioButton.css?CSSModulesDisable'
+import './RadioButton.css?CSSModulesDisable';
 export interface Props {
-  name: string
-  value: string
-  className?: string
-  children?: React.ReactNode
+  name: string;
+  value: string;
+  className?: string;
+  children?: React.ReactNode;
 }
 
 const RadioButton = ({ name, className, value, children, ...rest }: Props) => (
@@ -19,6 +19,6 @@ const RadioButton = ({ name, className, value, children, ...rest }: Props) => (
   >
     {children}
   </Radio>
-)
+);
 
-export default RadioButton
+export default RadioButton;

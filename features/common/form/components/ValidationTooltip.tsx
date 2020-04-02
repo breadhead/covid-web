@@ -1,13 +1,14 @@
-import withEnchancers from '@app/features/common/formHOCs/withEnchancers'
-import * as React from 'react'
+import * as React from 'react';
+
+import withEnchancers from '@app/features/common/formHOCs/withEnchancers';
 
 interface TooltipProps {
-  className?: string
-  name: string
+  className?: string;
+  name: string;
 }
 
 const ValidationTooltip = ({ className }: TooltipProps) => (
   <div className={className} />
-)
+);
 
-export default withEnchancers()(ValidationTooltip as any) as any
+export default withEnchancers()(ValidationTooltip as any) as any;

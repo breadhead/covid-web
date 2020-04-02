@@ -1,4 +1,4 @@
-import { dataLayer } from '../config'
+import { dataLayer } from '../config';
 
 export default class EventPusher {
   public constructor(private readonly sourceName: string) {}
@@ -7,17 +7,17 @@ export default class EventPusher {
     const event = {
       event: 'custom_event',
       event_id: 'sms_send',
-    }
+    };
 
-    this.push(event)
-  }
+    this.push(event);
+  };
 
   private push = (event: any) => {
     if (dataLayer && dataLayer.push) {
       dataLayer.push({
         event_name: this.sourceName,
         ...event,
-      })
+      });
     }
-  }
+  };
 }

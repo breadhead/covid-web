@@ -1,13 +1,12 @@
-import React from 'react'
-import * as styles from './ProgressBar.css'
+import React from 'react';
+import cx from 'classnames';
 
-import cx from 'classnames'
-
-import StepPointer, { StepPointerModel } from './../../molecule/StepPointer'
+import * as styles from './ProgressBar.css';
+import StepPointer, { StepPointerModel } from './../../molecule/StepPointer';
 
 export interface Props {
-  steps: StepPointerModel[]
-  className?: string
+  steps: StepPointerModel[];
+  className?: string;
 }
 
 const Container = ({ steps, className }: Props) => (
@@ -21,6 +20,6 @@ const Container = ({ steps, className }: Props) => (
       />
     ))}
   </div>
-)
+);
 
-export default Container
+export default Container;

@@ -1,7 +1,9 @@
-import * as React from 'react'
-import { NavLink } from '@front/ui/nav-link'
-import * as styles from './OtherPartners.css'
-import cx from 'classnames'
+import * as React from 'react';
+import cx from 'classnames';
+
+import { NavLink } from '@front/ui/nav-link';
+
+import * as styles from './OtherPartners.css';
 
 export const OtherPartners = () => {
   return (
@@ -38,5 +40,5 @@ export const OtherPartners = () => {
         </NavLink>
       </div>
     </div>
-  )
-}
+  );
+};

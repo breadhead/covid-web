@@ -1,10 +1,10 @@
-import { storiesOf } from '@storybook/react'
-import * as React from 'react'
-import * as styles from './icon.css'
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
 
-import { Sprite } from '../../sprite'
-import { IconsList } from '../../sprite/IconsList'
-import { Icon } from '../Icon'
+import * as styles from './icon.css';
+import { Sprite } from '../../sprite';
+import { IconsList } from '../../sprite/IconsList';
+import { Icon } from '../Icon';
 
 storiesOf('Icon', module).add('Icon', () => (
   <>
@@ -52,4 +52,4 @@ storiesOf('Icon', module).add('Icon', () => (
       <Icon name={IconsList.View} />
     </div>
   </>
-))
+));

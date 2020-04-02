@@ -1,12 +1,15 @@
-import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config'
-import { Icon } from '@front/ui/icon'
-import { IconsList } from '@front/ui/sprite'
-import * as React from 'react'
-import OpenModalButton from '../../atoms/OpenModalButton'
-import styles from './Footer.css'
+import * as React from 'react';
+
+import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config';
+
+import { Icon } from '@front/ui/icon';
+import { IconsList } from '@front/ui/sprite';
+
+import OpenModalButton from '../../atoms/OpenModalButton';
+import styles from './Footer.css';
 
 interface FooterProps {
-  onOpenModalClick: () => void
+  onOpenModalClick: () => void;
 }
 
 const ModalFooter = ({ onOpenModalClick }: FooterProps) => (
@@ -24,6 +27,6 @@ const ModalFooter = ({ onOpenModalClick }: FooterProps) => (
       же{NON_BREAKING_SPACE}данные
     </p>
   </footer>
-)
+);
 
-export default ModalFooter
+export default ModalFooter;

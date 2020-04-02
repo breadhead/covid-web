@@ -1,7 +1,7 @@
-import { storiesOf } from '@storybook/react'
-import React from 'react'
+import { storiesOf } from '@storybook/react';
+import React from 'react';
 
-import { NavLink } from '../NavLink'
+import { NavLink } from '../NavLink';
 
 storiesOf('NavLink', module)
   .add('WithUnderline', () => (
@@ -22,4 +22,4 @@ storiesOf('NavLink', module)
         ссылка ведущая на внешний ресурс
       </NavLink>
     </>
-  ))
+  ));

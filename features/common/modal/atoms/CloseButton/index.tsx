@@ -1,13 +1,13 @@
-import * as React from 'react'
-import * as styles from './CloseButton.css'
+import * as React from 'react';
+import { Action } from 'redux';
 
-import { Action } from 'redux'
+import { Icon } from '@front/ui/icon';
+import { IconsList } from '@front/ui/sprite';
 
-import { Icon } from '@front/ui/icon'
-import { IconsList } from '@front/ui/sprite'
+import * as styles from './CloseButton.css';
 
 interface Props {
-  onClick: () => Action
+  onClick: () => Action;
 }
 
 const CloseButton = ({ onClick }: Props) => (
@@ -15,6 +15,6 @@ const CloseButton = ({ onClick }: Props) => (
     <Icon name={IconsList.CloseLight} />
     закрыть окно
   </button>
-)
+);
 
-export default CloseButton
+export default CloseButton;

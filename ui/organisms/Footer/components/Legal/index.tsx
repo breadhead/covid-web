@@ -1,14 +1,14 @@
-import cx from 'classnames'
-import * as React from 'react'
+import cx from 'classnames';
+import * as React from 'react';
 
-import { NavLink } from '@front/ui/nav-link'
+import { NON_BREAKING_SPACE } from '@app/lib/config';
 
-import * as styles from './Legal.css'
+import { NavLink } from '@front/ui/nav-link';
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import * as styles from './Legal.css';
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 const Legal = ({ className }: Props) => (
@@ -33,6 +33,6 @@ const Legal = ({ className }: Props) => (
       </NavLink>
     </span>
   </div>
-)
+);
 
-export default Legal
+export default Legal;

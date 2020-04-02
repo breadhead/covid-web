@@ -1,4 +1,4 @@
-import { KeyboardEvent, RefObject, useCallback, useEffect } from 'react'
+import { KeyboardEvent, RefObject, useCallback, useEffect } from 'react';
 
 export const usePressEnter = (
   ref: RefObject<HTMLElement>,
@@ -8,23 +8,20 @@ export const usePressEnter = (
   const handleEnter: any = useCallback(
     ({ keyCode }: KeyboardEvent<HTMLElement>) => {
       if (keyCode === 13) {
-        onPress()
+        onPress();
       }
     },
     [onPress],
-  )
+  );
 
-  useEffect(
-    () => {
-      const { current } = ref
-      if (!current) {
-        return () => null
-      }
+  useEffect(() => {
+    const { current } = ref;
+    if (!current) {
+      return () => null;
+    }
 
-      current.addEventListener('keyup', handleEnter)
+    current.addEventListener('keyup', handleEnter);
 
-      return () => current.removeEventListener('keyup', handleEnter)
-    },
-    [ref, handleEnter],
-  )
-}
+    return () => current.removeEventListener('keyup', handleEnter);
+  }, [ref, handleEnter]);
+};

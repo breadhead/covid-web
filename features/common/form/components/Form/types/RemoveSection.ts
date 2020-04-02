@@ -1,1 +1,1 @@
-export type RemoveSection = (key: number, name: string) => () => void
+export type RemoveSection = (key: number, name: string) => () => void;

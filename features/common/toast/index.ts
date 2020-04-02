@@ -1,1 +1,1 @@
-export { push } from './push'
+export { push } from './push';

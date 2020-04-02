@@ -1,11 +1,11 @@
 export const isDate = (date: string) => {
   if (/\d{2,4}\.\d{2}\.\d{2,4}/.test(date)) {
-    return true
+    return true;
   }
 
   if (!isNaN(new Date(date).valueOf())) {
-    return true
+    return true;
   }
 
-  return false
-}
+  return false;
+};

@@ -9,8 +9,7 @@
     "types": "tsc",
     "test": "jest",
     "circular": "madge --circular --extensions ts ./",
-    "storybook": "start-storybook -p 9001 -c .storybook",
-    "s": "yarn soda"
+    "lint": "eslint \"./**/*.{ts,tsx}\""
   },
   "dependencies": {
     "@breadhead/form-saver": "^1.0.3",
@@ -89,7 +88,6 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
-    "@solid-soda/scripts": "^1.12.5",
     "@storybook/addon-actions": "^4.1.11",
     "@storybook/addon-links": "^4.1.11",
     "@storybook/addon-viewport": "^4.1.11",
@@ -114,14 +112,23 @@
     "@types/storybook__addon-actions": "^3.4.1",
     "@types/storybook__react": "^4.0.0",
     "@types/yup": "^0.26.0",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "10.x",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-module-resolver": "^3.1.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "enzyme-to-json": "^3.3.4",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import-helpers": "^1.0.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "jest": "^23.6.0",
     "jest-enzyme": "^7.0.0",
     "madge": "^3.4.3",
@@ -131,7 +138,7 @@
     "postcss-nesting": "^7.0.0",
     "postcss-normalize": "^7.0.1",
     "postcss-preset-env": "^6.3.0",
-    "prettier": "^1.15.3",
+    "prettier": "^2.0.2",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "stylelint": "^9.7.1",
     "stylelint-config-recess-order": "^2.0.0",
@@ -140,11 +147,6 @@
     "typescript": "^3.8.3",
     "utility-types": "^3.4.1",
     "webpack": "^4.29.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn soda lint --fix"
-    }
   },
   "publishConfig": {
     "access": "public"

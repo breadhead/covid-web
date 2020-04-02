@@ -1,14 +1,14 @@
-import { action } from '@storybook/addon-actions'
-import { storiesOf } from '@storybook/react'
-import React from 'react'
+import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
+import React from 'react';
 
-import { Button } from '../Button'
-import { ButtonKind } from '../ButtonKind'
-import { ButtonSize } from '../ButtonSize'
+import { Button } from '../Button';
+import { ButtonKind } from '../ButtonKind';
+import { ButtonSize } from '../ButtonSize';
 
 const props = {
   onClick: action('button clicked'),
-}
+};
 
 storiesOf('Button', module)
   .add('Primary', () => (
@@ -60,7 +60,7 @@ storiesOf('Button', module)
         Маленькая кнопка
       </Button>
     </>
-  ))
+  ));
 
 storiesOf('Button/States', module).add('Disabled', () => (
   <>
@@ -72,4 +72,4 @@ storiesOf('Button/States', module).add('Disabled', () => (
       Выключенная кнопка
     </Button>
   </>
-))
+));

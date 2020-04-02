@@ -1,11 +1,13 @@
-import React from 'react'
-import { DateInterface } from '@app/lib/helpers/validateDates'
-import { head } from 'lodash'
-import ValidationTooltip from '../ValidationTooltip'
-import { validationCb } from './validationCb'
+import React from 'react';
+import { head } from 'lodash';
+
+import { DateInterface } from '@app/lib/helpers/validateDates';
+
+import ValidationTooltip from '../ValidationTooltip';
+import { validationCb } from './validationCb';
 
 interface Props {
-  paths: DateInterface[]
+  paths: DateInterface[];
 }
 
 const DateValidationTooltip = ({ paths }: Props) => (
@@ -14,6 +16,6 @@ const DateValidationTooltip = ({ paths }: Props) => (
     validateOnBlur={false}
     validateCb={validationCb(paths)}
   />
-)
+);
 
-export default DateValidationTooltip
+export default DateValidationTooltip;

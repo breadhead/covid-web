@@ -1,2 +1,2 @@
 export const getDisabledClassName = (disabled: boolean) =>
-  disabled ? 'disabled' : ''
+  disabled ? 'disabled' : '';

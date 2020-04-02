@@ -1,20 +1,21 @@
-import * as React from 'react'
-import { useCallback, useState } from 'react'
+import * as React from 'react';
+import { useCallback, useState } from 'react';
 
-import Overlay from '@app/ui/Overlay'
-import BurgerButton from '../../atoms/BurgerButton'
-import Menu from './Menu'
+import Overlay from '@app/ui/Overlay';
+
+import BurgerButton from '../../atoms/BurgerButton';
+import Menu from './Menu';
 
 interface Props {
-  signOut: () => void
-  showLoginButton: boolean
+  signOut: () => void;
+  showLoginButton: boolean;
 }
 
 const Container = ({ signOut, showLoginButton }: Props) => {
-  const [menuOpened, setOpened] = useState(false)
+  const [menuOpened, setOpened] = useState(false);
 
-  const show = useCallback(() => setOpened(true), [])
-  const hide = useCallback(() => setOpened(false), [])
+  const show = useCallback(() => setOpened(true), []);
+  const hide = useCallback(() => setOpened(false), []);
 
   return (
     <>
@@ -27,7 +28,7 @@ const Container = ({ signOut, showLoginButton }: Props) => {
         isVisible={menuOpened}
       />
     </>
-  )
-}
+  );
+};
 
-export default Container
+export default Container;
