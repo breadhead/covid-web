@@ -1,21 +1,26 @@
-import React from 'react';
+import RegionSelect from '@app/features/client/features/regionSelect/organisms/RegionSelect'
+import PhoneInput from '@app/features/common/form/components/PhoneInput'
+import React from 'react'
 
-import ButtonWithTooltip from '@app/features/common/form/components/ButtonWithTooltip';
-import Checkbox from '@app/features/common/form/components/Checkbox';
-import ComboSearch from '@app/features/common/form/components/ComboSearch';
-import EmergingFormElement from '@app/features/common/form/components/EmergingFormElement';
-import Input from '@app/features/common/form/components/Input';
-import RadioButton from '@app/features/common/form/components/RadioButton';
-import RadioGroup from '@app/features/common/form/components/RadioGroup';
-import Select from '@app/features/common/form/components/Select';
-import SelectMonths from '@app/features/common/form/components/SelectMonths';
-import SelectYears from '@app/features/common/form/components/SelectYears';
-import Switch from '@app/features/common/form/components/Switch';
-import TextArea from '@app/features/common/form/components/TextArea';
-import Toggle from '@app/features/common/form/components/Toggle';
-import ValidationTooltip from '@app/features/common/form/components/ValidationTooltip';
-import { FormComponentOptions, FormComponentType } from '@app/features/common/form/FormConstructor';
-import Combobox from '@app/ui/Combobox';
+import ButtonWithTooltip from '@app/features/common/form/components/ButtonWithTooltip'
+import Checkbox from '@app/features/common/form/components/Checkbox'
+import ComboSearch from '@app/features/common/form/components/ComboSearch'
+import EmergingFormElement from '@app/features/common/form/components/EmergingFormElement'
+import Input from '@app/features/common/form/components/Input'
+import RadioButton from '@app/features/common/form/components/RadioButton'
+import RadioGroup from '@app/features/common/form/components/RadioGroup'
+import Select from '@app/features/common/form/components/Select'
+import SelectMonths from '@app/features/common/form/components/SelectMonths'
+import SelectYears from '@app/features/common/form/components/SelectYears'
+import Switch from '@app/features/common/form/components/Switch'
+import TextArea from '@app/features/common/form/components/TextArea'
+import Toggle from '@app/features/common/form/components/Toggle'
+import ValidationTooltip from '@app/features/common/form/components/ValidationTooltip'
+import {
+  FormComponentOptions,
+  FormComponentType,
+} from '@app/features/common/form/FormConstructor'
+import Combobox from '@app/ui/Combobox'
 
 export const getFormComponent = ({ type, options }: FormComponentOptions) => {
   switch (type) {
@@ -32,9 +37,11 @@ export const getFormComponent = ({ type, options }: FormComponentOptions) => {
     case FormComponentType.Input:
       return <Input {...options} />
     case FormComponentType.PhoneInput:
-      return <ProneInput {...options} />
+      return <PhoneInput {...options} />
     case FormComponentType.RadioButton:
       return <RadioButton {...options} />
+    case FormComponentType.RegionSelect:
+      return <RegionSelect {...options} />
     case FormComponentType.Select:
       return <Select {...options} />
     case FormComponentType.SelectMonths:
@@ -51,6 +58,8 @@ export const getFormComponent = ({ type, options }: FormComponentOptions) => {
       return <Toggle {...options} />
     case FormComponentType.ValidationTooltip:
       return <ValidationTooltip {...options} />
+    case FormComponentType.Label:
+      return <label {...options}>options.text</label>
     default:
       return <></>
   }

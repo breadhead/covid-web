@@ -1,6 +1,6 @@
 import { getFormComponent } from '@app/features/common/form/getFormComponent'
-import React from 'react';
-import { Form } from './';
+import React from 'react'
+import { Form } from './'
 
 export enum FormComponentType {
   ButtonWithTooltip = 'buttonWithTooltip',
@@ -12,6 +12,7 @@ export enum FormComponentType {
   PhoneInput = 'phoneInput',
   RadioButton = 'radioButton',
   RadioGroup = 'radioGroup',
+  RegionSelect = 'regionSelect',
   Select = 'select',
   SelectMonths = 'selectMonths',
   SelectYears = 'selectYears',
@@ -19,6 +20,7 @@ export enum FormComponentType {
   TextArea = 'textArea',
   Toggle = 'toggle',
   ValidationTooltip = 'validationTooltip',
+  Label = 'label',
 }
 
 export interface FormComponentOptions {
@@ -41,9 +43,14 @@ interface Props {
   className?: string
 }
 
-export const FormConstructor = ({ options, onSubmit, saveDraft, initialValues, className }: Props) => {
-
-  return(
+export const FormConstructor = ({
+  options,
+  onSubmit,
+  saveDraft,
+  initialValues,
+  className,
+}: Props) => {
+  return (
     <Form
       onSubmit={onSubmit}
       saveDebounced={saveDraft}
@@ -51,7 +58,7 @@ export const FormConstructor = ({ options, onSubmit, saveDraft, initialValues, c
       initialValues={initialValues}
       className={className}
     >
-      { options.map(getFormComponent) }
+      {options.steps.map(getFormComponent)}
     </Form>
-   );
+  )
 }
