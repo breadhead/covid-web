@@ -1,1 +1,1 @@
-export { Home as default } from '@app/features/landing';
+export { SystemMain as default } from '@app/features/system';

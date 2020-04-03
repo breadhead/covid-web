@@ -1,0 +1,37 @@
+.hero {
+  padding: 64px 16px 32px;
+
+  @media (--smallDown) {
+    width: 100vw;
+  }
+}
+
+.title {
+  margin: 0 auto 24px;
+  font: var(--title-extra);
+  text-align: center;
+  max-width: 900px;
+
+  @media (--smallDown) {
+    font-size: 32px;
+    line-height: 36px;
+    text-align: left;
+  }
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  @media (--smallDown) {
+    justify-content: flex-start;
+    margin-bottom: 32px;
+  }
+}
+
+.logo {
+  width: 146px !important;
+  height: 56px !important;
+}

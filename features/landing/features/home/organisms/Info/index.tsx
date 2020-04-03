@@ -1,22 +1,15 @@
 import * as React from 'react';
+import htmlParser from 'react-html-parser';
 
 import * as styles from './Info.css';
 
-const Info = () => (
+interface DonationInfoProps {
+  text: any;
+}
+
+const DonationInfo = ({ text }: DonationInfoProps) => (
   <article className={styles.quote}>
-    <p className={styles.message}>
-      <div>
-        Мы создали сервис, помогающий найти ответы на вопросы о COVID-19. Это
-        справочник с проверенной информацией, консультации экспертов и
-        образовательные онлайн-мероприятия для врачей всей страны
-      </div>
-      <br />
-      <div>
-        Мы собираем средства на развитие проекта. Поддерживая справочную службу,
-        вы помогаете снизить нагрузку на систему здравоохранения, чтобы быстрее
-        победить эпидемию и сохранить здоровье людей.
-      </div>
-    </p>
+    <p className={styles.message}>{htmlParser(text)}</p>
     <div className={styles.author}>
       <img
         className={styles.authorPhoto}
@@ -35,4 +28,4 @@ const Info = () => (
   </article>
 );
 
-export default Info;
+export default DonationInfo;

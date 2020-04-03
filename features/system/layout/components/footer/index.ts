@@ -1,0 +1,1 @@
+export { SystemFooter } from './SystemFooter';

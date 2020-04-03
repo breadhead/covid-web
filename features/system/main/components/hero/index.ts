@@ -1,0 +1,1 @@
+export { SystemHero } from './SystemHero';
