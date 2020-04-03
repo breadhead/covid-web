@@ -17,7 +17,7 @@ export const BecomePartnerForm = () => {
     <FormConstructor
       options={formConfig}
       onSubmit={onSubmit}
-      saveDraft={() => {}}
+      saveDraft={console.log}
     >
       <Button
         size={ButtonSize.ExtraLarge}

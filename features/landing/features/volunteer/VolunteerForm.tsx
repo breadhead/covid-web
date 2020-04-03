@@ -18,7 +18,7 @@ export const VolunteerForm = () => {
     <FormConstructor
       options={formConfig(styles)}
       onSubmit={onSubmit}
-      saveDraft={() => {}}
+      saveDraft={console.log}
     >
       <Button
         size={ButtonSize.ExtraLarge}
