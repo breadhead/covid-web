@@ -2,6 +2,7 @@ const next = require('next');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const args = require('args-parser')(process.argv);
+const cors = require('cors');
 
 const routes = require('./routes');
 
