@@ -1,3 +1,5 @@
+import { saveFormToAirtable } from '@app/features/common/airtableReducer/actions'
+import { useThunk } from '@front/hooks/useThunk'
 import React from 'react';
 import cx from 'classnames';
 
@@ -13,8 +15,10 @@ interface Props {
 }
 
 export const BecomePartnerForm = ({ theme }: Props) => {
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const dispatch = useThunk();
+
+  const onSubmit = async (data: any) => {
+    await dispatch(saveFormToAirtable('partner', data));
   };
 
   return (

@@ -1,3 +1,5 @@
+import { saveFormToAirtable } from '@app/features/common/airtableReducer/actions'
+import { useThunk } from '@front/hooks/useThunk'
 import React from 'react';
 import cx from 'classnames';
 
@@ -9,8 +11,10 @@ import { ButtonSize, Button } from '@front/ui/button';
 import { formConfig } from './formConfig';
 
 export const HospitalAidForm = () => {
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const dispatch = useThunk();
+
+  const onSubmit = async (data: any) => {
+    await dispatch(saveFormToAirtable('hospital-aid', data));
   };
 
   return (

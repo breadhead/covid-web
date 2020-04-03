@@ -1,3 +1,5 @@
+import { saveFormToAirtable } from '@app/features/common/airtableReducer/actions'
+import { useThunk } from '@front/hooks/useThunk'
 import React from 'react';
 import cx from 'classnames';
 
@@ -10,8 +12,10 @@ import * as styles from './VolunteerForm.css';
 import { formConfig } from './formConfig';
 
 export const VolunteerForm = () => {
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const dispatch = useThunk();
+
+  const onSubmit = async (data: any) => {
+    await dispatch(saveFormToAirtable('volunteer', data));
   };
 
   return (
