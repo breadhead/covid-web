@@ -99,6 +99,7 @@ jobs:
             sudo docker-compose down &&
             sudo docker-compose up -d &&
             sudo docker image prune -f"
+          no_output_timeout: 5m
 
 workflows:
   version: 2
@@ -109,6 +110,7 @@ workflows:
             branches:
               ignore:
                 - master
+                - sanity
 
   deploy-dev:
     jobs:
