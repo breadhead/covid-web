@@ -58,7 +58,7 @@ module.exports = withPlugins(
         backUrl: process.env.BACK_URL || 'https://api.defeatcovid.ru/',
         siteUrl: process.env.SITE_URL || 'http://localhost:3001',
         BUGSNAG_API_KEY: process.env.BUGSNAG_BROWSER_API_KEY || 'mememe',
-        prodUrl: process.env.PROD_IMGPROXY_URL || 'http://image.covid.breadhead.ru'
+        prodUrl: process.env.PROD_IMGPROXY_URL || 'https://image.covid.breadhead.ru'
       },
     },
   ],
