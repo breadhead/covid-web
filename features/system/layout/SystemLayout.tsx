@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { SystemHeader } from './header';
-import { SystemFooter } from './footer';
+import { SystemHeader } from './components/header';
+import { SystemFooter } from './components/footer';
 
 interface SystemLayoutProps {
   children: any;
