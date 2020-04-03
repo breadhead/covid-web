@@ -1,1 +1,1 @@
-export { VolunteerPage } from '@app/features/landing/features/volunteer/page/VolunteerPage';
+export { VolunteerPage } from './page/VolunteerPage';
