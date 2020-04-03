@@ -1,0 +1,10 @@
+.professionRadioGroup {
+  margin-top: 20px;
+}
+
+.professionRadioGroup div {
+  @media (--mediumDown) {
+    display: grid !important;
+    gap: 12px;
+  }
+}

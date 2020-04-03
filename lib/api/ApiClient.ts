@@ -19,6 +19,7 @@ export default interface ApiClient {
   searchClinic(query: string): Promise<string[]>;
   searchClinicByRegion(region: string, name: string): Promise<string[]>;
   saveCoronaRequestForm(data: any): Promise<any>;
+  saveFormToAirtalbe(formType: string, data: any);
   updateCoronaRequestForm(data: any): Promise<any>;
   getPartners(): Promise<Partner[]>;
 }

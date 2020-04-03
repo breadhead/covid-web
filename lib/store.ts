@@ -34,6 +34,10 @@ import {
   RequestFormReducerState,
 } from '@app/features/landing/features/request/reducer';
 import {
+  airtableReducer,
+  AirtableState,
+} from '@app/features/common/airtableReducer';
+import {
   reducer as browserQueryReducer,
   State as BrowserQueryState,
 } from '@app/features/common/browserQuery';
@@ -53,11 +57,13 @@ export interface State {
   login: LoginState;
   requestForm: RequestFormReducerState;
   partners: PartnersState;
+  airtable: AirtableState;
 }
 
 const reducer = combineReducers({
   browserQuery: browserQueryReducer,
   requestForm: requestFormReducer,
+  airtable: airtableReducer,
   login: loginReducer,
   modal: modalReducer,
   [REDUCER_KEY]: windowSize,

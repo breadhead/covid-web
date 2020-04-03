@@ -110,4 +110,13 @@ export default class RealApiClient implements ApiClient {
       active: true,
     });
   };
+
+  public saveFormToAirtalbe(formType: string, data: any) {
+    this.axiosInstance
+      .post('/form/save', {
+        type: formType,
+        fields: data,
+      })
+      .then((res) => res.data as any);
+  }
 }
