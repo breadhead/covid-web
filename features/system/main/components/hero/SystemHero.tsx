@@ -6,8 +6,7 @@ import { Icon } from '@app/src/ui/icon';
 import { IconsList } from '@app/src/ui/sprite';
 
 import * as styles from './SystemHero.css';
-
-// interface SystemHeroProps {}
+import { NavCards } from './components/nav-cards';
 
 export const SystemHero = () => {
   return (
@@ -25,6 +24,8 @@ export const SystemHero = () => {
       >
         <Icon className={styles.logo} name={IconsList.FoundationLogo} />
       </NavLink>
+
+      <NavCards />
     </section>
   );
 };

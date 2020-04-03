@@ -14,6 +14,22 @@ export const IconsSprite = () => (
   >
     <defs>
       <symbol
+        id={IconsList.ArrowRight2}
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          d="M8 20L16 12L8 4"
+          stroke="#3C54EE"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </symbol>
+
+      <symbol
         id={IconsList.SystemLogo}
         width="156"
         height="36"
