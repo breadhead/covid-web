@@ -50,11 +50,6 @@
   border-top: 1px solid rgba(21, 24, 51, 0.08);
 }
 
-.bubble {
-  background-color: #ffeab7;
-  padding: 12px 16px 12px 20px;
-  border-radius: 36px 20px 20px 0px;
-}
 
 .list {
   padding-left: 24px;

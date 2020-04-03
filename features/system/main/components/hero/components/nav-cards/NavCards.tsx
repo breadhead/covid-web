@@ -5,6 +5,7 @@ import { NavLink } from '@app/src/ui/nav-link';
 import { Icon } from '@app/src/ui/icon';
 import { IconsList } from '@app/src/ui/sprite';
 
+import { Bubble } from '../bubble';
 import * as styles from './NavCards.css';
 // interface NavCardsProps {}
 
@@ -20,9 +21,7 @@ export const NavCards = () => {
           >
             <h3 className={styles.title}>Справочная служба</h3>
           </NavLink>
-          <span className={styles.bubble}>
-            Есть симптомы COVID. Что делать?
-          </span>
+          <Bubble />
         </div>
         <NavLink withoutUnderline className={styles.block} href={'/ask'}>
           Просто спросить

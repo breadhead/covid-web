@@ -1,0 +1,19 @@
+.bubble {
+  background-color: #ffeab7;
+  padding: 12px 16px 12px 20px;
+  border-radius: 36px 20px 20px 0px;
+}
+
+.hint {
+  animation: fade 1s ease-in;
+}
+
+@keyframes fade {
+ 0% {
+   opacity: 0%;
+ }
+
+ 100% {
+   opacity: 100%;
+ }
+}
