@@ -25,11 +25,11 @@ export enum FormComponentType {
 
 interface LabelOptions {
   text: string
-  props: any[]
+  props?: any
 }
 
 export interface FormComponentOptions {
-  props?: any[]
+  props?: any
   type: FormComponentType
   label?: LabelOptions
   condition?: (values: any[]) => boolean

@@ -13,7 +13,7 @@ export const VolunteerForm = () => {
 
   return (
     <FormConstructor
-      options={formConfig}
+      options={formConfig(styles)}
       onSubmit={onSubmit}
       saveDraft={() => {}}
     >

@@ -1,5 +1,5 @@
-import RegionSelect from '@app/features/client/features/regionSelect/organisms/RegionSelect'
 import PhoneInput from '@app/features/common/form/components/PhoneInput'
+import RegionSelect from '@app/ui/regionSelect/organisms/RegionSelect'
 import React from 'react'
 
 import ButtonWithTooltip from '@app/features/common/form/components/ButtonWithTooltip'
@@ -22,7 +22,7 @@ import {
 } from '@app/features/common/form/FormConstructor'
 import Combobox from '@app/ui/Combobox'
 
-const getFormComponent = (type: FormComponentType, props: any[]) => {
+const getFormComponent = (type: FormComponentType, props: any) => {
   switch (type) {
     case FormComponentType.ButtonWithTooltip:
       return <ButtonWithTooltip {...props} />
@@ -75,7 +75,7 @@ export const renderFormComponent = (
         getFormComponent(FormComponentType.Label, {
           ...label.props,
           text: label.text,
-          htmlFor: props.name,
+          htmlFor: props ? props.name : '',
         })}
       {getFormComponent(type, props)}
     </React.Fragment>
