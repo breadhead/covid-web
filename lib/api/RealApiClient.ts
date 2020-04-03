@@ -5,6 +5,7 @@ import { User } from '@app/models/Users/User';
 import ApiClient, { UploadedFile } from './ApiClient';
 import { queryString } from './helper/queryString';
 import { SendFeedbackRequest } from './request/SendFeedback';
+import {Expert} from "@app/models/sanity/Expert";
 
 const { sanityClient } = require('@app/lib/sanity-client');
 
@@ -110,4 +111,10 @@ export default class RealApiClient implements ApiClient {
       active: true,
     });
   };
+
+  public getExperts(): Promise<Expert[]> {
+    return sanityClient.fetch(`*[_type == "expert"]`, {
+      active: true,
+    });
+  }
 }

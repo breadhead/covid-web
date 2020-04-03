@@ -8,4 +8,5 @@ export interface Expert extends SanityBase {
   logo: Photo;
   code: { current: string };
   sortIndex: number;
+  description: string;
 }

@@ -1,5 +1,6 @@
 import { User } from '@app/models/Users/User';
 import { Partner } from '@app/models/sanity/Partner';
+import {Expert} from "@app/models/sanity/Expert";
 
 export interface UploadedFile {
   path: string;
@@ -21,4 +22,5 @@ export default interface ApiClient {
   saveCoronaRequestForm(data: any): Promise<any>;
   updateCoronaRequestForm(data: any): Promise<any>;
   getPartners(): Promise<Partner[]>;
+  getExperts(): Promise<Expert[]>;
 }

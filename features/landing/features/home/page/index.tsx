@@ -15,6 +15,7 @@ import { Main } from '../organisms/Main';
 import { useAuthModalByUrl } from './useAuthModalByUrl';
 import About from '../organisms/Main/components/About';
 import Steps from '../organisms/Main/components/Steps';
+import {getExpertsFromSanity} from "@app/features/common/expertReducer";
 
 const LandingPage = () => {
   useAuthModalByUrl();
@@ -50,7 +51,10 @@ const LandingPage = () => {
 };
 
 LandingPage.getInitialProps = async (context: AppContext) => {
-  await context.reduxStore.dispatch(getPartnersFromSanity() as any);
+  await Promise.all([
+      context.reduxStore.dispatch(getPartnersFromSanity() as any),
+      context.reduxStore.dispatch(getExpertsFromSanity() as any)
+  ]);
 
   return {};
 };

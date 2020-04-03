@@ -5,21 +5,17 @@ import { MainLayout } from '@app/features/main/layout';
 import { NavLink } from '@front/ui/nav-link';
 
 import * as styles from './ExpertPage.css';
+import {AppContext} from "@app/lib/server-types";
+import {getExpertsFromSanity} from "@app/features/common/expertReducer";
+import {Expert} from "@app/models/sanity/Expert";
+import {getImageSrc} from "@app/lib/useImageSrc/getImageSrc";
 
-export interface ExpertInterface {
-  id: string;
-  photo: string;
-  name: string;
-  specialization: string;
-  info: string[];
-}
 
 interface Props {
-  expert: ExpertInterface;
+  expert: Expert;
 }
 
 const ExpertPage = ({ expert }: Props) => {
-  const { photo, name, specialization, info } = expert;
   return (
     <MainLayout className={styles.main}>
       <div className={styles.container}>
@@ -27,14 +23,12 @@ const ExpertPage = ({ expert }: Props) => {
           Все эксперты
         </NavLink>
         <section className={styles.expert}>
-          <img className={styles.photo} src={photo} alt={name} />
+          <img className={styles.photo} src={getImageSrc(expert.logo) || ''} alt={expert.name} />
           <div className={styles.textWrapper}>
-            <h1 className={styles.title}>{name}</h1>
-            <p className={styles.description}>{specialization}</p>
+            <h1 className={styles.title}>{expert.name}</h1>
+            <p className={styles.description}>{expert.subtitle}</p>
             <div className={styles.info}>
-              {info.map((text) => (
-                <p key={text}>{text}</p>
-              ))}
+              {expert.description}
             </div>
           </div>
         </section>
@@ -42,5 +36,12 @@ const ExpertPage = ({ expert }: Props) => {
     </MainLayout>
   );
 };
+
+ExpertPage.getInitialProps = async (context: AppContext) => {
+  await context.reduxStore.dispatch(getExpertsFromSanity() as any);
+
+  return {};
+};
+
 
 export default ExpertPage;
