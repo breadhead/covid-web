@@ -5,6 +5,7 @@ import { NavLink } from '@app/src/ui/nav-link';
 
 import * as styles from './HelpFooter.css';
 import { helpFooterSocial } from './helpFooterSocial';
+
 export const HelpFooter = () => {
   return (
     <footer className={styles.helpFooter}>
