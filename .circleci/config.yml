@@ -110,7 +110,6 @@ workflows:
             branches:
               ignore:
                 - master
-                - sanity
 
   deploy-dev:
     jobs:
@@ -118,12 +117,12 @@ workflows:
           filters:
             branches:
               only:
-                - sanity
+                - master
       - dev:
           filters:
             branches:
               only:
-                - sanity
+                - master
           requires:
             - push
   deploy-prod:
