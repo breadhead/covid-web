@@ -1,0 +1,34 @@
+.label {
+  display: block;
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+  color: var(--text-color-primary);
+}
+
+.button {
+  display: block;
+  width: 100%;
+
+  margin: 0 auto;
+
+  @media (--smallDown) {
+    max-width: 328px;
+  }
+}
+
+.largeButton {
+  margin-top: 40px;
+  padding-top: 34px !important;
+  padding-bottom: 34px !important;
+  width: 100%;
+  max-width: initial;
+
+  @media (--smallDown) {
+    padding-top: 17px !important;
+    padding-bottom: 19px !important;
+  }
+}
+
+.field {
+  margin-top: 24px;
+}
