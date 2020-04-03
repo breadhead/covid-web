@@ -44,7 +44,7 @@ interface FormOptions {
 interface Props {
   options: FormOptions;
   onSubmit: (data: any) => any;
-  saveDraft: (data: any) => any;
+  saveDraft?: (data: any) => any;
   initialValues?: any;
   className?: string;
   children?: React.ReactNode;
@@ -61,8 +61,8 @@ export const FormConstructor = ({
   return (
     <Form
       onSubmit={onSubmit}
-      saveDebounced={saveDraft}
-      saveOnBlur={saveDraft}
+      saveDebounced={(data) => saveDraft && saveDraft(data)}
+      saveOnBlur={(data) => saveDraft && saveDraft(data)}
       initialValues={initialValues}
       className={className}
     >

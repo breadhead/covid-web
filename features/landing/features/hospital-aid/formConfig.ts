@@ -1,5 +1,5 @@
-import { FormComponentType } from '@app/features/common/form/FormConstructor'
-import { InputType } from '@app/ui/Input'
+import { FormComponentType } from '@app/features/common/form/FormConstructor';
+import { InputType } from '@app/ui/Input';
 
 export const formConfig = {
   steps: [
@@ -58,11 +58,11 @@ export const formConfig = {
       type: FormComponentType.TextArea,
       required: true,
       label: {
-        text: 'Чего не хватает?'
+        text: 'Чего не хватает?',
       },
       props: {
         name: 'what_is_needed',
       },
     },
   ],
-}
+};

@@ -1,5 +1,5 @@
-import { InputType } from '@app/features/common/form'
-import { FormComponentType } from '@app/features/common/form/FormConstructor'
+import { InputType } from '@app/features/common/form';
+import { FormComponentType } from '@app/features/common/form/FormConstructor';
 
 const themeOptions = [
   {
@@ -17,7 +17,7 @@ const themeOptions = [
   {
     key: 'lecture-request',
     label: 'Заказать лекцию',
-  }
+  },
 ];
 
 export const formConfig = {
@@ -30,7 +30,7 @@ export const formConfig = {
       },
       props: {
         name: 'name',
-      }
+      },
     },
     {
       type: FormComponentType.Input,
@@ -39,7 +39,7 @@ export const formConfig = {
       },
       props: {
         name: 'organisation_name',
-      }
+      },
     },
     {
       type: FormComponentType.Input,
@@ -50,17 +50,17 @@ export const formConfig = {
       props: {
         name: 'Email',
         type: InputType.Email,
-      }
+      },
     },
     {
       type: FormComponentType.PhoneInput,
       required: true,
       label: {
-        text: 'Телефон'
+        text: 'Телефон',
       },
       props: {
         name: 'phone',
-      }
+      },
     },
     {
       type: FormComponentType.Select,
@@ -71,7 +71,7 @@ export const formConfig = {
       props: {
         name: 'theme',
         options: themeOptions,
-      }
+      },
     },
     {
       type: FormComponentType.TextArea,
@@ -81,7 +81,7 @@ export const formConfig = {
       },
       props: {
         name: 'message',
-      }
-    }
+      },
+    },
   ],
-}
+};

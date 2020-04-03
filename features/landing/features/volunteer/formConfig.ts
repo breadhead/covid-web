@@ -1,4 +1,3 @@
-import cx from 'classnames';
 import * as yup from 'yup';
 
 import { FormComponentType } from '@app/features/common/form/FormConstructor';
