@@ -3,7 +3,10 @@ import cx from 'classnames';
 
 import { NavLink } from '@app/src/ui/nav-link';
 import { Partner } from '@app/models/sanity/Partner';
-import { getImageSrc } from '@app/lib/useImageSrc/getImageSrc';
+import {
+  getImageProxySrcFromSanity,
+  getImageSrc,
+} from '@app/lib/useImageSrc/getImageSrc';
 
 import * as styles from './PartnerCard.css';
 
@@ -13,7 +16,9 @@ interface Props {
 }
 
 const PartnerCard = ({ partner, className }: Props) => {
-  const image = getImageSrc(partner.logo) || '';
+  const image = getImageProxySrcFromSanity(partner.logo) || '';
+  console.log(getImageSrc(partner.logo));
+
   return (
     <NavLink
       blank

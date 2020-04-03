@@ -2,10 +2,11 @@ import { parse } from 'url';
 
 import { Photo } from '@app/models/sanity/Photo';
 
+import { getImageProxySrc } from './getImageProxySrc';
 import { imageUrlBuilder } from './builder';
 import { getFromConfig } from '../getPublicRuntimeConfig';
 
-export const _getImageSrc = (image: Photo) => {
+const _getImageSrc = (image: Photo) => {
   const src = () => {
     return imageUrlBuilder.image(image).url();
   };
@@ -13,7 +14,7 @@ export const _getImageSrc = (image: Photo) => {
   return src();
 };
 
-export const getProxyPath = (src: string | '') => {
+const getProxyPath = (src: string | '') => {
   const parsedURL = parse(src);
   const newSrc =
     typeof parsedURL !== 'object' || parsedURL === null
@@ -33,3 +34,6 @@ export const getImageSrc = (image: Photo) => {
 
   return src;
 };
+
+export const getImageProxySrcFromSanity = (image: Photo) =>
+  getImageProxySrc(getImageSrc(image) || '');
