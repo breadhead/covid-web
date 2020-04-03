@@ -34,7 +34,7 @@
 .link {
   margin-right: 32px;
   white-space: nowrap;
-  font: var(--text-18-28);
+  font: var(--text18-28);
   font-size: 18px;
   line-height: 28px;
   padding: 18px 0;

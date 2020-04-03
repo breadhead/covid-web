@@ -76,7 +76,7 @@
   padding: 4px 8px;
   background-color: var(--color-highlight);
   color: var(--color-text-primary);
-  font: var(--text-18-28);
+  font: var(--text18-28);
 }
 
 .disable {
