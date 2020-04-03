@@ -10,10 +10,10 @@ export const BecomePartnerPage = () => {
   return (
     <MainLayout className={styles.main}>
       <Head>
-        <title>Стать волонтером | Просто спросить</title>
+        <title>Предложить помощь | Просто спросить</title>
       </Head>
 
-      <h1 className={styles.title}>Стать волонтёром</h1>
+      <h1 className={styles.title}>Предложить помощь</h1>
       <BecomePartnerForm />
     </MainLayout>
   );

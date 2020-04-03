@@ -1,5 +1,4 @@
 import { FormComponentType } from '@app/features/common/form/FormConstructor'
-import { REQUIRED_MESSAGE } from '@front/helpers/validationMessages'
 import cx from 'classnames'
 import * as yup from 'yup';
 
