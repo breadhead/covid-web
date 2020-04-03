@@ -1,6 +1,7 @@
 .label {
   display: block;
-  margin: 0 0 8px 0;
+  margin: 0;
+  margin-bottom: 4px;
   line-height: 1.5;
   color: var(--text-color-primary);
 }
@@ -17,18 +18,19 @@
 }
 
 .largeButton {
-  margin-top: 40px;
-  padding-top: 34px !important;
-  padding-bottom: 34px !important;
+  margin-top: 24px;
+  padding: 18px 32px !important;
   width: 100%;
   max-width: initial;
+  font: var(--text-18-28);
 
-  @media (--smallDown) {
-    padding-top: 17px !important;
-    padding-bottom: 19px !important;
-  }
+  border-radius: 0;
 }
 
 .field {
-  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+textarea.field {
+  min-height: 132px !important;
 }

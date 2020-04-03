@@ -32,6 +32,7 @@ import ErrorComponent from './_error';
 import { description, keywords } from '../features/common/seo/SEO';
 import '@app/ui/antd-styles.less';
 import '@app/ui/config.css?CSSModulesDisable';
+import '@app/ui/globals.css?CSSModulesDisable';
 import '@front/ui/config.css?CSSModulesDisable';
 
 interface Props {

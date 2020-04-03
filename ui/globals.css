@@ -1,0 +1,42 @@
+.global-section {
+  padding: 0 16px 0;
+  padding-bottom: 96px;
+  max-width: 800px;
+  @media (--smallDown) {
+    width: 100vw;
+    padding-bottom: 56px;
+  }
+}
+
+.global-sectionTitle {
+  padding-bottom: 32px;
+  margin: 0;
+  font: var(--title-regular);
+
+  @media (--smallDown) {
+    padding: 0 0 24px 0;
+    font: var(--title-medium);
+    text-align: left;
+  }
+}
+
+.global-pageTitle {
+  margin: 0 auto 32px;
+  font: var(--title-extra);
+
+  @media (--smallDown) {
+    margin-bottom: 24px;
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+.global-bubble {
+  width: 288px;
+  border-radius: 20px 20px 20px 0px;
+  background-color: #ffeab7;
+
+  padding: 24px 12px 20px 20px;
+
+  flex-shrink: 0;
+}

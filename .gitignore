@@ -4,3 +4,4 @@ out
 *.log
 launch.json
 settings.json
+blueprint-templates

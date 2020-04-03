@@ -5,10 +5,7 @@
   font: var(--text16-24);
   color: var(--text-color-primary);
   border: none;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  border-bottom-left-radius: 6px;
+  border-radius: 0;
   box-shadow: 0 0 0 1px #d9d9d9;
   -moz-appearance: textfield;
   -webkit-appearance: none;

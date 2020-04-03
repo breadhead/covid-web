@@ -1,0 +1,15 @@
+.description {
+  margin: 0;
+  font: var(--text18-28);
+  & a {
+    font: var(--text18-28);
+  }
+}
+
+.hero {
+  padding-bottom: 64px;
+
+  @media (--smallDown) {
+    padding-bottom: 56px;
+  }
+}

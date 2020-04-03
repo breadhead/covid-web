@@ -83,12 +83,12 @@ export const renderFormComponent = (
     <React.Fragment key={key}>
       {label &&
         getFormComponent(FormComponentType.Label, {
-          className: cx(styles.label, styles.field),
+          className: cx(styles.label),
           ...label.props,
           text: label.text,
           htmlFor: props ? props.name : '',
         })}
-      {getFormComponent(type, props)}
+      {getFormComponent(type, { className: styles.field, ...props })}
     </React.Fragment>
   );
 };

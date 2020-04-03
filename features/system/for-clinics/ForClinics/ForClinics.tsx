@@ -1,19 +1,20 @@
 import * as React from 'react';
+import cx from 'classnames';
 
-import { SystemLayout } from '../layout';
-import { ForClinicsHero } from './ForClinicsHero';
-import { Helping } from './Helping';
-import { HelpRequest } from './HelpRequest';
-import { SystemHelp } from '../main/components/help';
+import { SystemLayout } from '../../layout';
+import { ForClinicsHero } from '../ForClinicsHero/ForClinicsHero';
+import { Helping } from '../Helping/Helping';
+import { HelpRequest } from '../HelpRequest/HelpRequest';
+import { SystemHelp } from '../../main/components/help';
 import s from './ForClinics.css';
-import { Partners } from './Partners';
+import { Partners } from '../Partners/Partners';
 
 interface ForClinicsProps {}
 
 export const ForClinics = ({}: ForClinicsProps) => {
   return (
     <SystemLayout>
-      <div className={s.wrapper}>
+      <div className={cx(s.wrapper, s.wrapperOuter)}>
         <ForClinicsHero></ForClinicsHero>
       </div>
       <div className={s.wrapper}>

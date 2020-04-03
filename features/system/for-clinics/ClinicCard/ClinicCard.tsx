@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { NavLink } from '@app/src/ui/nav-link';
 
-import s from './ForClinics.css';
+import s from './ClinicCard.css';
 
 export interface ClicicCardProps {
   clinic: {

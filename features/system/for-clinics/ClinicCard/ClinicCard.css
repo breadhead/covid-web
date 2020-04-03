@@ -1,0 +1,34 @@
+.clinicCard {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  display: block;
+  position: relative;
+  border-top: 1px solid rgba(21, 24, 51, 0.12);
+  padding-left: 76px;
+  &:last-child {
+    border-bottom: 1px solid rgba(21, 24, 51, 0.12);
+  }
+}
+
+.logo {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.title {
+  font: var(--text18-28);
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 4px;
+  white-space: normal;
+}
+
+.city {
+  margin: 0;
+  color: #616681;
+  font: var(--text16-24);
+}

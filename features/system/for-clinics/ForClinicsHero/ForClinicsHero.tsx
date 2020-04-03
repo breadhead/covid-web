@@ -1,12 +1,13 @@
 import * as React from 'react';
+import cx from 'classnames';
 
 import { NavLink } from '@app/src/ui/nav-link';
 
-import s from './ForClinics.css';
+import s from './ForClinicsHero.css';
 
 export const ForClinicsHero = () => (
-  <div className={s.hero}>
-    <h1 className={s.title}>Помощь больницам</h1>
+  <div className={cx('global-section', s.hero)}>
+    <h1 className="global-pageTitle">Помощь больницам</h1>
     <div className={s.description}>
       Проект «‎Убить COVID-19»‎ — это инициатива{' '}
       <NavLink blank href="https://nenaprasno.ru">
