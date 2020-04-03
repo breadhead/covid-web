@@ -10,10 +10,10 @@ export const HospitalAidPage = () => {
   return (
     <MainLayout className={styles.main}>
       <Head>
-        <title>Стать волонтером | Просто спросить</title>
+        <title>Помощь больницам | Просто спросить</title>
       </Head>
 
-      <h1 className={styles.title}>Стать волонтёром</h1>
+      <h1 className={styles.title}>Помощь больницам</h1>
       <HospitalAidForm />
     </MainLayout>
   );
