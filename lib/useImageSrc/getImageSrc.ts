@@ -1,39 +1,28 @@
+import base64 from 'base-64';
+import { isObject } from 'lodash';
 import { parse } from 'url';
 
 import { Photo } from '@app/models/sanity/Photo';
 
-import { getImageProxySrc } from './getImageProxySrc';
-import { imageUrlBuilder } from './builder';
 import { getFromConfig } from '../getPublicRuntimeConfig';
-
-const _getImageSrc = (image: Photo) => {
-  const src = () => {
-    return imageUrlBuilder.image(image).url();
-  };
-
-  return src();
-};
+import { imageUrlBuilder } from './builder';
 
 const getProxyPath = (src: string | '') => {
   const parsedURL = parse(src);
-  const newSrc =
-    typeof parsedURL !== 'object' || parsedURL === null
-      ? src
-      : `/content/${parsedURL.query}${parsedURL.pathname}`;
+  const newSrc = isObject(parsedURL)
+    ? `/content/${parsedURL.query}${parsedURL.pathname}`
+    : src;
 
   return getFromConfig('prodUrl') + newSrc;
 };
 
+const getImageProxySrc = (url: string) =>
+  `${getFromConfig('storageUrl')}/w:0/h:0/${base64.encode(url)}`;
+
 export const getImageSrc = (image: Photo) => {
   if (!image.asset) return null;
 
-  const src = _getImageSrc(image) || '';
-  if (src) {
-    return getProxyPath(src);
-  }
+  const src = imageUrlBuilder.image(image).url() || '';
 
-  return src;
+  return getImageProxySrc(getProxyPath(src));
 };
-
-export const getImageProxySrcFromSanity = (image: Photo) =>
-  getImageProxySrc(getImageSrc(image) || '');
