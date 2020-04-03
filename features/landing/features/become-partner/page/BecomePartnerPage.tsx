@@ -3,10 +3,19 @@ import * as React from 'react';
 import Head from 'next/head';
 
 import { MainLayout } from '@app/features/main/layout';
+import { AppContext } from '@app/lib/server-types';
 
 import * as styles from './BecomePartnerPage.css';
 
-export const BecomePartnerPage = () => {
+interface Query {
+  theme: string
+}
+
+interface Props {
+  theme: string
+}
+
+const BecomePartnerPage = ({ theme }: Props) => {
   return (
     <MainLayout className={styles.main}>
       <Head>
@@ -14,7 +23,15 @@ export const BecomePartnerPage = () => {
       </Head>
 
       <h1 className={styles.title}>Предложить помощь</h1>
-      <BecomePartnerForm />
+      <BecomePartnerForm theme={theme} />
     </MainLayout>
   );
 };
+
+BecomePartnerPage.getInitialProps = ({ query }: AppContext<Query>) => {
+  const { theme } = query;
+
+  return { theme };
+}
+
+export { BecomePartnerPage };

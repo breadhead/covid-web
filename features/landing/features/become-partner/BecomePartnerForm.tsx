@@ -8,7 +8,11 @@ import { ButtonSize, Button } from '@front/ui/button';
 
 import { formConfig } from './formConfig';
 
-export const BecomePartnerForm = () => {
+interface Props {
+  theme?: string
+}
+
+export const BecomePartnerForm = ({ theme }: Props) => {
   const onSubmit = (data: any) => {
     console.log(data);
   };
@@ -18,6 +22,7 @@ export const BecomePartnerForm = () => {
       options={formConfig}
       onSubmit={onSubmit}
       saveDraft={() => {}}
+      initialValues={ ({ theme }) }
     >
       <Button
         size={ButtonSize.ExtraLarge}
