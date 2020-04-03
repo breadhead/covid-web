@@ -20,9 +20,9 @@ app.prepare().then(() => {
   const server = express();
   server.use(cookieParser());
   server.use(cors());
-  server.use(handler);
   server.get('/content/*', assetsProxy);
   server.get('/api/:type/:params?', apiProxy);
+  server.use(handler);
 
   server.get('*', (req, res) => {
     app.render(req, res, req.path, req.query);
