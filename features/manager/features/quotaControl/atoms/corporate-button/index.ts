@@ -1,1 +1,0 @@
-export { CorporateButton } from './CorporateButton'

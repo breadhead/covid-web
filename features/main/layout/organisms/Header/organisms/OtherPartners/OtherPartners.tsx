@@ -7,11 +7,7 @@ export const OtherPartners = () => {
   return (
     <div className={styles.otherPartners}>
       <div className={styles.tabLinks}>
-        <div
-          className={cx(styles.tablink, styles.current)}
-        >
-          COVID-19
-        </div>
+        <div className={cx(styles.tablink, styles.current)}>COVID-19</div>
 
         <NavLink
           withoutUnderline

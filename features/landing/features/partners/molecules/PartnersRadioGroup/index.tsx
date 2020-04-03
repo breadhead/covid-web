@@ -6,14 +6,11 @@ import '@app/ui/RadioGroup/ButtonStyle.css?CSSModulesDisable'
 
 import { Radio } from 'antd'
 import { RadioChangeEvent } from 'antd/lib/radio'
-import { currentPartnersOptions } from '../../organisms/PartnersList/config'
+import { getCurrentPartnersOptions } from '../../organisms/PartnersList/config'
+import { useMappedState } from '@app/node_modules/redux-react-hook'
+import { selectPartnersForPartnerPage } from '@app/features/common/partnerReducer/selectPartners'
 
 const RadioGroup = Radio.Group
-
-const options = currentPartnersOptions.map(option => ({
-  label: option.label,
-  value: option.type,
-}))
 
 interface Props {
   onChange: (evt: string) => void
@@ -23,6 +20,12 @@ interface Props {
 }
 
 const PartnersRadioGroup = ({ name, onChange, value, className }: Props) => {
+  const partners = useMappedState(selectPartnersForPartnerPage)
+  const options = getCurrentPartnersOptions(partners).map(option => ({
+    label: option.label,
+    value: option.type,
+  }))
+
   const onRadioButtonChange = (evt: RadioChangeEvent) => {
     onChange(evt.target.value)
   }

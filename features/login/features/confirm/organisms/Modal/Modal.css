@@ -1,9 +1,0 @@
-.modal {
-  max-width: 400px;
-  padding: 0 24px 40px;
-
-  @media (--smallDown) {
-    max-width: auto;
-    padding: 0 16px 32px;
-  }
-}

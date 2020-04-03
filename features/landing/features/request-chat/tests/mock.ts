@@ -98,7 +98,6 @@ export const dataDangerAndRisk = {
   },
 }
 
-
 // export const dataOncological = {
 //   target: 'Для себя',
 //   region: 'Ивановская область',

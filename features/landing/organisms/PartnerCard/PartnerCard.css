@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 220px;
-  color: var(--text-color-primary); 
+  color: var(--text-color-primary);
 }
 
 .logo {
@@ -15,7 +15,6 @@
   @media (--xxsmallDown) {
     margin-right: 40px;
   }
-
 }
 
 .logoWrapper {

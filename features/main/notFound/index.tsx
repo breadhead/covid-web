@@ -5,7 +5,8 @@ import Head from 'next/head'
 import cx from 'classnames'
 
 export { default as notFoundMiddleware } from './notFoundMiddleware'
-export { State, reducer } from './reducer'
+export { reducer } from './reducer'
+export type { State } from './reducer'
 export { getFound } from './selectors'
 
 import * as styles from './NotFound.css'

@@ -10,7 +10,7 @@ import { Option } from 'tsoption'
 
 import ErrorComponent from './_error'
 
-import App, { Container, NextAppContext } from 'next/app'
+import App, { Container } from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
 import React, { Component as ReactComponent } from 'react'
@@ -23,7 +23,6 @@ import '@front/ui/config.css?CSSModulesDisable'
 
 import { Analytics } from '@app/features/common/analytics'
 import { Intercom } from '@app/features/common/intercom'
-import { set as setQuery } from '@app/features/common/browserQuery'
 import { setToken } from '@app/features/login'
 import NotFound, { getFound } from '@app/features/main/notFound'
 import { canUseDOM } from '@app/lib/helpers/canUseDOM'
@@ -33,9 +32,9 @@ import { AppContext } from '@app/lib/server-types'
 import { resetCookie } from '@app/features/login/features/signIn/helpers/setAuthToken'
 import { currentUser, getToken } from '@app/features/login/features/user'
 import { pushRoute } from '@app/features/routing/pushRoute'
-import { normalizeWantTo } from './config'
 import { description, keywords } from './SEO'
-import { updateRequestFormData } from "@app/features/landing/features/request/reducer/actions"
+import { updateRequestFormData } from '@app/features/landing/features/request/reducer/actions'
+import { normalizeWantTo } from '@app/src/helpers/normalizeWantTo'
 
 interface Props {
   reduxStore: Store
@@ -50,7 +49,7 @@ Router.events.on('routeChangeComplete', () => {
 const ErrorBoundary = bugsnagClient.getPlugin('react')
 
 class OncohelpWeb extends App<Props> {
-  public static async getInitialProps(context: NextAppContext) {
+  public static async getInitialProps(context) {
     const ctx: AppContext = context.ctx as any
     if (ctx.req) {
       // eslint-disable-next-line prefer-destructuring
@@ -73,7 +72,7 @@ class OncohelpWeb extends App<Props> {
     return App.getInitialProps(context)
   }
 
-  public async  componentDidMount() {
+  public async componentDidMount() {
     const authViolate = getViolateState(this.props.reduxStore.getState())
     await this.props.reduxStore.dispatch(updateRequestFormData() as any)
 
@@ -84,10 +83,7 @@ class OncohelpWeb extends App<Props> {
 
       const wantTo = normalizeWantTo(this.props.router.asPath!)
       Router.push({ pathname: '/', query: { signIn: true, wantTo } })
-      return
     }
-
-    this.props.reduxStore.dispatch(setQuery(this.props.router.query || {}))
   }
 
   public render() {
@@ -101,107 +97,101 @@ class OncohelpWeb extends App<Props> {
       reduxStore.dispatch(createSizeAction(window))
       listenResize(reduxStore, window, 100)
     }
-    return (
-      !authViolate && (
-        <ErrorBoundary FallbackComponent={ErrorComponent}>
-          <Container>
-            <Head>
-              <meta
-                name="viewport"
-                content="width=device-width, initial=scale=1"
-              />
-              <meta name="keywords" content={keywords.join(', ')} />
-              <meta name="description" content={description} />
-              <link rel="canonical" href="https://defeatcovid.ru/" />
-              <link
-                rel="apple-touch-icon"
-                sizes="180x180"
-                href="/static/images/favicons/apple-touch-icon.png"
-              />
-              <link
-                rel="icon"
-                type="image/png"
-                sizes="32x32"
-                href="/static/images/favicons/favicon-32x32.png"
-              />
-              <link
-                rel="icon"
-                type="image/png"
-                sizes="16x16"
-                href="/static/images/favicons/favicon-16x16.png"
-              />
-              <link
-                rel="manifest"
-                href="/static/images/favicons/site.webmanifest"
-              />
-              <link
-                rel="mask-icon"
-                href="/static/images/favicons/safari-pinned-tab.svg"
-                color="#ffc40d"
-              />
-              <meta name="msapplication-TileColor" content="#ffc40d" />
-              <meta name="theme-color" content="#ffffff" />
-              <meta
-                property="og:title"
-                content="Просто спросить | COVID-19"
-              />
-              <meta property="og:site_name" content="https://defeatcovid.ru/" />
-              <meta property="og:url" content="https://defeatcovid.ru/" />
-              <meta
-                property="og:description"
-                content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
-              />
-              <meta property="og:type" content="website" />
-              <meta
-                property="og:image"
-                content={`${
-                  publicRuntimeConfig.siteUrl
-                  }/static/images/covid-image.png`}
-              />
-              <meta
-                property="og:image:secure_url"
-                content={`${
-                  publicRuntimeConfig.siteUrl
-                  }/static/images/covid-image.png`}
-              />
-              <meta property="og:image:type" content="image/jpeg" />
-              <meta property="og:image:width" content="600" />
-              <meta property="og:image:height" content="315" />
-              <meta
-                property="og:image:alt"
-                content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
-              />
-              <meta name="twitter:card" content="summary_large_image" />
-              <meta
-                name="twitter:title"
-                content="Просто спросить | COVID-19"
-              />
-              <meta
-                name="twitter:description"
-                content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
-              />
-              <meta
-                name="twitter:image"
-                content="/static/images/covid-image.png"
-              />
-              <meta
-                name="twitter:image:alt"
-                content="Просто спросить | COVID-19"
-              />
-              <meta property="fb:306467899461959" content="306467899461959" />
-            </Head>
-            <Intercom />
-            <Sprite />
-            <Provider store={reduxStore}>
-              <StoreContext.Provider value={reduxStore}>
-                {notFound ? <NotFound /> : <Component {...pageProps} />}
-                <Modal />
-                <Analytics />
-              </StoreContext.Provider>
-            </Provider>
-          </Container>
-        </ErrorBoundary>
-      )
+    return !authViolate ? (
+      <ErrorBoundary FallbackComponent={ErrorComponent}>
+        <Container>
+          <Head>
+            <meta
+              name="viewport"
+              content="width=device-width, initial=scale=1"
+            />
+            <meta name="keywords" content={keywords.join(', ')} />
+            <meta name="description" content={description} />
+            <link rel="canonical" href="https://defeatcovid.ru/" />
+            <link
+              rel="apple-touch-icon"
+              sizes="180x180"
+              href="/static/images/favicons/apple-touch-icon.png"
+            />
+            <link
+              rel="icon"
+              type="image/png"
+              sizes="32x32"
+              href="/static/images/favicons/favicon-32x32.png"
+            />
+            <link
+              rel="icon"
+              type="image/png"
+              sizes="16x16"
+              href="/static/images/favicons/favicon-16x16.png"
+            />
+            <link
+              rel="manifest"
+              href="/static/images/favicons/site.webmanifest"
+            />
+            <link
+              rel="mask-icon"
+              href="/static/images/favicons/safari-pinned-tab.svg"
+              color="#ffc40d"
+            />
+            <meta name="msapplication-TileColor" content="#ffc40d" />
+            <meta name="theme-color" content="#ffffff" />
+            <meta property="og:title" content="Просто спросить | COVID-19" />
+            <meta property="og:site_name" content="https://defeatcovid.ru/" />
+            <meta property="og:url" content="https://defeatcovid.ru/" />
+            <meta
+              property="og:description"
+              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+            />
+            <meta property="og:type" content="website" />
+            <meta
+              property="og:image"
+              content={`${
+                publicRuntimeConfig.siteUrl
+              }/static/images/covid-image.png`}
+            />
+            <meta
+              property="og:image:secure_url"
+              content={`${
+                publicRuntimeConfig.siteUrl
+              }/static/images/covid-image.png`}
+            />
+            <meta property="og:image:type" content="image/jpeg" />
+            <meta property="og:image:width" content="600" />
+            <meta property="og:image:height" content="315" />
+            <meta
+              property="og:image:alt"
+              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+            />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Просто спросить | COVID-19" />
+            <meta
+              name="twitter:description"
+              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+            />
+            <meta
+              name="twitter:image"
+              content="/static/images/covid-image.png"
+            />
+            <meta
+              name="twitter:image:alt"
+              content="Просто спросить | COVID-19"
+            />
+            <meta property="fb:306467899461959" content="306467899461959" />
+          </Head>
+          <Intercom />
+          <Sprite />
+          <Provider store={reduxStore}>
+            <StoreContext.Provider value={reduxStore}>
+              {notFound ? <NotFound /> : <Component {...pageProps} />}
+              <Modal />
+              <Analytics />
+            </StoreContext.Provider>
+          </Provider>
+        </Container>
+      </ErrorBoundary>
+    ) : (
+      <div>Загружаем...</div>
     )
   }
 }

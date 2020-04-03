@@ -1,1 +1,0 @@
-export { ClaimArchive } from './ClaimArchive'

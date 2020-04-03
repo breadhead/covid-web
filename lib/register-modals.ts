@@ -1,14 +1,6 @@
-import { FinishModal } from '@app/features/client/features/consultation'
-import { SignUpModal, SmsConfirmModal } from '@app/features/login'
-import { RefuseModal } from '@app/features/manager/features/closeClaim'
+import { SignUpModal } from '@app/features/login'
 import { RestorePasswordModal } from '@app/features/login/features/restorePassword'
 
-const modals = [
-  SmsConfirmModal,
-  SignUpModal,
-  FinishModal,
-  RefuseModal,
-  RestorePasswordModal,
-]
+const modals = [SignUpModal, RestorePasswordModal]
 
 export default () => modals

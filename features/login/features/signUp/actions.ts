@@ -9,8 +9,11 @@ import { Dispatch } from 'redux'
 import { actions } from './reducer'
 import { showIntercom } from '../../../landing/features/request-chat/showIntercom'
 
-import { updateRequestFormData } from "@app/features/landing/features/request/reducer/actions"
-import { setUserEmailLocalStorage, getUserEmailLocalStorage } from "../signIn/userEmailLocalStorage"
+import { updateRequestFormData } from '@app/features/landing/features/request/reducer/actions'
+import {
+  setUserEmailLocalStorage,
+  getUserEmailLocalStorage,
+} from '../signIn/userEmailLocalStorage'
 
 export const signUp = (
   login: string,
@@ -20,31 +23,30 @@ export const signUp = (
   dispatch: Dispatch<any>,
   getState: () => State,
   { getApi }: ExtraArgs,
-  ) => {
-    const api = getApi(getState)
-    try {
-      const { token } = await api.signUp(login, password, confirm)
+) => {
+  const api = getApi(getState)
+  try {
+    const { token } = await api.signUp(login, password, confirm)
 
-      setCookie(token)
-      dispatch(userActions.setToken(token))
-      dispatch(modalActions.close())
+    setCookie(token)
+    dispatch(userActions.setToken(token))
+    dispatch(modalActions.close())
 
+    setUserEmailLocalStorage(login)
 
-      setUserEmailLocalStorage(login)
+    console.log(getUserEmailLocalStorage())
 
-      console.log(getUserEmailLocalStorage())
+    await dispatch(currentUser())
+    await dispatch(updateRequestFormData())
 
-      await dispatch(currentUser())
-      await dispatch(updateRequestFormData())
+    showIntercom()
 
-      showIntercom()
+    return dispatch(actions.success(token))
+  } catch (error) {
+    const { message, fields, code } = error.response.data
 
-      return dispatch(actions.success(token))
-    } catch (error) {
-      const { message, fields, code } = error.response.data
-
-      dispatch(actions.error(error.message))
-      dispatch(actions.signUpError({ message, fields, code }))
-      throw error
-    }
+    dispatch(actions.error(error.message))
+    dispatch(actions.signUpError({ message, fields, code }))
+    throw error
   }
+}

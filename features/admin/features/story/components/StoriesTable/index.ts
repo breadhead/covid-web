@@ -1,1 +1,0 @@
-export { StoriesTable } from './StoriesTable'

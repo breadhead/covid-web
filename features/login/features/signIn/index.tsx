@@ -4,7 +4,8 @@ import { actions } from './reducer'
 
 export { MODAL_KEY } from './container'
 
-export { State, reducer, Actions, actions } from './reducer'
+export { reducer, actions } from './reducer'
+export type { State, Actions } from './reducer'
 
 export const authViolateStatus = (value: boolean) =>
   actions.authViolateStatus(value)
@@ -12,6 +13,7 @@ export const authViolateStatus = (value: boolean) =>
 export { loginAction } from './actions'
 export { unauthorizedMiddleware } from './middleware'
 export { getViolateState } from './selectors'
-export { default as withSignInModal, WithSignInModal } from './withSignInModal'
+export { default as withSignInModal } from './withSignInModal'
+export type { WithSignInModal } from './withSignInModal'
 
 export default Container(Modal)

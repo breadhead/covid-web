@@ -5,21 +5,24 @@ const args = require('args-parser')(process.argv)
 const routes = require('./routes')
 
 const FALLBACK_PORT = 3001
+const PORT = args.p || FALLBACK_PORT
 
 const dev = process.env.NODE_ENV !== 'production'
 
 const app = next({ dev })
-
 const handler = routes.getRequestHandler(app)
+const apiProxy = require('./apiProxy')
 
 app.prepare().then(() => {
   const server = express()
   server.use(cookieParser())
   server.use(handler)
 
+  server.get('/sanity/:type/:params?', apiProxy)
+
   server.get('*', (req, res) => {
     app.render(req, res, req.path, req.query)
   })
 
-  server.listen(args.p || FALLBACK_PORT) // listen on port which is supplied as -p console argument
+  server.listen(PORT)
 })

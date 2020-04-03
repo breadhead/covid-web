@@ -3,8 +3,13 @@ import routes from '@app/routes'
 import { ExtraArgs, State } from '@app/lib/store'
 import { Dispatch } from 'redux'
 import { actions } from './reducer'
-import { setFormRequestFinished, setFormId, getFormId, resetFormId } from '../organisms/RequestForm/localStorage'
-import { getUserEmailLocalStorage } from "@app/features/login/features/signIn/userEmailLocalStorage"
+import {
+  setFormRequestFinished,
+  setFormId,
+  getFormId,
+  resetFormId,
+} from '../organisms/RequestForm/localStorage'
+import { getUserEmailLocalStorage } from '@app/features/login/features/signIn/userEmailLocalStorage'
 
 const { Router } = routes
 
@@ -15,11 +20,12 @@ export const saveRequestFormData = (requestFormData: any) => async (
 ) => {
   const api = getApi(getState)
   try {
-
-
     dispatch(actions.request())
     const email = getUserEmailLocalStorage()
-    const { id } = await api.saveCoronaRequestForm({ ...requestFormData, email })
+    const { id } = await api.saveCoronaRequestForm({
+      ...requestFormData,
+      email,
+    })
     setFormId(id)
     setFormRequestFinished()
     Router.pushRoute('/request/chat')
@@ -29,9 +35,8 @@ export const saveRequestFormData = (requestFormData: any) => async (
   }
 }
 
-
 export const updateRequestFormData = () => async (
-  dispatch: Dispatch<any>,
+  _dispatch: Dispatch<any>,
   getState: () => State,
   { getApi }: ExtraArgs,
 ) => {
@@ -44,7 +49,6 @@ export const updateRequestFormData = () => async (
       resetFormId()
     }
   } catch (error) {
-    console.log("error", error)
-
+    console.log('error', error)
   }
 }

@@ -2,7 +2,9 @@ import * as React from 'react'
 import { Field, FieldRenderProps } from 'react-final-form'
 import { Omit } from 'utility-types'
 import { getShouldValidate } from './helpers/getShouldValidate'
-import { Schema, ValidateCb, validator } from './helpers/validator'
+import { ValidateCb, validator } from './helpers/validator'
+import { Schema } from './helpers/validator'
+
 
 interface OwnProps {
   name: string
@@ -68,6 +70,7 @@ const withFinalForm = <T extends WrappedProps>(
   )
 }
 
-export default withFinalForm
+export default withFinalForm;
 
-export { Schema }
+export type { Schema }
+

@@ -7,14 +7,11 @@ import './PartnersGroupSelect.css?CSSModulesDisable'
 
 import { Select as AntSelect } from 'antd'
 import { SelectValue } from 'antd/lib/select'
-import { currentPartnersOptions } from '../../organisms/PartnersList/config'
+import { getCurrentPartnersOptions } from '../../organisms/PartnersList/config'
+import { useMappedState } from '@app/node_modules/redux-react-hook'
+import { selectPartnersForPartnerPage } from '@app/features/common/partnerReducer/selectPartners'
 
 const { Option } = AntSelect
-
-const options = currentPartnersOptions.map(option => ({
-  label: option.label,
-  key: option.type,
-}))
 
 interface Props {
   onSelect: (value: SelectValue) => void
@@ -23,6 +20,12 @@ interface Props {
 }
 
 const PartnersGroupSelect = ({ onSelect, value, className }: Props) => {
+  const partners = useMappedState(selectPartnersForPartnerPage)
+  const options = getCurrentPartnersOptions(partners).map(option => ({
+    label: option.label,
+    value: option.type,
+  }))
+
   const onPartnersGroupSelect = (evt: SelectValue) => {
     onSelect(evt)
   }
@@ -32,11 +35,11 @@ const PartnersGroupSelect = ({ onSelect, value, className }: Props) => {
       id="partners-select"
       onSelect={onPartnersGroupSelect}
       className={cx(styles.select, className)}
-      defaultValue={options[1].key}
+      defaultValue={options[1].value}
       value={value}
     >
       {options.map(option => (
-        <Option key={option.key} value={option.key}>
+        <Option key={option.value} value={option.value}>
           {option.label}
         </Option>
       ))}

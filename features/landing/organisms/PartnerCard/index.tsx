@@ -4,39 +4,30 @@ import * as styles from './PartnerCard.css'
 
 import cx from 'classnames'
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
 import { NavLink } from '@app/src/ui/nav-link'
-
-export interface PartnerCardInterface {
-  img: string
-  label: string
-  link: string
-  sum?: string
-  description?: string
-}
+import { Partner } from '@app/models/sanity/Partner'
+import { getImageSrc } from '@app/lib/useImageSrc/getImageSrc'
 
 interface Props {
-  card: PartnerCardInterface
+  partner: Partner
   className?: string
 }
 
-const PartnerCard = ({ card, className }: Props) => {
-  const { img, label, sum, description: carddDescription, link } = card
+const PartnerCard = ({ partner, className }: Props) => {
+  const image = getImageSrc(partner.logo) || ''
   return (
-    <NavLink blank withoutUnderline href={link} className={cx(styles.card, className)}>
+    <NavLink
+      blank
+      withoutUnderline
+      href={partner.url}
+      className={cx(styles.card, className)}
+    >
       <div className={styles.logoWrapper}>
-        <img className={styles.logo} src={img} alt={label} />
+        <img className={styles.logo} src={image} alt={partner.name} />
       </div>
-      <p className={styles.label}>{label}</p>
-      <p className={styles.description}>{carddDescription}</p>
-      {!!sum && (
-        <p className={styles.sum}>
-          {sum}
-          {NON_BREAKING_SPACE}₽
-        </p>
-      )}
+      <p className={styles.label}>{partner.name}</p>
+      <p className={styles.description}>{partner.subtitle}</p>
     </NavLink>
-
   )
 }
 

@@ -1,1 +1,3 @@
-export { ComboSearch, Props, ComboSearchType } from './ComboSearch'
+export { ComboSearch, ComboSearchType } from './ComboSearch';
+export type { Props } from './ComboSearch';
+
