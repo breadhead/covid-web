@@ -1,13 +1,9 @@
 import * as React from 'react';
 
-import { SystemHeader } from '../layout/header';
+import { SystemLayout } from '../layout/SystemLayout';
 
 // interface SystemMainProps {}
 
 export const SystemMain = () => {
-  return (
-    <div>
-      <SystemHeader />
-    </div>
-  );
+  return <SystemLayout>memem new main page</SystemLayout>;
 };
