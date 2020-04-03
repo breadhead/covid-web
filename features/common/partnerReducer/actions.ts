@@ -13,10 +13,9 @@ export const getPartnersFromSanity = () => async (
   try {
     dispatch(actions.request());
 
-    const partners = await api.getPartners().then((res) =>
-        res.sort((a, b) =>
-            a.sortIndex < b.sortIndex ? -1 : 1,
-      ));
+    const partners = await api
+      .getPartners()
+      .then((res) => res.sort((a, b) => (a.sortIndex < b.sortIndex ? -1 : 1)));
 
     return dispatch(actions.success(partners));
   } catch (error) {

@@ -1,1 +1,1 @@
-// add doctors page
+export { SystemDoctors } from './Doctors';
