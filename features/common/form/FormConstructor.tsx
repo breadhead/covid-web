@@ -31,6 +31,7 @@ interface LabelOptions {
 export interface FormComponentOptions {
   props?: any
   type: FormComponentType
+  required?: boolean
   label?: LabelOptions
   condition?: (values: any[]) => boolean
 }

@@ -1,6 +1,8 @@
 import PhoneInput from '@app/features/common/form/components/PhoneInput'
 import RegionSelect from '@app/ui/regionSelect/organisms/RegionSelect'
+import { REQUIRED_MESSAGE } from '@front/helpers/validationMessages'
 import React from 'react'
+import * as yup from 'yup';
 
 import ButtonWithTooltip from '@app/features/common/form/components/ButtonWithTooltip'
 import Checkbox from '@app/features/common/form/components/Checkbox'
@@ -66,9 +68,14 @@ const getFormComponent = (type: FormComponentType, props: any) => {
 }
 
 export const renderFormComponent = (
-  { type, label, props }: FormComponentOptions,
+  { type, required, label, props }: FormComponentOptions,
   key: any,
 ) => {
+
+  if (required) {
+    props.validate = (props.validate || yup.mixed()).required(REQUIRED_MESSAGE);
+  }
+
   return (
     <React.Fragment key={key}>
       {label &&

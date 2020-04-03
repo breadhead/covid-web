@@ -30,6 +30,7 @@ export const formConfig = (styles) =>  ({
   steps: [
     {
       type: FormComponentType.Input,
+      required: true,
       label: {
         text: 'Email address',
         props: {
@@ -38,11 +39,12 @@ export const formConfig = (styles) =>  ({
       },
       props: {
         name: 'email',
-        validate: yup.string().required(REQUIRED_MESSAGE),
+        validate: yup.string(),
       },
     },
     {
       type: FormComponentType.Input,
+      required: true,
       label: {
         text: 'Как к вам обращаться?',
         props: {
@@ -51,7 +53,7 @@ export const formConfig = (styles) =>  ({
       },
       props: {
         name: 'name',
-        validate: yup.string().required(REQUIRED_MESSAGE),
+        validate: yup.string(),
       },
     },
     {
@@ -68,6 +70,7 @@ export const formConfig = (styles) =>  ({
     },
     {
       type: FormComponentType.Input,
+      required: true,
       label: {
         text: 'Ваш город',
         props: {
@@ -76,7 +79,7 @@ export const formConfig = (styles) =>  ({
       },
       props: {
         name: 'city',
-        validate: yup.string().required(REQUIRED_MESSAGE),
+        validate: yup.string(),
       },
     },
     {
@@ -93,6 +96,7 @@ export const formConfig = (styles) =>  ({
     },
     {
       type: FormComponentType.RadioGroup,
+      required: true,
       label: {
         text: 'Кто вы по профессии?',
         props: {
@@ -102,12 +106,12 @@ export const formConfig = (styles) =>  ({
       props: {
         name: 'profession',
         buttons: professionOptions,
-        validate: yup.string().required(REQUIRED_MESSAGE),
         className: styles.professionRadioGroup,
       },
     },
     {
       type: FormComponentType.Input,
+      required: true,
       label: {
         text: 'Чем вы готовы помочь?',
         props: {
@@ -116,11 +120,12 @@ export const formConfig = (styles) =>  ({
       },
       props: {
         name: 'aid',
-        validate: yup.string().required(REQUIRED_MESSAGE),
+        validate: yup.string(),
       }
     },
     {
       type: FormComponentType.Input,
+      required: true,
       label: {
         text: 'Сколько времени в неделю вы готовы уделять проекту?',
         props: {
@@ -129,7 +134,7 @@ export const formConfig = (styles) =>  ({
       },
       props: {
         name: 'time',
-        validate: yup.string().required(REQUIRED_MESSAGE),
+        validate: yup.string(),
       }
     },
   ],
