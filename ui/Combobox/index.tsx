@@ -1,47 +1,45 @@
-import * as React from 'react'
+import * as React from 'react';
+import { Select as AntSelect } from 'antd';
+import { LabeledValue, OptionProps, SelectProps } from 'antd/lib/select';
+import cx from 'classnames';
+import { toString } from 'lodash';
 
-import { Select as AntSelect } from 'antd'
-import { LabeledValue, OptionProps, SelectProps } from 'antd/lib/select'
-import cx from 'classnames'
+import './Combobox.css?CSSModulesDisable';
 
-import { toString } from 'lodash'
-
-import './Combobox.css?CSSModulesDisable'
-
-const { Option, OptGroup } = AntSelect
+const { Option, OptGroup } = AntSelect;
 
 interface OwnProps {
-  name: string
-  options: LabeledValue[]
-  hintForEmptyValue?: string
-  hint?: string
-  value?: string
-  label?: string
-  wrapperClassName?: string
-  selectClassName?: string
-  error?: string
-  placeholder?: string
+  name: string;
+  options: LabeledValue[];
+  hintForEmptyValue?: string;
+  hint?: string;
+  value?: string;
+  label?: string;
+  wrapperClassName?: string;
+  selectClassName?: string;
+  error?: string;
+  placeholder?: string;
 }
 
-type Option = React.ReactElement<OptionProps>
+type Option = React.ReactElement<OptionProps>;
 
-export type Props = OwnProps & SelectProps
+export type Props = OwnProps & SelectProps;
 
-const NOT_FOUND_TEXT = 'К сожалению, ничего не найдено'
+const NOT_FOUND_TEXT = 'К сожалению, ничего не найдено';
 
 class Combobox extends React.Component<Props> {
   public static defaultProps: Partial<Props> = {
     hintForEmptyValue: '',
     hint: '',
-  }
+  };
 
   public state = {
     check: false,
     currentHint: this.props.hintForEmptyValue,
-  }
+  };
 
   public componentDidMount() {
-    this.setState({ check: true })
+    this.setState({ check: true });
   }
 
   public render() {
@@ -55,12 +53,12 @@ class Combobox extends React.Component<Props> {
       value,
       placeholder,
       ...rest
-    } = this.props
+    } = this.props;
 
-    const { currentHint, check } = this.state
+    const { currentHint, check } = this.state;
 
-    const currentValue = `${value}`.length > 0 ? `${value}` : undefined
-    const currentPlaceholder = !currentValue && placeholder
+    const currentValue = `${value}`.length > 0 ? `${value}` : undefined;
+    const currentPlaceholder = !currentValue && placeholder;
 
     return (
       check && (
@@ -86,7 +84,7 @@ class Combobox extends React.Component<Props> {
             )}
           >
             <OptGroup label={currentHint}>
-              {options.map(option => (
+              {options.map((option) => (
                 <Option key={option.key} value={option.key}>
                   {option.label}
                 </Option>
@@ -95,23 +93,21 @@ class Combobox extends React.Component<Props> {
           </AntSelect>
         </div>
       )
-    )
+    );
   }
 
   private onInputKeyDown = (value: string) => {
-    const { hintForEmptyValue, hint } = this.props
+    const { hintForEmptyValue, hint } = this.props;
 
     if (hintForEmptyValue && hint) {
-      const currentHint = value.length > 0 ? hint : hintForEmptyValue
+      const currentHint = value.length > 0 ? hint : hintForEmptyValue;
 
-      this.setState({ currentHint })
+      this.setState({ currentHint });
     }
-  }
+  };
 
   private filterOptions = (input: string, option: Option) =>
-    toString(option.props.children)
-      .toLowerCase()
-      .includes(input.toLowerCase())
+    toString(option.props.children).toLowerCase().includes(input.toLowerCase());
 }
 
-export default Combobox
+export default Combobox;

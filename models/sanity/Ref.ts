@@ -1,4 +1,4 @@
 export interface Ref {
-  _type: string
-  _ref: string
+  _type: string;
+  _ref: string;
 }

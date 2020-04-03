@@ -1,11 +1,11 @@
-import * as React from 'react'
-import { Field as FinalField } from 'react-final-form'
+import * as React from 'react';
+import { Field as FinalField } from 'react-final-form';
 
-import Uploader from './Uploader'
+import Uploader from './Uploader';
 
 interface Props {
-  name: string
-  remove?: () => void
+  name: string;
+  remove?: () => void;
 }
 
 const FormFileInput = ({ name, ...rest }: Props) => (
@@ -17,15 +17,15 @@ const FormFileInput = ({ name, ...rest }: Props) => (
             {...rest}
             id={name}
             initialValue={input.value}
-            onUploaded={value => {
-              const fakeEvent = { target: { value } }
-              input.onChange(fakeEvent)
+            onUploaded={(value) => {
+              const fakeEvent = { target: { value } };
+              input.onChange(fakeEvent);
             }}
           />
         </>
       )}
     </FinalField>
   </>
-)
+);
 
-export default FormFileInput
+export default FormFileInput;

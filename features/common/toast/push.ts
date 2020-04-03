@@ -1,10 +1,10 @@
-import { notification } from 'antd'
+import { notification } from 'antd';
 
 interface Notification {
-  message: string
-  description?: string
-  duration?: number
-  className?: string
+  message: string;
+  description?: string;
+  duration?: number;
+  className?: string;
 }
 
 export const push = ({
@@ -18,4 +18,4 @@ export const push = ({
     description,
     duration,
     className,
-  })
+  });

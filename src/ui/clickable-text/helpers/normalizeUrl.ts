@@ -1,11 +1,11 @@
 export const normalizeUrl = (url: string) => {
   if (url.startsWith('http://') || url.startsWith('https://')) {
-    return url
+    return url;
   }
 
   if (url.startsWith('/preview-image')) {
-    return url
+    return url;
   }
 
-  return `http://${url}`
-}
+  return `http://${url}`;
+};

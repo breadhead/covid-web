@@ -1,20 +1,22 @@
-import { ExtraArgs, State } from '@app/lib/store'
-import { Dispatch } from 'redux'
-import { actions } from './reducer'
+import { Dispatch } from 'redux';
+
+import { ExtraArgs, State } from '@app/lib/store';
+
+import { actions } from './reducer';
 
 export const getPartnersFromSanity = () => async (
   dispatch: Dispatch<any>,
   getState: () => State,
   { getApi }: ExtraArgs,
 ) => {
-  const api = getApi(getState)
+  const api = getApi(getState);
   try {
-    dispatch(actions.request())
+    dispatch(actions.request());
 
-    const partners = await api.getPartners()
+    const partners = await api.getPartners();
 
-    return dispatch(actions.success(partners))
+    return dispatch(actions.success(partners));
   } catch (error) {
-    return dispatch(actions.error(error.message))
+    return dispatch(actions.error(error.message));
   }
-}
+};

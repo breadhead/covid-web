@@ -1,4 +1,4 @@
-import Container from './container'
-import ContactsPage from './page'
+import Container from './container';
+import ContactsPage from './page';
 
-export default Container(ContactsPage)
+export default Container(ContactsPage);

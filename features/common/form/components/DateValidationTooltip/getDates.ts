@@ -1,8 +1,9 @@
-import { DateInterface } from '@app/lib/helpers/validateDates'
-import { get } from 'lodash'
+import { get } from 'lodash';
+
+import { DateInterface } from '@app/lib/helpers/validateDates';
 
 export const getDates = (paths: DateInterface[], values: any) =>
-  paths.map(path => ({
+  paths.map((path) => ({
     year: get(values, path.year) || null,
     month: get(values, path.month) || null,
-  }))
+  }));

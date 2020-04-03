@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 const createMarkup = () => `
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  `
+  `;
 
 const DonationWidget = () => (
   <>
@@ -20,6 +20,6 @@ const DonationWidget = () => (
       frameBorder="0"
     />
   </>
-)
+);
 
-export default DonationWidget
+export default DonationWidget;

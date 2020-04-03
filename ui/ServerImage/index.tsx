@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react'
-import { Omit } from 'utility-types'
+import React, { useMemo } from 'react';
+import { Omit } from 'utility-types';
 
 type Props = Omit<
   React.DetailedHTMLProps<
@@ -7,15 +7,15 @@ type Props = Omit<
     HTMLImageElement
   >,
   'ref'
->
+>;
 
 const ServerImage = ({ src, ...rest }: Props) => {
   const path = useMemo(
     () => (src && src.startsWith('http') ? src : `//${src}`),
     [src],
-  )
+  );
 
-  return <img src={path} {...rest} />
-}
+  return <img src={path} {...rest} />;
+};
 
-export default ServerImage
+export default ServerImage;

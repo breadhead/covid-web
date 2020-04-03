@@ -1,9 +1,10 @@
-import cx from 'classnames'
-import NextLink from 'next/link'
-import * as React from 'react'
-import { getLinkStyle } from './helpers/getLinkStyle'
-import styles from './NavLink.css'
-import { NavLinkProps } from './NavLinkProps'
+import cx from 'classnames';
+import NextLink from 'next/link';
+import * as React from 'react';
+
+import { getLinkStyle } from './helpers/getLinkStyle';
+import styles from './NavLink.css';
+import { NavLinkProps } from './NavLinkProps';
 
 export const NavLink = ({
   children,
@@ -26,7 +27,7 @@ export const NavLink = ({
       >
         {children}
       </a>
-    )
+    );
   }
 
   return (
@@ -41,5 +42,5 @@ export const NavLink = ({
         {children}
       </a>
     </NextLink>
-  )
-}
+  );
+};

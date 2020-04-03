@@ -1,14 +1,17 @@
-import React from 'react'
-import Dropdown from '@app/ui/Dropdown'
-import { Icon } from '@front/ui/icon'
-import { NavLink } from '@front/ui/nav-link'
-import { IconsList } from '@front/ui/sprite'
-import cx from 'classnames'
-import * as styles from './Menu.css'
+import React from 'react';
+import cx from 'classnames';
+
+import Dropdown from '@app/ui/Dropdown';
+
+import { Icon } from '@front/ui/icon';
+import { NavLink } from '@front/ui/nav-link';
+import { IconsList } from '@front/ui/sprite';
+
+import * as styles from './Menu.css';
 
 interface Props {
-  signOut: () => void
-  className?: string
+  signOut: () => void;
+  className?: string;
 }
 
 const Menu = ({ signOut, className }: Props) => (
@@ -25,6 +28,6 @@ const Menu = ({ signOut, className }: Props) => (
       <Dropdown signOut={signOut} />
     </div>
   </nav>
-)
+);
 
-export default Menu
+export default Menu;

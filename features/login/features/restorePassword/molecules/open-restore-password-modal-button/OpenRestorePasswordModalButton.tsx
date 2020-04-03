@@ -1,9 +1,10 @@
-import * as React from 'react'
-import * as styles from './OpenRestorePasswordModalButton.css'
-import withRestorePasswordModal from '../../hoc/withRestorePasswordModal'
+import * as React from 'react';
+
+import * as styles from './OpenRestorePasswordModalButton.css';
+import withRestorePasswordModal from '../../hoc/withRestorePasswordModal';
 
 interface Props {
-  openModal: () => void
+  openModal: () => void;
 }
 
 const OpenRestorePasswordModalButton = ({ openModal }: Props) => {
@@ -11,7 +12,7 @@ const OpenRestorePasswordModalButton = ({ openModal }: Props) => {
     <button onClick={openModal} className={styles.button}>
       Забыли пароль?
     </button>
-  )
-}
+  );
+};
 
-export default withRestorePasswordModal(OpenRestorePasswordModalButton)
+export default withRestorePasswordModal(OpenRestorePasswordModalButton);

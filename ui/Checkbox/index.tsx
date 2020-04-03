@@ -1,15 +1,15 @@
-import { Checkbox as AntCheckbox } from 'antd'
-import * as React from 'react'
+import { Checkbox as AntCheckbox } from 'antd';
+import * as React from 'react';
 
-import './Checkbox.css?CSSModulesDisable'
+import './Checkbox.css?CSSModulesDisable';
 
 export interface Props {
-  name?: string
-  children?: React.ReactNode
-  className?: string
-  defaultChecked?: boolean
-  disabled?: boolean
-  onChange?: (e: any) => void
+  name?: string;
+  children?: React.ReactNode;
+  className?: string;
+  defaultChecked?: boolean;
+  disabled?: boolean;
+  onChange?: (e: any) => void;
 }
 
 const Checkbox = ({
@@ -29,6 +29,6 @@ const Checkbox = ({
   >
     {children}
   </AntCheckbox>
-)
+);
 
-export default Checkbox
+export default Checkbox;

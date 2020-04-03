@@ -1,39 +1,36 @@
-import * as React from 'react'
-import { useMemo } from 'react'
+import * as React from 'react';
+import { useMemo } from 'react';
+import * as yup from 'yup';
 
-import * as styles from './FeedbackForm.css'
+import { Form, Input, TextArea } from '@app/features/common/form';
+import { SendFeedbackRequest } from '@app/lib/api/request/SendFeedback';
 
-import { Form, Input, TextArea } from '@app/features/common/form'
-import { SendFeedbackRequest } from '@app/lib/api/request/SendFeedback'
-import { Button, ButtonSize } from '@front/ui/button'
+import { Button, ButtonSize } from '@front/ui/button';
 
-import * as yup from 'yup'
+import * as styles from './FeedbackForm.css';
 
-const REQUIRED = 'Обязательное поле'
+const REQUIRED = 'Обязательное поле';
 
 export const schema = {
   name: yup.string().required(REQUIRED),
-  email: yup
-    .string()
-    .email('Введите email')
-    .required(REQUIRED),
+  email: yup.string().email('Введите email').required(REQUIRED),
   theme: yup.string(),
   content: yup.string().required(REQUIRED),
-}
+};
 
 export interface Props {
-  onFormSubmit: (params: SendFeedbackRequest) => Promise<any>
-  claimNumber: string
+  onFormSubmit: (params: SendFeedbackRequest) => Promise<any>;
+  claimNumber: string;
 }
 
 const FeedbackForm = ({ onFormSubmit, claimNumber }: Props) => {
   const theme = useMemo(() => (claimNumber ? `Заявка №${claimNumber}` : ''), [
     claimNumber,
-  ])
+  ]);
 
   const initial = {
     theme,
-  }
+  };
   return (
     <article id="feedback-form" className={styles.FeedbackFormWrapper}>
       <h2 className={styles.title}>Обратная связь</h2>
@@ -78,7 +75,7 @@ const FeedbackForm = ({ onFormSubmit, claimNumber }: Props) => {
         )}
       </Form>
     </article>
-  )
-}
+  );
+};
 
-export default FeedbackForm
+export default FeedbackForm;

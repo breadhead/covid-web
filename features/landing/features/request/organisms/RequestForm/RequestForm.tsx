@@ -1,54 +1,54 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import cx from 'classnames';
+
 import {
   Form,
   Input,
   RadioGroup,
   InputType,
   Checkbox,
-} from '@app/features/common/form'
-import * as styles from './RequestForm.css'
-import routes from '@app/routes'
+} from '@app/features/common/form';
+import routes from '@app/routes';
+import RegionSelect from '@app/ui/regionSelect';
+import { useThunk } from '@app/src/hooks/useThunk';
+import { genderRadioGroup } from '@app/src/helpers/genderRadioGroup';
 
-import cx from 'classnames'
-import { Button, ButtonSize } from '@front/ui/button'
+import { Button, ButtonSize } from '@front/ui/button';
 
-import RegionSelect from '@app/ui/regionSelect'
-import { Symptoms } from './components/symptoms'
-import { targetList, deseasesList } from './config'
-
-import { saveRequestFormData } from '../../reducer/actions'
-import { useThunk } from '@app/src/hooks/useThunk'
+import * as styles from './RequestForm.css';
+import { Symptoms } from './components/symptoms';
+import { targetList, deseasesList } from './config';
+import { saveRequestFormData } from '../../reducer/actions';
 import {
   saveRequestFormDraft,
   getRequestFormDraft,
   isFormRequestFinished,
-} from './localStorage'
-import { schema } from './schema'
-import { genderRadioGroup } from '@app/src/helpers/genderRadioGroup'
+} from './localStorage';
+import { schema } from './schema';
 
-const { Router } = routes
+const { Router } = routes;
 
 export const RequestForm = () => {
-  const [checked, setCheked] = useState<string[]>([])
-  const [initialFields, setInitialFields] = useState<any>(null)
+  const [checked, setCheked] = useState<string[]>([]);
+  const [initialFields, setInitialFields] = useState<any>(null);
 
-  const dispatch = useThunk()
+  const dispatch = useThunk();
 
   useEffect(() => {
-    const draft = getRequestFormDraft()
-    setInitialFields(draft)
-  }, [])
+    const draft = getRequestFormDraft();
+    setInitialFields(draft);
+  }, []);
 
   const onFormSubmit = async (data: any) => {
-    await dispatch(saveRequestFormData(data))
-  }
+    await dispatch(saveRequestFormData(data));
+  };
 
   useEffect(() => {
-    const isFormFinished = isFormRequestFinished()
+    const isFormFinished = isFormRequestFinished();
     if (isFormFinished) {
-      Router.pushRoute('/request/chat')
+      Router.pushRoute('/request/chat');
     }
-  }, [])
+  }, []);
 
   return (
     <Form
@@ -112,7 +112,7 @@ export const RequestForm = () => {
             >
               Сопутствующие заболевания
             </label>
-            {deseasesList.map(it => {
+            {deseasesList.map((it) => {
               return (
                 <Checkbox
                   key={it.id}
@@ -122,7 +122,7 @@ export const RequestForm = () => {
                 >
                   {it.value}
                 </Checkbox>
-              )
+              );
             })}
             <Button
               size={ButtonSize.ExtraLarge}
@@ -132,8 +132,8 @@ export const RequestForm = () => {
               Отправить
             </Button>
           </>
-        )
+        );
       }}
     </Form>
-  )
-}
+  );
+};

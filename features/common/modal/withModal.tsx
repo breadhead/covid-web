@@ -1,15 +1,15 @@
-import { connect } from 'react-redux'
-import { AnyAction, Dispatch } from 'redux'
+import { connect } from 'react-redux';
+import { AnyAction, Dispatch } from 'redux';
 
-import { actions } from './reducer'
+import { actions } from './reducer';
 
 interface ModalProps {
-  open: (modal: string) => void
-  close: () => void
+  open: (modal: string) => void;
+  close: () => void;
 }
 
 export interface WithModalProps {
-  modal: ModalProps
+  modal: ModalProps;
 }
 
 const mapDispatch = (dispatch: Dispatch<AnyAction>) =>
@@ -18,9 +18,6 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) =>
       open: (modal: string) => dispatch(actions.open(modal)),
       close: () => dispatch(actions.close()),
     },
-  } as WithModalProps)
+  } as WithModalProps);
 
-export default connect(
-  null,
-  mapDispatch,
-)
+export default connect(null, mapDispatch);

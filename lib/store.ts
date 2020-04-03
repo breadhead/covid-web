@@ -3,59 +3,60 @@ import {
   combineReducers,
   createStore,
   Store as ReduxStore,
-} from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import thunk from 'redux-thunk'
-import windowSize, { REDUCER_KEY } from 'redux-windowsize'
+} from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import windowSize, { REDUCER_KEY } from 'redux-windowsize';
 
-export type Store = ReduxStore<State>
+export type Store = ReduxStore<State>;
 
 import {
   notFoundMiddleware,
   reducer as notFoundReducer,
   State as NotFoundState,
-} from '@app/features/main/notFound'
-
+} from '@app/features/main/notFound';
 import {
   reducer as modalReducer,
   State as ModalState,
-} from '@app/features/common/modal'
-
+} from '@app/features/common/modal';
 import {
   getToken,
   reducer as loginReducer,
   State as LoginState,
   unauthorizedMiddleware,
-} from '@app/features/login'
-
+} from '@app/features/login';
 import {
   reducer as sendFeedbackReducer,
   State as SendFeedbackState,
-} from '@app/features/landing/features/contacts/organisms/FeedbackForm'
-
+} from '@app/features/landing/features/contacts/organisms/FeedbackForm';
 import {
   requestFormReducer,
   RequestFormReducerState,
-} from '@app/features/landing/features/request/reducer'
-
+} from '@app/features/landing/features/request/reducer';
+import {
+  reducer as browserQueryReducer,
+  State as BrowserQueryState,
+} from '@app/features/common/browserQuery';
 import {
   reducer as PartnersReducer,
   State as PartnersState,
-} from '@app/features/common/partnerReducer/reducer'
+} from '@app/features/common/partnerReducer/reducer';
 
-import ApiClient from './api/ApiClient'
-import factory from './api/apiFactory'
+import ApiClient from './api/ApiClient';
+import factory from './api/apiFactory';
 
 export interface State {
-  modal: ModalState
-  feedback: SendFeedbackState
-  notFound: NotFoundState
-  login: LoginState
-  requestForm: RequestFormReducerState
-  partners: PartnersState
+  browserQuery: BrowserQueryState;
+  modal: ModalState;
+  feedback: SendFeedbackState;
+  notFound: NotFoundState;
+  login: LoginState;
+  requestForm: RequestFormReducerState;
+  partners: PartnersState;
 }
 
 const reducer = combineReducers({
+  browserQuery: browserQueryReducer,
   requestForm: requestFormReducer,
   login: loginReducer,
   modal: modalReducer,
@@ -63,11 +64,11 @@ const reducer = combineReducers({
   feedback: sendFeedbackReducer,
   notFound: notFoundReducer,
   partners: PartnersReducer,
-} as any)
+} as any);
 
 export interface ExtraArgs {
-  api: ApiClient
-  getApi: (getState: () => State) => ApiClient
+  api: ApiClient;
+  getApi: (getState: () => State) => ApiClient;
 }
 
 export const initializeStore = (initialState?: State) =>
@@ -79,8 +80,8 @@ export const initializeStore = (initialState?: State) =>
         unauthorizedMiddleware,
         notFoundMiddleware,
         thunk.withExtraArgument({
-          getApi: getState => factory(getToken(getState())),
+          getApi: (getState) => factory(getToken(getState())),
         } as ExtraArgs),
       ),
     ),
-  )
+  );

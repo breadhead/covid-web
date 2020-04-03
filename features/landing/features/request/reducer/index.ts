@@ -1,4 +1,4 @@
-export { reducer as requestFormReducer } from './reducer'
-export type { State as RequestFormReducerState } from './reducer'
+export { reducer as requestFormReducer } from './reducer';
+export type { State as RequestFormReducerState } from './reducer';
 
-export { saveRequestFormData } from './actions'
+export { saveRequestFormData } from './actions';

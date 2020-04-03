@@ -1,18 +1,18 @@
-import React from 'react'
-import cx from 'classnames'
+import React from 'react';
+import cx from 'classnames';
 
-import Container from '@app/ui/Container'
-import Footer, { FooterTheme, FooterType } from '@app/ui/organisms/Footer'
+import Container from '@app/ui/Container';
+import Footer, { FooterTheme, FooterType } from '@app/ui/organisms/Footer';
 
-import Header from '../header'
-import styles from './Layout.css'
+import Header from '../header';
+import styles from './Layout.css';
 
 interface Props {
-  children: React.ReactNode
-  className?: string
-  pageClassName?: string
-  headerClassName?: string
-  footerTheme?: FooterTheme
+  children: React.ReactNode;
+  className?: string;
+  pageClassName?: string;
+  headerClassName?: string;
+  footerTheme?: FooterTheme;
 }
 
 export const ClientLayout = ({
@@ -33,4 +33,4 @@ export const ClientLayout = ({
 
     <Footer theme={footerTheme} type={FooterType.Secondary} />
   </>
-)
+);

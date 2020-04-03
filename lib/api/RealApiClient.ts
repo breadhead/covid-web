@@ -1,86 +1,96 @@
-import axios, { AxiosInstance } from 'axios'
+import axios, { AxiosInstance } from 'axios';
 
-import ApiClient, { UploadedFile } from './ApiClient'
-import { queryString } from './helper/queryString'
-import { SendFeedbackRequest } from './request/SendFeedback'
-import { User } from '@app/models/Users/User'
+import { User } from '@app/models/Users/User';
 
-const { sanityClient } = require('@app/lib/sanity-client')
+import ApiClient, { UploadedFile } from './ApiClient';
+import { queryString } from './helper/queryString';
+import { SendFeedbackRequest } from './request/SendFeedback';
+
+const { sanityClient } = require('@app/lib/sanity-client');
 
 export default class RealApiClient implements ApiClient {
-  private readonly axiosInstance: AxiosInstance
-  private _token: string = ''
+  private readonly axiosInstance: AxiosInstance;
+  private _token = '';
 
   public constructor(baseUrl: string, token?: string) {
-    const bearer = !!token && token.length > 1 ? `Bearer ${token}` : null
+    const bearer = !!token && token.length > 1 ? `Bearer ${token}` : null;
 
     this.axiosInstance = axios.create({
       baseURL: baseUrl,
       headers: {
         Authorization: bearer,
       },
-    })
+    });
   }
 
   public get token() {
-    return this._token
+    return this._token;
+  }
+
+  public set token(newToken: string) {
+    this._token = newToken;
   }
 
   public login = (login: string, password: string) =>
     this.axiosInstance
       .post('/auth/login', { login, password })
-      .then(response => response.data as User)
+      .then((response) => response.data as User);
 
   public signUp = (login: string, password: string, confirm: string) =>
     this.axiosInstance
-      .post('/auth/register', { email: login, password, confirm })
-      .then(response => response.data as User)
+      .post('/auth/register', {
+        email: login,
+        password,
+        confirm,
+      })
+      .then((response) => response.data as User);
 
   public currentUser = () =>
     this.axiosInstance
       .get('/users/current')
-      .then(response => response.data as User)
+      .then((response) => response.data as User);
 
   public sendFeedback = (feedback: SendFeedbackRequest) =>
     this.axiosInstance
       .post('/feedback/send', feedback)
-      .then(response => response.data as SendFeedbackRequest)
-
-  public set token(newToken: string) {
-    this._token = newToken
-  }
+      .then((response) => response.data as SendFeedbackRequest);
 
   public uploadFile = async (
     file: File,
     onProgress?: (precent: number) => void,
   ) => {
-    const form = new FormData()
-    form.append('file', file)
+    const form = new FormData();
+    form.append('file', file);
 
     const response = await this.axiosInstance.post('/file/upload', form, {
       headers: { 'Content-Type': 'multipart/form-data' },
       onUploadProgress: ({ loaded, total }) =>
         onProgress && onProgress((loaded / total) * 100),
-    })
+    });
 
-    return response.data as UploadedFile
-  }
+    return response.data as UploadedFile;
+  };
 
   public searchDoctor = (query: string) =>
     this.axiosInstance
       .get(`/base/doctors?${queryString({ query })}`)
-      .then(res => res.data as string[])
+      .then((res) => res.data as string[]);
 
   public searchClinic = (query: string) =>
     this.axiosInstance
       .get(`/base/clinics?${queryString({ query })}`)
-      .then(res => res.data as string[])
+      .then((res) => res.data as string[]);
 
   public searchClinicByRegion = (region: string, name: string) => {
     return this.axiosInstance
-      .get(`/base/clinics-by-region?${queryString({ region, name })}`)
-      .then(res => res.data as any[])
-  }
+      .get(
+        `/base/clinics-by-region?${queryString({
+          region,
+          name,
+        })}`,
+      )
+      .then((res) => res.data as any[]);
+  };
 
   public saveCoronaRequestForm = (data: any) =>
     this.axiosInstance
@@ -88,12 +98,16 @@ export default class RealApiClient implements ApiClient {
         type: 'corona',
         fields: data,
       })
-      .then(res => res.data as any)
+      .then((res) => res.data as any);
 
   public updateCoronaRequestForm = (data: any) =>
-    this.axiosInstance.post('/form/update', data).then(res => res.data as any)
+    this.axiosInstance
+      .post('/form/update', data)
+      .then((res) => res.data as any);
 
   public getPartners = () => {
-    return sanityClient.fetch(`*[_type == "partner"]`, { active: true })
-  }
+    return sanityClient.fetch(`*[_type == "partner"]`, {
+      active: true,
+    });
+  };
 }

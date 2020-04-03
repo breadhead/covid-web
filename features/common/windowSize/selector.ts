@@ -1,10 +1,10 @@
-import { merge } from 'lodash'
-import { getHeightWidth, getWindowWidth } from 'redux-windowsize'
-import { createSelector } from 'reselect'
+import { merge } from 'lodash';
+import { getHeightWidth, getWindowWidth } from 'redux-windowsize';
+import { createSelector } from 'reselect';
 
 interface WindowSize {
-  width: number
-  height: number
+  width: number;
+  height: number;
 }
 
 // TODO: first any because State in JS and has no typings
@@ -13,8 +13,8 @@ const getWindowSize = createSelector<any, any, any, WindowSize>(
   getHeightWidth,
   getWindowWidth,
   merge,
-)
+);
 
-export default getWindowSize
+export default getWindowSize;
 
-export { WindowSize }
+export type { WindowSize };

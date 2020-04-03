@@ -1,10 +1,10 @@
-import { Input as AntInput } from 'antd'
-import { InputProps } from 'antd/lib/input'
-import cx from 'classnames'
-import * as React from 'react'
+import { Input as AntInput } from 'antd';
+import { InputProps } from 'antd/lib/input';
+import cx from 'classnames';
+import * as React from 'react';
 
-import './AntInput.css?CSSModulesDisable'
-import styles from './Input.css'
+import './AntInput.css?CSSModulesDisable';
+import styles from './Input.css';
 
 export enum InputType {
   Text = 'text',
@@ -16,17 +16,17 @@ export enum InputType {
 }
 
 interface OwnProps {
-  error?: string
-  name: string
-  type?: InputType
-  label?: string
-  defaultValue?: string
-  className?: string
-  value?: string
-  showField?: boolean
+  error?: string;
+  name: string;
+  type?: InputType;
+  label?: string;
+  defaultValue?: string;
+  className?: string;
+  value?: string;
+  showField?: boolean;
 }
 
-export type Props = OwnProps & InputProps
+export type Props = OwnProps & InputProps;
 
 const Input = ({
   name,
@@ -38,7 +38,8 @@ const Input = ({
   showField = true,
   ...rest
 }: Props) => {
-  const currentValue = !!value && `${value}`.length > 0 ? `${value}` : undefined
+  const currentValue =
+    !!value && `${value}`.length > 0 ? `${value}` : undefined;
   return (
     <div className={className}>
       {label && (
@@ -56,7 +57,7 @@ const Input = ({
         />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Input
+export default Input;

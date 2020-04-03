@@ -1,11 +1,11 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import * as styles from './Notification.css'
+import { NON_BREAKING_SPACE } from '@app/lib/config';
 
-import { Button, ButtonKind } from '@front/ui/button'
-import { NavLink } from '@front/ui/nav-link'
+import { Button, ButtonKind } from '@front/ui/button';
+import { NavLink } from '@front/ui/nav-link';
 
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import * as styles from './Notification.css';
 
 const Notification = () => (
   <article className={styles.notification}>
@@ -27,6 +27,6 @@ const Notification = () => (
       </NavLink>
     </div>
   </article>
-)
+);
 
-export default Notification
+export default Notification;

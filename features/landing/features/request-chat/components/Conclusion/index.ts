@@ -1,1 +1,1 @@
-export { Conclution } from './Conclution'
+export { Conclution } from './Conclution';

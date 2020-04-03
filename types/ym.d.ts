@@ -1,1 +1,1 @@
-declare const ym: any
+declare const ym: any;

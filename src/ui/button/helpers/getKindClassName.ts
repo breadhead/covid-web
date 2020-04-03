@@ -1,4 +1,4 @@
-import { ButtonKind } from '../ButtonKind'
+import { ButtonKind } from '../ButtonKind';
 
 export const getKindClassName = (kind: ButtonKind): string =>
   ({
@@ -6,4 +6,4 @@ export const getKindClassName = (kind: ButtonKind): string =>
     [ButtonKind.Secondary]: 'secondary',
     [ButtonKind.Extra]: 'extra',
     [ButtonKind.Super]: 'super',
-  }[kind])
+  }[kind]);

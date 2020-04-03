@@ -1,14 +1,14 @@
-import * as React from 'react'
+import * as React from 'react';
+import Head from 'next/head';
 
-import Head from 'next/head'
-import * as styles from './Contacts.css'
+import { MainLayout } from '@app/features/main/layout';
 
-import { MainLayout } from '@app/features/main/layout'
-import FeedbackForm from '../organisms/FeedbackForm'
-import YandexMap from '../organisms/YandexMap'
+import * as styles from './Contacts.css';
+import FeedbackForm from '../organisms/FeedbackForm';
+import YandexMap from '../organisms/YandexMap';
 
 export interface Props {
-  claimNumber: string
+  claimNumber: string;
 }
 
 const ContactsPage = ({ claimNumber }: Props) => (
@@ -22,6 +22,6 @@ const ContactsPage = ({ claimNumber }: Props) => (
     </div>
     <FeedbackForm claimNumber={claimNumber} />
   </MainLayout>
-)
+);
 
-export default ContactsPage
+export default ContactsPage;

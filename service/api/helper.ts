@@ -1,3 +1,3 @@
-export const apiErrorHandler = async error => {
-  if (error.data) throw error.data
-}
+export const apiErrorHandler = async (error) => {
+  if (error.data) throw error.data;
+};

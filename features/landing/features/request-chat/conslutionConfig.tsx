@@ -1,11 +1,11 @@
-import { NON_BREAKING_SPACE } from '@app/lib/config'
+import { NON_BREAKING_SPACE } from '@app/lib/config';
 
 export const SUCCESS = `<div>
     <p>Судя по всему, сейчас с вами всё в порядке. Но рекомендуем быть на чеку и
       почитать наши инструкции. А если останутся вопросы — используйте чат. Наш
       умный бот и врачи-волонтёры помогут разобраться.
     </p>
-  </div>`
+  </div>`;
 
 export const RISK_GROUP = `<div>
     <p>Судя по всему, сейчас всё в порядке. Тем не менее, мы рекомендуем
@@ -13,7 +13,7 @@ export const RISK_GROUP = `<div>
       останутся вопросы — задайте их в чат. Наш обученный бот и врачи-волонтёры
       помогут разобраться.
     </p>
-  </div>`
+  </div>`;
 
 export const ONCOLOGICAL = `<div>
     <p>Если ваш вопрос связан с онкологическим заболеванием, мы рекомендуем вам
@@ -21,7 +21,7 @@ export const ONCOLOGICAL = `<div>
       близких. Если нет, то мы предлагаем ознакомиться с нашими материалами по
       теме. Если останутся вопросы — задайте их в чат. Наш обученный бот и врачи—волонтёры помогут разобраться.
     </p>
-  </div>`
+  </div>`;
 
 export const WITH_OTHER_SYMPTOMS = `  <div>
     <p>Симптомы, описанные вами, нехарактерны для тяжелой формы инфекции. Тем не менее, мы рекомендуем
@@ -40,7 +40,7 @@ export const WITH_OTHER_SYMPTOMS = `  <div>
     <p>
       Если останутся вопросы — задайте их в чат. Наш обученный бот и врачи-волонтёры помогут разобраться.
     </p>
-  </div>`
+  </div>`;
 
 export const WITH_OTHER_SYMPTOMS_AND_RISK_GROUP = `  <div>
     <p>Симптомы, описанные вами, нехарактерны для тяжелой формы инфекции. Тем не менее, мы рекомендуем
@@ -59,7 +59,7 @@ export const WITH_OTHER_SYMPTOMS_AND_RISK_GROUP = `  <div>
     <p>
       Если останутся вопросы — задайте их в чат. Наш обученный бот и врачи-волонтёры помогут разобраться.
     </p>
-  </div>`
+  </div>`;
 
 export const DANGER = `  <div>
     <p>ВНИМАНИЕ! 
@@ -75,7 +75,7 @@ export const DANGER = `  <div>
       <li>— Постоянная боль или чувство сдавленности в груди</li>
       <li>— Спутанность сознания, сильная слабость, посинение губ или лица</li>
     </ul>
-  </div>`
+  </div>`;
 
 export const DANGER_AND_RISK_GROUP = `  <div>
     <p>ВНИМАНИЕ! 
@@ -90,7 +90,7 @@ export const DANGER_AND_RISK_GROUP = `  <div>
       <li>— Постоянная боль или чувство сдавленности в груди</li>
       <li>— Спутанность сознания, сильная слабость, посинение губ или лица</li>
     </ul>
-  </div>`
+  </div>`;
 
 export const SUCCESS_LINKS = [
   {
@@ -106,7 +106,7 @@ export const SUCCESS_LINKS = [
     title: 'Прогнозы',
     link: 'http://faq.defeatcovid.ru/ru/collections/2222638-прогнозы',
   },
-]
+];
 
 export const RISK_LINKS = [
   {
@@ -124,7 +124,7 @@ export const RISK_LINKS = [
     link:
       'http://faq.defeatcovid.ru/ru/collections/2222733-здоровье-в-период-эпидемии',
   },
-]
+];
 
 export const ONCO_LINKS = [
   {
@@ -142,7 +142,7 @@ export const ONCO_LINKS = [
     link:
       'http://faq.defeatcovid.ru/ru/collections/2222733-здоровье-в-период-эпидемии',
   },
-]
+];
 
 export const WITH_OTHER_SYMPTOMS_LINKS = [
   {
@@ -160,7 +160,7 @@ export const WITH_OTHER_SYMPTOMS_LINKS = [
     title: 'Лечение COVID-2019',
     link: 'http://faq.defeatcovid.ru/ru/collections/2222135-лечение-covid-2019',
   },
-]
+];
 
 export const WITH_OTHER_SYMPTOMS_AND_RISK_LINKS = [
   {
@@ -178,4 +178,4 @@ export const WITH_OTHER_SYMPTOMS_AND_RISK_LINKS = [
     title: 'Лечение COVID-2019',
     link: 'http://faq.defeatcovid.ru/ru/collections/2222135-лечение-covid-2019',
   },
-]
+];

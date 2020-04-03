@@ -6,12 +6,12 @@ export const getShouldValidate = ({
   eagerValidation,
 }: any) => {
   if (submitFailed || eagerValidation) {
-    return true
+    return true;
   }
 
   if (active) {
-    return false
+    return false;
   }
 
-  return touched && !pristine
-}
+  return touched && !pristine;
+};

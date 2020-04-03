@@ -1,27 +1,24 @@
-import * as React from 'react'
-import * as styles from './Navigation.css'
+import * as React from 'react';
+import cx from 'classnames';
 
-import cx from 'classnames'
+import { Button, ButtonKind } from '@app/src/ui/button';
+import MediaQuery, { Query } from '@app/ui/MediaQuery';
 
-import { Icon } from '@front/ui/icon'
-import { NavLink } from '@front/ui/nav-link'
-import { IconsList } from '@front/ui/sprite'
+import { Icon } from '@front/ui/icon';
+import { NavLink } from '@front/ui/nav-link';
+import { IconsList } from '@front/ui/sprite';
 
-import NavIcon from '../../atoms/NavIcon'
-import { Button, ButtonKind } from '@app/src/ui/button'
-
-import LoginButton from '../../atoms/LoginButton'
-
-import MediaQuery, { Query } from '@app/ui/MediaQuery'
-
-import SignInMobileMenu from '../SignInMobileMenu'
-import { CLientMenu } from '../ClientMenu'
+import * as styles from './Navigation.css';
+import NavIcon from '../../atoms/NavIcon';
+import LoginButton from '../../atoms/LoginButton';
+import SignInMobileMenu from '../SignInMobileMenu';
+import { CLientMenu } from '../ClientMenu';
 
 interface Props {
-  showLoginButton?: boolean
-  signOut: () => void
-  className?: string
-  hide?: () => void
+  showLoginButton?: boolean;
+  signOut: () => void;
+  className?: string;
+  hide?: () => void;
 }
 
 export const Navigation = ({
@@ -69,4 +66,4 @@ export const Navigation = ({
       </>
     )}
   </nav>
-)
+);

@@ -1,2 +1,2 @@
-export { NavLink } from './NavLink'
-export type { NavLinkProps } from './NavLinkProps'
+export { NavLink } from './NavLink';
+export type { NavLinkProps } from './NavLinkProps';

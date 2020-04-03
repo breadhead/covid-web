@@ -1,23 +1,22 @@
-import * as React from 'react'
+import * as React from 'react';
+import Head from 'next/head';
 
-import Head from 'next/head'
-
-import { AppContext } from '@app/lib/server-types'
-import { RequestChat } from '@app/features/landing/features/request-chat'
+import { AppContext } from '@app/lib/server-types';
+import { RequestChat } from '@app/features/landing/features/request-chat';
 
 interface Props {
-  id: string
+  id: string;
 }
 
 interface Query {
-  id: string
+  id: string;
 }
 
 class RequstChatPage extends React.Component<Props> {
   public static getInitialProps({ query }: AppContext<Query>) {
-    const { id } = query
+    const { id } = query;
 
-    return { id }
+    return { id };
   }
 
   public render() {
@@ -29,8 +28,8 @@ class RequstChatPage extends React.Component<Props> {
 
         <RequestChat />
       </>
-    )
+    );
   }
 }
 
-export default RequstChatPage
+export default RequstChatPage;

@@ -1,22 +1,22 @@
-import cx from 'classnames'
-import React, { useRef } from 'react'
+import cx from 'classnames';
+import React, { useRef } from 'react';
 
-import { usePressEnter } from '@front/hooks/usePressEnter'
+import { usePressEnter } from '@front/hooks/usePressEnter';
+import { useCustomInput } from '@front/hooks/useCustomInput';
 
-import { useCustomInput } from '@front/hooks/useCustomInput'
-import { getCheckedClassName } from './helpers/getCheckedClassName'
-import { getCheckedText } from './helpers/getCheckedText'
-import { getDisabledClassName } from './helpers/getDisabledClassName'
-import * as styles from './Toggle.css'
+import { getCheckedClassName } from './helpers/getCheckedClassName';
+import { getCheckedText } from './helpers/getCheckedText';
+import { getDisabledClassName } from './helpers/getDisabledClassName';
+import * as styles from './Toggle.css';
 
 export interface Props {
-  name: string
-  label?: string
-  className?: string
-  onChange?: (value?: boolean) => void
-  value?: boolean
-  disabled?: boolean
-  defaultChecked?: boolean
+  name: string;
+  label?: string;
+  className?: string;
+  onChange?: (value?: boolean) => void;
+  value?: boolean;
+  disabled?: boolean;
+  defaultChecked?: boolean;
 }
 
 export const Toggle = ({
@@ -27,12 +27,12 @@ export const Toggle = ({
   value,
   disabled = false,
 }: Props) => {
-  const { currentValue, handleChange } = useCustomInput(value, onChange)
+  const { currentValue, handleChange } = useCustomInput(value, onChange);
 
-  const toggle = () => handleChange(!currentValue)
+  const toggle = () => handleChange(!currentValue);
 
-  const ref = useRef<HTMLDivElement>(null)
-  usePressEnter(ref, toggle)
+  const ref = useRef<HTMLDivElement>(null);
+  usePressEnter(ref, toggle);
 
   return (
     <>
@@ -53,5 +53,5 @@ export const Toggle = ({
         {getCheckedText(currentValue)}
       </div>
     </>
-  )
-}
+  );
+};
