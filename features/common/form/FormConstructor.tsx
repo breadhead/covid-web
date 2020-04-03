@@ -1,6 +1,7 @@
-import { renderFormComponent } from './renderFormComponent'
-import React from 'react'
-import { Form } from './'
+import React from 'react';
+
+import { renderFormComponent } from './renderFormComponent';
+import { Form } from './';
 
 export enum FormComponentType {
   ButtonWithTooltip = 'buttonWithTooltip',
@@ -24,29 +25,29 @@ export enum FormComponentType {
 }
 
 interface LabelOptions {
-  text: string
-  props?: any
+  text: string;
+  props?: any;
 }
 
 export interface FormComponentOptions {
-  props?: any
-  type: FormComponentType
-  required?: boolean
-  label?: LabelOptions
-  condition?: (values: any[]) => boolean
+  props?: any;
+  type: FormComponentType;
+  required?: boolean;
+  label?: LabelOptions;
+  condition?: (values: any[]) => boolean;
 }
 
 interface FormOptions {
-  steps: FormComponentOptions[]
+  steps: FormComponentOptions[];
 }
 
 interface Props {
-  options: FormOptions
-  onSubmit: (data: any) => any
-  saveDraft: (data: any) => any
-  initialValues?: any
-  className?: string
-  children?: React.ReactNode
+  options: FormOptions;
+  onSubmit: (data: any) => any;
+  saveDraft: (data: any) => any;
+  initialValues?: any;
+  className?: string;
+  children?: React.ReactNode;
 }
 
 export const FormConstructor = ({
@@ -74,5 +75,5 @@ export const FormConstructor = ({
         </>
       )}
     </Form>
-  )
-}
+  );
+};

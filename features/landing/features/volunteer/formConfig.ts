@@ -1,6 +1,8 @@
-import { FormComponentType } from '@app/features/common/form/FormConstructor'
-import cx from 'classnames'
+import cx from 'classnames';
 import * as yup from 'yup';
+
+import { FormComponentType } from '@app/features/common/form/FormConstructor';
+import { RadioButtonStyles } from '@app/ui/RadioGroup';
 
 const professionOptions = [
   {
@@ -25,16 +27,13 @@ const professionOptions = [
   },
 ];
 
-export const formConfig = (styles) =>  ({
+export const formConfig = (styles) => ({
   steps: [
     {
       type: FormComponentType.Input,
       required: true,
       label: {
-        text: 'Email address',
-        props: {
-          className: cx(styles.label, styles.field)
-        }
+        text: 'Email',
       },
       props: {
         name: 'email',
@@ -46,9 +45,6 @@ export const formConfig = (styles) =>  ({
       required: true,
       label: {
         text: 'Как к вам обращаться?',
-        props: {
-          className: cx(styles.label, styles.field)
-        }
       },
       props: {
         name: 'name',
@@ -59,9 +55,6 @@ export const formConfig = (styles) =>  ({
       type: FormComponentType.PhoneInput,
       label: {
         text: 'Ваш телефон',
-        props: {
-          className: cx(styles.label, styles.field)
-        }
       },
       props: {
         name: 'phone',
@@ -72,9 +65,6 @@ export const formConfig = (styles) =>  ({
       required: true,
       label: {
         text: 'Ваш город',
-        props: {
-          className: cx(styles.label, styles.field)
-        }
       },
       props: {
         name: 'city',
@@ -85,9 +75,6 @@ export const formConfig = (styles) =>  ({
       type: FormComponentType.Input,
       label: {
         text: 'Ссылка на соцсети (VK/FB)',
-        props: {
-          className: cx(styles.label, styles.field)
-        }
       },
       props: {
         name: 'social',
@@ -98,14 +85,12 @@ export const formConfig = (styles) =>  ({
       required: true,
       label: {
         text: 'Кто вы по профессии?',
-        props: {
-          className: cx(styles.label, styles.field),
-        }
       },
       props: {
         name: 'profession',
         buttons: professionOptions,
         className: styles.professionRadioGroup,
+        radioStyle: RadioButtonStyles.Radio,
       },
     },
     {
@@ -113,28 +98,22 @@ export const formConfig = (styles) =>  ({
       required: true,
       label: {
         text: 'Чем вы готовы помочь?',
-        props: {
-          className: cx(styles.label, styles.field)
-        }
       },
       props: {
         name: 'aid',
         validate: yup.string(),
-      }
+      },
     },
     {
       type: FormComponentType.Input,
       required: true,
       label: {
         text: 'Сколько времени в неделю вы готовы уделять проекту?',
-        props: {
-          className: cx(styles.label, styles.field)
-        }
       },
       props: {
         name: 'time',
         validate: yup.string(),
-      }
+      },
     },
   ],
 });

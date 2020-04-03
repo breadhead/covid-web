@@ -1,15 +1,17 @@
-import React from 'react'
+import React from 'react';
+import cx from 'classnames';
 
-import { FormConstructor } from '@app/features/common/form/FormConstructor'
-import { ButtonSize, Button } from '@front/ui/button'
-import cx from 'classnames'
-import * as styles from './BecomePartnerForm.css'
-import { formConfig } from './formConfig'
+import { FormConstructor } from '@app/features/common/form/FormConstructor';
+import * as commonStyles from '@app/features/common/form/commonStyles.css';
+
+import { ButtonSize, Button } from '@front/ui/button';
+
+import { formConfig } from './formConfig';
 
 export const BecomePartnerForm = () => {
   const onSubmit = (data: any) => {
-    console.log(data)
-  }
+    console.log(data);
+  };
 
   return (
     <FormConstructor
@@ -19,11 +21,11 @@ export const BecomePartnerForm = () => {
     >
       <Button
         size={ButtonSize.ExtraLarge}
-        className={cx(styles.button, styles.largeButton)}
+        className={cx(commonStyles.button, commonStyles.largeButton)}
         submit
       >
         Отправить
       </Button>
     </FormConstructor>
-  )
-}
+  );
+};
