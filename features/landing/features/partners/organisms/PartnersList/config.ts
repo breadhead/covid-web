@@ -17,6 +17,8 @@ enum PartnersLabel {
 enum PageType {
   Main = 'main',
   Partners = 'partners',
+  Hospitals = 'hospitals',
+  Help = 'help'
 }
 
 const getCurrentPartnersOptions = (currentPartners: Partner[]) => {

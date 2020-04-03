@@ -14,6 +14,7 @@ interface Props {
 
 const PartnerCard = ({ partner, className }: Props) => {
   const image = getImageSrc(partner.logo) || '';
+
   return (
     <NavLink
       blank
