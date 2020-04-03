@@ -1,7 +1,13 @@
 import * as React from 'react';
 
+import { SystemHeader } from '../layout/header';
+
 // interface SystemMainProps {}
 
 export const SystemMain = () => {
-  return <div>ask me anything</div>;
+  return (
+    <div>
+      <SystemHeader />
+    </div>
+  );
 };

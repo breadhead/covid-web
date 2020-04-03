@@ -44,4 +44,5 @@ export enum IconsList {
   CovidLogo = 'covid-logo',
   CovidLogoDark = 'covid-logo-dark',
   CovidLogoMobile = 'covid-logo-mobile',
+  SystemLogo = 'system-logo',
 }

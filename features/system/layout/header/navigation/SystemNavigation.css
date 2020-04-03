@@ -1,0 +1,112 @@
+.navWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+  padding: 18px 0;
+
+  @media (max-width: 959px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 200;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 288px;
+    height: 100vh;
+    padding: 16px 16px 0 24px;
+    background-color: white;
+    box-shadow: 0 0 8px 0 rgba(63, 63, 68, 0.04),
+      0 0 20px 0 rgba(63, 63, 68, 0.12);
+    transition: transform 250ms ease-out;
+    will-change: transform;
+  }
+}
+
+.link {
+  margin-right: 32px;
+  white-space: nowrap;
+  font: var(--text-18-28);
+  font-size: 18px;
+  line-height: 28px;
+  padding: 18px 0;
+
+  @media (max-width: 959px) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 11px 0 12px 0;
+    margin-right: 0;
+    border-top: 1px solid var(--divider-color);
+
+    &:last-of-type {
+      border-bottom: 1px solid var(--divider-color);
+    }
+
+    &:last-of-type:focus {
+      border-bottom: 1px solid var(--divider-color);
+    }
+  }
+}
+
+.closeButton {
+  display: none;
+  align-self: flex-end;
+  margin-bottom: 24px;
+  font-size: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+
+  & svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  @media (max-width: 959px) {
+    display: block;
+  }
+}
+
+.link:hover svg {
+  fill: var(--color-primary);
+}
+
+.NavIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.loginMenu {
+  & a {
+    padding: 36px 0;
+  }
+}
+
+.loginButton {
+  @media (--mediumDown) {
+    margin-top: 24px;
+  }
+}
+
+.mobileMenuWrapper {
+  @media (--mediumDown) {
+    width: 100%;
+  }
+}
+
+.linkHelp {
+  margin-right: 12px;
+}
+
+.contentLink {
+  color: #82839b;
+}

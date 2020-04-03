@@ -1,0 +1,12 @@
+.headerWrapper {
+  display: flex;
+  align-items: center;
+}
+
+
+.iconWrapper {
+  margin-left: 16px;
+  margin-right: 32px;    
+  width: 156px;
+  height: 36px;
+}
