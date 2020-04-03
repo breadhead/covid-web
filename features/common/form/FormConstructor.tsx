@@ -1,4 +1,4 @@
-import { renderFormComponent } from '@app/features/common/form/getFormComponent'
+import { renderFormComponent } from './renderFormComponent'
 import React from 'react'
 import { Form } from './'
 
