@@ -9,4 +9,5 @@ module.exports = nextRoutes()
   .add('landing-partners', '/partners/:id?', 'landing/partners')
   .add('landing-contacts', '/contacts', 'landing/contacts')
   .add('landing-experts', '/experts', 'landing/experts')
-  .add('landing-expert', '/experts/:id', 'landing/expert');
+  .add('landing-expert', '/experts/:id', 'landing/expert')
+  .add('landing-for-clinics', '/for-clinics', 'landing/for-clinics');
