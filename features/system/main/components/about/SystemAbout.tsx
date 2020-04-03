@@ -6,7 +6,6 @@ import PartnersList from '@app/features/landing/features/home/organisms/Corporat
 import * as styles from './SystemAbout.css';
 import { aboutText } from './aboutText';
 import { aboutFeatures } from './aboutFeatures';
-// interface SystemAboutProps {}
 
 export const SystemAbout = () => {
   return (
