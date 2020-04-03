@@ -1,11 +1,10 @@
 .partnersList {
-  margin-top: 48px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 32px 16px;
 
   @media (--smallDown) {
-    max-width: 100vw;
+    max-width: 100%;
     margin-bottom: 0;
     /* flex-wrap: nowrap; */
     overflow: scroll;

@@ -14,18 +14,18 @@ interface ForClinicsProps {}
 export const ForClinics = ({}: ForClinicsProps) => {
   return (
     <SystemLayout>
-      <div className={cx(s.wrapper, s.wrapperOuter)}>
+      <div className="gl-wrapper gl-first-section gl-section">
         <ForClinicsHero></ForClinicsHero>
       </div>
-      <div className={s.wrapper}>
+      <div className="gl-wrapper gl-section">
         <Helping></Helping>
       </div>
       <HelpRequest />
 
-      <div className={s.wrapper}>
+      <div className="gl-wrapper gl-first-section gl-section">
         <Partners />
       </div>
-      <div className={s.wrapper}>
+      <div className="gl-wrapper gl-section">
         <SystemHelp />
       </div>
     </SystemLayout>

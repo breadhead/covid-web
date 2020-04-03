@@ -9,10 +9,8 @@ interface HelpRequestProps {}
 export const HelpRequest = ({}: HelpRequestProps) => {
   return (
     <div className={s.helpRequest}>
-      <div className={cx('global-section', s.wrapper)}>
-        <h2 className="global-sectionTitle">
-          Расскажите, какая помощь вам нужна
-        </h2>
+      <div className={cx('gl-wrapper gl-section', s.wrapper)}>
+        <h2 className="gl-sectionTitle">Расскажите, какая помощь вам нужна</h2>
         <div className={s.body}>
           <div className={s.formContainer}>
             <HospitalAidForm />

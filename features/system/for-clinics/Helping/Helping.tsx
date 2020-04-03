@@ -4,8 +4,8 @@ import { ClinicCard } from '../ClinicCard/ClinicCard';
 import s from './Helping.css';
 
 export const Helping = () => (
-  <div className="global-section">
-    <h2 className="global-sectionTitle">Уже помогаем</h2>
+  <div>
+    <h2 className="gl-sectionTitle">Уже помогаем</h2>
     <div className={s.list}>
       {helpingClinics.map((clinic) => (
         <ClinicCard key={clinic.name} clinic={clinic} />

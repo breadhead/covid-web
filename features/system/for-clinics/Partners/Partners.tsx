@@ -7,8 +7,8 @@ interface PartnersProps {}
 
 export const Partners = ({}: PartnersProps) => {
   return (
-    <div className={s.partners}>
-      <h2 className={s.title}>Партнеры</h2>
+    <div>
+      <h2 className="gl-sectionTitle">Партнеры</h2>
       <PartnersList />
     </div>
   );

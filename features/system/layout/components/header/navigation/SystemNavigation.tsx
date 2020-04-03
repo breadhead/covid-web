@@ -15,7 +15,7 @@ interface Props {
 }
 
 export const SystemNavigation = ({ className, hide }: Props) => {
-  return null;
+  // return null;
 
   return (
     <nav className={styles.navWrapper}>

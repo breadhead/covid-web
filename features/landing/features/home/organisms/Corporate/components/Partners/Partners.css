@@ -4,7 +4,7 @@
   font: var(--title-regular);
 
   @media (--smallDown) {
-    max-width: 100vw;
+    max-width: 100%;
     margin: 0 0 24px 0;
     font: var(--title-medium);
     text-align: left;
@@ -16,7 +16,7 @@
   font: var(--text18-28);
 
   @media (--smallDown) {
-    max-width: 100vw;
+    max-width: 100%;
     padding: 0 16px;
     margin-bottom: 40px;
     text-align: left;
