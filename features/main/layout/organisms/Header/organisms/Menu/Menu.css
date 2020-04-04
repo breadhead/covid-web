@@ -11,6 +11,7 @@
   position: fixed;
   top: 0;
   right: 0;
+  min-width: 288px;
   z-index: 200;
   transition: transform 250ms ease-out;
   will-change: transform;

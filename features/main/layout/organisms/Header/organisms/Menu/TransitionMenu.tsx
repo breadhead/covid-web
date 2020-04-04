@@ -19,11 +19,7 @@ const ANIMATION_STYLES: AnimationStyles = {
 
 interface Props {
   isVisible: boolean;
-  hide: () => void;
-  signOut: () => void;
-  isMobile?: boolean;
   children?: React.ReactNode;
-  showLoginButton: boolean;
 }
 
 export const TransitionMenu = ({ isVisible, children }: Props) => (

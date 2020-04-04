@@ -6,10 +6,8 @@ import { NavLink } from '@app/src/ui/nav-link';
 import MediaQuery, { Query } from '@app/ui/MediaQuery';
 
 import * as styles from './SystemHeader.css';
-import { SystemNavigation } from './navigation';
 import { SystemMobileMenu } from './system-mobile-menu';
-
-// interface SystemHeaderProps {}
+import { SystemNavigationContainer } from './navigation/SystemNavigationContainer';
 
 export const SystemHeader = () => {
   return (
@@ -18,11 +16,21 @@ export const SystemHeader = () => {
         <Icon name={IconsList.SystemLogo} />
       </NavLink>
 
-      <MediaQuery className={styles.buttonContainer} query={Query.ToExtraLarge}>
+      <MediaQuery
+        className={styles.mobileMenuContainer}
+        query={Query.ToExtraLarge}
+      >
+        <NavLink
+          className={styles.donationMobileLink}
+          withoutUnderline
+          href="/#donation"
+        >
+          Помочь
+        </NavLink>
         <SystemMobileMenu />
       </MediaQuery>
       <MediaQuery className={styles.navContainer} query={Query.FromExtraLarge}>
-        <SystemNavigation />
+        <SystemNavigationContainer />
       </MediaQuery>
     </header>
   );

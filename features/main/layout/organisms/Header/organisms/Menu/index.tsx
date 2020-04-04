@@ -22,12 +22,7 @@ const Container = ({ signOut, showLoginButton }: Props) => {
     <>
       <Overlay isVisible={menuOpened} onClick={hide} />
       <BurgerButton show={show} />
-      <TransitionMenu
-        showLoginButton={showLoginButton}
-        signOut={signOut}
-        hide={hide}
-        isVisible={menuOpened}
-      >
+      <TransitionMenu isVisible={menuOpened}>
         <Navigation
           signOut={signOut}
           hide={hide}

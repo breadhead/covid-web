@@ -2,8 +2,9 @@ import React, { useState, useCallback } from 'react';
 
 import Overlay from '@app/ui/Overlay';
 import BurgerButton from '@app/features/main/layout/organisms/Header/atoms/BurgerButton';
+import { TransitionMenu } from '@app/features/main/layout/organisms/Header/organisms/Menu/TransitionMenu';
 
-// interface SystemMobileMenuProps {}
+import { SystemNavigation } from '../navigation';
 
 export const SystemMobileMenu = () => {
   const [menuOpened, setOpened] = useState(false);
@@ -14,16 +15,9 @@ export const SystemMobileMenu = () => {
     <div>
       <Overlay isVisible={menuOpened} onClick={hide} />
       <BurgerButton show={show} />
-      menu t=items menu t=items menu t=items menu t=items menu t=items menu
-      t=items menu t=items menu t=items menu t=items menu t=items menu t=items
-      menu t=items menu t=items menu t=items menu t=items menu t=items menu
-      t=items menu t=items
-      {/* <Menu
-        showLoginButton={showLoginButton}
-        signOut={signOut}
-        hide={hide}
-        isVisible={menuOpened}
-      /> */}
+      <TransitionMenu isVisible={menuOpened}>
+        <SystemNavigation hide={hide} />
+      </TransitionMenu>
     </div>
   );
 };
