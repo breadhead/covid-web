@@ -1,0 +1,35 @@
+
+.navigation {
+  margin-bottom: 64px;
+
+  @media (--smallDown) {
+    margin-bottom: 24px;
+  }
+}
+
+.mobileNav {
+  @media (--smallDown) {
+    display: flex;
+    flex-direction: column;
+
+    & .link {
+      color: var(--color-text-primary); 
+      padding-top: 10px;
+      padding-bottom: 13px;
+      border-top: 1px solid rgba(21,24,51, 0.08);
+      margin-right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:last-child {
+        border-bottom: 1px solid rgba(21,24,51, 0.08);
+      }
+    }
+  }
+}
+
+.link {
+  margin-right: 16px;
+  color: #82839B;
+}

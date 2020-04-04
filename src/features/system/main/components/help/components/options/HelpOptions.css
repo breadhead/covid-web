@@ -2,6 +2,11 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
+
+  @media (--smallDown) {
+    flex-direction: column;
+    margin-bottom: 32px;
+  }
 }
 
 .option {
@@ -16,12 +21,27 @@
   &:last-child {
     margin-right: 0;
   }
+
+  @media (--smallDown) {
+    margin-right: 0;
+    margin-bottom: 16px;
+    padding: 16px 16px 24px 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .title {
   font: var(--title-small);
   color: var(--text-color-secondary);
   margin-bottom: 40px;
+
+  @media (--smallDown) {
+    font: var(--title-medium);
+    margin-bottom: 24px;
+  }
 }
 
 .link {

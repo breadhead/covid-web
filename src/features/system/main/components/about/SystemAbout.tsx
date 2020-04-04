@@ -2,8 +2,6 @@ import * as React from 'react';
 import htmlParser from 'react-html-parser';
 import cx from 'classnames';
 
-import PartnersList from '@app/src/features/landing/features/home/organisms/Corporate/components/Partners/components/PartnersList';
-
 import * as styles from './SystemAbout.css';
 import { aboutText } from './aboutText';
 import { aboutFeatures } from './aboutFeatures';
@@ -27,7 +25,6 @@ export const SystemAbout = () => {
           })}
         </div>
         <p className={styles.slogan}>Только вместе мы можем справиться!</p>
-        <PartnersList />
       </div>
     </section>
   );

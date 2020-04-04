@@ -5,22 +5,14 @@
   background-color: var(--background-system);
 }
 
-
-.navigation {
-  margin-bottom: 64px;
-}
-
-
-.link {
-  margin-right: 16px;
-  color: #82839B;
-}
-
-
 .projects {
   display: flex;
-}
 
+  @media (--smallDown) {
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+}
 
 .project {
   display: flex;
@@ -50,6 +42,10 @@
       margin-bottom: 0;
     }
   }
+
+  @media (--smallDown) {
+    border-right: none;
+  }
 }
 
 .text {
@@ -57,6 +53,10 @@
   align-self: flex-start;
   font: var(--text12-16);
   color: var(--text-color-secondary);
+
+  @media (--smallDown) {
+    margin: 0 16px 0 0;
+  }
 }
 
 .logo {
@@ -65,11 +65,22 @@
   max-height: 64px;
 }
 
-
 .legal {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
+.mobileButton {
+  display: none;
 
+  @media (--smallDown) {
+    display: block;
+    width: 100%;
+    margin-bottom: 24px;
+
+    & button {
+      width: 100%;
+    }
+  }
+}

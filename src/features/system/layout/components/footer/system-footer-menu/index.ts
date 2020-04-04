@@ -1,0 +1,1 @@
+export { SystemFooterMenu } from './SystemFooterMenu';
