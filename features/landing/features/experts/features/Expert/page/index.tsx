@@ -5,14 +5,12 @@ import { MainLayout } from '@app/features/main/layout';
 import { NavLink } from '@front/ui/nav-link';
 
 import * as styles from './ExpertPage.css';
-import {AppContext} from "@app/lib/server-types";
-import {getExpertsFromSanity} from "@app/features/common/expertReducer";
-import {Expert} from "@app/models/sanity/Expert";
+import {Expert as ExpertModel} from "@app/models/sanity/Expert";
 import {getImageSrc} from "@app/lib/useImageSrc/getImageSrc";
 
 
 interface Props {
-  expert: Expert;
+  expert: ExpertModel;
 }
 
 const ExpertPage = ({ expert }: Props) => {
@@ -28,7 +26,11 @@ const ExpertPage = ({ expert }: Props) => {
             <h1 className={styles.title}>{expert.name}</h1>
             <p className={styles.description}>{expert.subtitle}</p>
             <div className={styles.info}>
-              {expert.description}
+              {expert.description.map((blob) => (
+                  blob.children.map((child) => (
+                      <p>{child.text}</p>
+                  )
+                )))}
             </div>
           </div>
         </section>
@@ -36,12 +38,5 @@ const ExpertPage = ({ expert }: Props) => {
     </MainLayout>
   );
 };
-
-ExpertPage.getInitialProps = async (context: AppContext) => {
-  await context.reduxStore.dispatch(getExpertsFromSanity() as any);
-
-  return {};
-};
-
 
 export default ExpertPage;
