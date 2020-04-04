@@ -1,1 +1,1 @@
-export { SubmitTooltip as SubmitSucceeded } from './SubmitTooltip';
+export { SubmitTooltip } from './SubmitTooltip';

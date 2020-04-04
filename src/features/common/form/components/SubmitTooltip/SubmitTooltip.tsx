@@ -4,15 +4,28 @@ import { Icon } from '@app/src/ui/icon';
 import { IconsList } from '@app/src/ui/sprite';
 
 import s from './SubmitSucceeded.css';
+import { FormContext } from '../Form';
 
 interface Props {
-  fail?: boolean;
+  context: FormContext;
 }
 
-export const SubmitTooltip = ({ fail }: Props) => {
-  return (
+export const SubmitTooltip = ({ context }: Props) => {
+  const show = !!context.submitError || !!context.submitSucceeded;
+
+  const fail = context.submitFailed;
+
+  return show ? (
     <div className={s.wrapper}>
       {fail ? (
+        <>
+          <Icon className={s.icon} name={IconsList.CancelRed} />
+          <div className={s.text}>
+            На сайте что-то сломалось или у вас пропал интернет. <br />
+            Пожалуйста, отправьте форму еще раз или напишите нам на почту
+          </div>
+        </>
+      ) : (
         <>
           <Icon className={s.icon} name={IconsList.Success} />
           <div className={s.text}>
@@ -20,15 +33,7 @@ export const SubmitTooltip = ({ fail }: Props) => {
             Мы скоро свяжемся с вами.
           </div>
         </>
-      ) : (
-        <>
-          <Icon className={s.icon} name={IconsList.CancelRed} />
-          <div className={s.text}>
-            Произошла ошибка <br />
-            Попробуйте снова или свяжитесь с нами.
-          </div>
-        </>
       )}
     </div>
-  );
+  ) : null;
 };
