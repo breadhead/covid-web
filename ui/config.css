@@ -39,6 +39,8 @@ body {
   --title-tiny: 20px/28px var(--fontFamily-title);
   --title-bold: bold 16px/24px var(--fontFamily-title);
 
+  --title-regular-system: 40px/48px var(--fontFamily-title);
+
   --text-0: 0px/0px var(--fontFamily);
   --text18-28: 18px/28px var(--fontFamily);
   --text16-24: 16px/24px var(--fontFamily);
@@ -51,6 +53,8 @@ body {
     --title-medium: 24px/32px var(--fontFamily-title);
     --title-small: 20px/28px var(--fontFamily-title);
     --title-bold: bold 16px/24px var(--fontFamily-title);
+
+    --title-regular-system: 32px/36px var(--fontFamily-title);
   }
 
   /* colors */
@@ -65,7 +69,7 @@ body {
   --text-color-secondary: #616681;
 
   --background-color: #faf9f7;
-  --background-system: #FAF9F7;
+  --background-system: #faf9f7;
   --divider-color: rgba(21, 24, 51, 0.08);
 
   --color-link: #2d47ea;

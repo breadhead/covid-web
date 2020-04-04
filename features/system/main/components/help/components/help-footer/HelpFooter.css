@@ -2,6 +2,15 @@
   display: flex;
   border-top: 1px solid rgba(21, 24, 51, 0.12);
   border-bottom: 1px solid rgba(21, 24, 51, 0.12);
+
+  @media (--smallDown) {
+    flex-direction: column;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
 }
 
 .text {
@@ -9,7 +18,11 @@
   padding: 16px 0;
   margin-bottom: 0;
   flex-grow: 1;
-  /* border-right: 1px solid rgba(21, 24, 51, 0.12); */
+
+
+  @media (--smallDown) {
+    border-bottom: 1px solid rgba(21, 24, 51, 0.12);
+  }
 }
 
 .textSecondary {
@@ -28,6 +41,14 @@
   align-items: center;
   width: 100%;
   justify-content: center;
+
+  @media (--smallDown) {
+    min-height: 70px;
+  
+    &:first-child {
+      border-left: none;
+    }
+  }
 }
 
 .icon {

@@ -30,6 +30,14 @@
 
   @media (--mediumSecondDown) {
     width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid rgba(21, 24, 51, 0.04);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
