@@ -1,4 +1,5 @@
 import React from 'react';
+import { FORM_ERROR } from 'final-form';
 
 import { renderFormComponent } from './renderFormComponent';
 import { Form } from '.';
@@ -49,6 +50,7 @@ interface Props {
   initialValues?: any;
   className?: string;
   children: (context: FormContext) => React.ReactNode;
+  resetAfterSubmit?: boolean;
 }
 
 export const FormConstructor = ({
@@ -58,10 +60,20 @@ export const FormConstructor = ({
   initialValues,
   className,
   children,
+  resetAfterSubmit,
 }: Props) => {
+  const submitHandler = async (values: any) => {
+    try {
+      await onSubmit(values);
+    } catch (error) {
+      return { [FORM_ERROR]: 'error' };
+    }
+  };
+
   return (
     <Form
-      onSubmit={onSubmit}
+      resetAfterSubmit={resetAfterSubmit}
+      onSubmit={submitHandler as any}
       saveDebounced={saveDraft}
       saveOnBlur={saveDraft}
       initialValues={initialValues}

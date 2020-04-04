@@ -1,0 +1,19 @@
+.wrapper {
+  margin-top: 32px;
+  display: flex;
+}
+
+.icon {
+  margin-right: 10px;
+
+  & svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.text {
+  margin: 0;
+
+  font: var(--text16-24);
+}

@@ -13,4 +13,6 @@ module.exports = nextRoutes()
   .add('landing-contacts', '/contacts', 'landing/contacts')
   .add('landing-experts', '/experts', 'landing/experts')
   .add('landing-expert', '/experts/:id', 'landing/expert')
-  .add('landing-for-hospitals', '/for-hospitals', 'landing/for-hospitals');
+  .add('landing-for-hospitals', '/for-hospitals', 'landing/for-hospitals')
+
+  .add('icons-demo', '/icons-demo', 'icons-demo');

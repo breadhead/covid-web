@@ -36,7 +36,8 @@ export const saveCoronaRequestForm = (requestFormData: any) => async (
     Router.pushRoute('/request/chat');
     return dispatch(actions.success(requestFormData));
   } catch (error) {
-    return dispatch(actions.error(error.message));
+    dispatch(actions.error(error.message));
+    throw error;
   }
 };
 
@@ -56,7 +57,8 @@ export const saveForHospitalsForm = (requestFormData: any) => async (
 
     return dispatch(actions.success(requestFormData));
   } catch (error) {
-    return dispatch(actions.error(error.message));
+    dispatch(actions.error(error.message));
+    throw error;
   }
 };
 export const saveVolunteerForm = (requestFormData: any) => async (
@@ -72,7 +74,8 @@ export const saveVolunteerForm = (requestFormData: any) => async (
 
     return dispatch(actions.success(requestFormData));
   } catch (error) {
-    return dispatch(actions.error(error.message));
+    dispatch(actions.error(error.message));
+    throw error;
   }
 };
 

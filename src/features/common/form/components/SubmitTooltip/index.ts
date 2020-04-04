@@ -1,0 +1,1 @@
+export { SubmitTooltip } from './SubmitTooltip';

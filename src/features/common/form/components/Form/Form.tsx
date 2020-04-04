@@ -45,6 +45,9 @@ class Form extends Component<Props> {
             handleSubmit,
             valid,
             submitting,
+            submitSucceeded,
+            submitError,
+            hasValidationErrors,
           }) => {
             return (
               <form
@@ -64,6 +67,10 @@ class Form extends Component<Props> {
                 )}
                 {children({
                   submitting,
+                  submitSucceeded,
+                  submitFailed,
+                  submitError,
+                  hasValidationErrors,
                   removeSectionFromState: this.removeSection(
                     form.change,
                     values,
