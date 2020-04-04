@@ -5,6 +5,8 @@ import { NavLink } from '@front/ui/nav-link';
 import * as styles from './ExpertCard.css';
 import {Expert} from "@app/models/sanity/Expert";
 import {getImageSrc} from "@app/lib/useImageSrc/getImageSrc";
+import {AppContext} from "@app/lib/server-types";
+import {getExpertsFromSanity} from "@app/features/common/expertReducer";
 
 interface Props {
   expert: Expert;
