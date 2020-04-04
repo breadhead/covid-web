@@ -28,7 +28,7 @@ export const NavCards = () => {
         </div>
       </NavLink>
 
-      <NavLink withoutUnderline href={'/doctors'} className={styles.card}>
+      <NavLink withoutUnderline href={'/for-hospitals'} className={styles.card}>
         <div className={styles.content}>
           <h3 className={styles.title}>
             Больницам
@@ -50,7 +50,7 @@ export const NavCards = () => {
           <Icon className={styles.linkIcon} name={IconsList.ArrowRight2} />
         </div>
       </NavLink>
-
+      {/* for-doctors */}
       <article className={cx(styles.card, styles.disable)}>
         <div className={styles.content}>
           <h3 className={styles.title}>Врачам</h3>

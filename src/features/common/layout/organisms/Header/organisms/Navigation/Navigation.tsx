@@ -32,7 +32,7 @@ export const Navigation = ({
       <Icon className={styles.NavIcon} name={IconsList.CloseLight} />
     </button>
 
-    <NavLink withoutUnderline href="/experts" className={styles.link}>
+    <NavLink withoutUnderline href="/ask/experts" className={styles.link}>
       Эксперты
       <NavIcon />
     </NavLink>
@@ -42,7 +42,7 @@ export const Navigation = ({
     </NavLink>
     <NavLink
       withoutUnderline
-      href="/#donation"
+      href="/ask#donation-ask"
       className={cx(styles.link, styles.linkHelp)}
     >
       <Button kind={ButtonKind.Secondary}>Помочь проекту</Button>

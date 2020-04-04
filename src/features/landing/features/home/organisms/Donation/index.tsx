@@ -8,7 +8,7 @@ import { infoText } from './infoText';
 
 const Donation = () => (
   <>
-    <div id="donation" className={styles.donationWrapper}>
+    <div id="donation-ask" className={styles.donationWrapper}>
       <div className={styles.wrapper}>
         <h2 className={styles.title}>Помочь проекту</h2>
         <div className={styles.content}>

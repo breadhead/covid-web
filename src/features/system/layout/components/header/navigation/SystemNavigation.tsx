@@ -66,21 +66,22 @@ const mainLinks = [
     text: 'Справочная служба',
     className: cx(styles.mainLink, styles.link),
   },
-  {
-    href: '/doctors',
-    text: 'Врачам',
-    className: cx(styles.mainLink, styles.link),
-  },
+  // {
+  //   href: '/for-doctors',
+  //   text: 'Врачам',
+  //   className: cx(styles.mainLink, styles.link),
+  // },
   {
     href: '/for-hospitals',
     text: 'Помощь больницам',
     className: cx(styles.mainLink, styles.link),
   },
 ];
+
 const contentLinks = [
   {
     href: '/experts',
-    text: 'Эксперты',
+    text: 'Экспертный совет',
     className: cx(styles.contentLink, styles.link),
   },
   {
@@ -89,8 +90,13 @@ const contentLinks = [
     className: cx(styles.contentLink, styles.link),
   },
   {
-    href: '/reports',
+    href: '/news?reports=true',
     text: 'Отчёты',
+    className: cx(styles.contentLink, styles.link),
+  },
+  {
+    href: '/contacts',
+    text: 'Контакты',
     className: cx(styles.contentLink, styles.link),
   },
 ];
