@@ -13,7 +13,13 @@ export const NavCards = () => {
     <div className={styles.cards}>
       <NavLink withoutUnderline href={'/ask'} className={styles.card}>
         <div className={styles.content}>
-          <h3 className={styles.title}>Справочная служба</h3>
+          <h3 className={styles.title}>
+            Справочная служба
+            <Icon
+              className={cx(styles.linkIcon, styles.mobileIcon)}
+              name={IconsList.ArrowRight2}
+            />
+          </h3>
           <Bubble />
         </div>
         <div className={styles.block}>
@@ -24,7 +30,13 @@ export const NavCards = () => {
 
       <NavLink withoutUnderline href={'/doctors'} className={styles.card}>
         <div className={styles.content}>
-          <h3 className={styles.title}>Больницам</h3>
+          <h3 className={styles.title}>
+            Больницам
+            <Icon
+              className={cx(styles.linkIcon, styles.mobileIcon)}
+              name={IconsList.ArrowRight2}
+            />
+          </h3>
           <ul className={styles.list}>
             <li className={styles.listItem}>
               Помогаем подготовиться к COVID-19
