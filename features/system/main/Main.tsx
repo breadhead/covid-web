@@ -15,11 +15,12 @@ export const SystemMain = () => {
   return (
     <SystemLayout>
       <SystemHero />
-      <div className={styles.wrapper}>
+
+      <section className="gl-wrapper gl-section gl-first-section">
         <SystemHelp />
-        <SystemAbout />
-        <SystemDonation />
-      </div>
+      </section>
+      <SystemAbout />
+      <SystemDonation />
     </SystemLayout>
   );
 };

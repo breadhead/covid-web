@@ -1,0 +1,80 @@
+.gl-wrapper {
+  max-width: 928px;
+  margin: 0 auto;
+  padding: 0 16px 0;
+
+  @media (--smallDown) {
+    max-width: none;
+  }
+}
+
+.gl-section {
+  padding-bottom: 96px;
+  @media (--smallDown) {
+    width: 100%;
+    padding-bottom: 56px;
+  }
+}
+
+.gl-text {
+  max-width: 768px;
+  margin-bottom: 32px;
+
+  & p {
+    margin: 0;
+    font: var(--text18-28);
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & a {
+    color: var(--color-primary);
+  }
+
+  @media (--smallWidth) {
+    margin-bottom: 24px;
+  }
+}
+
+.gl-first-section {
+  padding-top: 64px;
+  @media (--smallDown) {
+    padding-top: 40px;
+  }
+}
+
+.gl-sectionTitle {
+  padding-bottom: 32px;
+  margin: 0;
+  font: var(--title-regular);
+
+  @media (--smallDown) {
+    padding: 0 0 24px 0;
+    font: var(--title-medium);
+    text-align: left;
+  }
+}
+
+.gl-pageTitle {
+  margin: 0 auto 32px;
+  font: var(--title-extra);
+
+  @media (--smallDown) {
+    margin-bottom: 24px;
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+.gl-bubble {
+  width: 288px;
+  border-radius: 20px 20px 20px 0px;
+  background-color: #ffeab7;
+
+  padding: 24px 12px 20px 20px;
+
+  flex-shrink: 0;
+}

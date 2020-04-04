@@ -1,0 +1,50 @@
+.helpRequest {
+  background: #faf9f7;
+
+  @media (--smallDown) {
+    background: white;
+  }
+}
+
+.wrapper {
+  max-width: 928px;
+  margin: 0 auto;
+  padding-top: 64px;
+
+  @media (--smallDown) {
+    padding-top: 0;
+  }
+}
+
+.body {
+  display: flex;
+  align-items: flex-start;
+}
+
+.formContainer {
+  padding: 32px 80px 64px;
+  background: #ffffff;
+  border: 1px solid rgba(21, 24, 51, 0.04);
+  box-shadow: 0px 32px 40px rgba(0, 9, 92, 0.12);
+  margin-right: 32px;
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  @media (--smallDown) {
+    margin-right: 0;
+    padding: 24px 16px 40px 16px;
+  }
+}
+
+.bubble {
+  width: 288px;
+  border-radius: 20px 20px 20px 0px;
+  background-color: #ffeab7;
+
+  padding: 24px 12px 20px 20px;
+
+  flex-shrink: 0;
+  @media (--smallDown) {
+    display: none;
+  }
+}
