@@ -7,18 +7,26 @@ import { ButtonSize, Button } from '@app/src/ui/button';
 
 import * as styles from './BecomePartnerForm.css';
 import { formConfig } from './formConfig';
+import { mapThemeValueToSelectLabel } from './mapThemeValueToSelectLabel';
 
-export const BecomePartnerForm = () => {
+interface BecomePartnerFormProps {
+  themeValue: string;
+}
+
+export const BecomePartnerForm = ({ themeValue }: BecomePartnerFormProps) => {
   const onSubmit = (data: any) => {
     console.log(data);
 
     return Promise.resolve();
   };
 
+  const initialValues = { theme: mapThemeValueToSelectLabel[themeValue] };
+
   return (
     <FormConstructor
       className={styles.wrapper}
       options={formConfig}
+      initialValues={initialValues}
       onSubmit={onSubmit}
       saveDraft={console.log}
     >

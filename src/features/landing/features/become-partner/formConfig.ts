@@ -1,18 +1,19 @@
 import { InputType } from '@app/src/features/common/form';
 import { FormComponentType } from '@app/src/features/common/form/FormConstructor';
+import { PartneTypeLabels } from '@app/src/domain/models/PartnerTypes';
 
-const themeOptions = [
+export const themeOptions = [
   {
-    label: 'Стать партнёром',
+    label: PartneTypeLabels.BecomePartner,
   },
   {
-    label: 'Стать инфопартнером',
+    label: PartneTypeLabels.BecomeInfopartner,
   },
   {
-    label: 'Волонтёрский фандрайзинг',
+    label: PartneTypeLabels.VolunteerFundraising,
   },
   {
-    label: 'Заказать лекцию',
+    label: PartneTypeLabels.LectureRequest,
   },
 ];
 
