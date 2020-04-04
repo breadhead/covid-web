@@ -11,9 +11,7 @@ interface HelpRequestProps {}
 
 export const HelpRequest = ({}: HelpRequestProps) => {
   const dispatch = useThunk();
-  const [submitted, setSubmitted] = React.useState(false);
-  const onSubmit = (data: any) =>
-    dispatch(saveForHospitalsForm(data)).then(() => setSubmitted(true));
+  const onSubmit = (data: any) => dispatch(saveForHospitalsForm(data));
 
   return (
     <div className={s.helpRequest}>
@@ -21,11 +19,7 @@ export const HelpRequest = ({}: HelpRequestProps) => {
         <h2 className="gl-sectionTitle">Расскажите, какая помощь вам нужна</h2>
         <div className={s.body}>
           <div className={cx(s.formContainer, 'gl-formContainer')}>
-            {submitted ? (
-              <div className="gl-sectionTitle">Спасибо за обращение!</div>
-            ) : (
-              <HospitalAidForm onSubmit={onSubmit} />
-            )}
+            <HospitalAidForm onSubmit={onSubmit} />
           </div>
           <div className={s.bubble}>Нужен новый текст!!!</div>
         </div>
