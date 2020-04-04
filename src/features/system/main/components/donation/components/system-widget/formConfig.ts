@@ -85,7 +85,7 @@ export const costForm = [
 ];
 
 export const targetSelect = {
-  label: 'Назначение',
+  label: 'Назначение:',
   name: 'target',
   options: [
     {

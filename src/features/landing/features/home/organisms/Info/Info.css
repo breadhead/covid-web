@@ -11,7 +11,7 @@
   margin: 0 0 8px 0;
   font: var(--text14-20);
   text-align: left;
-  background-color: #ffeab7;
+  background-color: var(--color-bubble);
   border-radius: 32px 32px 32px 4px;
 
   @media (--smallDown) {

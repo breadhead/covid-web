@@ -39,7 +39,7 @@
 .bubble {
   width: 288px;
   border-radius: 20px 20px 20px 0px;
-  background-color: #ffeab7;
+  background-color: var(--color-bubble);
 
   padding: 24px 12px 20px 20px;
 

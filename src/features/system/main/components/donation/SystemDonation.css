@@ -4,4 +4,10 @@
 
 .content {
   display: flex;
+ 
+  
+  @media (--smallDown) {
+    flex-direction: column;
+  }
 }
+

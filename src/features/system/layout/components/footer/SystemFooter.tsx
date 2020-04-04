@@ -1,31 +1,26 @@
 import * as React from 'react';
 
+import { SystemButton, SystemButtonSize } from '@app/src/ui/systemButton ';
 import { NavLink } from '@app/src/ui/nav-link';
-import Legal from '@app/src/ui/organisms/Footer/components/Legal';
 import { footerProjects } from '@app/src/ui/organisms/Footer/components/Partners/footerProjects';
+import Legal from '@app/src/ui/organisms/Footer/components/Legal';
 
 import * as styles from './SystemFooter.css';
-
-// interface SystemFooterProps {}
+import { SystemFooterMenu } from './system-footer-menu';
 
 export const SystemFooter = () => {
   return (
     <footer className={styles.footer}>
-      <nav className={styles.navigation}>
-        <NavLink withoutUnderline href="/experts" className={styles.link}>
-          Эксперты
-        </NavLink>
-        <NavLink withoutUnderline href="/partners" className={styles.link}>
-          Партнеры
-        </NavLink>
-        <NavLink withoutUnderline href="/reports" className={styles.link}>
-          Отчёты
-        </NavLink>
-        <NavLink withoutUnderline href="/contacts" className={styles.link}>
-          Контакты
-        </NavLink>
-      </nav>
-
+      <SystemFooterMenu />
+      <NavLink
+        className={styles.mobileButton}
+        withoutUnderline
+        href="/#donation"
+      >
+        <SystemButton size={SystemButtonSize.Small}>
+          Помочь проекту
+        </SystemButton>
+      </NavLink>
       <div className={styles.projects}>
         {footerProjects.map(({ id, text, logo, href }) => (
           <a

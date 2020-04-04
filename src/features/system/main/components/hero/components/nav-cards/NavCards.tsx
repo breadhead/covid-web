@@ -11,32 +11,32 @@ import * as styles from './NavCards.css';
 export const NavCards = () => {
   return (
     <div className={styles.cards}>
-      <article className={styles.card}>
+      <NavLink withoutUnderline href={'/ask'} className={styles.card}>
         <div className={styles.content}>
-          <NavLink
-            className={styles.titleWrapper}
-            withoutUnderline
-            href={'/ask'}
-          >
-            <h3 className={styles.title}>Справочная служба</h3>
-          </NavLink>
+          <h3 className={styles.title}>
+            Справочная служба
+            <Icon
+              className={cx(styles.linkIcon, styles.mobileIcon)}
+              name={IconsList.ArrowRight2}
+            />
+          </h3>
           <Bubble />
         </div>
-        <NavLink withoutUnderline className={styles.block} href={'/ask'}>
+        <div className={styles.block}>
           Просто спросить
           <Icon className={styles.linkIcon} name={IconsList.ArrowRight2} />
-        </NavLink>
-      </article>
+        </div>
+      </NavLink>
 
-      <article className={styles.card}>
+      <NavLink withoutUnderline href={'/doctors'} className={styles.card}>
         <div className={styles.content}>
-          <NavLink
-            className={styles.titleWrapper}
-            withoutUnderline
-            href={'/doctors'}
-          >
-            <h3 className={styles.title}>Больницам</h3>
-          </NavLink>
+          <h3 className={styles.title}>
+            Больницам
+            <Icon
+              className={cx(styles.linkIcon, styles.mobileIcon)}
+              name={IconsList.ArrowRight2}
+            />
+          </h3>
           <ul className={styles.list}>
             <li className={styles.listItem}>
               Помогаем подготовиться к COVID-19
@@ -45,21 +45,15 @@ export const NavCards = () => {
             <li className={styles.listItem}>Закупаем медоборудование</li>
           </ul>
         </div>
-        <NavLink withoutUnderline className={styles.block} href={'/doctors'}>
+        <div className={styles.block}>
           Подробнее
           <Icon className={styles.linkIcon} name={IconsList.ArrowRight2} />
-        </NavLink>
-      </article>
+        </div>
+      </NavLink>
 
       <article className={cx(styles.card, styles.disable)}>
         <div className={styles.content}>
-          <NavLink
-            className={styles.titleWrapper}
-            withoutUnderline
-            href={'/doctors'}
-          >
-            <h3 className={styles.title}>Врачам</h3>
-          </NavLink>
+          <h3 className={styles.title}>Врачам</h3>
           <ul className={styles.list}>
             <li className={styles.listItem}>
               Клинические рекомендации и статьи

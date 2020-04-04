@@ -39,6 +39,9 @@ body {
   --title-tiny: 20px/28px var(--fontFamily-title);
   --title-bold: bold 16px/24px var(--fontFamily-title);
 
+  --title-regular-system: 40px/48px var(--fontFamily-title);
+
+
   --text-0: 0px/0px var(--fontFamily);
   --text18-28: 18px/28px var(--fontFamily);
   --text16-24: 16px/24px var(--fontFamily);
@@ -51,6 +54,8 @@ body {
     --title-medium: 24px/32px var(--fontFamily-title);
     --title-small: 20px/28px var(--fontFamily-title);
     --title-bold: bold 16px/24px var(--fontFamily-title);
+
+    --title-regular-system: 32px/36px var(--fontFamily-title);
   }
 
   --width-without-chat: var(calc(100vw - 400px));
@@ -62,6 +67,7 @@ body {
   --color-danger: #f11635;
   --color-highlight: #ffd46d;
   --color-default: #b3b4c8;
+  --color-bubble: #ffeab7;
 
   --text-color-primary: #151833;
   --text-color-secondary: #616681;
