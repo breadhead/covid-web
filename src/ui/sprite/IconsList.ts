@@ -44,4 +44,10 @@ export enum IconsList {
   CovidLogo = 'covid-logo',
   CovidLogoDark = 'covid-logo-dark',
   CovidLogoMobile = 'covid-logo-mobile',
+  SystemLogo = 'system-logo',
+  ArrowRight2 = 'arrow-right-2',
+  Facebook = 'facebook',
+  Vk = 'vk',
+  Telegram = 'telegram',
+  OK = 'ok',
 }

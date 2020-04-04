@@ -32,7 +32,7 @@ module.exports = {
     'react/display-name': 0,
     'react/prop-types': 0,
     '@typescript-eslint/no-unused-vars': [
-      1,
+      0,
       { ignoreRestSiblings: true, varsIgnorePattern: '_' },
     ],
     '@typescript-eslint/no-object-literal-type-assertion': 0,

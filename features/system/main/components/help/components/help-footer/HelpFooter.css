@@ -1,0 +1,36 @@
+.helpFooter {
+  display: flex;
+  border-top: 1px solid rgba(21, 24, 51, 0.12);
+  border-bottom: 1px solid rgba(21, 24, 51, 0.12);
+}
+
+.text {
+  font: var(--text16-24);
+  padding: 16px 0;
+  margin-bottom: 0;
+  flex-grow: 1;
+  /* border-right: 1px solid rgba(21, 24, 51, 0.12); */
+}
+
+.textSecondary {
+  display: block;
+  color: #82839b;
+}
+
+.social {
+  display: flex;
+  flex-grow: 1;
+}
+
+.iconWrapper {
+  border-left: 1px solid rgba(21, 24, 51, 0.12);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.icon {
+  width: 32px !important;
+  height: 32px !important;
+}

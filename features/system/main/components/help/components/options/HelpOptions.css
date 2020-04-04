@@ -1,0 +1,38 @@
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px 24px 24px 20px;
+  background-color: var(--background-system);
+  width: 100%;
+  margin-right: 16px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.title {
+  font: var(--title-small);
+  color: var(--text-color-secondary);
+  margin-bottom: 40px;
+}
+
+.link {
+  margin-bottom: 12px;
+  align-self: flex-start;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.buttonWrapper {
+  margin-bottom: 24px;
+}

@@ -28,7 +28,7 @@ const initialState = createInitialState({
   partnersPageList: [],
   mainPageList: [],
   hospitalsPageList: [],
-  helpPageList: []
+  helpPageList: [],
 });
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
@@ -44,10 +44,10 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
         item.pageToShow.includes(PageType.Main),
       ),
       hospitalsPageList: partnersFromSanity.filter((item) =>
-          item.pageToShow.includes(PageType.Hospitals),
+        item.pageToShow.includes(PageType.Hospitals),
       ),
       helpPageList: partnersFromSanity.filter((item) =>
-          item.pageToShow.includes(PageType.Help),
+        item.pageToShow.includes(PageType.Help),
       ),
     };
   },

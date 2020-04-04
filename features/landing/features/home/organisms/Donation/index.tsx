@@ -3,7 +3,8 @@ import * as React from 'react';
 import DonationWidget from '@app/features/main/donation';
 
 import * as styles from './Donation.css';
-import Info from '../Info';
+import DonationInfo from '../Info';
+import { infoText } from './infoText';
 
 const Donation = () => (
   <>
@@ -14,7 +15,7 @@ const Donation = () => (
           <div className={styles.widget}>
             <DonationWidget />
           </div>
-          <Info />
+          <DonationInfo text={infoText} />
         </div>
       </div>
     </div>
