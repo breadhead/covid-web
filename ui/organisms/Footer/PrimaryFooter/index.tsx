@@ -12,10 +12,6 @@ import Menu from '../components/Menu';
 import Partners from '../components/Partners';
 import * as styles from './PrimaryFooter.css';
 
-// interface Props {
-//   token: string
-// }
-
 const PrimaryFooter = () => (
   <footer className={styles.footer}>
     <div className={cx(styles.top, styles.row)}>

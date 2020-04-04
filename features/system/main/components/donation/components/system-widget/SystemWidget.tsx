@@ -63,7 +63,9 @@ export const SystemWidget = () => {
 
       {targetSelect && (
         <div className={styles.selectWrapper}>
-          <label htmlFor={targetSelect.name}>{targetSelect.label}</label>
+          <label className={styles.selectLabel} htmlFor={targetSelect.name}>
+            {targetSelect.label}
+          </label>
           <select
             onChange={(event: any) => setTarget(event.target.value)}
             id={targetSelect.name}

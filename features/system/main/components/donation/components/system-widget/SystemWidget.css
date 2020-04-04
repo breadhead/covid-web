@@ -50,6 +50,16 @@
 .selectWrapper {
   display: flex;
   justify-content: space-between;
+
+  @media (--smallDown) {
+    flex-direction: column;
+  }
+}
+
+.selectLabel {
+  @media (--smallDown) {
+    margin-bottom: 8px;
+  }
 }
 
 .button {
