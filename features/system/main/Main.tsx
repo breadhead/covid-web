@@ -18,8 +18,8 @@ export const SystemMain = () => {
       <div className={styles.wrapper}>
         <SystemHelp />
         <SystemAbout />
-        <SystemDonation />
       </div>
+      <SystemDonation />
     </SystemLayout>
   );
 };

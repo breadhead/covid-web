@@ -1,5 +1,15 @@
+.wrapper {
+  background-color: var(--background-system);
+}
+
 .donation {
+  max-width: 928px;
+  margin: 0 auto;
   padding: 64px 0 96px;
+
+  @media (--smallDown) {
+    padding: 40px 16px 56px;
+  }
 }
 
 .title {
@@ -17,5 +27,9 @@
 
 .content {
   display: flex;
+ 
   
+  @media (--smallDown) {
+    flex-direction: column;
+  }
 }

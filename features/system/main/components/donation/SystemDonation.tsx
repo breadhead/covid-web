@@ -8,13 +8,15 @@ import { SystemWidget } from './components/system-widget';
 
 export const SystemDonation = () => {
   return (
-    <section className={styles.donation}>
-      <h2 className={styles.title}>Поддержать</h2>
+    <div className={styles.wrapper}>
+      <section className={styles.donation}>
+        <h2 className={styles.title}>Поддержать</h2>
 
-      <div className={styles.content}>
-        <SystemWidget />
-        <DonationInfo text={infoText} />
-      </div>
-    </section>
+        <div className={styles.content}>
+          <SystemWidget />
+          <DonationInfo text={infoText} />
+        </div>
+      </section>
+    </div>
   );
 };
