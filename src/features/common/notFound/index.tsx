@@ -9,10 +9,10 @@ export { getFound } from './selectors';
 
 import StartConsultationButton from '@app/src/features/landing/features/home/molecules/StartConsultationButton';
 import { NON_BREAKING_SPACE } from '@app/src/lib/config';
-import { Button, ButtonKind, ButtonSize } from '@app/ui/button';
-import { Icon } from '@app/ui/icon';
-import { NavLink } from '@app/ui/nav-link';
-import { IconsList } from '@app/ui/sprite';
+import { Button, ButtonKind, ButtonSize } from '@app/src/ui/button';
+import { Icon } from '@app/src/ui/icon';
+import { NavLink } from '@app/src/ui/nav-link';
+import { IconsList } from '@app/src/ui/sprite';
 
 import * as styles from './NotFound.css';
 

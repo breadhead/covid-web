@@ -1,4 +1,4 @@
-import { Partner } from '@app/models/sanity/Partner';
+import { Partner } from '@app/src/domain/models/sanity/Partner';
 
 enum PartnersType {
   Donor = 'donor',

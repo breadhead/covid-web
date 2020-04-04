@@ -4,7 +4,7 @@ import * as yup from 'yup';
 
 import { Form, Input, TextArea } from '@app/src/features/common/form';
 import { SendFeedbackRequest } from '@app/src/lib/api/request/SendFeedback';
-import { Button, ButtonSize } from '@app/ui/button';
+import { Button, ButtonSize } from '@app/src/ui/button';
 
 import * as styles from './FeedbackForm.css';
 

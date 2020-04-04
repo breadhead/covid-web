@@ -53,6 +53,8 @@ body {
     --title-bold: bold 16px/24px var(--fontFamily-title);
   }
 
+  --width-without-chat: var(calc(100vw - 400px));
+
   /* colors */
   --color-primary: #3c54ee;
   --color-hover: #354ad4;
@@ -70,7 +72,14 @@ body {
 
   --color-link: #2d47ea;
   --color-link-underline: rgba(45, 71, 234, 0.5);
-  --width-without-chat: var(calc(100vw - 400px));
+
+  --color-inactive: #e8e9f2;
+  --color-dark: #151833;
+  --color-beige: #f7f6f2;
+
+  --color-avon: #ff376f;
+  --color-text-primary: #151833;
+  --color-text-secondary: #6f717f;
 
   /* styles */
   font-family: var(--fontFamily);

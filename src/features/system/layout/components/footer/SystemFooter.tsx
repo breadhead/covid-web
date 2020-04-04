@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { NavLink } from '@app/ui/nav-link';
-import Legal from '@app/ui/organisms/Footer/components/Legal';
-import { footerProjects } from '@app/ui/organisms/Footer/components/Partners/footerProjects';
+import { NavLink } from '@app/src/ui/nav-link';
+import Legal from '@app/src/ui/organisms/Footer/components/Legal';
+import { footerProjects } from '@app/src/ui/organisms/Footer/components/Partners/footerProjects';
 
 import * as styles from './SystemFooter.css';
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useCallback, useState } from 'react';
 
-import Overlay from '@app/ui/Overlay';
+import Overlay from '@app/src/ui/Overlay';
 
 import BurgerButton from '../../atoms/BurgerButton';
 import { TransitionMenu } from './TransitionMenu';

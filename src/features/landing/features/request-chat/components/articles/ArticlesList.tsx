@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { NavLink } from '@app/ui/nav-link';
+import { NavLink } from '@app/src/ui/nav-link';
 
 import * as styles from './ArticlesList.css';
 interface Article {

@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import * as yup from 'yup';
 
-import RegionSelect from '@app/ui/regionSelect/organisms/RegionSelect';
+import RegionSelect from '@app/src/ui/regionSelect/organisms/RegionSelect';
 import PhoneInput from '@app/src/features/common/form/components/PhoneInput';
 import ButtonWithTooltip from '@app/src/features/common/form/components/ButtonWithTooltip';
 import Checkbox from '@app/src/features/common/form/components/Checkbox';
@@ -22,7 +22,7 @@ import {
   FormComponentOptions,
   FormComponentType,
 } from '@app/src/features/common/form/FormConstructor';
-import Combobox from '@app/ui/Combobox';
+import Combobox from '@app/src/ui/Combobox';
 
 import { REQUIRED_MESSAGE } from '@front/helpers/validationMessages';
 

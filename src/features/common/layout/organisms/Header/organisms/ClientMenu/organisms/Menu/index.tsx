@@ -1,10 +1,10 @@
 import React from 'react';
 import cx from 'classnames';
 
-import Dropdown from '@app/ui/Dropdown';
-import { Icon } from '@app/ui/icon';
-import { NavLink } from '@app/ui/nav-link';
-import { IconsList } from '@app/ui/sprite';
+import Dropdown from '@app/src/ui/Dropdown';
+import { Icon } from '@app/src/ui/icon';
+import { NavLink } from '@app/src/ui/nav-link';
+import { IconsList } from '@app/src/ui/sprite';
 
 import * as styles from './Menu.css';
 

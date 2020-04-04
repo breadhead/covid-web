@@ -2,9 +2,9 @@ import cx from 'classnames';
 import * as React from 'react';
 
 import { SPACE } from '@app/src/lib/config';
-import { Icon } from '@app/ui/icon';
-import { NavLink } from '@app/ui/nav-link';
-import { IconsList } from '@app/ui/sprite';
+import { Icon } from '@app/src/ui/icon';
+import { NavLink } from '@app/src/ui/nav-link';
+import { IconsList } from '@app/src/ui/sprite';
 
 import * as styles from './Dropdown.css';
 

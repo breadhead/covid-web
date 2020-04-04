@@ -40,11 +40,11 @@ import {
 import {
   reducer as partnerReducer,
   State as PartnerState,
-} from '@app/src/features/common/partnerReducer/reducer';
+} from '@app/src/domain/reducers/partnerReducer/reducer';
 import {
   reducer as expertReducer,
   State as ExpertState,
-} from '@app/src/features/common/expertReducer/reducer';
+} from '@app/src/domain/reducers/expertReducer/reducer';
 
 import ApiClient from './api/ApiClient';
 import factory from './api/apiFactory';

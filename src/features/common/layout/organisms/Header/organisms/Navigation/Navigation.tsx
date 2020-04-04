@@ -1,11 +1,11 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import { Button, ButtonKind } from '@app/ui/button';
-import MediaQuery, { Query } from '@app/ui/MediaQuery';
-import { Icon } from '@app/ui/icon';
-import { NavLink } from '@app/ui/nav-link';
-import { IconsList } from '@app/ui/sprite';
+import { Button, ButtonKind } from '@app/src/ui/button';
+import MediaQuery, { Query } from '@app/src/ui/MediaQuery';
+import { Icon } from '@app/src/ui/icon';
+import { NavLink } from '@app/src/ui/nav-link';
+import { IconsList } from '@app/src/ui/sprite';
 
 import * as styles from './Navigation.css';
 import NavIcon from '../../atoms/NavIcon';

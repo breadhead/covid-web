@@ -2,7 +2,7 @@ import base64 from 'base-64';
 import { isObject } from 'lodash';
 import { parse } from 'url';
 
-import { Photo } from '@app/models/sanity/Photo';
+import { Photo } from '@app/src/domain/models/sanity/Photo';
 
 import { getFromConfig } from '../getPublicRuntimeConfig';
 import { imageUrlBuilder } from './builder';

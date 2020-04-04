@@ -5,7 +5,7 @@ import {
   HintInput,
   HintInputTypes,
   ComplexOptions,
-} from '@app/ui/HintInput/HintInput';
+} from '@app/src/ui/HintInput/HintInput';
 import { useApi } from '@app/src/lib/api/useApi';
 
 export enum ComboSearchType {

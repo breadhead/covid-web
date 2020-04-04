@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Select from '@app/ui/Select';
+import Select from '@app/src/ui/Select';
 
 import { OPTIONS_MONTHS } from './config';
 

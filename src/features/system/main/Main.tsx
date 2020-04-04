@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { AppContext } from '@app/src/lib/server-types';
-import { getPartnersFromSanity } from '@app/src/features/common/partnerReducer';
+import { getPartnersFromSanity } from '@app/src/domain/reducers/partnerReducer';
 
 import { SystemLayout } from '../layout/SystemLayout';
 import { SystemHero } from './components/hero';

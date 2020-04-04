@@ -3,7 +3,7 @@ import * as React from 'react';
 import { InputType } from '@app/src/features/common/form';
 import Form from '@app/src/features/common/form/components/Form/Form';
 import Input from '@app/src/features/common/form/components/Input';
-import { Button } from '@app/ui/button';
+import { Button } from '@app/src/ui/button';
 
 import * as styles from './ResetForm.css';
 import { schema } from './schema';

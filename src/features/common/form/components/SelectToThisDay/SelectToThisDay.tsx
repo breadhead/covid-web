@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React, { useEffect, useState } from 'react';
 
-import Checkbox from '@app/ui/Checkbox';
+import Checkbox from '@app/src/ui/Checkbox';
 
 import { SelectMonths, SelectYears } from '../..';
 import { FormContext } from '../Form';

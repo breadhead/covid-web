@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import Footer, { FooterTheme, FooterType } from '@app/ui/organisms/Footer';
+import Footer, { FooterTheme, FooterType } from '@app/src/ui/organisms/Footer';
 
 import * as styles from './Page.css';
 import Header from '../organisms/Header';

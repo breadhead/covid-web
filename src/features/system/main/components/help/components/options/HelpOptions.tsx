@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { SystemButton, SystemButtonSize } from '@app/ui/systemButton ';
-import { NavLink } from '@app/ui/nav-link';
+import { SystemButton, SystemButtonSize } from '@app/src/ui/systemButton ';
+import { NavLink } from '@app/src/ui/nav-link';
 
 import { options } from './helpOptionsConfig';
 import * as styles from './HelpOptions.css';

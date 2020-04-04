@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { Icon } from '@app/ui/icon';
-import { IconsList } from '@app/ui/sprite';
-import { NavLink } from '@app/ui/nav-link';
-import MediaQuery, { Query } from '@app/ui/MediaQuery';
+import { Icon } from '@app/src/ui/icon';
+import { IconsList } from '@app/src/ui/sprite';
+import { NavLink } from '@app/src/ui/nav-link';
+import MediaQuery, { Query } from '@app/src/ui/MediaQuery';
 
 import * as styles from './SystemHeader.css';
 import { SystemMobileMenu } from './system-mobile-menu';

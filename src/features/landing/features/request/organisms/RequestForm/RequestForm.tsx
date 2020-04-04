@@ -9,10 +9,10 @@ import {
   Checkbox,
 } from '@app/src/features/common/form';
 import routes from '@app/routes';
-import RegionSelect from '@app/ui/regionSelect';
-import { useThunk } from '@app/src/hooks/useThunk';
+import RegionSelect from '@app/src/ui/regionSelect';
+import { useThunk } from '@app/src/helpers/hooks/useThunk';
 import { genderRadioGroup } from '@app/src/helpers/genderRadioGroup';
-import { Button, ButtonSize } from '@app/ui/button';
+import { Button, ButtonSize } from '@app/src/ui/button';
 
 import * as styles from './RequestForm.css';
 import { Symptoms } from './components/symptoms';

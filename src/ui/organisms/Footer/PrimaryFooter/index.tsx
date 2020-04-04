@@ -2,7 +2,7 @@ import cx from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import Logo from '@app/ui/Logo';
+import Logo from '@app/src/ui/Logo';
 import { getToken } from '@app/src/features/login';
 import { State } from '@app/src/lib/store';
 

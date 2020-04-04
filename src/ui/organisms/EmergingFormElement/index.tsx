@@ -2,7 +2,7 @@ import { RadioChangeEvent } from 'antd/lib/radio';
 import cx from 'classnames';
 import * as React from 'react';
 
-import { Toggle } from '@app/ui/toggle';
+import { Toggle } from '@app/src/ui/toggle';
 
 import * as styles from './EmergingFormElement.css';
 import RadioGroupElement, { radioButtons } from './RadioGroupElement';

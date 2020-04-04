@@ -5,8 +5,8 @@ import { AnyAction, Dispatch } from 'redux';
 import { selectToken } from '@app/src/features/landing/features/home/molecules/StartConsultationButton/selectors';
 import signOut from '@app/src/features/login/features/signOut';
 import { State } from '@app/src/lib/store';
-import Logo from '@app/ui/Logo';
-import MediaQuery, { Query } from '@app/ui/MediaQuery';
+import Logo from '@app/src/ui/Logo';
+import MediaQuery, { Query } from '@app/src/ui/MediaQuery';
 
 import * as styles from './Header.css';
 import Menu from './organisms/Menu';

@@ -2,7 +2,7 @@ import cx from 'classnames';
 import * as React from 'react';
 
 import { ComboBox, Toggle } from '@app/src/features/common/form';
-import { mapString } from '@app/ui/Select';
+import { mapString } from '@app/src/ui/Select';
 
 import { Props } from '../../container';
 import { countries } from './countries';

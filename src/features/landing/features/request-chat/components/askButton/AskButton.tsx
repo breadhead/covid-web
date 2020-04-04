@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useMappedState } from 'redux-react-hook';
 
-import { Button, ButtonSize } from '@app/ui/button';
+import { Button, ButtonSize } from '@app/src/ui/button';
 import { useModal } from '@app/src/features/common/modal';
 
 import * as styles from './AskButton.css';

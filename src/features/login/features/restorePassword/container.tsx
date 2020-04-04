@@ -6,7 +6,7 @@ import { isModal } from '@app/src/features/common/modal';
 import { withSignInModal, WithSignInModal, loginAction } from '../signIn';
 import { withSignUpModal, WithSignUpModal } from '../signUp';
 
-import { useThunk } from '@front/hooks/useThunk';
+import { useThunk } from '@app/src/helpers/hooks/useThunk';
 import { RESTORE_PASSWORD_MODAL_KEY } from './organisms/Modal';
 
 export interface Credentials {

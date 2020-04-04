@@ -2,8 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 
 import { FormConstructor } from '@app/src/features/common/form/FormConstructor';
-import * as commonStyles from '@app/features/common/form/commonStyles.css';
-import { ButtonSize, Button } from '@app/ui/button';
+import * as commonStyles from '@app/src/features/common/form/commonStyles.css';
+import { ButtonSize, Button } from '@app/src/ui/button';
 
 import * as styles from './VolunteerForm.css';
 import { formConfig } from './formConfig';

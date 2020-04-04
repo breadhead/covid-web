@@ -4,10 +4,10 @@ import { Radio } from 'antd';
 import { RadioChangeEvent } from 'antd/lib/radio';
 import { useMappedState } from 'redux-react-hook';
 
-import { selectPartnersForPartnerPage } from '@app/src/features/common/partnerReducer/selectPartners';
+import { selectPartnersForPartnerPage } from '@app/src/domain/reducers/partnerReducer/selectPartners';
 
 import { getCurrentPartnersOptions } from '../../organisms/PartnersList/config';
-import '@app/ui/RadioGroup/ButtonStyle.css?CSSModulesDisable';
+import '@app/src/ui/RadioGroup/ButtonStyle.css?CSSModulesDisable';
 
 const RadioGroup = Radio.Group;
 

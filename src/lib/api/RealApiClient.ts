@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
-import { User } from '@app/models/Users/User';
-import { Expert } from '@app/models/sanity/Expert';
+import { User } from '@app/src/domain/models/Users/User';
+import { Expert } from '@app/src/domain/models/sanity/Expert';
 
 import ApiClient, { UploadedFile } from './ApiClient';
 import { queryString } from './helper/queryString';

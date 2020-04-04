@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 
-import Overlay from '@app/ui/Overlay';
+import Overlay from '@app/src/ui/Overlay';
 import BurgerButton from '@app/src/features/common/layout/organisms/Header/atoms/BurgerButton';
 import { TransitionMenu } from '@app/src/features/common/layout/organisms/Header/organisms/Menu/TransitionMenu';
 

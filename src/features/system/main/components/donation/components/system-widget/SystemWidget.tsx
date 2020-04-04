@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { SystemButton, SystemButtonSize } from '@app/ui/systemButton ';
-import { NavLink } from '@app/ui/nav-link';
+import { SystemButton, SystemButtonSize } from '@app/src/ui/systemButton ';
+import { NavLink } from '@app/src/ui/nav-link';
 import { SPACE } from '@app/src/lib/config';
 
 import * as styles from './SystemWidget.css';

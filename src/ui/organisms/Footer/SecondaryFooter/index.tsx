@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import * as React from 'react';
 
-import Logo from '@app/ui/Logo';
+import Logo from '@app/src/ui/Logo';
 
 import Legal from '../components/Legal';
 import Menu from '../components/Menu';

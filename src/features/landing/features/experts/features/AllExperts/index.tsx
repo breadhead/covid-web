@@ -4,8 +4,8 @@ import { useMappedState } from 'redux-react-hook';
 
 import { MainLayout } from '@app/src/features/common/layout';
 import { AppContext } from '@app/src/lib/server-types';
-import { getExpertsFromSanity } from '@app/src/features/common/expertReducer';
-import { selectExperts } from '@app/src/features/common/expertReducer/selectExperts';
+import { getExpertsFromSanity } from '@app/src/domain/reducers/expertReducer';
+import { selectExperts } from '@app/src/domain/reducers/expertReducer/selectExperts';
 
 import * as styles from './AllExperts.css';
 import ExpertsList from '../../organisms/ExpertsList';

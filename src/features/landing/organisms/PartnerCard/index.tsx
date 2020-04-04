@@ -1,8 +1,8 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import { NavLink } from '@app/ui/nav-link';
-import { Partner } from '@app/models/sanity/Partner';
+import { NavLink } from '@app/src/ui/nav-link';
+import { Partner } from '@app/src/domain/models/sanity/Partner';
 import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
 
 import * as styles from './PartnerCard.css';

@@ -1,8 +1,8 @@
 import cx from 'classnames';
 import React, { useRef } from 'react';
 
-import { usePressEnter } from '@front/hooks/usePressEnter';
-import { useCustomInput } from '@front/hooks/useCustomInput';
+import { usePressEnter } from '@app/src/helpers/hooks/usePressEnter';
+import { useCustomInput } from '@app/src/helpers/hooks/useCustomInput';
 
 import { getCheckedClassName } from './helpers/getCheckedClassName';
 import { getCheckedText } from './helpers/getCheckedText';

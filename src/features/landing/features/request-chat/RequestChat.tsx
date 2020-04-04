@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FooterTheme } from '@app/ui/organisms/Footer';
+import { FooterTheme } from '@app/src/ui/organisms/Footer';
 import routes from '@app/routes';
 import { ClientLayout } from '@app/src/features/common/client-layout';
 
