@@ -40,7 +40,7 @@ export const saveCoronaRequestForm = (requestFormData: any) => async (
   }
 };
 
-export const saveForClinicsForm = (requestFormData: any) => async (
+export const saveForHospitalsForm = (requestFormData: any) => async (
   dispatch: Dispatch<any>,
   getState: () => State,
   { getApi }: ExtraArgs,
@@ -51,7 +51,7 @@ export const saveForClinicsForm = (requestFormData: any) => async (
 
     await api.saveCoronaRequestForm(
       requestFormData,
-      FormRequestType.ForClinics,
+      FormRequestType.ForHospitals,
     );
 
     return dispatch(actions.success(requestFormData));

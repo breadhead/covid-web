@@ -2,20 +2,20 @@ import * as React from 'react';
 import cx from 'classnames';
 
 import { SystemLayout } from '../../../layout';
-import { ForClinicsHero } from '../ForClinicsHero/ForClinicsHero';
 import { Helping } from '../Helping/Helping';
 import { HelpRequest } from '../HelpRequest/HelpRequest';
 import { SystemHelp } from '../../../main/components/help';
-import s from './ForClinics.css';
+import s from './ForHospitals.css';
 import { Partners } from '../Partners/Partners';
+import { ForHospitalsHero } from '../Hero/Hero';
 
-interface ForClinicsProps {}
+interface ForHospitalsProps {}
 
-export const ForClinics = ({}: ForClinicsProps) => {
+export const ForHospitals = ({}: ForHospitalsProps) => {
   return (
     <SystemLayout>
       <div className="gl-wrapper gl-first-section gl-section">
-        <ForClinicsHero></ForClinicsHero>
+        <ForHospitalsHero></ForHospitalsHero>
       </div>
       <div className="gl-wrapper gl-section">
         <Helping></Helping>
