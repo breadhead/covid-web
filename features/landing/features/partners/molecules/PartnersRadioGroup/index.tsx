@@ -3,7 +3,7 @@ import cx from 'classnames';
 import { Radio } from 'antd';
 import { RadioChangeEvent } from 'antd/lib/radio';
 
-import { useMappedState } from '@app/node_modules/redux-react-hook';
+import { useMappedState } from 'redux-react-hook';
 import { selectPartnersForPartnerPage } from '@app/features/common/partnerReducer/selectPartners';
 
 import { getCurrentPartnersOptions } from '../../organisms/PartnersList/config';

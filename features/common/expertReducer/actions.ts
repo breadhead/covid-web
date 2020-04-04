@@ -11,8 +11,11 @@ export const getExpertsFromSanity = () => async (
 ) => {
   const api = getApi(getState);
   try {
-    const experts = await api.getExperts();
-
+    const experts = await api.getExperts().then((res) =>
+        res.sort((a, b) =>
+            a.sortIndex < b.sortIndex ? -1 : 1,
+        ));
+console.log('get')
     return dispatch(actions.success(experts));
   } catch (error) {
     return dispatch(actions.error(error.message));

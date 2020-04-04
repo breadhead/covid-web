@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { shuffle } from 'lodash';
 import * as styles from './Photos.css';
-import {useMappedState} from "@app/node_modules/redux-react-hook";
 import {getImageSrc} from "@app/lib/useImageSrc/getImageSrc";
-import {selectExperts} from "@app/features/common/expertReducer/selectPartners";
 import {Expert} from "@app/models/sanity/Expert";
 
 interface Props {

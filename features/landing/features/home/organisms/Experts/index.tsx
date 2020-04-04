@@ -5,8 +5,8 @@ import { NavLink } from '@front/ui/nav-link';
 import * as styles from './Experts.css';
 import Photos from './components/Photos';
 import { CovidButtons } from '../Main/components/CovidButtons/CovidButtons';
-import {useMappedState} from "@app/node_modules/redux-react-hook";
-import {selectExperts} from "@app/features/common/expertReducer/selectPartners";
+import {useMappedState} from "redux-react-hook";
+import {selectExperts} from "@app/features/common/expertReducer/selectExperts";
 
 const Experts = () => {
     const experts = useMappedState(selectExperts);
