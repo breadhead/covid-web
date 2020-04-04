@@ -1,11 +1,11 @@
 import axios, { AxiosInstance } from 'axios';
 
 import { User } from '@app/models/Users/User';
+import { Expert } from '@app/models/sanity/Expert';
 
 import ApiClient, { UploadedFile } from './ApiClient';
 import { queryString } from './helper/queryString';
 import { SendFeedbackRequest } from './request/SendFeedback';
-import {Expert} from "@app/models/sanity/Expert";
 
 const { sanityClient } = require('@app/lib/sanity-client');
 

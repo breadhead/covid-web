@@ -41,7 +41,6 @@ import {
   reducer as partnerReducer,
   State as PartnerState,
 } from '@app/features/common/partnerReducer/reducer';
-
 import {
   reducer as expertReducer,
   State as ExpertState,
@@ -58,7 +57,7 @@ export interface State {
   login: LoginState;
   requestForm: RequestFormReducerState;
   partners: PartnerState;
-  experts: ExpertState
+  experts: ExpertState;
 }
 
 const reducer = combineReducers({
@@ -70,7 +69,7 @@ const reducer = combineReducers({
   feedback: sendFeedbackReducer,
   notFound: notFoundReducer,
   partners: partnerReducer,
-  experts: expertReducer
+  experts: expertReducer,
 } as any);
 
 export interface ExtraArgs {

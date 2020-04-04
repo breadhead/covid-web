@@ -1,7 +1,6 @@
 import { Action } from 'redux';
 
 import { Expert } from '@app/models/sanity/Expert';
-
 import {
   createFetchingSymbiote,
   createInitialState,

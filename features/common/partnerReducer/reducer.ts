@@ -1,9 +1,7 @@
 import { Action } from 'redux';
 
 import { Partner } from '@app/models/sanity/Partner';
-import {
-  PageType,
-} from '@app/features/landing/features/partners/organisms/PartnersList/config';
+import { PageType } from '@app/features/landing/features/partners/organisms/PartnersList/config';
 import {
   createFetchingSymbiote,
   createInitialState,

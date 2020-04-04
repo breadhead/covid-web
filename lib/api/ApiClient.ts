@@ -1,6 +1,6 @@
 import { User } from '@app/models/Users/User';
 import { Partner } from '@app/models/sanity/Partner';
-import {Expert} from "@app/models/sanity/Expert";
+import { Expert } from '@app/models/sanity/Expert';
 
 export interface UploadedFile {
   path: string;
