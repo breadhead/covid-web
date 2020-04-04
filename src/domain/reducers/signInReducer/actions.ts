@@ -2,12 +2,15 @@ import { Dispatch } from 'redux';
 
 import { ExtraArgs, State } from '@app/src/lib/store';
 import { actions as modalActions } from '@app/src/features/common/modal/reducer';
-import { updateRequestFormData } from '@app/src/features/landing/features/request/reducer/actions';
+import { updateRequestFormData } from '@app/src/domain/reducers/requestReducer/actions';
+import {
+  actions as userActions,
+  currentUser,
+} from '@app/src/domain/reducers/userReducer';
 
-import { actions as userActions, currentUser } from '../user';
-import { setCookie } from './helpers/setAuthToken';
+import { setCookie } from '../../../features/login/features/signIn/helpers/setAuthToken';
 import { actions } from './reducer';
-import { showIntercom } from '../../../landing/features/request-chat/showIntercom';
+import { showIntercom } from '../../../features/landing/features/request-chat/showIntercom';
 import { setUserEmailLocalStorage } from './userEmailLocalStorage';
 
 export const loginAction = (username: string, password: string) => async (

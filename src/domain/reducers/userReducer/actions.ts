@@ -1,8 +1,9 @@
 import { Dispatch } from 'redux';
 
-import { actions } from '@app/src/features/login/features/signIn/reducer';
-import { actions as userActions } from '@app/src/features/login/features/user';
+import { actions } from '@app/src/domain/reducers/signInReducer/reducer';
 import { ExtraArgs, State } from '@app/src/lib/store';
+
+import { actions as userActions } from './index';
 
 export const currentUser = () => async (
   dispatch: Dispatch<any>,

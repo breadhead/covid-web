@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 
 import routes from '@app/routes';
 import { ExtraArgs, State } from '@app/src/lib/store';
-import { getUserEmailLocalStorage } from '@app/src/features/login/features/signIn/userEmailLocalStorage';
+import { getUserEmailLocalStorage } from '@app/src/domain/reducers/signInReducer/userEmailLocalStorage';
 
 import { actions } from './reducer';
 import {
@@ -10,7 +10,7 @@ import {
   setFormId,
   getFormId,
   resetFormId,
-} from '../organisms/RequestForm/localStorage';
+} from '../../../features/landing/features/request/organisms/RequestForm/localStorage';
 
 const { Router } = routes;
 

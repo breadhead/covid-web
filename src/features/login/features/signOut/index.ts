@@ -3,12 +3,12 @@ import { Dispatch } from 'redux';
 
 import { setFormRequestFinished } from '@app/src/features/landing/features/request/organisms/RequestForm/localStorage';
 import { setCookie } from '@app/src/features/login/features/signIn/helpers/setAuthToken';
-import { actions as userActions } from '@app/src/features/login/features/user';
+import { actions as userActions } from '@app/src/domain/reducers/userReducer';
 
 import {
   resetUserEmailLocalStorage,
   getUserEmailLocalStorage,
-} from '../signIn/userEmailLocalStorage';
+} from '../../../../domain/reducers/signInReducer/userEmailLocalStorage';
 
 export default () => (dispatch: Dispatch<any>) => {
   setCookie('');

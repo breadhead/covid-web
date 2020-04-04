@@ -11,21 +11,25 @@ import { createSizeAction, listenResize } from 'redux-windowsize';
 import bugsnagClient from '@app/src/features/common/bugsnag/bugsnag';
 import withReduxStore from '@app/src/lib/with-redux-store';
 import { Store } from '@app/src/lib/store';
-import { authViolateStatus, getViolateState } from '@app/src/features/login';
 import Modal from '@app/src/features/common/modal';
 import { Analytics } from '@app/src/features/common/analytics';
 import { Intercom } from '@app/src/features/common/intercom';
-import { setToken } from '@app/src/features/login';
 import NotFound, { getFound } from '@app/src/features/common/notFound';
 import { canUseDOM } from '@app/src/lib/helpers/canUseDOM';
 import registerModals from '@app/src/lib/register-modals';
 import { AppContext } from '@app/src/lib/server-types';
 import { resetCookie } from '@app/src/features/login/features/signIn/helpers/setAuthToken';
-import { currentUser, getToken } from '@app/src/features/login/features/user';
+import {
+  currentUser,
+  getToken,
+  setToken,
+} from '@app/src/domain/reducers/userReducer';
 import { pushRoute } from '@app/src/lib/routing/pushRoute';
-import { updateRequestFormData } from '@app/src/features/landing/features/request/reducer/actions';
+import { updateRequestFormData } from '@app/src/domain/reducers/requestReducer/actions';
 import { normalizeWantTo } from '@app/src/helpers/normalizeWantTo';
 import { Sprite } from '@app/src/ui/sprite';
+import { getViolateState } from '@app/src/domain/reducers/signInReducer/selectors';
+import { authViolateStatus } from '@app/src/domain/reducers/signInReducer/middleware';
 
 import ErrorComponent from './_error';
 import { description, keywords } from '../src/features/common/seo/SEO';

@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useMappedState } from 'redux-react-hook';
 
 import { APP_ID } from '@app/src/features/common/intercom/config';
-import { getUserLogin } from '@app/src/features/login/features/user/selectors';
-import { getUserEmailLocalStorage } from '@app/src/features/login/features/signIn/userEmailLocalStorage';
+import { getUserEmailLocalStorage } from '@app/src/domain/reducers/signInReducer/userEmailLocalStorage';
+import { getUserLogin } from '@app/src/domain/reducers/userReducer/selectors';
 
 import { getCovidSymptoms } from './getConclutionText';
 import {

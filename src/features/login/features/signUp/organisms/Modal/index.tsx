@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { SignUpError } from '@app/src/features/login/features/signUp/reducer';
+import { SignUpError } from '@app/src/domain/reducers/signupReducer/reducer';
 import { ButtonWithTooltip, InputType } from '@app/src/features/common/form';
 import Form from '@app/src/features/common/form/components/Form/Form';
 import Input from '@app/src/features/common/form/components/Input';

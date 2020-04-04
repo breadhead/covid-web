@@ -20,11 +20,9 @@ import {
   State as ModalState,
 } from '@app/src/features/common/modal';
 import {
-  getToken,
   reducer as loginReducer,
   State as LoginState,
-  unauthorizedMiddleware,
-} from '@app/src/features/login';
+} from '@app/src/domain/reducers/loginReducer/reducer';
 import {
   reducer as sendFeedbackReducer,
   State as SendFeedbackState,
@@ -32,7 +30,7 @@ import {
 import {
   requestFormReducer,
   RequestFormReducerState,
-} from '@app/src/features/landing/features/request/reducer';
+} from '@app/src/domain/reducers/requestReducer';
 import {
   reducer as browserQueryReducer,
   State as BrowserQueryState,
@@ -48,6 +46,8 @@ import {
 
 import ApiClient from './api/ApiClient';
 import factory from './api/apiFactory';
+import { getToken } from '../domain/reducers/userReducer';
+import { unauthorizedMiddleware } from '../domain/reducers/signInReducer/middleware';
 
 export interface State {
   browserQuery: BrowserQueryState;

@@ -6,7 +6,7 @@ import { AnyAction, Dispatch } from 'redux';
 import { SendFeedbackRequest } from '@app/src/lib/api/request/SendFeedback';
 import { push } from '@app/src/features/common/toast';
 
-import { sendFeedback } from './actions';
+import { sendFeedback } from '../../../../../../domain/reducers/feedbackReducer/actions';
 import { Props as PageProps } from './FeedbackForm';
 
 interface Props {

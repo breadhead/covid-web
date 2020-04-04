@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { AnyAction, compose, Dispatch } from 'redux';
 
-import { signUp } from '@app/src/features/login/features/signUp/actions';
-import { SignUpError } from '@app/src/features/login/features/signUp/reducer';
-import { getSignUpError } from '@app/src/features/login/features/signUp/selectors';
+import { signUp } from '@app/src/domain/reducers/signupReducer/actions';
+import { SignUpError } from '@app/src/domain/reducers/signupReducer/reducer';
+import { getSignUpError } from '@app/src/domain/reducers/signupReducer/selectors';
 import { State } from '@app/src/lib/store';
 import { isModal } from '@app/src/features/common/modal';
 
 import { withSignInModal } from '../signIn';
-import { MODAL_KEY } from './const';
+import { MODAL_KEY } from '../../../../domain/reducers/signupReducer/const';
 export { MODAL_KEY };
 
 export interface SignUpData {
@@ -64,7 +64,8 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
 
 export default compose(
   isModal(MODAL_KEY),
-  withSignInModal,
+  // TODO: fix cyclic import
+  // withSignInModal,
   connect(mapState, mapDispatch),
   Container,
-);
+) as any;

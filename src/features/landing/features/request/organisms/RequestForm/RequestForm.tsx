@@ -17,7 +17,7 @@ import { Button, ButtonSize } from '@app/src/ui/button';
 import * as styles from './RequestForm.css';
 import { Symptoms } from './components/symptoms';
 import { targetList, deseasesList } from './config';
-import { saveRequestFormData } from '../../reducer/actions';
+import { saveRequestFormData } from '../../../../../../domain/reducers/requestReducer/actions';
 import {
   saveRequestFormDraft,
   getRequestFormDraft,

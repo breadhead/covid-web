@@ -5,16 +5,16 @@ import { setCookie } from '@app/src/features/login/features/signIn/helpers/setAu
 import {
   actions as userActions,
   currentUser,
-} from '@app/src/features/login/features/user';
+} from '@app/src/domain/reducers/userReducer';
 import { ExtraArgs, State } from '@app/src/lib/store';
-import { updateRequestFormData } from '@app/src/features/landing/features/request/reducer/actions';
+import { updateRequestFormData } from '@app/src/domain/reducers/requestReducer/actions';
 
 import { actions } from './reducer';
-import { showIntercom } from '../../../landing/features/request-chat/showIntercom';
+import { showIntercom } from '../../../features/landing/features/request-chat/showIntercom';
 import {
   setUserEmailLocalStorage,
   getUserEmailLocalStorage,
-} from '../signIn/userEmailLocalStorage';
+} from '../signInReducer/userEmailLocalStorage';
 
 export const signUp = (
   login: string,
