@@ -59,6 +59,22 @@ export const saveForHospitalsForm = (requestFormData: any) => async (
     return dispatch(actions.error(error.message));
   }
 };
+export const saveVolunteerForm = (requestFormData: any) => async (
+  dispatch: Dispatch<any>,
+  getState: () => State,
+  { getApi }: ExtraArgs,
+) => {
+  const api = getApi(getState);
+  try {
+    dispatch(actions.request());
+
+    await api.saveCoronaRequestForm(requestFormData, FormRequestType.Volunteer);
+
+    return dispatch(actions.success(requestFormData));
+  } catch (error) {
+    return dispatch(actions.error(error.message));
+  }
+};
 
 export const updateRequestFormData = () => async (
   _dispatch: Dispatch<any>,

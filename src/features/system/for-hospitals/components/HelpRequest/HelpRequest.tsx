@@ -20,7 +20,7 @@ export const HelpRequest = ({}: HelpRequestProps) => {
       <div className={cx('gl-wrapper gl-section', s.wrapper)}>
         <h2 className="gl-sectionTitle">Расскажите, какая помощь вам нужна</h2>
         <div className={s.body}>
-          <div className={s.formContainer}>
+          <div className={cx(s.formContainer, 'gl-formContainer')}>
             {submitted ? (
               <div className="gl-sectionTitle">Спасибо за обращение!</div>
             ) : (

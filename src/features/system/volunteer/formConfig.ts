@@ -53,6 +53,7 @@ export const formConfig = (styles) => ({
       },
       props: {
         name: 'phone',
+        placeholder: '+7',
       },
     },
     {
