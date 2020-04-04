@@ -11,6 +11,8 @@ import { formConfig } from './formConfig';
 export const VolunteerForm = () => {
   const onSubmit = (data: any) => {
     console.log(data);
+
+    return Promise.resolve();
   };
 
   return (
@@ -19,13 +21,16 @@ export const VolunteerForm = () => {
       onSubmit={onSubmit}
       saveDraft={console.log}
     >
-      <Button
-        size={ButtonSize.ExtraLarge}
-        className={cx(commonStyles.button, commonStyles.largeButton)}
-        submit
-      >
-        Отправить
-      </Button>
+      {(context) => (
+        <Button
+          disabled={context.submitting}
+          size={ButtonSize.ExtraLarge}
+          className={cx(commonStyles.button, commonStyles.largeButton)}
+          submit
+        >
+          Отправить
+        </Button>
+      )}
     </FormConstructor>
   );
 };

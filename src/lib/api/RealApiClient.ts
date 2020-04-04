@@ -2,6 +2,7 @@ import axios, { AxiosInstance } from 'axios';
 
 import { User } from '@app/src/domain/models/Users/User';
 import { Expert } from '@app/src/domain/models/sanity/Expert';
+import { FormRequestType } from '@app/src/domain/models/common/FormRequestType';
 
 import ApiClient, { UploadedFile } from './ApiClient';
 import { queryString } from './helper/queryString';
@@ -92,10 +93,10 @@ export default class RealApiClient implements ApiClient {
       .then((res) => res.data as any[]);
   };
 
-  public saveCoronaRequestForm = (data: any) =>
+  public saveCoronaRequestForm = (data: any, type: FormRequestType) =>
     this.axiosInstance
       .post('/form/save', {
-        type: 'corona',
+        type: type,
         fields: data,
       })
       .then((res) => res.data as any);

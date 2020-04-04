@@ -11,10 +11,11 @@ import {
   getFormId,
   resetFormId,
 } from '../../../features/landing/features/request/organisms/RequestForm/localStorage';
+import { FormRequestType } from '../../models/common/FormRequestType';
 
 const { Router } = routes;
 
-export const saveRequestFormData = (requestFormData: any) => async (
+export const saveCoronaRequestForm = (requestFormData: any) => async (
   dispatch: Dispatch<any>,
   getState: () => State,
   { getApi }: ExtraArgs,
@@ -23,13 +24,36 @@ export const saveRequestFormData = (requestFormData: any) => async (
   try {
     dispatch(actions.request());
     const email = getUserEmailLocalStorage();
-    const { id } = await api.saveCoronaRequestForm({
-      ...requestFormData,
-      email,
-    });
+    const { id } = await api.saveCoronaRequestForm(
+      {
+        ...requestFormData,
+        email,
+      },
+      FormRequestType.Corona,
+    );
     setFormId(id);
     setFormRequestFinished();
     Router.pushRoute('/request/chat');
+    return dispatch(actions.success(requestFormData));
+  } catch (error) {
+    return dispatch(actions.error(error.message));
+  }
+};
+
+export const saveForClinicsForm = (requestFormData: any) => async (
+  dispatch: Dispatch<any>,
+  getState: () => State,
+  { getApi }: ExtraArgs,
+) => {
+  const api = getApi(getState);
+  try {
+    dispatch(actions.request());
+
+    await api.saveCoronaRequestForm(
+      requestFormData,
+      FormRequestType.ForClinics,
+    );
+
     return dispatch(actions.success(requestFormData));
   } catch (error) {
     return dispatch(actions.error(error.message));

@@ -30,7 +30,7 @@ import {
 import {
   requestFormReducer,
   RequestFormReducerState,
-} from '@app/src/domain/reducers/requestReducer';
+} from '@app/src/domain/reducers/requestConsultationReducer';
 import {
   reducer as browserQueryReducer,
   State as BrowserQueryState,

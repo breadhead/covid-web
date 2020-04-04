@@ -1,6 +1,7 @@
 import { User } from '@app/src/domain/models/Users/User';
 import { Partner } from '@app/src/domain/models/sanity/Partner';
 import { Expert } from '@app/src/domain/models/sanity/Expert';
+import { FormRequestType } from '@app/src/domain/models/common/FormRequestType';
 
 export interface UploadedFile {
   path: string;
@@ -19,7 +20,7 @@ export default interface ApiClient {
   searchDoctor(query: string): Promise<string[]>;
   searchClinic(query: string): Promise<string[]>;
   searchClinicByRegion(region: string, name: string): Promise<string[]>;
-  saveCoronaRequestForm(data: any): Promise<any>;
+  saveCoronaRequestForm(data: any, type: FormRequestType): Promise<any>;
   updateCoronaRequestForm(data: any): Promise<any>;
   getPartners(): Promise<Partner[]>;
   getExperts(): Promise<Expert[]>;

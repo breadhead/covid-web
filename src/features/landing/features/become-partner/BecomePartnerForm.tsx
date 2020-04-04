@@ -10,6 +10,8 @@ import { formConfig } from './formConfig';
 export const BecomePartnerForm = () => {
   const onSubmit = (data: any) => {
     console.log(data);
+
+    return Promise.resolve();
   };
 
   return (
@@ -18,13 +20,16 @@ export const BecomePartnerForm = () => {
       onSubmit={onSubmit}
       saveDraft={console.log}
     >
-      <Button
-        size={ButtonSize.ExtraLarge}
-        className={cx(commonStyles.button, commonStyles.largeButton)}
-        submit
-      >
-        Отправить
-      </Button>
+      {(context) => (
+        <Button
+          disabled={context.submitting}
+          size={ButtonSize.ExtraLarge}
+          className={cx(commonStyles.button, commonStyles.largeButton)}
+          submit
+        >
+          Отправить
+        </Button>
+      )}
     </FormConstructor>
   );
 };

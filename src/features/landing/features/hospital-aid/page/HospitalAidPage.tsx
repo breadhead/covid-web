@@ -14,7 +14,7 @@ export const HospitalAidPage = () => {
       </Head>
 
       <h1 className={styles.title}>Помощь больницам</h1>
-      <HospitalAidForm />
+      <HospitalAidForm onSubmit={(data) => Promise.resolve(data)} />
     </MainLayout>
   );
 };

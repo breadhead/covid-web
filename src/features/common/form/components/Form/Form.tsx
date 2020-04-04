@@ -38,7 +38,14 @@ class Form extends Component<Props> {
     return (
       <section className={className}>
         <FinalForm
-          render={({ values, form, submitFailed, handleSubmit, valid }) => {
+          render={({
+            values,
+            form,
+            submitFailed,
+            handleSubmit,
+            valid,
+            submitting,
+          }) => {
             return (
               <form
                 onKeyDown={this.onEnterPress}
@@ -56,6 +63,7 @@ class Form extends Component<Props> {
                   />
                 )}
                 {children({
+                  submitting,
                   removeSectionFromState: this.removeSection(
                     form.change,
                     values,
