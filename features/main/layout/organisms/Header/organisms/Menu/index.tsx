@@ -4,7 +4,8 @@ import { useCallback, useState } from 'react';
 import Overlay from '@app/ui/Overlay';
 
 import BurgerButton from '../../atoms/BurgerButton';
-import Menu from './Menu';
+import { TransitionMenu } from './TransitionMenu';
+import { Navigation } from '../Navigation';
 
 interface Props {
   signOut: () => void;
@@ -21,12 +22,13 @@ const Container = ({ signOut, showLoginButton }: Props) => {
     <>
       <Overlay isVisible={menuOpened} onClick={hide} />
       <BurgerButton show={show} />
-      <Menu
-        showLoginButton={showLoginButton}
-        signOut={signOut}
-        hide={hide}
-        isVisible={menuOpened}
-      />
+      <TransitionMenu isVisible={menuOpened}>
+        <Navigation
+          signOut={signOut}
+          hide={hide}
+          showLoginButton={showLoginButton}
+        />
+      </TransitionMenu>
     </>
   );
 };
