@@ -1,5 +1,8 @@
 .cards {
   display: flex;
+  @media (--mediumSecondDown) {
+    flex-direction: column;
+  }
 }
 
 .card {
@@ -23,6 +26,10 @@
     right: 0;
     content: '';
     z-index: -1;
+  }
+
+  @media (--mediumSecondDown) {
+    width: 100%;
   }
 }
 

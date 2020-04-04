@@ -7,7 +7,6 @@ import { IconsList } from '@app/src/ui/sprite';
 
 import { Bubble } from '../bubble';
 import * as styles from './NavCards.css';
-// interface NavCardsProps {}
 
 export const NavCards = () => {
   return (
