@@ -25,11 +25,13 @@ import {
   setToken,
 } from '@app/src/domain/reducers/userReducer';
 import { pushRoute } from '@app/src/lib/routing/pushRoute';
-import { updateRequestFormData } from '@app/src/domain/reducers/requestReducer/actions';
+import { updateRequestFormData } from '@app/src/domain/reducers/requestConsultationReducer/actions';
 import { normalizeWantTo } from '@app/src/helpers/normalizeWantTo';
 import { Sprite } from '@app/src/ui/sprite';
 import { getViolateState } from '@app/src/domain/reducers/signInReducer/selectors';
 import { authViolateStatus } from '@app/src/domain/reducers/signInReducer/middleware';
+import { getPartnersFromSanity } from '@app/src/domain/reducers/partnerReducer';
+import { getExpertsFromSanity } from '@app/src/domain/reducers/expertReducer';
 
 import ErrorComponent from './_error';
 import { description, keywords } from '../src/features/common/seo/SEO';
@@ -63,6 +65,11 @@ class OncohelpWeb extends App<Props> {
     }
 
     registerModals();
+
+    await Promise.all([
+      ctx.reduxStore.dispatch(getPartnersFromSanity() as any),
+      ctx.reduxStore.dispatch(getExpertsFromSanity() as any),
+    ]);
     const { isSecure } = context.Component as any;
     const loggedIn = (getToken(ctx.reduxStore.getState()) || '').length > 0;
 

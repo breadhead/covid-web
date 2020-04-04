@@ -51,11 +51,6 @@ const LandingPage = () => {
 };
 
 LandingPage.getInitialProps = async (context: AppContext) => {
-  await Promise.all([
-    context.reduxStore.dispatch(getPartnersFromSanity() as any),
-    context.reduxStore.dispatch(getExpertsFromSanity() as any),
-  ]);
-
   return {};
 };
 

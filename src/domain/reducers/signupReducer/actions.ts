@@ -7,7 +7,7 @@ import {
   currentUser,
 } from '@app/src/domain/reducers/userReducer';
 import { ExtraArgs, State } from '@app/src/lib/store';
-import { updateRequestFormData } from '@app/src/domain/reducers/requestReducer/actions';
+import { updateRequestFormData } from '@app/src/domain/reducers/requestConsultationReducer/actions';
 
 import { actions } from './reducer';
 import { showIntercom } from '../../../features/landing/features/request-chat/showIntercom';

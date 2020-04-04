@@ -17,7 +17,7 @@ import { Button, ButtonSize } from '@app/src/ui/button';
 import * as styles from './RequestForm.css';
 import { Symptoms } from './components/symptoms';
 import { targetList, deseasesList } from './config';
-import { saveRequestFormData } from '../../../../../../domain/reducers/requestReducer/actions';
+import { saveCoronaRequestForm } from '../../../../../../domain/reducers/requestConsultationReducer/actions';
 import {
   saveRequestFormDraft,
   getRequestFormDraft,
@@ -39,7 +39,7 @@ export const RequestForm = () => {
   }, []);
 
   const onFormSubmit = async (data: any) => {
-    await dispatch(saveRequestFormData(data));
+    await dispatch(saveCoronaRequestForm(data));
   };
 
   useEffect(() => {

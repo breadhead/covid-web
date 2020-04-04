@@ -2,6 +2,7 @@ import React from 'react';
 
 import { renderFormComponent } from './renderFormComponent';
 import { Form } from '.';
+import { FormContext } from './components/Form';
 
 export enum FormComponentType {
   ButtonWithTooltip = 'buttonWithTooltip',
@@ -43,11 +44,11 @@ interface FormOptions {
 
 interface Props {
   options: FormOptions;
-  onSubmit: (data: any) => any;
+  onSubmit: (data: any) => Promise<any>;
   saveDraft: (data: any) => any;
   initialValues?: any;
   className?: string;
-  children?: React.ReactNode;
+  children: (context: FormContext) => React.ReactNode;
 }
 
 export const FormConstructor = ({
@@ -66,12 +67,14 @@ export const FormConstructor = ({
       initialValues={initialValues}
       className={className}
     >
-      {({ values }) => (
+      {(formContext) => (
         <>
           {options.steps
-            .filter(({ condition }) => !condition || condition(values))
+            .filter(
+              ({ condition }) => !condition || condition(formContext.values),
+            )
             .map((step, i) => renderFormComponent(step, i))}
-          {children}
+          {children(formContext)}
         </>
       )}
     </Form>
