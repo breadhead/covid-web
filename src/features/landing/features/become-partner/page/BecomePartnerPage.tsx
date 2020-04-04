@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 import cx from 'classnames';
+import { head } from 'lodash';
 
 import { MainLayout } from '@app/src/features/common/layout';
 import { SystemLayout } from '@app/src/features/system/layout';
@@ -8,7 +9,11 @@ import { SystemLayout } from '@app/src/features/system/layout';
 import { BecomePartnerForm } from '../BecomePartnerForm';
 import * as styles from './BecomePartnerPage.css';
 
-export const BecomePartnerPage = () => {
+interface BecomePartnerPage {
+  themeValue: string;
+}
+
+export const BecomePartnerPage = ({ themeValue }: BecomePartnerPage) => {
   return (
     <SystemLayout className={styles.main}>
       <Head>
@@ -24,8 +29,14 @@ export const BecomePartnerPage = () => {
           <br /> Мы свяжемся с вами, как только нам потребуется ваша помощь.
           Спасибо!
         </p>
-        <BecomePartnerForm />
+        <BecomePartnerForm themeValue={themeValue} />
       </section>
     </SystemLayout>
   );
+};
+
+BecomePartnerPage.getInitialProps = async ({ query }: any) => {
+  const themeValue = head(Object.keys(query));
+
+  return { themeValue };
 };
