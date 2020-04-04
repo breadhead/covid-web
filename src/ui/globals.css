@@ -37,7 +37,7 @@
     color: var(--color-primary);
   }
 
-  @media (--smallWidth) {
+  @media (max-width: 767px) {
     margin-bottom: 24px;
   }
 }
