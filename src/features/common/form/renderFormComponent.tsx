@@ -3,21 +3,21 @@ import cx from 'classnames';
 import * as yup from 'yup';
 
 import RegionSelect from '@app/src/ui/regionSelect/organisms/RegionSelect';
-import PhoneInput from '@app/src/features/common/form/components/PhoneInput';
-import ButtonWithTooltip from '@app/src/features/common/form/components/ButtonWithTooltip';
-import Checkbox from '@app/src/features/common/form/components/Checkbox';
-import ComboSearch from '@app/src/features/common/form/components/ComboSearch';
-import EmergingFormElement from '@app/src/features/common/form/components/EmergingFormElement';
-import Input from '@app/src/features/common/form/components/Input';
-import RadioButton from '@app/src/features/common/form/components/RadioButton';
-import RadioGroup from '@app/src/features/common/form/components/RadioGroup';
-import Select from '@app/src/features/common/form/components/Select';
-import SelectMonths from '@app/src/features/common/form/components/SelectMonths';
-import SelectYears from '@app/src/features/common/form/components/SelectYears';
-import Switch from '@app/src/features/common/form/components/Switch';
-import TextArea from '@app/src/features/common/form/components/TextArea';
-import Toggle from '@app/src/features/common/form/components/Toggle';
-import ValidationTooltip from '@app/src/features/common/form/components/ValidationTooltip';
+import PhoneInput from '@app/src/features/common/form/components/withFinalForm/PhoneInput';
+import ButtonWithTooltip from '@app/src/features/common/form/components/withFinalForm/ButtonWithTooltip';
+import Checkbox from '@app/src/features/common/form/components/withFinalForm/Checkbox';
+import ComboSearch from '@app/src/features/common/form/components/withFinalForm/ComboSearch';
+import EmergingFormElement from '@app/src/features/common/form/components/withFinalForm/EmergingFormElement';
+import Input from '@app/src/features/common/form/components/withFinalForm/Input';
+import RadioButton from '@app/src/features/common/form/components/withFinalForm/RadioButton';
+import RadioGroup from '@app/src/features/common/form/components/withFinalForm/RadioGroup';
+import Select from '@app/src/features/common/form/components/withFinalForm/Select';
+import SelectMonths from '@app/src/features/common/form/components/withFinalForm/SelectMonths';
+import SelectYears from '@app/src/features/common/form/components/withFinalForm/SelectYears';
+import Switch from '@app/src/features/common/form/components/withFinalForm/Switch';
+import TextArea from '@app/src/features/common/form/components/withFinalForm/TextArea';
+import Toggle from '@app/src/features/common/form/components/withFinalForm/Toggle';
+import ValidationTooltip from '@app/src/features/common/form/components/withFinalForm/ValidationTooltip';
 import {
   FormComponentOptions,
   FormComponentType,

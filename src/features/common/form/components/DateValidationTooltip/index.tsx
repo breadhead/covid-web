@@ -3,7 +3,7 @@ import { head } from 'lodash';
 
 import { DateInterface } from '@app/src/lib/helpers/validateDates';
 
-import ValidationTooltip from '../ValidationTooltip';
+import ValidationTooltip from '../withFinalForm/ValidationTooltip';
 import { validationCb } from './validationCb';
 
 interface Props {

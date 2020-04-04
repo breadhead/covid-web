@@ -2,27 +2,27 @@ export { default as DateValidationTooltip } from './components/DateValidationToo
 
 export { default as QuestionsValidationTooltip } from './components/QuestionsValidationTooltip';
 
-export { default as ValidationTooltip } from './components/ValidationTooltip';
+export { default as ValidationTooltip } from './components/withFinalForm/ValidationTooltip';
 
-export { default as ComboBox } from './components/ComboBox';
+export { default as ComboBox } from './components/withFinalForm/ComboBox';
 export {
   default as EmergingFormElement,
   ControlTypes as EmergingControlTypes,
-} from './components/EmergingFormElement';
+} from './components/withFinalForm/EmergingFormElement';
 export { default as Form } from './components/Form';
 export type { RemoveSection } from './components/Form';
-export { default as Input, InputType } from './components/Input';
-export { default as RadioGroup } from './components/RadioGroup';
-export { default as Select } from './components/Select';
-export { default as Toggle } from './components/Toggle';
-export { default as TextArea } from './components/TextArea';
-export { default as SelectMonths } from './components/SelectMonths';
-export { default as SelectYears } from './components/SelectYears';
-export { default as Checkbox } from './components/Checkbox';
-export { default as PhoneInput } from './components/PhoneInput';
+export { default as Input, InputType } from './components/withFinalForm/Input';
+export { default as RadioGroup } from './components/withFinalForm/RadioGroup';
+export { default as Select } from './components/withFinalForm/Select';
+export { default as Toggle } from './components/withFinalForm/Toggle';
+export { default as TextArea } from './components/withFinalForm/TextArea';
+export { default as SelectMonths } from './components/withFinalForm/SelectMonths';
+export { default as SelectYears } from './components/withFinalForm/SelectYears';
+export { default as Checkbox } from './components/withFinalForm/Checkbox';
+export { default as PhoneInput } from './components/withFinalForm/PhoneInput';
 export {
   default as ButtonWithTooltip,
   ButtonSize,
   ButtonKind,
-} from './components/ButtonWithTooltip';
-export { default as ComboSearch } from './components/ComboSearch';
+} from './components/withFinalForm/ButtonWithTooltip';
+export { default as ComboSearch } from './components/withFinalForm/ComboSearch';

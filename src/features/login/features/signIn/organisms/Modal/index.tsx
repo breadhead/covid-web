@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { InputType } from '@app/src/features/common/form';
 import Form from '@app/src/features/common/form/components/Form/Form';
-import Input from '@app/src/features/common/form/components/Input';
+import Input from '@app/src/features/common/form/components/withFinalForm/Input';
 import OpenModalButton from '@app/src/features/login/atoms/OpenModalButton';
 import { SPACE } from '@app/src/lib/config';
 import { Button } from '@app/src/ui/button';

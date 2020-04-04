@@ -1,0 +1,15 @@
+.wrapper {
+  margin-top: 32px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.text {
+  margin: 0;
+
+  font: var(--text16-24);
+}
