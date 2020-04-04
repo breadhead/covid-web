@@ -4,8 +4,7 @@ import {
   WithSignInModal,
   withSignInModal,
 } from '@app/features/login/features/signIn';
-
-import { Button, ButtonKind } from '@front/ui/button';
+import { Button, ButtonKind } from '@app/ui/button';
 
 interface LoginButtonProps {
   className?: string;

@@ -4,7 +4,7 @@ import { useMappedState } from 'redux-react-hook';
 import PartnerCard from '@app/features/landing/organisms/PartnerCard';
 import { selectPartnersForMainPage } from '@app/features/common/partnerReducer/selectPartners';
 
-import { NavLink } from '@front/ui/nav-link';
+import { NavLink } from '@app/ui/nav-link';
 
 import * as styles from './PartnersList.css';
 

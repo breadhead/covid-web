@@ -3,7 +3,7 @@ import { useMappedState } from 'redux-react-hook';
 
 import { selectExperts } from '@app/features/common/expertReducer/selectExperts';
 
-import { NavLink } from '@front/ui/nav-link';
+import { NavLink } from '@app/ui/nav-link';
 
 import * as styles from './Experts.css';
 import Photos from './components/Photos';

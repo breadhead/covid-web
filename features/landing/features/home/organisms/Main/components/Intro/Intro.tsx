@@ -2,10 +2,9 @@ import * as React from 'react';
 import cx from 'classnames';
 
 import { NON_BREAKING_SPACE, NON_BREAKING_HYPHEN } from '@app/lib/config';
-
-import { Icon } from '@front/ui/icon';
-import { NavLink } from '@front/ui/nav-link';
-import { IconsList } from '@front/ui/sprite';
+import { Icon } from '@app/ui/icon';
+import { NavLink } from '@app/ui/nav-link';
+import { IconsList } from '@app/ui/sprite';
 
 import * as styles from './Intro.css';
 import { CovidButtons } from '../CovidButtons/CovidButtons';

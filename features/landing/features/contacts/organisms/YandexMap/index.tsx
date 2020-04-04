@@ -3,7 +3,7 @@ import { Map, Placemark, YMaps } from 'react-yandex-maps';
 
 import { NON_BREAKING_SPACE } from '@app/lib/config';
 
-import { NavLink } from '@front/ui/nav-link';
+import { NavLink } from '@app/ui/nav-link';
 
 import * as styles from './YandexMap.css';
 

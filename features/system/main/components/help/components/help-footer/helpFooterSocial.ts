@@ -1,4 +1,4 @@
-import { IconsList } from '@app/src/ui/sprite';
+import { IconsList } from '@app/ui/sprite';
 
 export const helpFooterSocial = [
   {

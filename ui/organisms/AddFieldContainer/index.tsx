@@ -2,9 +2,9 @@ import { range } from 'lodash';
 import { size } from 'lodash';
 import * as React from 'react';
 
-import { Button, ButtonKind } from '@front/ui/button';
-import { Icon } from '@front/ui/icon';
-import { IconsList } from '@front/ui/sprite';
+import { Button, ButtonKind } from '@app/ui/button';
+import { Icon } from '@app/ui/icon';
+import { IconsList } from '@app/ui/sprite';
 
 import * as styles from './AddFieldContainer.css';
 

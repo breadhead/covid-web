@@ -6,9 +6,8 @@ import { useMappedState } from 'redux-react-hook';
 import { getToken } from '@app/features/login';
 import factory from '@app/lib/api/apiFactory';
 import { getPreviewLink } from '@app/src/helpers/getPreviewLink';
-
-import { Button, ButtonKind } from '@front/ui/button';
-import { NavLink } from '@front/ui/nav-link';
+import { Button, ButtonKind } from '@app/ui/button';
+import { NavLink } from '@app/ui/nav-link';
 
 import ProgressBar from './atoms/ProgressBar';
 import { displayFileName } from './displayFileName';

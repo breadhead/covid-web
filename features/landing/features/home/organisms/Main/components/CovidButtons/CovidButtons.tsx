@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Button, ButtonSize } from '@app/src/ui/button';
-import { NavLink } from '@app/src/ui/nav-link';
+import { Button, ButtonSize } from '@app/ui/button';
+import { NavLink } from '@app/ui/nav-link';
 
 import * as styles from './CovidButtons.css';
 

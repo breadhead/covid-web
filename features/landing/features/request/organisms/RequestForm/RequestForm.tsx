@@ -13,7 +13,7 @@ import RegionSelect from '@app/ui/regionSelect';
 import { useThunk } from '@app/src/hooks/useThunk';
 import { genderRadioGroup } from '@app/src/helpers/genderRadioGroup';
 
-import { Button, ButtonSize } from '@front/ui/button';
+import { Button, ButtonSize } from '@app/ui/button';
 
 import * as styles from './RequestForm.css';
 import { Symptoms } from './components/symptoms';

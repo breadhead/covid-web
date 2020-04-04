@@ -3,7 +3,7 @@ import { Col } from 'antd';
 
 import ServerImage from '@app/ui/ServerImage';
 
-import { NavLink } from '@front/ui/nav-link';
+import { NavLink } from '@app/ui/nav-link';
 
 import styles from './CompanyLogo.css';
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Field } from 'react-final-form';
 
-import { Props as ToggleProps, Toggle as SimpleToggle } from '@front/ui/toggle';
+import { Props as ToggleProps, Toggle as SimpleToggle } from '@app/ui/toggle';
 
 const Toggle = ({ name, ...rest }: ToggleProps) => (
   <Field name={name}>

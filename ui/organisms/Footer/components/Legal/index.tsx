@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { NON_BREAKING_SPACE } from '@app/lib/config';
 
-import { NavLink } from '@front/ui/nav-link';
+import { NavLink } from '@app/ui/nav-link';
 
 import * as styles from './Legal.css';
 

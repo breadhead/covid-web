@@ -5,8 +5,7 @@ import Form from '@app/features/common/form/components/Form/Form';
 import Input from '@app/features/common/form/components/Input';
 import OpenModalButton from '@app/features/login/atoms/OpenModalButton';
 import { SPACE } from '@app/lib/config';
-
-import { Button } from '@front/ui/button';
+import { Button } from '@app/ui/button';
 
 import { schema } from '../../container';
 import { isClientConsultationUrl } from './config';

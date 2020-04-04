@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Icon } from '@app/src/ui/icon';
-import { NavLink } from '@app/src/ui/nav-link';
+import { Icon } from '@app/ui/icon';
+import { NavLink } from '@app/ui/nav-link';
 
 import * as styles from './HelpFooter.css';
 import { helpFooterSocial } from './helpFooterSocial';

@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
 import { withSignUpModal } from '@app/features/login';
-
-import { Button, ButtonKind, ButtonSize } from '@front/ui/button';
-import { NavLink } from '@front/ui/nav-link';
+import { Button, ButtonKind, ButtonSize } from '@app/ui/button';
+import { NavLink } from '@app/ui/nav-link';
 
 import { selectToken } from './selectors';
 

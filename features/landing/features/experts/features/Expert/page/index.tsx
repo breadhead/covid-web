@@ -3,8 +3,7 @@ import * as React from 'react';
 import { MainLayout } from '@app/features/common/layout';
 import { Expert as ExpertModel } from '@app/models/sanity/Expert';
 import { getImageSrc } from '@app/lib/useImageSrc/getImageSrc';
-
-import { NavLink } from '@front/ui/nav-link';
+import { NavLink } from '@app/ui/nav-link';
 
 import * as styles from './ExpertPage.css';
 

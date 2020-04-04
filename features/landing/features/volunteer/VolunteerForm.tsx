@@ -4,7 +4,7 @@ import cx from 'classnames';
 import { FormConstructor } from '@app/features/common/form/FormConstructor';
 import * as commonStyles from '@app/features/common/form/commonStyles.css';
 
-import { ButtonSize, Button } from '@front/ui/button';
+import { ButtonSize, Button } from '@app/ui/button';
 
 import * as styles from './VolunteerForm.css';
 import { formConfig } from './formConfig';

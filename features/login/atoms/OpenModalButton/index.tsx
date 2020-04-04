@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Button, ButtonKind } from '@front/ui/button';
+import { Button, ButtonKind } from '@app/ui/button';
 
 import * as styles from './OpenModalButton.css';
 

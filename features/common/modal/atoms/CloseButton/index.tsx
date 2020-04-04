@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Action } from 'redux';
 
-import { Icon } from '@front/ui/icon';
-import { IconsList } from '@front/ui/sprite';
+import { Icon } from '@app/ui/icon';
+import { IconsList } from '@app/ui/sprite';
 
 import * as styles from './CloseButton.css';
 

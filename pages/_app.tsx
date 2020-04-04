@@ -25,15 +25,13 @@ import { currentUser, getToken } from '@app/features/login/features/user';
 import { pushRoute } from '@app/lib/routing/pushRoute';
 import { updateRequestFormData } from '@app/features/landing/features/request/reducer/actions';
 import { normalizeWantTo } from '@app/src/helpers/normalizeWantTo';
-
-import { Sprite } from '@front/ui/sprite';
+import { Sprite } from '@app/ui/sprite';
 
 import ErrorComponent from './_error';
 import { description, keywords } from '../features/common/seo/SEO';
 import '@app/ui/antd-styles.less';
 import '@app/ui/config.css?CSSModulesDisable';
 import '@app/ui/globals.css?CSSModulesDisable';
-import '@front/ui/config.css?CSSModulesDisable';
 
 interface Props {
   reduxStore: Store;

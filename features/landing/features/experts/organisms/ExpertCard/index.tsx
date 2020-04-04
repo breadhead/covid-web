@@ -5,7 +5,7 @@ import { getImageSrc } from '@app/lib/useImageSrc/getImageSrc';
 import { AppContext } from '@app/lib/server-types';
 import { getExpertsFromSanity } from '@app/features/common/expertReducer';
 
-import { NavLink } from '@front/ui/nav-link';
+import { NavLink } from '@app/ui/nav-link';
 
 import * as styles from './ExpertCard.css';
 

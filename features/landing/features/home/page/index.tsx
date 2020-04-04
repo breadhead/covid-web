@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import Footer, { FooterTheme, FooterType } from '@app/ui/organisms/Footer';
 import Header from '@app/features/common/layout/organisms/Header';
-import { Divider } from '@app/src/ui/divider/Divider';
+import { Divider } from '@app/ui/divider/Divider';
 import { AppContext } from '@app/lib/server-types';
 import { getPartnersFromSanity } from '@app/features/common/partnerReducer';
 import { getExpertsFromSanity } from '@app/features/common/expertReducer';
