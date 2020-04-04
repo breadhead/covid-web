@@ -23,6 +23,11 @@
   outline-color: var(--color-primary);
 }
 
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   -webkit-overflow-scrolling: touch;
   /* fonts */

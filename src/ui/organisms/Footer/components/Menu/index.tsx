@@ -7,13 +7,13 @@ import stylesShort from './MenuShort.css';
 import NavIcon from '../NavIcon';
 
 const linksShort = [
-  { title: 'О проекте', href: '/#about' },
+  { title: 'О проекте', href: '/ask#about' },
   { title: 'Помочь проекту', href: '/#donation' },
   { title: 'Обратная связь', href: '/contacts' },
 ];
 
 const linksLong = [
-  { title: 'О проекте', href: '/#about' },
+  { title: 'О проекте', href: '/ask#about' },
   { title: 'Контакты', href: '/contacts' },
   { title: 'Помочь проекту', href: '#donation' },
   { title: 'Обратная связь', href: '/contacts' },

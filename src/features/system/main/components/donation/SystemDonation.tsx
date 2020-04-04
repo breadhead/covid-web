@@ -10,6 +10,7 @@ export const SystemDonation = () => {
   return (
     <div className={styles.wrapperOuter}>
       <section className="gl-wrapper gl-section gl-first-section">
+        <div id="donation" className={styles.anchor} />
         <h2 className="gl-sectionTitle">Поддержать</h2>
 
         <div className={styles.content}>
