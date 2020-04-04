@@ -1,0 +1,22 @@
+.main.main {
+  max-width: 928px;
+  padding: 80px 0 0 0;
+
+  @media (--smallDown) {
+    padding: 40px 0 0 0;
+  }
+}
+
+.wrapper {
+  max-width: 928px;
+  margin: 0 auto;
+
+  @media (--smallDown) {
+    max-width: 100%;
+    padding: 40px 0 0 0;
+  }
+}
+
+.backgroundWrapper {
+  background-color: #fff;
+}
