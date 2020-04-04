@@ -1,1 +1,1 @@
-export { Contacts as default } from '@app/features/landing';
+export { Contacts as default } from '@app/src/features/landing';

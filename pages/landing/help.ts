@@ -1,1 +1,1 @@
-export { BecomePartnerPage as default } from '@app/features/landing';
+export { BecomePartnerPage as default } from '@app/src/features/landing';

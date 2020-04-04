@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 
-import { displayFileName } from '@app/features/common/uploader/displayFileName';
+import { displayFileName } from '@app/src/features/common/uploader/displayFileName';
 
 import { NavLink } from '../nav-link';
 import { findUrls } from './helpers/findUrls';

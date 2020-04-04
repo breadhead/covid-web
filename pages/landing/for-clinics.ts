@@ -1,1 +1,1 @@
-export { ForClinics as default } from '@app/features/system/for-clinics';
+export { ForClinics as default } from '@app/src/features/system/for-clinics';

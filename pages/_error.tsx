@@ -1,7 +1,7 @@
 import React from 'react';
 
-import bugsnagClient from '@app/features/common/bugsnag/bugsnag';
-import NotFound from '@app/features/main/notFound';
+import bugsnagClient from '@app/src/features/common/bugsnag/bugsnag';
+import NotFound from '@app/src/features/common/notFound';
 
 interface Props {
   statusCode: number;
