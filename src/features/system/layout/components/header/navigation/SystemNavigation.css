@@ -11,7 +11,6 @@
   justify-content: space-between;
   display: flex;
   width: 100%;
-  padding: 18px 0;
 
   @media (max-width: 959px) {
     position: fixed;
@@ -23,7 +22,7 @@
     justify-content: flex-start;
     min-width: 288px;
     height: 100vh;
-    padding: 16px 16px 0 24px;
+
     background-color: white;
     box-shadow: 0 0 8px 0 rgba(63, 63, 68, 0.04),
       0 0 20px 0 rgba(63, 63, 68, 0.12);
@@ -45,12 +44,12 @@
 }
 
 .link {
-  margin-right: 32px;
+  display: inline-block;
   white-space: nowrap;
   font: var(--text18-28);
   font-size: 18px;
   line-height: 28px;
-  padding: 18px 0;
+  padding: 18px 16px;
 
   @media (max-width: 959px) {
     display: flex;
@@ -70,12 +69,15 @@
   }
 }
 
-
 .mainLink {
   @media (max-width: 959px) {
     &:last-child {
       border-bottom: none;
     }
+  }
+
+  &.active {
+    background: white;
   }
 }
 
@@ -130,7 +132,7 @@
 }
 
 .contentLink {
-  color: #82839b; 
+  color: #82839b;
   @media (max-width: 959px) {
     color: var(--color-text-primary);
   }

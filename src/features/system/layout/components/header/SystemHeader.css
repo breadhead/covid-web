@@ -1,11 +1,16 @@
 .headerWrapper {
   display: flex;
   align-items: center;
+  background: var(--color-beige);
 
   @media (--mediumDown) {
     justify-content: space-between;
     padding: 6px;
   }
+}
+
+.landing {
+  background: white;
 }
 
 .iconWrapper {
