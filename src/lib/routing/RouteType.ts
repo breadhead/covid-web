@@ -9,5 +9,5 @@ export enum RouteType {
   landingContacts = '/landing/contacts',
   landingExperts = '/landing/experts',
   landingExpert = '/landing/expert',
-  landingForClinics = '/landing/for-clinics',
+  landingForHospitals = '/landing/for-hospitals',
 }

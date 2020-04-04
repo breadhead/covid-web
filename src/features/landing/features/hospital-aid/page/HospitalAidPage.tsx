@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import { MainLayout } from '@app/src/features/common/layout';
 
-import { HospitalAidForm } from '../../../../system/for-clinics/components/form/HospitalAidForm';
+import { HospitalAidForm } from '../../../../system/for-hospitals/components/form/HospitalAidForm';
 import * as styles from './HospitalAidPage.css';
 
 export const HospitalAidPage = () => {

@@ -1,5 +1,5 @@
 export enum FormRequestType {
   Corona = 'corona',
-  ForClinics = 'for-clinics',
+  ForHospitals = 'for-hospitals',
   Volunteer = 'volunteer',
 }

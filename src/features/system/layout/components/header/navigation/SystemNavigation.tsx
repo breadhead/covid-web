@@ -72,7 +72,7 @@ const mainLinks = [
     className: cx(styles.mainLink, styles.link),
   },
   {
-    href: '/for-clinics',
+    href: '/for-hospitals',
     text: 'Помощь больницам',
     className: cx(styles.mainLink, styles.link),
   },
