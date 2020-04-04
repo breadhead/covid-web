@@ -6,23 +6,18 @@ import { RadioButtonStyles } from '@app/src/ui/RadioGroup';
 
 const professionOptions = [
   {
-    id: 'doctor-infectologist',
     value: 'Врач-инфекционист',
   },
   {
-    id: 'doctor-therapist',
     value: 'Врач-терапевт',
   },
   {
-    id: 'resident-infectologist',
     value: 'Ординатор-инфекционист',
   },
   {
-    id: 'resident-therapist',
     value: 'Ординатор-терапевт',
   },
   {
-    id: 'doctor-other',
     value: 'Врач другой специальности',
   },
 ];
