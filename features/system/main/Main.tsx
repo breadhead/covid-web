@@ -1,5 +1,8 @@
 import * as React from 'react';
 
+import { AppContext } from '@app/lib/server-types';
+import { getPartnersFromSanity } from '@app/features/common/partnerReducer';
+
 import { SystemLayout } from '../layout/SystemLayout';
 import { SystemHero } from './components/hero';
 import { SystemHelp } from './components/help';
@@ -20,4 +23,10 @@ export const SystemMain = () => {
       <SystemDonation />
     </SystemLayout>
   );
+};
+
+SystemMain.getInitialProps = async (context: AppContext) => {
+  await context.reduxStore.dispatch(getPartnersFromSanity() as any);
+
+  return {};
 };

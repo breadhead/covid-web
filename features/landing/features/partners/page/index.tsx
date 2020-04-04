@@ -19,8 +19,13 @@ interface Query {
 }
 
 class PartnersPage extends React.Component<Props> {
-  public static getInitialProps({ query }: AppContext<Query>) {
+  public static async getInitialProps({
+    query,
+    reduxStore,
+  }: AppContext<Query>) {
     const { id } = query;
+
+    await reduxStore.dispatch(getPartnersFromSanity() as any);
 
     return { id };
   }
@@ -38,11 +43,5 @@ class PartnersPage extends React.Component<Props> {
     );
   }
 }
-
-LandingPage.getInitialProps = async (context: AppContext) => {
-  await context.reduxStore.dispatch(getPartnersFromSanity() as any);
-
-  return {};
-};
 
 export default PartnersPage;

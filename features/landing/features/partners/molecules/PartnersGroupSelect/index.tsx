@@ -2,8 +2,8 @@ import * as React from 'react';
 import cx from 'classnames';
 import { Select as AntSelect } from 'antd';
 import { SelectValue } from 'antd/lib/select';
+import { useMappedState } from 'redux-react-hook';
 
-import { useMappedState } from '@app/node_modules/redux-react-hook';
 import { selectPartnersForPartnerPage } from '@app/features/common/partnerReducer/selectPartners';
 
 import { getCurrentPartnersOptions } from '../../organisms/PartnersList/config';
