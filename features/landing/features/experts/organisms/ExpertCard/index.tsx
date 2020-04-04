@@ -1,12 +1,10 @@
 import * as React from 'react';
 
-import { Expert } from '@app/models/sanity/Expert';
-import { getImageSrc } from '@app/lib/useImageSrc/getImageSrc';
-import { AppContext } from '@app/lib/server-types';
-import { getExpertsFromSanity } from '@app/features/common/expertReducer';
-
-import { NavLink } from '@app/ui/nav-link';
-
+import { Expert } from './node_modules/@app/models/sanity/Expert';
+import { getImageSrc } from './node_modules/@app/src/lib/useImageSrc/getImageSrc';
+import { AppContext } from './node_modules/@app/src/lib/server-types';
+import { getExpertsFromSanity } from './node_modules/@app/features/common/expertReducer';
+import { NavLink } from './node_modules/@app/ui/nav-link';
 import * as styles from './ExpertCard.css';
 
 interface Props {

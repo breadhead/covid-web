@@ -1,7 +1,6 @@
 import { Dispatch } from 'redux';
 
-import { ExtraArgs, State } from '@app/lib/store';
-
+import { ExtraArgs, State } from './node_modules/@app/src/lib/store';
 import { actions } from './reducer';
 
 export const getPartnersFromSanity = () => async (

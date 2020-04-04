@@ -1,8 +1,7 @@
 import * as React from 'react';
 
-import { SendFeedbackRequest } from '@app/lib/api/request/SendFeedback';
-import { AppContext } from '@app/lib/server-types';
-
+import { SendFeedbackRequest } from './node_modules/@app/src/lib/api/request/SendFeedback';
+import { AppContext } from './node_modules/@app/src/lib/server-types';
 import { Props as PageProps } from './page';
 
 interface Props {

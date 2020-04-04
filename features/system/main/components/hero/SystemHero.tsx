@@ -1,10 +1,12 @@
 import * as React from 'react';
 
-import { NON_BREAKING_SPACE, NON_BREAKING_HYPHEN } from '@app/lib/config';
-import { NavLink } from '@app/ui/nav-link';
-import { Icon } from '@app/ui/icon';
-import { IconsList } from '@app/ui/sprite';
-
+import {
+  NON_BREAKING_SPACE,
+  NON_BREAKING_HYPHEN,
+} from './node_modules/@app/src/lib/config';
+import { NavLink } from './node_modules/@app/ui/nav-link';
+import { Icon } from './node_modules/@app/ui/icon';
+import { IconsList } from './node_modules/@app/ui/sprite';
 import * as styles from './SystemHero.css';
 import { NavCards } from './components/nav-cards';
 

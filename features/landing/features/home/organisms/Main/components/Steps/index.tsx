@@ -1,8 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-import { NON_BREAKING_SPACE, SPACE } from '@app/lib/config';
-
+import { NON_BREAKING_SPACE, SPACE } from './node_modules/@app/src/lib/config';
 import * as styles from './Steps.css';
 
 const Steps = () => (

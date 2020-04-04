@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { useMappedState } from 'redux-react-hook';
 
-import { AppContext } from '@app/lib/server-types';
-import { getExpertsFromSanity } from '@app/features/common/expertReducer';
-import { selectExperts } from '@app/features/common/expertReducer/selectExperts';
-
+import { AppContext } from './node_modules/@app/src/lib/server-types';
+import { getExpertsFromSanity } from './node_modules/@app/features/common/expertReducer';
+import { selectExperts } from './node_modules/@app/features/common/expertReducer/selectExperts';
 import ExpertPage from './page';
 
 interface Props {

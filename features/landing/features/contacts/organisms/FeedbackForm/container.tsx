@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { AnyAction, Dispatch } from 'redux';
 
-import { SendFeedbackRequest } from '@app/lib/api/request/SendFeedback';
-import { push } from '@app/features/common/toast';
-
+import { SendFeedbackRequest } from './node_modules/@app/src/lib/api/request/SendFeedback';
+import { push } from './node_modules/@app/features/common/toast';
 import { sendFeedback } from './actions';
 import { Props as PageProps } from './FeedbackForm';
 

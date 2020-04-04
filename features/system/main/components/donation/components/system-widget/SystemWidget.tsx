@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
-import { SystemButton, SystemButtonSize } from '@app/ui/systemButton ';
-import { NavLink } from '@app/ui/nav-link';
-import { SPACE } from '@app/lib/config';
-
+import {
+  SystemButton,
+  SystemButtonSize,
+} from './node_modules/@app/ui/systemButton ';
+import { NavLink } from './node_modules/@app/ui/nav-link';
+import { SPACE } from './node_modules/@app/src/lib/config';
 import * as styles from './SystemWidget.css';
 import { frequencyForm, costForm, targetSelect } from './formConfig';
 import { SytemRadioButton } from '../system-radio-button';

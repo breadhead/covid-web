@@ -1,10 +1,9 @@
 import * as React from 'react';
 
-import { MainLayout } from '@app/features/common/layout';
-import { Expert as ExpertModel } from '@app/models/sanity/Expert';
-import { getImageSrc } from '@app/lib/useImageSrc/getImageSrc';
-import { NavLink } from '@app/ui/nav-link';
-
+import { MainLayout } from './node_modules/@app/features/common/layout';
+import { Expert as ExpertModel } from './node_modules/@app/models/sanity/Expert';
+import { getImageSrc } from './node_modules/@app/src/lib/useImageSrc/getImageSrc';
+import { NavLink } from './node_modules/@app/ui/nav-link';
 import * as styles from './ExpertPage.css';
 
 interface Props {

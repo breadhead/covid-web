@@ -1,1 +1,1 @@
-export { SystemMain as default } from '@app/features/system';
+export { SystemMain as default } from '@app/src/features/system';

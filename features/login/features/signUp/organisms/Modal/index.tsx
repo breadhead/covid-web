@@ -1,13 +1,15 @@
 import * as React from 'react';
 
-import { SignUpError } from '@app/features/login/features/signUp/reducer';
-import { ButtonWithTooltip, InputType } from '@app/features/common/form';
-import Form from '@app/features/common/form/components/Form/Form';
-import Input from '@app/features/common/form/components/Input';
-import OpenModalButton from '@app/features/login/atoms/OpenModalButton';
-import ModalFooter from '@app/features/login/organisms/Footer';
-import { SPACE } from '@app/lib/config';
-
+import { SignUpError } from './node_modules/@app/features/login/features/signUp/reducer';
+import {
+  ButtonWithTooltip,
+  InputType,
+} from './node_modules/@app/features/common/form';
+import Form from './node_modules/@app/features/common/form/components/Form/Form';
+import Input from './node_modules/@app/features/common/form/components/Input';
+import OpenModalButton from './node_modules/@app/features/login/atoms/OpenModalButton';
+import ModalFooter from './node_modules/@app/features/login/organisms/Footer';
+import { SPACE } from './node_modules/@app/src/lib/config';
 import styles from './SignUp.css';
 import { confirmCb, schema } from './schema';
 

@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { shuffle } from 'lodash';
 
-import { getImageSrc } from '@app/lib/useImageSrc/getImageSrc';
-import { Expert } from '@app/models/sanity/Expert';
-
+import { getImageSrc } from './node_modules/@app/src/lib/useImageSrc/getImageSrc';
+import { Expert } from './node_modules/@app/models/sanity/Expert';
 import * as styles from './Photos.css';
 
 interface Props {

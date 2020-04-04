@@ -1,4 +1,4 @@
-import { ServerError } from '@app/lib/server-types';
+import { ServerError } from './node_modules/@app/src/lib/server-types';
 
 // TODO: check for 403
 export const checkForAuthError = (error: ServerError) =>

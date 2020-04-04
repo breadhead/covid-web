@@ -1,9 +1,8 @@
 import { Dispatch } from 'redux';
 
-import routes from '@app/routes';
-import { ExtraArgs, State } from '@app/lib/store';
-import { getUserEmailLocalStorage } from '@app/features/login/features/signIn/userEmailLocalStorage';
-
+import routes from './node_modules/@app/routes';
+import { ExtraArgs, State } from './node_modules/@app/src/lib/store';
+import { getUserEmailLocalStorage } from './node_modules/@app/features/login/features/signIn/userEmailLocalStorage';
 import { actions } from './reducer';
 import {
   setFormRequestFinished,

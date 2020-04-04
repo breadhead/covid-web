@@ -1,4 +1,4 @@
-import { NON_BREAKING_SPACE } from '@app/lib/config';
+import { NON_BREAKING_SPACE } from './node_modules/@app/src/lib/config';
 
 export const SUCCESS = `<div>
     <p>Судя по всему, сейчас с вами всё в порядке. Но рекомендуем быть на чеку и

@@ -1,11 +1,10 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-import { MainLayout } from '@app/features/common/layout';
-import { AppContext } from '@app/lib/server-types';
-import { getPartnersFromSanity } from '@app/features/common/partnerReducer';
-import LandingPage from '@app/features/landing/features/home';
-
+import { MainLayout } from './node_modules/@app/features/common/layout';
+import { AppContext } from './node_modules/@app/src/lib/server-types';
+import { getPartnersFromSanity } from './node_modules/@app/features/common/partnerReducer';
+import LandingPage from './node_modules/@app/features/landing/features/home';
 import * as styles from './Partners.css';
 import Notification from '../molecules/Notification';
 import PartnersList from '../organisms/PartnersList';

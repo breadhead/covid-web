@@ -1,1 +1,1 @@
-export { HospitalAidPage as default } from '@app/features/landing';
+export { HospitalAidPage as default } from '@app/src/features/landing';

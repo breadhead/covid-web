@@ -1,13 +1,15 @@
 import Head from 'next/head';
 import * as React from 'react';
 
-import Footer, { FooterTheme, FooterType } from '@app/ui/organisms/Footer';
-import Header from '@app/features/common/layout/organisms/Header';
-import { Divider } from '@app/ui/divider/Divider';
-import { AppContext } from '@app/lib/server-types';
-import { getPartnersFromSanity } from '@app/features/common/partnerReducer';
-import { getExpertsFromSanity } from '@app/features/common/expertReducer';
-
+import Footer, {
+  FooterTheme,
+  FooterType,
+} from './node_modules/@app/ui/organisms/Footer';
+import Header from './node_modules/@app/features/common/layout/organisms/Header';
+import { Divider } from './node_modules/@app/ui/divider/Divider';
+import { AppContext } from './node_modules/@app/src/lib/server-types';
+import { getPartnersFromSanity } from './node_modules/@app/features/common/partnerReducer';
+import { getExpertsFromSanity } from './node_modules/@app/features/common/expertReducer';
 import * as styles from './Home.css';
 import Corporate from '../organisms/Corporate';
 import Donation from '../organisms/Donation';

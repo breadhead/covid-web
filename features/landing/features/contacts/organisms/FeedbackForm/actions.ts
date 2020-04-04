@@ -1,8 +1,7 @@
 import { Dispatch } from 'redux';
 
-import { ExtraArgs, State } from '@app/lib/store';
-import { SendFeedbackRequest } from '@app/lib/api/request/SendFeedback';
-
+import { ExtraArgs, State } from './node_modules/@app/src/lib/store';
+import { SendFeedbackRequest } from './node_modules/@app/src/lib/api/request/SendFeedback';
 import { actions } from './reducer';
 
 export const sendFeedback = (feedbackFields: SendFeedbackRequest) => async (

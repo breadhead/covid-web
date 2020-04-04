@@ -1,7 +1,6 @@
 import { createErrorMiddleware } from '@breadhead/thunk-error';
 
-import { canUseDOM } from '@app/lib/helpers/canUseDOM';
-
+import { canUseDOM } from './node_modules/@app/src/lib/helpers/canUseDOM';
 import { actions } from './reducer';
 
 export default createErrorMiddleware(

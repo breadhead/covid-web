@@ -1,9 +1,8 @@
 import { Dispatch } from 'redux';
 
-import { ExtraArgs, State } from '@app/lib/store';
-import { actions as modalActions } from '@app/features/common/modal/reducer';
-import { updateRequestFormData } from '@app/features/landing/features/request/reducer/actions';
-
+import { ExtraArgs, State } from './node_modules/@app/src/lib/store';
+import { actions as modalActions } from './node_modules/@app/features/common/modal/reducer';
+import { updateRequestFormData } from './node_modules/@app/features/landing/features/request/reducer/actions';
 import { actions as userActions, currentUser } from '../user';
 import { setCookie } from './helpers/setAuthToken';
 import { actions } from './reducer';

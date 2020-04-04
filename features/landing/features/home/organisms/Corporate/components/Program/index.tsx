@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import { NON_BREAKING_SPACE } from '@app/lib/config';
-
+import { NON_BREAKING_SPACE } from './node_modules/@app/src/lib/config';
 import * as styles from './Program.css';
 
 const Program = () => (

@@ -1,4 +1,4 @@
-import { State } from '@app/lib/store';
+import { State } from './node_modules/@app/src/lib/store';
 
 export const getToken = (state: State) => state.login.user.token;
 export const getUserLogin = (state: State) => state.login.user.login;

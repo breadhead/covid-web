@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { Omit } from 'utility-types';
 
-import { State } from '@app/lib/store';
-import { getQuery } from '@app/features/common/browserQuery';
-
+import { State } from './node_modules/@app/src/lib/store';
+import { getQuery } from './node_modules/@app/features/common/browserQuery';
 import { getStepsFactory, ProgressBarKind } from './helpers/getSteps';
 import { Props as ComponentProps } from './organisms/ProgressBar';
 

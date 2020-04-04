@@ -2,8 +2,7 @@ import {
   DateInterface,
   shouldValidateDates,
   validateDates,
-} from '@app/lib/helpers/validateDates';
-
+} from './node_modules/@app/src/lib/helpers/validateDates';
 import { errorMessagesMap } from './errorMessages';
 import { getDates } from './getDates';
 import { pickErrorMessage } from './pickErrorMessage';

@@ -1,12 +1,11 @@
 import * as React from 'react';
 
-import { InputType } from '@app/features/common/form';
-import Form from '@app/features/common/form/components/Form/Form';
-import Input from '@app/features/common/form/components/Input';
-import OpenModalButton from '@app/features/login/atoms/OpenModalButton';
-import { SPACE } from '@app/lib/config';
-import { Button } from '@app/ui/button';
-
+import { InputType } from './node_modules/@app/features/common/form';
+import Form from './node_modules/@app/features/common/form/components/Form/Form';
+import Input from './node_modules/@app/features/common/form/components/Input';
+import OpenModalButton from './node_modules/@app/features/login/atoms/OpenModalButton';
+import { SPACE } from './node_modules/@app/src/lib/config';
+import { Button } from './node_modules/@app/ui/button';
 import { schema } from '../../container';
 import { isClientConsultationUrl } from './config';
 import * as styles from './SignIn.css';

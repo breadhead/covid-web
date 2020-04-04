@@ -1,8 +1,7 @@
 import React from 'react';
 import { head } from 'lodash';
 
-import { DateInterface } from '@app/lib/helpers/validateDates';
-
+import { DateInterface } from './node_modules/@app/src/lib/helpers/validateDates';
 import ValidationTooltip from '../ValidationTooltip';
 import { validationCb } from './validationCb';
 

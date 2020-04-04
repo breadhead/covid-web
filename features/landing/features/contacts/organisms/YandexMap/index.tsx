@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { Map, Placemark, YMaps } from 'react-yandex-maps';
 
-import { NON_BREAKING_SPACE } from '@app/lib/config';
-
-import { NavLink } from '@app/ui/nav-link';
-
+import { Map, Placemark, YMaps } from './node_modules/react-yandex-maps';
+import { NON_BREAKING_SPACE } from './node_modules/@app/src/lib/config';
+import { NavLink } from './node_modules/@app/ui/nav-link';
 import * as styles from './YandexMap.css';
 
 const LAT = 59.94416343318767;

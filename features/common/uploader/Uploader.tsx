@@ -3,12 +3,11 @@ import { head } from 'lodash';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { useMappedState } from 'redux-react-hook';
 
-import { getToken } from '@app/features/login';
-import factory from '@app/lib/api/apiFactory';
-import { getPreviewLink } from '@app/src/helpers/getPreviewLink';
-import { Button, ButtonKind } from '@app/ui/button';
-import { NavLink } from '@app/ui/nav-link';
-
+import { getToken } from './node_modules/@app/features/login';
+import factory from './node_modules/@app/src/lib/api/apiFactory';
+import { getPreviewLink } from './node_modules/@app/src/helpers/getPreviewLink';
+import { Button, ButtonKind } from './node_modules/@app/ui/button';
+import { NavLink } from './node_modules/@app/ui/nav-link';
 import ProgressBar from './atoms/ProgressBar';
 import { displayFileName } from './displayFileName';
 import * as styles from './Uploader.css';

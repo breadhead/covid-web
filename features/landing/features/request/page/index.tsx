@@ -1,9 +1,8 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-import { MainLayout } from '@app/features/common/layout';
-import { AppContext } from '@app/lib/server-types';
-
+import { MainLayout } from './node_modules/@app/features/common/layout';
+import { AppContext } from './node_modules/@app/src/lib/server-types';
 import * as styles from './Request.css';
 import { Notification } from '../molecules/Notification';
 import { RequestForm } from '../organisms/RequestForm';

@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 
-import ApiClient from '@app/lib/api/ApiClient';
+import ApiClient from './node_modules/@app/src/lib/api/ApiClient';
 
 const getCookieExpiration = () =>
   new Date(

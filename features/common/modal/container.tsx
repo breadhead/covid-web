@@ -6,8 +6,7 @@ import { compose } from 'recompose';
 import { Action, AnyAction, Dispatch } from 'redux';
 import withLockScroll from '@breadhead/with-scroll-lock';
 
-import { State } from '@app/lib/store';
-
+import { State } from './node_modules/@app/src/lib/store';
 import CloseButton from './atoms/CloseButton';
 import { ModalDispatcher } from './helpers/ModalDispatcher';
 import { shouldOpenModal } from './helpers/shouldModalOpen';

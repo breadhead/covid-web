@@ -7,13 +7,12 @@ export { reducer } from './reducer';
 export type { State } from './reducer';
 export { getFound } from './selectors';
 
-import StartConsultationButton from '@app/features/landing/features/home/molecules/StartConsultationButton';
-import { NON_BREAKING_SPACE } from '@app/lib/config';
-import { Button, ButtonKind, ButtonSize } from '@app/ui/button';
-import { Icon } from '@app/ui/icon';
-import { NavLink } from '@app/ui/nav-link';
-import { IconsList } from '@app/ui/sprite';
-
+import StartConsultationButton from './node_modules/@app/features/landing/features/home/molecules/StartConsultationButton';
+import { NON_BREAKING_SPACE } from './node_modules/@app/src/lib/config';
+import { Button, ButtonKind, ButtonSize } from './node_modules/@app/ui/button';
+import { Icon } from './node_modules/@app/ui/icon';
+import { NavLink } from './node_modules/@app/ui/nav-link';
+import { IconsList } from './node_modules/@app/ui/sprite';
 import * as styles from './NotFound.css';
 
 const NotFound = () => (

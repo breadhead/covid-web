@@ -5,7 +5,7 @@ import {
   createInitialState,
   FetchingActions,
   FetchingState,
-} from '@app/lib/symbioteFactory';
+} from './node_modules/@app/src/lib/symbioteFactory';
 
 interface State extends FetchingState {
   token: string;

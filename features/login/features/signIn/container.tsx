@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import { AnyAction, compose, Dispatch } from 'redux';
 import * as yup from 'yup';
 
-import { State } from '@app/lib/store';
-import { isModal } from '@app/features/common/modal';
-
+import { State } from './node_modules/@app/src/lib/store';
+import { isModal } from './node_modules/@app/features/common/modal';
 import withSignUpModal, { WithSignUpModal } from '../signUp/withSignUpModal';
 import { loginAction } from './actions';
 import { MODAL_KEY } from './const';

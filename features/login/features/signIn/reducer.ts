@@ -5,7 +5,7 @@ import {
   createInitialState,
   FetchingActions,
   FetchingState,
-} from '@app/lib/symbioteFactory';
+} from './node_modules/@app/src/lib/symbioteFactory';
 
 export interface SignInErrorFields {
   password?: boolean;

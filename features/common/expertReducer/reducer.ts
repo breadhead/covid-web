@@ -1,12 +1,12 @@
 import { Action } from 'redux';
 
-import { Expert } from '@app/models/sanity/Expert';
+import { Expert } from './node_modules/@app/models/sanity/Expert';
 import {
   createFetchingSymbiote,
   createInitialState,
   FetchingActions,
   FetchingState,
-} from '@app/lib/symbioteFactory';
+} from './node_modules/@app/src/lib/symbioteFactory';
 
 interface State extends FetchingState {
   list: Expert[];

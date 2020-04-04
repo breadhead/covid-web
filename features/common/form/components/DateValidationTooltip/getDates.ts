@@ -1,6 +1,6 @@
 import { get } from 'lodash';
 
-import { DateInterface } from '@app/lib/helpers/validateDates';
+import { DateInterface } from './node_modules/@app/src/lib/helpers/validateDates';
 
 export const getDates = (paths: DateInterface[], values: any) =>
   paths.map((path) => ({

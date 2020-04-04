@@ -1,4 +1,4 @@
-import { ErrorCode } from '@app/lib/helpers/validateDates';
+import { ErrorCode } from './node_modules/@app/src/lib/helpers/validateDates';
 
 const errorMessagesMap = {
   [ErrorCode.MixedDateOrder]:

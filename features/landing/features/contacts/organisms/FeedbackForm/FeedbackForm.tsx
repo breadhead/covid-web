@@ -2,10 +2,13 @@ import * as React from 'react';
 import { useMemo } from 'react';
 import * as yup from 'yup';
 
-import { Form, Input, TextArea } from '@app/features/common/form';
-import { SendFeedbackRequest } from '@app/lib/api/request/SendFeedback';
-import { Button, ButtonSize } from '@app/ui/button';
-
+import {
+  Form,
+  Input,
+  TextArea,
+} from './node_modules/@app/features/common/form';
+import { SendFeedbackRequest } from './node_modules/@app/src/lib/api/request/SendFeedback';
+import { Button, ButtonSize } from './node_modules/@app/ui/button';
 import * as styles from './FeedbackForm.css';
 
 const REQUIRED = 'Обязательное поле';

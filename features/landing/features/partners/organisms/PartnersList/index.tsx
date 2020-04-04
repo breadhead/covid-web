@@ -2,12 +2,11 @@ import { SelectValue } from 'antd/lib/select';
 import React, { useState } from 'react';
 import { useMappedState } from 'redux-react-hook';
 
-import { selectPartnersForPartnerPage } from '@app/features/common/partnerReducer/selectPartners';
-import PartnerCard from '@app/features/landing/organisms/PartnerCard';
-import { NON_BREAKING_SPACE } from '@app/lib/config';
+import { selectPartnersForPartnerPage } from './node_modules/@app/features/common/partnerReducer/selectPartners';
+import PartnerCard from './node_modules/@app/features/landing/organisms/PartnerCard';
+import { NON_BREAKING_SPACE } from './node_modules/@app/src/lib/config';
 // import { Partner } from '@app/models/sanity/Partner';
-import routes from '@app/routes';
-
+import routes from './node_modules/@app/routes';
 import PartnersGroupSelect from '../../molecules/PartnersGroupSelect';
 import PartnersRadioGroup from '../../molecules/PartnersRadioGroup';
 import { PartnersType } from './config';

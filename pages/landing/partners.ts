@@ -1,1 +1,1 @@
-export { Partners as default } from '@app/features/landing';
+export { Partners as default } from '@app/src/features/landing';

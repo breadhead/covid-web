@@ -1,14 +1,13 @@
 import { Dispatch } from 'redux';
 
-import { actions as modalActions } from '@app/features/common/modal';
-import { setCookie } from '@app/features/login/features/signIn/helpers/setAuthToken';
+import { actions as modalActions } from './node_modules/@app/features/common/modal';
+import { setCookie } from './node_modules/@app/features/login/features/signIn/helpers/setAuthToken';
 import {
   actions as userActions,
   currentUser,
-} from '@app/features/login/features/user';
-import { ExtraArgs, State } from '@app/lib/store';
-import { updateRequestFormData } from '@app/features/landing/features/request/reducer/actions';
-
+} from './node_modules/@app/features/login/features/user';
+import { ExtraArgs, State } from './node_modules/@app/src/lib/store';
+import { updateRequestFormData } from './node_modules/@app/features/landing/features/request/reducer/actions';
 import { actions } from './reducer';
 import { showIntercom } from '../../../landing/features/request-chat/showIntercom';
 import {

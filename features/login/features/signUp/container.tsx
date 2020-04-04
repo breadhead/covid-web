@@ -2,12 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { AnyAction, compose, Dispatch } from 'redux';
 
-import { signUp } from '@app/features/login/features/signUp/actions';
-import { SignUpError } from '@app/features/login/features/signUp/reducer';
-import { getSignUpError } from '@app/features/login/features/signUp/selectors';
-import { State } from '@app/lib/store';
-import { isModal } from '@app/features/common/modal';
-
+import { signUp } from './node_modules/@app/features/login/features/signUp/actions';
+import { SignUpError } from './node_modules/@app/features/login/features/signUp/reducer';
+import { getSignUpError } from './node_modules/@app/features/login/features/signUp/selectors';
+import { State } from './node_modules/@app/src/lib/store';
+import { isModal } from './node_modules/@app/features/common/modal';
 import { withSignInModal } from '../signIn';
 import { MODAL_KEY } from './const';
 export { MODAL_KEY };

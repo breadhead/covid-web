@@ -1,13 +1,13 @@
 import { Action } from 'redux';
 
-import { Partner } from '@app/models/sanity/Partner';
-import { PageType } from '@app/features/landing/features/partners/organisms/PartnersList/config';
+import { Partner } from './node_modules/@app/models/sanity/Partner';
+import { PageType } from './node_modules/@app/features/landing/features/partners/organisms/PartnersList/config';
 import {
   createFetchingSymbiote,
   createInitialState,
   FetchingActions,
   FetchingState,
-} from '@app/lib/symbioteFactory';
+} from './node_modules/@app/src/lib/symbioteFactory';
 
 interface State extends FetchingState {
   list: Partner[];
