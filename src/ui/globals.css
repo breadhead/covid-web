@@ -11,6 +11,19 @@
   }
 }
 
+.gl-wrapper--narrow {
+  max-width: 768px;
+  margin: 0 auto;
+
+  @media (max-width: 832px) {
+    padding: 0 16px 0;
+  }
+
+  @media (max-width: 767px) {
+    max-width: none;
+  }
+}
+
 .gl-section {
   padding-bottom: 96px;
   @media (max-width: 767px) {

@@ -6,6 +6,7 @@ import * as commonStyles from '@app/src/features/common/form/commonStyles.css';
 import { ButtonSize, Button } from '@app/src/ui/button';
 import { SubmitTooltip } from '@app/src/features/common/form/components/SubmitTooltip';
 
+import * as styles from './BecomePartnerForm.css';
 import { formConfig } from './formConfig';
 
 export const BecomePartnerForm = () => {
@@ -18,6 +19,7 @@ export const BecomePartnerForm = () => {
   return (
     <FormConstructor
       resetAfterSubmit
+      className={styles.wrapper}
       options={formConfig}
       onSubmit={onSubmit}
       saveDraft={console.log}
