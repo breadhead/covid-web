@@ -1,5 +1,10 @@
 .donation {
   padding: 64px 0 96px;
+  background-color: var(--background-system);
+
+  @media (--smallDown) {
+    padding: 40px 16px 56px;
+  }
 }
 
 .title {
@@ -17,5 +22,9 @@
 
 .content {
   display: flex;
+ 
   
+  @media (--smallDown) {
+    flex-direction: column;
+  }
 }
