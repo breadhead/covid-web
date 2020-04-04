@@ -14,7 +14,9 @@ export const SystemMain = () => {
   return (
     <SystemLayout>
       <SystemHero />
-      <SystemHelp />
+      <div className="gl-wrapper gl-first-section gl-section">
+        <SystemHelp />
+      </div>
       <SystemAbout />
       <div className="gl-wrapper gl-section">
         <PartnersList />

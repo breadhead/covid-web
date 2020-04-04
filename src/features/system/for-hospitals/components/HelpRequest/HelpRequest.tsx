@@ -2,18 +2,18 @@ import * as React from 'react';
 import cx from 'classnames';
 import { useDispatch } from 'redux-react-hook';
 
-import { HospitalAidForm } from '@app/src/features/system/for-clinics/components/form/HospitalAidForm';
-import { saveForClinicsForm } from '@app/src/domain/reducers/requestConsultationReducer/actions';
+import { saveForHospitalsForm } from '@app/src/domain/reducers/requestConsultationReducer/actions';
 import { useThunk } from '@app/src/helpers/hooks/useThunk';
 
 import s from './HelpRequest.css';
+import { HospitalAidForm } from '../form/HospitalAidForm';
 interface HelpRequestProps {}
 
 export const HelpRequest = ({}: HelpRequestProps) => {
   const dispatch = useThunk();
   const [submitted, setSubmitted] = React.useState(false);
   const onSubmit = (data: any) =>
-    dispatch(saveForClinicsForm(data)).then(() => setSubmitted(true));
+    dispatch(saveForHospitalsForm(data)).then(() => setSubmitted(true));
 
   return (
     <div className={s.helpRequest}>

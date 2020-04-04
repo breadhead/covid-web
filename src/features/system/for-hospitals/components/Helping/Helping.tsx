@@ -7,14 +7,14 @@ export const Helping = () => (
   <div>
     <h2 className="gl-sectionTitle">Уже помогаем</h2>
     <div className={s.list}>
-      {helpingClinics.map((clinic) => (
+      {helpingHospitals.map((clinic) => (
         <ClinicCard key={clinic.name} clinic={clinic} />
       ))}
     </div>
   </div>
 );
 
-const helpingClinics = [
+const helpingHospitals = [
   {
     logo: '/static/images/clinic-example.png',
     name: 'Городская больница Святого Великомученика Георгия',

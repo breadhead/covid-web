@@ -3,9 +3,9 @@ import cx from 'classnames';
 
 import { NavLink } from '@app/src/ui/nav-link';
 
-import s from './ForClinicsHero.css';
+import s from './Hero.css';
 
-export const ForClinicsHero = () => (
+export const ForHospitalsHero = () => (
   <div>
     <h1 className="gl-pageTitle">Помощь больницам</h1>
     <div className={cx('gl-text', s.description)}>
