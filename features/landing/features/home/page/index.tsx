@@ -6,6 +6,7 @@ import Header from '@app/features/main/layout/organisms/Header';
 import { Divider } from '@app/src/ui/divider/Divider';
 import { AppContext } from '@app/lib/server-types';
 import { getPartnersFromSanity } from '@app/features/common/partnerReducer';
+import { getExpertsFromSanity } from '@app/features/common/expertReducer';
 
 import * as styles from './Home.css';
 import Corporate from '../organisms/Corporate';
@@ -50,7 +51,10 @@ const LandingPage = () => {
 };
 
 LandingPage.getInitialProps = async (context: AppContext) => {
-  await context.reduxStore.dispatch(getPartnersFromSanity() as any);
+  await Promise.all([
+    context.reduxStore.dispatch(getPartnersFromSanity() as any),
+    context.reduxStore.dispatch(getExpertsFromSanity() as any),
+  ]);
 
   return {};
 };

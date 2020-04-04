@@ -1,6 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
 import { User } from '@app/models/Users/User';
+import { Expert } from '@app/models/sanity/Expert';
 
 import ApiClient, { UploadedFile } from './ApiClient';
 import { queryString } from './helper/queryString';
@@ -107,6 +108,12 @@ export default class RealApiClient implements ApiClient {
 
   public getPartners = () => {
     return sanityClient.fetch(`*[_type == "partner"]`, {
+      active: true,
+    });
+  };
+
+  public getExperts = () => {
+    return sanityClient.fetch(`*[_type == "expert"]`, {
       active: true,
     });
   };

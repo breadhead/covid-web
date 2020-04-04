@@ -38,9 +38,13 @@ import {
   State as BrowserQueryState,
 } from '@app/features/common/browserQuery';
 import {
-  reducer as PartnersReducer,
-  State as PartnersState,
+  reducer as partnerReducer,
+  State as PartnerState,
 } from '@app/features/common/partnerReducer/reducer';
+import {
+  reducer as expertReducer,
+  State as ExpertState,
+} from '@app/features/common/expertReducer/reducer';
 
 import ApiClient from './api/ApiClient';
 import factory from './api/apiFactory';
@@ -52,7 +56,8 @@ export interface State {
   notFound: NotFoundState;
   login: LoginState;
   requestForm: RequestFormReducerState;
-  partners: PartnersState;
+  partners: PartnerState;
+  experts: ExpertState;
 }
 
 const reducer = combineReducers({
@@ -63,7 +68,8 @@ const reducer = combineReducers({
   [REDUCER_KEY]: windowSize,
   feedback: sendFeedbackReducer,
   notFound: notFoundReducer,
-  partners: PartnersReducer,
+  partners: partnerReducer,
+  experts: expertReducer,
 } as any);
 
 export interface ExtraArgs {

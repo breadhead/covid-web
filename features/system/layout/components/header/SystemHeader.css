@@ -1,0 +1,33 @@
+.headerWrapper {
+  display: flex;
+  align-items: center;
+
+  @media (--mediumDown) {
+    justify-content: space-between;
+    padding: 6px;
+  }
+}
+
+.iconWrapper {
+  margin-left: 16px;
+  margin-right: 32px;
+  width: 156px;
+  height: 36px;
+
+  @media (--mediumDown) {
+    margin-left: 0;
+  }
+}
+
+.navContainer {
+  width: 100%;
+}
+
+.donationMobileLink {
+  color: var(--color-primary);
+  margin-right: 24px;
+}
+
+.mobileMenuContainer {
+  display: flex;
+}
