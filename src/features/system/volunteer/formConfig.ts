@@ -28,7 +28,7 @@ export const formConfig = (styles) => ({
       type: FormComponentType.Input,
       required: true,
       label: {
-        text: 'Эл. Поч',
+        text: 'Эл. почта',
       },
       props: {
         name: 'email',
