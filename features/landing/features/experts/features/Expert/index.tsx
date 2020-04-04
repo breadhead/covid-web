@@ -1,32 +1,32 @@
 import * as React from 'react';
+import { useMappedState } from 'redux-react-hook';
 
 import { AppContext } from '@app/lib/server-types';
+import { getExpertsFromSanity } from '@app/features/common/expertReducer';
+import { selectExperts } from '@app/features/common/expertReducer/selectExperts';
 
-import { experts } from '../../config';
 import ExpertPage from './page';
 
 interface Props {
-  expert: any;
+  id: string;
 }
 
 interface Query {
   id: string;
 }
 
-class Expert extends React.Component<Partial<Props>> {
-  public static getInitialProps({ query }: AppContext<Query>) {
-    const { id } = query;
+const Expert = ({ id }: Props) => {
+  const experts = useMappedState(selectExperts);
+  const expert = experts.find((e) => e.code.current === id);
 
-    const expert = experts.find((e) => e.id === id);
+  return !!expert ? <ExpertPage expert={expert} /> : '';
+};
 
-    return { expert };
-  }
+Expert.getInitialProps = async (context: AppContext<Query>) => {
+  await context.reduxStore.dispatch(getExpertsFromSanity() as any);
+  const id = context.query.id;
 
-  public render() {
-    const { expert } = this.props;
-
-    return !!expert ? <ExpertPage expert={expert} /> : null;
-  }
-}
+  return { id };
+};
 
 export default Expert;

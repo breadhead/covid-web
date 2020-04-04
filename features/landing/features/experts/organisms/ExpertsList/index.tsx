@@ -1,14 +1,19 @@
 import * as React from 'react';
 
+import { Expert } from '@app/models/sanity/Expert';
+
 import * as styles from './ExpertsList.css';
 import ExpertCard from '../ExpertCard';
-import { experts } from '../../config';
 
-const ExpertsList = () => {
+interface Props {
+  experts: Expert[];
+}
+
+const ExpertsList = ({ experts }: Props) => {
   return (
     <section className={styles.expertsList}>
       {experts.map((expert) => (
-        <ExpertCard key={expert.id} expert={expert} />
+        <ExpertCard key={expert._id} expert={expert} />
       ))}
     </section>
   );
