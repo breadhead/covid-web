@@ -13,45 +13,44 @@ import { Button, ButtonKind, ButtonSize } from '@app/src/ui/button';
 import { Icon } from '@app/src/ui/icon';
 import { NavLink } from '@app/src/ui/nav-link';
 import { IconsList } from '@app/src/ui/sprite';
+import {
+  SystemButton,
+  SystemButtonSize,
+  SystemButtonKind,
+} from '@app/src/ui/systemButton ';
 
 import * as styles from './NotFound.css';
+import { SystemLayout } from '../../system/layout';
 
 const NotFound = () => (
   <>
     <Head>
       <title>Такой страницы не существует | Просто спросить</title>
     </Head>
-    <NavLink href="/" withoutUnderline>
-      <Icon
-        className={cx(styles.desktopLogo, styles.logo)}
-        name={IconsList.LogoFull}
-      />
-      <Icon
-        className={cx(styles.mobileLogo, styles.logo)}
-        name={IconsList.LogoShort}
-      />
-    </NavLink>
-    <div className={styles.container}>
-      <img
-        className={styles.image}
-        src="/static/images/404.png"
-        alt="Такой страницы не существует"
-      />
-      <p className={styles.text}>404 ошибка</p>
-      <h1 className={styles.title}>
-        Такой страницы не{NON_BREAKING_SPACE}существует
-      </h1>
-      <div className={styles.buttons}>
-        <NavLink className={styles.buttonMain} href="/" withoutUnderline>
-          <Button size={ButtonSize.Large} kind={ButtonKind.Secondary}>
-            Перейти на главную
-          </Button>
-        </NavLink>
-        <StartConsultationButton size={ButtonSize.Large}>
-          Начать консультацию
-        </StartConsultationButton>
+
+    <SystemLayout withoutFooter>
+      <div className={styles.container}>
+        <img
+          className={styles.image}
+          src="/static/images/404.png"
+          alt="Такой страницы не существует"
+        />
+        <p className={styles.text}>404 ошибка</p>
+        <h1 className={styles.title}>
+          Такой страницы не{NON_BREAKING_SPACE}существует
+        </h1>
+        <div className={styles.buttons}>
+          <NavLink className={styles.buttonMain} href="/" withoutUnderline>
+            <SystemButton
+              size={SystemButtonSize.Large}
+              kind={SystemButtonKind.Secondary}
+            >
+              Перейти на главную
+            </SystemButton>
+          </NavLink>
+        </div>
       </div>
-    </div>
+    </SystemLayout>
   </>
 );
 
