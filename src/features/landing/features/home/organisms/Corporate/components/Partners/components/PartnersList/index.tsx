@@ -24,11 +24,7 @@ const PartnersList = () => {
         >
           <button className={styles.addPartnerButton} />
         </NavLink>
-        <p className={styles.buttonLabel}>
-          Стать нашим
-          <br />
-          партнёром
-        </p>
+        <p className={styles.buttonLabel}>Стать партнёром</p>
       </div>
     </section>
   );

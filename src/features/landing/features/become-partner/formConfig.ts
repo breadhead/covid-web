@@ -3,19 +3,15 @@ import { FormComponentType } from '@app/src/features/common/form/FormConstructor
 
 const themeOptions = [
   {
-    key: 'become-partner',
     label: 'Стать партнёром',
   },
   {
-    key: 'become-infopartner',
     label: 'Стать инфопартнером',
   },
   {
-    key: 'volunteer-fundraising',
     label: 'Волонтёрский фандрайзинг',
   },
   {
-    key: 'lecture-request',
     label: 'Заказать лекцию',
   },
 ];
@@ -48,7 +44,7 @@ export const formConfig = {
         text: 'Почта',
       },
       props: {
-        name: 'Email',
+        name: 'email',
         type: InputType.Email,
       },
     },

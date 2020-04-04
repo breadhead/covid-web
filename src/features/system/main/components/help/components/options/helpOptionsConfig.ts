@@ -17,7 +17,7 @@ export const options = [
         id: '20',
         type: HelpItemType.Link,
         label: 'Стать волонтером',
-        link: '/#donation',
+        link: '/help-volunteers',
       },
       {
         id: '30',
