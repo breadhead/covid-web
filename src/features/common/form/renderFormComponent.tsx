@@ -65,7 +65,8 @@ const getFormComponent = (type: FormComponentType, props: any) => {
     case FormComponentType.ValidationTooltip:
       return <ValidationTooltip {...props} />;
     case FormComponentType.Label:
-      return <label {...props}>{props.text}</label>;
+      const asterisk = props.required ? '*' : '';
+      return <label {...props}>{`${props.text}${asterisk}`}</label>;
     default:
       return <></>;
   }
@@ -79,6 +80,8 @@ export const renderFormComponent = (
     props.validate = (props.validate || yup.mixed()).required(REQUIRED_MESSAGE);
   }
 
+  debugger;
+
   return (
     <React.Fragment key={key}>
       {label &&
@@ -87,6 +90,7 @@ export const renderFormComponent = (
           ...label.props,
           text: label.text,
           htmlFor: props ? props.name : '',
+          required: required,
         })}
       {getFormComponent(type, { className: styles.field, ...props })}
     </React.Fragment>
