@@ -1,5 +1,9 @@
 .about {
   padding: 64px 0 96px;
+
+  @media (--smallDown) {
+    padding: 40px 16px 24px;
+  }
 }
 
 .title {
@@ -32,10 +36,21 @@
   & a {
     color: var(--color-primary);
   }
+
+
+  @media (--smallDown) {
+   margin-bottom: 24px;
+  }
 }
 
 .features {
   display: flex;
+
+
+  @media (--smallDown) {
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
 }
 
 .feature {
@@ -47,6 +62,17 @@
 
   &:last-child {
     margin-right: 0;
+  }
+
+  @media (--smallDown) {
+    padding: 12px 12px 12px 20px;
+    margin-right: 0;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  
   }
 }
 

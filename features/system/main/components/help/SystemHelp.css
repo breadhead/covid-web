@@ -2,7 +2,7 @@
   padding: 64px 0 32px;
 
   @media (--smallDown) {
-    padding: 40px 16px 56px;
+    padding: 40px 16px 24px;
   }
 }
 
