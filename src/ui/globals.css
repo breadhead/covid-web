@@ -1,7 +1,11 @@
 .gl-wrapper {
   max-width: 928px;
   margin: 0 auto;
-  padding: 0 16px 0;
+  
+  
+  @media (--mediumSecondDown) {
+    padding: 0 16px 0;
+  }
 
   @media (--smallDown) {
     max-width: none;
@@ -67,14 +71,4 @@
     font-size: 32px;
     line-height: 36px;
   }
-}
-
-.gl-bubble {
-  width: 288px;
-  border-radius: 20px 20px 20px 0px;
-  background-color: #ffeab7;
-
-  padding: 24px 12px 20px 20px;
-
-  flex-shrink: 0;
 }

@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { AppContext } from '@app/src/lib/server-types';
 import { getPartnersFromSanity } from '@app/src/domain/reducers/partnerReducer';
+import PartnersList from '@app/src/features/landing/features/home/organisms/Corporate/components/Partners/components/PartnersList';
 
 import { SystemLayout } from '../layout/SystemLayout';
 import { SystemHero } from './components/hero';
@@ -13,11 +14,11 @@ export const SystemMain = () => {
   return (
     <SystemLayout>
       <SystemHero />
-      <section className="gl-wrapper gl-section gl-first-section">
-        <SystemHelp />
-        <SystemAbout />
-      </section>
+      <SystemHelp />
       <SystemAbout />
+      <div className="gl-wrapper gl-section">
+        <PartnersList />
+      </div>
       <SystemDonation />
     </SystemLayout>
   );

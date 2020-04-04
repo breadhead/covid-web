@@ -6,10 +6,12 @@ import { HelpFooter } from './components/help-footer';
 
 export const SystemHelp = () => {
   return (
-    <div>
-      <h2 className="gl-sectionTitle">Как помочь</h2>
-      <HelpOptions />
-      <HelpFooter />
-    </div>
+    <section className={styles.systemHelp}>
+      <div className="gl-wrapper gl-first-section gl-section">
+        <h2 className="gl-sectionTitle">Как помочь</h2>
+        <HelpOptions />
+        <HelpFooter />
+      </div>
+    </section>
   );
 };

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { NavLink } from '@app/src/ui/nav-link';
-import MediaQuery, { Query } from '@app/ui/MediaQuery';
-import NavIcon from '@app/ui/organisms/Footer/components/NavIcon';
+import MediaQuery, { Query } from '@app/src/ui/MediaQuery';
+import NavIcon from '@app/src/ui/organisms/Footer/components/NavIcon';
 
 import * as styles from './SystemFooterMenu.css';
 import { linksShort, linksLong } from './systemFooterLinks';
