@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-import { MainLayout } from '@app/features/main/layout';
+import { MainLayout } from '@app/features/common/layout';
 
-import { HospitalAidForm } from '../HospitalAidForm';
+import { HospitalAidForm } from '../../../../system/for-clinics/components/form/HospitalAidForm';
 import * as styles from './HospitalAidPage.css';
 
 export const HospitalAidPage = () => {

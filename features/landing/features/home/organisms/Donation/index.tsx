@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import DonationWidget from '@app/features/main/donation';
+import DonationWidget from '@app/features/common/donation';
 
 import * as styles from './Donation.css';
 import DonationInfo from '../Info';

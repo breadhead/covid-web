@@ -1,11 +1,11 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import { SystemLayout } from '../../layout';
+import { SystemLayout } from '../../../layout';
 import { ForClinicsHero } from '../ForClinicsHero/ForClinicsHero';
 import { Helping } from '../Helping/Helping';
 import { HelpRequest } from '../HelpRequest/HelpRequest';
-import { SystemHelp } from '../../main/components/help';
+import { SystemHelp } from '../../../main/components/help';
 import s from './ForClinics.css';
 import { Partners } from '../Partners/Partners';
 

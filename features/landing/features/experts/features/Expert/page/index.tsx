@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { MainLayout } from '@app/features/main/layout';
+import { MainLayout } from '@app/features/common/layout';
 import { Expert as ExpertModel } from '@app/models/sanity/Expert';
 import { getImageSrc } from '@app/lib/useImageSrc/getImageSrc';
 

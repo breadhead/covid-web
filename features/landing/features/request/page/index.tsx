@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-import { MainLayout } from '@app/features/main/layout';
+import { MainLayout } from '@app/features/common/layout';
 import { AppContext } from '@app/lib/server-types';
 
 import * as styles from './Request.css';

@@ -16,13 +16,13 @@ import Modal from '@app/features/common/modal';
 import { Analytics } from '@app/features/common/analytics';
 import { Intercom } from '@app/features/common/intercom';
 import { setToken } from '@app/features/login';
-import NotFound, { getFound } from '@app/features/main/notFound';
+import NotFound, { getFound } from '@app/features/common/notFound';
 import { canUseDOM } from '@app/lib/helpers/canUseDOM';
 import registerModals from '@app/lib/register-modals';
 import { AppContext } from '@app/lib/server-types';
 import { resetCookie } from '@app/features/login/features/signIn/helpers/setAuthToken';
 import { currentUser, getToken } from '@app/features/login/features/user';
-import { pushRoute } from '@app/features/routing/pushRoute';
+import { pushRoute } from '@app/lib/routing/pushRoute';
 import { updateRequestFormData } from '@app/features/landing/features/request/reducer/actions';
 import { normalizeWantTo } from '@app/src/helpers/normalizeWantTo';
 

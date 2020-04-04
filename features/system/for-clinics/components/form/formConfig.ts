@@ -41,6 +41,7 @@ export const formConfig = {
       },
       props: {
         name: 'phone',
+        placeholder: '+7',
       },
     },
     {

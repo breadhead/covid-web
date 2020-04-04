@@ -35,7 +35,7 @@ export const SystemNavigation = ({ className, hide }: Props) => (
       </NavLink>
       <NavLink
         withoutUnderline
-        href="/clinics"
+        href="/for-clinics"
         className={cx(styles.mainLink, styles.link)}
       >
         Помощь больницам

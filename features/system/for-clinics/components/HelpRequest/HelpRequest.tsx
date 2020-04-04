@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import { HospitalAidForm } from '@app/features/landing/features/hospital-aid/HospitalAidForm';
+import { HospitalAidForm } from '@app/features/system/for-clinics/components/form/HospitalAidForm';
 
 import s from './HelpRequest.css';
 interface HelpRequestProps {}

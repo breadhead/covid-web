@@ -2,7 +2,7 @@ import * as React from 'react';
 import cx from 'classnames';
 
 import LogoClient from '@app/ui/LogoClient';
-import { CLientMenu } from '@app/features/main/layout/organisms/Header/organisms/ClientMenu';
+import { CLientMenu } from '@app/features/common/layout/organisms/Header/organisms/ClientMenu';
 
 import * as styles from './Header.css';
 

@@ -1,1 +1,1 @@
-export { ForClinics } from './ForClinics/ForClinics';
+export { ForClinics } from './components/ForClinics/ForClinics';

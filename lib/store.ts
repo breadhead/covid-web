@@ -14,7 +14,7 @@ import {
   notFoundMiddleware,
   reducer as notFoundReducer,
   State as NotFoundState,
-} from '@app/features/main/notFound';
+} from '@app/features/common/notFound';
 import {
   reducer as modalReducer,
   State as ModalState,

@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from 'react';
 
 import Overlay from '@app/ui/Overlay';
-import BurgerButton from '@app/features/main/layout/organisms/Header/atoms/BurgerButton';
-import { TransitionMenu } from '@app/features/main/layout/organisms/Header/organisms/Menu/TransitionMenu';
+import BurgerButton from '@app/features/common/layout/organisms/Header/atoms/BurgerButton';
+import { TransitionMenu } from '@app/features/common/layout/organisms/Header/organisms/Menu/TransitionMenu';
 
 import { SystemNavigation } from '../navigation';
 
