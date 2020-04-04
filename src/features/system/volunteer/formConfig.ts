@@ -4,6 +4,8 @@ import * as yup from 'yup';
 import { FormComponentType } from '@app/src/features/common/form/FormConstructor';
 import { RadioButtonStyles } from '@app/src/ui/RadioGroup';
 
+const OTHER_SPECIALITY = 'Другое';
+
 const professionOptions = [
   {
     value: 'Врач-инфекционист',
@@ -18,7 +20,7 @@ const professionOptions = [
     value: 'Ординатор-терапевт',
   },
   {
-    value: 'Врач другой специальности',
+    value: OTHER_SPECIALITY,
   },
 ];
 
@@ -28,7 +30,7 @@ export const formConfig = (styles) => ({
       type: FormComponentType.Input,
       required: true,
       label: {
-        text: 'Email',
+        text: 'Эл. почта',
       },
       props: {
         name: 'email',
@@ -48,6 +50,8 @@ export const formConfig = (styles) => ({
     },
     {
       type: FormComponentType.PhoneInput,
+      required: true,
+
       label: {
         text: 'Ваш телефон',
       },
@@ -91,6 +95,18 @@ export const formConfig = (styles) => ({
     },
     {
       type: FormComponentType.Input,
+      required: true,
+      label: {
+        text: 'Уточните вашу профессию',
+      },
+      condition: (values) => values.profession === OTHER_SPECIALITY,
+
+      props: {
+        name: 'otherProffession',
+      },
+    },
+    {
+      type: FormComponentType.TextArea,
       required: true,
       label: {
         text: 'Чем вы готовы помочь?',

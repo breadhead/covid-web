@@ -1,7 +1,8 @@
 .error {
   position: relative;
   z-index: 5;
-  margin-top: 4px;
+  margin-top: -8px;
+  margin-bottom: 12px;
   font: var(--text14-20);
   color: var(--color-danger);
 }
