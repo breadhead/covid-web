@@ -10,6 +10,7 @@
   position: relative;
   width: calc(100% / 3);
   display: flex;
+  white-space: normal;
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid rgba(21, 24, 51, 0.04);
