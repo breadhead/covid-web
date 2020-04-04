@@ -112,9 +112,9 @@ export default class RealApiClient implements ApiClient {
     });
   };
 
-  public getExperts(): Promise<Expert[]> {
+  public getExperts = () => {
     return sanityClient.fetch(`*[_type == "expert"]`, {
       active: true,
     });
-  }
+  };
 }

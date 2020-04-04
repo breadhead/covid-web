@@ -3,10 +3,9 @@ import * as React from 'react';
 import { useMappedState } from 'redux-react-hook';
 
 import { MainLayout } from '@app/features/main/layout';
-import { selectExperts } from '@app/features/common/expertReducer/selectPartners';
 import { AppContext } from '@app/lib/server-types';
-import { getPartnersFromSanity } from '@app/features/common/partnerReducer';
 import { getExpertsFromSanity } from '@app/features/common/expertReducer';
+import { selectExperts } from '@app/features/common/expertReducer/selectExperts';
 
 import * as styles from './AllExperts.css';
 import ExpertsList from '../../organisms/ExpertsList';
@@ -26,10 +25,7 @@ const AllExperts = () => {
 };
 
 AllExperts.getInitialProps = async (context: AppContext) => {
-  await Promise.all([
-    context.reduxStore.dispatch(getPartnersFromSanity() as any),
-    context.reduxStore.dispatch(getExpertsFromSanity() as any),
-  ]);
+  await context.reduxStore.dispatch(getExpertsFromSanity() as any);
 
   return {};
 };

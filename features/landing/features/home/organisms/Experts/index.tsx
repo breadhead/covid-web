@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useMappedState } from 'redux-react-hook';
 
-import { selectExperts } from '@app/features/common/expertReducer/selectPartners';
+import { selectExperts } from '@app/features/common/expertReducer/selectExperts';
 
 import { NavLink } from '@front/ui/nav-link';
 
