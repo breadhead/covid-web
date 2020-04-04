@@ -4,6 +4,7 @@
   max-width: 928px;
   padding: 64px 0 120px;
   text-align: left;
+  background-color: #fff;
 
   &::after {
     position: absolute;
