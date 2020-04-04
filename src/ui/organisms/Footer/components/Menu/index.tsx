@@ -17,7 +17,7 @@ const linksLong = [
   { title: 'Контакты', href: '/contacts' },
   { title: 'Помочь проекту', href: '#donation' },
   { title: 'Обратная связь', href: '/contacts' },
-  { title: 'Эксперты', href: '/experts' },
+  { title: 'Эксперты', href: 'ask/experts' },
 ];
 
 interface Props {
