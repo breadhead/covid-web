@@ -1,20 +1,19 @@
 .gl-wrapper {
   max-width: 928px;
   margin: 0 auto;
-  
-  
-  @media (--mediumSecondDown) {
+
+  @media (max-width: 832px) {
     padding: 0 16px 0;
   }
 
-  @media (--smallDown) {
+  @media (max-width: 767px) {
     max-width: none;
   }
 }
 
 .gl-section {
   padding-bottom: 96px;
-  @media (--smallDown) {
+  @media (max-width: 767px) {
     width: 100%;
     padding-bottom: 56px;
   }
@@ -45,7 +44,7 @@
 
 .gl-first-section {
   padding-top: 64px;
-  @media (--smallDown) {
+  @media (max-width: 767px) {
     padding-top: 40px;
   }
 }
@@ -55,7 +54,7 @@
   margin: 0;
   font: var(--title-regular);
 
-  @media (--smallDown) {
+  @media (max-width: 767px) {
     padding: 0 0 24px 0;
     font: var(--title-medium);
     text-align: left;
@@ -66,9 +65,22 @@
   margin: 0 auto 32px;
   font: var(--title-extra);
 
-  @media (--smallDown) {
+  @media (max-width: 767px) {
     margin-bottom: 24px;
     font-size: 32px;
     line-height: 36px;
+  }
+}
+
+.gl-formContainer {
+  padding: 32px 80px 64px;
+  background: #ffffff;
+  border: 1px solid rgba(21, 24, 51, 0.04);
+  box-shadow: 0px 32px 40px rgba(0, 9, 92, 0.12);
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  @media (max-width: 767px) {
+    padding: 24px 16px 40px 16px;
   }
 }

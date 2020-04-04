@@ -1,7 +1,7 @@
 export enum RouteType {
   landing = '/landing',
   landingRequest = '/landing/request',
-  landingVolunteer = '/landing/volunteer',
+  landingVolunteer = '/landing/help-volunteers',
   landingHelp = '/landing/help',
   landingHospitalAid = '/landing/hospital-aid',
   landingRequestChat = '/landing/request-chat',

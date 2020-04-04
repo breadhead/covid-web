@@ -37,3 +37,10 @@
     margin: 0 0 24px 0;
   }
 }
+
+.text {
+  margin-bottom: 48px;
+  @media (--smallDown) {
+    margin-bottom: 40px;
+  }
+}

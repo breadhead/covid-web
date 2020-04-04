@@ -51,7 +51,7 @@ const RadioGroup = ({
         value={currentValue}
       >
         {buttons.map((button) => (
-          <Radio key={button.id} name={name} value={button.value} {...rest}>
+          <Radio key={button.value} name={name} value={button.value} {...rest}>
             {button.component || button.text || button.value}
             {NON_BREAKING_SPACE}
             {button.count && <span className="count">{button.count}</span>}

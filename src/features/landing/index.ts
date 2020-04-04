@@ -8,7 +8,7 @@ export { default as Experts, Expert } from './features/experts';
 
 export { default as Request } from './features/request';
 
-export { VolunteerPage } from './features/volunteer';
+export { VolunteerPage } from '../system/volunteer';
 export { BecomePartnerPage } from './features/become-partner';
 export { HospitalAidPage } from './features/hospital-aid';
 

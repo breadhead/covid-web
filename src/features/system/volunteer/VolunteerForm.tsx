@@ -8,13 +8,11 @@ import { ButtonSize, Button } from '@app/src/ui/button';
 import * as styles from './VolunteerForm.css';
 import { formConfig } from './formConfig';
 
-export const VolunteerForm = () => {
-  const onSubmit = (data: any) => {
-    console.log(data);
+interface Props {
+  onSubmit: (data: any) => Promise<any>;
+}
 
-    return Promise.resolve();
-  };
-
+export const VolunteerForm = ({ onSubmit }: Props) => {
   return (
     <FormConstructor
       options={formConfig(styles)}

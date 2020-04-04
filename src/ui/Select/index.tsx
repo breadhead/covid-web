@@ -9,7 +9,7 @@ const { Option } = AntSelect;
 
 interface OwnProps {
   name: string;
-  options: LabeledValue[];
+  options: { label: string }[];
   label?: string;
   error?: string;
   className?: string;
@@ -51,7 +51,7 @@ const Select = ({
           )}
         >
           {options.map((option) => (
-            <Option key={option.key} value={option.key}>
+            <Option key={option.label} value={option.label}>
               {option.label}
             </Option>
           ))}
