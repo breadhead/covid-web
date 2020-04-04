@@ -6,3 +6,12 @@
 .animEntering {
   transform: translateX(100%);
 }
+
+.menuWrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 200;
+  transition: transform 250ms ease-out;
+  will-change: transform;
+}

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Transition from 'react-transition-group/Transition';
+import cx from 'classnames';
 
 import * as styles from './Menu.css';
-import { Navigation } from '../Navigation';
 
 interface AnimationStyles {
   [key: string]: string;
@@ -26,27 +26,14 @@ interface Props {
   showLoginButton: boolean;
 }
 
-const Menu = ({
-  isVisible,
-  hide,
-  signOut,
-  isMobile,
-  children,
-  showLoginButton,
-}: Props) => (
+export const TransitionMenu = ({ isVisible, children }: Props) => (
   <Transition in={isVisible} timeout={{ enter: 0, exit: 250 }} unmountOnExit>
     {(status: string) => (
       <>
-        <Navigation
-          signOut={signOut}
-          className={ANIMATION_STYLES[status]}
-          hide={hide}
-          showLoginButton={showLoginButton}
-        />
-        {isMobile && children}
+        <div className={cx(styles.menuWrapper, ANIMATION_STYLES[status])}>
+          {children}
+        </div>
       </>
     )}
   </Transition>
 );
-
-export default Menu;
