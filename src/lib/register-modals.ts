@@ -1,6 +1,8 @@
-import { SignUpModal } from '@app/src/features/login';
 import { RestorePasswordModal } from '@app/src/features/login/features/restorePassword';
 
-const modals = [SignUpModal, RestorePasswordModal];
+import SignUpModal from '../features/login/features/signUp';
+import SignInModal from '../features/login/features/signIn';
+
+const modals = [SignUpModal, SignInModal, RestorePasswordModal];
 
 export default () => modals;

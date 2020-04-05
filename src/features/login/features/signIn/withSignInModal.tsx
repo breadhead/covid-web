@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { useModal } from '@app/src/features/common/modal';
-import { SIGN_IN_MODAL } from '@app/src/features/login';
+import { SIGN_IN_MODAL } from '@app/src/domain/reducers/signInReducer/const';
 
 export interface WithSignInModal {
   openSignIn: () => void;
 }
 
-const Container = (Component: React.ComponentType<WithSignInModal>) => (
+const withSignInModal = (Component: React.ComponentType<WithSignInModal>) => (
   props,
 ) => {
   const { open, close } = useModal();
@@ -21,4 +21,4 @@ const Container = (Component: React.ComponentType<WithSignInModal>) => (
   );
 };
 
-export default Container;
+export default withSignInModal;
