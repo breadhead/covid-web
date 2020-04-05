@@ -5,6 +5,7 @@ import { NavLink } from '@app/src/ui/nav-link';
 
 import * as styles from './Partners.css';
 import PartnersList from './components/PartnersList';
+import {PageType} from "@front/features/landing/features/partners/organisms/PartnersList/config";
 
 const Partners = () => (
   <article className={styles.partners}>
@@ -31,7 +32,7 @@ const Partners = () => (
     {/* <NavLink className={styles.link} href="/partners">
       Подробнее
     </NavLink> */}
-    <PartnersList />
+    <PartnersList pageType={PageType.Main} />
   </article>
 );
 
