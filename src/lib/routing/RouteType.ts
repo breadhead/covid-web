@@ -7,8 +7,6 @@ export enum RouteType {
   landingRequestChat = '/landing/request-chat',
   landingPartners = '/landing/partners',
   landingContacts = '/landing/contacts',
-  expertBoard = '/experts',
-  expertBoardExpert = '/expert',
   landingExperts = '/landing/experts',
   landingExpert = '/landing/expert',
   landingForHospitals = '/landing/for-hospitals',
