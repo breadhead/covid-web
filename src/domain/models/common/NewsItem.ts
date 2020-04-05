@@ -2,7 +2,8 @@ import { SanityBase } from '@app/src/domain/models/sanity/SanityBase';
 import { Photo } from '@app/src/domain/models/sanity/Photo';
 import { Block } from '@app/src/domain/models/sanity/Block';
 
-import { NewsCategoryType } from './NewsCategoryType';
+import { CategoryType } from './NewsCategoryType';
+import { TagType } from './Tag';
 
 export interface NewsItem extends SanityBase {
   status: boolean;
@@ -12,5 +13,6 @@ export interface NewsItem extends SanityBase {
   image?: Photo;
   code: { current: string };
   content?: Block[];
-  categories?: NewsCategoryType[];
+  categories?: CategoryType[];
+  tags?: TagType[];
 }

@@ -19,7 +19,7 @@ const getProxyPath = (src: string | '') => {
 const getImageProxySrc = (url: string) =>
   `${getFromConfig('storageUrl')}/w:0/h:0/${base64.encode(url)}`;
 
-export const getImageSrc = (image: Photo): string | null => {
+export const getImageSrc = (image?: Photo): string | null => {
   if (!image || !image.asset) return null;
 
   const src = imageUrlBuilder.image(image).url() || '';

@@ -1,14 +1,19 @@
 import { isEmpty } from 'lodash';
 
-import { NewsCategoryType } from '@app/src/domain/models/common/NewsCategoryType';
+import {
+  NewsCategoryQueryType,
+  ALL_CATEGORIES,
+} from '@app/src/domain/models/common/NewsCategoryType';
 
 export const newsRequestBuilder = (
-  category: NewsCategoryType | '',
+  category: NewsCategoryQueryType,
   tagIds: string[],
 ) => {
   return `*[_type == 'news' &&  !(_id in path("drafts.**")) ${renderTags(
     tagIds,
-  )} ${renderCategories(category)}]{..., 'tags': tags[]->{...}}`;
+  )} ${renderCategories(
+    category,
+  )}]  | order(_updatedAt desc) {..., 'tags': tags[]->{...}}`;
 };
 
 const renderTags = (tagIds: string[]) => {
@@ -17,8 +22,8 @@ const renderTags = (tagIds: string[]) => {
   return ` && tags[]._ref in [${tagIds.join(', ')}]`;
 };
 
-const renderCategories = (category: NewsCategoryType | '') => {
-  if (!category) return '';
+const renderCategories = (category: NewsCategoryQueryType) => {
+  if (category === ALL_CATEGORIES) return '';
 
   return ` && categories[] == ${category}`;
 };
