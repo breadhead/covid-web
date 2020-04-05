@@ -22,7 +22,7 @@ interface Props {
 const DEFAULT_VALUE = PartnersType.InfrastructurePartner;
 
 const PartnersList = ({ type = DEFAULT_VALUE }: Props) => {
-  const partners = useMappedState(selectPartnersForPartnerPage);
+  const partners = useMappedState(selectPartnersForPartnerPage).filter((partner) => partner.type === type);
 
   const [list, setList] = useState(partners);
   const [value, setValue] = useState<string>(type);
@@ -53,17 +53,6 @@ const PartnersList = ({ type = DEFAULT_VALUE }: Props) => {
           className={styles.select}
         />
       </header>
-      {value === PartnersType.Corp ? (
-        <div className={styles.textWrapper}>
-          <p className={styles.text}>
-            Корпоративные партнёры выделяют дополнительные средства на
-            {NON_BREAKING_SPACE}консультации для своих сотрудников. Если вы
-            {NON_BREAKING_SPACE}являетесь сотрудником одной из
-            {NON_BREAKING_SPACE}этих компаний, укажите это в{NON_BREAKING_SPACE}
-            своей заявке.
-          </p>
-        </div>
-      ) : null}
       <div className={styles.partnersList}>
         {list.map((partner) => (
           <PartnerCard
