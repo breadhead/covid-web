@@ -6,10 +6,10 @@ import { getUserEmailLocalStorage } from '@app/src/domain/reducers/signInReducer
 
 import { actions } from './reducer';
 import {
-  setFormRequestFinished,
-  setFormId,
   getFormId,
   resetFormId,
+  setFormId,
+  setFormRequestFinished,
 } from '../../../features/landing/features/request/organisms/RequestForm/localStorage';
 import { FormRequestType } from '../../models/common/FormRequestType';
 

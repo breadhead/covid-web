@@ -12,8 +12,8 @@ import { updateRequestFormData } from '@app/src/domain/reducers/requestConsultat
 import { actions } from './reducer';
 import { showIntercom } from '../../../features/landing/features/request-chat/showIntercom';
 import {
-  setUserEmailLocalStorage,
   getUserEmailLocalStorage,
+  setUserEmailLocalStorage,
 } from '../signInReducer/userEmailLocalStorage';
 
 export const signUp = (
