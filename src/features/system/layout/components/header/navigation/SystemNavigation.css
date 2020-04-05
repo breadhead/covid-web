@@ -32,7 +32,9 @@
 }
 
 .mainMenu {
-  @media (--smallSecondDown) {
+  justify-content: flex-start;
+  
+  @media (--smallMiddleDown) {
     display: none;
   }
 }
@@ -98,7 +100,7 @@
     height: 24px;
   }
 
-  @media (max-width: 959px) {
+  @media (--smallMiddleDown) {
     display: block;
   }
 }

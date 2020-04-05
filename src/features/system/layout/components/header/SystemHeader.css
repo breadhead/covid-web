@@ -26,9 +26,12 @@
 
 .iconWrapper {
   margin-left: 16px;
-  margin-right: 32px;
-  width: 156px;
-  height: 36px;
+  margin-right: 16px;
+
+  & svg {
+    width: 156px !important;
+    height: 36px !important;
+  }
 
   @media (--mediumDown) {
     margin-left: 0;
@@ -46,4 +49,9 @@
 
 .mobileMenuContainer {
   display: flex;
+  padding-right: 16px;
+
+  @media (max-width: 959px) {
+    padding-right: 0;
+  }
 }

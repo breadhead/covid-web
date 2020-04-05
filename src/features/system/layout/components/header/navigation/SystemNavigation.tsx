@@ -21,14 +21,14 @@ export const SystemNavigation = ({ className, hide, narrow }: Props) => {
 
   return (
     <div className={cx(styles.menu, className)}>
-      <button className={styles.closeButton} onClick={hide}>
+      {/* <button className={styles.closeButton} onClick={hide}>
         закрыть меню
         <Icon className={styles.NavIcon} name={IconsList.CloseLight} />
-      </button>
+      </button> */}
 
       <LinksList
         styles={styles}
-        className={styles.mainMenu}
+        className={cx(styles.menu, styles.mainMenu)}
         asPath={asPath}
         narrow={narrow}
         width={width}
@@ -38,7 +38,7 @@ export const SystemNavigation = ({ className, hide, narrow }: Props) => {
 
       <LinksList
         styles={styles}
-        className={styles.contentMenu}
+        className={cx(styles.menu, styles.contentMenu)}
         asPath={asPath}
         narrow={narrow}
         width={width}
