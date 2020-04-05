@@ -41,10 +41,6 @@ import {
   reducer as expertReducer,
   State as ExpertState,
 } from '@app/src/domain/reducers/expertReducer/reducer';
-import {
-  reducer as expertBoardReducer,
-  State as ExpertBoardState,
-} from '@app/src/domain/reducers/expertBoardReducer/reducer';
 
 import ApiClient from './api/ApiClient';
 import factory from './api/apiFactory';
@@ -62,7 +58,6 @@ export interface State {
   requestForm: RequestFormReducerState;
   partners: PartnerState;
   experts: ExpertState;
-  expertBoard: ExpertBoardState;
 }
 
 const reducer = combineReducers({
@@ -75,7 +70,6 @@ const reducer = combineReducers({
   notFound: notFoundReducer,
   partners: partnerReducer,
   experts: expertReducer,
-  expertBoard: expertBoardReducer,
 } as any);
 
 export interface ExtraArgs {
