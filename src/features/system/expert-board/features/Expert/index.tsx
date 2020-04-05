@@ -19,10 +19,11 @@ const Expert = ({ id }: Props) => {
   const experts = useMappedState(selectExperts);
   const expert = experts.find((e) => e.code.current === id);
 
-  return !!expert ? <ExpertPage expert={expert} /> : '';
+  return !!expert ? <ExpertPage expert={expert} /> : null;
 };
 
 Expert.getInitialProps = async (context: AppContext<Query>) => {
+  await context.reduxStore.dispatch(getExpertsFromSanity() as any);
   const id = context.query.id;
 
   return { id };

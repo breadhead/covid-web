@@ -1,1 +1,1 @@
-export { Expert as default } from '@app/src/features/landing';
+export { Expert as default } from '@app/src/features/system';
