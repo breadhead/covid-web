@@ -13,8 +13,8 @@ import {
 } from '@app/src/ui/systemButton ';
 import { NavLink } from '@app/src/ui/nav-link';
 import { useModal } from '@app/src/features/common/modal';
-import { SIGN_IN_MODAL } from '@app/src/features/login';
 import { SystemLogo } from '@app/src/ui/system-logo';
+import { SIGN_IN_MODAL } from '@app/src/domain/reducers/signInReducer/const';
 
 import * as styles from './SystemMobileMenu.css';
 import { contentLinks, mainLinks } from '../links';
