@@ -11,10 +11,6 @@ import {
 
 interface State extends FetchingState {
   list: Partner[];
-  partnersPageList: Partner[];
-  mainPageList: Partner[];
-  hospitalsPageList: Partner[];
-  helpPageList: Partner[];
 }
 
 interface Actions extends FetchingActions {
@@ -23,10 +19,6 @@ interface Actions extends FetchingActions {
 
 const initialState = createInitialState({
   list: [],
-  partnersPageList: [],
-  mainPageList: [],
-  hospitalsPageList: [],
-  helpPageList: [],
 });
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
@@ -35,18 +27,6 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
     return {
       ...state,
       list: partnersFromSanity,
-      partnersPageList: partnersFromSanity.filter((item) =>
-        item.pageToShow.includes(PageType.Partners),
-      ),
-      mainPageList: partnersFromSanity.filter((item) =>
-        item.pageToShow.includes(PageType.Main),
-      ),
-      hospitalsPageList: partnersFromSanity.filter((item) =>
-        item.pageToShow.includes(PageType.Hospitals),
-      ),
-      helpPageList: partnersFromSanity.filter((item) =>
-        item.pageToShow.includes(PageType.Help),
-      ),
     };
   },
   'getPartnersFromSanity',
