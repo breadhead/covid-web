@@ -6,10 +6,12 @@ import * as styles from './MediaQuery.css';
 export enum Query {
   FromSmall = 'FromSmall',
   FromMedium = 'FromMedium',
+  FromMediumSecondDown = 'FromMediumSecondDown',
   FromLarge = 'FromLarge',
   FromExtraLarge = 'FromExtraLarge',
   ToSmall = 'ToSmall',
   ToMedium = 'ToMedium',
+  ToMediumSecondDown = 'MediumSecondDown',
   ToLarge = 'ToLarge',
   ToExtraLarge = 'ToExtraLarge',
 }

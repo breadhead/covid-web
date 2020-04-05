@@ -17,11 +17,18 @@
     @inherit: .hide;
   }
 }
-.FromLarge {
+.FromMediumSecondDown {
   @media (--mediumSecondDown) {
     @inherit: .hide;
   }
 }
+
+.FromLarge {
+  @media (--largeDown) {
+    @inherit: .hide;
+  }
+}
+
 .FromExtraLarge {
   @media (--mediumDown) {
     @inherit: .hide;
@@ -38,11 +45,18 @@
     @inherit: .hide;
   }
 }
-.ToLarge {
+.ToMediumSecondDown {
   @media (--mediumSecondUp) {
     @inherit: .hide;
   }
 }
+
+.ToLarge {
+  @media (--largeUp) {
+    @inherit: .hide;
+  }
+}
+
 .ToExtraLarge {
   @media (--mediumUp) {
     @inherit: .hide;

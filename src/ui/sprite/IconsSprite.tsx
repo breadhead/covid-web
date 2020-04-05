@@ -14,6 +14,29 @@ export const IconsSprite = () => (
   >
     <defs>
       <symbol
+        id={IconsList.CloseSystem}
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          d="M5 5L12 12L19 19"
+          stroke="white"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M5 19L12 12L19 5"
+          stroke="white"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </symbol>
+
+      <symbol
         id={IconsList.OK}
         width="32"
         height="32"
