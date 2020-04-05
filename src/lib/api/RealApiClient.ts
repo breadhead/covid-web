@@ -1,7 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 
 import { User } from '@app/src/domain/models/Users/User';
-import { Expert } from '@app/src/domain/models/sanity/Expert';
 import { FormRequestType } from '@app/src/domain/models/common/FormRequestType';
 
 import ApiClient, { UploadedFile } from './ApiClient';
@@ -114,6 +113,12 @@ export default class RealApiClient implements ApiClient {
 
   public getExperts = () => {
     return sanityClient.fetch(`*[_type == "expert"]`, {
+      active: true,
+    });
+  };
+
+  public getExpertBoard = () => {
+    return sanityClient.fetch(`*[_type == "expertBoard"]`, {
       active: true,
     });
   };

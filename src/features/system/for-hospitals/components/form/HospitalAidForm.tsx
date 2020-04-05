@@ -14,7 +14,6 @@ interface Props {
 export const HospitalAidForm = ({ onSubmit }: Props) => {
   return (
     <FormConstructor
-      resetAfterSubmit
       options={formConfig}
       onSubmit={onSubmit}
       saveDraft={console.log}

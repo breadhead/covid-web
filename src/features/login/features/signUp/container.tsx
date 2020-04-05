@@ -8,11 +8,9 @@ import { getSignUpError } from '@app/src/domain/reducers/signupReducer/selectors
 import { State } from '@app/src/lib/store';
 import { isModal } from '@app/src/features/common/modal';
 
-import { MODAL_KEY } from '../../../../domain/reducers/signupReducer/const';
-import { withSignUpModal } from '.';
-import { withSignInModal } from '../signIn';
-export { MODAL_KEY };
-
+import { SIGN_UP_MODAL } from '../../../../domain/reducers/signupReducer/const';
+import withSignInModal from '../signIn/withSignInModal';
+import withSignUpModal from './withSignUpModal';
 export interface SignUpData {
   login: string;
   password: string;
@@ -64,9 +62,10 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
 });
 
 export default compose(
-  isModal(MODAL_KEY),
-
+  isModal(SIGN_UP_MODAL),
+  withSignUpModal,
   withSignInModal,
+
   connect(mapState, mapDispatch),
   Container,
 ) as any;

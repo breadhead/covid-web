@@ -9,11 +9,10 @@ import { isModal } from '@app/src/features/common/modal';
 
 import withSignUpModal, { WithSignUpModal } from '../signUp/withSignUpModal';
 import { loginAction } from '../../../../domain/reducers/signInReducer/actions';
-import { MODAL_KEY } from '../../../../domain/reducers/signInReducer/const';
+import { SIGN_IN_MODAL } from '../../../../domain/reducers/signInReducer/const';
 import { getViolateState } from '../../../../domain/reducers/signInReducer/selectors';
 import { getSignInError } from '../../../../domain/reducers/signInReducer/selectors/getSignInError';
-
-export { MODAL_KEY };
+import withSignInModal from './withSignInModal';
 
 export interface Credentials {
   login: string;
@@ -71,8 +70,8 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
 });
 
 export default compose(
-  isModal(MODAL_KEY),
-
+  isModal(SIGN_IN_MODAL),
+  withSignInModal,
   withSignUpModal,
   connect(mapState, mapDispatch),
   Container,

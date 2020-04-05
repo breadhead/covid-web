@@ -80,8 +80,6 @@ export const renderFormComponent = (
     props.validate = (props.validate || yup.mixed()).required(REQUIRED_MESSAGE);
   }
 
-  debugger;
-
   return (
     <React.Fragment key={key}>
       {label &&

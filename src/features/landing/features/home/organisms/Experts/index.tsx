@@ -22,7 +22,7 @@ const Experts = () => {
               Ответы постоянно подвергаются супервизии проверенных
               экспертов-инфекционистов Санкт-Петербурга и Москвы.
             </p>
-            <NavLink className={styles.link} href="/experts">
+            <NavLink className={styles.link} href="/ask/experts">
               Посмотреть всех экспертов
             </NavLink>
           </div>
