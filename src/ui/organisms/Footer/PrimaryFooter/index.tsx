@@ -8,15 +8,16 @@ import { getToken } from '@app/src/domain/reducers/userReducer';
 
 import Legal from '../components/Legal';
 import Login from '../components/Login';
-import Menu from '../components/Menu';
+import PrimaryFooterMenu from '../components/Menu';
 import Partners from '../components/Partners';
 import * as styles from './PrimaryFooter.css';
+import { linksLong, linksShort } from '../links';
 
 const PrimaryFooter = () => (
   <footer className={styles.footer}>
     <div className={cx(styles.top, styles.row)}>
       <Logo wrapperClassName={styles.logoWrapper} className={styles.logo} />
-      <Menu long />
+      <PrimaryFooterMenu linksShort={linksShort} linksLong={linksLong} long />
       <Login />
     </div>
 

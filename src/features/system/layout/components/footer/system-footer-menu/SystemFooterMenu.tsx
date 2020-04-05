@@ -5,28 +5,34 @@ import MediaQuery, { Query } from '@app/src/ui/MediaQuery';
 import NavIcon from '@app/src/ui/organisms/Footer/components/NavIcon';
 
 import * as styles from './SystemFooterMenu.css';
-import { linksShort, linksLong } from './systemFooterLinks';
+import { linksMobile, linksDesktop } from '../links';
 
 export const SystemFooterMenu = () => {
   return (
     <nav className={styles.navigation}>
       {/* десктоп */}
-      <MediaQuery query={Query.FromMedium}>
-        {linksShort.map((link) => (
-          <NavLink
-            key={link.title}
-            withoutUnderline
-            href={link.href}
-            className={styles.link}
-          >
-            {link.title}
-          </NavLink>
-        ))}
+      <MediaQuery className={styles.desktopWrapper} query={Query.FromMedium}>
+        {linksDesktop.map((link) => {
+          if (!link.title) {
+            return <div className={styles.stub} />;
+          }
+
+          return (
+            <NavLink
+              key={link.title}
+              withoutUnderline
+              href={link.href}
+              className={styles.link}
+            >
+              {link.title}
+            </NavLink>
+          );
+        })}
       </MediaQuery>
 
       {/* мобилка */}
       <MediaQuery className={styles.mobileNav} query={Query.ToMedium}>
-        {linksLong.map((link) => (
+        {linksMobile.map((link) => (
           <NavLink
             key={link.title}
             withoutUnderline

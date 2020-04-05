@@ -5,6 +5,12 @@
   background-color: var(--background-system);
 }
 
+.main {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
 .projects {
   display: flex;
 
@@ -73,6 +79,7 @@
 
 .mobileButton {
   display: none;
+  border-bottom: 0;
 
   @media (--smallDown) {
     display: block;
@@ -82,5 +89,19 @@
     & button {
       width: 100%;
     }
+  }
+}
+
+.desktopButton {
+  border-bottom: 0;
+
+  @media (--smallDown) {
+    display: none;
+  }
+}
+
+.desktopLogo {
+  @media (--smallDown) {
+    display: none;
   }
 }

@@ -1,6 +1,6 @@
 .menu {
-  background-color: #fff;
   height: 100%;
+  background-color: var(--background-system);
 }
 
 .header {
