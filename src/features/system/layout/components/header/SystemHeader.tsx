@@ -3,8 +3,6 @@ import cx from 'classnames';
 import { useRouter } from 'next/router';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 
-import { Icon } from '@app/src/ui/icon';
-import { IconsList } from '@app/src/ui/sprite';
 import { NavLink } from '@app/src/ui/nav-link';
 import MediaQuery, { Query } from '@app/src/ui/MediaQuery';
 import { RouteType } from '@app/src/lib/routing/RouteType';
@@ -16,16 +14,22 @@ import { SystemNavigationContainer } from './navigation/SystemNavigationContaine
 
 export const SystemHeader = () => {
   const { route } = useRouter();
-  const [narrow, setNarrow] = useState(false);
+  const [show, setShow] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useScrollPosition(
-    (pos) => {
-      const isShow = pos.currPos.y < 0;
-      if (isShow !== narrow) {
-        setNarrow(isShow);
+    ({ prevPos, currPos }) => {
+      const isShow = currPos.y > prevPos.y;
+      const isMobile = currPos.y < 0;
+
+      if (isShow !== show) {
+        setShow(isShow);
+      }
+      if (isMobile !== show) {
+        setIsMobile(isMobile);
       }
     },
-    [narrow],
+    [show],
     undefined,
     false,
     500,
@@ -35,12 +39,13 @@ export const SystemHeader = () => {
     <header
       className={cx(
         styles.headerWrapper,
-        narrow && styles.narrowHeader,
+        show ? styles.show : styles.hide,
+        isMobile && styles.mobile,
         route === RouteType.landing && styles.landing,
       )}
     >
       <SystemLogo className={styles.logo} />
-      <SystemNavigationContainer narrow={narrow} />
+      <SystemNavigationContainer narrow={isMobile} />
       <MediaQuery className={styles.mobileMenuContainer} query={Query.ToLarge}>
         <NavLink
           className={styles.donationMobileLink}

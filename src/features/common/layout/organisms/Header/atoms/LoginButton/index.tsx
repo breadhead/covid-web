@@ -4,6 +4,11 @@ import { Button, ButtonKind } from '@app/src/ui/button';
 import withSignInModal, {
   WithSignInModal,
 } from '@app/src/features/login/features/signIn/withSignInModal';
+import {
+  SystemButton,
+  SystemButtonKind,
+  SystemButtonSize,
+} from '@app/src/ui/systemButton ';
 
 interface LoginButtonProps {
   className?: string;
@@ -15,13 +20,14 @@ const LoginButton: React.StatelessComponent<Props> = ({
   className,
   openSignIn,
 }: Props) => (
-  <Button
+  <SystemButton
     className={className}
     onClick={openSignIn}
-    kind={ButtonKind.Secondary}
+    size={SystemButtonSize.Small}
+    kind={SystemButtonKind.Secondary}
   >
     Войти
-  </Button>
+  </SystemButton>
 );
 
 export default withSignInModal(LoginButton) as any;
