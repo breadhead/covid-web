@@ -27,6 +27,7 @@ const LandingPage = () => {
       <SystemHeader />
       <Header />
       <Main />
+      <Divider />
       <div className={styles.backgroundWrapper}>
         <div className={styles.wrapper}>
           <Steps />

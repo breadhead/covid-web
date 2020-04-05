@@ -3,7 +3,6 @@
   align-items: center;
   justify-content: flex-end;
   padding: 0 48px;
-  background-color: var(--color-beige);
 
   @media (--largeDown) {
     display: none;
