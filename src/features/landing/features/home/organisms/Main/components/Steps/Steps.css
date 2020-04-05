@@ -65,7 +65,6 @@
 .link {
   padding: 4px;
   background-color: var(--color-primary);
-  border-radius: 4px;
   color: #fff;
 
   &:hover {

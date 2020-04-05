@@ -3,8 +3,6 @@ import cx from 'classnames';
 import { useRouter } from 'next/router';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 
-import { Icon } from '@app/src/ui/icon';
-import { IconsList } from '@app/src/ui/sprite';
 import { NavLink } from '@app/src/ui/nav-link';
 import MediaQuery, { Query } from '@app/src/ui/MediaQuery';
 import { RouteType } from '@app/src/lib/routing/RouteType';

@@ -46,6 +46,14 @@
   font: var(--text18-28);
 }
 
+.textWrapper {
+  margin-bottom: 56px;
+
+  @media (--smallDown) {
+    margin-bottom: 24px;
+  }
+}
+
 .link {
   font-size: 18px !important;
   line-height: 28px !important;

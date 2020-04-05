@@ -1,12 +1,11 @@
 import Head from 'next/head';
 import * as React from 'react';
 
-import Footer, { FooterTheme, FooterType } from '@app/src/ui/organisms/Footer';
 import Header from '@app/src/features/common/layout/organisms/Header';
 import { Divider } from '@app/src/ui/divider/Divider';
 import { AppContext } from '@app/src/lib/server-types';
-import { getPartnersFromSanity } from '@app/src/domain/reducers/partnerReducer';
-import { getExpertsFromSanity } from '@app/src/domain/reducers/expertReducer';
+import { SystemHeader } from '@app/src/features/system/layout/components/header';
+import { SystemFooter } from '@app/src/features/system/layout/components/footer';
 
 import * as styles from './Home.css';
 import Corporate from '../organisms/Corporate';
@@ -25,6 +24,7 @@ const LandingPage = () => {
       <Head>
         <title>Просто спросить | COVID-19</title>
       </Head>
+      <SystemHeader />
       <Header />
       <Main />
       <div className={styles.backgroundWrapper}>
@@ -45,13 +45,10 @@ const LandingPage = () => {
           <Donation />
         </div>
       </div>
-      <Footer type={FooterType.Primary} theme={FooterTheme.Default} />
+      <SystemFooter />
+      {/* <Footer type={FooterType.Primary} theme={FooterTheme.Default} /> */}
     </>
   );
-};
-
-LandingPage.getInitialProps = async (context: AppContext) => {
-  return {};
 };
 
 export default LandingPage;
