@@ -6,15 +6,17 @@ import { SPACE } from '@app/src/lib/config';
 
 import * as styles from './SystemWidget.css';
 import { frequencyForm, costForm, targetSelect } from './formConfig';
-import { SytemRadioButton } from '../system-radio-button';
+import { FirstStep } from './first-step/FirstStep';
 
 export const SystemWidget = () => {
   const [frequency, setFrequency] = useState(
-    frequencyForm.find((it) => !!it.checked)?.id,
+    frequencyForm.find((it) => !!it.checked)?.id || null,
   );
-  const [cost, setCost] = useState(costForm.find((it) => !!it.checked)?.id);
+  const [cost, setCost] = useState(
+    costForm.find((it) => !!it.checked)?.id || null,
+  );
   const [target, setTarget] = useState(
-    targetSelect.options.find((opt) => !!opt.selected)?.value,
+    targetSelect.options.find((opt) => !!opt.selected)?.value || null,
   );
 
   return (
@@ -26,62 +28,15 @@ export const SystemWidget = () => {
       }}
       className={styles.widget}
     >
-      <div className={styles.frequencyForm}>
-        {frequencyForm.map((item) => {
-          const { id, name, value, label } = item;
-          return (
-            <SytemRadioButton
-              onClick={setFrequency}
-              key={id}
-              id={id}
-              name={name}
-              value={value}
-              checked={frequency === id}
-              label={label}
-            />
-          );
-        })}
-      </div>
-
-      <div className={styles.costForm}>
-        {costForm.map((item) => {
-          const { id, name, value, label, size } = item;
-          return (
-            <SytemRadioButton
-              className={styles[`cell-${size}`]}
-              onClick={setCost}
-              key={id}
-              id={id}
-              name={name}
-              value={value}
-              checked={cost === id}
-              label={label}
-            />
-          );
-        })}
-      </div>
-
-      {targetSelect && (
-        <div className={styles.selectWrapper}>
-          <label className={styles.selectLabel} htmlFor={targetSelect.name}>
-            {targetSelect.label}
-          </label>
-          <select
-            onChange={(event: any) => setTarget(event.target.value)}
-            id={targetSelect.name}
-          >
-            {targetSelect.options.map((opt) => (
-              <option
-                selected={target === opt.value}
-                key={opt.value}
-                value={opt.value}
-              >
-                {opt.label}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
+      <FirstStep
+        cost={cost}
+        frequency={frequency}
+        target={target}
+        setCost={setCost}
+        setFrequency={setFrequency}
+        setTarget={setTarget}
+        styles={styles}
+      />
 
       <SystemButton
         className={styles.button}
