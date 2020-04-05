@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 
-import { frequencyForm, costForm, targetSelect } from '../formConfig';
+import { SystemButton, SystemButtonSize } from '@app/src/ui/systemButton ';
+import { NavLink } from '@app/src/ui/nav-link';
+import { SPACE } from '@app/src/lib/config';
+
 import { SytemRadioButton } from '../../system-radio-button';
+import { frequencyForm, costForm, targetSelect } from '../formConfig';
 
 interface FirstStepProps {
   cost: string | null;
@@ -10,6 +14,7 @@ interface FirstStepProps {
   setCost: (value: string) => void;
   setFrequency: (value: string) => void;
   setTarget: (value: string) => void;
+  setStep: Dispatch<SetStateAction<number>>;
   styles: { [key: string]: string };
 }
 
@@ -20,6 +25,7 @@ export const FirstStep = ({
   setCost,
   setFrequency,
   setTarget,
+  setStep,
   styles,
 }: FirstStepProps) => {
   return (
@@ -80,6 +86,24 @@ export const FirstStep = ({
           </select>
         </div>
       )}
+      <SystemButton
+        className={styles.button}
+        onClick={() => setStep(2)}
+        size={SystemButtonSize.ExtraLarge}
+      >
+        Продолжить
+      </SystemButton>
+      <p className={styles.cancelText}>
+        Регулярное пожертвование можно всегда{SPACE}
+        <NavLink
+          withoutUnderline
+          className={styles.cancelLink}
+          blank
+          href="https://my.cloudpayments.ru/ru/Unsubscribe"
+        >
+          отменить
+        </NavLink>
+      </p>
     </>
   );
 };

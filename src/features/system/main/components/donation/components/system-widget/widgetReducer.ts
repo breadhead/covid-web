@@ -1,7 +1,16 @@
 import { frequencyForm, costForm, targetSelect } from './formConfig';
 import * as actions from './widgetActions';
 
-export const initialState = {
+interface InitialStateType {
+  frequency: string | null;
+  cost: string | null;
+  target: string | null;
+  name: string;
+  surname: string;
+  email: string;
+}
+
+export const initialState: InitialStateType = {
   frequency: frequencyForm.find((it) => !!it.checked)?.id || null,
   cost: costForm.find((it) => !!it.checked)?.id || null,
   target: targetSelect.options.find((opt) => !!opt.selected)?.value || null,
