@@ -1,10 +1,10 @@
-import {Action} from 'redux';
+import { Action } from 'redux';
 
 import {
-    createFetchingSymbiote,
-    createInitialState,
-    FetchingActions,
-    FetchingState,
+  createFetchingSymbiote,
+  createInitialState,
+  FetchingActions,
+  FetchingState,
 } from '@app/src/lib/symbioteFactory';
 
 type State = FetchingState;

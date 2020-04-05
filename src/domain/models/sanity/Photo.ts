@@ -1,4 +1,4 @@
-import {Ref} from '@app/src/domain/models/sanity/Ref';
+import { Ref } from '@app/src/domain/models/sanity/Ref';
 
 export interface Photo {
   _key: string;
