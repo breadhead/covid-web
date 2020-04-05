@@ -3,9 +3,10 @@ import * as React from 'react';
 import { NON_BREAKING_SPACE } from '@app/src/lib/config';
 import { NavLink } from '@app/src/ui/nav-link';
 
+import { PageType } from '@front/features/landing/features/partners/organisms/PartnersList/config';
+
 import * as styles from './Partners.css';
 import PartnersList from './components/PartnersList';
-import {PageType} from "@front/features/landing/features/partners/organisms/PartnersList/config";
 
 const Partners = () => (
   <article className={styles.partners}>

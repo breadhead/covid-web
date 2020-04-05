@@ -22,8 +22,9 @@ interface Props {
 const DEFAULT_VALUE = PartnersType.InfrastructurePartner;
 
 const PartnersList = ({ type = DEFAULT_VALUE }: Props) => {
-  const partners = useMappedState(selectPartners)
-      .filter((partner) => partner.type === type);
+  const partners = useMappedState(selectPartners).filter(
+    (partner) => partner.type === type,
+  );
 
   const [list, setList] = useState(partners);
   const [value, setValue] = useState<string>(type);

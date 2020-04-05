@@ -26,7 +26,7 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   (state: State, partnersFromSanity: Partner[]) => {
     return {
       ...state,
-      list: partnersFromSanity
+      list: partnersFromSanity,
     };
   },
   'getPartnersFromSanity',

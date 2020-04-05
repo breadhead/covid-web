@@ -1,5 +1,6 @@
+import * as _ from 'lodash';
+
 import { Partner } from '@app/src/domain/models/sanity/Partner';
-import * as _ from 'lodash'
 
 enum PartnersType {
   Donor = 'donor',
@@ -24,9 +25,12 @@ const getCurrentPartnersOptions = (currentPartners: Partner[]) => {
 
   const uniqueTypes = Array.from(new Set(types));
 
-  const reversedTypes = (_.invert(PartnersType));
+  const reversedTypes = _.invert(PartnersType);
 
-  return uniqueTypes.map((type, i) => ({ type, label: PartnersLabel[reversedTypes[type]] }));
+  return uniqueTypes.map((type, i) => ({
+    type,
+    label: PartnersLabel[reversedTypes[type]],
+  }));
 };
 
 export { PartnersType, PartnersLabel, PageType, getCurrentPartnersOptions };
