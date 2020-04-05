@@ -18,6 +18,7 @@ enum PageType {
   Main = 'main',
   Hospitals = 'hospitals',
   Info = 'info',
+  Doctors = 'doctors'
 }
 
 const getCurrentPartnersOptions = (currentPartners: Partner[]) => {
