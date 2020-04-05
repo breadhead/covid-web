@@ -22,10 +22,4 @@ const AllExperts = () => {
   );
 };
 
-AllExperts.getInitialProps = async (context: AppContext) => {
-  await context.reduxStore.dispatch(getExpertsFromSanity() as any);
-
-  return {};
-};
-
 export default AllExperts;

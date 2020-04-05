@@ -22,7 +22,6 @@ const Expert = ({ id }: Props) => {
 };
 
 Expert.getInitialProps = async (context: AppContext<Query>) => {
-  await context.reduxStore.dispatch(getExpertsFromSanity() as any);
   const id = context.query.id;
 
   return { id };

@@ -8,6 +8,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import windowSize, { REDUCER_KEY } from 'redux-windowsize';
 
+export type Store = ReduxStore<State>;
+
 import {
   notFoundMiddleware,
   reducer as notFoundReducer,
@@ -41,13 +43,15 @@ import {
   reducer as expertReducer,
   State as ExpertState,
 } from '@app/src/domain/reducers/expertReducer/reducer';
+import {
+  reducer as expertBoardReducer,
+  State as ExpertBoardState,
+} from '@app/src/domain/reducers/expertBoardReducer/reducer';
 
 import ApiClient from './api/ApiClient';
 import factory from './api/apiFactory';
 import { getToken } from '../domain/reducers/userReducer';
 import { unauthorizedMiddleware } from '../domain/reducers/signInReducer/middleware';
-
-export type Store = ReduxStore<State>;
 
 export interface State {
   browserQuery: BrowserQueryState;
@@ -58,6 +62,7 @@ export interface State {
   requestForm: RequestFormReducerState;
   partners: PartnerState;
   experts: ExpertState;
+  expertBoard: ExpertBoardState;
 }
 
 const reducer = combineReducers({
@@ -70,6 +75,7 @@ const reducer = combineReducers({
   notFound: notFoundReducer,
   partners: partnerReducer,
   experts: expertReducer,
+  expertBoard: expertBoardReducer,
 } as any);
 
 export interface ExtraArgs {

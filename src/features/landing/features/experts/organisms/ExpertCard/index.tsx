@@ -16,7 +16,7 @@ const ExpertCard = ({ expert }: Props) => {
       <NavLink
         className={styles.link}
         withoutUnderline
-        href={`/experts/${expert.code.current}`}
+        href={`/ask/experts/${expert.code.current}`}
       >
         <img
           className={styles.image}
