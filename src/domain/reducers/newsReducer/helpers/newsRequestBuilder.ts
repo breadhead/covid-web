@@ -1,9 +1,14 @@
 import { isEmpty } from 'lodash';
 
-export const newsRequestBuilder = (categories: string[], tagIds: string[]) => {
+import { NewsCategoryType } from '@app/src/domain/models/common/NewsCategoryType';
+
+export const newsRequestBuilder = (
+  category: NewsCategoryType | '',
+  tagIds: string[],
+) => {
   return `*[_type == 'news' &&  !(_id in path("drafts.**")) ${renderTags(
     tagIds,
-  )} ${renderCategories(categories)}]{ 'tags': tags[]->{...}}`;
+  )} ${renderCategories(category)}]{..., 'tags': tags[]->{...}}`;
 };
 
 const renderTags = (tagIds: string[]) => {
@@ -12,7 +17,7 @@ const renderTags = (tagIds: string[]) => {
   return ` && tags[]._ref in [${tagIds.join(', ')}]`;
 };
 
-const renderCategories = (category) => {
+const renderCategories = (category: NewsCategoryType | '') => {
   if (!category) return '';
 
   return ` && categories[] == ${category}`;

@@ -140,4 +140,9 @@ export default class RealApiClient implements ApiClient {
       },
     );
   };
+  public getNews = (query: string) => {
+    return sanityClient.fetch(query, {
+      active: true,
+    });
+  };
 }

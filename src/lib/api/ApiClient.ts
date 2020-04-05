@@ -3,6 +3,7 @@ import { Expert } from '@app/src/domain/models/common/Expert';
 import { FormRequestType } from '@app/src/domain/models/common/FormRequestType';
 import { User } from '@app/src/domain/models/common/User';
 import { Tag } from '@app/src/domain/models/common/Tag';
+import { NewsItem } from '@app/src/domain/models/common/NewsItem';
 
 export interface UploadedFile {
   path: string;
@@ -27,4 +28,5 @@ export default interface ApiClient {
   getExperts(): Promise<Expert[]>;
   getExpertBoard(): Promise<Expert[]>;
   getTags(): Promise<Tag[]>;
+  getNews(query: string): Promise<NewsItem[]>;
 }
