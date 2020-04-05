@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
-import { SystemButton, SystemButtonSize } from '@app/src/ui/systemButton ';
-import { NavLink } from '@app/src/ui/nav-link';
-import { SPACE } from '@app/src/lib/config';
+import {SystemButton, SystemButtonSize} from '@app/src/ui/systemButton ';
+import {NavLink} from '@app/src/ui/nav-link';
+import {SPACE} from '@app/src/lib/config';
 
 import * as styles from './SystemWidget.css';
-import { frequencyForm, costForm, targetSelect } from './formConfig';
-import { SytemRadioButton } from '../system-radio-button';
+import {costForm, frequencyForm, targetSelect} from './formConfig';
+import {SytemRadioButton} from '../system-radio-button';
 
 export const SystemWidget = () => {
   const [frequency, setFrequency] = useState(

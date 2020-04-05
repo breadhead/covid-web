@@ -1,5 +1,5 @@
-import { StepPointerType } from '../molecule/StepPointer';
-import { clientSteps } from '../steps';
+import {StepPointerType} from '../molecule/StepPointer';
+import {clientSteps} from '../steps';
 
 export const getDisabledSteps = () =>
   clientSteps.map((step) => ({

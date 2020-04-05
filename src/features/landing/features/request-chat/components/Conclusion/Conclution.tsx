@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import htmlParser from 'react-html-parser';
 import store from 'store2';
-import { useMappedState } from 'redux-react-hook';
+import {useMappedState} from 'redux-react-hook';
 
-import { getConclutionText } from '../../getConclutionText';
+import {getConclutionText} from '../../getConclutionText';
 import * as styles from './Conclution.css';
-import { selectRequestForm } from './selectors';
-import { ArticlesList } from '../articles';
+import {selectRequestForm} from './selectors';
+import {ArticlesList} from '../articles';
 
 export const Conclution = () => {
   const data =

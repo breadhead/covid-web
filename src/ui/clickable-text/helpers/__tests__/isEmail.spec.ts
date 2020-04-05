@@ -1,4 +1,4 @@
-import { isEmail } from '../isEmail';
+import {isEmail} from '../isEmail';
 
 describe('isEmail', () => {
   test('should return true for regular email', () => {

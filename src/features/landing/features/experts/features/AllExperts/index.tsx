@@ -1,11 +1,9 @@
 import Head from 'next/head';
 import * as React from 'react';
-import { useMappedState } from 'redux-react-hook';
+import {useMappedState} from 'redux-react-hook';
 
-import { MainLayout } from '@app/src/features/common/layout';
-import { AppContext } from '@app/src/lib/server-types';
-import { getExpertsFromSanity } from '@app/src/domain/reducers/expertReducer';
-import { selectExperts } from '@app/src/domain/reducers/expertReducer/selectExperts';
+import {MainLayout} from '@app/src/features/common/layout';
+import {selectExperts} from '@app/src/domain/reducers/expertReducer/selectExperts';
 
 import * as styles from './AllExperts.css';
 import ExpertsList from '../../organisms/ExpertsList';

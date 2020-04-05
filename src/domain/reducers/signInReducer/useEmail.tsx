@@ -1,4 +1,4 @@
-import { getUserEmailLocalStorage } from './userEmailLocalStorage';
+import {getUserEmailLocalStorage} from './userEmailLocalStorage';
 
 export function useEmail() {
   const emailLocalStorage = getUserEmailLocalStorage();

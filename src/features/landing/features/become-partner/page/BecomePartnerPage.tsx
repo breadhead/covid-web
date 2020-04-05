@@ -1,12 +1,10 @@
 import * as React from 'react';
 import Head from 'next/head';
 import cx from 'classnames';
-import { head } from 'lodash';
+import {head} from 'lodash';
+import {SystemLayout} from '@app/src/features/system/layout';
 
-import { MainLayout } from '@app/src/features/common/layout';
-import { SystemLayout } from '@app/src/features/system/layout';
-
-import { BecomePartnerForm } from '../BecomePartnerForm';
+import {BecomePartnerForm} from '../BecomePartnerForm';
 import * as styles from './BecomePartnerPage.css';
 
 interface BecomePartnerPage {

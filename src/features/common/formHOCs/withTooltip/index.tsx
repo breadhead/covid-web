@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import cx from 'classnames';
 import * as React from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 import * as styles from './index.css';
 import * as transitionStyles from './transitionStyles.css';

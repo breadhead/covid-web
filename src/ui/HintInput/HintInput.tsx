@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import cx from 'classnames';
-import { AutoComplete } from 'antd';
-import { AutoCompleteProps } from 'antd/lib/auto-complete';
-import { OptionProps } from 'antd/lib/select';
-import { toString } from 'lodash';
+import {AutoComplete} from 'antd';
+import {AutoCompleteProps} from 'antd/lib/auto-complete';
+import {OptionProps} from 'antd/lib/select';
+import {toString} from 'lodash';
 
 import './HintInput.css?CSSModulesDisable';
 

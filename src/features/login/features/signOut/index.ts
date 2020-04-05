@@ -1,13 +1,13 @@
 import Router from 'next/router';
-import { Dispatch } from 'redux';
+import {Dispatch} from 'redux';
 
-import { setFormRequestFinished } from '@app/src/features/landing/features/request/organisms/RequestForm/localStorage';
-import { setCookie } from '@app/src/features/login/features/signIn/helpers/setAuthToken';
-import { actions as userActions } from '@app/src/domain/reducers/userReducer';
+import {setFormRequestFinished} from '@app/src/features/landing/features/request/organisms/RequestForm/localStorage';
+import {setCookie} from '@app/src/features/login/features/signIn/helpers/setAuthToken';
+import {actions as userActions} from '@app/src/domain/reducers/userReducer';
 
 import {
-  resetUserEmailLocalStorage,
   getUserEmailLocalStorage,
+  resetUserEmailLocalStorage,
 } from '../../../../domain/reducers/signInReducer/userEmailLocalStorage';
 
 export default () => (dispatch: Dispatch<any>) => {

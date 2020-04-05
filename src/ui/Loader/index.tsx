@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spin } from 'antd';
+import {Spin} from 'antd';
 import cx from 'classnames';
 
 import * as styles from './Loader.css';

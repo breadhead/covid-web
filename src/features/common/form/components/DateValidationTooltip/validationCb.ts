@@ -1,12 +1,8 @@
-import {
-  DateInterface,
-  shouldValidateDates,
-  validateDates,
-} from '@app/src/lib/helpers/validateDates';
+import {DateInterface, shouldValidateDates, validateDates,} from '@app/src/lib/helpers/validateDates';
 
-import { errorMessagesMap } from './errorMessages';
-import { getDates } from './getDates';
-import { pickErrorMessage } from './pickErrorMessage';
+import {errorMessagesMap} from './errorMessages';
+import {getDates} from './getDates';
+import {pickErrorMessage} from './pickErrorMessage';
 
 const validationCb = (paths: DateInterface[]) => (_: any, values: any) => {
   const dates = getDates(paths, values);

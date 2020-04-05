@@ -3,8 +3,8 @@ import * as React from 'react';
 import DonationInfo from '@app/src/features/landing/features/home/organisms/Info';
 
 import * as styles from './SystemDonation.css';
-import { infoText } from './infoText';
-import { SystemWidget } from './components/system-widget';
+import {infoText} from './infoText';
+import {SystemWidget} from './components/system-widget';
 
 export const SystemDonation = () => {
   return (

@@ -1,4 +1,4 @@
-import { DateInterface } from './types';
+import {DateInterface} from './types';
 
 const shouldValidateDates = (dates: DateInterface[]) => {
   const datesArePresent = dates.every(

@@ -1,4 +1,4 @@
-import { isDate } from '../isDate';
+import {isDate} from '../isDate';
 
 describe('isDate', () => {
   test('should return true for regular date', () => {

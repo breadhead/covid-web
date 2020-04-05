@@ -1,4 +1,4 @@
-import { getDateString } from '../getDateString';
+import {getDateString} from '../getDateString';
 
 describe('makeDateString works', () => {
   test('returns correct date string', () => {

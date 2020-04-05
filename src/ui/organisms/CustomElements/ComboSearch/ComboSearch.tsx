@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { debounce } from 'lodash';
+import React, {useEffect, useState} from 'react';
+import {debounce} from 'lodash';
 
-import {
-  HintInput,
-  HintInputTypes,
-  ComplexOptions,
-} from '@app/src/ui/HintInput/HintInput';
-import { useApi } from '@app/src/lib/api/useApi';
+import {ComplexOptions, HintInput, HintInputTypes,} from '@app/src/ui/HintInput/HintInput';
+import {useApi} from '@app/src/lib/api/useApi';
 
 export enum ComboSearchType {
   Doctor = 'Doctor',

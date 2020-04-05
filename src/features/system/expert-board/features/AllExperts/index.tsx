@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import * as React from 'react';
-import { useMappedState } from 'redux-react-hook';
+import {useMappedState} from 'redux-react-hook';
 
-import { SystemLayout } from '@app/src/features/system/layout';
+import {SystemLayout} from '@app/src/features/system/layout';
 
-import { selectExpertBoard } from '@front/domain/reducers/expertBoardReducer/selectExperts';
+import {selectExpertBoard} from '@front/domain/reducers/expertBoardReducer/selectExperts';
 
 import * as styles from './AllExperts.css';
 import ExpertsList from '../../organisms/ExpertsList';

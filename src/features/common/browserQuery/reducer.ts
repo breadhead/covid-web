@@ -1,4 +1,4 @@
-import { ClearAction, createClearRedux } from 'redux-clear';
+import {ClearAction, createClearRedux} from 'redux-clear';
 
 type State = object;
 

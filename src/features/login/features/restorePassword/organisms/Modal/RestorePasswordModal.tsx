@@ -3,8 +3,8 @@ import * as React from 'react';
 import ModalFooter from '@app/src/features/login/organisms/Footer';
 
 import * as styles from './RestorePasswordModal.css';
-import { NewPasswordForm } from '../new-password-form';
-import { ResetForm } from '../reset-form';
+import {NewPasswordForm} from '../new-password-form';
+import {ResetForm} from '../reset-form';
 
 interface Props {
   onResetFormSubmit: () => Promise<any>;

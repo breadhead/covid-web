@@ -1,6 +1,6 @@
 import store from 'store2';
 
-import { formatFormData } from './formatFormData';
+import {formatFormData} from './formatFormData';
 
 const getKey = () => 'request_form';
 

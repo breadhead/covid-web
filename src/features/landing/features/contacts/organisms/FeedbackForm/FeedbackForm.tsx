@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { useMemo } from 'react';
+import {useMemo} from 'react';
 import * as yup from 'yup';
 
-import { Form, Input, TextArea } from '@app/src/features/common/form';
-import { SendFeedbackRequest } from '@app/src/lib/api/request/SendFeedback';
-import { Button, ButtonSize } from '@app/src/ui/button';
+import {Form, Input, TextArea} from '@app/src/features/common/form';
+import {SendFeedbackRequest} from '@app/src/lib/api/request/SendFeedback';
+import {Button, ButtonSize} from '@app/src/ui/button';
 
 import * as styles from './FeedbackForm.css';
 

@@ -1,29 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import cx from 'classnames';
 
-import {
-  Form,
-  Input,
-  RadioGroup,
-  InputType,
-  Checkbox,
-} from '@app/src/features/common/form';
+import {Checkbox, Form, Input, InputType, RadioGroup,} from '@app/src/features/common/form';
 import routes from '@app/routes';
 import RegionSelect from '@app/src/ui/regionSelect';
-import { useThunk } from '@app/src/helpers/hooks/useThunk';
-import { genderRadioGroup } from '@app/src/helpers/genderRadioGroup';
-import { Button, ButtonSize } from '@app/src/ui/button';
+import {useThunk} from '@app/src/helpers/hooks/useThunk';
+import {genderRadioGroup} from '@app/src/helpers/genderRadioGroup';
+import {Button, ButtonSize} from '@app/src/ui/button';
 
 import * as styles from './RequestForm.css';
-import { Symptoms } from './components/symptoms';
-import { targetList, deseasesList } from './config';
-import { saveCoronaRequestForm } from '../../../../../../domain/reducers/requestConsultationReducer/actions';
-import {
-  saveRequestFormDraft,
-  getRequestFormDraft,
-  isFormRequestFinished,
-} from './localStorage';
-import { schema } from './schema';
+import {Symptoms} from './components/symptoms';
+import {deseasesList, targetList} from './config';
+import {saveCoronaRequestForm} from '../../../../../../domain/reducers/requestConsultationReducer/actions';
+import {getRequestFormDraft, isFormRequestFinished, saveRequestFormDraft,} from './localStorage';
+import {schema} from './schema';
 
 const { Router } = routes;
 

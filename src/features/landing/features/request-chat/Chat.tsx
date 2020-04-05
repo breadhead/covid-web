@@ -1,15 +1,12 @@
 import * as React from 'react';
-import { useMappedState } from 'redux-react-hook';
+import {useMappedState} from 'redux-react-hook';
 
-import { APP_ID } from '@app/src/features/common/intercom/config';
-import { getUserEmailLocalStorage } from '@app/src/domain/reducers/signInReducer/userEmailLocalStorage';
-import { getUserLogin } from '@app/src/domain/reducers/userReducer/selectors';
+import {APP_ID} from '@app/src/features/common/intercom/config';
+import {getUserEmailLocalStorage} from '@app/src/domain/reducers/signInReducer/userEmailLocalStorage';
+import {getUserLogin} from '@app/src/domain/reducers/userReducer/selectors';
 
-import { getCovidSymptoms } from './getConclutionText';
-import {
-  getFormattedForm,
-  getRequestFormDraft,
-} from '../request/organisms/RequestForm/localStorage';
+import {getCovidSymptoms} from './getConclutionText';
+import {getFormattedForm, getRequestFormDraft,} from '../request/organisms/RequestForm/localStorage';
 
 function getCovid() {
   try {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Expert } from '@app/src/domain/models/sanity/Expert';
+import {Expert} from '@app/src/domain/models/sanity/Expert';
 
 import * as styles from './ExpertsList.css';
 import ExpertCard from '../ExpertCard';

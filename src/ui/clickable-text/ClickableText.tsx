@@ -1,12 +1,12 @@
-import React, { useCallback, useMemo } from 'react';
+import React, {useCallback, useMemo} from 'react';
 
-import { displayFileName } from '@app/src/features/common/uploader/displayFileName';
+import {displayFileName} from '@app/src/features/common/uploader/displayFileName';
 
-import { NavLink } from '../nav-link';
-import { findUrls } from './helpers/findUrls';
-import { isUrl } from './helpers/isUrl';
-import { normalizeUrl } from './helpers/normalizeUrl';
-import { splitText } from './helpers/splitText';
+import {NavLink} from '../nav-link';
+import {findUrls} from './helpers/findUrls';
+import {isUrl} from './helpers/isUrl';
+import {normalizeUrl} from './helpers/normalizeUrl';
+import {splitText} from './helpers/splitText';
 
 interface Props {
   className?: string;

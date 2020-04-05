@@ -1,5 +1,5 @@
-import { checkForFutureDateError } from './checkForFutureDate';
-import { compareDates } from './compareDates';
+import {checkForFutureDateError} from './checkForFutureDate';
+import {compareDates} from './compareDates';
 
 const getValidators = (datesCount: number) => {
   switch (datesCount) {

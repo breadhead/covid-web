@@ -1,16 +1,17 @@
 import * as React from 'react';
 
-import { InputType } from '@app/src/features/common/form';
+import {InputType} from '@app/src/features/common/form';
 import Form from '@app/src/features/common/form/components/Form/Form';
 import Input from '@app/src/features/common/form/components/withFinalForm/Input';
 import OpenModalButton from '@app/src/features/login/atoms/OpenModalButton';
-import { SPACE } from '@app/src/lib/config';
-import { Button } from '@app/src/ui/button';
+import {SPACE} from '@app/src/lib/config';
+import {Button} from '@app/src/ui/button';
 
-import { schema } from '../../container';
-import { isClientConsultationUrl } from './config';
+import {schema} from '../../container';
+import {isClientConsultationUrl} from './config';
 import * as styles from './SignIn.css';
-import OpenRestorePasswordModalButton from '../../../restorePassword/molecules/open-restore-password-modal-button/OpenRestorePasswordModalButton';
+import OpenRestorePasswordModalButton
+    from '../../../restorePassword/molecules/open-restore-password-modal-button/OpenRestorePasswordModalButton';
 
 interface Props {
   onFormSubmit: () => Promise<any>;

@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { SendFeedbackRequest } from '@app/src/lib/api/request/SendFeedback';
-import { AppContext } from '@app/src/lib/server-types';
+import {SendFeedbackRequest} from '@app/src/lib/api/request/SendFeedback';
+import {AppContext} from '@app/src/lib/server-types';
 
-import { Props as PageProps } from './page';
+import {Props as PageProps} from './page';
 
 interface Props {
   send: (feedbackFields: SendFeedbackRequest) => Promise<any>;

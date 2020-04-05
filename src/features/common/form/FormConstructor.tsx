@@ -1,9 +1,9 @@
 import React from 'react';
-import { FORM_ERROR } from 'final-form';
+import {FORM_ERROR} from 'final-form';
 
-import { renderFormComponent } from './renderFormComponent';
-import { Form } from '.';
-import { FormContext } from './components/Form';
+import {renderFormComponent} from './renderFormComponent';
+import {Form} from '.';
+import {FormContext} from './components/Form';
 
 export enum FormComponentType {
   ButtonWithTooltip = 'buttonWithTooltip',

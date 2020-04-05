@@ -1,6 +1,6 @@
-import { merge } from 'lodash';
-import { getHeightWidth, getWindowWidth } from 'redux-windowsize';
-import { createSelector } from 'reselect';
+import {merge} from 'lodash';
+import {getHeightWidth, getWindowWidth} from 'redux-windowsize';
+import {createSelector} from 'reselect';
 
 interface WindowSize {
   width: number;

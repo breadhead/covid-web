@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Field as FinalField } from 'react-final-form';
+import {Field as FinalField} from 'react-final-form';
 
 import Uploader from './Uploader';
 

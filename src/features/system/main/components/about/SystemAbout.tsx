@@ -3,8 +3,8 @@ import htmlParser from 'react-html-parser';
 import cx from 'classnames';
 
 import * as styles from './SystemAbout.css';
-import { aboutText } from './aboutText';
-import { aboutFeatures } from './aboutFeatures';
+import {aboutText} from './aboutText';
+import {aboutFeatures} from './aboutFeatures';
 
 export const SystemAbout = () => {
   return (

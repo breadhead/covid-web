@@ -1,6 +1,6 @@
-import { isDate } from './isDate';
-import { isEmail } from './isEmail';
-import { URL_REGEXP, URL_FILE_REGEX } from './URL_REGEXP';
+import {isDate} from './isDate';
+import {isEmail} from './isEmail';
+import {URL_FILE_REGEX, URL_REGEXP} from './URL_REGEXP';
 
 export const isUrl = (text: string): boolean => {
   if (text.startsWith('/preview-image')) {

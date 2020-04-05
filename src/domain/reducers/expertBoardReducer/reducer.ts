@@ -1,6 +1,6 @@
-import { Action } from 'redux';
+import {Action} from 'redux';
 
-import { Expert } from '@app/src/domain/models/sanity/Expert';
+import {Expert} from '@app/src/domain/models/sanity/Expert';
 import {
   createFetchingSymbiote,
   createInitialState,

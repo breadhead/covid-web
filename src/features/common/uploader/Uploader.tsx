@@ -1,16 +1,16 @@
 import cx from 'classnames';
-import { head } from 'lodash';
-import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { useMappedState } from 'redux-react-hook';
+import {head} from 'lodash';
+import React, {useCallback, useMemo, useRef, useState} from 'react';
+import {useMappedState} from 'redux-react-hook';
 
 import factory from '@app/src/lib/api/apiFactory';
-import { getPreviewLink } from '@app/src/helpers/getPreviewLink';
-import { Button, ButtonKind } from '@app/src/ui/button';
-import { NavLink } from '@app/src/ui/nav-link';
-import { getToken } from '@app/src/domain/reducers/userReducer';
+import {getPreviewLink} from '@app/src/helpers/getPreviewLink';
+import {Button, ButtonKind} from '@app/src/ui/button';
+import {NavLink} from '@app/src/ui/nav-link';
+import {getToken} from '@app/src/domain/reducers/userReducer';
 
 import ProgressBar from './atoms/ProgressBar';
-import { displayFileName } from './displayFileName';
+import {displayFileName} from './displayFileName';
 import * as styles from './Uploader.css';
 
 interface Props {

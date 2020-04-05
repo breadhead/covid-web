@@ -1,15 +1,9 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 
-import {
-  reducer as signUpReducer,
-  State as SignUpState,
-} from '@app/src/domain/reducers/signupReducer/reducer';
-import {
-  reducer as signInReducer,
-  State as SignInState,
-} from '@app/src/domain/reducers/signInReducer/reducer';
+import {reducer as signUpReducer, State as SignUpState,} from '@app/src/domain/reducers/signupReducer/reducer';
+import {reducer as signInReducer, State as SignInState,} from '@app/src/domain/reducers/signInReducer/reducer';
 
-import { reducer as userReducer, State as UserState } from '../userReducer';
+import {reducer as userReducer, State as UserState} from '../userReducer';
 
 export interface State {
   signIn: SignInState;

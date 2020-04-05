@@ -1,11 +1,11 @@
 import base64 from 'base-64';
-import { isObject } from 'lodash';
-import { parse } from 'url';
+import {isObject} from 'lodash';
+import {parse} from 'url';
 
-import { Photo } from '@app/src/domain/models/sanity/Photo';
+import {Photo} from '@app/src/domain/models/sanity/Photo';
 
-import { getFromConfig } from '../getPublicRuntimeConfig';
-import { imageUrlBuilder } from './builder';
+import {getFromConfig} from '../getPublicRuntimeConfig';
+import {imageUrlBuilder} from './builder';
 
 const getProxyPath = (src: string | '') => {
   const parsedURL = parse(src);

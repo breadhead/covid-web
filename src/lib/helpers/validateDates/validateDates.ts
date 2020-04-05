@@ -1,8 +1,8 @@
-import { size } from 'lodash';
+import {size} from 'lodash';
 
-import { getDateInSeconds } from './getDateInSeconds';
-import { getValidators } from './getValidators';
-import { DateInterface } from './types';
+import {getDateInSeconds} from './getDateInSeconds';
+import {getValidators} from './getValidators';
+import {DateInterface} from './types';
 
 const validateDates = (dates: DateInterface[]) => {
   let errorMessage;

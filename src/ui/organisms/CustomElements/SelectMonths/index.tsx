@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import Select from '@app/src/ui/Select';
 
-import { OPTIONS_MONTHS } from './config';
+import {OPTIONS_MONTHS} from './config';
 
 export interface Props {
   name: string;

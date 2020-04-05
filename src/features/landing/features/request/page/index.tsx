@@ -1,12 +1,12 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-import { MainLayout } from '@app/src/features/common/layout';
-import { AppContext } from '@app/src/lib/server-types';
+import {MainLayout} from '@app/src/features/common/layout';
+import {AppContext} from '@app/src/lib/server-types';
 
 import * as styles from './Request.css';
-import { Notification } from '../molecules/Notification';
-import { RequestForm } from '../organisms/RequestForm';
+import {Notification} from '../molecules/Notification';
+import {RequestForm} from '../organisms/RequestForm';
 
 interface Props {
   id: string;

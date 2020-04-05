@@ -1,17 +1,17 @@
-import { Dispatch } from 'redux';
+import {Dispatch} from 'redux';
 
 import routes from '@app/routes';
-import { ExtraArgs, State } from '@app/src/lib/store';
-import { getUserEmailLocalStorage } from '@app/src/domain/reducers/signInReducer/userEmailLocalStorage';
+import {ExtraArgs, State} from '@app/src/lib/store';
+import {getUserEmailLocalStorage} from '@app/src/domain/reducers/signInReducer/userEmailLocalStorage';
 
-import { actions } from './reducer';
+import {actions} from './reducer';
 import {
-  setFormRequestFinished,
-  setFormId,
   getFormId,
   resetFormId,
+  setFormId,
+  setFormRequestFinished,
 } from '../../../features/landing/features/request/organisms/RequestForm/localStorage';
-import { FormRequestType } from '../../models/common/FormRequestType';
+import {FormRequestType} from '../../models/common/FormRequestType';
 
 const { Router } = routes;
 

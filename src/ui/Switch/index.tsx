@@ -1,5 +1,5 @@
-import { Switch as AntSwitch } from 'antd';
-import { SwitchProps } from 'antd/lib/switch';
+import {Switch as AntSwitch} from 'antd';
+import {SwitchProps} from 'antd/lib/switch';
 import * as React from 'react';
 
 import './Switch.css?CSSModulesDisable';

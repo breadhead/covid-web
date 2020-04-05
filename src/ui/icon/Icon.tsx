@@ -2,7 +2,7 @@ import cx from 'classnames';
 import * as React from 'react';
 
 import styles from './Icon.css';
-import { IconProps } from './IconProps';
+import {IconProps} from './IconProps';
 
 export const Icon = ({ name, className }: IconProps) => (
   <>

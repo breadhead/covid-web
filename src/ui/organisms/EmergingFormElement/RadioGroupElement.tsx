@@ -1,9 +1,9 @@
 import * as React from 'react';
 import cx from 'classnames';
-import { Radio } from 'antd';
-import { RadioChangeEvent } from 'antd/lib/radio';
+import {Radio} from 'antd';
+import {RadioChangeEvent} from 'antd/lib/radio';
 
-import { RadioButtonStyles } from '@app/src/ui/RadioGroup';
+import {RadioButtonStyles} from '@app/src/ui/RadioGroup';
 
 const AntRadioGroup = Radio.Group;
 

@@ -1,11 +1,4 @@
-import {
-  flow,
-  isArray,
-  isPlainObject,
-  isString,
-  isUndefined,
-  mapValues,
-} from 'lodash';
+import {flow, isArray, isPlainObject, isString, isUndefined, mapValues,} from 'lodash';
 
 const DATE_REGEX = /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(.*)/;
 

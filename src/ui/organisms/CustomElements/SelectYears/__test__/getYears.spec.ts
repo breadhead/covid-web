@@ -1,4 +1,4 @@
-import { getYears } from '../years';
+import {getYears} from '../years';
 
 const curYear = new Date().getFullYear();
 

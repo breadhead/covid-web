@@ -1,4 +1,4 @@
-import { ButtonKind } from '../ButtonKind';
+import {ButtonKind} from '../ButtonKind';
 
 export const getKindClassName = (kind: ButtonKind): string =>
   ({

@@ -4,7 +4,7 @@ import DonationWidget from '@app/src/features/common/donation';
 
 import * as styles from './Donation.css';
 import DonationInfo from '../Info';
-import { infoText } from './infoText';
+import {infoText} from './infoText';
 
 const Donation = () => (
   <>

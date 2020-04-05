@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import PartnersList from '@app/src/features/landing/features/home/organisms/Corporate/components/Partners/components/PartnersList';
+import PartnersList
+    from '@app/src/features/landing/features/home/organisms/Corporate/components/Partners/components/PartnersList';
 
-import { PageType } from '@front/features/landing/features/partners/organisms/PartnersList/config';
+import {PageType} from '@front/features/landing/features/partners/organisms/PartnersList/config';
 
-import s from './Partners.css';
 interface PartnersProps {}
 
 export const Partners = ({}: PartnersProps) => {

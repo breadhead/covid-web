@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import { SystemButton, SystemButtonSize } from '@app/src/ui/systemButton ';
-import { NavLink } from '@app/src/ui/nav-link';
-import { footerProjects } from '@app/src/ui/organisms/Footer/components/Partners/footerProjects';
+import {SystemButton, SystemButtonSize} from '@app/src/ui/systemButton ';
+import {NavLink} from '@app/src/ui/nav-link';
+import {footerProjects} from '@app/src/ui/organisms/Footer/components/Partners/footerProjects';
 import Legal from '@app/src/ui/organisms/Footer/components/Legal';
 
 import * as styles from './SystemFooter.css';
-import { SystemFooterMenu } from './system-footer-menu';
+import {SystemFooterMenu} from './system-footer-menu';
 
 export const SystemFooter = () => {
   return (

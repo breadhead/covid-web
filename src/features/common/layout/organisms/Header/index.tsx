@@ -1,17 +1,17 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { AnyAction, Dispatch } from 'redux';
+import {connect} from 'react-redux';
+import {AnyAction, Dispatch} from 'redux';
 
-import { selectToken } from '@app/src/features/landing/features/home/molecules/StartConsultationButton/selectors';
+import {selectToken} from '@app/src/features/landing/features/home/molecules/StartConsultationButton/selectors';
 import signOut from '@app/src/features/login/features/signOut';
-import { State } from '@app/src/lib/store';
+import {State} from '@app/src/lib/store';
 import Logo from '@app/src/ui/Logo';
-import MediaQuery, { Query } from '@app/src/ui/MediaQuery';
+import MediaQuery, {Query} from '@app/src/ui/MediaQuery';
 
 import * as styles from './Header.css';
 import Menu from './organisms/Menu';
-import { Navigation } from './organisms/Navigation';
-import { OtherPartners } from './organisms/OtherPartners';
+import {Navigation} from './organisms/Navigation';
+import {OtherPartners} from './organisms/OtherPartners';
 
 interface Props {
   token: string;

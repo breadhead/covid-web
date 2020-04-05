@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import Select from '@app/src/ui/Select';
 
-import { getYears } from './years';
+import {getYears} from './years';
 
 export interface Props {
   name: string;

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
-import getWindowSize, { WindowSize } from './selector';
+import getWindowSize, {WindowSize} from './selector';
 
 const withWindowSize = <P extends object>(
   Component: React.ComponentType<P | (any & WindowSize)>,

@@ -2,12 +2,12 @@ import * as React from 'react';
 import Head from 'next/head';
 import cx from 'classnames';
 
-import { useThunk } from '@app/src/helpers/hooks/useThunk';
-import { saveVolunteerForm } from '@app/src/domain/reducers/requestConsultationReducer/actions';
+import {useThunk} from '@app/src/helpers/hooks/useThunk';
+import {saveVolunteerForm} from '@app/src/domain/reducers/requestConsultationReducer/actions';
 
-import { VolunteerForm } from '../VolunteerForm';
+import {VolunteerForm} from '../VolunteerForm';
 import * as styles from './VolunteerPage.css';
-import { SystemLayout } from '../../layout';
+import {SystemLayout} from '../../layout';
 
 export const VolunteerPage = () => {
   const dispatch = useThunk();

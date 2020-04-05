@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { IconsList } from './IconsList';
+import {IconsList} from './IconsList';
 
 export const IconsSprite = () => (
   <svg

@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import * as React from 'react';
 
-import { footerProjects } from './footerProjects';
+import {footerProjects} from './footerProjects';
 import styles from './Partners.css';
 
 interface Props {

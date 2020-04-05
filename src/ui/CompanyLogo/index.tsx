@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Col } from 'antd';
+import {Col} from 'antd';
 
 import ServerImage from '@app/src/ui/ServerImage';
-import { NavLink } from '@app/src/ui/nav-link';
+import {NavLink} from '@app/src/ui/nav-link';
 
 import styles from './CompanyLogo.css';
 

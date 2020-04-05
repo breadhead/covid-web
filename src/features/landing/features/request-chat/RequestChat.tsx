@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { FooterTheme } from '@app/src/ui/organisms/Footer';
+import {FooterTheme} from '@app/src/ui/organisms/Footer';
 import routes from '@app/routes';
-import { ClientLayout } from '@app/src/features/common/client-layout';
+import {ClientLayout} from '@app/src/features/common/client-layout';
 
-import { Chat } from './Chat';
-import { AskButton } from './components/askButton';
-import { Conclution } from './components/Conclusion';
+import {Chat} from './Chat';
+import {AskButton} from './components/askButton';
+import {Conclution} from './components/Conclusion';
 import * as styles from './RequestChat.css';
 import {
   isFormRequestFinished,
-  setFormRequestFinished,
   resetRequestFormDraft,
+  setFormRequestFinished,
 } from '../request/organisms/RequestForm/localStorage';
 
 const { Router } = routes;

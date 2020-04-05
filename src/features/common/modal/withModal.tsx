@@ -1,7 +1,7 @@
-import { connect } from 'react-redux';
-import { AnyAction, Dispatch } from 'redux';
+import {connect} from 'react-redux';
+import {AnyAction, Dispatch} from 'redux';
 
-import { actions } from './reducer';
+import {actions} from './reducer';
 
 interface ModalProps {
   open: (modal: string) => void;

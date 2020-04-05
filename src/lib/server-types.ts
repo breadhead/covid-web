@@ -1,6 +1,6 @@
-import { IncomingMessage, OutgoingMessage } from 'http';
+import {IncomingMessage, OutgoingMessage} from 'http';
 
-import { Store } from './store';
+import {Store} from './store';
 
 export interface AppContext<Query = {}> {
   reduxStore: Store;

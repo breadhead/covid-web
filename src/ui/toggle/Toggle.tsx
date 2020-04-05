@@ -1,12 +1,12 @@
 import cx from 'classnames';
-import React, { useRef } from 'react';
+import React, {useRef} from 'react';
 
-import { usePressEnter } from '@app/src/helpers/hooks/usePressEnter';
-import { useCustomInput } from '@app/src/helpers/hooks/useCustomInput';
+import {usePressEnter} from '@app/src/helpers/hooks/usePressEnter';
+import {useCustomInput} from '@app/src/helpers/hooks/useCustomInput';
 
-import { getCheckedClassName } from './helpers/getCheckedClassName';
-import { getCheckedText } from './helpers/getCheckedText';
-import { getDisabledClassName } from './helpers/getDisabledClassName';
+import {getCheckedClassName} from './helpers/getCheckedClassName';
+import {getCheckedText} from './helpers/getCheckedText';
+import {getDisabledClassName} from './helpers/getDisabledClassName';
 import * as styles from './Toggle.css';
 
 export interface Props {

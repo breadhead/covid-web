@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { clearPhoneForLink } from './clearPhoneForLink';
-import { preparePhoneForTypography } from './preparePhoneForTypography';
+import {clearPhoneForLink} from './clearPhoneForLink';
+import {preparePhoneForTypography} from './preparePhoneForTypography';
 
 interface Props {
   children: string;

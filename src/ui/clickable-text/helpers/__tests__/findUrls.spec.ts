@@ -1,4 +1,4 @@
-import { findUrls } from '../findUrls';
+import {findUrls} from '../findUrls';
 
 describe('findUrls', () => {
   test('should return empty if text no contains links', () => {

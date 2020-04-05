@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Icon } from '@app/src/ui/icon';
-import { IconsList } from '@app/src/ui/sprite';
+import {Icon} from '@app/src/ui/icon';
+import {IconsList} from '@app/src/ui/sprite';
 
 import s from './SubmitSucceeded.css';
-import { FormContext } from '../Form';
+import {FormContext} from '../Form';
 
 interface Props {
   context: FormContext;

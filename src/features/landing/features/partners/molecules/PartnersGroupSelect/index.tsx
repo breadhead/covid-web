@@ -1,12 +1,12 @@
 import * as React from 'react';
 import cx from 'classnames';
-import { Select as AntSelect } from 'antd';
-import { SelectValue } from 'antd/lib/select';
-import { useMappedState } from 'redux-react-hook';
+import {Select as AntSelect} from 'antd';
+import {SelectValue} from 'antd/lib/select';
+import {useMappedState} from 'redux-react-hook';
 
-import { selectPartners } from '@app/src/domain/reducers/partnerReducer/selectPartners';
+import {selectPartners} from '@app/src/domain/reducers/partnerReducer/selectPartners';
 
-import { getCurrentPartnersOptions } from '../../organisms/PartnersList/config';
+import {getCurrentPartnersOptions} from '../../organisms/PartnersList/config';
 import * as styles from './PartnersGroupSelect.css';
 import './PartnersGroupSelect.css?CSSModulesDisable';
 

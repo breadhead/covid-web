@@ -1,4 +1,4 @@
-import { temperatureList } from '../../request/organisms/RequestForm/config';
+import {temperatureList} from '../../request/organisms/RequestForm/config';
 
 export const dataSuccess = {
   target: 'Для себя',

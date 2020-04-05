@@ -1,10 +1,10 @@
-import React, { useState, useCallback } from 'react';
+import React, {useCallback, useState} from 'react';
 
 import Overlay from '@app/src/ui/Overlay';
 import BurgerButton from '@app/src/features/common/layout/organisms/Header/atoms/BurgerButton';
-import { TransitionMenu } from '@app/src/features/common/layout/organisms/Header/organisms/Menu/TransitionMenu';
+import {TransitionMenu} from '@app/src/features/common/layout/organisms/Header/organisms/Menu/TransitionMenu';
 
-import { SystemNavigation } from '../navigation';
+import {SystemNavigation} from '../navigation';
 
 export const SystemMobileMenu = () => {
   const [menuOpened, setOpened] = useState(false);

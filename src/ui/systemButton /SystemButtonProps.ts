@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import {ReactNode} from 'react';
 
-import { SystemButtonKind } from './SystemButtonKind';
-import { SystemButtonSize } from './SystemButtonSize';
+import {SystemButtonKind} from './SystemButtonKind';
+import {SystemButtonSize} from './SystemButtonSize';
 
 export interface SystemButtonProps {
   children: ReactNode;

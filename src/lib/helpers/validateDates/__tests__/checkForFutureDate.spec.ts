@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
-import { checkForFutureDateError } from '../checkForFutureDate';
-import { ErrorCode } from '../erorCodes';
+import {checkForFutureDateError} from '../checkForFutureDate';
+import {ErrorCode} from '../erorCodes';
 
 describe('checkForFutureDates works', () => {
   test('should return correct error code if date1 is in the future', () => {

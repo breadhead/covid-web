@@ -1,8 +1,8 @@
 import cx from 'classnames';
 import * as React from 'react';
 
-import { NON_BREAKING_SPACE } from '@app/src/lib/config';
-import { NavLink } from '@app/src/ui/nav-link';
+import {NON_BREAKING_SPACE} from '@app/src/lib/config';
+import {NavLink} from '@app/src/ui/nav-link';
 
 import * as styles from './Legal.css';
 

@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { range } from 'lodash';
+import {range} from 'lodash';
 
 export const getYears = (amount: number) => {
   const currentYear = dayjs().year();

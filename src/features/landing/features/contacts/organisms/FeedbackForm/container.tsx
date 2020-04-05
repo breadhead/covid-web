@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'recompose';
-import { AnyAction, Dispatch } from 'redux';
+import {connect} from 'react-redux';
+import {compose} from 'recompose';
+import {AnyAction, Dispatch} from 'redux';
 
-import { SendFeedbackRequest } from '@app/src/lib/api/request/SendFeedback';
-import { push } from '@app/src/features/common/toast';
+import {SendFeedbackRequest} from '@app/src/lib/api/request/SendFeedback';
+import {push} from '@app/src/features/common/toast';
 
-import { sendFeedback } from '../../../../../../domain/reducers/feedbackReducer/actions';
-import { Props as PageProps } from './FeedbackForm';
+import {sendFeedback} from '../../../../../../domain/reducers/feedbackReducer/actions';
+import {Props as PageProps} from './FeedbackForm';
 
 interface Props {
   send: (feedbackFields: SendFeedbackRequest) => Promise<any>;

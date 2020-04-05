@@ -1,5 +1,5 @@
-import { EMPTY_MODAL } from '../reducer';
-import { ModalDispatcher } from './ModalDispatcher';
+import {EMPTY_MODAL} from '../reducer';
+import {ModalDispatcher} from './ModalDispatcher';
 import UnknownModalException from './UnknownModalException';
 
 export const shouldOpenModal = (modal: string) => {

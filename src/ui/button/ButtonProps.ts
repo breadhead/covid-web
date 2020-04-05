@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import {ReactNode} from 'react';
 
-import { ButtonKind } from './ButtonKind';
-import { ButtonSize } from './ButtonSize';
+import {ButtonKind} from './ButtonKind';
+import {ButtonSize} from './ButtonSize';
 
 export interface ButtonProps {
   children: ReactNode;

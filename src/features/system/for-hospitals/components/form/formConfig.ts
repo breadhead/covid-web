@@ -1,5 +1,5 @@
-import { FormComponentType } from '@app/src/features/common/form/FormConstructor';
-import { InputType } from '@app/src/ui/Input';
+import {FormComponentType} from '@app/src/features/common/form/FormConstructor';
+import {InputType} from '@app/src/ui/Input';
 
 export const formConfig = {
   steps: [

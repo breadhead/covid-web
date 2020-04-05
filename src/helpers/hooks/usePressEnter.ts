@@ -1,4 +1,4 @@
-import { KeyboardEvent, RefObject, useCallback, useEffect } from 'react';
+import {KeyboardEvent, RefObject, useCallback, useEffect} from 'react';
 
 export const usePressEnter = (
   ref: RefObject<HTMLElement>,

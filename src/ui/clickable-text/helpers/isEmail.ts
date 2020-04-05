@@ -1,4 +1,4 @@
-import { EMAIL_REGEXP } from './EMAIL_REGEXP';
+import {EMAIL_REGEXP} from './EMAIL_REGEXP';
 
 export const isEmail = (email: string) => {
   // we must set lastIndex to zero, because

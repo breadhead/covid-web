@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { NON_BREAKING_SPACE, SPACE } from '@app/src/lib/config';
-import { Icon } from '@app/src/ui/icon';
-import { IconsList } from '@app/src/ui/sprite';
+import {NON_BREAKING_SPACE, SPACE} from '@app/src/lib/config';
+import {Icon} from '@app/src/ui/icon';
+import {IconsList} from '@app/src/ui/sprite';
 
 import OpenModalButton from '../../atoms/OpenModalButton';
 import styles from './Footer.css';

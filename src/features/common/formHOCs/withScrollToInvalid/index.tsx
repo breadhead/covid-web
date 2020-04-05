@@ -1,4 +1,4 @@
-import { head } from 'lodash';
+import {head} from 'lodash';
 import * as React from 'react';
 
 interface Props {
