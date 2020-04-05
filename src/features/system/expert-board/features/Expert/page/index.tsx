@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { MainLayout } from '@app/src/features/common/layout';
+import { SystemLayout } from '@app/src/features/system/layout';
 import { Expert as ExpertModel } from '@app/src/domain/models/sanity/Expert';
 import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
 import { NavLink } from '@app/src/ui/nav-link';
@@ -13,10 +13,10 @@ interface Props {
 
 const ExpertPage = ({ expert }: Props) => {
   return (
-    <MainLayout className={styles.main}>
+    <SystemLayout className={styles.main}>
       <div className={styles.container}>
-        <NavLink className={styles.link} href="/ask/experts">
-          Все эксперты
+        <NavLink className={styles.link} href="/experts">
+          Весь экспертный совет
         </NavLink>
         <section className={styles.expert}>
           <img
@@ -37,7 +37,7 @@ const ExpertPage = ({ expert }: Props) => {
           </div>
         </section>
       </div>
-    </MainLayout>
+    </SystemLayout>
   );
 };
 
