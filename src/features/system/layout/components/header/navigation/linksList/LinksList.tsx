@@ -1,0 +1,45 @@
+import React from 'react';
+import cx from 'classnames';
+
+import { NavLink } from '@app/src/ui/nav-link';
+import { LARGE_SECOND_DOWN } from '@app/src/helpers/mediaQueries';
+
+interface LinksListProps {
+  children: any[];
+  styles: any;
+  className: string;
+  asPath: string;
+  narrow?: boolean;
+  width?: number;
+}
+
+export const LinksList = ({
+  children,
+  styles,
+  className,
+  asPath,
+  narrow,
+  width,
+}: LinksListProps) => {
+  const getText = (link: any) => {
+    if (!link.narrowText) {
+      return link.text;
+    }
+
+    return !!width && width > LARGE_SECOND_DOWN ? link.text : link.narrowText;
+  };
+  return (
+    <div className={cx(className, narrow && styles.narrowMenu)}>
+      {children.map((link) => (
+        <NavLink
+          key={link.href}
+          withoutUnderline
+          href={link.href}
+          className={cx(link.className, asPath === link.href && styles.active)}
+        >
+          {getText(link)}
+        </NavLink>
+      ))}
+    </div>
+  );
+};

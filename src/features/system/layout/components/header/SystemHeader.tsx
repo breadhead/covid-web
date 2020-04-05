@@ -42,10 +42,8 @@ export const SystemHeader = () => {
         <Icon name={IconsList.SystemLogo} />
       </NavLink>
 
-      <MediaQuery
-        className={styles.mobileMenuContainer}
-        query={Query.ToExtraLarge}
-      >
+      <SystemNavigationContainer narrow={narrow} />
+      <MediaQuery className={styles.mobileMenuContainer} query={Query.ToLarge}>
         <NavLink
           className={styles.donationMobileLink}
           withoutUnderline
@@ -54,9 +52,6 @@ export const SystemHeader = () => {
           Помочь
         </NavLink>
         <SystemMobileMenu />
-      </MediaQuery>
-      <MediaQuery className={styles.navContainer} query={Query.FromExtraLarge}>
-        <SystemNavigationContainer narrow={narrow} />
       </MediaQuery>
     </header>
   );

@@ -112,6 +112,8 @@ body {
 @custom-media --smallUp (min-width: 768px);
 @custom-media --mediumSecondUp (min-width: 833px);
 @custom-media --mediumUp (min-width: 928px);
+@custom-media --largeUp (min-width: 1200px);
+
 
 #__next {
   display: flex;
