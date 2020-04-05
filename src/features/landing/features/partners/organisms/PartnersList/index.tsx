@@ -2,7 +2,7 @@ import { SelectValue } from 'antd/lib/select';
 import React, { useState } from 'react';
 import { useMappedState } from 'redux-react-hook';
 
-import { selectPartnersForPartnerPage } from '@app/src/domain/reducers/partnerReducer/selectPartners';
+import { selectPartners } from '@app/src/domain/reducers/partnerReducer/selectPartners';
 import PartnerCard from '@app/src/features/landing/organisms/PartnerCard';
 import { NON_BREAKING_SPACE } from '@app/src/lib/config';
 // import { Partner } from '@app/models/sanity/Partner';
@@ -22,7 +22,8 @@ interface Props {
 const DEFAULT_VALUE = PartnersType.InfrastructurePartner;
 
 const PartnersList = ({ type = DEFAULT_VALUE }: Props) => {
-  const partners = useMappedState(selectPartnersForPartnerPage).filter((partner) => partner.type === type);
+  const partners = useMappedState(selectPartners)
+      .filter((partner) => partner.type === type);
 
   const [list, setList] = useState(partners);
   const [value, setValue] = useState<string>(type);

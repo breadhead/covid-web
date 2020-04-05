@@ -9,6 +9,7 @@ import { SystemHero } from './components/hero';
 import { SystemHelp } from './components/help';
 import { SystemAbout } from './components/about';
 import { SystemDonation } from './components/donation';
+import {PageType} from "@front/features/landing/features/partners/organisms/PartnersList/config";
 
 export const SystemMain = () => {
   return (
@@ -19,7 +20,7 @@ export const SystemMain = () => {
       </div>
       <SystemAbout />
       <div className="gl-wrapper gl-section">
-        <PartnersList />
+        <PartnersList pageType={PageType.Info}  />
       </div>
       <SystemDonation />
     </SystemLayout>
