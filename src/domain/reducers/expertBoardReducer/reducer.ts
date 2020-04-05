@@ -1,7 +1,6 @@
 import { Action } from 'redux';
 
-import { Partner } from '@app/src/domain/models/sanity/Partner';
-import { PageType } from '@app/src/features/landing/features/partners/organisms/PartnersList/config';
+import { Expert } from '@app/src/domain/models/sanity/Expert';
 import {
   createFetchingSymbiote,
   createInitialState,
@@ -10,11 +9,11 @@ import {
 } from '@app/src/lib/symbioteFactory';
 
 interface State extends FetchingState {
-  list: Partner[];
+  list: Expert[];
 }
 
 interface Actions extends FetchingActions {
-  success(partners: any): Action;
+  success(experts: any): Action;
 }
 
 const initialState = createInitialState({
@@ -23,13 +22,13 @@ const initialState = createInitialState({
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  (state: State, partnersFromSanity: Partner[]) => {
+  (state: State, expertsFromSanity: Expert[]) => {
     return {
       ...state,
-      list: partnersFromSanity,
+      list: expertsFromSanity,
     };
   },
-  'getPartnersFromSanity',
+  'getExpertBoardFromSanity',
 );
 
 export { reducer, actions };

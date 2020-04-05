@@ -1,5 +1,4 @@
-import { actions, reducer } from './reducer';
-
+import { reducer, actions } from './reducer';
 export { reducer, actions };
 export type { State, Actions } from './reducer';
 export { getToken, getRoles } from './selectors';
