@@ -11,10 +11,8 @@ module.exports = nextRoutes()
   .add('request-chat', '/request/chat', 'landing/request-chat')
   .add('landing-partners', '/partners/:id?', 'landing/partners')
   .add('landing-contacts', '/contacts', 'landing/contacts')
-  .add('experts', '/experts', '/landing/experts')
-  .add('expert', '/experts/:id', '/landing/expert')
-  .add('ask-experts', '/ask/experts/', 'ask/experts')
-  .add('ask-expert', '/ask/experts/:id', 'ask/expert')
+  .add('landing-experts', '/experts', 'landing/experts')
+  .add('landing-expert', '/experts/:id', 'landing/expert')
   .add('landing-for-hospitals', '/for-hospitals', 'landing/for-hospitals')
 
   .add('icons-demo', '/icons-demo', 'icons-demo');
