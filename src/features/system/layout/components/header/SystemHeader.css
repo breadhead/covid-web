@@ -3,6 +3,7 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  transition: box-shadow 0.5s ease-in;
 
   display: flex;
   align-items: center;
@@ -24,19 +25,6 @@
   background: #fff;
 }
 
-.iconWrapper {
-  margin-left: 16px;
-  margin-right: 16px;
-
-  & svg {
-    width: 156px !important;
-    height: 36px !important;
-  }
-
-  @media (--mediumDown) {
-    margin-left: 0;
-  }
-}
 
 .navContainer {
   width: 100%;
@@ -53,5 +41,15 @@
 
   @media (max-width: 959px) {
     padding-right: 0;
+  }
+}
+
+
+.logo {
+  margin-left: 16px;
+  margin-right: 16px;
+  
+  @media (--mediumDown) {
+    margin-left: 0;
   }
 }

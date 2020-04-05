@@ -1,3 +1,77 @@
-.nav {
+.menu {
   background-color: #fff;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.logo {
+  margin: 6px;
+}
+
+.closeButton {
+  border: none;
+  background-color: var(--color-dark);
+  font-size: 0;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.helpButtonWrap {
+  border-bottom: none;
+  width: 100%;
+
+  & button {
+    width: 100%;
+  }
+}
+
+.mainMenu {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainLink {
+  width: 100%;
+  padding: 14px 16px 10px;
+  font-size: 28px;
+  line-height: 32px;
+  font-family: var(--fontFamily-title);
+}
+
+.contentMenu {
+  margin-top: 6px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentLink {
+  padding: 10px 16px;
+  border-bottom: none;
+  color: var(--text-color-primary);
+  width: 100%;
+  font: var(--text18-28);
+}
+
+.askLinks {
+  display: flex;
+  align-items: center;
+  padding: 0 16px 16px 16px;
+  border-bottom: 1px solid rgba(21, 24, 51, 0.12);
+}
+
+.expertsLink {
+  font: var(--text16-24);
+}
+
+.loginButton {
+  align-self: flex-start;
+  margin-right: 24px;
 }

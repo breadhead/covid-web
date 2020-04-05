@@ -12,6 +12,7 @@ import { RouteType } from '@app/src/lib/routing/RouteType';
 import * as styles from './SystemHeader.css';
 import { SystemMobileMenu } from './system-mobile-menu';
 import { SystemNavigationContainer } from './navigation/SystemNavigationContainer';
+import { SystemHeaderLogo } from './system-header-logo';
 
 export const SystemHeader = () => {
   const { route } = useRouter();
@@ -38,10 +39,7 @@ export const SystemHeader = () => {
         route === RouteType.landing && styles.landing,
       )}
     >
-      <NavLink className={styles.iconWrapper} withoutUnderline href="/">
-        <Icon name={IconsList.SystemLogo} />
-      </NavLink>
-
+      <SystemHeaderLogo className={styles.logo} />
       <SystemNavigationContainer narrow={narrow} />
       <MediaQuery className={styles.mobileMenuContainer} query={Query.ToLarge}>
         <NavLink

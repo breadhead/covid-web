@@ -11,6 +11,7 @@ interface LinksListProps {
   asPath: string;
   narrow?: boolean;
   width?: number;
+  linkClassName?: string;
 }
 
 export const LinksList = ({
@@ -20,6 +21,7 @@ export const LinksList = ({
   asPath,
   narrow,
   width,
+  linkClassName,
 }: LinksListProps) => {
   const getText = (link: any) => {
     if (!link.narrowText) {
@@ -35,7 +37,7 @@ export const LinksList = ({
           key={link.href}
           withoutUnderline
           href={link.href}
-          className={cx(link.className, asPath === link.href && styles.active)}
+          className={cx(linkClassName, asPath === link.href && styles.active)}
         >
           {getText(link)}
         </NavLink>

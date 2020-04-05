@@ -1,0 +1,1 @@
+export { SystemHeaderLogo } from './SystemHeaderLogo';
