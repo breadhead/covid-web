@@ -1,5 +1,5 @@
-import {Action} from 'redux';
-import {createSymbiote, Symbiote} from 'redux-symbiote';
+import { Action } from 'redux';
+import { createSymbiote, Symbiote } from 'redux-symbiote';
 
 export interface FetchingState {
   fetching: boolean;

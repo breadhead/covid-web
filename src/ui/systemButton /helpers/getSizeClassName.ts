@@ -1,4 +1,4 @@
-import {SystemButtonSize} from '../SystemButtonSize';
+import { SystemButtonSize } from '../SystemButtonSize';
 
 export const getSizeClassName = (size: SystemButtonSize): string =>
   ({

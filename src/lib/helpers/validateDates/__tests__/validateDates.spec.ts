@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
-import {ErrorCode} from '../erorCodes';
-import {validateDates} from '../validateDates';
+import { ErrorCode } from '../erorCodes';
+import { validateDates } from '../validateDates';
 
 describe('validateDates works', () => {
   test('should return correct error code if date1 or date2 is in the future', () => {

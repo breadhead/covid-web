@@ -1,7 +1,7 @@
-import {useCallback} from 'react';
-import {useDispatch} from 'redux-react-hook';
+import { useCallback } from 'react';
+import { useDispatch } from 'redux-react-hook';
 
-import {actions} from './reducer';
+import { actions } from './reducer';
 
 export const useModal = () => {
   const dispatch = useDispatch();

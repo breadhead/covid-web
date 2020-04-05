@@ -1,10 +1,13 @@
-import {withAutoSaveOnFieldBlur, withAutoSaveWithDebounce,} from '@breadhead/form-saver';
-import React, {Component, createRef} from 'react';
-import {Form as FinalForm, FormProps, FormSpy} from 'react-final-form';
+import {
+  withAutoSaveOnFieldBlur,
+  withAutoSaveWithDebounce,
+} from '@breadhead/form-saver';
+import React, { Component, createRef } from 'react';
+import { Form as FinalForm, FormProps, FormSpy } from 'react-final-form';
 
-import {FORM_ERROR_CLASSNAME} from '../../../formHOCs/withFinalForm';
+import { FORM_ERROR_CLASSNAME } from '../../../formHOCs/withFinalForm';
 import WithScrollToInvalid from '../../../formHOCs/withScrollToInvalid';
-import {OwnProps} from './types/OwnProps';
+import { OwnProps } from './types/OwnProps';
 
 type Props = OwnProps & FormProps;
 

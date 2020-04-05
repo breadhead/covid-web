@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import * as styles from './ProgressBar.css';
-import StepPointer, {StepPointerModel} from '../../molecule/StepPointer';
+import StepPointer, { StepPointerModel } from '../../molecule/StepPointer';
 
 export interface Props {
   steps: StepPointerModel[];

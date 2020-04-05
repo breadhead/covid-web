@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import {validator} from '../validator';
+import { validator } from '../validator';
 
 describe('schema validation works', () => {
   const schema = yup

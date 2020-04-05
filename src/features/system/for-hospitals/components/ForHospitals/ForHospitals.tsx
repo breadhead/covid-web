@@ -1,12 +1,12 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-import {SystemLayout} from '../../../layout';
-import {Helping} from '../Helping/Helping';
-import {HelpRequest} from '../HelpRequest/HelpRequest';
-import {SystemHelp} from '../../../main/components/help';
-import {Partners} from '../Partners/Partners';
-import {ForHospitalsHero} from '../Hero/Hero';
+import { SystemLayout } from '../../../layout';
+import { Helping } from '../Helping/Helping';
+import { HelpRequest } from '../HelpRequest/HelpRequest';
+import { SystemHelp } from '../../../main/components/help';
+import { Partners } from '../Partners/Partners';
+import { ForHospitalsHero } from '../Hero/Hero';
 
 interface ForHospitalsProps {}
 

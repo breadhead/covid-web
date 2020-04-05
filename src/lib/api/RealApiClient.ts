@@ -1,12 +1,12 @@
-import axios, {AxiosInstance} from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
-import {User} from '@app/src/domain/models/Users/User';
-import {FormRequestType} from '@app/src/domain/models/common/FormRequestType';
+import { User } from '@app/src/domain/models/Users/User';
+import { FormRequestType } from '@app/src/domain/models/common/FormRequestType';
 
-import ApiClient, {UploadedFile} from './ApiClient';
-import {queryString} from './helper/queryString';
-import {SendFeedbackRequest} from './request/SendFeedback';
-import {sanityClient} from '../sanity-client';
+import ApiClient, { UploadedFile } from './ApiClient';
+import { queryString } from './helper/queryString';
+import { SendFeedbackRequest } from './request/SendFeedback';
+import { sanityClient } from '../sanity-client';
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance;

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {withModal, WithModalProps} from '@app/src/features/common/modal';
+import { withModal, WithModalProps } from '@app/src/features/common/modal';
 
-import {RESTORE_PASSWORD_MODAL_KEY} from '../organisms/Modal';
+import { RESTORE_PASSWORD_MODAL_KEY } from '../organisms/Modal';
 
 export interface WithRestorePasswordModal {
   openModal: () => void;

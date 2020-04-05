@@ -1,15 +1,15 @@
 import * as React from 'react';
 
-import {SignUpError} from '@app/src/domain/reducers/signupReducer/reducer';
-import {ButtonWithTooltip, InputType} from '@app/src/features/common/form';
+import { SignUpError } from '@app/src/domain/reducers/signupReducer/reducer';
+import { ButtonWithTooltip, InputType } from '@app/src/features/common/form';
 import Form from '@app/src/features/common/form/components/Form/Form';
 import Input from '@app/src/features/common/form/components/withFinalForm/Input';
 import OpenModalButton from '@app/src/features/login/atoms/OpenModalButton';
 import ModalFooter from '@app/src/features/login/organisms/Footer';
-import {SPACE} from '@app/src/lib/config';
+import { SPACE } from '@app/src/lib/config';
 
 import styles from './SignUp.css';
-import {confirmCb, schema} from './schema';
+import { confirmCb, schema } from './schema';
 
 interface Props {
   onFormSubmit: () => Promise<any>;

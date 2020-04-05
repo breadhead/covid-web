@@ -18,10 +18,13 @@ import Switch from '@app/src/features/common/form/components/withFinalForm/Switc
 import TextArea from '@app/src/features/common/form/components/withFinalForm/TextArea';
 import Toggle from '@app/src/features/common/form/components/withFinalForm/Toggle';
 import ValidationTooltip from '@app/src/features/common/form/components/withFinalForm/ValidationTooltip';
-import {FormComponentOptions, FormComponentType,} from '@app/src/features/common/form/FormConstructor';
+import {
+  FormComponentOptions,
+  FormComponentType,
+} from '@app/src/features/common/form/FormConstructor';
 import Combobox from '@app/src/ui/Combobox';
 
-import {REQUIRED_MESSAGE} from '@front/helpers/validationMessages';
+import { REQUIRED_MESSAGE } from '@front/helpers/validationMessages';
 
 import styles from './commonStyles.css';
 

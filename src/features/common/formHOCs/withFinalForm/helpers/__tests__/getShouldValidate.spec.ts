@@ -1,4 +1,4 @@
-import {getShouldValidate} from '../getShouldValidate';
+import { getShouldValidate } from '../getShouldValidate';
 
 describe('getShouldValidate', () => {
   test('should return false if is active, isnt submitFailed', () => {

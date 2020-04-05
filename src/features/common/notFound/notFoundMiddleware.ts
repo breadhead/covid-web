@@ -1,8 +1,8 @@
-import {createErrorMiddleware} from '@breadhead/thunk-error';
+import { createErrorMiddleware } from '@breadhead/thunk-error';
 
-import {canUseDOM} from '@app/src/lib/helpers/canUseDOM';
+import { canUseDOM } from '@app/src/lib/helpers/canUseDOM';
 
-import {actions} from './reducer';
+import { actions } from './reducer';
 
 export default createErrorMiddleware(
   (err) => err && err.response && err.response.status === 404,

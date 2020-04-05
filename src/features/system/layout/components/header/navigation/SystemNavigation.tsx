@@ -1,10 +1,10 @@
 import * as React from 'react';
 import cx from 'classnames';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 
-import {Icon} from '@app/src/ui/icon';
-import {NavLink} from '@app/src/ui/nav-link';
-import {IconsList} from '@app/src/ui/sprite';
+import { Icon } from '@app/src/ui/icon';
+import { NavLink } from '@app/src/ui/nav-link';
+import { IconsList } from '@app/src/ui/sprite';
 
 import * as styles from './SystemNavigation.css';
 

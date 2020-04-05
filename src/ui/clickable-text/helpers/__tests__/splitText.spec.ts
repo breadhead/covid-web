@@ -1,4 +1,4 @@
-import {splitText} from '../splitText';
+import { splitText } from '../splitText';
 
 describe('splitText', () => {
   test('should return the same text for empty by', () => {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {NON_BREAKING_SPACE} from '@app/src/lib/config';
+import { NON_BREAKING_SPACE } from '@app/src/lib/config';
 
 import * as styles from './About.css';
 

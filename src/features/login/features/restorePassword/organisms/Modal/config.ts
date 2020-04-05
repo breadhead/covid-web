@@ -1,4 +1,4 @@
-import {tryOr} from '@front/helpers/tryOr';
+import { tryOr } from '@front/helpers/tryOr';
 
 const clientUrls = ['client%2Fconsultation', 'client/consultation'];
 

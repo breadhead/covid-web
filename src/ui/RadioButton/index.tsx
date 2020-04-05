@@ -1,4 +1,4 @@
-import {Radio} from 'antd';
+import { Radio } from 'antd';
 import cx from 'classnames';
 import * as React from 'react';
 

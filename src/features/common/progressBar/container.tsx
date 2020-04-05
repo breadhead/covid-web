@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {connect} from 'react-redux';
-import {compose} from 'recompose';
-import {Omit} from 'utility-types';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+import { Omit } from 'utility-types';
 
-import {State} from '@app/src/lib/store';
-import {getQuery} from '@app/src/features/common/browserQuery';
+import { State } from '@app/src/lib/store';
+import { getQuery } from '@app/src/features/common/browserQuery';
 
-import {getStepsFactory, ProgressBarKind} from './helpers/getSteps';
-import {Props as ComponentProps} from './organisms/ProgressBar';
+import { getStepsFactory, ProgressBarKind } from './helpers/getSteps';
+import { Props as ComponentProps } from './organisms/ProgressBar';
 
 interface Props {
   className?: string;

@@ -1,7 +1,7 @@
-import {stringify} from 'query-string';
-import {Option} from 'tsoption';
+import { stringify } from 'query-string';
+import { Option } from 'tsoption';
 
-import {AppContext} from '@app/src/lib/server-types';
+import { AppContext } from '@app/src/lib/server-types';
 
 import NextRoutes from '../../../routes';
 

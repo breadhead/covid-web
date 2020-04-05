@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-import {getDateInSeconds} from '../getDateInSeconds';
+import { getDateInSeconds } from '../getDateInSeconds';
 
 describe('getDateInSeconds works', () => {
   test('should return a correct date', () => {

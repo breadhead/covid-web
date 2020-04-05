@@ -1,4 +1,4 @@
-import {ButtonSize} from '../ButtonSize';
+import { ButtonSize } from '../ButtonSize';
 
 export const getSizeClassName = (size: ButtonSize): string =>
   ({

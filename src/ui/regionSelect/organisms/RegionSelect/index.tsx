@@ -1,12 +1,12 @@
 import cx from 'classnames';
 import * as React from 'react';
 
-import {ComboBox, Toggle} from '@app/src/features/common/form';
-import {mapString} from '@app/src/ui/Select';
+import { ComboBox, Toggle } from '@app/src/features/common/form';
+import { mapString } from '@app/src/ui/Select';
 
-import {Props} from '../../container';
-import {countries} from './countries';
-import {regions} from './regions';
+import { Props } from '../../container';
+import { countries } from './countries';
+import { regions } from './regions';
 import localStyles from './RegionSelect.css';
 
 const RegionSelect = ({

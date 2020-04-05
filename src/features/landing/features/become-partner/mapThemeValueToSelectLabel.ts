@@ -1,4 +1,7 @@
-import {PartnerTypes, PartneTypeLabels,} from '@app/src/domain/models/PartnerTypes';
+import {
+  PartnerTypes,
+  PartneTypeLabels,
+} from '@app/src/domain/models/PartnerTypes';
 
 export const mapThemeValueToSelectLabel = {
   [PartnerTypes.BecomePartner]: PartneTypeLabels.BecomePartner,

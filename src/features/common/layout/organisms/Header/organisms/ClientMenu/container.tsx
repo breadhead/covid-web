@@ -1,5 +1,5 @@
-import {connect} from 'react-redux';
-import {AnyAction, Dispatch} from 'redux';
+import { connect } from 'react-redux';
+import { AnyAction, Dispatch } from 'redux';
 
 import signOut from '@app/src/features/login/features/signOut';
 

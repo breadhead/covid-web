@@ -33,13 +33,14 @@ import { authViolateStatus } from '@app/src/domain/reducers/signInReducer/middle
 import { getPartnersFromSanity } from '@app/src/domain/reducers/partnerReducer';
 import { getExpertsFromSanity } from '@app/src/domain/reducers/expertReducer';
 
+import { getExpertBoardFromSanity } from '@front/domain/reducers/expertBoardReducer';
+
 import ErrorComponent from './_error';
 import { description, keywords } from '../src/features/common/seo/SEO';
 
 import '@app/src/ui/antd-styles.less';
 import '@app/src/ui/config.css?CSSModulesDisable';
 import '@app/src/ui/globals.css?CSSModulesDisable';
-import {getExpertBoardFromSanity} from "@front/domain/reducers/expertBoardReducer";
 
 interface Props {
   reduxStore: Store;

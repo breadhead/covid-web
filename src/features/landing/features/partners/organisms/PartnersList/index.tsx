@@ -1,15 +1,15 @@
-import {SelectValue} from 'antd/lib/select';
-import React, {useState} from 'react';
-import {useMappedState} from 'redux-react-hook';
+import { SelectValue } from 'antd/lib/select';
+import React, { useState } from 'react';
+import { useMappedState } from 'redux-react-hook';
 
-import {selectPartners} from '@app/src/domain/reducers/partnerReducer/selectPartners';
+import { selectPartners } from '@app/src/domain/reducers/partnerReducer/selectPartners';
 import PartnerCard from '@app/src/features/landing/organisms/PartnerCard';
 // import { Partner } from '@app/models/sanity/Partner';
 import routes from '@app/routes';
 
 import PartnersGroupSelect from '../../molecules/PartnersGroupSelect';
 import PartnersRadioGroup from '../../molecules/PartnersRadioGroup';
-import {PartnersType} from './config';
+import { PartnersType } from './config';
 import * as styles from './PartnersList.css';
 
 const { Router } = routes;

@@ -1,5 +1,8 @@
 import Container from './container';
-import {RESTORE_PASSWORD_MODAL_KEY, RestorePasswordModal,} from './organisms/Modal';
+import {
+  RESTORE_PASSWORD_MODAL_KEY,
+  RestorePasswordModal,
+} from './organisms/Modal';
 
 export { reducer, actions } from './reducer';
 export type { State, Actions } from './reducer';

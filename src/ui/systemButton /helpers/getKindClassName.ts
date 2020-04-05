@@ -1,4 +1,4 @@
-import {SystemButtonKind} from '../SystemButtonKind';
+import { SystemButtonKind } from '../SystemButtonKind';
 
 export const getKindClassName = (kind: SystemButtonKind): string =>
   ({

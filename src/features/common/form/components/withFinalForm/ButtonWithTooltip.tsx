@@ -1,4 +1,4 @@
-import {Button, ButtonProps} from '@app/src/ui/button';
+import { Button, ButtonProps } from '@app/src/ui/button';
 
 import withTooltip from '../../../formHOCs/withTooltip';
 

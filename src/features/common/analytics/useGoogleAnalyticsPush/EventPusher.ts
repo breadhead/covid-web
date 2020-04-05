@@ -1,4 +1,4 @@
-import {dataLayer} from '../config';
+import { dataLayer } from '../config';
 
 export default class EventPusher {
   public constructor(private readonly sourceName: string) {}

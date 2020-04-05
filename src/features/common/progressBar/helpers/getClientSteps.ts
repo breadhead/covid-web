@@ -1,5 +1,5 @@
-import {StepPointerModel, StepPointerType} from '../molecule/StepPointer';
-import {clientSteps} from '../steps';
+import { StepPointerModel, StepPointerType } from '../molecule/StepPointer';
+import { clientSteps } from '../steps';
 
 const defineType = (index: number, current: number) => {
   if (index < current) {

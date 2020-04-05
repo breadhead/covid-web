@@ -1,17 +1,17 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import {Button, ButtonKind} from '@app/src/ui/button';
-import MediaQuery, {Query} from '@app/src/ui/MediaQuery';
-import {Icon} from '@app/src/ui/icon';
-import {NavLink} from '@app/src/ui/nav-link';
-import {IconsList} from '@app/src/ui/sprite';
+import { Button, ButtonKind } from '@app/src/ui/button';
+import MediaQuery, { Query } from '@app/src/ui/MediaQuery';
+import { Icon } from '@app/src/ui/icon';
+import { NavLink } from '@app/src/ui/nav-link';
+import { IconsList } from '@app/src/ui/sprite';
 
 import * as styles from './Navigation.css';
 import NavIcon from '../../atoms/NavIcon';
 import LoginButton from '../../atoms/LoginButton';
 import SignInMobileMenu from '../SignInMobileMenu';
-import {CLientMenu} from '../ClientMenu';
+import { CLientMenu } from '../ClientMenu';
 
 interface Props {
   showLoginButton?: boolean;

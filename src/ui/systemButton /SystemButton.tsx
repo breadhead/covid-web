@@ -2,12 +2,12 @@ import cx from 'classnames';
 import React from 'react';
 
 import styles from './Button.css';
-import {SystemButtonKind} from './SystemButtonKind';
-import {SystemButtonProps} from './SystemButtonProps';
-import {SystemButtonSize} from './SystemButtonSize';
-import {getButtonType} from './helpers/getButtonType';
-import {getKindClassName} from './helpers/getKindClassName';
-import {getSizeClassName} from './helpers/getSizeClassName';
+import { SystemButtonKind } from './SystemButtonKind';
+import { SystemButtonProps } from './SystemButtonProps';
+import { SystemButtonSize } from './SystemButtonSize';
+import { getButtonType } from './helpers/getButtonType';
+import { getKindClassName } from './helpers/getKindClassName';
+import { getSizeClassName } from './helpers/getSizeClassName';
 
 export const SystemButton = ({
   children,

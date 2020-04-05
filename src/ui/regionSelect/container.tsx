@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import {regions} from '@app/src/ui/regionSelect/organisms/RegionSelect/regions';
-import {Schema} from '@app/src/features/common/formHOCs/withFinalForm';
-import {StylesType} from '@app/src/lib/config';
+import { regions } from '@app/src/ui/regionSelect/organisms/RegionSelect/regions';
+import { Schema } from '@app/src/features/common/formHOCs/withFinalForm';
+import { StylesType } from '@app/src/lib/config';
 
 interface LocalState {
   clientInRussia: boolean;

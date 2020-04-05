@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import {NavLink} from '@app/src/ui/nav-link';
+import { NavLink } from '@app/src/ui/nav-link';
 
 import s from './Hero.css';
 

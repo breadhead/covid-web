@@ -1,4 +1,4 @@
-import {ErrorCode} from './erorCodes';
+import { ErrorCode } from './erorCodes';
 
 export type Validator = (dates: number[]) => ErrorCode | undefined;
 type DateType = number | string;

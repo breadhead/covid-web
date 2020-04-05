@@ -1,7 +1,10 @@
 import * as React from 'react';
 
-import {WithSignInModal, withSignInModal,} from '@app/src/features/login/features/signIn';
-import {Button, ButtonKind} from '@app/src/ui/button';
+import {
+  WithSignInModal,
+  withSignInModal,
+} from '@app/src/features/login/features/signIn';
+import { Button, ButtonKind } from '@app/src/ui/button';
 
 interface LoginButtonProps {
   className?: string;

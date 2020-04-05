@@ -1,7 +1,7 @@
-import {User} from '@app/src/domain/models/Users/User';
-import {Partner} from '@app/src/domain/models/sanity/Partner';
-import {Expert} from '@app/src/domain/models/sanity/Expert';
-import {FormRequestType} from '@app/src/domain/models/common/FormRequestType';
+import { User } from '@app/src/domain/models/Users/User';
+import { Partner } from '@app/src/domain/models/sanity/Partner';
+import { Expert } from '@app/src/domain/models/sanity/Expert';
+import { FormRequestType } from '@app/src/domain/models/common/FormRequestType';
 
 export interface UploadedFile {
   path: string;

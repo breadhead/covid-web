@@ -1,4 +1,4 @@
-import {getDeclensionedWord} from '../helpers';
+import { getDeclensionedWord } from '../helpers';
 
 describe('getDeclensionedWord', () => {
   test('should save right end for singular', () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {withModal, WithModalProps} from '@app/src/features/common/modal';
+import { withModal, WithModalProps } from '@app/src/features/common/modal';
 
-import {MODAL_KEY} from './container';
+import { MODAL_KEY } from './container';
 
 export interface WithSignUpModal {
   openSignUp: () => void;

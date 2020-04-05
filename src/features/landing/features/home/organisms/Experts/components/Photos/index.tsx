@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {shuffle} from 'lodash';
+import { shuffle } from 'lodash';
 
-import {getImageSrc} from '@app/src/lib/useImageSrc/getImageSrc';
-import {Expert} from '@app/src/domain/models/sanity/Expert';
+import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
+import { Expert } from '@app/src/domain/models/sanity/Expert';
 
 import * as styles from './Photos.css';
 

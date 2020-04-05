@@ -1,4 +1,4 @@
-import {FormContext} from './FormContext';
+import { FormContext } from './FormContext';
 
 export interface OwnProps {
   className?: string;

@@ -1,4 +1,4 @@
-import {RemoveSection} from './RemoveSection';
+import { RemoveSection } from './RemoveSection';
 
 export interface FormContext {
   removeSectionFromState: RemoveSection;

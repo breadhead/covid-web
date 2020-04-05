@@ -1,13 +1,13 @@
 import React from 'react';
 import cx from 'classnames';
 
-import {FormConstructor} from '@app/src/features/common/form/FormConstructor';
+import { FormConstructor } from '@app/src/features/common/form/FormConstructor';
 import * as commonStyles from '@app/src/features/common/form/commonStyles.css';
-import {Button, ButtonSize} from '@app/src/ui/button';
+import { Button, ButtonSize } from '@app/src/ui/button';
 
 import * as styles from './VolunteerForm.css';
-import {formConfig} from './formConfig';
-import {SubmitTooltip} from '../../common/form/components/SubmitTooltip/SubmitTooltip';
+import { formConfig } from './formConfig';
+import { SubmitTooltip } from '../../common/form/components/SubmitTooltip/SubmitTooltip';
 
 interface Props {
   onSubmit: (data: any) => Promise<any>;

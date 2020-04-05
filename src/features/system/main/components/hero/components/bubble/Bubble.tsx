@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 import * as styles from './Bubble.css';
-import {bubbleText} from './text';
+import { bubbleText } from './text';
 
 export const Bubble = () => {
   const [index, setIndex] = useState(0);

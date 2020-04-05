@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {NavLink} from '@app/src/ui/nav-link';
+import { NavLink } from '@app/src/ui/nav-link';
 
 import NavIcon from '../../atoms/NavIcon';
 import * as styles from './SignInMobileMenu.css';

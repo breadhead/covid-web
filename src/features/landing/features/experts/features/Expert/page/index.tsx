@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import {MainLayout} from '@app/src/features/common/layout';
-import {Expert as ExpertModel} from '@app/src/domain/models/sanity/Expert';
-import {getImageSrc} from '@app/src/lib/useImageSrc/getImageSrc';
-import {NavLink} from '@app/src/ui/nav-link';
+import { MainLayout } from '@app/src/features/common/layout';
+import { Expert as ExpertModel } from '@app/src/domain/models/sanity/Expert';
+import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
+import { NavLink } from '@app/src/ui/nav-link';
 
 import * as styles from './ExpertPage.css';
 

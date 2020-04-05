@@ -1,5 +1,5 @@
 import escapeStringRegexp from 'escape-string-regexp';
-import {flatten} from 'lodash';
+import { flatten } from 'lodash';
 
 const createDelimiterRegExp = (delimiter: string): RegExp =>
   new RegExp(`(${escapeStringRegexp(delimiter)})`, 'g');

@@ -1,7 +1,7 @@
-import {get} from 'lodash';
+import { get } from 'lodash';
 
 import * as content from './conslutionConfig';
-import {temperatureList} from '../request/organisms/RequestForm/config';
+import { temperatureList } from '../request/organisms/RequestForm/config';
 
 export const getCovidSymptoms = (data: any) =>
   !!get(data, 'symptoms.temperature') ||

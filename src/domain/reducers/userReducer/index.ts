@@ -1,4 +1,4 @@
-import {actions, reducer} from './reducer';
+import { actions, reducer } from './reducer';
 
 export { reducer, actions };
 export type { State, Actions } from './reducer';

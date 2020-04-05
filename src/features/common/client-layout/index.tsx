@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import Container from '@app/src/ui/Container';
-import Footer, {FooterTheme, FooterType} from '@app/src/ui/organisms/Footer';
+import Footer, { FooterTheme, FooterType } from '@app/src/ui/organisms/Footer';
 
 import Header from '../header';
 import styles from './Layout.css';

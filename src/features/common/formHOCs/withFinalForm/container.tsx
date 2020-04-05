@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Field, FieldRenderProps} from 'react-final-form';
-import {Omit} from 'utility-types';
+import { Field, FieldRenderProps } from 'react-final-form';
+import { Omit } from 'utility-types';
 
-import {getShouldValidate} from './helpers/getShouldValidate';
-import {Schema, ValidateCb, validator} from './helpers/validator';
+import { getShouldValidate } from './helpers/getShouldValidate';
+import { Schema, ValidateCb, validator } from './helpers/validator';
 
 interface OwnProps {
   name: string;

@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
-import {compareDates} from '../compareDates';
-import {ErrorCode} from '../erorCodes';
+import { compareDates } from '../compareDates';
+import { ErrorCode } from '../erorCodes';
 
 describe('validateDates works', () => {
   test('should return undefined when dates are in correct order', () => {

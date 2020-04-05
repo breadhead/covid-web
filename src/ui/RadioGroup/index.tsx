@@ -1,9 +1,9 @@
-import {RadioChangeEvent} from 'antd/lib/radio';
+import { RadioChangeEvent } from 'antd/lib/radio';
 import * as React from 'react';
 import cx from 'classnames';
-import {Radio} from 'antd';
+import { Radio } from 'antd';
 
-import {NON_BREAKING_SPACE} from '@app/src/lib/config';
+import { NON_BREAKING_SPACE } from '@app/src/lib/config';
 
 import './ButtonStyle.css?CSSModulesDisable';
 import Button from './ButtonVariant';

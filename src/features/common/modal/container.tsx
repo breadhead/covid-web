@@ -1,19 +1,19 @@
 import cx from 'classnames';
 import * as React from 'react';
 import ReactModal from 'react-modal';
-import {connect} from 'react-redux';
-import {compose} from 'recompose';
-import {Action, AnyAction, Dispatch} from 'redux';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+import { Action, AnyAction, Dispatch } from 'redux';
 import withLockScroll from '@breadhead/with-scroll-lock';
 
-import {State} from '@app/src/lib/store';
+import { State } from '@app/src/lib/store';
 
 import CloseButton from './atoms/CloseButton';
-import {ModalDispatcher} from './helpers/ModalDispatcher';
-import {shouldOpenModal} from './helpers/shouldModalOpen';
+import { ModalDispatcher } from './helpers/ModalDispatcher';
+import { shouldOpenModal } from './helpers/shouldModalOpen';
 import styles from './index.css';
-import {actions} from './reducer';
-import {getModal} from './selectors';
+import { actions } from './reducer';
+import { getModal } from './selectors';
 
 interface Props {
   modal: string;

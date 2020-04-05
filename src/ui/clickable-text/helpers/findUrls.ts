@@ -1,4 +1,4 @@
-import {PREVIEW_IMAGE_REGEXP, URL_REGEXP} from './URL_REGEXP';
+import { PREVIEW_IMAGE_REGEXP, URL_REGEXP } from './URL_REGEXP';
 
 export const findUrls = (text: string): string[] | any => {
   if (text.startsWith('/preview-image')) {

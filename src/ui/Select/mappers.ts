@@ -1,4 +1,4 @@
-import {LabeledValue} from 'antd/lib/select';
+import { LabeledValue } from 'antd/lib/select';
 
 type EnumEntry = [string, string];
 

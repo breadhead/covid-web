@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {useMappedState} from 'redux-react-hook';
+import { useMappedState } from 'redux-react-hook';
 
-import {AppContext} from '@app/src/lib/server-types';
-import {selectExperts} from '@app/src/domain/reducers/expertReducer/selectExperts';
+import { AppContext } from '@app/src/lib/server-types';
+import { selectExperts } from '@app/src/domain/reducers/expertReducer/selectExperts';
 
 import ExpertPage from './page';
 

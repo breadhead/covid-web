@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Select as AntSelect} from 'antd';
-import {LabeledValue, OptionProps, SelectProps} from 'antd/lib/select';
+import { Select as AntSelect } from 'antd';
+import { LabeledValue, OptionProps, SelectProps } from 'antd/lib/select';
 import cx from 'classnames';
-import {toString} from 'lodash';
+import { toString } from 'lodash';
 
 import './Combobox.css?CSSModulesDisable';
 

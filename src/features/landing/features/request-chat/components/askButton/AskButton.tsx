@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {useMappedState} from 'redux-react-hook';
+import { useMappedState } from 'redux-react-hook';
 
-import {Button, ButtonSize} from '@app/src/ui/button';
-import {useModal} from '@app/src/features/common/modal';
+import { Button, ButtonSize } from '@app/src/ui/button';
+import { useModal } from '@app/src/features/common/modal';
 
 import * as styles from './AskButton.css';
-import {selectToken} from '../../../home/molecules/StartConsultationButton/selectors';
+import { selectToken } from '../../../home/molecules/StartConsultationButton/selectors';
 
 const SIGN_IN_MODAL = 'sign-up';
 

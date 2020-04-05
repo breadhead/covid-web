@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
-import {FormComponentType} from '@app/src/features/common/form/FormConstructor';
-import {RadioButtonStyles} from '@app/src/ui/RadioGroup';
+import { FormComponentType } from '@app/src/features/common/form/FormConstructor';
+import { RadioButtonStyles } from '@app/src/ui/RadioGroup';
 
 const OTHER_SPECIALITY = 'Другое';
 

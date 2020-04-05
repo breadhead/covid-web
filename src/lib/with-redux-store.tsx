@@ -1,8 +1,8 @@
 import React from 'react';
 
 import actualizeStore from './helpers/actualizeStore';
-import {AppContext} from './server-types';
-import {initializeStore, State, Store} from './store';
+import { AppContext } from './server-types';
+import { initializeStore, State, Store } from './store';
 
 const isServer = typeof window === 'undefined';
 const __NEXT_REDUX_STORE__ = '__NEXT_REDUX_STORE__';

@@ -1,8 +1,8 @@
-import {Dispatch} from 'redux';
+import { Dispatch } from 'redux';
 
-import {ExtraArgs, State} from '@app/src/lib/store';
+import { ExtraArgs, State } from '@app/src/lib/store';
 
-import {actions} from './reducer';
+import { actions } from './reducer';
 
 export const getExpertsFromSanity = () => async (
   dispatch: Dispatch<any>,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {NavLink} from '@app/src/ui/nav-link';
+import { NavLink } from '@app/src/ui/nav-link';
 
 import stylesLong from './MenuLong.css';
 import stylesShort from './MenuShort.css';

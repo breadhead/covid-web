@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
-import {ErrorCode} from './erorCodes';
-import {Validator} from './types';
+import { ErrorCode } from './erorCodes';
+import { Validator } from './types';
 
 const checkForFutureDateError: Validator = (dates: number[]) => {
   const now = dayjs().valueOf();

@@ -1,5 +1,5 @@
 import * as content from '../conslutionConfig';
-import {getConclutionText} from '../getConclutionText';
+import { getConclutionText } from '../getConclutionText';
 import {
   dataDanger,
   dataDanger2,

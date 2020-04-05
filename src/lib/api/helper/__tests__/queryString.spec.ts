@@ -1,4 +1,4 @@
-import {queryString} from '../queryString';
+import { queryString } from '../queryString';
 
 describe('queryString', () => {
   test('should create empty string for empty query', () => {

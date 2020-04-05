@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {useModal} from '@app/src/features/common/modal';
-import {SIGN_IN_MODAL} from '@app/src/features/login';
+import { useModal } from '@app/src/features/common/modal';
+import { SIGN_IN_MODAL } from '@app/src/features/login';
 
 export interface WithSignInModal {
   openSignIn: () => void;

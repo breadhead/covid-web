@@ -1,11 +1,16 @@
 import * as React from 'react';
 import Head from 'next/head';
-import {NON_BREAKING_SPACE} from '@app/src/lib/config';
-import {NavLink} from '@app/src/ui/nav-link';
-import {SystemButton, SystemButtonKind, SystemButtonSize,} from '@app/src/ui/systemButton ';
+
+import { NON_BREAKING_SPACE } from '@app/src/lib/config';
+import { NavLink } from '@app/src/ui/nav-link';
+import {
+  SystemButton,
+  SystemButtonKind,
+  SystemButtonSize,
+} from '@app/src/ui/systemButton ';
 
 import * as styles from './NotFound.css';
-import {SystemLayout} from '../../system/layout';
+import { SystemLayout } from '../../system/layout';
 
 export { default as notFoundMiddleware } from './notFoundMiddleware';
 export { reducer } from './reducer';

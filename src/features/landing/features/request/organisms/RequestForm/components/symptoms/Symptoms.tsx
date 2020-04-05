@@ -1,11 +1,18 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import cx from 'classnames';
 
-import {Checkbox, RadioGroup} from '@app/src/features/common/form';
+import { Checkbox, RadioGroup } from '@app/src/features/common/form';
 
-import {coughList, dyspneaList, symptomsList, symptomsSinceList, temperatureList, thoraxList,} from '../../config';
+import {
+  coughList,
+  dyspneaList,
+  symptomsList,
+  symptomsSinceList,
+  temperatureList,
+  thoraxList,
+} from '../../config';
 import * as styles from '../../RequestForm.css';
-import {requiredSchema} from '../../schema';
+import { requiredSchema } from '../../schema';
 
 interface SymptomsProps {
   checked: string[];

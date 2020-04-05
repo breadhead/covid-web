@@ -1,5 +1,5 @@
-import {Action} from 'redux';
-import {createSymbiote} from 'redux-symbiote';
+import { Action } from 'redux';
+import { createSymbiote } from 'redux-symbiote';
 
 export interface State {
   found: boolean;

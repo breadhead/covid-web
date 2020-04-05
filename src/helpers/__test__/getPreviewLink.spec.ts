@@ -1,4 +1,4 @@
-import {getPreviewLink} from '../getPreviewLink';
+import { getPreviewLink } from '../getPreviewLink';
 
 describe('getPreviewLink', () => {
   test('should include preview-image with .jpg', () => {

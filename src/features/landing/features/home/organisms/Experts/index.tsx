@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {useMappedState} from 'redux-react-hook';
+import { useMappedState } from 'redux-react-hook';
 
-import {selectExperts} from '@app/src/domain/reducers/expertReducer/selectExperts';
-import {NavLink} from '@app/src/ui/nav-link';
+import { selectExperts } from '@app/src/domain/reducers/expertReducer/selectExperts';
+import { NavLink } from '@app/src/ui/nav-link';
 
 import * as styles from './Experts.css';
 import Photos from './components/Photos';
-import {CovidButtons} from '../Main/components/CovidButtons/CovidButtons';
+import { CovidButtons } from '../Main/components/CovidButtons/CovidButtons';
 
 const Experts = () => {
   const experts = useMappedState(selectExperts);

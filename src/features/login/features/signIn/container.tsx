@@ -1,17 +1,17 @@
 import Router from 'next/router';
 import * as React from 'react';
-import {connect} from 'react-redux';
-import {AnyAction, compose, Dispatch} from 'redux';
+import { connect } from 'react-redux';
+import { AnyAction, compose, Dispatch } from 'redux';
 import * as yup from 'yup';
 
-import {State} from '@app/src/lib/store';
-import {isModal} from '@app/src/features/common/modal';
+import { State } from '@app/src/lib/store';
+import { isModal } from '@app/src/features/common/modal';
 
-import withSignUpModal, {WithSignUpModal} from '../signUp/withSignUpModal';
-import {loginAction} from '../../../../domain/reducers/signInReducer/actions';
-import {MODAL_KEY} from '../../../../domain/reducers/signInReducer/const';
-import {getViolateState} from '../../../../domain/reducers/signInReducer/selectors';
-import {getSignInError} from '../../../../domain/reducers/signInReducer/selectors/getSignInError';
+import withSignUpModal, { WithSignUpModal } from '../signUp/withSignUpModal';
+import { loginAction } from '../../../../domain/reducers/signInReducer/actions';
+import { MODAL_KEY } from '../../../../domain/reducers/signInReducer/const';
+import { getViolateState } from '../../../../domain/reducers/signInReducer/selectors';
+import { getSignInError } from '../../../../domain/reducers/signInReducer/selectors/getSignInError';
 
 export { MODAL_KEY };
 

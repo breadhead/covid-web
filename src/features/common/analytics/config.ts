@@ -1,4 +1,4 @@
-import {canUseDOM} from '@app/src/lib/helpers/canUseDOM';
+import { canUseDOM } from '@app/src/lib/helpers/canUseDOM';
 
 interface Window {
   [key: string]: {

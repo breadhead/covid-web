@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-import {AppContext} from '@app/src/lib/server-types';
-import {RequestChat} from '@app/src/features/landing/features/request-chat';
+import { AppContext } from '@app/src/lib/server-types';
+import { RequestChat } from '@app/src/features/landing/features/request-chat';
 
 interface Props {
   id: string;

@@ -1,5 +1,5 @@
-import {Select as AntSelect} from 'antd';
-import {SelectProps} from 'antd/lib/select';
+import { Select as AntSelect } from 'antd';
+import { SelectProps } from 'antd/lib/select';
 import cx from 'classnames';
 import * as React from 'react';
 

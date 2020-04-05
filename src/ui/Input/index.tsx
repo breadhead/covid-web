@@ -1,5 +1,5 @@
-import {Input as AntInput} from 'antd';
-import {InputProps} from 'antd/lib/input';
+import { Input as AntInput } from 'antd';
+import { InputProps } from 'antd/lib/input';
 import cx from 'classnames';
 import * as React from 'react';
 

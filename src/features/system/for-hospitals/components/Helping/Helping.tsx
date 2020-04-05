@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {ClinicCard} from '../ClinicCard/ClinicCard';
+import { ClinicCard } from '../ClinicCard/ClinicCard';
 import s from './Helping.css';
 
 export const Helping = () => (

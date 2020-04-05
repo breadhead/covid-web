@@ -1,4 +1,4 @@
-import {Checkbox as AntCheckbox} from 'antd';
+import { Checkbox as AntCheckbox } from 'antd';
 import * as React from 'react';
 
 import './Checkbox.css?CSSModulesDisable';

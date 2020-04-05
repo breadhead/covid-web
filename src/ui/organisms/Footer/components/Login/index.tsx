@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import {Button, ButtonKind} from '@app/src/ui/button';
-import {NavLink} from '@app/src/ui/nav-link';
+import { Button, ButtonKind } from '@app/src/ui/button';
+import { NavLink } from '@app/src/ui/nav-link';
 
 import styles from './Login.css';
 

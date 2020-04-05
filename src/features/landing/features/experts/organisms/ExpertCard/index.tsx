@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import {Expert} from '@app/src/domain/models/sanity/Expert';
-import {getImageSrc} from '@app/src/lib/useImageSrc/getImageSrc';
-import {NavLink} from '@app/src/ui/nav-link';
+import { Expert } from '@app/src/domain/models/sanity/Expert';
+import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
+import { NavLink } from '@app/src/ui/nav-link';
 
 import * as styles from './ExpertCard.css';
 
