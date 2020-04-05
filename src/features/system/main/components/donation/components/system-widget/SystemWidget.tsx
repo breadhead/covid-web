@@ -1,23 +1,18 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 
 import { SystemButton, SystemButtonSize } from '@app/src/ui/systemButton ';
 import { NavLink } from '@app/src/ui/nav-link';
 import { SPACE } from '@app/src/lib/config';
 
 import * as styles from './SystemWidget.css';
-import { frequencyForm, costForm, targetSelect } from './formConfig';
 import { FirstStep } from './first-step/FirstStep';
+import { reducer, initialState } from './widgetReducer';
+import * as actions from './widgetActions';
 
 export const SystemWidget = () => {
-  const [frequency, setFrequency] = useState(
-    frequencyForm.find((it) => !!it.checked)?.id || null,
-  );
-  const [cost, setCost] = useState(
-    costForm.find((it) => !!it.checked)?.id || null,
-  );
-  const [target, setTarget] = useState(
-    targetSelect.options.find((opt) => !!opt.selected)?.value || null,
-  );
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const { frequency, cost, target } = state;
 
   return (
     <form
@@ -32,9 +27,11 @@ export const SystemWidget = () => {
         cost={cost}
         frequency={frequency}
         target={target}
-        setCost={setCost}
-        setFrequency={setFrequency}
-        setTarget={setTarget}
+        setCost={(value) => dispatch({ type: actions.SET_COST, value })}
+        setFrequency={(value) =>
+          dispatch({ type: actions.SET_FREQUENCY, value })
+        }
+        setTarget={(value) => dispatch({ type: actions.SET_TARGET, value })}
         styles={styles}
       />
 
