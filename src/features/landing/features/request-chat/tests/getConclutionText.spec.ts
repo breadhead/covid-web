@@ -1,14 +1,14 @@
 import * as content from '../conslutionConfig';
 import { getConclutionText } from '../getConclutionText';
 import {
-  dataDanger,
-  dataDanger2,
-  dataDangerAndRisk,
-  dataOncological,
-  dataOtherSymptomsAndRisk,
-  dataRisk,
   dataSuccess,
+  dataRisk,
+  dataOncological,
+  dataDanger2,
   withOtherSymptomsAndNoRiskGroup,
+  dataOtherSymptomsAndRisk,
+  dataDanger,
+  dataDangerAndRisk,
 } from './mock';
 
 describe('getConclutionText', () => {

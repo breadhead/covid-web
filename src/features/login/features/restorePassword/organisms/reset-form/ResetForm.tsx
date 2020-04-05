@@ -7,7 +7,6 @@ import { Button } from '@app/src/ui/button';
 
 import * as styles from './ResetForm.css';
 import { schema } from './schema';
-
 interface Props {
   openSignUp: () => void;
   onFormSubmit: () => void;

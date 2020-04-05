@@ -1,14 +1,14 @@
 /* eslint-disable */
 import * as React from 'react';
-import {useState} from 'react';
-import {compose} from 'redux';
-import {isModal} from '@app/src/features/common/modal';
-import {withSignInModal, WithSignInModal} from '../signIn';
-import {withSignUpModal, WithSignUpModal} from '../signUp';
+import { useState } from 'react';
+import { compose } from 'redux';
+import { isModal } from '@app/src/features/common/modal';
+import { withSignInModal, WithSignInModal } from '../signIn';
+import { withSignUpModal, WithSignUpModal } from '../signUp';
 
-import {useThunk} from '@app/src/helpers/hooks/useThunk';
-import {RESTORE_PASSWORD_MODAL_KEY} from './organisms/Modal';
-import {loginAction} from '@app/src/domain/reducers/signInReducer/actions';
+import { useThunk } from '@app/src/helpers/hooks/useThunk';
+import { RESTORE_PASSWORD_MODAL_KEY } from './organisms/Modal';
+import { loginAction } from '@app/src/domain/reducers/signInReducer/actions';
 
 export interface Credentials {
   login: string;

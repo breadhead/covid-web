@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import cx from 'classnames';
 
-import { Checkbox, RadioGroup } from '@app/src/features/common/form';
+import { RadioGroup, Checkbox } from '@app/src/features/common/form';
 
 import {
-  coughList,
-  dyspneaList,
-  symptomsList,
-  symptomsSinceList,
   temperatureList,
+  symptomsSinceList,
+  symptomsList,
+  coughList,
   thoraxList,
+  dyspneaList,
 } from '../../config';
 import * as styles from '../../RequestForm.css';
 import { requiredSchema } from '../../schema';

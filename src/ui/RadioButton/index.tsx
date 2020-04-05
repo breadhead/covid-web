@@ -3,7 +3,6 @@ import cx from 'classnames';
 import * as React from 'react';
 
 import './RadioButton.css?CSSModulesDisable';
-
 export interface Props {
   name: string;
   value: string;

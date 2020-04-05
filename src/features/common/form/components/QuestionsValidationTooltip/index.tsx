@@ -3,7 +3,6 @@ import React from 'react';
 import ValidationTooltip from '../withFinalForm/ValidationTooltip';
 import * as styles from './QuestionsValidationTooltip.css';
 import { validateCb } from './validateCb';
-
 interface Props {
   name: string;
 }

@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { MainLayout } from '@app/src/features/common/layout';
 import { AppContext } from '@app/src/lib/server-types';
 import { getPartnersFromSanity } from '@app/src/domain/reducers/partnerReducer';
+import LandingPage from '@app/src/features/landing/features/home';
 
 import * as styles from './Partners.css';
 import Notification from '../molecules/Notification';

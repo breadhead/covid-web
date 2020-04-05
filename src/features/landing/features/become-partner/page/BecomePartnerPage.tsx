@@ -3,6 +3,7 @@ import Head from 'next/head';
 import cx from 'classnames';
 import { head } from 'lodash';
 
+import { MainLayout } from '@app/src/features/common/layout';
 import { SystemLayout } from '@app/src/features/system/layout';
 
 import { BecomePartnerForm } from '../BecomePartnerForm';

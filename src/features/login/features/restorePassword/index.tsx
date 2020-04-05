@@ -1,9 +1,8 @@
 import Container from './container';
 import {
-  RESTORE_PASSWORD_MODAL_KEY,
   RestorePasswordModal,
+  RESTORE_PASSWORD_MODAL_KEY,
 } from './organisms/Modal';
-
 export { reducer, actions } from './reducer';
 export type { State, Actions } from './reducer';
 export { OpenRestorePasswordModalButton } from './molecules/open-restore-password-modal-button';

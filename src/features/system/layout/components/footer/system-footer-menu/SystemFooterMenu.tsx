@@ -5,7 +5,7 @@ import MediaQuery, { Query } from '@app/src/ui/MediaQuery';
 import NavIcon from '@app/src/ui/organisms/Footer/components/NavIcon';
 
 import * as styles from './SystemFooterMenu.css';
-import { linksLong, linksShort } from './systemFooterLinks';
+import { linksShort, linksLong } from './systemFooterLinks';
 
 export const SystemFooterMenu = () => {
   return (

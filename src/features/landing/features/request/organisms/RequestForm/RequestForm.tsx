@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 
 import {
-  Checkbox,
   Form,
   Input,
-  InputType,
   RadioGroup,
+  InputType,
+  Checkbox,
 } from '@app/src/features/common/form';
 import routes from '@app/routes';
 import RegionSelect from '@app/src/ui/regionSelect';
@@ -16,12 +16,12 @@ import { Button, ButtonSize } from '@app/src/ui/button';
 
 import * as styles from './RequestForm.css';
 import { Symptoms } from './components/symptoms';
-import { deseasesList, targetList } from './config';
+import { targetList, deseasesList } from './config';
 import { saveCoronaRequestForm } from '../../../../../../domain/reducers/requestConsultationReducer/actions';
 import {
+  saveRequestFormDraft,
   getRequestFormDraft,
   isFormRequestFinished,
-  saveRequestFormDraft,
 } from './localStorage';
 import { schema } from './schema';
 

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import Overlay from '@app/src/ui/Overlay';
 import BurgerButton from '@app/src/features/common/layout/organisms/Header/atoms/BurgerButton';
