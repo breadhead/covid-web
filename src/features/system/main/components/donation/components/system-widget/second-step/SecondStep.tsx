@@ -5,6 +5,8 @@ import { SystemButton } from '@app/src/ui/systemButton ';
 import { NavLink } from '@app/src/ui/nav-link';
 import { SPACE } from '@app/src/lib/config';
 
+import { CloudPayments } from '../cloud-payments/CloudPayments';
+
 interface SecondStepProps {
   name: string;
   surname: string;
@@ -56,9 +58,10 @@ export const SecondStep = ({
         <button onClick={() => setStep(1)} className={styles.backButton}>
           Назад
         </button>
-        <SystemButton className={styles.actionButton}>
+        <CloudPayments />
+        {/* <SystemButton submit className={styles.actionButton}>
           Сделать пожертвование
-        </SystemButton>
+        </SystemButton> */}
       </div>
       <p className={styles.cancelText}>
         Нажимая кнопку, я соглашаюсь с{SPACE}

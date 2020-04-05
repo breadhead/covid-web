@@ -1,4 +1,5 @@
 import React, { useReducer, useState } from 'react';
+import Head from 'next/head';
 
 import * as styles from './SystemWidget.css';
 import { FirstStep } from './first-step/FirstStep';
@@ -52,15 +53,23 @@ export const SystemWidget = () => {
   };
 
   return (
-    <form
-      onSubmit={(event: any) => {
-        event.preventDefault();
-        event.stopPropagation();
-        // TODO: smth
-      }}
-      className={styles.widget}
-    >
-      {getStep()}
-    </form>
+    <>
+      <Head>
+        <script
+          id="cp_script"
+          src="https://widget.cloudpayments.ru/bundles/cloudpayments"
+        />
+      </Head>
+      <form
+        onSubmit={(event: any) => {
+          event.preventDefault();
+          event.stopPropagation();
+          // TODO: smth
+        }}
+        className={styles.widget}
+      >
+        {getStep()}
+      </form>
+    </>
   );
 };
