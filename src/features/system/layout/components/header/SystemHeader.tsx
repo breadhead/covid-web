@@ -8,11 +8,11 @@ import { IconsList } from '@app/src/ui/sprite';
 import { NavLink } from '@app/src/ui/nav-link';
 import MediaQuery, { Query } from '@app/src/ui/MediaQuery';
 import { RouteType } from '@app/src/lib/routing/RouteType';
+import { SystemLogo } from '@app/src/ui/system-logo';
 
 import * as styles from './SystemHeader.css';
 import { SystemMobileMenu } from './system-mobile-menu';
 import { SystemNavigationContainer } from './navigation/SystemNavigationContainer';
-import { SystemHeaderLogo } from './system-header-logo';
 
 export const SystemHeader = () => {
   const { route } = useRouter();
@@ -39,7 +39,7 @@ export const SystemHeader = () => {
         route === RouteType.landing && styles.landing,
       )}
     >
-      <SystemHeaderLogo className={styles.logo} />
+      <SystemLogo className={styles.logo} />
       <SystemNavigationContainer narrow={narrow} />
       <MediaQuery className={styles.mobileMenuContainer} query={Query.ToLarge}>
         <NavLink

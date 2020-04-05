@@ -14,9 +14,9 @@ import {
 import { NavLink } from '@app/src/ui/nav-link';
 import { useModal } from '@app/src/features/common/modal';
 import { SIGN_IN_MODAL } from '@app/src/features/login';
+import { SystemLogo } from '@app/src/ui/system-logo';
 
 import * as styles from './SystemMobileMenu.css';
-import { SystemHeaderLogo } from '../system-header-logo';
 import { contentLinks, mainLinks } from '../links';
 
 export const SystemMobileMenu = () => {
@@ -34,7 +34,7 @@ export const SystemMobileMenu = () => {
       <TransitionMenu isVisible={menuOpened}>
         <nav className={styles.menu}>
           <header className={styles.header}>
-            <SystemHeaderLogo className={styles.logo} />
+            <SystemLogo className={styles.logo} />
             <button className={styles.closeButton} onClick={hide}>
               закрыть меню
               <Icon className={styles.NavIcon} name={IconsList.CloseSystem} />

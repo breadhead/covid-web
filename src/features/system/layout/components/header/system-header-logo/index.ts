@@ -1,1 +1,0 @@
-export { SystemHeaderLogo } from './SystemHeaderLogo';

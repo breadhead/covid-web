@@ -5,12 +5,12 @@ import { NavLink } from '@app/src/ui/nav-link';
 import { Icon } from '@app/src/ui/icon';
 import { IconsList } from '@app/src/ui/sprite';
 
-import * as styles from './SystemHeaderLogo.css';
+import * as styles from './SystemLogo.css';
 
-interface SystemHeaderLogoProps {
+interface SystemLogoProps {
   className?: string;
 }
-export const SystemHeaderLogo = ({ className }: SystemHeaderLogoProps) => {
+export const SystemLogo = ({ className }: SystemLogoProps) => {
   return (
     <NavLink
       className={cx(styles.iconWrapper, className)}
