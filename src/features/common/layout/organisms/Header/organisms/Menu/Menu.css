@@ -8,6 +8,7 @@
 }
 
 .menuWrapper {
+  height: 102vh;
   position: fixed;
   top: 0;
   right: 0;
