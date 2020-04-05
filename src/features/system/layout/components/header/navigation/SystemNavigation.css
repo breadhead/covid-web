@@ -44,12 +44,15 @@
 }
 
 .link {
+  transform: translateZ(0);
   display: inline-block;
   white-space: nowrap;
   font: var(--text18-28);
   font-size: 18px;
   line-height: 28px;
   padding: 18px 16px;
+  border-bottom: none;
+  transition: padding ease-in 0.5s;
 
   @media (max-width: 959px) {
     display: flex;
@@ -136,4 +139,23 @@
   @media (max-width: 959px) {
     color: var(--color-text-primary);
   }
+}
+
+.helpButton {
+  transform: translateZ(0);
+  transition: color 0.2s, background-color 0.2s, padding ease-in 0.5s !important;
+}
+
+.narrowButtonWrap button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.narrowMenu .link {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.buttonWrap {  
+  border: none;
 }

@@ -1,6 +1,7 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
+import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 
 import { Icon } from '@app/src/ui/icon';
 import { IconsList } from '@app/src/ui/sprite';
@@ -14,11 +15,26 @@ import { SystemNavigationContainer } from './navigation/SystemNavigationContaine
 
 export const SystemHeader = () => {
   const { route } = useRouter();
+  const [narrow, setNarrow] = useState(false);
+
+  useScrollPosition(
+    (pos) => {
+      const isShow = pos.currPos.y < 0;
+      if (isShow !== narrow) {
+        setNarrow(isShow);
+      }
+    },
+    [narrow],
+    undefined,
+    false,
+    500,
+  );
 
   return (
     <header
       className={cx(
         styles.headerWrapper,
+        narrow && styles.narrowHeader,
         route === RouteType.landing && styles.landing,
       )}
     >
@@ -40,7 +56,7 @@ export const SystemHeader = () => {
         <SystemMobileMenu />
       </MediaQuery>
       <MediaQuery className={styles.navContainer} query={Query.FromExtraLarge}>
-        <SystemNavigationContainer />
+        <SystemNavigationContainer narrow={narrow} />
       </MediaQuery>
     </header>
   );

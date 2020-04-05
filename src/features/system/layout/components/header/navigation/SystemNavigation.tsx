@@ -10,14 +10,14 @@ import { IconsList } from '@app/src/ui/sprite';
 import * as styles from './SystemNavigation.css';
 
 interface Props {
+  narrow?: boolean;
   className?: string;
   hide?: () => void;
 }
 
-export const SystemNavigation = ({ className, hide }: Props) => {
+export const SystemNavigation = ({ className, hide, narrow }: Props) => {
   const { asPath } = useRouter();
-  const router = useRouter();
-  console.log('SystemNavigation -> router', router);
+
   return (
     <div className={cx(styles.menu, className)}>
       <button className={styles.closeButton} onClick={hide}>
@@ -25,7 +25,7 @@ export const SystemNavigation = ({ className, hide }: Props) => {
         <Icon className={styles.NavIcon} name={IconsList.CloseLight} />
       </button>
 
-      <div className={styles.mainMenu}>
+      <div className={cx(styles.mainMenu, narrow && styles.narrowMenu)}>
         {mainLinks.map((link) => (
           <NavLink
             key={link.href}
@@ -41,7 +41,7 @@ export const SystemNavigation = ({ className, hide }: Props) => {
         ))}
       </div>
 
-      <div className={styles.contentMenu}>
+      <div className={cx(styles.contentMenu, narrow && styles.narrowMenu)}>
         {contentLinks.map((link) => (
           <NavLink
             key={link.href}
