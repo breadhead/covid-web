@@ -1,13 +1,18 @@
 import React from 'react';
 import Head from 'next/head';
+import { useMappedState } from 'redux-react-hook';
 
 import { Store } from '@app/src/lib/store';
 import { getNewsFromSanity } from '@app/src/domain/reducers/newsReducer';
 import { SystemLayout } from '@app/src/features/system/layout';
+import { selectNews } from '@app/src/domain/reducers/newsReducer/selectNews';
 
 import s from './NewsPage.css';
+import { NewsCard } from '../newsCard';
 
 export const NewsPage = () => {
+  const news = useMappedState(selectNews);
+
   return (
     <SystemLayout>
       <Head>
@@ -16,6 +21,12 @@ export const NewsPage = () => {
 
       <div className="gl-wrapper gl-first-section gl-section">
         <h1 className="gl-pageTitle">Новости</h1>
+
+        <div>
+          {news.map((newsItem) => (
+            <NewsCard data={newsItem} key={newsItem._id}></NewsCard>
+          ))}
+        </div>
       </div>
     </SystemLayout>
   );

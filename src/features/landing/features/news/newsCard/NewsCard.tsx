@@ -18,13 +18,17 @@ export const NewsCard = ({ data }: NewsCardProps) => {
   const image = getImageSrc(data.image) || '';
 
   return (
-    <NavLink href={`/news/${data.code.current}`} className={s.newsCard}>
-      <img className={s.image} src={image} alt={data.name} />
+    <NavLink
+      withoutUnderline
+      href={`/news/${data.code.current}`}
+      className={s.newsCard}
+    >
+      {image && <img className={s.image} src={image} alt={data.name} />}
       <div className={s.body}>
         <time className={s.date}>{formatDate(data._updatedAt)}</time>
         <h2 className={s.title}>{data.name}</h2>
         {(data.tags || data.categories) && (
-          <div>
+          <div className={s.tags}>
             {data.categories?.map((category) => (
               <Tag
                 highlighted
