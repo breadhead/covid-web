@@ -1,16 +1,22 @@
 import React from 'react';
 
-import { withModal, WithModalProps } from '@app/src/features/common/modal';
-
-import { MODAL_KEY } from './container';
+import { useModal } from '@app/src/features/common/modal';
+import { SIGN_UP_MODAL } from '@app/src/domain/reducers/signupReducer/const';
 
 export interface WithSignUpModal {
   openSignUp: () => void;
 }
 
-const Container = (Component: React.ComponentType<any>) =>
-  withModal(({ modal, ...props }: WithModalProps) => (
-    <Component {...props} openSignUp={() => modal.open(MODAL_KEY)} />
-  ));
+const withSignUpModal = (Component: React.ComponentType<any>) => (props) => {
+  const { open, close } = useModal();
 
-export default Container;
+  return (
+    <Component
+      {...props}
+      close={close}
+      openSignUp={() => open(SIGN_UP_MODAL)}
+    />
+  );
+};
+
+export default withSignUpModal;

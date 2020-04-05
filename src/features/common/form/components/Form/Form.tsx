@@ -32,12 +32,14 @@ class Form extends Component<Props> {
       saveDebounced,
       debounce,
       saveOnBlur,
+      onSubmit,
       ...rest
     } = this.props;
 
     return (
       <section className={className}>
         <FinalForm
+          onSubmit={onSubmit}
           render={({
             values,
             form,

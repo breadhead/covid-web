@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { Field, FieldRenderProps } from 'react-final-form';
-import { Omit } from 'utility-types';
+import { Field } from 'react-final-form';
 
 import { getShouldValidate } from './helpers/getShouldValidate';
-import { ValidateCb, validator } from './helpers/validator';
-import { Schema } from './helpers/validator';
+import { Schema, ValidateCb, validator } from './helpers/validator';
 
 interface OwnProps {
   name: string;
@@ -16,7 +14,7 @@ interface OwnProps {
 
 export const FORM_ERROR_CLASSNAME = 'finalFormError';
 
-type InputProps = Pick<FieldRenderProps, 'input'>['input'];
+type InputProps = any;
 
 type WrappedProps = OwnProps & InputProps;
 
@@ -29,7 +27,7 @@ const withFinalForm = <T extends WrappedProps>(
   validateOnBlur = true,
   validateCb,
   ...rest
-}: Omit<T, keyof InputProps> & OwnProps) => {
+}) => {
   const validateField =
     schema || validateCb
       ? (value: any, values: any) =>
