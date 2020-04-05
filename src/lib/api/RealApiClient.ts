@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
-import { User } from '@app/src/domain/models/Users/User';
 import { FormRequestType } from '@app/src/domain/models/common/FormRequestType';
+import { User } from '@app/src/domain/models/common/User';
 
 import ApiClient, { UploadedFile } from './ApiClient';
 import { queryString } from './helper/queryString';
@@ -106,20 +106,38 @@ export default class RealApiClient implements ApiClient {
       .then((res) => res.data as any);
 
   public getPartners = () => {
-    return sanityClient.fetch(`*[_type == "partner"]`, {
-      active: true,
-    });
+    return sanityClient.fetch(
+      `*[_type == "partner" &&  !(_id in path("drafts.**"))]`,
+      {
+        active: true,
+      },
+    );
   };
 
   public getExperts = () => {
-    return sanityClient.fetch(`*[_type == "expert"]`, {
-      active: true,
-    });
+    return sanityClient.fetch(
+      `*[_type == "expert" &&  !(_id in path("drafts.**"))]`,
+      {
+        active: true,
+      },
+    );
   };
 
   public getExpertBoard = () => {
-    return sanityClient.fetch(`*[_type == "expertBoard"]`, {
-      active: true,
-    });
+    return sanityClient.fetch(
+      `*[_type == "expertBoard" &&  !(_id in path("drafts.**"))]`,
+      {
+        active: true,
+      },
+    );
+  };
+
+  public getTags = () => {
+    return sanityClient.fetch(
+      `*[_type == "tag" &&  !(_id in path("drafts.**"))]`,
+      {
+        active: true,
+      },
+    );
   };
 }

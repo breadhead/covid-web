@@ -1,7 +1,8 @@
-import { User } from '@app/src/domain/models/Users/User';
-import { Partner } from '@app/src/domain/models/sanity/Partner';
-import { Expert } from '@app/src/domain/models/sanity/Expert';
+import { Partner } from '@app/src/domain/models/common/Partner';
+import { Expert } from '@app/src/domain/models/common/Expert';
 import { FormRequestType } from '@app/src/domain/models/common/FormRequestType';
+import { User } from '@app/src/domain/models/common/User';
+import { Tag } from '@app/src/domain/models/common/Tag';
 
 export interface UploadedFile {
   path: string;
@@ -25,4 +26,5 @@ export default interface ApiClient {
   getPartners(): Promise<Partner[]>;
   getExperts(): Promise<Expert[]>;
   getExpertBoard(): Promise<Expert[]>;
+  getTags(): Promise<Tag[]>;
 }

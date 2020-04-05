@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 
-import { Partner } from '@app/src/domain/models/sanity/Partner';
+import { Partner } from '@app/src/domain/models/common/Partner';
 
 enum PartnersType {
   Donor = 'donor',

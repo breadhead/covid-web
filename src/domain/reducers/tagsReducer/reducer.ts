@@ -9,12 +9,14 @@ import {
   FetchingState,
 } from '@app/src/lib/symbioteFactory';
 
+import { Tag } from '../../models/common/Tag';
+
 interface State extends FetchingState {
-  list: Partner[];
+  list: Tag[];
 }
 
 interface Actions extends FetchingActions {
-  success(partners: any): Action;
+  success(tags: any): Action;
 }
 
 const initialState = createInitialState({
@@ -23,13 +25,13 @@ const initialState = createInitialState({
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  (state: State, partnersFromSanity: Partner[]) => {
+  (state: State, tags: Tag[]) => {
     return {
       ...state,
-      list: partnersFromSanity,
+      list: tags,
     };
   },
-  'getPartnersFromSanity',
+  'tags',
 );
 
 export { reducer, actions };

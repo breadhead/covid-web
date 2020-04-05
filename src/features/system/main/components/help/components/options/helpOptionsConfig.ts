@@ -1,4 +1,4 @@
-import { PartnerTypes } from '@app/src/domain/models/PartnerTypes';
+import { PartnerTypes } from '@app/src/domain/models/common/PartnerTypes';
 
 enum HelpItemType {
   Button = 'Button',

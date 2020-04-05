@@ -41,6 +41,7 @@ import { description, keywords } from '../src/features/common/seo/SEO';
 import '@app/src/ui/antd-styles.less';
 import '@app/src/ui/config.css?CSSModulesDisable';
 import '@app/src/ui/globals.css?CSSModulesDisable';
+import { getTagsFromSanity } from '@app/src/domain/reducers/tagsReducer';
 
 interface Props {
   reduxStore: Store;
@@ -72,6 +73,7 @@ class OncohelpWeb extends App<Props> {
       ctx.reduxStore.dispatch(getPartnersFromSanity() as any),
       ctx.reduxStore.dispatch(getExpertsFromSanity() as any),
       ctx.reduxStore.dispatch(getExpertBoardFromSanity() as any),
+      ctx.reduxStore.dispatch(getTagsFromSanity() as any),
     ]);
     const { isSecure } = context.Component as any;
     const loggedIn = (getToken(ctx.reduxStore.getState()) || '').length > 0;
