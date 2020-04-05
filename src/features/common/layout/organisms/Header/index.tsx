@@ -21,21 +21,11 @@ interface Props {
 const Header = ({ token, signOutOfApp }: Props) => {
   return (
     <div className={styles.headerWrapper}>
-      <OtherPartners />
       <header className={styles.header}>
-        <Logo wrapperClassName={styles.logo} />
-        <MediaQuery
-          className={styles.buttonContainer}
-          query={Query.ToExtraLarge}
-        >
-          <Menu signOut={signOutOfApp} showLoginButton={token.length === 0} />
-        </MediaQuery>
-        <MediaQuery query={Query.FromExtraLarge}>
-          <Navigation
-            signOut={signOutOfApp}
-            showLoginButton={token.length === 0}
-          />
-        </MediaQuery>
+        <Navigation
+          signOut={signOutOfApp}
+          showLoginButton={token.length === 0}
+        />
       </header>
     </div>
   );

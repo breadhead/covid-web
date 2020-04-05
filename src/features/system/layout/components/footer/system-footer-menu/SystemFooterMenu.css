@@ -1,8 +1,11 @@
 
 .navigation {
   margin-bottom: 64px;
+  flex-grow: 1;
+  max-width: 432px;
 
   @media (--smallDown) {
+    max-width: none;
     margin-bottom: 24px;
   }
 }
@@ -30,6 +33,17 @@
 }
 
 .link {
-  margin-right: 16px;
-  color: #82839B;
+  padding: 6px;
+}
+
+.desktopWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 432px;
+  gap: 0 32px;
+}
+
+.stub {
+  height: 37px;
+  width: 100%;
 }

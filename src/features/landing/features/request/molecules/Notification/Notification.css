@@ -4,7 +4,6 @@
   padding: 24px;
   margin-bottom: 64px;
   border: 1px solid rgba(21, 24, 51, 0.12);
-  border-radius: 8px;
 
   @media (--smallDown) {
     margin-bottom: 32px;

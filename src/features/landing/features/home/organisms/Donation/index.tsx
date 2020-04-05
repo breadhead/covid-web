@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import DonationWidget from '@app/src/features/common/donation';
+import { SystemWidget } from '@app/src/features/system/main/components/donation/components/system-widget';
 
 import * as styles from './Donation.css';
 import DonationInfo from '../Info';
@@ -13,7 +13,7 @@ const Donation = () => (
         <h2 className={styles.title}>Помочь проекту</h2>
         <div className={styles.content}>
           <div className={styles.widget}>
-            <DonationWidget />
+            <SystemWidget />
           </div>
           <DonationInfo text={infoText} />
         </div>

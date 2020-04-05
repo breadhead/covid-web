@@ -11,21 +11,21 @@ export const options = [
     items: [
       {
         id: '10',
-        type: HelpItemType.Link,
-        label: 'Волонтерский фандрайзинг',
-        link: `/help-partners?${PartnerTypes.VolunteerFundraising}`,
-      },
-      {
-        id: '20',
         type: HelpItemType.Button,
         label: 'Пожертвовать деньги',
         link: '/#donation',
       },
       {
-        id: '30',
+        id: '20',
         type: HelpItemType.Link,
         label: 'Стать волонтером',
         link: '/help-volunteers',
+      },
+      {
+        id: '30',
+        type: HelpItemType.Link,
+        label: 'Волонтерский фандрайзинг',
+        link: `/help-partners?${PartnerTypes.VolunteerFundraising}`,
       },
     ],
   },

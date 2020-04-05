@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useMappedState } from 'redux-react-hook';
 
-import { Button, ButtonSize } from '@app/src/ui/button';
 import { useModal } from '@app/src/features/common/modal';
+import { SystemButton, SystemButtonSize } from '@app/src/ui/systemButton ';
 
 import * as styles from './AskButton.css';
 import { selectToken } from '../../../home/molecules/StartConsultationButton/selectors';
@@ -27,12 +27,12 @@ export const AskButton = ({ children }: AskButtonProps) => {
   };
 
   return (
-    <Button
+    <SystemButton
       className={styles.button}
       onClick={onButtonClick}
-      size={ButtonSize.ExtraLarge}
+      size={SystemButtonSize.ExtraLarge}
     >
       {children}
-    </Button>
+    </SystemButton>
   );
 };

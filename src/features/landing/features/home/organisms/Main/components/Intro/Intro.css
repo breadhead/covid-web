@@ -11,19 +11,17 @@
 .title {
   margin: 0 auto 24px;
   font: var(--title-extra);
-  text-align: center;
+
 
   @media (--smallDown) {
     font-size: 32px;
     line-height: 36px;
-    text-align: left;
   }
 }
 
 .logos {
   display: flex;
   align-items: center;
-  justify-content: center;
   margin-bottom: 40px;
 
   @media (--smallDown) {
@@ -132,8 +130,7 @@
 .withHint {
   position: relative;
   opacity: 1;
-  z-index: 20;
-  border-radius: 8px;
+  z-index: 2;
 
   @media (--smallDown) {
     min-width: 280px;
@@ -175,7 +172,6 @@
 }
 
 .buttonContainerLast {
-  border-radius: 8px;
   grid-column: 3;
   grid-row: 2;
 }
@@ -198,24 +194,23 @@
 
 .buttonContainerHighlight {
   grid-row: 1;
-  border-radius: 8px;
+
   background: linear-gradient(0deg, #ffc751, #ffe094 100%);
 }
 
 .image {
   display: block;
   object-fit: cover;
-  border-radius: 8px;
+
 }
 
 .containerLarge {
   padding: 16px 0 0 0;
   grid-row: 1 / 3;
-  border-radius: 8px;
   transform: scale(1);
 
   &::before {
-    border-radius: 8px;
+
     box-shadow: 0 24px 40px 0 rgba(21, 24, 51, 0.08);
     position: absolute;
     top: 0;
@@ -238,9 +233,6 @@
     margin-bottom: 40px;
   }
 
-  @media (--smallDown) {
-    border-radius: 8px;
-  }
 }
 
 .imageSmall {
@@ -274,7 +266,6 @@
 
 .hint {
   padding: 4px;
-  border-radius: 4px;
   font-size: 16px;
   line-height: 20px;
   background-color: var(--color-highlight);
@@ -283,7 +274,7 @@
   top: 4px;
   right: 4px;
   opacity: 1;
-  z-index: 20;
+  z-index: 2;
 }
 
 .mobileLink {

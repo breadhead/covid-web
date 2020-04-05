@@ -50,4 +50,5 @@ export enum IconsList {
   Vk = 'vk',
   Telegram = 'telegram',
   OK = 'ok',
+  CloseSystem = 'close-system',
 }

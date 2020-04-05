@@ -1,0 +1,10 @@
+.iconWrapper {
+  border-bottom: none;
+  width: 156px !important;
+  height: 36px !important;
+}
+
+.iconWrapper svg {
+  width: 156px !important;
+  height: 36px !important;
+}

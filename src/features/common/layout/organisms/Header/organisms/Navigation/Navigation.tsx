@@ -27,25 +27,8 @@ export const Navigation = ({
   signOut,
 }: Props) => (
   <nav className={cx(styles.menu, className)}>
-    <button className={styles.closeButton} onClick={hide}>
-      закрыть меню
-      <Icon className={styles.NavIcon} name={IconsList.CloseLight} />
-    </button>
-
     <NavLink withoutUnderline href="/ask/experts" className={styles.link}>
-      Эксперты
-      <NavIcon />
-    </NavLink>
-    <NavLink withoutUnderline href="/contacts" className={styles.link}>
-      Контакты
-      <NavIcon />
-    </NavLink>
-    <NavLink
-      withoutUnderline
-      href="/ask#donation-ask"
-      className={cx(styles.link, styles.linkHelp)}
-    >
-      <Button kind={ButtonKind.Secondary}>Помочь проекту</Button>
+      Эксперты справочной
       <NavIcon />
     </NavLink>
 
