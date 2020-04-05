@@ -62,7 +62,7 @@ export interface State {
   requestForm: RequestFormReducerState;
   partners: PartnerState;
   experts: ExpertState;
-  expertBoard: ExpertBoardState
+  expertBoard: ExpertBoardState;
 }
 
 const reducer = combineReducers({
