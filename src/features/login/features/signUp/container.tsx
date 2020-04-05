@@ -9,8 +9,8 @@ import { State } from '@app/src/lib/store';
 import { isModal } from '@app/src/features/common/modal';
 
 import { MODAL_KEY } from '../../../../domain/reducers/signupReducer/const';
-import { withSignUpModal } from '.';
 import { withSignInModal } from '../signIn';
+
 export { MODAL_KEY };
 
 export interface SignUpData {

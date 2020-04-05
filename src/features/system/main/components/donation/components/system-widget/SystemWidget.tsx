@@ -5,7 +5,7 @@ import { NavLink } from '@app/src/ui/nav-link';
 import { SPACE } from '@app/src/lib/config';
 
 import * as styles from './SystemWidget.css';
-import { frequencyForm, costForm, targetSelect } from './formConfig';
+import { costForm, frequencyForm, targetSelect } from './formConfig';
 import { SytemRadioButton } from '../system-radio-button';
 
 export const SystemWidget = () => {

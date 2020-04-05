@@ -24,4 +24,5 @@ export default interface ApiClient {
   updateCoronaRequestForm(data: any): Promise<any>;
   getPartners(): Promise<Partner[]>;
   getExperts(): Promise<Expert[]>;
+  getExpertBoard(): Promise<Expert[]>;
 }

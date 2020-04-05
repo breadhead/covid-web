@@ -1,5 +1,4 @@
-import { range } from 'lodash';
-import { size } from 'lodash';
+import { range, size } from 'lodash';
 import * as React from 'react';
 
 import { Button, ButtonKind } from '@app/src/ui/button';

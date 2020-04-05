@@ -1,12 +1,12 @@
 import * as React from 'react';
 import cx from 'classnames';
-import { useDispatch } from 'redux-react-hook';
 
 import { saveForHospitalsForm } from '@app/src/domain/reducers/requestConsultationReducer/actions';
 import { useThunk } from '@app/src/helpers/hooks/useThunk';
 
 import s from './HelpRequest.css';
 import { HospitalAidForm } from '../form/HospitalAidForm';
+
 interface HelpRequestProps {}
 
 export const HelpRequest = ({}: HelpRequestProps) => {

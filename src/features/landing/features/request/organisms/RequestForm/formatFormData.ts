@@ -1,5 +1,4 @@
-import { isEmpty } from 'lodash';
-import { flattenDepth } from 'lodash';
+import { flattenDepth, isEmpty } from 'lodash';
 
 import * as symptomsMap from './config';
 

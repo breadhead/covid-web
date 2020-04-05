@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { debounce } from 'lodash';
 
 import {
+  ComplexOptions,
   HintInput,
   HintInputTypes,
-  ComplexOptions,
 } from '@app/src/ui/HintInput/HintInput';
 import { useApi } from '@app/src/lib/api/useApi';
 

@@ -4,7 +4,6 @@ import { useMappedState } from 'redux-react-hook';
 
 import { selectPartners } from '@app/src/domain/reducers/partnerReducer/selectPartners';
 import PartnerCard from '@app/src/features/landing/organisms/PartnerCard';
-import { NON_BREAKING_SPACE } from '@app/src/lib/config';
 // import { Partner } from '@app/models/sanity/Partner';
 import routes from '@app/routes';
 

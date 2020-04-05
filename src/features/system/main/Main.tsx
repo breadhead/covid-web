@@ -27,9 +27,3 @@ export const SystemMain = () => {
     </SystemLayout>
   );
 };
-
-SystemMain.getInitialProps = async (context: AppContext) => {
-  await context.reduxStore.dispatch(getPartnersFromSanity() as any);
-
-  return {};
-};

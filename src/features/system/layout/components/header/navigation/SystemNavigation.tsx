@@ -1,7 +1,6 @@
 import * as React from 'react';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 
 import { Icon } from '@app/src/ui/icon';
 import { NavLink } from '@app/src/ui/nav-link';

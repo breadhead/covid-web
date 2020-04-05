@@ -6,8 +6,8 @@ import { setCookie } from '@app/src/features/login/features/signIn/helpers/setAu
 import { actions as userActions } from '@app/src/domain/reducers/userReducer';
 
 import {
-  resetUserEmailLocalStorage,
   getUserEmailLocalStorage,
+  resetUserEmailLocalStorage,
 } from '../../../../domain/reducers/signInReducer/userEmailLocalStorage';
 
 export default () => (dispatch: Dispatch<any>) => {

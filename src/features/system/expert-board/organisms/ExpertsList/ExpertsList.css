@@ -1,0 +1,9 @@
+.expertsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media (--smallDown) {
+    justify-content: space-between;
+  }
+}

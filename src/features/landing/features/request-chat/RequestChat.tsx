@@ -10,8 +10,8 @@ import { Conclution } from './components/Conclusion';
 import * as styles from './RequestChat.css';
 import {
   isFormRequestFinished,
-  setFormRequestFinished,
   resetRequestFormDraft,
+  setFormRequestFinished,
 } from '../request/organisms/RequestForm/localStorage';
 
 const { Router } = routes;

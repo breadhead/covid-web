@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import { NON_BREAKING_SPACE, NON_BREAKING_HYPHEN } from '@app/src/lib/config';
+import { NON_BREAKING_HYPHEN, NON_BREAKING_SPACE } from '@app/src/lib/config';
 import { Icon } from '@app/src/ui/icon';
 import { NavLink } from '@app/src/ui/nav-link';
 import { IconsList } from '@app/src/ui/sprite';
