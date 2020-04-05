@@ -102,7 +102,7 @@ export const formConfig = (styles) => ({
       condition: (values) => values.profession === OTHER_SPECIALITY,
 
       props: {
-        name: 'otherProffession',
+        name: 'otherProfession',
       },
     },
     {
