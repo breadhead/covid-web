@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import cx from 'classnames';
 
 import { RadioGroup, Checkbox } from '@app/src/features/common/form';
+import { RadioButtonStyles } from '@app/src/ui/RadioGroup';
+import commonStyles from '@app/src/features/common/form/commonStyles.css';
 
 import {
   temperatureList,
@@ -81,7 +83,7 @@ export const Symptoms = ({
           <div>
             <RadioGroup
               validate={requiredSchema}
-              className={styles.symptomsRadioGroup}
+              className={cx(styles.symptomsRadioGroup, commonStyles.field)}
               name="symptoms.caughtType"
               buttons={coughList}
             />
@@ -123,7 +125,7 @@ export const Symptoms = ({
           <div>
             <RadioGroup
               validate={requiredSchema}
-              className={styles.symptomsRadioGroup}
+              className={cx(styles.symptomsRadioGroup, commonStyles.field)}
               name="symptoms.temperatureType"
               buttons={temperatureList}
             />
@@ -164,8 +166,9 @@ export const Symptoms = ({
           </label>
           <div>
             <RadioGroup
+              radioStyle={RadioButtonStyles.Radio}
               validate={requiredSchema}
-              className={styles.symptomsRadioGroup}
+              className={cx(styles.symptomsRadioGroup)}
               name="symptoms.symptomsSince"
               buttons={symptomsSinceList}
             />

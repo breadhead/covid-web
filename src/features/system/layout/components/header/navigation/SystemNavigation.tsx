@@ -17,7 +17,6 @@ interface Props {
 export const SystemNavigation = ({ className, hide }: Props) => {
   const { asPath } = useRouter();
   const router = useRouter();
-  console.log('SystemNavigation -> router', router);
   return (
     <div className={cx(styles.menu, className)}>
       <button className={styles.closeButton} onClick={hide}>
