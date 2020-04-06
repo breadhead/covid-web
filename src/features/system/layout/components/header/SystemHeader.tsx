@@ -40,7 +40,7 @@ export const SystemHeader = () => {
       className={cx(
         styles.headerWrapper,
         show ? styles.show : styles.hide,
-        isMobile && styles.mobile,
+        isMobile ? styles.mobile : '',
         route === RouteType.landing && styles.landing,
       )}
     >

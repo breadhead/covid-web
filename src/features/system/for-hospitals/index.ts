@@ -1,1 +1,1 @@
-export { ForHospitals } from './components/ForHospitals/ForHospitals';
+export { ForHospitalsPage as ForHospitals } from './components/ForHospitals/ForHospitals';

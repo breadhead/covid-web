@@ -1,0 +1,1 @@
+export { SerializerImage } from './SerializerImage';

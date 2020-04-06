@@ -20,6 +20,7 @@ export const saveCoronaRequestForm = (requestFormData: any) => async (
   getState: () => State,
   { getApi }: ExtraArgs,
 ) => {
+  console.log('requestFormData', requestFormData);
   const api = getApi(getState);
   try {
     dispatch(actions.request());

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { SystemLayout } from '@app/src/features/system/layout';
-import { Expert as ExpertModel } from '@app/src/domain/models/sanity/Expert';
+import { Expert as ExpertModel } from '@app/src/domain/models/common/Expert';
 import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
 import { NavLink } from '@app/src/ui/nav-link';
 

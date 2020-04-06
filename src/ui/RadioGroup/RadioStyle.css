@@ -2,7 +2,7 @@
   & .ant-radio-wrapper.ant-radio-wrapper {
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 
     white-space: normal;
 
@@ -52,6 +52,11 @@
       border-color: var(--color-primary) !important;
       border-width: 7px;
       opacity: 0.4;
+    }
+  }
+  @media (--smallDown) {
+    & .ant-radio-wrapper.ant-radio-wrapper {
+      margin-bottom: 12px;
     }
   }
 }

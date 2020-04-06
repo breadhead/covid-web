@@ -1,6 +1,6 @@
 import { InputType } from '@app/src/features/common/form';
 import { FormComponentType } from '@app/src/features/common/form/FormConstructor';
-import { PartneTypeLabels } from '@app/src/domain/models/PartnerTypes';
+import { PartneTypeLabels } from '@app/src/domain/models/common/PartnerTypes';
 
 export const themeOptions = [
   {

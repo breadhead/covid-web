@@ -1,0 +1,25 @@
+.tag {
+  color: var(--text-color-primary);
+  font: var(--text12-16);
+  padding: 4px;
+
+  background: #f7f6f2;
+  text-decoration: none;
+  margin-right: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none !important;
+
+  &:hover {
+    color: var(--text-color-primary);
+    background: rgba(247, 246, 242, 0.8);
+  }
+}
+
+.highlighted {
+  background: #e6e3dc;
+
+  &:hover {
+    background: rgba(230, 227, 220, 0.8);
+  }
+}

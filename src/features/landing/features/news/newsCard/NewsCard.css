@@ -1,0 +1,37 @@
+.newsCard {
+  padding: 16px 100px 16px 0;
+  border-top: 1px solid rgba(21, 24, 51, 0.12);
+  display: flex;
+  &:last-of-type {
+    border-bottom: 1px solid rgba(21, 24, 51, 0.12);
+  }
+}
+
+.image {
+  height: 72px;
+  width: 72px;
+  display: block;
+  margin-right: 12px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.date {
+  color: var(--text-color-secondary);
+  display: block;
+  font: var(--text14-20);
+}
+
+.title {
+  margin: 0;
+  color: var(--text-color-primary);
+  font: var(--text18-28);
+}
+
+.tags {
+  margin-top: 8px;
+  display: flex;
+}

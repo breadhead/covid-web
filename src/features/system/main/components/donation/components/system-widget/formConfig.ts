@@ -1,15 +1,20 @@
+export enum FrequencyEnum {
+  Monthly = 'monthly',
+  Once = 'once',
+}
+
 export const frequencyForm = [
   {
-    id: 'monthly',
-    value: 'monthly',
+    id: FrequencyEnum.Monthly,
+    value: FrequencyEnum.Monthly,
     name: 'frequency',
     label: 'Помогать ежемесячно',
     checked: true,
     size: 1,
   },
   {
-    id: 'once',
-    value: 'once',
+    id: FrequencyEnum.Once,
+    value: FrequencyEnum.Once,
     name: 'frequency',
     label: 'Разово',
     checked: false,

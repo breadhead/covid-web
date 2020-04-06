@@ -1,10 +1,16 @@
 .professionRadioGroup {
-  margin-top: 20px;
+  margin-top: 14px;
+  margin-bottom: 16px;
+
+  @media (--smallDown) {
+    margin-bottom: 12px;
+  }
 }
 
-.professionRadioGroup div {
-  @media (--mediumDown) {
-    display: grid !important;
-    gap: 12px;
+.professeionWrapper {
+  margin-top: 32px;
+
+  @media (--smallDown) {
+    margin-top: 24px;
   }
 }

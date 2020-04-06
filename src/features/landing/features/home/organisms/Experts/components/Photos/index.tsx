@@ -2,7 +2,7 @@ import * as React from 'react';
 import { shuffle } from 'lodash';
 
 import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
-import { Expert } from '@app/src/domain/models/sanity/Expert';
+import { Expert } from '@app/src/domain/models/common/Expert';
 
 import * as styles from './Photos.css';
 

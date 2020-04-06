@@ -1,7 +1,8 @@
 import axios, { AxiosInstance } from 'axios';
 
-import { User } from '@app/src/domain/models/Users/User';
 import { FormRequestType } from '@app/src/domain/models/common/FormRequestType';
+import { User } from '@app/src/domain/models/common/User';
+import { getFromConfig } from '@app/src/helpers/getPublicRuntimeConfig';
 
 import ApiClient, { UploadedFile } from './ApiClient';
 import { queryString } from './helper/queryString';
@@ -10,6 +11,7 @@ import { sanityClient } from '../sanity-client';
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance;
+  private readonly apiProxyInstance: AxiosInstance;
   private _token = '';
 
   public constructor(baseUrl: string, token?: string) {
@@ -20,6 +22,10 @@ export default class RealApiClient implements ApiClient {
       headers: {
         Authorization: bearer,
       },
+    });
+
+    this.apiProxyInstance = axios.create({
+      baseURL: getFromConfig('prodUrl') + '/api/query/',
     });
   }
 
@@ -106,20 +112,32 @@ export default class RealApiClient implements ApiClient {
       .then((res) => res.data as any);
 
   public getPartners = () => {
-    return sanityClient.fetch(`*[_type == "partner"]`, {
-      active: true,
-    });
+    return this.apiProxyInstance
+      .get(`*[_type == "partner" &&  !(_id in path("drafts.**"))]`)
+      .then((res) => res.data);
   };
 
   public getExperts = () => {
-    return sanityClient.fetch(`*[_type == "expert"]`, {
-      active: true,
-    });
+    return this.apiProxyInstance
+      .get(`*[_type == "expert" &&  !(_id in path("drafts.**"))]`)
+      .then((res) => res.data);
   };
 
   public getExpertBoard = () => {
-    return sanityClient.fetch(`*[_type == "expertBoard"]`, {
-      active: true,
-    });
+    return this.apiProxyInstance
+      .get(`*[_type == "expertBoard" &&  !(_id in path("drafts.**"))]`)
+      .then((res) => res.data);
+  };
+
+  public getTags = () => {
+    return this.apiProxyInstance
+      .get(`*[_type == "tag" &&  !(_id in path("drafts.**"))]`)
+      .then((res) => res.data);
+  };
+  public getNews = (query: string) => {
+    return this.apiProxyInstance.get(query).then((res) => res.data);
+  };
+  public getNewsItem = (query: string) => {
+    return this.apiProxyInstance.get(query).then((res) => res.data);
   };
 }

@@ -32,6 +32,7 @@ import { getViolateState } from '@app/src/domain/reducers/signInReducer/selector
 import { authViolateStatus } from '@app/src/domain/reducers/signInReducer/middleware';
 import { getPartnersFromSanity } from '@app/src/domain/reducers/partnerReducer';
 import { getExpertsFromSanity } from '@app/src/domain/reducers/expertReducer';
+import { getTagsFromSanity } from '@app/src/domain/reducers/tagsReducer';
 
 import { getExpertBoardFromSanity } from '@front/domain/reducers/expertBoardReducer';
 
@@ -72,6 +73,7 @@ class OncohelpWeb extends App<Props> {
       ctx.reduxStore.dispatch(getPartnersFromSanity() as any),
       ctx.reduxStore.dispatch(getExpertsFromSanity() as any),
       ctx.reduxStore.dispatch(getExpertBoardFromSanity() as any),
+      ctx.reduxStore.dispatch(getTagsFromSanity() as any),
     ]);
     const { isSecure } = context.Component as any;
     const loggedIn = (getToken(ctx.reduxStore.getState()) || '').length > 0;

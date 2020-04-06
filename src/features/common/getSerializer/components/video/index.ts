@@ -1,0 +1,1 @@
+export { SerializerVideo } from './SerializerVideo';

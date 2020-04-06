@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Head from 'next/head';
 
 import { AppContext } from '@app/src/lib/server-types';
 import { getPartnersFromSanity } from '@app/src/domain/reducers/partnerReducer';
@@ -15,6 +16,9 @@ import { SystemDonation } from './components/donation';
 export const SystemMain = () => {
   return (
     <SystemLayout>
+      <Head>
+        <title>Система борьбы с инфекцией COVID‑19 | Просто спросить</title>
+      </Head>
       <SystemHero />
       <div className="gl-wrapper gl-first-section gl-section">
         <SystemHelp />

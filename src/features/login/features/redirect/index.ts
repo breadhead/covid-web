@@ -1,4 +1,4 @@
-import { Role } from '@app/src/domain/models/Users/User';
+import { Role } from '@app/src/domain/models/common/User';
 
 export enum Condition {
   signIn = 'signIn',

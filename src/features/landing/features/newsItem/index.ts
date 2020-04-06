@@ -1,0 +1,1 @@
+export { NewsItemPage } from './NewsItem';

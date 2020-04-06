@@ -1,0 +1,35 @@
+.social {
+  display: flex;
+  flex-grow: 1;
+}
+
+.iconWrapper {
+  border-left: 1px solid rgba(21, 24, 51, 0.12)!important;
+  display: flex!important;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+
+  @media (--smallDown) {
+      min-height: 70px;
+
+      &:first-child {
+           border-left: none!important;
+       }
+  }
+}
+
+.inForm .iconWrapper{
+    @media (--smallDown) {
+        min-height: 64px;
+  
+        &:first-child {
+             border-left: none!important;
+         }
+    }
+}
+
+.icon {
+  width: 32px !important;
+  height: 32px !important;
+}

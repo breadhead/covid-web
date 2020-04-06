@@ -1,31 +1,17 @@
 import * as React from 'react';
-import {
-  FacebookShareButton,
-  OKShareButton,
-  TelegramShareButton,
-  VKShareButton,
-} from 'react-share';
-import getConfig from 'next/config';
 
-import { IconsList } from '@app/src/ui/sprite';
-
-import { Icon } from '@front/ui/icon';
+import { getFromConfig } from '@front/lib/getPublicRuntimeConfig';
 
 import * as styles from './ShareWidget.css';
+import { ShareButtons } from './components/share-buttons/ShareButtons';
 
 interface Props {
-  shareUrl: string;
   title?: string;
   imageSrc?: string;
+  shareUrl?: string;
 }
 
-export const ShareWidget = ({
-  shareUrl,
-  title = 'Просто спросить | COVID-19',
-  imageSrc = `/static/images/covid-image.png`,
-}: Props) => {
-  const { publicRuntimeConfig } = getConfig();
-
+export const ShareWidget = ({ shareUrl, title, imageSrc }: Props) => {
   return (
     <footer className={styles.helpFooter}>
       <p className={styles.text}>
@@ -34,34 +20,7 @@ export const ShareWidget = ({
           Поделитесь с друзьями и коллегами. Вместе победим! 💪
         </span>
       </p>
-      <nav className={styles.social}>
-        <FacebookShareButton url={shareUrl} className={styles.iconWrapper}>
-          <Icon className={styles.icon} name={IconsList.Facebook} />
-        </FacebookShareButton>
-        <VKShareButton
-          url={shareUrl}
-          className={styles.iconWrapper}
-          title={title}
-        >
-          <Icon className={styles.icon} name={IconsList.Vk} />
-        </VKShareButton>
-        <TelegramShareButton
-          url={shareUrl}
-          title={title}
-          className={styles.iconWrapper}
-        >
-          <Icon className={styles.icon} name={IconsList.Telegram} />
-        </TelegramShareButton>
-        <OKShareButton
-          url={shareUrl}
-          title={title}
-          description="Справочная служба по вопросам коронавирусной инфекции COVID-19"
-          image={publicRuntimeConfig.siteUrl + imageSrc}
-          className={styles.iconWrapper}
-        >
-          <Icon className={styles.icon} name={IconsList.OK} />
-        </OKShareButton>
-      </nav>
+      <ShareButtons shareUrl={shareUrl} title={title} imageSrc={imageSrc} />
     </footer>
   );
 };
