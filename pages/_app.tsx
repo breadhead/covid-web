@@ -190,6 +190,10 @@ class OncohelpWeb extends App<Props> {
               name="twitter:image:alt"
               content="Просто спросить | COVID-19"
             />
+            <meta
+              name="vk:image"
+              content={`${publicRuntimeConfig.siteUrl}/static/images/covid-image.png`}
+            />
             <meta property="fb:306467899461959" content="306467899461959" />
           </Head>
           <Intercom />
