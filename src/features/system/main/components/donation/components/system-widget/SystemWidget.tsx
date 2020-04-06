@@ -13,10 +13,10 @@ import { SecondStep } from './second-step';
 export const SystemWidget = () => {
   const [state, dispatchFormState] = useReducer(reducer, initialState);
   const [step, setStep] = useState(1);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const { frequency, cost, target, name, surname, email } = state;
   const dispatch = useThunk();
-
-  console.log('state:', state);
 
   const getStep = () => {
     switch (step) {
@@ -42,6 +42,7 @@ export const SystemWidget = () => {
       case 2:
         return (
           <SecondStep
+            isSubmitted={isSubmitted}
             styles={styles}
             name={name}
             setName={(value) =>
@@ -77,6 +78,7 @@ export const SystemWidget = () => {
           event.preventDefault();
           event.stopPropagation();
           await dispatch(setPaymetWidgetData(state));
+          setIsSubmitted(true);
         }}
         className={styles.widget}
       >

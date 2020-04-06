@@ -7,7 +7,6 @@ export const setPaymetWidgetData = (data: any) => async (
   // getState: () => State,
   // { getApi }: ExtraArgs,
 ) => {
-  console.log('setPaymetWidgetData:');
   try {
     return dispatch(actions.success(data));
   } catch (error) {

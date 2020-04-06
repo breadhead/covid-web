@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback, useLayoutEffect } from 'react';
 
 import { SystemButton } from '@app/src/ui/systemButton ';
 
@@ -9,15 +9,23 @@ enum CloudPaymentsState {
 }
 
 interface CloudPaymentsProps {
+  data: any;
   styles: { [key: string]: string };
+  isSubmitted: boolean;
+  validate: any;
 }
 
-export const CloudPayments = ({ styles }: CloudPaymentsProps) => {
+export const CloudPayments = ({
+  data,
+  styles,
+  isSubmitted,
+  validate,
+}: CloudPaymentsProps) => {
   const [cloudPayments, setCloudPayments] = useState(null);
   const [step, setStep] = useState(CloudPaymentsState.Initial);
   const [reason, setReason] = useState(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const widget = new (window as any).cp.CloudPayments();
     setCloudPayments(widget);
   }, []);
@@ -59,7 +67,7 @@ export const CloudPayments = ({ styles }: CloudPaymentsProps) => {
     return cloudPayments;
   };
 
-  const pay = () => {
+  const pay = useCallback(async () => {
     const data /* get from store! */ = {
       description: 'Пожертвование: Помощь больницам',
       amount: 500,
@@ -68,9 +76,12 @@ export const CloudPayments = ({ styles }: CloudPaymentsProps) => {
       firstname: 'Леонид',
       lastname: 'Николаев',
     };
+    const isValid = await validate();
 
-    showWidget(data);
-  };
+    if (isSubmitted && isValid) {
+      showWidget(data);
+    }
+  }, [isSubmitted, validate]);
 
   return (
     <>
