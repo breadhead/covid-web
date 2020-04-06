@@ -43,7 +43,7 @@ export const ShareWidget = ({
         <TelegramShareButton
           url={shareUrl}
           title={title}
-          lassName={styles.iconWrapper}
+          className={styles.iconWrapper}
         >
           <Icon className={styles.icon} name={IconsList.Telegram} />
         </TelegramShareButton>
