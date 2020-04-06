@@ -151,8 +151,11 @@ class OncohelpWeb extends App<Props> {
             <meta name="msapplication-TileColor" content="#ffc40d" />
             <meta name="theme-color" content="#ffffff" />
             <meta property="og:title" content="Просто спросить | COVID-19" />
-            <meta property="og:site_name" content="https://defeatcovid.ru/" />
-            <meta property="og:url" content="https://defeatcovid.ru/" />
+            <meta
+              property="og:site_name"
+              content={publicRuntimeConfig.siteUrl}
+            />
+            <meta property="og:url" content={publicRuntimeConfig.siteUrl} />
             <meta
               property="og:description"
               content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
@@ -171,7 +174,7 @@ class OncohelpWeb extends App<Props> {
             <meta property="og:image:height" content="315" />
             <meta
               property="og:image:alt"
-              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+              content="Просто спросить | COVID-19"
             />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content="Просто спросить | COVID-19" />
@@ -181,11 +184,15 @@ class OncohelpWeb extends App<Props> {
             />
             <meta
               name="twitter:image"
-              content="/static/images/covid-image.png"
+              content={`${publicRuntimeConfig.siteUrl}/static/images/covid-image.png`}
             />
             <meta
               name="twitter:image:alt"
               content="Просто спросить | COVID-19"
+            />
+            <meta
+              name="vk:image"
+              content={`${publicRuntimeConfig.siteUrl}/static/images/covid-image.png`}
             />
             <meta property="fb:306467899461959" content="306467899461959" />
           </Head>

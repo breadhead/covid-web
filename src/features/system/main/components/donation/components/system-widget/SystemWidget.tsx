@@ -1,106 +1,91 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
+import Head from 'next/head';
 
-import { SystemButton, SystemButtonSize } from '@app/src/ui/systemButton ';
-import { NavLink } from '@app/src/ui/nav-link';
-import { SPACE } from '@app/src/lib/config';
+import { setPaymetWidgetData } from '@app/src/domain/reducers/paymentWidgetReducer';
+import { useThunk } from '@app/src/helpers/hooks/useThunk';
 
 import * as styles from './SystemWidget.css';
-import { frequencyForm, costForm, targetSelect } from './formConfig';
-import { SytemRadioButton } from '../system-radio-button';
+import { FirstStep } from './first-step';
+import { reducer, initialState } from './widgetReducer';
+import * as actions from './widgetActions';
+import { SecondStep } from './second-step';
+import { ThirdStep } from './third-step';
 
 export const SystemWidget = () => {
-  const [frequency, setFrequency] = useState(
-    frequencyForm.find((it) => !!it.checked)?.id,
-  );
-  const [cost, setCost] = useState(costForm.find((it) => !!it.checked)?.id);
-  const [target, setTarget] = useState(
-    targetSelect.options.find((opt) => !!opt.selected)?.value,
-  );
+  const [state, dispatchFormState] = useReducer(reducer, initialState);
+  const [step, setStep] = useState(1);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const { frequency, cost, target, name, surname, email } = state;
+  const dispatch = useThunk();
+
+  const getStep = () => {
+    switch (step) {
+      case 1:
+        return (
+          <FirstStep
+            cost={cost}
+            frequency={frequency}
+            target={target}
+            setCost={(value) =>
+              dispatchFormState({ type: actions.SET_COST, value })
+            }
+            setFrequency={(value) =>
+              dispatchFormState({ type: actions.SET_FREQUENCY, value })
+            }
+            setTarget={(value) =>
+              dispatchFormState({ type: actions.SET_TARGET, value })
+            }
+            setStep={setStep}
+            styles={styles}
+          />
+        );
+      case 2:
+        return (
+          <SecondStep
+            isSubmitted={isSubmitted}
+            styles={styles}
+            name={name}
+            setName={(value) =>
+              dispatchFormState({ type: actions.SET_NAME, value })
+            }
+            surname={surname}
+            email={email}
+            setSurname={(value) =>
+              dispatchFormState({ type: actions.SET_SURNAME, value })
+            }
+            setEmail={(value) =>
+              dispatchFormState({ type: actions.SET_EMAIL, value })
+            }
+            setStep={setStep}
+          />
+        );
+      case 3:
+        return <ThirdStep styles={styles} />;
+      default:
+        break;
+    }
+  };
 
   return (
-    <form
-      onSubmit={(event: any) => {
-        event.preventDefault();
-        event.stopPropagation();
-        // TODO: smth
-      }}
-      className={styles.widget}
-    >
-      <div className={styles.frequencyForm}>
-        {frequencyForm.map((item) => {
-          const { id, name, value, label } = item;
-          return (
-            <SytemRadioButton
-              onClick={setFrequency}
-              key={id}
-              id={id}
-              name={name}
-              value={value}
-              checked={frequency === id}
-              label={label}
-            />
-          );
-        })}
-      </div>
-
-      <div className={styles.costForm}>
-        {costForm.map((item) => {
-          const { id, name, value, label, size } = item;
-          return (
-            <SytemRadioButton
-              className={styles[`cell-${size}`]}
-              onClick={setCost}
-              key={id}
-              id={id}
-              name={name}
-              value={value}
-              checked={cost === id}
-              label={label}
-            />
-          );
-        })}
-      </div>
-
-      {targetSelect && (
-        <div className={styles.selectWrapper}>
-          <label className={styles.selectLabel} htmlFor={targetSelect.name}>
-            {targetSelect.label}
-          </label>
-          <select
-            onChange={(event: any) => setTarget(event.target.value)}
-            id={targetSelect.name}
-          >
-            {targetSelect.options.map((opt) => (
-              <option
-                selected={target === opt.value}
-                key={opt.value}
-                value={opt.value}
-              >
-                {opt.label}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
-
-      <SystemButton
-        className={styles.button}
-        submit
-        size={SystemButtonSize.ExtraLarge}
+    <>
+      <Head>
+        <script
+          id="cp_script"
+          src="https://widget.cloudpayments.ru/bundles/cloudpayments"
+        />
+      </Head>
+      <form
+        onSubmit={async (event: any) => {
+          event.preventDefault();
+          event.stopPropagation();
+          await dispatch(setPaymetWidgetData(state));
+          setIsSubmitted(true);
+        }}
+        className={styles.widget}
       >
-        Продолжить
-      </SystemButton>
-      <p className={styles.cancelText}>
-        Регулярное пожертвование можно всегда{SPACE}
-        <NavLink
-          withoutUnderline
-          className={styles.cancelLink}
-          blank
-          href="https://my.cloudpayments.ru/ru/Unsubscribe"
-        >
-          отменить
-        </NavLink>
-      </p>
-    </form>
+        {getStep()}
+      </form>
+    </>
   );
 };

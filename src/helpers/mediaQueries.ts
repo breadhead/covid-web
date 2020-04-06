@@ -7,4 +7,4 @@ export const SMALL_DOWN = 767;
 export const MEDIUM_SECOND_DOWN = 832;
 export const MEDIUM_DOWN = 959;
 export const LARGE_DOWN = 1200;
-export const LARGE_SECOND_DOWN = 1269;
+export const LARGE_SECOND_DOWN = 1280;

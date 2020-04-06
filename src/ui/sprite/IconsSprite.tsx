@@ -1095,7 +1095,7 @@ export const IconsSprite = () => (
           <path d="M0 0h24v24H0z" />
           <path
             d="M18.59 4H16a1 1 0 0 1 0-2h5a1 1 0 0 1 1 1v5a1 1 0 0 1-2 0V5.41l-7.3 7.3a1 1 0 1 1-1.4-1.42L18.58 4zM6 3h4.96a1 1 0 0 1 1 1 1 1 0 0 1-1 1H6a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 1 1-1 1 1 0 0 1 1 1v5a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3z"
-            fill="var(--text-color-secondary)"
+            fill="#B3B4C8"
           />
         </g>
       </symbol>

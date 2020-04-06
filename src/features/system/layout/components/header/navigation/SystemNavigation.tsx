@@ -37,7 +37,7 @@ export const SystemNavigation = ({ className, hide, narrow }: Props) => {
         asPath={asPath}
         narrow={narrow}
         width={width}
-        linkClassName={cx(styles.mainLink, styles.link)}
+        linkClassName={cx(styles.contentLink, styles.link)}
       >
         {contentLinks}
       </LinksList>

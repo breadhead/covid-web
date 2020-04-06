@@ -1,3 +1,21 @@
 .description {
   margin: 0;
 }
+
+.bottomOffset {
+  margin-bottom: 32px;
+  @media (--smalldown) {
+    margin-bottom: 28px;
+  }
+}
+
+.textImage {
+  display: block;
+
+  max-width: 100%;
+  height: auto;
+}
+
+.highlighted {
+  font: var(--title-small);
+}

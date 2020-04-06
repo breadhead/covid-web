@@ -6,11 +6,7 @@ import BurgerButton from '@app/src/features/common/layout/organisms/Header/atoms
 import { TransitionMenu } from '@app/src/features/common/layout/organisms/Header/organisms/Menu/TransitionMenu';
 import { Icon } from '@app/src/ui/icon';
 import { IconsList } from '@app/src/ui/sprite';
-import {
-  SystemButton,
-  SystemButtonSize,
-  SystemButtonKind,
-} from '@app/src/ui/systemButton ';
+import { Button, ButtonSize, ButtonKind } from '@app/src/ui/button';
 import { NavLink } from '@app/src/ui/nav-link';
 import { useModal } from '@app/src/features/common/modal';
 import { SystemLogo } from '@app/src/ui/system-logo';
@@ -51,14 +47,14 @@ export const SystemMobileMenu = () => {
               {askLink.text}
             </NavLink>
             <div className={styles.askLinks}>
-              <SystemButton
+              <Button
                 onClick={() => openSignIn(SIGN_IN_MODAL)}
                 className={styles.loginButton}
-                kind={SystemButtonKind.Secondary}
-                size={SystemButtonSize.Small}
+                kind={ButtonKind.Secondary}
+                size={ButtonSize.Small}
               >
                 Войти
-              </SystemButton>
+              </Button>
               <NavLink
                 withoutUnderline
                 className={styles.expertsLink}
@@ -98,9 +94,9 @@ export const SystemMobileMenu = () => {
             withoutUnderline
             href="/#donation"
           >
-            <SystemButton onClick={hide} size={SystemButtonSize.Small}>
+            <Button onClick={hide} size={ButtonSize.Small}>
               Помочь проекту
-            </SystemButton>
+            </Button>
           </NavLink>
         </nav>
       </TransitionMenu>

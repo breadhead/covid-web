@@ -1,7 +1,8 @@
 .widget {
-  padding: 40px 80px;
+  padding: 40px 80px 48px;
   background-color: #fff;
   margin-right: 32px;
+  max-width: 608px;
   box-shadow: 0px 32px 40px rgba(0, 9, 92, 0.12);
 
   @media (--smallDown) {
@@ -50,9 +51,11 @@
 .selectWrapper {
   display: flex;
   justify-content: space-between;
+  height: 36px;
 
   @media (--smallDown) {
     flex-direction: column;
+    height: auto;
   }
 }
 
@@ -69,6 +72,7 @@
 
 .cancelText {
   margin-top: 16px;
+  margin-bottom: 0;
   font: var(--text12-16);
   color: var(--text-color-secondary);
 }
@@ -79,5 +83,92 @@
 
   &:hover {
     color: var(--text-color-secondary);
+  }
+}
+
+.inputWrapper {
+  margin-bottom: 12px;
+  width: 448px;
+  position: relative;
+
+  @media (--smallDown) {
+    width: 100%;
+  }
+}
+
+.input label {
+  margin-bottom: 4px !important;
+}
+
+.error {
+  position: absolute;
+  color: var(--color-danger);
+}
+
+.backButton {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  color: #82839b;
+  border: none;
+  cursor: pointer;
+  box-shadow: none;
+  margin-right: 32px;
+
+  @media (--smallDown) {
+    background-color: none;
+    margin: 0 0 24px 0;
+    max-width: 80px;
+  }
+}
+
+.buttonsWrapper {
+  display: flex;
+  margin-top: 42px;
+
+  & .actionButton {
+    width: 100%;
+  }
+
+  @media (--smallDown) {
+    flex-direction: column;
+  }
+}
+
+.photo {
+  display: block;
+  border: 1px solid #dcdce7;
+  max-width: 328px;
+}
+
+.title {
+  font: var(--title-medium);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.text {
+  margin: 0 0 24px 0;
+}
+
+.slogan {
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.share {
+  max-width: 328px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.shareButtons {
+  border-right: 1px solid rgba(21, 24, 51, 0.12);
+  border-bottom: 1px solid rgba(21, 24, 51, 0.12);
+  padding-bottom: 1px;
+  min-height: 56px;
+
+  @media (--smallDown) {
+    border-left: 1px solid rgba(21, 24, 51, 0.12);
   }
 }

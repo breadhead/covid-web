@@ -22,6 +22,8 @@
 }
 
 .contentMenu {
+  justify-content: flex-end;
+
   @media (--largeDown) {
     display: none;
   }

@@ -1,3 +1,9 @@
 .systemHelp {
   background-color: #fff;
 }
+
+.anchor {
+  visibility: hidden;
+  position: relative;
+  top: -78px;
+}
