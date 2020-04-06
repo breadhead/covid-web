@@ -9,6 +9,7 @@ import { FirstStep } from './first-step/FirstStep';
 import { reducer, initialState } from './widgetReducer';
 import * as actions from './widgetActions';
 import { SecondStep } from './second-step';
+import { ThirdStep } from './third-step/ThirdStep';
 
 export const SystemWidget = () => {
   const [state, dispatchFormState] = useReducer(reducer, initialState);
@@ -60,7 +61,7 @@ export const SystemWidget = () => {
           />
         );
       case 3:
-        return <div>step 3</div>;
+        return <ThirdStep styles={styles} />;
       default:
         break;
     }

@@ -42,7 +42,9 @@ export const CloudPayments = ({
   }, []);
 
   useEffect(() => {
-    if (step === CloudPaymentsState.Complete) {
+    // TODO: вернуть
+    // if (step === CloudPaymentsState.Complete) {
+    if (step === CloudPaymentsState.Initial) {
       setFormStep(3);
     }
   }, [step]);
