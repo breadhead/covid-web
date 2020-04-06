@@ -28,6 +28,7 @@ export const FirstStep = ({
   setStep,
   styles,
 }: FirstStepProps) => {
+  const hideSelect = true;
   return (
     <>
       <div className={styles.frequencyForm}>
@@ -65,7 +66,7 @@ export const FirstStep = ({
         })}
       </div>
 
-      {targetSelect && (
+      {targetSelect && !hideSelect ? (
         <div className={styles.selectWrapper}>
           <label className={styles.selectLabel} htmlFor={targetSelect.name}>
             {targetSelect.label}
@@ -85,6 +86,8 @@ export const FirstStep = ({
             ))}
           </select>
         </div>
+      ) : (
+        <div className={styles.selectWrapper} />
       )}
       <SystemButton
         className={styles.button}
