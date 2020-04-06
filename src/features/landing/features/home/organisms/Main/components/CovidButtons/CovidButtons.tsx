@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { NavLink } from '@app/src/ui/nav-link';
-import { SystemButton, SystemButtonSize } from '@app/src/ui/systemButton ';
+import { Button, ButtonSize } from '@app/src/ui/button';
 
 import * as styles from './CovidButtons.css';
 
@@ -14,24 +14,24 @@ export const CovidButtons = () => {
         blank
         href="http://faq.defeatcovid.ru/ru/"
       >
-        <SystemButton size={SystemButtonSize.ExtraLarge}>
+        <Button size={ButtonSize.ExtraLarge}>
           <span>Справочник по COVID-19</span>
           <img
             className={styles.image}
             src="/static/images/landing/check.png"
             alt="Полный справочник по COVID-19"
           />
-        </SystemButton>
+        </Button>
       </NavLink>
       <NavLink className={styles.last} withoutUnderline href="/request">
-        <SystemButton size={SystemButtonSize.ExtraLarge}>
+        <Button size={ButtonSize.ExtraLarge}>
           <span>Персональная консультация</span>
           <img
             className={styles.image}
             src="/static/images/landing/result.png"
             alt="Полный справочник по COVID-19"
           />
-        </SystemButton>
+        </Button>
       </NavLink>
     </div>
   );

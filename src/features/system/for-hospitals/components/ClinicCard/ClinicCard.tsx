@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { NavLink } from '@app/src/ui/nav-link';
+import { Icon } from '@app/src/ui/icon';
 
 import s from './ClinicCard.css';
 
@@ -20,5 +21,7 @@ export const ClinicCard = ({
     <img className={s.logo} src={logo} alt={name} />
     <h3 className={s.title}>{name}</h3>
     <p className={s.city}>{city}</p>
+
+    <Icon name="away-link" className={s.icon} />
   </NavLink>
 );

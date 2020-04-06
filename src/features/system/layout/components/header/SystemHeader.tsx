@@ -15,24 +15,30 @@ import { SystemNavigationContainer } from './navigation/SystemNavigationContaine
 export const SystemHeader = () => {
   const { route } = useRouter();
   const [show, setShow] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
+  const [narrow, setNarrow] = useState(false);
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      const isShow = currPos.y > prevPos.y;
-      const isMobile = currPos.y < 0;
-
-      if (isShow !== show) {
-        setShow(isShow);
+      console.log('currPos.y:', currPos.y);
+      if (currPos.y < 50) {
+        setShow(true);
+      } else {
+        const isShow = currPos.y > prevPos.y;
+        if (isShow !== show) {
+          setShow(isShow);
+        }
       }
-      if (isMobile !== show) {
-        setIsMobile(isMobile);
+
+      const narrow = currPos.y < 0;
+
+      if (narrow !== show) {
+        setNarrow(narrow);
       }
     },
     [show],
     undefined,
     false,
-    500,
+    300,
   );
 
   return (
@@ -40,12 +46,12 @@ export const SystemHeader = () => {
       className={cx(
         styles.headerWrapper,
         show ? styles.show : styles.hide,
-        isMobile ? styles.mobile : '',
+        narrow ? styles.narrow : '',
         route === RouteType.landing && styles.landing,
       )}
     >
       <SystemLogo className={styles.logo} />
-      <SystemNavigationContainer narrow={isMobile} />
+      <SystemNavigationContainer narrow={narrow} />
       <MediaQuery className={styles.mobileMenuContainer} query={Query.ToLarge}>
         <NavLink
           className={styles.donationMobileLink}

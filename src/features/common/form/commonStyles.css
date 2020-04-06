@@ -19,12 +19,6 @@
 
 .largeButton {
   margin-top: 24px;
-  padding: 18px 32px !important;
-  width: 100%;
-  max-width: initial;
-  font: var(--text-18-28);
-
-  border-radius: 0;
 }
 
 .field.field.field {
