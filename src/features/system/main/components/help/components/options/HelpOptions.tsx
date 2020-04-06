@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { SystemButton, SystemButtonSize } from '@app/src/ui/systemButton ';
+import { Button, ButtonSize } from '@app/src/ui/button';
 import { NavLink } from '@app/src/ui/nav-link';
 
 import { options } from './helpOptionsConfig';
@@ -37,9 +37,9 @@ export const HelpOptions = () => {
                   withoutUnderline
                   href={item.link}
                 >
-                  <SystemButton size={SystemButtonSize.Small} key={item.id}>
+                  <Button size={ButtonSize.Small} key={item.id}>
                     {item.label}
-                  </SystemButton>
+                  </Button>
                 </NavLink>
               ) : (
                 <NavLink key={item.id} href={item.link} className={styles.link}>

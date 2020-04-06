@@ -7,7 +7,7 @@ import s from './Hero.css';
 
 export const ForHospitalsHero = () => (
   <div>
-    <h1 className="gl-pageTitle">Помощь больницам</h1>
+    <h1 className="gl-pageTitle">Помогаем больницам</h1>
     <div className={cx('gl-text', s.description)}>
       <span>Проект «‎Убить COVID-19»‎ — это инициатива</span>{' '}
       <NavLink blank href="https://nenaprasno.ru">

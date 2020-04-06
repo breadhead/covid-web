@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 import cx from 'classnames';
 
-import { SystemButton } from '@app/src/ui/systemButton ';
+import { Button } from '@app/src/ui/button';
 
 import { WidgetForm } from '../widgetReducer';
 import { FrequencyEnum } from '../formConfig';
@@ -96,9 +96,9 @@ export const CloudPayments = ({
   return (
     <>
       {step === CloudPaymentsState.Initial && (
-        <SystemButton submit onClick={pay} className={styles.actionButton}>
+        <Button submit onClick={pay} className={styles.actionButton}>
           Сделать пожертвование
-        </SystemButton>
+        </Button>
       )}
       {step === CloudPaymentsState.Error && (
         <>
@@ -106,9 +106,9 @@ export const CloudPayments = ({
             Ошибка
             {console.log('error', reason)}
           </span>
-          <SystemButton submit onClick={pay} className={styles.actionButton}>
+          <Button submit onClick={pay} className={styles.actionButton}>
             Попробовать еще раз
-          </SystemButton>
+          </Button>
         </>
       )}
     </>

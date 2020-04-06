@@ -9,15 +9,10 @@ export { getFound } from './selectors';
 
 import StartConsultationButton from '@app/src/features/landing/features/home/molecules/StartConsultationButton';
 import { NON_BREAKING_SPACE } from '@app/src/lib/config';
-import { Button, ButtonKind, ButtonSize } from '@app/src/ui/button';
 import { Icon } from '@app/src/ui/icon';
 import { NavLink } from '@app/src/ui/nav-link';
 import { IconsList } from '@app/src/ui/sprite';
-import {
-  SystemButton,
-  SystemButtonSize,
-  SystemButtonKind,
-} from '@app/src/ui/systemButton ';
+import { Button, ButtonSize, ButtonKind } from '@app/src/ui/button';
 
 import * as styles from './NotFound.css';
 import { SystemLayout } from '../../system/layout';
@@ -41,12 +36,9 @@ const NotFound = () => (
         </h1>
         <div className={styles.buttons}>
           <NavLink className={styles.buttonMain} href="/" withoutUnderline>
-            <SystemButton
-              size={SystemButtonSize.Large}
-              kind={SystemButtonKind.Secondary}
-            >
+            <Button size={ButtonSize.Large} kind={ButtonKind.Secondary}>
               Перейти на главную
-            </SystemButton>
+            </Button>
           </NavLink>
         </div>
       </div>
