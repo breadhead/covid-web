@@ -1,7 +1,7 @@
 import { Action } from 'redux';
 import { createSymbiote } from 'redux-symbiote';
 
-import { Role } from '@app/src/domain/models/Users/User';
+import { Role } from '../../models/common/User';
 
 interface State {
   token: string;

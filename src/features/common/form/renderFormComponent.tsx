@@ -81,7 +81,7 @@ export const renderFormComponent = (
   }
 
   return (
-    <React.Fragment key={key}>
+    <div className={props.outerClassName} key={key}>
       {label &&
         getFormComponent(FormComponentType.Label, {
           className: cx(styles.label),
@@ -91,6 +91,6 @@ export const renderFormComponent = (
           required: required,
         })}
       {getFormComponent(type, { className: styles.field, ...props })}
-    </React.Fragment>
+    </div>
   );
 };

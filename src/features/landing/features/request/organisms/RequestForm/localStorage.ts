@@ -21,7 +21,7 @@ export const setFormRequestFinished = (arg = true) =>
 export const isFormRequestFinished = () => store.get(REQUEST_FORM_FINISHED);
 
 export const resetRequestFormDraft = () => {
-  saveRequestFormDraft()(undefined);
+  store.remove(getKey());
 };
 export const getFormattedForm = () => {
   const result = formatFormData(getRequestFormDraft());

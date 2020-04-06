@@ -23,7 +23,6 @@
   outline-color: var(--color-primary);
 }
 
-
 html {
   scroll-behavior: smooth;
 }
@@ -45,7 +44,6 @@ body {
   --title-bold: bold 16px/24px var(--fontFamily-title);
 
   --title-regular-system: 40px/48px var(--fontFamily-title);
-
 
   --text-0: 0px/0px var(--fontFamily);
   --text18-28: 18px/28px var(--fontFamily);
@@ -114,7 +112,6 @@ body {
 @custom-media --mediumSecondUp (min-width: 833px);
 @custom-media --mediumUp (min-width: 928px);
 @custom-media --largeUp (min-width: 1200px);
-
 
 #__next {
   display: flex;

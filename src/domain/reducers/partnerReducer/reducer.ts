@@ -1,12 +1,13 @@
 import { Action } from 'redux';
 
-import { Partner } from '@app/src/domain/models/sanity/Partner';
 import {
   createFetchingSymbiote,
   createInitialState,
   FetchingActions,
   FetchingState,
 } from '@app/src/lib/symbioteFactory';
+
+import { Partner } from '../../models/common/Partner';
 
 interface State extends FetchingState {
   list: Partner[];

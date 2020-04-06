@@ -4,11 +4,10 @@ export const mainLinks = [
     text: 'Справочная служба',
     narrowText: 'Справочная',
   },
-  // {
-  //   href: '/for-doctors',
-  //   text: 'Врачам',
-  //   className: cx(styles.mainLink, styles.link),
-  // },
+  {
+    href: '/news',
+    text: 'Врачам',
+  },
   {
     href: '/for-hospitals',
     text: 'Помощь больницам',
