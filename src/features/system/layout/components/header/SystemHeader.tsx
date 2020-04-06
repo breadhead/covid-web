@@ -27,8 +27,8 @@ export const SystemHeader = () => {
           setShow(isShow);
         }
       }
-
-      const narrow = currPos.y < -50;
+      const narrow = currPos.y < -70;
+      console.log('narrow:', narrow);
 
       if (narrow !== show) {
         setNarrow(narrow);
