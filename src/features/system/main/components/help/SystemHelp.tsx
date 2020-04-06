@@ -9,6 +9,7 @@ import { HelpFooter } from './components/help-footer';
 export const SystemHelp = () => {
   return (
     <section className={styles.systemHelp}>
+      <div id="help" className={styles.anchor} />
       <h2 className="gl-sectionTitle">Как помочь</h2>
       <HelpOptions />
       <ShareWidget title={'Пусть больше людей узнает о проекте'} />

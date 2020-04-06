@@ -17,9 +17,9 @@ export const SystemNavigationContainer = ({ narrow }: Props) => (
     <NavLink
       className={cx(styles.buttonWrap, narrow && styles.narrowButtonWrap)}
       withoutUnderline
-      href="/#donation"
+      href="/#help"
     >
-      <Button className={styles.helpButton}>Помочь проекту</Button>
+      <Button className={styles.helpButton}>Помочь</Button>
     </NavLink>
   </nav>
 );
