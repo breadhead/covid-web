@@ -1,4 +1,14 @@
-export { reducer } from './reducer';
-export type { State } from './reducer';
+import { combineReducers } from 'redux';
 
-export { getNewsFromSanity } from './actions';
+import * as newsItem from './item';
+import * as newsList from './list';
+
+export interface State {
+  list: newsList.State;
+  item: newsItem.State;
+}
+
+export const reducer = combineReducers<State, any>({
+  item: newsItem.reducer,
+  list: newsList.reducer,
+} as any);

@@ -3,8 +3,8 @@ import { Dispatch } from 'redux';
 import { ExtraArgs, State } from '@app/src/lib/store';
 
 import { actions } from './reducer';
-import { newsRequestBuilder } from './helpers/newsRequestBuilder';
-import { ALL_CATEGORIES } from '../../models/common/NewsCategoryType';
+import { newsListRequestBuilder } from '../helpers/newsListRequestBuilder';
+import { ALL_CATEGORIES } from '../../../models/common/NewsCategoryType';
 
 export const getNewsFromSanity = () => async (
   dispatch: Dispatch<any>,
@@ -15,12 +15,11 @@ export const getNewsFromSanity = () => async (
   try {
     dispatch(actions.request());
     // TODO: pass query from above
-    const query = newsRequestBuilder(ALL_CATEGORIES, []);
-    console.log('query', query);
-    const tags = await api.getNews(query);
-    console.log('tags', tags);
+    const query = newsListRequestBuilder(ALL_CATEGORIES, []);
 
-    return dispatch(actions.success(tags));
+    const news = await api.getNews(query);
+
+    return dispatch(actions.success(news));
   } catch (error) {
     return dispatch(actions.error(error.message));
   }

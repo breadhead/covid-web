@@ -29,4 +29,5 @@ export default interface ApiClient {
   getExpertBoard(): Promise<Expert[]>;
   getTags(): Promise<TagType[]>;
   getNews(query: string): Promise<NewsItem[]>;
+  getNewsItem(query: string): Promise<NewsItem[]>;
 }

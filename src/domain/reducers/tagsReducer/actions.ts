@@ -14,7 +14,6 @@ export const getTagsFromSanity = () => async (
     dispatch(actions.request());
 
     const tags = await api.getTags();
-    console.log('tags', tags);
 
     return dispatch(actions.success(tags));
   } catch (error) {

@@ -7,7 +7,7 @@ import {
   FetchingState,
 } from '@app/src/lib/symbioteFactory';
 
-import { NewsItem } from '../../models/common/NewsItem';
+import { NewsItem } from '../../../models/common/NewsItem';
 
 interface State extends FetchingState {
   list: NewsItem[];

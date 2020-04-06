@@ -4,6 +4,8 @@ const redisClient = require('redis').createClient({
 });
 const { promisify } = require('util');
 
+const sanity = require('./src/lib/sanity-client/index.js');
+
 const getFromRedis = promisify(redisClient.get).bind(redisClient);
 
 module.exports = function (req, res) {
@@ -21,8 +23,8 @@ module.exports = function (req, res) {
           return res.json(data);
         })
         .catch(() => {
-          sanityClient
-            .fetch(params, {})
+          sanity.sanityClient
+            .fetch(params, { active: true })
             .then((data) => {
               if (typeof data === 'object') {
                 res.json(data);

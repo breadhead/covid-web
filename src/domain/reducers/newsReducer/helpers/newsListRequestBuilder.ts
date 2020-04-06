@@ -5,7 +5,7 @@ import {
   ALL_CATEGORIES,
 } from '@app/src/domain/models/common/NewsCategoryType';
 
-export const newsRequestBuilder = (
+export const newsListRequestBuilder = (
   category: NewsCategoryQueryType,
   tagIds: string[],
 ) => {
