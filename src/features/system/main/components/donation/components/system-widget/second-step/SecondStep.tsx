@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Input } from '@app/src/features/common/form';
-import { SystemButton } from '@app/src/ui/systemButton ';
+import Input from '@app/src/ui/Input';
 import { NavLink } from '@app/src/ui/nav-link';
 import { SPACE } from '@app/src/lib/config';
 
@@ -32,6 +31,7 @@ export const SecondStep = ({
     <div>
       <div className={styles.inputWrapper}>
         <Input
+          className={styles.input}
           onChange={(event) => setName(event?.target.value)}
           value={name}
           label="Фамилия"
@@ -40,6 +40,7 @@ export const SecondStep = ({
       </div>
       <div className={styles.inputWrapper}>
         <Input
+          className={styles.input}
           onChange={(event) => setSurname(event?.target.value)}
           value={surname}
           label="Имя"
@@ -48,6 +49,7 @@ export const SecondStep = ({
       </div>
       <div className={styles.inputWrapper}>
         <Input
+          className={styles.input}
           onChange={(event) => setEmail(event?.target.value)}
           value={email}
           label="Эл. почта"
@@ -58,10 +60,7 @@ export const SecondStep = ({
         <button onClick={() => setStep(1)} className={styles.backButton}>
           Назад
         </button>
-        <CloudPayments />
-        {/* <SystemButton submit className={styles.actionButton}>
-          Сделать пожертвование
-        </SystemButton> */}
+        <CloudPayments styles={styles} />
       </div>
       <p className={styles.cancelText}>
         Нажимая кнопку, я соглашаюсь с{SPACE}

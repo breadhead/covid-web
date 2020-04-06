@@ -1,7 +1,8 @@
 .widget {
-  padding: 40px 80px;
+  padding: 40px 80px 48px;
   background-color: #fff;
   margin-right: 32px;
+
   box-shadow: 0px 32px 40px rgba(0, 9, 92, 0.12);
 
   @media (--smallDown) {
@@ -50,6 +51,7 @@
 .selectWrapper {
   display: flex;
   justify-content: space-between;
+  height: 36px;
 
   @media (--smallDown) {
     flex-direction: column;
@@ -88,10 +90,14 @@
   width: 448px;
 }
 
+.input label {
+  margin-bottom: 4px !important;
+}
+
 .backButton {
   padding-top: 18px;
   padding-bottom: 18px;
-  color: #82839B;
+  color: #82839b;
   border: none;
   cursor: pointer;
   box-shadow: none;
@@ -100,7 +106,7 @@
 
 .buttonsWrapper {
   display: flex;
-  margin-top: 42px; 
+  margin-top: 42px;
 
   & .actionButton {
     width: 100%;

@@ -1,10 +1,25 @@
-import React, { useState, useMemo, useEffect, useLayoutEffect } from 'react';
-import Head from 'next/head';
-export const CloudPayments = () => {
-  const [state, setState] = useState({ step: 'initial' });
+import React, { useState, useEffect } from 'react';
+
+import { SystemButton } from '@app/src/ui/systemButton ';
+
+enum CloudPaymentsState {
+  Initial = 'initial',
+  Complete = 'complete',
+  Error = 'error',
+}
+
+interface CloudPaymentsProps {
+  styles: { [key: string]: string };
+}
+
+export const CloudPayments = ({ styles }: CloudPaymentsProps) => {
+  const [cloudPayments, setCloudPayments] = useState(null);
+  const [step, setStep] = useState(CloudPaymentsState.Initial);
+  const [reason, setReason] = useState(null);
 
   useEffect(() => {
-    console.log('ЫЫЫ:', !!window && (window as any).cp);
+    const widget = new (window as any).cp.CloudPayments();
+    setCloudPayments(widget);
   }, []);
 
   const showWidget = ({
@@ -15,68 +30,64 @@ export const CloudPayments = () => {
     firstname,
     lastname,
   }) => {
-    // if (typeof cp === 'undefined') {
-    //   alert('Cloudpayments is undefined');
-    //   return false;
-    // } else {
-    //   const widget = new cp.CloudPayments();
-    // }
+    const data = { firstname, lastname, email };
 
-    const data = { firstname: firstname, lastname: lastname, email: email };
+    if (recurrent) {
+      (data as any).cloudPayments = {
+        recurrent: { interval: 'Month', period: 1 },
+      };
+    }
 
-    // if (recurrent) {
-    //   data.cloudPayments = {
-    //     recurrent: { interval: 'Month', period: 1 },
-    //   };
-    // }
+    (cloudPayments as any).charge(
+      {
+        publicId: 'pk_be83b01a981129a5c65350e031240',
+        description: description,
+        amount: amount,
+        currency: 'RUB',
+        accountId: email,
+        data,
+      },
+      (data) => {
+        setStep(CloudPaymentsState.Complete);
+      },
+      (reason, options) => {
+        setStep(CloudPaymentsState.Error);
+        setReason(reason);
+      },
+    );
 
-    //   widget.charge(
-    //     {
-    //       publicId: 'pk_be83b01a981129a5c65350e031240',
-    //       description: description,
-    //       amount: amount,
-    //       currency: 'RUB',
-    //       accountId: email,
-    //       data: data,
-    //     },
-    //     (data) => {
-    //       setState({ step: 'thankyou' });
-    //     },
-    //     (reason, options) => {
-    //       setState({ step: 'fail', reason: reason });
-    //     },
-    //   );
+    return cloudPayments;
+  };
 
-    //   return widget;
-    // };
+  const pay = () => {
+    const data /* get from store! */ = {
+      description: 'Пожертвование: Помощь больницам',
+      amount: 500,
+      recurrent: true,
+      email: 'leon@thatsme.ru',
+      firstname: 'Леонид',
+      lastname: 'Николаев',
+    };
 
-    // const pay = () => {
-    //   const data /* get from store! */ = {
-    //     description: 'Пожертвование: Помощь больницам',
-    //     amount: 500,
-    //     recurrent: true,
-    //     email: 'leon@thatsme.ru',
-    //     firstname: 'Леонид',
-    //     lastname: 'Николаев',
-    //   };
-
-    //   showWidget(data);
-    // };
+    showWidget(data);
   };
 
   return (
     <>
-      <div>
-        cloud payments
-        {/* {state.step === 'initial' && <button onClick={pay}>Заплатить</button>}
-      {state.step === 'thankyou' && <h2>Спасибо за помощь!</h2>}
-      {state.step === 'fail' && (
+      {step === CloudPaymentsState.Initial && (
+        <SystemButton onClick={pay} className={styles.actionButton}>
+          Сделать пожертвование
+        </SystemButton>
+      )}
+      {step === CloudPaymentsState.Complete && <h2>Спасибо за помощь!</h2>}
+      {step === CloudPaymentsState.Error && (
         <>
-          <h2>Ошибка! </h2> <p>{state.reason}</p>
-          <button onClick={pay}>Попробовать еще раз</button>
+          <h2>Ошибка! </h2> <p>{reason}</p>
+          <SystemButton onClick={pay} className={styles.actionButton}>
+            Попробовать еще раз
+          </SystemButton>
         </>
-      )} */}
-      </div>
+      )}
     </>
   );
 };
