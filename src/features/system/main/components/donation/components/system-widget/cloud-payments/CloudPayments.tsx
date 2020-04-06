@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useLayoutEffect } from 'react';
+import cx from 'classnames';
 
 import { SystemButton } from '@app/src/ui/systemButton ';
 
@@ -53,7 +54,7 @@ export const CloudPayments = ({
         // TODO: заменить на наш
         publicId: 'pk_be83b01a981129a5c65350e031240',
         description: formData.target,
-        amount: formData.cost,
+        amount: Number(formData.cost),
         currency: 'RUB',
         accountId: formData.email,
         data,
@@ -88,7 +89,10 @@ export const CloudPayments = ({
       {step === CloudPaymentsState.Complete && <h2>Спасибо за помощь!</h2>}
       {step === CloudPaymentsState.Error && (
         <>
-          <h2>Ошибка! </h2> <p>{reason}</p>
+          <span className={cx(styles.error, styles.paymentError)}>
+            Ошибка
+            {console.log('error', reason)}
+          </span>
           <SystemButton submit onClick={pay} className={styles.actionButton}>
             Попробовать еще раз
           </SystemButton>
