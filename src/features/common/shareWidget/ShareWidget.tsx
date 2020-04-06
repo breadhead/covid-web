@@ -21,7 +21,7 @@ interface Props {
 
 export const ShareWidget = ({
   shareUrl,
-  title = 'Пусть больше людей узнает о проекте',
+  title = 'Просто спросить | COVID-19',
   imageSrc = `/static/images/covid-image.png`,
 }: Props) => {
   const { publicRuntimeConfig } = getConfig();
@@ -42,7 +42,6 @@ export const ShareWidget = ({
           url={shareUrl}
           className={styles.iconWrapper}
           title={title}
-          image={publicRuntimeConfig.siteUrl + imageSrc}
         >
           <Icon className={styles.icon} name={IconsList.Vk} />
         </VKShareButton>
@@ -56,7 +55,7 @@ export const ShareWidget = ({
         <OKShareButton
           url={shareUrl}
           title={title}
-          description={'Поделитесь с друзьями и коллегами. Вместе победим! 💪'}
+          description="Справочная служба по вопросам коронавирусной инфекции COVID-19"
           image={publicRuntimeConfig.siteUrl + imageSrc}
           className={styles.iconWrapper}
         >
