@@ -9,6 +9,7 @@ import { selectPaymentWidgetData } from '@app/src/domain/reducers/paymentWidgetR
 import { CloudPayments } from '../cloud-payments/CloudPayments';
 import { schema } from './schema';
 import { PaymentWidgetInput } from '../input';
+import { WidgetForm } from '../widgetReducer';
 
 interface SecondStepProps {
   name: string;
@@ -33,7 +34,7 @@ export const SecondStep = ({
   isSubmitted,
   styles,
 }: SecondStepProps) => {
-  const data = useMappedState(selectPaymentWidgetData);
+  const data: WidgetForm = useMappedState(selectPaymentWidgetData);
   const [errors, setErrors] = useState<any[]>([{}]);
 
   const validate = useCallback(() => {

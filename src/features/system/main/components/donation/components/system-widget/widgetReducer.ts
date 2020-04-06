@@ -1,7 +1,7 @@
 import { frequencyForm, costForm, targetSelect } from './formConfig';
 import * as actions from './widgetActions';
 
-interface InitialStateType {
+interface WidgetReducerType {
   frequency: string | null;
   cost: string | null;
   target: string | null;
@@ -10,7 +10,16 @@ interface InitialStateType {
   email: string;
 }
 
-export const initialState: InitialStateType = {
+export interface WidgetForm {
+  name: string;
+  surname: string;
+  email: string;
+  cost: string;
+  frequency: string;
+  target: string;
+}
+
+export const initialState: WidgetReducerType = {
   frequency: frequencyForm.find((it) => !!it.checked)?.id || null,
   cost: costForm.find((it) => !!it.checked)?.id || null,
   target: targetSelect.options.find((opt) => !!opt.selected)?.value || null,

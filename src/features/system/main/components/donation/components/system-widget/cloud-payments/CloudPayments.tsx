@@ -2,6 +2,9 @@ import React, { useState, useCallback, useLayoutEffect } from 'react';
 
 import { SystemButton } from '@app/src/ui/systemButton ';
 
+import { WidgetForm } from '../widgetReducer';
+import { FrequencyEnum } from '../formConfig';
+
 enum CloudPaymentsState {
   Initial = 'initial',
   Complete = 'complete',
@@ -9,14 +12,14 @@ enum CloudPaymentsState {
 }
 
 interface CloudPaymentsProps {
-  data: any;
+  data: WidgetForm;
   styles: { [key: string]: string };
   isSubmitted: boolean;
   validate: any;
 }
 
 export const CloudPayments = ({
-  data,
+  data: formData,
   styles,
   isSubmitted,
   validate,
@@ -30,15 +33,14 @@ export const CloudPayments = ({
     setCloudPayments(widget);
   }, []);
 
-  const showWidget = ({
-    description,
-    amount,
-    recurrent,
-    email,
-    firstname,
-    lastname,
-  }) => {
-    const data = { firstname, lastname, email };
+  const showWidget = () => {
+    const data = {
+      firstname: name,
+      lastname: formData.surname,
+      email: formData.email,
+    };
+
+    const recurrent = formData.frequency === FrequencyEnum.Monthly;
 
     if (recurrent) {
       (data as any).cloudPayments = {
@@ -48,11 +50,12 @@ export const CloudPayments = ({
 
     (cloudPayments as any).charge(
       {
+        // TODO: заменить на наш
         publicId: 'pk_be83b01a981129a5c65350e031240',
-        description: description,
-        amount: amount,
+        description: formData.target,
+        amount: formData.cost,
         currency: 'RUB',
-        accountId: email,
+        accountId: formData.email,
         data,
       },
       (data) => {
@@ -68,18 +71,10 @@ export const CloudPayments = ({
   };
 
   const pay = useCallback(async () => {
-    const data /* get from store! */ = {
-      description: 'Пожертвование: Помощь больницам',
-      amount: 500,
-      recurrent: true,
-      email: 'leon@thatsme.ru',
-      firstname: 'Леонид',
-      lastname: 'Николаев',
-    };
     const isValid = await validate();
 
     if (isSubmitted && isValid) {
-      showWidget(data);
+      showWidget();
     }
   }, [isSubmitted, validate]);
 
