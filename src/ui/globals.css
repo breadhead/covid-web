@@ -97,3 +97,7 @@
     padding: 24px 16px 40px 16px;
   }
 }
+
+.gl-formContainer form {
+  max-width: 448px;
+}
