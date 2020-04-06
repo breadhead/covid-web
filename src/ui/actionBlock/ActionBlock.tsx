@@ -1,4 +1,7 @@
 import React from 'react';
+import cx from 'classnames';
+
+import { pushRoute } from '@app/src/lib/routing/pushRoute';
 
 import s from './ActionBlock.css';
 import { Button, ButtonSize } from '../button';
@@ -8,7 +11,9 @@ interface ActionBlockProps {
   text?: string;
   icon?: React.ReactNode;
   buttonText: string;
-  action: () => void;
+  action?: () => void;
+  href?: string;
+  className?: string;
 }
 
 export const ActionBlock = ({
@@ -17,17 +22,29 @@ export const ActionBlock = ({
   icon,
   buttonText,
   action,
+  href,
+  className,
 }: ActionBlockProps) => {
   return (
-    <div className={s.wrapper}>
+    <div className={cx(s.wrapper, className)}>
       {title && <div className={s.title}>{title}</div>}
       {text && <div className={s.text}>{text}</div>}
 
-      <Button className={s.button} size={ButtonSize.ExtraLarge} submit>
+      <Button
+        onClick={() => {
+          if (action) {
+            action();
+          } else if (href) {
+            pushRoute(href);
+          }
+        }}
+        className={s.button}
+        size={ButtonSize.Medium}
+      >
         {buttonText}
       </Button>
 
-      <div className={s.iconWrapper}>{icon}</div>
+      {icon && <div className={s.iconWrapper}>{icon}</div>}
     </div>
   );
 };

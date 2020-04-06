@@ -32,7 +32,7 @@ export const NavLink = ({
   }
 
   return (
-    <routes.Link route={href}>
+    <NextLink href={href} as={href}>
       <a
         className={cx(
           styles.navlink,
@@ -42,6 +42,6 @@ export const NavLink = ({
       >
         {children}
       </a>
-    </routes.Link>
+    </NextLink>
   );
 };
