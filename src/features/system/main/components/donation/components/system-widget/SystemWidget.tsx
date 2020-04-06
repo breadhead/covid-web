@@ -59,7 +59,8 @@ export const SystemWidget = () => {
             setStep={setStep}
           />
         );
-
+      case 3:
+        return <div>step 3</div>;
       default:
         break;
     }

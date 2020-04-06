@@ -113,6 +113,7 @@ export const SecondStep = ({
           data={data}
           validate={validate}
           styles={styles}
+          setStep={setStep}
         />
       </div>
       <p className={styles.cancelText}>

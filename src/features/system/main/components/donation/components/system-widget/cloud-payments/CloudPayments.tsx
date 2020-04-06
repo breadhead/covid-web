@@ -1,4 +1,9 @@
-import React, { useState, useCallback, useLayoutEffect } from 'react';
+import React, {
+  useState,
+  useCallback,
+  useLayoutEffect,
+  useEffect,
+} from 'react';
 import cx from 'classnames';
 
 import { SystemButton } from '@app/src/ui/systemButton ';
@@ -17,6 +22,7 @@ interface CloudPaymentsProps {
   styles: { [key: string]: string };
   isSubmitted: boolean;
   validate: any;
+  setStep: (value: number) => void;
 }
 
 export const CloudPayments = ({
@@ -24,6 +30,7 @@ export const CloudPayments = ({
   styles,
   isSubmitted,
   validate,
+  setStep: setFormStep,
 }: CloudPaymentsProps) => {
   const [cloudPayments, setCloudPayments] = useState(null);
   const [step, setStep] = useState(CloudPaymentsState.Initial);
@@ -33,6 +40,12 @@ export const CloudPayments = ({
     const widget = new (window as any).cp.CloudPayments();
     setCloudPayments(widget);
   }, []);
+
+  useEffect(() => {
+    if (step === CloudPaymentsState.Complete) {
+      setFormStep(3);
+    }
+  }, [step]);
 
   const showWidget = () => {
     const data = {
@@ -86,7 +99,6 @@ export const CloudPayments = ({
           Сделать пожертвование
         </SystemButton>
       )}
-      {step === CloudPaymentsState.Complete && <h2>Спасибо за помощь!</h2>}
       {step === CloudPaymentsState.Error && (
         <>
           <span className={cx(styles.error, styles.paymentError)}>
