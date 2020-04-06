@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import s from './SerializerList.module.scss';
+import s from './SerializerList.css';
 
 interface SerializerListProps {
   children: any;
