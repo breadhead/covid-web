@@ -90,6 +90,10 @@
   margin-bottom: 12px;
   width: 448px;
   position: relative;
+
+  @media (--smallDown) {
+    width: 100%;
+  }
 }
 
 .input label {
@@ -109,6 +113,12 @@
   cursor: pointer;
   box-shadow: none;
   margin-right: 32px;
+
+  @media (--smallDown) {
+    background-color: none;
+    margin: 0 0 24px 0;
+    max-width: 80px;
+  }
 }
 
 .buttonsWrapper {
@@ -117,6 +127,10 @@
 
   & .actionButton {
     width: 100%;
+  }
+
+  @media (--smallDown) {
+    flex-direction: column;
   }
 }
 
