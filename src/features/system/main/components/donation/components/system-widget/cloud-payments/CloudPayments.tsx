@@ -75,7 +75,7 @@ export const CloudPayments = ({ styles }: CloudPaymentsProps) => {
   return (
     <>
       {step === CloudPaymentsState.Initial && (
-        <SystemButton onClick={pay} className={styles.actionButton}>
+        <SystemButton submit onClick={pay} className={styles.actionButton}>
           Сделать пожертвование
         </SystemButton>
       )}
@@ -83,7 +83,7 @@ export const CloudPayments = ({ styles }: CloudPaymentsProps) => {
       {step === CloudPaymentsState.Error && (
         <>
           <h2>Ошибка! </h2> <p>{reason}</p>
-          <SystemButton onClick={pay} className={styles.actionButton}>
+          <SystemButton submit onClick={pay} className={styles.actionButton}>
             Попробовать еще раз
           </SystemButton>
         </>

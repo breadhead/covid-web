@@ -1,8 +1,10 @@
 import React from 'react';
+import { useMappedState } from 'redux-react-hook';
 
 import Input from '@app/src/ui/Input';
 import { NavLink } from '@app/src/ui/nav-link';
 import { SPACE } from '@app/src/lib/config';
+import { selectPaymentWidgetData } from '@app/src/domain/reducers/paymentWidgetReducer/selectPartners';
 
 import { CloudPayments } from '../cloud-payments/CloudPayments';
 
@@ -27,6 +29,8 @@ export const SecondStep = ({
   setStep,
   styles,
 }: SecondStepProps) => {
+  const newData = useMappedState(selectPaymentWidgetData);
+  console.log('newData:', newData);
   return (
     <div>
       <div className={styles.inputWrapper}>

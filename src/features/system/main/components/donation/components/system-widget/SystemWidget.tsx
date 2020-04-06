@@ -1,6 +1,9 @@
 import React, { useReducer, useState } from 'react';
 import Head from 'next/head';
 
+import { setPaymetWidgetData } from '@app/src/domain/reducers/paymentWidgetReducer';
+import { useThunk } from '@app/src/helpers/hooks/useThunk';
+
 import * as styles from './SystemWidget.css';
 import { FirstStep } from './first-step/FirstStep';
 import { reducer, initialState } from './widgetReducer';
@@ -8,9 +11,10 @@ import * as actions from './widgetActions';
 import { SecondStep } from './second-step';
 
 export const SystemWidget = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatchFormState] = useReducer(reducer, initialState);
   const [step, setStep] = useState(1);
   const { frequency, cost, target, name, surname, email } = state;
+  const dispatch = useThunk();
 
   console.log('state:', state);
 
@@ -22,11 +26,15 @@ export const SystemWidget = () => {
             cost={cost}
             frequency={frequency}
             target={target}
-            setCost={(value) => dispatch({ type: actions.SET_COST, value })}
-            setFrequency={(value) =>
-              dispatch({ type: actions.SET_FREQUENCY, value })
+            setCost={(value) =>
+              dispatchFormState({ type: actions.SET_COST, value })
             }
-            setTarget={(value) => dispatch({ type: actions.SET_TARGET, value })}
+            setFrequency={(value) =>
+              dispatchFormState({ type: actions.SET_FREQUENCY, value })
+            }
+            setTarget={(value) =>
+              dispatchFormState({ type: actions.SET_TARGET, value })
+            }
             setStep={setStep}
             styles={styles}
           />
@@ -36,13 +44,17 @@ export const SystemWidget = () => {
           <SecondStep
             styles={styles}
             name={name}
-            setName={(value) => dispatch({ type: actions.SET_NAME, value })}
+            setName={(value) =>
+              dispatchFormState({ type: actions.SET_NAME, value })
+            }
             surname={surname}
             email={email}
             setSurname={(value) =>
-              dispatch({ type: actions.SET_SURNAME, value })
+              dispatchFormState({ type: actions.SET_SURNAME, value })
             }
-            setEmail={(value) => dispatch({ type: actions.SET_EMAIL, value })}
+            setEmail={(value) =>
+              dispatchFormState({ type: actions.SET_EMAIL, value })
+            }
             setStep={setStep}
           />
         );
@@ -61,10 +73,10 @@ export const SystemWidget = () => {
         />
       </Head>
       <form
-        onSubmit={(event: any) => {
+        onSubmit={async (event: any) => {
           event.preventDefault();
           event.stopPropagation();
-          // TODO: smth
+          await dispatch(setPaymetWidgetData(state));
         }}
         className={styles.widget}
       >
