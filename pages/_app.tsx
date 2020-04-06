@@ -148,10 +148,7 @@ class OncohelpWeb extends App<Props> {
             />
             <meta name="msapplication-TileColor" content="#ffc40d" />
             <meta name="theme-color" content="#ffffff" />
-            <meta
-              property="og:title"
-              content="Пусть больше людей узнает о проекте"
-            />
+            <meta property="og:title" content="Просто спросить | COVID-19" />
             <meta
               property="og:site_name"
               content={publicRuntimeConfig.siteUrl}
@@ -159,7 +156,7 @@ class OncohelpWeb extends App<Props> {
             <meta property="og:url" content={publicRuntimeConfig.siteUrl} />
             <meta
               property="og:description"
-              content="Поделитесь с друзьями и коллегами. Вместе победим! 💪"
+              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
             />
             <meta property="og:type" content="website" />
             <meta
@@ -175,24 +172,21 @@ class OncohelpWeb extends App<Props> {
             <meta property="og:image:height" content="315" />
             <meta
               property="og:image:alt"
-              content="Пусть больше людей узнает о проекте"
+              content="Просто спросить | COVID-19"
             />
             <meta name="twitter:card" content="summary_large_image" />
-            <meta
-              name="twitter:title"
-              content="Пусть больше людей узнает о проекте"
-            />
+            <meta name="twitter:title" content="Просто спросить | COVID-19" />
             <meta
               name="twitter:description"
-              content="Поделитесь с друзьями и коллегами. Вместе победим! 💪"
+              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
             />
             <meta
               name="twitter:image"
-              content="/static/images/covid-image.png"
+              content={`${publicRuntimeConfig.siteUrl}/static/images/covid-image.png`}
             />
             <meta
               name="twitter:image:alt"
-              content="Пусть больше людей узнает о проекте"
+              content="Просто спросить | COVID-19"
             />
             <meta property="fb:306467899461959" content="306467899461959" />
           </Head>
