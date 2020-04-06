@@ -16,7 +16,9 @@ export const HelpRequest = ({}: HelpRequestProps) => {
   return (
     <div className={s.helpRequest}>
       <div className={cx('gl-wrapper gl-section', s.wrapper)}>
-        <h2 className="gl-sectionTitle">Расскажите, какая помощь вам нужна</h2>
+        <h2 id="help-request-form" className="gl-sectionTitle">
+          Расскажите, какая помощь вам нужна
+        </h2>
         <div className={s.body}>
           <div className={cx(s.formContainer, 'gl-formContainer')}>
             <HospitalAidForm onSubmit={onSubmit} />

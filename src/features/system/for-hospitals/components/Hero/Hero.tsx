@@ -15,7 +15,7 @@ export const ForHospitalsHero = () => (
         className={s.bottomOffset}
         title="Вашей больнице нужна помощь?"
         buttonText="Отправить заявку"
-        href="/for"
+        href="/for-hospitals#help-request-form"
         icon={
           <img className={s.bottomOffset} src="/static/images/answers.png" />
         }
