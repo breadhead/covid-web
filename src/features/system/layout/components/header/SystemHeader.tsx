@@ -19,8 +19,7 @@ export const SystemHeader = () => {
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      console.log('currPos.y:', currPos.y);
-      if (currPos.y < 50) {
+      if (currPos.y > -50) {
         setShow(true);
       } else {
         const isShow = currPos.y > prevPos.y;
