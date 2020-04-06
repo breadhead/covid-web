@@ -42,7 +42,6 @@ export const ShareWidget = ({
           url={shareUrl}
           className={styles.iconWrapper}
           title={title}
-          noParse={true}
           image={publicRuntimeConfig.siteUrl + imageSrc}
         >
           <Icon className={styles.icon} name={IconsList.Vk} />
