@@ -11,7 +11,7 @@ export const SystemHelp = () => {
     <section className={styles.systemHelp}>
       <h2 className="gl-sectionTitle">Как помочь</h2>
       <HelpOptions />
-      <ShareWidget shareUrl={getFromConfig('prodUrl')} />
+      <ShareWidget shareUrl={getFromConfig('prodUrl')} title={'Пусть больше людей узнает о проекте'} />
     </section>
   );
 };

@@ -13,14 +13,14 @@ import {
 
 interface Props {
     shareUrl: string;
+    title?: string;
 }
 
-export const ShareWidget = ({ shareUrl }: Props) => {
-    const title = 'Пусть больше людей узнает о проекте';
+export const ShareWidget = ({ shareUrl , title = 'Пусть больше людей узнает о проекте'}: Props) => {
     return (
         <footer className={styles.helpFooter}>
             <p className={styles.text}>
-                {title}
+                Пусть больше людей узнает о проекте
                 <span className={styles.textSecondary}>
                   Поделитесь с друзьями и коллегами. Вместе победим! 💪
                 </span>

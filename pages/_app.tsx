@@ -148,12 +148,12 @@ class OncohelpWeb extends App<Props> {
             />
             <meta name="msapplication-TileColor" content="#ffc40d" />
             <meta name="theme-color" content="#ffffff" />
-            <meta property="og:title" content="Просто спросить | COVID-19" />
+            <meta property="og:title" content="Пусть больше людей узнает о проекте" />
             <meta property="og:site_name" content="https://defeatcovid.ru/" />
             <meta property="og:url" content="https://defeatcovid.ru/" />
             <meta
               property="og:description"
-              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+              content="Поделитесь с друзьями и коллегами. Вместе победим! 💪"
             />
             <meta property="og:type" content="website" />
             <meta
