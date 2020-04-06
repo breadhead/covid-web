@@ -19,19 +19,21 @@ interface ShareButtonsProps {
   title?: string;
   shareUrl?: string;
   imageSrc?: string;
-  className?: { [key: string]: string };
+  className?: string;
+  inForm?: boolean;
 }
 
 export const ShareButtons = ({
   shareUrl = getFromConfig('prodUrl') + '#help',
   title = 'Пусть больше людей узнает о проекте',
   imageSrc = `/static/images/covid-image.png`,
+  inForm = false,
   className,
 }: ShareButtonsProps) => {
   const { publicRuntimeConfig } = getConfig();
 
   return (
-    <nav className={cx(styles.social, className)}>
+    <nav className={cx(styles.social, inForm && styles.inForm, className)}>
       <FacebookShareButton url={shareUrl} className={styles.iconWrapper}>
         <Icon className={styles.icon} name={IconsList.Facebook} />
       </FacebookShareButton>

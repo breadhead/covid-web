@@ -55,6 +55,7 @@
 
   @media (--smallDown) {
     flex-direction: column;
+    height: auto;
   }
 }
 
@@ -120,10 +121,9 @@
 }
 
 .photo {
-  max-width: 328px;
-  margin: 0 auto;
   display: block;
-  border: 1px solid #DCDCE7;
+  border: 1px solid #dcdce7;
+  max-width: 328px;
 }
 
 .title {
@@ -139,4 +139,22 @@
 .slogan {
   margin: 0 0 16px 0;
   text-align: center;
+}
+
+.share {
+  max-width: 328px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.shareButtons {
+  border-right: 1px solid rgba(21, 24, 51, 0.12);
+  border-bottom: 1px solid rgba(21, 24, 51, 0.12);
+  padding-bottom: 1px;
+  min-height: 56px;
+
+  @media (--smallDown) {
+    border-left: 1px solid rgba(21, 24, 51, 0.12);
+  }
 }

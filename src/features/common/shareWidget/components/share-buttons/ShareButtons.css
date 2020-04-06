@@ -19,6 +19,16 @@
   }
 }
 
+.inForm .iconWrapper{
+    @media (--smallDown) {
+        min-height: 64px;
+  
+        &:first-child {
+             border-left: none!important;
+         }
+    }
+}
+
 .icon {
   width: 32px !important;
   height: 32px !important;
