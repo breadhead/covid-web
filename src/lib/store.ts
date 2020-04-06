@@ -51,6 +51,8 @@ import {
   reducer as paymentWidgetReducer,
   State as PaymentWidgetState,
 } from '@app/src/domain/reducers/paymentWidgetReducer/';
+import * as tags from '@app/src/domain/reducers/tagsReducer';
+import * as news from '@app/src/domain/reducers/newsReducer';
 
 import ApiClient from './api/ApiClient';
 import factory from './api/apiFactory';
@@ -68,6 +70,8 @@ export interface State {
   experts: ExpertState;
   expertBoard: ExpertBoardState;
   paymentWidget: PaymentWidgetState;
+  tags: tags.State;
+  news: news.State;
 }
 
 const reducer = combineReducers({
@@ -82,6 +86,8 @@ const reducer = combineReducers({
   experts: expertReducer,
   expertBoard: expertBoardReducer,
   paymentWidget: paymentWidgetReducer,
+  tags: tags.reducer,
+  news: news.reducer,
 } as any);
 
 export interface ExtraArgs {

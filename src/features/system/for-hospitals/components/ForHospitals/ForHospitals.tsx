@@ -12,7 +12,7 @@ import { ForHospitalsHero } from '../Hero/Hero';
 
 interface ForHospitalsProps {}
 
-export const ForHospitals = ({}: ForHospitalsProps) => {
+export const ForHospitalsPage = ({}: ForHospitalsProps) => {
   return (
     <SystemLayout>
       <Head>

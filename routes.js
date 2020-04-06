@@ -1,9 +1,8 @@
 const nextRoutes = require('next-routes');
 
 module.exports = nextRoutes()
-  // main routes
+  // landing
   .add('system', '/', 'landing')
-  .add('ask', '/ask', 'ask')
   .add('request', '/request', 'landing/request')
   .add('help-volunteers', '/help-volunteers', 'landing/help-volunteers')
   .add('help-partners', '/help-partners', 'landing/help-partners')
@@ -13,8 +12,12 @@ module.exports = nextRoutes()
   .add('landing-contacts', '/contacts', 'landing/contacts')
   .add('experts', '/experts', '/landing/experts')
   .add('expert', '/experts/:id', '/landing/expert')
+  .add('landing-for-hospitals', '/for-hospitals', 'landing/for-hospitals')
+  .add('landing-news', '/news', 'landing/news')
+  .add('landing-news-item', '/news/:id', 'landing/news-item')
+  // ask
   .add('ask-experts', '/ask/experts/', 'ask/experts')
   .add('ask-expert', '/ask/experts/:id', 'ask/expert')
-  .add('landing-for-hospitals', '/for-hospitals', 'landing/for-hospitals')
+  .add('ask', '/ask', 'ask')
 
   .add('icons-demo', '/icons-demo', 'icons-demo');

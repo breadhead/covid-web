@@ -2,6 +2,7 @@ import cx from 'classnames';
 import NextLink from 'next/link';
 import * as React from 'react';
 
+import routes from '../../../routes';
 import { getLinkStyle } from './helpers/getLinkStyle';
 import styles from './NavLink.css';
 import { NavLinkProps } from './NavLinkProps';
@@ -31,7 +32,7 @@ export const NavLink = ({
   }
 
   return (
-    <NextLink href={href} as={href}>
+    <routes.Link route={href}>
       <a
         className={cx(
           styles.navlink,
@@ -41,6 +42,6 @@ export const NavLink = ({
       >
         {children}
       </a>
-    </NextLink>
+    </routes.Link>
   );
 };

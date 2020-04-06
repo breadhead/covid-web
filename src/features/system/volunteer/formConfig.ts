@@ -90,6 +90,7 @@ export const formConfig = (styles) => ({
         name: 'profession',
         buttons: professionOptions,
         className: styles.professionRadioGroup,
+        outerClassName: styles.professeionWrapper,
         radioStyle: RadioButtonStyles.Radio,
       },
     },

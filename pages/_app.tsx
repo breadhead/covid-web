@@ -32,6 +32,7 @@ import { getViolateState } from '@app/src/domain/reducers/signInReducer/selector
 import { authViolateStatus } from '@app/src/domain/reducers/signInReducer/middleware';
 import { getPartnersFromSanity } from '@app/src/domain/reducers/partnerReducer';
 import { getExpertsFromSanity } from '@app/src/domain/reducers/expertReducer';
+import { getTagsFromSanity } from '@app/src/domain/reducers/tagsReducer';
 
 import { getExpertBoardFromSanity } from '@front/domain/reducers/expertBoardReducer';
 
@@ -72,6 +73,7 @@ class OncohelpWeb extends App<Props> {
       ctx.reduxStore.dispatch(getPartnersFromSanity() as any),
       ctx.reduxStore.dispatch(getExpertsFromSanity() as any),
       ctx.reduxStore.dispatch(getExpertBoardFromSanity() as any),
+      ctx.reduxStore.dispatch(getTagsFromSanity() as any),
     ]);
     const { isSecure } = context.Component as any;
     const loggedIn = (getToken(ctx.reduxStore.getState()) || '').length > 0;
@@ -148,12 +150,18 @@ class OncohelpWeb extends App<Props> {
             />
             <meta name="msapplication-TileColor" content="#ffc40d" />
             <meta name="theme-color" content="#ffffff" />
-            <meta property="og:title" content="Просто спросить | COVID-19" />
-            <meta property="og:site_name" content="https://defeatcovid.ru/" />
-            <meta property="og:url" content="https://defeatcovid.ru/" />
+            <meta
+              property="og:title"
+              content="Пусть больше людей узнает о проекте"
+            />
+            <meta
+              property="og:site_name"
+              content={publicRuntimeConfig.siteUrl}
+            />
+            <meta property="og:url" content={publicRuntimeConfig.siteUrl} />
             <meta
               property="og:description"
-              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+              content="Поделитесь с друзьями и коллегами. Вместе победим! 💪"
             />
             <meta property="og:type" content="website" />
             <meta
@@ -169,13 +177,16 @@ class OncohelpWeb extends App<Props> {
             <meta property="og:image:height" content="315" />
             <meta
               property="og:image:alt"
-              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+              content="Пусть больше людей узнает о проекте"
             />
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content="Просто спросить | COVID-19" />
+            <meta
+              name="twitter:title"
+              content="Пусть больше людей узнает о проекте"
+            />
             <meta
               name="twitter:description"
-              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+              content="Поделитесь с друзьями и коллегами. Вместе победим! 💪"
             />
             <meta
               name="twitter:image"
@@ -183,7 +194,7 @@ class OncohelpWeb extends App<Props> {
             />
             <meta
               name="twitter:image:alt"
-              content="Просто спросить | COVID-19"
+              content="Пусть больше людей узнает о проекте"
             />
             <meta property="fb:306467899461959" content="306467899461959" />
           </Head>

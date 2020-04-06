@@ -1,0 +1,1 @@
+export { SerializerLink } from './SerializerLink';

@@ -13,6 +13,7 @@ import RegionSelect from '@app/src/ui/regionSelect';
 import { useThunk } from '@app/src/helpers/hooks/useThunk';
 import { genderRadioGroup } from '@app/src/helpers/genderRadioGroup';
 import { Button, ButtonSize } from '@app/src/ui/button';
+import commonStyles from '@app/src/features/common/form/commonStyles.css';
 
 import * as styles from './RequestForm.css';
 import { Symptoms } from './components/symptoms';
@@ -35,6 +36,7 @@ export const RequestForm = () => {
 
   useEffect(() => {
     const draft = getRequestFormDraft();
+    console.log('RequestForm -> draft', draft);
     setInitialFields(draft);
   }, []);
 
@@ -64,6 +66,7 @@ export const RequestForm = () => {
               Для кого вы ищете информацию?
             </label>
             <RadioGroup
+              className={commonStyles.field}
               validate={schema.target}
               name="target"
               buttons={targetList}
@@ -81,6 +84,7 @@ export const RequestForm = () => {
               Пол
             </label>
             <RadioGroup
+              className={commonStyles.field}
               validate={schema.gender}
               name="gender"
               buttons={genderRadioGroup}
@@ -93,7 +97,7 @@ export const RequestForm = () => {
               Возраст (полных лет)
             </label>
             <Input
-              className={styles.ageField}
+              className={cx(styles.ageField, commonStyles.field)}
               validate={schema.age}
               name="age"
               type={InputType.Number}
