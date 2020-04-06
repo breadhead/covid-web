@@ -17,23 +17,23 @@ export const SystemHeader = () => {
   const [show, setShow] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
-  useScrollPosition(
-    ({ prevPos, currPos }) => {
-      const isShow = currPos.y > prevPos.y;
-      const isMobile = currPos.y < 0;
+  // useScrollPosition(
+  //   ({ prevPos, currPos }) => {
+  //     const isShow = currPos.y > prevPos.y;
+  //     // const isMobile = currPos.y < 0;
 
-      if (isShow !== show) {
-        setShow(isShow);
-      }
-      if (isMobile !== show) {
-        setIsMobile(isMobile);
-      }
-    },
-    [show],
-    undefined,
-    false,
-    500,
-  );
+  //     if (isShow !== show) {
+  //       setShow(isShow);
+  //     }
+  //     if (isMobile !== show) {
+  //       setIsMobile(isMobile);
+  //     }
+  //   },
+  //   [show],
+  //   undefined,
+  //   false,
+  //   500,
+  // );
 
   return (
     <header
