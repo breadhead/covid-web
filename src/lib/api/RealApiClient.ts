@@ -7,7 +7,6 @@ import { getFromConfig } from '@app/src/helpers/getPublicRuntimeConfig';
 import ApiClient, { UploadedFile } from './ApiClient';
 import { queryString } from './helper/queryString';
 import { SendFeedbackRequest } from './request/SendFeedback';
-import { sanityClient } from '../sanity-client';
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance;
