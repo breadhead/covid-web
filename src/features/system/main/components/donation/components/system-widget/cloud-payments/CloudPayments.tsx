@@ -32,6 +32,7 @@ export const CloudPayments = ({
   validate,
   setStep: setFormStep,
 }: CloudPaymentsProps) => {
+  // TODO: refactor
   const [cloudPayments, setCloudPayments] = useState(null);
   const [step, setStep] = useState(CloudPaymentsState.Initial);
   const [reason, setReason] = useState(null);
