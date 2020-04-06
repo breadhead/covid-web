@@ -5,11 +5,11 @@ import { setPaymetWidgetData } from '@app/src/domain/reducers/paymentWidgetReduc
 import { useThunk } from '@app/src/helpers/hooks/useThunk';
 
 import * as styles from './SystemWidget.css';
-import { FirstStep } from './first-step/FirstStep';
+import { FirstStep } from './first-step';
 import { reducer, initialState } from './widgetReducer';
 import * as actions from './widgetActions';
 import { SecondStep } from './second-step';
-import { ThirdStep } from './third-step/ThirdStep';
+import { ThirdStep } from './third-step';
 
 export const SystemWidget = () => {
   const [state, dispatchFormState] = useReducer(reducer, initialState);

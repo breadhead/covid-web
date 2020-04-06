@@ -7,9 +7,6 @@ module.exports = {
       jsx: true,
     },
   },
-  globals: {
-    cp: "readonly",
-  },
   extends: [
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',

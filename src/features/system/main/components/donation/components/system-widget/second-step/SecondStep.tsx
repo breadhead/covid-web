@@ -6,7 +6,7 @@ import { NavLink } from '@app/src/ui/nav-link';
 import { SPACE } from '@app/src/lib/config';
 import { selectPaymentWidgetData } from '@app/src/domain/reducers/paymentWidgetReducer/selectPartners';
 
-import { CloudPayments } from '../cloud-payments/CloudPayments';
+import { CloudPayments } from '../cloud-payments';
 import { schema } from './schema';
 import { PaymentWidgetInput } from '../input';
 import { WidgetForm } from '../widgetReducer';
