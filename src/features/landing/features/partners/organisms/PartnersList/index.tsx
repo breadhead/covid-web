@@ -4,8 +4,6 @@ import { useMappedState } from 'redux-react-hook';
 
 import { selectPartners } from '@app/src/domain/reducers/partnerReducer/selectPartners';
 import PartnerCard from '@app/src/features/landing/organisms/PartnerCard';
-import { NON_BREAKING_SPACE } from '@app/src/lib/config';
-// import { Partner } from '@app/models/sanity/Partner';
 import routes from '@app/routes';
 
 import PartnersGroupSelect from '../../molecules/PartnersGroupSelect';
@@ -28,16 +26,12 @@ const PartnersList = ({ type = DEFAULT_VALUE }: Props) => {
 
   const [list, setList] = useState(partners);
   const [value, setValue] = useState<string>(type);
-  const [scrollPosition, setScrollPosition] = useState(0);
 
   const onValueChange = (value: string | SelectValue) => {
     setList(partners.filter((partner) => partner.type === value));
     setValue(value as string);
-    setScrollPosition(window.scrollY);
-
-    Router.pushRoute(`/partners/${value}`).then(() =>
-      window.scrollTo(0, scrollPosition),
-    );
+    console.log('value change');
+    Router.pushRoute(`/partners?${value}`);
   };
 
   return (
