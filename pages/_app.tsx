@@ -178,7 +178,10 @@ class OncohelpWeb extends App<Props> {
               content="Пусть больше людей узнает о проекте"
             />
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content="Пусть больше людей узнает о проекте" />
+            <meta
+              name="twitter:title"
+              content="Пусть больше людей узнает о проекте"
+            />
             <meta
               name="twitter:description"
               content="Поделитесь с друзьями и коллегами. Вместе победим! 💪"

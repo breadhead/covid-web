@@ -5,24 +5,24 @@ import {
   TelegramShareButton,
   VKShareButton,
 } from 'react-share';
+import getConfig from 'next/config';
 
 import { IconsList } from '@app/src/ui/sprite';
 
 import { Icon } from '@front/ui/icon';
 
 import * as styles from './ShareWidget.css';
-import getConfig from "next/config";
 
 interface Props {
   shareUrl: string;
   title?: string;
-  imageSrc?: string
+  imageSrc?: string;
 }
 
 export const ShareWidget = ({
   shareUrl,
   title = 'Пусть больше людей узнает о проекте',
-  imageSrc = `/static/images/covid-image.png`
+  imageSrc = `/static/images/covid-image.png`,
 }: Props) => {
   const { publicRuntimeConfig } = getConfig();
 
@@ -35,18 +35,15 @@ export const ShareWidget = ({
         </span>
       </p>
       <nav className={styles.social}>
-        <FacebookShareButton
-          url={shareUrl}
-          className={styles.iconWrapper}
-        >
+        <FacebookShareButton url={shareUrl} className={styles.iconWrapper}>
           <Icon className={styles.icon} name={IconsList.Facebook} />
         </FacebookShareButton>
         <VKShareButton
-            url={shareUrl}
-            className={styles.iconWrapper}
-            title={title}
-            noParse={true}
-            image={publicRuntimeConfig.siteUrl+imageSrc}
+          url={shareUrl}
+          className={styles.iconWrapper}
+          title={title}
+          noParse={true}
+          image={publicRuntimeConfig.siteUrl + imageSrc}
         >
           <Icon className={styles.icon} name={IconsList.Vk} />
         </VKShareButton>
@@ -61,7 +58,7 @@ export const ShareWidget = ({
           url={shareUrl}
           title={title}
           description={'Поделитесь с друзьями и коллегами. Вместе победим! 💪'}
-          image={publicRuntimeConfig.siteUrl+imageSrc}
+          image={publicRuntimeConfig.siteUrl + imageSrc}
           className={styles.iconWrapper}
         >
           <Icon className={styles.icon} name={IconsList.OK} />
