@@ -1,0 +1,45 @@
+.title-1 {
+  font: var(--title-regular-system);
+}
+
+.title-1--offsets {
+  margin: 0;
+  margin-bottom: 1.4em;
+}
+
+.title-2 {
+  font: var(--title-medium);
+}
+
+.title-2--offsets {
+  margin: 0;
+  margin-bottom: 1.4em;
+}
+
+.title-3 {
+  font: var(--title-small);
+}
+
+.title-3--offsets {
+  margin: 0;
+  margin-bottom: 1.4em;
+}
+
+.title-4 {
+  font: var(--title-tiny);
+}
+
+.title-4--offsets {
+  margin: 0;
+  margin-bottom: 1.4em;
+}
+
+.text {
+  margin: 0;
+  font: var(--text18-28);
+}
+
+.blockquote {
+  margin: 0;
+  font: var(--title-bold);
+}

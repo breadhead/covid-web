@@ -52,5 +52,5 @@ export const NewsCard = ({ data }: NewsCardProps) => {
 };
 
 const formatDate = (date: string) => {
-  return format(date, 'DD MMMM YYYY', { locale });
+  return format(date, 'D MMMM YYYY', { locale });
 };
