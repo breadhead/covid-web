@@ -152,8 +152,11 @@ class OncohelpWeb extends App<Props> {
               property="og:title"
               content="Пусть больше людей узнает о проекте"
             />
-            <meta property="og:site_name" content="https://defeatcovid.ru/" />
-            <meta property="og:url" content="https://defeatcovid.ru/" />
+            <meta
+              property="og:site_name"
+              content={publicRuntimeConfig.siteUrl}
+            />
+            <meta property="og:url" content={publicRuntimeConfig.siteUrl} />
             <meta
               property="og:description"
               content="Поделитесь с друзьями и коллегами. Вместе победим! 💪"
@@ -172,13 +175,13 @@ class OncohelpWeb extends App<Props> {
             <meta property="og:image:height" content="315" />
             <meta
               property="og:image:alt"
-              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+              content="Пусть больше людей узнает о проекте"
             />
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content="Просто спросить | COVID-19" />
+            <meta name="twitter:title" content="Пусть больше людей узнает о проекте" />
             <meta
               name="twitter:description"
-              content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+              content="Поделитесь с друзьями и коллегами. Вместе победим! 💪"
             />
             <meta
               name="twitter:image"
@@ -186,7 +189,7 @@ class OncohelpWeb extends App<Props> {
             />
             <meta
               name="twitter:image:alt"
-              content="Просто спросить | COVID-19"
+              content="Пусть больше людей узнает о проекте"
             />
             <meta property="fb:306467899461959" content="306467899461959" />
           </Head>

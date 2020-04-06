@@ -11,16 +11,21 @@ import { IconsList } from '@app/src/ui/sprite';
 import { Icon } from '@front/ui/icon';
 
 import * as styles from './ShareWidget.css';
+import getConfig from "next/config";
 
 interface Props {
   shareUrl: string;
   title?: string;
+  imageSrc?: string
 }
 
 export const ShareWidget = ({
   shareUrl,
   title = 'Пусть больше людей узнает о проекте',
+  imageSrc = `/static/images/covid-image.png`
 }: Props) => {
+  const { publicRuntimeConfig } = getConfig();
+
   return (
     <footer className={styles.helpFooter}>
       <p className={styles.text}>
@@ -32,12 +37,17 @@ export const ShareWidget = ({
       <nav className={styles.social}>
         <FacebookShareButton
           url={shareUrl}
-          quote={title}
           className={styles.iconWrapper}
         >
           <Icon className={styles.icon} name={IconsList.Facebook} />
         </FacebookShareButton>
-        <VKShareButton url={shareUrl} className={styles.iconWrapper}>
+        <VKShareButton
+            url={shareUrl}
+            className={styles.iconWrapper}
+            title={title}
+            noParse={true}
+            image={publicRuntimeConfig.siteUrl+imageSrc}
+        >
           <Icon className={styles.icon} name={IconsList.Vk} />
         </VKShareButton>
         <TelegramShareButton
@@ -50,6 +60,8 @@ export const ShareWidget = ({
         <OKShareButton
           url={shareUrl}
           title={title}
+          description={'Поделитесь с друзьями и коллегами. Вместе победим! 💪'}
+          image={publicRuntimeConfig.siteUrl+imageSrc}
           className={styles.iconWrapper}
         >
           <Icon className={styles.icon} name={IconsList.OK} />
