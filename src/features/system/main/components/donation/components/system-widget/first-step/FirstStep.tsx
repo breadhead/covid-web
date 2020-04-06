@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react';
 
-import { SystemButton, SystemButtonSize } from '@app/src/ui/systemButton ';
+import { Button, ButtonSize } from '@app/src/ui/button';
 import { NavLink } from '@app/src/ui/nav-link';
 import { SPACE } from '@app/src/lib/config';
 
@@ -89,13 +89,13 @@ export const FirstStep = ({
       ) : (
         <div className={styles.selectWrapper} />
       )}
-      <SystemButton
+      <Button
         className={styles.button}
         onClick={() => setStep(2)}
-        size={SystemButtonSize.ExtraLarge}
+        size={ButtonSize.ExtraLarge}
       >
         Продолжить
-      </SystemButton>
+      </Button>
       <p className={styles.cancelText}>
         Регулярное пожертвование можно всегда{SPACE}
         <NavLink

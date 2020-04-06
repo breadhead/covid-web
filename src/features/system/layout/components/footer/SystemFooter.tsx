@@ -1,10 +1,6 @@
 import * as React from 'react';
 
-import {
-  SystemButton,
-  SystemButtonSize,
-  SystemButtonKind,
-} from '@app/src/ui/systemButton ';
+import { Button, ButtonSize, ButtonKind } from '@app/src/ui/button';
 import { NavLink } from '@app/src/ui/nav-link';
 import { footerProjects } from '@app/src/ui/organisms/Footer/components/Partners/footerProjects';
 import Legal from '@app/src/ui/organisms/Footer/components/Legal';
@@ -24,12 +20,9 @@ export const SystemFooter = () => {
           withoutUnderline
           href="/#donation"
         >
-          <SystemButton
-            kind={SystemButtonKind.Secondary}
-            size={SystemButtonSize.Small}
-          >
+          <Button kind={ButtonKind.Secondary} size={ButtonSize.Small}>
             Помочь проекту
-          </SystemButton>
+          </Button>
         </NavLink>
       </div>
 
@@ -38,9 +31,7 @@ export const SystemFooter = () => {
         withoutUnderline
         href="/#donation"
       >
-        <SystemButton size={SystemButtonSize.Small}>
-          Помочь проекту
-        </SystemButton>
+        <Button size={ButtonSize.Small}>Помочь проекту</Button>
       </NavLink>
       <div className={styles.projects}>
         {footerProjects.map(({ id, text, logo, href }) => (

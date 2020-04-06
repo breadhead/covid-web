@@ -1,8 +1,8 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import { SystemButton } from '@app/src/ui/systemButton /SystemButton';
 import { NavLink } from '@app/src/ui/nav-link';
+import { Button } from '@app/src/ui/button';
 
 import * as styles from './SystemNavigation.css';
 import { SystemNavigation } from './SystemNavigation';
@@ -19,7 +19,7 @@ export const SystemNavigationContainer = ({ narrow }: Props) => (
       withoutUnderline
       href="/#help"
     >
-      <SystemButton className={styles.helpButton}>Помочь</SystemButton>
+      <Button className={styles.helpButton}>Помочь</Button>
     </NavLink>
   </nav>
 );
