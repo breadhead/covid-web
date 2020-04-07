@@ -37,10 +37,9 @@ export const HelpOptions = () => {
                     className={styles.buttonWrapper}
                     withoutUnderline
                     href={item.link}
+                    key={item.id}
                   >
-                    <Button size={ButtonSize.Small} key={item.id}>
-                      {item.label}
-                    </Button>
+                    <Button size={ButtonSize.Small}>{item.label}</Button>
                   </NavLink>
                 ) : (
                   <NavLink

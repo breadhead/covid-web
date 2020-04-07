@@ -1,17 +1,16 @@
 import { SelectValue } from 'antd/lib/select';
 import React, { useState } from 'react';
 import { useMappedState } from 'redux-react-hook';
+import Router from 'next/router';
 
 import { selectPartners } from '@app/src/domain/reducers/partnerReducer/selectPartners';
 import PartnerCard from '@app/src/features/landing/organisms/PartnerCard';
-import routes from '@app/routes';
+import { RouteType } from '@app/src/lib/routing/RouteType';
 
 import PartnersGroupSelect from '../../molecules/PartnersGroupSelect';
 import PartnersRadioGroup from '../../molecules/PartnersRadioGroup';
 import { PartnersType } from './config';
 import * as styles from './PartnersList.css';
-
-const { Router } = routes;
 
 interface Props {
   type?: string;
@@ -30,8 +29,12 @@ const PartnersList = ({ type = DEFAULT_VALUE }: Props) => {
   const onValueChange = (value: string | SelectValue) => {
     setList(partners.filter((partner) => partner.type === value));
     setValue(value as string);
-    console.log('value change');
-    Router.pushRoute(`/partners?${value}`);
+
+    Router.push(
+      RouteType.landingPartners,
+      { query: { type: `${value}` } },
+      { shallow: true },
+    );
   };
 
   return (
