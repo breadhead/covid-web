@@ -30,7 +30,6 @@
 }
 
 .link {
-  transform: translateZ(0);
   display: inline-block;
   white-space: nowrap;
   font: var(--text18-28);
@@ -38,7 +37,6 @@
   line-height: 28px;
   padding: 18px 16px;
   border-bottom: none;
-  transition: padding ease-in 0.5s;
 }
 
 .mainLink {

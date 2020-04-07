@@ -19,11 +19,8 @@ export const HelpRequest = ({}: HelpRequestProps) => {
         <h2 id="help-request-form" className="gl-sectionTitle">
           Расскажите, какая помощь вам нужна
         </h2>
-        <div className={s.body}>
-          <div className={cx(s.formContainer, 'gl-formContainer')}>
-            <HospitalAidForm onSubmit={onSubmit} />
-          </div>
-          <div className={s.bubble}>Нужен новый текст!!!</div>
+        <div className={cx(s.formContainer, 'gl-formContainer')}>
+          <HospitalAidForm onSubmit={onSubmit} />
         </div>
       </div>
     </div>
