@@ -1,5 +1,7 @@
 import React from 'react';
+import cx from 'classnames';
 
+import offsets from '../../editorOffsets.css';
 import s from './SmallText.css';
 
 interface SmallTextProps {
@@ -12,5 +14,9 @@ export const SmallText = ({
   },
   props,
 }: SmallTextProps) => {
-  return <span className={s.smallText}>{text}</span>;
+  return (
+    <span className={cx(s.smallText, offsets['s-editor-smalltext'])}>
+      {text}
+    </span>
+  );
 };

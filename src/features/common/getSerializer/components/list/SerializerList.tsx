@@ -1,6 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 
+import offsets from '../../editorOffsets.css';
 import s from './SerializerList.css';
 
 interface SerializerListProps {
@@ -23,7 +24,10 @@ export const SerializerList = ({
     );
 
   return (
-    <ListComponent type={type} className={cx(s['list'], s[type])}>
+    <ListComponent
+      type={type}
+      className={cx(s['list'], s[type], offsets['s-editor-text'])}
+    >
       {children}
     </ListComponent>
   );

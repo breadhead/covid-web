@@ -152,3 +152,31 @@ body {
     min-width: auto;
   }
 }
+
+/* offsets */
+
+body {
+  --offset-64: 64px;
+  --offset-40: 40px;
+  --offset-24: 24px;
+  --offset-16: 16px;
+  --offset-12: 12px;
+
+  @media (max-width: 767px) {
+    --offset-64: 40px;
+    --offset-40: 24px;
+    --offset-24: 16px;
+    --offset-16: 12px;
+  }
+}
+
+ul,
+ol,
+p,
+h1,
+h2,
+h3,
+h4 {
+  padding: 0;
+  margin: 0;
+}

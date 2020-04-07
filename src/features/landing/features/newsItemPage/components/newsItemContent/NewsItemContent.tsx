@@ -17,7 +17,7 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
 
   return (
     <div className={cx(s.wrapper, 'gl-wrapper--narrow', 'gl-first-section')}>
-      {/* <h1>{newsItem.name}</h1> */}
+      <h1>{newsItem.name}</h1>
       {newsItem.content && (
         <div>
           <BlockContent blocks={newsItem.content} serializers={serializers} />

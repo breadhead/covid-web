@@ -1,4 +1,5 @@
 import BlockContent from '@sanity/block-content-to-react';
+import cx from 'classnames';
 import React from 'react';
 
 import { Photo } from '@app/src/domain/models/sanity/Photo';
@@ -7,6 +8,7 @@ import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
 import { getSimpleSerialier } from '../../getSimpleSerializer';
 import { SerializerActionButton } from '../actionButton/SerializerActionButton';
 import s from './ActionBlock.css';
+import offsets from '../../editorOffsets.css';
 
 interface ActionBlockProps {
   props: {
@@ -31,7 +33,7 @@ export const ActionBlock = ({
   const simpleSerializer = getSimpleSerialier({});
 
   return (
-    <div>
+    <div className={cx(s.actionBlock, offsets['s-editor-actionblock'])}>
       {src && <img className={s.image} src={src} alt={title} />}
 
       {title && <div className={s.title}>{title}</div>}

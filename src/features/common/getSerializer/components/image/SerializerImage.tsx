@@ -4,6 +4,7 @@ import BlockContent from '@sanity/block-content-to-react';
 
 import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
 
+import offsets from '../../editorOffsets.css';
 import s from './SerializerImage.css';
 import { getSimpleSerialier } from '../../getSimpleSerializer';
 
@@ -16,7 +17,7 @@ export const SerializerImage = ({ props }: SerializerImageProps) => {
   const simpleSerializer = getSimpleSerialier({});
 
   return (
-    <div className={s.wrapper}>
+    <div className={cx(s.wrapper, offsets['s-editor-customimage'])}>
       <img
         className={cx(s.image)}
         src={getImageSrc(image) as any}

@@ -30,8 +30,6 @@ export const getSimpleSerialier = ({ types, marks }: SerializerProps) => {
 
     marks: {
       link: ({ children, mark }: any) => {
-        return null;
-
         const { href, options } = mark;
         // TODO: add others link types
 

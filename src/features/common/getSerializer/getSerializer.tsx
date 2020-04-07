@@ -1,15 +1,14 @@
 import * as React from 'react';
 
-import { SerializerBlock } from './components/block';
-import { SerializerActionButton } from './components/actionButton';
-import { SerializerImage } from './components/image';
-import { SerializerVideo } from './components/video';
-import { SerializerEm } from './components/em';
-import { SerializerLink } from './components/link';
-import { SerializerList } from './components/list';
-import { RegisterButton } from './components/registerButton';
 import { ActionBlock } from './components/actionBlock';
+import { SerializerBlock } from './components/block';
+import { SerializerEm } from './components/em';
+import { SerializerImage } from './components/image';
+import { SerializerLink } from './components/link';
+import { SerializerList, SerializerListItem } from './components/list';
+import { RegisterButton } from './components/registerButton';
 import { SmallText } from './components/smallText';
+import { SerializerVideo } from './components/video';
 
 interface SerializerTypesProps {
   block?: (props: any) => any;
@@ -54,7 +53,7 @@ export const getSerializer = ({ types, marks }: SerializerProps) => {
       return <SerializerList props={props}></SerializerList>;
     },
     listItem: (props: any) => {
-      return <li>{props?.node?.children.map((it) => it?.text).join('')}</li>;
+      return <SerializerListItem props={props}></SerializerListItem>;
     },
     marks: {
       em: (props: any) => {
@@ -66,7 +65,6 @@ export const getSerializer = ({ types, marks }: SerializerProps) => {
       },
       link: ({ children, mark }: any) => {
         const { href, options } = mark;
-        // TODO: add others link types
 
         const blank = !!options && options === 'blank';
 
