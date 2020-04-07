@@ -21,7 +21,6 @@ interface SystemHeaderProps {
 export const SystemHeader = ({ white }: SystemHeaderProps) => {
   const { route } = useRouter();
   const [show, setShow] = useState(true);
-  const [narrow, setNarrow] = useState(false);
   const [menuOpened, setOpened] = useState(false);
   const { lock, unlock } = useScrollBodyLock();
 
@@ -44,11 +43,6 @@ export const SystemHeader = ({ white }: SystemHeaderProps) => {
           setShow(isShow);
         }
       }
-      const narrow = currPos.y < -70;
-
-      if (narrow !== show) {
-        setNarrow(narrow);
-      }
     },
     [show],
     undefined,
@@ -64,12 +58,11 @@ export const SystemHeader = ({ white }: SystemHeaderProps) => {
           styles.headerWrapper,
           white && styles.white,
           show ? styles.show : styles.hide,
-          narrow ? styles.narrow : '',
           route === RouteType.landing && styles.landing,
         )}
       >
         <SystemLogo className={styles.logo} />
-        <SystemNavigationContainer narrow={narrow} />
+        <SystemNavigationContainer />
         <MediaQuery
           className={styles.mobileMenuContainer}
           query={Query.ToLarge}

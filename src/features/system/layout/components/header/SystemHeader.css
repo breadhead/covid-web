@@ -28,11 +28,6 @@
   transform: translate(0, -100%);
 }
 
-.narrow {
-  box-shadow: 0 0 8px 0 rgba(63, 63, 68, 0.04),
-    0 0 20px 0 rgba(63, 63, 68, 0.12);
-}
-
 .narrowHeader {
   transform: translateY(-100%);
 }
