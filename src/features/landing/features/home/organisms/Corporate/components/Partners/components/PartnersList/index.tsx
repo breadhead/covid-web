@@ -9,9 +9,10 @@ import * as styles from './PartnersList.css';
 
 interface Props {
   pageType: string;
+  link?: string;
 }
 
-const PartnersList = ({ pageType }: Props) => {
+const PartnersList = ({ pageType, link = '/contacts' }: Props) => {
   const partners = useMappedState(selectPartners).filter((partner) =>
     partner.pageToShow.includes(pageType),
   );
@@ -25,7 +26,7 @@ const PartnersList = ({ pageType }: Props) => {
         <NavLink
           blank
           className={styles.buttonContainer}
-          href="/contacts"
+          href={link}
           withoutUnderline
         >
           <button className={styles.addPartnerButton} />

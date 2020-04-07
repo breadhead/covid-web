@@ -2,24 +2,30 @@ import * as React from 'react';
 import cx from 'classnames';
 import { Radio } from 'antd';
 import { RadioChangeEvent } from 'antd/lib/radio';
-import { useMappedState } from 'redux-react-hook';
 
-import { selectPartners } from '@app/src/domain/reducers/partnerReducer/selectPartners';
+import { Partner } from '@app/src/domain/models/common/Partner';
 
 import { getCurrentPartnersOptions } from '../../organisms/PartnersList/config';
+
 import '@app/src/ui/RadioGroup/ButtonStyle.css?CSSModulesDisable';
 
 const RadioGroup = Radio.Group;
 
 interface Props {
-  onChange: (evt: string) => void;
+  partners: Partner[];
+  onChange: (evt: any) => void;
   value: string;
   name: string;
   className?: string;
 }
 
-const PartnersRadioGroup = ({ name, onChange, value, className }: Props) => {
-  const partners = useMappedState(selectPartners);
+const PartnersRadioGroup = ({
+  name,
+  partners,
+  onChange,
+  value,
+  className,
+}: Props) => {
   const options = getCurrentPartnersOptions(partners).map((option) => ({
     label: option.label,
     value: option.type,

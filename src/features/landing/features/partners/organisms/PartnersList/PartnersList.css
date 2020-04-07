@@ -1,3 +1,7 @@
+html {
+  /* scroll-behavior: auto !important; */
+}
+
 .header {
   display: flex;
   padding-bottom: 24px;

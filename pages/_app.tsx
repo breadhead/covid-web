@@ -49,10 +49,6 @@ interface Props {
   Component: ReactComponent;
 }
 
-Router.events.on('routeChangeComplete', () => {
-  window.scrollTo(0, 0);
-});
-
 const ErrorBoundary = bugsnagClient.getPlugin('react');
 
 class OncohelpWeb extends App<Props> {

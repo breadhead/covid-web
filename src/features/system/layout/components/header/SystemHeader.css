@@ -42,16 +42,12 @@
 
 .donationMobileLink {
   color: var(--color-primary);
-  margin-right: 24px;
+  margin-right: 8px;
 }
 
 .mobileMenuContainer {
   display: flex;
   padding-right: 16px;
-
-  @media (max-width: 959px) {
-    padding-right: 0;
-  }
 }
 
 .logo {
@@ -60,5 +56,19 @@
 
   @media (--mediumDown) {
     margin-left: 0;
+  }
+}
+
+.burger {
+  display: none;
+  margin-right: 24px;
+
+
+  @media (--largeDown) {
+    display: block;
+  }
+
+  @media (--smallDown) {
+    margin-right: 0;
   }
 }

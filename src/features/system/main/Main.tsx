@@ -25,7 +25,10 @@ export const SystemMain = () => {
       </div>
       <SystemAbout />
       <div className="gl-wrapper gl-section">
-        <PartnersList pageType={PageType.Info} />
+        <PartnersList
+          pageType={PageType.Info}
+          link={'help-partners?become-partner'}
+        />
       </div>
       <SystemDonation />
     </SystemLayout>

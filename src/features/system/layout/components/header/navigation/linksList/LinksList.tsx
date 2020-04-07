@@ -27,7 +27,6 @@ export const LinksList = ({
     if (!link.narrowText) {
       return link.text;
     }
-    console.log('width:', width);
     return !!width && width <= LARGE_SECOND_DOWN ? link.narrowText : link.text;
   };
   return (

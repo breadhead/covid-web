@@ -30,23 +30,28 @@ export const HelpOptions = () => {
         return (
           <article className={styles.option} key={option.title}>
             <h3 className={styles.title}>{option.title}</h3>
-            {option.items.map((item) => {
-              return item.type === HelpItemType.Button ? (
-                <NavLink
-                  className={styles.buttonWrapper}
-                  withoutUnderline
-                  href={item.link}
-                >
-                  <Button size={ButtonSize.Small} key={item.id}>
+            <ul className={styles.list}>
+              {option.items.map((item) => {
+                return item.type === HelpItemType.Button ? (
+                  <NavLink
+                    className={styles.buttonWrapper}
+                    withoutUnderline
+                    href={item.link}
+                    key={item.id}
+                  >
+                    <Button size={ButtonSize.Small}>{item.label}</Button>
+                  </NavLink>
+                ) : (
+                  <NavLink
+                    key={item.id}
+                    href={item.link}
+                    className={styles.link}
+                  >
                     {item.label}
-                  </Button>
-                </NavLink>
-              ) : (
-                <NavLink key={item.id} href={item.link} className={styles.link}>
-                  {item.label}
-                </NavLink>
-              );
-            })}
+                  </NavLink>
+                );
+              })}
+            </ul>
           </article>
         );
       })}
