@@ -36,7 +36,7 @@ export const BecomePartnerPage = ({ themeValue }: BecomePartnerPage) => {
 };
 
 BecomePartnerPage.getInitialProps = async ({ query }: any) => {
-  const themeValue = head(Object.keys(query));
+  const themeValue = query.type;
 
   return { themeValue };
 };

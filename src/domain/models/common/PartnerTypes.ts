@@ -1,4 +1,4 @@
-export enum PartnerTypes {
+export enum HelpPartnersType {
   BecomePartner = 'become-partner',
   BecomeInfopartner = 'become-infopartner',
   LectureRequest = 'lecture-request',

@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { AppContext } from '@app/src/lib/server-types';
 import { getPartnersFromSanity } from '@app/src/domain/reducers/partnerReducer';
 import PartnersList from '@app/src/features/landing/features/home/organisms/Corporate/components/Partners/components/PartnersList';
+import { HelpPartnersType } from '@app/src/domain/models/common/PartnerTypes';
 
 import { PageType } from '@front/features/landing/features/partners/organisms/PartnersList/config';
 
@@ -27,7 +28,7 @@ export const SystemMain = () => {
       <div className="gl-wrapper gl-section">
         <PartnersList
           pageType={PageType.Info}
-          link={'help-partners?become-partner'}
+          link={`help-partners?type=${HelpPartnersType.BecomePartner}`}
         />
       </div>
       <SystemDonation />
