@@ -15,18 +15,18 @@ import { SIGN_IN_MODAL } from '@app/src/domain/reducers/signInReducer/const';
 import * as styles from './SystemMobileMenu.css';
 import { contentLinks, mainLinks } from '../links';
 
-export const SystemMobileMenu = () => {
-  const [menuOpened, setOpened] = useState(false);
-  const { open: openSignIn } = useModal();
+interface SystemMobileMenu {
+  menuOpened: boolean;
+  hide: () => void;
+}
 
-  const show = useCallback(() => setOpened(true), []);
-  const hide = useCallback(() => setOpened(false), []);
+export const SystemMobileMenu = ({ menuOpened, hide }: SystemMobileMenu) => {
+  const { open: openSignIn } = useModal();
 
   const [askLink] = mainLinks;
   return (
     <div>
       <Overlay isVisible={menuOpened} onClick={hide} />
-      <BurgerButton show={show} />
       <TransitionMenu isVisible={menuOpened}>
         <nav className={styles.menu}>
           <header className={styles.header}>
