@@ -16,7 +16,6 @@ export const getNewsItemFromSanity = (code: string) => async (
     dispatch(actions.request());
 
     const query = newsItemRequestBuilder(code);
-    console.log('query', query);
 
     const news = await api.getNewsItem(query);
     const newsItem = head(news);

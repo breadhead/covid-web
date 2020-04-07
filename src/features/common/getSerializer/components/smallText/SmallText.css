@@ -1,1 +1,5 @@
+.smallText {
+  display: block;
 
+  font: var(--text14-20);
+}
