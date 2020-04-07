@@ -16,7 +16,6 @@ const PartnersList = ({ pageType, link = '/contacts' }: Props) => {
   const partners = useMappedState(selectPartners).filter((partner) =>
     partner.pageToShow.includes(pageType),
   );
-  console.log('link:', link);
 
   return (
     <section className={styles.partnersList}>
