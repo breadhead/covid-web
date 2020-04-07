@@ -16,7 +16,7 @@ const ExpertPage = ({ expert }: Props) => {
     <SystemLayout className={styles.main}>
       <div className={styles.container}>
         <NavLink className={styles.link} href="/experts">
-          Весь экспертный совет
+          Весь наблюдательный совет
         </NavLink>
         <section className={styles.expert}>
           <img

@@ -23,19 +23,23 @@ enum PageType {
   Doctors = 'doctors',
 }
 
+const customOptions = [
+  { type: PartnersType.Donor, label: PartnersLabel.Donor },
+  {
+    type: PartnersType.InfrastructurePartner,
+    label: PartnersLabel.InfrastructurePartner,
+  },
+  { type: PartnersType.InfoPartner, label: PartnersLabel.InfoPartner },
+];
+
+const defaultOptions = [{ type: PartnersType.All, label: PartnersLabel.All }];
+
 const getCurrentPartnersOptions = (currentPartners: Partner[]) => {
   const types = currentPartners.map((partner: Partner) => partner.type);
 
-  const uniqueTypes = Array.from(new Set(types));
-
-  const reversedTypes = _.invert(PartnersType);
-
   return [
-    { type: PartnersType.All, label: PartnersLabel.All },
-    ...uniqueTypes.map((type, i) => ({
-      type,
-      label: PartnersLabel[reversedTypes[type]],
-    })),
+    ...defaultOptions,
+    ...customOptions.filter((opt) => types.includes(opt.type)),
   ];
 };
 

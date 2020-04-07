@@ -23,7 +23,7 @@ const NotFound = () => (
       <title>Такой страницы не существует | Просто спросить</title>
     </Head>
 
-    <SystemLayout withoutFooter>
+    <SystemLayout headerWhite withoutFooter>
       <div className={styles.container}>
         <img
           className={styles.image}

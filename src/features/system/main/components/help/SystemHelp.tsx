@@ -4,7 +4,6 @@ import { ShareWidget } from '@front/features/common/shareWidget';
 
 import * as styles from './SystemHelp.css';
 import { HelpOptions } from './components/options';
-import { HelpFooter } from './components/help-footer';
 
 export const SystemHelp = () => {
   return (

@@ -30,15 +30,15 @@
 .nav {
   color: var(--text-color-primary);
   transition: color 0.2s;
-  border-bottom: none !important;
+  border-bottom: none;
 
   &:hover {
     color: var(--color-link);
-    border-bottom: none !important;
+    border-bottom: none;
   }
 
   &:active {
     color: var(--color-link);
-    border-bottom: none !important;
+    border-bottom: none;
   }
 }

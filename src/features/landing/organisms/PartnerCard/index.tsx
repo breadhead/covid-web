@@ -13,7 +13,7 @@ interface Props {
 }
 
 const PartnerCard = ({ partner, className }: Props) => {
-  const image = getImageSrc(partner.logo) || '';
+  const image = getImageSrc(partner.logo, 0, 128) || '';
 
   return (
     <NavLink

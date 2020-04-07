@@ -2,6 +2,8 @@ import * as React from 'react';
 import cx from 'classnames';
 import Head from 'next/head';
 
+import { Divider } from '@app/src/ui/divider/Divider';
+
 import { SystemLayout } from '../../../layout';
 import { Helping } from '../Helping/Helping';
 import { HelpRequest } from '../HelpRequest/HelpRequest';
@@ -30,7 +32,8 @@ export const ForHospitalsPage = ({}: ForHospitalsProps) => {
       <div className="gl-wrapper gl-first-section gl-section">
         <Partners />
       </div>
-      <div className="gl-wrapper gl-section">
+      <Divider />
+      <div className="gl-wrapper gl-first-section gl-section">
         <SystemHelp />
       </div>
     </SystemLayout>

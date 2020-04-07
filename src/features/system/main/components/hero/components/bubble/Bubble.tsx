@@ -17,10 +17,8 @@ export const Bubble = () => {
   }, []);
 
   return (
-    <div className={styles.bubble}>
-      <span key={index} className={styles.hint}>
-        {bubbleText[index]}
-      </span>
+    <div key={index} className={styles.bubble}>
+      <span className={styles.hint}>{bubbleText[index]}</span>
     </div>
   );
 };

@@ -64,9 +64,9 @@ export const CloudPayments = ({
     }
 
     (cloudPayments as any).charge(
+      // TODO: get from config
       {
-        // TODO: заменить на наш
-        publicId: 'pk_be83b01a981129a5c65350e031240',
+        publicId: 'pk_61c70158bccb923e31954e244319a',
         description: formData.target,
         amount: Number(formData.cost),
         currency: 'RUB',

@@ -1,5 +1,5 @@
 .divider {
-  background-color: var(--color-inactive);
+  background-color: rgba(21, 24, 51, 0.08);
   display: block;
   height: 1px;
   width: 100%;
