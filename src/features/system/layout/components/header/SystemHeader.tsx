@@ -14,7 +14,11 @@ import * as styles from './SystemHeader.css';
 import { SystemMobileMenu } from './system-mobile-menu';
 import { SystemNavigationContainer } from './navigation/SystemNavigationContainer';
 
-export const SystemHeader = () => {
+interface SystemHeaderProps {
+  white?: boolean;
+}
+
+export const SystemHeader = ({ white }: SystemHeaderProps) => {
   const { route } = useRouter();
   const [show, setShow] = useState(true);
   const [narrow, setNarrow] = useState(false);
@@ -58,6 +62,7 @@ export const SystemHeader = () => {
       <header
         className={cx(
           styles.headerWrapper,
+          white && styles.white,
           show ? styles.show : styles.hide,
           narrow ? styles.narrow : '',
           route === RouteType.landing && styles.landing,

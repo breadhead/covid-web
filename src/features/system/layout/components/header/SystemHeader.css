@@ -15,6 +15,11 @@
   }
 }
 
+
+.white {
+  background-color: #fff;
+}
+
 .show {
   transform: translateY(0);
 }
