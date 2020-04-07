@@ -19,6 +19,11 @@
 
   &:hover {
     color: var(--color-text-primary);
+    border: var(--border-card) !important;
+  }
+
+  &:active {
+    border: var(--border-card);
   }
 
   &:last-child {
