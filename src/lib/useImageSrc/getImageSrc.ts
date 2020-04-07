@@ -16,13 +16,19 @@ const getProxyPath = (src: string | '') => {
   return getFromConfig('prodUrl') + newSrc;
 };
 
-const getImageProxySrc = (url: string) =>
-  `${getFromConfig('storageUrl')}/w:0/h:0/${base64.encode(url)}`;
+const getImageProxySrc = (url: string, width = 0, height = 0) =>
+  `${getFromConfig('storageUrl')}/w:${width}/h:${height}/${base64.encode(url)}`;
 
-export const getImageSrc = (image?: Photo): string | null => {
+export const getImageSrc = (
+  image?: Photo,
+  width?: number,
+  height?: number,
+): string | null => {
   if (!image || !image.asset) return null;
 
   const src = imageUrlBuilder.image(image).url() || '';
 
-  return getImageProxySrc(getProxyPath(src));
+  const url = getProxyPath(src);
+
+  return getImageProxySrc(url, width, height);
 };
