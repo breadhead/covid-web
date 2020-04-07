@@ -1,4 +1,3 @@
-import { SelectValue } from 'antd/lib/select';
 import React, { useState } from 'react';
 import { useMappedState } from 'redux-react-hook';
 import Router from 'next/router';
@@ -7,32 +6,33 @@ import { selectPartners } from '@app/src/domain/reducers/partnerReducer/selectPa
 import PartnerCard from '@app/src/features/landing/organisms/PartnerCard';
 import { RouteType } from '@app/src/lib/routing/RouteType';
 
-import PartnersGroupSelect from '../../molecules/PartnersGroupSelect';
 import PartnersRadioGroup from '../../molecules/PartnersRadioGroup';
 import { PartnersType } from './config';
 import * as styles from './PartnersList.css';
+import PartnersGroupSelect from '../../molecules/PartnersGroupSelect';
 
 interface Props {
-  type?: string;
+  type?: PartnersType;
 }
 
-const DEFAULT_VALUE = PartnersType.InfrastructurePartner;
-
-const PartnersList = ({ type = DEFAULT_VALUE }: Props) => {
-  const partners = useMappedState(selectPartners).filter(
-    (partner) => partner.type === type,
-  );
+const PartnersList = ({ type = PartnersType.All }: Props) => {
+  const partners = useMappedState(selectPartners);
 
   const [list, setList] = useState(partners);
-  const [value, setValue] = useState<string>(type);
+  const [value, setValue] = useState<PartnersType>(type);
 
-  const onValueChange = (value: string | SelectValue) => {
-    setList(partners.filter((partner) => partner.type === value));
-    setValue(value as string);
+  const onValueChange = (selectedValue: PartnersType) => {
+    if (selectedValue === PartnersType.All) {
+      setList(partners);
+    } else {
+      setList(partners.filter((partner) => partner.type === selectedValue));
+    }
+
+    setValue(selectedValue);
 
     Router.push(
       RouteType.landingPartners,
-      { query: { type: `${value}` } },
+      { query: { type: `${selectedValue}` } },
       { shallow: true },
     );
   };
@@ -41,12 +41,14 @@ const PartnersList = ({ type = DEFAULT_VALUE }: Props) => {
     <>
       <header className={styles.header}>
         <PartnersRadioGroup
+          partners={partners}
           name="partners-radio-group"
           value={value}
           onChange={onValueChange}
           className={styles.radioGroup}
         />
         <PartnersGroupSelect
+          partners={partners}
           value={value}
           onSelect={onValueChange}
           className={styles.select}

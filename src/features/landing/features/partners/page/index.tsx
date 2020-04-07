@@ -4,11 +4,11 @@ import Head from 'next/head';
 import { MainLayout } from '@app/src/features/common/layout';
 import { AppContext } from '@app/src/lib/server-types';
 import { getPartnersFromSanity } from '@app/src/domain/reducers/partnerReducer';
-import LandingPage from '@app/src/features/landing/features/home';
 
 import * as styles from './Partners.css';
 import Notification from '../molecules/Notification';
 import PartnersList from '../organisms/PartnersList';
+import { PartnersType } from '../organisms/PartnersList/config';
 
 interface Props {
   id: string;
@@ -38,7 +38,7 @@ class PartnersPage extends React.Component<Props> {
         </Head>
         <h1 className={styles.title}>Партнёры</h1>
         <Notification />
-        <PartnersList type={this.props.id} />
+        <PartnersList type={this.props.id as PartnersType} />
       </MainLayout>
     );
   }
