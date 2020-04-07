@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
-import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 
 import { NavLink } from '@app/src/ui/nav-link';
 import MediaQuery, { Query } from '@app/src/ui/MediaQuery';
@@ -16,11 +15,12 @@ import { SystemNavigationContainer } from './navigation/SystemNavigationContaine
 
 interface SystemHeaderProps {
   white?: boolean;
+  fixed?: boolean;
+  show?: boolean;
 }
 
-export const SystemHeader = ({ white }: SystemHeaderProps) => {
+export const SystemHeader = ({ white, fixed, show }: SystemHeaderProps) => {
   const { route } = useRouter();
-  const [show, setShow] = useState(true);
   const [menuOpened, setOpened] = useState(false);
   const { lock, unlock } = useScrollBodyLock();
 
@@ -28,27 +28,13 @@ export const SystemHeader = ({ white }: SystemHeaderProps) => {
     setOpened(true);
     lock();
   }, []);
+
   const hideMenu = useCallback(() => {
     setOpened(false);
     unlock();
   }, []);
 
-  useScrollPosition(
-    ({ prevPos, currPos }) => {
-      if (currPos.y > -50) {
-        setShow(true);
-      } else {
-        const isShow = currPos.y > prevPos.y;
-        if (isShow !== show) {
-          setShow(isShow);
-        }
-      }
-    },
-    [show],
-    undefined,
-    false,
-    300,
-  );
+  const fixedStyles = fixed ? (show ? styles.show : styles.hide) : null;
 
   return (
     <>
@@ -57,7 +43,8 @@ export const SystemHeader = ({ white }: SystemHeaderProps) => {
         className={cx(
           styles.headerWrapper,
           white && styles.white,
-          show ? styles.show : styles.hide,
+          fixed && styles.fixed,
+          fixedStyles,
           route === RouteType.landing && styles.landing,
         )}
       >
