@@ -15,7 +15,7 @@
 
 .mainMenu {
   justify-content: flex-start;
-  
+
   @media (--smallMiddleDown) {
     display: none;
   }
@@ -116,6 +116,28 @@
   font-size: 18px;
   line-height: 28px;
   transition: color 0.2s, background-color 0.2s, padding ease-in 0.5s !important;
+
+  @media (--largeDown) {
+    color: var(--color-primary);
+    margin-right: 8px;
+    display: flex;
+    padding-right: 16px;
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 24px;
+
+    &:hover {
+      background-color: transparent !important;
+    }
+
+    &:active {
+      background-color: transparent !important;
+    }
+
+    &:focus {
+      background-color: transparent !important;
+    }
+  }
 }
 
 .narrowButtonWrap button {
@@ -128,10 +150,6 @@
   padding-bottom: 10px;
 }
 
-.buttonWrap {  
+.buttonWrap {
   border: none;
-
-  @media (--largeDown) {
-    display: none;
-  }
 }

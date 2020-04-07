@@ -50,18 +50,6 @@ export const SystemHeader = ({ white, fixed, show }: SystemHeaderProps) => {
       >
         <SystemLogo className={styles.logo} />
         <SystemNavigationContainer />
-        <MediaQuery
-          className={styles.mobileMenuContainer}
-          query={Query.ToLarge}
-        >
-          <NavLink
-            className={styles.donationMobileLink}
-            withoutUnderline
-            href="/#donation"
-          >
-            Помочь
-          </NavLink>
-        </MediaQuery>
         <div className={styles.burger}>
           <BurgerButton show={showMenu} />
         </div>

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import { useWindowSize } from '@app/src/lib/window-size';
 
-import * as styles from './SystemNavigation.css';
+import * as styles from './SystemNavigationContainer.css';
 import { LinksList } from './linksList';
 import { mainLinks, contentLinks } from '../links';
 
