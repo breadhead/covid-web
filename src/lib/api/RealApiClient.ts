@@ -7,6 +7,7 @@ import { getFromConfig } from '@app/src/helpers/getPublicRuntimeConfig';
 import ApiClient, { UploadedFile } from './ApiClient';
 import { queryString } from './helper/queryString';
 import { SendFeedbackRequest } from './request/SendFeedback';
+import { sanityClient } from '../sanity-client';
 
 export default class RealApiClient implements ApiClient {
   private readonly axiosInstance: AxiosInstance;
@@ -137,6 +138,7 @@ export default class RealApiClient implements ApiClient {
     return this.apiProxyInstance.get(query).then((res) => res.data);
   };
   public getNewsItem = (query: string) => {
-    return this.apiProxyInstance.get(query).then((res) => res.data);
+    return sanityClient.fetch(query, { actve: true });
+    // return this.apiProxyInstance.get(query).then((res) => res.data);
   };
 }

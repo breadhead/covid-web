@@ -38,12 +38,11 @@ body {
 
   --title-extra: 64px/72px var(--fontFamily-title);
   --title-regular: 40px/48px var(--fontFamily-title);
+  --title-regular-editor: 48px/56px var(--fontFamily-title);
   --title-medium: 32px/40px var(--fontFamily-title);
   --title-small: 24px/32px var(--fontFamily-title);
   --title-tiny: 20px/28px var(--fontFamily-title);
-  --title-bold: bold 16px/24px var(--fontFamily-title);
-
-  --title-regular-system: 40px/48px var(--fontFamily-title);
+  --title-bold: bold 18px/28px var(--fontFamily-title);
 
   --text-0: 0px/0px var(--fontFamily);
   --text18-28: 18px/28px var(--fontFamily);
@@ -53,12 +52,16 @@ body {
 
   @media (max-width: 767px) {
     --title-extra: 28px/32px var(--fontFamily-title);
-    --title-regular: 28px/32px var(--fontFamily-title);
+
     --title-medium: 24px/32px var(--fontFamily-title);
     --title-small: 20px/28px var(--fontFamily-title);
-    --title-bold: bold 16px/24px var(--fontFamily-title);
+    --title-bold: bold 14px/20px var(--fontFamily-title);
 
-    --title-regular-system: 32px/36px var(--fontFamily-title);
+    --title-regular: 32px/36px var(--fontFamily-title);
+    --title-regular-editor: 32px/36px var(--fontFamily-title);
+
+    --text18-28: 14px/20px var(--fontFamily);
+    --text14-20: 12px/16px var(--fontFamily);
   }
 
   --width-without-chat: var(calc(100vw - 400px));

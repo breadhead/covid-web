@@ -34,9 +34,6 @@ export const getSerializer = ({ types, marks }: SerializerProps) => {
 
         return <SerializerBlock props={props} />;
       },
-      actionButton: (props: any) => {
-        return <SerializerActionButton props={props} />;
-      },
       actionBlock: (props: any) => {
         return <ActionBlock props={props} />;
       },
@@ -54,7 +51,7 @@ export const getSerializer = ({ types, marks }: SerializerProps) => {
       },
     },
     list: (props: any) => {
-      return <SerializerList>{props.children}</SerializerList>;
+      return <SerializerList props={props}></SerializerList>;
     },
     listItem: (props: any) => {
       return <li>{props?.node?.children.map((it) => it?.text).join('')}</li>;

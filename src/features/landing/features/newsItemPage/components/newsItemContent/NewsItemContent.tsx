@@ -6,6 +6,7 @@ import { NewsItem } from '@app/src/domain/models/common/NewsItem';
 import { getSerializer } from '@app/src/features/common/getSerializer/getSerializer';
 
 import s from './NewsItemContent.css';
+import { stubNewsItemContent } from './stubNewsItemContent';
 
 interface NewsItemContentProps {
   newsItem: NewsItem;
@@ -16,7 +17,7 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
 
   return (
     <div className={cx(s.wrapper, 'gl-wrapper--narrow', 'gl-first-section')}>
-      <h1>{newsItem.name}</h1>
+      {/* <h1>{newsItem.name}</h1> */}
       {newsItem.content && (
         <div>
           <BlockContent blocks={newsItem.content} serializers={serializers} />

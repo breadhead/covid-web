@@ -1,5 +1,5 @@
 .title-1 {
-  font: var(--title-regular-system);
+  font: var(--title-regular-editor);
 }
 
 .title-1--offsets {
@@ -26,7 +26,7 @@
 }
 
 .title-4 {
-  font: var(--title-tiny);
+  font: var(--title-bold);
 }
 
 .title-4--offsets {
@@ -41,5 +41,5 @@
 
 .blockquote {
   margin: 0;
-  font: var(--title-bold);
+  font: var(--title-small);
 }

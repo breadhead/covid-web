@@ -1,5 +1,8 @@
 .list {
-  list-style: inside;
+}
+
+.bullet {
+  list-style-type: '—  ';
 }
 
 .list-complex {
@@ -11,44 +14,4 @@
 }
 
 .list-item {
-}
-
-.itemWithIconWrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none;
-
-  &:not(:first-of-type) {
-    margin-top: 0;
-    box-shadow: 0px 1px 0px #211f1e;
-  }
-
-  &:not(:first-of-type) a {
-    margin-top: 0;
-    box-shadow: 0px 1px 0px #211f1e;
-  }
-}
-
-.icon {
-  width: 36px;
-  height: 36px;
-  margin-right: 12px;
-}
-
-.icon-link {
-  width: 36px;
-  height: 36px;
-}
-
-.complex-link {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.complex-label {
-  display: flex;
-  align-items: center;
 }
