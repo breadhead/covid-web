@@ -1,3 +1,3 @@
-import { NewsItemPage } from '@app/src/features/landing/features/newsItem';
+import { NewsItemPage } from '@app/src/features/landing/features/newsItemPage';
 
 export default NewsItemPage;

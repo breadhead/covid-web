@@ -20,6 +20,7 @@
     "@bugsnag/js": "^6.0.0",
     "@bugsnag/plugin-react": "^6.0.0",
     "@n8tb1t/use-scroll-position": "^1.0.43",
+    "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/client": "^1.149.7",
     "@sanity/image-url": "^0.140.17",
     "@types/object-hash": "^1.2.0",
