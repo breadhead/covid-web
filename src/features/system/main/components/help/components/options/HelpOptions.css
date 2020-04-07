@@ -56,3 +56,9 @@
 .buttonWrapper {
   margin-bottom: 24px;
 }
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+}

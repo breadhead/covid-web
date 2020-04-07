@@ -3,12 +3,14 @@ import * as _ from 'lodash';
 import { Partner } from '@app/src/domain/models/common/Partner';
 
 enum PartnersType {
+  All = 'all',
   Donor = 'donor',
   InfoPartner = 'info',
   InfrastructurePartner = 'infrastructure',
 }
 
 enum PartnersLabel {
+  All = 'Все',
   Donor = 'Доноры',
   InfoPartner = 'Информационные партнёры',
   InfrastructurePartner = 'Инфраструктурные партнёры',
@@ -28,10 +30,13 @@ const getCurrentPartnersOptions = (currentPartners: Partner[]) => {
 
   const reversedTypes = _.invert(PartnersType);
 
-  return uniqueTypes.map((type, i) => ({
-    type,
-    label: PartnersLabel[reversedTypes[type]],
-  }));
+  return [
+    { type: PartnersType.All, label: PartnersLabel.All },
+    ...uniqueTypes.map((type, i) => ({
+      type,
+      label: PartnersLabel[reversedTypes[type]],
+    })),
+  ];
 };
 
 export { PartnersType, PartnersLabel, PageType, getCurrentPartnersOptions };
