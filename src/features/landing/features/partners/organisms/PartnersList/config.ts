@@ -1,5 +1,6 @@
-import { Partner } from '@app/src/domain/models/common/Partner';
 import * as _ from 'lodash';
+
+import { Partner } from '@app/src/domain/models/common/Partner';
 
 enum PartnersType {
   All = 'all',

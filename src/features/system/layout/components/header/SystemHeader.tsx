@@ -8,6 +8,7 @@ import MediaQuery, { Query } from '@app/src/ui/MediaQuery';
 import { RouteType } from '@app/src/lib/routing/RouteType';
 import { SystemLogo } from '@app/src/ui/system-logo';
 import BurgerButton from '@app/src/features/common/layout/organisms/Header/atoms/BurgerButton';
+import { useScrollBodyLock } from '@app/src/lib/scroll-lock/useScrollBodyLock';
 
 import * as styles from './SystemHeader.css';
 import { SystemMobileMenu } from './system-mobile-menu';
@@ -18,9 +19,16 @@ export const SystemHeader = () => {
   const [show, setShow] = useState(true);
   const [narrow, setNarrow] = useState(false);
   const [menuOpened, setOpened] = useState(false);
+  const { lock, unlock } = useScrollBodyLock();
 
-  const showMenu = useCallback(() => setOpened(true), []);
-  const hideMenu = useCallback(() => setOpened(false), []);
+  const showMenu = useCallback(() => {
+    setOpened(true);
+    lock();
+  }, []);
+  const hideMenu = useCallback(() => {
+    setOpened(false);
+    unlock();
+  }, []);
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
