@@ -18,7 +18,7 @@ export const mainLinks = [
 export const contentLinks = [
   {
     href: '/experts',
-    text: 'Экспертный совет',
+    text: 'Наблюдательный совет',
   },
   {
     href: '/partners',

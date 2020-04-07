@@ -156,9 +156,8 @@
   max-height: 306px;
   height: 100%;
   transition: all ease-in 0.2s !important;
-  border: none;
   color: var(--color-text) !important;
-  border-bottom: none !important;
+  border: var(--border-card) !important;
 
   @media (--smallDown) {
     min-width: 280px;
@@ -210,7 +209,6 @@
   transform: scale(1);
 
   &::before {
-
     box-shadow: 0 24px 40px 0 rgba(21, 24, 51, 0.08);
     position: absolute;
     top: 0;

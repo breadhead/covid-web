@@ -90,6 +90,9 @@ body {
   --color-text-primary: #151833;
   --color-text-secondary: #6f717f;
 
+  /* borders */
+  --border-card: 1px solid rgba(21, 24, 51, 0.04);
+
   /* styles */
   font-family: var(--fontFamily);
   color: var(--text-color-primary);

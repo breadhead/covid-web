@@ -7,6 +7,7 @@
   background-color: #fff;
   margin-top: 40px;
   text-align: left;
+  border: var(--border-card);
 
   @media (--smallDown) {
     width: 100vw;

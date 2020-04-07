@@ -13,7 +13,9 @@
   white-space: normal;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid rgba(21, 24, 51, 0.04);
+  border: var(--border-card);
+  border-bottom-width: 1px !important;
+
 
   &:hover {
     color: var(--color-text-primary);

@@ -2,6 +2,7 @@
   width: 100%;
   max-width: 400px;
   height: 100%;
+  border: var(--border-card);
   padding: 0 24px;
   background-color: #fff;
   border: none;
