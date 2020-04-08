@@ -6,6 +6,7 @@ import { Store } from '@app/src/lib/store';
 import { getNewsFromSanity } from '@app/src/domain/reducers/newsReducer/list';
 import { SystemLayout } from '@app/src/features/system/layout';
 import { selectNews } from '@app/src/domain/reducers/newsReducer/list/selectNews';
+import { getParamsFromQuery } from '@app/src/domain/reducers/newsReducer/list/query';
 
 import s from './NewsPage.css';
 import { NewsCard } from '../newsCard';
@@ -23,9 +24,9 @@ export const NewsPage = () => {
         <h1 className="gl-pageTitle">Новости</h1>
 
         <div>
-          {news.map((newsItem) => (
+          {/* {news.map((newsItem) => (
             <NewsCard data={newsItem} key={newsItem._id}></NewsCard>
-          ))}
+          ))} */}
         </div>
       </div>
     </SystemLayout>
@@ -33,7 +34,9 @@ export const NewsPage = () => {
 };
 
 NewsPage.getInitialProps = async (ctx) => {
-  await (ctx.reduxStore as Store).dispatch(getNewsFromSanity() as any);
+  const params = getParamsFromQuery(ctx.query);
+
+  await (ctx.reduxStore as Store).dispatch(getNewsFromSanity(params) as any);
 
   return {};
 };

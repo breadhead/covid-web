@@ -8,25 +8,38 @@ import {
 } from '@app/src/lib/symbioteFactory';
 
 import { NewsItem } from '../../../models/common/NewsItem';
+import { NewsFetchParams } from './config';
+import { getQueryKey, getPageKey } from './query';
 
 interface State extends FetchingState {
-  list: NewsItem[];
+  list: { key?: string; pages: { [pageKey: string]: NewsItem[] | undefined } };
 }
 
 interface Actions extends FetchingActions {
-  success(news: NewsItem[]): Action;
+  success(news: NewsItem[], queryParams: NewsFetchParams): Action;
 }
 
 const initialState = createInitialState({
-  list: [],
+  list: { key: undefined, pages: {} },
 });
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  (state: State, news: NewsItem[]) => {
+  (state: State, news: NewsItem[], params: NewsFetchParams) => {
+    const key = getQueryKey(params);
+    const shouldReplace = state.list.key !== key;
+    const pageKey = getPageKey(params);
+
+    if (shouldReplace) {
+      return { ...state, list: { key, pages: { [pageKey]: news } } };
+    }
+
     return {
       ...state,
-      list: news,
+      list: {
+        key,
+        pages: { ...(state.list.pages || {}), [pageKey]: news },
+      },
     };
   },
   'news',

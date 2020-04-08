@@ -7,24 +7,27 @@ import { actions } from './reducer';
 import { newsListRequestBuilder } from '../helpers/newsListRequestBuilder';
 import { ALL_CATEGORIES } from '../../../models/common/NewsCategoryType';
 import { selectNews } from './selectNews';
+import { NewsFetchParams } from './config';
 
-export const getNewsFromSanity = () => async (
+export const getNewsFromSanity = (params: NewsFetchParams) => async (
   dispatch: Dispatch<any>,
   getState: () => State,
   { getApi }: ExtraArgs,
 ) => {
-  if (needToFetch(selectNews(getState()))) {
-    const api = getApi(getState);
-    try {
-      dispatch(actions.request());
-      // TODO: pass query from above
-      const query = newsListRequestBuilder(ALL_CATEGORIES, []);
+  // if (needToFetch(selectNews(getState()))) {
+  const api = getApi(getState);
+  try {
+    dispatch(actions.request());
 
-      const news = await api.getNews(query);
+    const query = newsListRequestBuilder(params);
+    console.log('query', query);
 
-      return dispatch(actions.success(news));
-    } catch (error) {
-      return dispatch(actions.error(error.message));
-    }
+    const news = await api.getNews(query);
+    console.log('news', news);
+
+    return dispatch(actions.success(news, params));
+  } catch (error) {
+    return dispatch(actions.error(error.message));
   }
+  // }
 };
