@@ -14,6 +14,43 @@ export const IconsSprite = () => (
   >
     <defs>
       <symbol
+        id={IconsList.Enlarge}
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M10.5 18C14.6421 18 18 14.6421 18 10.5C18 6.35786 14.6421 3 10.5 3C6.35786 3 3 6.35786 3 10.5C3 14.6421 6.35786 18 10.5 18Z"
+          stroke="#616681"
+          strokeWidth="2"
+        />
+        <path
+          d="M16 16L21 21"
+          stroke="#616681"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M7.33789 10.5L10.5002 10.5H13.6624L7.33789 10.5Z"
+          stroke="#616681"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M10.5 13.6624L10.5 10.5001V7.33782"
+          stroke="#616681"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </symbol>
+      <symbol
         id={IconsList.CloseSystem}
         width="24"
         height="24"

@@ -51,4 +51,5 @@ export enum IconsList {
   Telegram = 'telegram',
   OK = 'ok',
   CloseSystem = 'close-system',
+  Enlarge = 'enlarge',
 }

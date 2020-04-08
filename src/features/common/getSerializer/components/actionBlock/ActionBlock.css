@@ -1,1 +1,6 @@
-
+.bottomOffset {
+  margin-bottom: 32px;
+  @media (--smalldown) {
+    margin-bottom: 28px;
+  }
+}

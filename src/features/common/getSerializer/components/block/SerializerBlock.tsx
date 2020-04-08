@@ -13,7 +13,6 @@ const getText = (props, type) => {
   if (type === BlockTypes.Element) {
     return props.node.text;
   }
-  console.log('getText -> children', props.children);
   return props.children;
 };
 
