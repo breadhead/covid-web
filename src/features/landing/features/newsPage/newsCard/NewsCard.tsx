@@ -1,6 +1,4 @@
 import React from 'react';
-import { format } from 'date-fns';
-import locale from 'date-fns/locale/ru';
 
 import { NewsItem } from '@app/src/domain/models/common/NewsItem';
 import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
@@ -9,6 +7,7 @@ import { getCategoryText } from '@app/src/domain/models/common/NewsCategoryType'
 
 import s from './NewsCard.css';
 import { Tag } from '../tag';
+import { formatDate } from '../../../../../helpers/formatDate';
 
 interface NewsCardProps {
   data: NewsItem;
@@ -49,8 +48,4 @@ export const NewsCard = ({ data }: NewsCardProps) => {
       </div>
     </NavLink>
   );
-};
-
-const formatDate = (date: string) => {
-  return format(date, 'D MMMM YYYY', { locale });
 };
