@@ -57,17 +57,17 @@
   padding: 16px 24px 24px 20px;
 
   @media (--mediumSecondDown) {
-    padding: 16px 20px 24px 16px;
+    padding: 16px 16px 24px 16px;
   }
 }
 
 .title {
-  font: var(--title-regular);
+  font: var(--title-system);
   color: var(--color-primary);
   margin-bottom: 32px;
 
   @media (--mediumSecondDown) {
-    margin-bottom: 32px;
+    margin-bottom: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;

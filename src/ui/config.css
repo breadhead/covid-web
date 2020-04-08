@@ -37,6 +37,7 @@ body {
     sans-serif;
 
   --title-extra: 64px/72px var(--fontFamily-title);
+  --title-system:  40px/48px var(--fontFamily-title);
   --title-regular: 40px/48px var(--fontFamily-title);
   --title-regular-editor: 48px/56px var(--fontFamily-title);
   --title-medium: 32px/40px var(--fontFamily-title);
@@ -59,6 +60,7 @@ body {
 
     --title-regular: 32px/36px var(--fontFamily-title);
     --title-regular-editor: 32px/36px var(--fontFamily-title);
+    --title-system:  24px/32px var(--fontFamily-title);
 
     --text18-28: 14px/20px var(--fontFamily);
     --text14-20: 12px/16px var(--fontFamily);
