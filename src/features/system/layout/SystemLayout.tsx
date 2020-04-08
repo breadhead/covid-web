@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
+import cx from 'classnames';
 
+import s from './SystemLayout.css';
 import { SystemHeader } from './components/header';
 import { SystemFooter } from './components/footer';
 
@@ -40,7 +42,7 @@ export const SystemLayout = ({
     <>
       <SystemHeader white={headerWhite} />
       <SystemHeader fixed show={show} white={headerWhite} />
-      <main className={className}>{children}</main>
+      <main className={cx(s.main, className)}>{children}</main>
       {!withoutFooter && <SystemFooter />}
     </>
   );

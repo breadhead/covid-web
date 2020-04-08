@@ -40,6 +40,13 @@
   }
 }
 
+.text {
+  margin-bottom: 20px;
+  @media (--smallDown) {
+    margin-bottom: 16px;
+  }
+}
+
 .button {
   @media (--smallDown) {
     width: 100%;

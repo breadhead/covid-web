@@ -1,8 +1,9 @@
 .list {
+  margin-left: 20px;
 }
 
 .bullet {
-  list-style-type: '—  ';
+  list-style-type: '— ';
 }
 
 .list-complex {
@@ -14,5 +15,6 @@
 }
 
 .list-item {
+  padding-left: 8px;
   margin-bottom: var(--offset-16);
 }
