@@ -37,6 +37,18 @@
   line-height: 28px;
   padding: 18px 16px;
   border-bottom: none;
+
+  &:hover {
+    border-bottom: none;
+  }
+
+  &:active {
+    border-bottom: none;
+  }
+
+  &:focus {
+    border-bottom: none;
+  }
 }
 
 .mainLink {
