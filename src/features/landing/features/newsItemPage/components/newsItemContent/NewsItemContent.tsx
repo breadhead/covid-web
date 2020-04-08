@@ -16,7 +16,7 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
   const serializers = getSerializer({});
 
   return (
-    <div className={cx(s.wrapper, 'gl-wrapper--narrow', 'gl-first-section')}>
+    <div className={cx(s.wrapper, 'gl-wrapper--narrow', 'gl-section')}>
       <h1>{newsItem.name}</h1>
       {newsItem.content && (
         <div>

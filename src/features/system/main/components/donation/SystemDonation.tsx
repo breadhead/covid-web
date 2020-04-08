@@ -9,7 +9,7 @@ import { SystemWidget } from './components/system-widget';
 export const SystemDonation = () => {
   return (
     <div className={styles.wrapperOuter}>
-      <section className="gl-wrapper gl-section gl-first-section">
+      <section className="gl-wrapper gl-section">
         <div id="donation" className={styles.anchor} />
         <h2 className="gl-sectionTitle">Поддержать</h2>
 

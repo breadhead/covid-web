@@ -29,7 +29,20 @@
 }
 
 .gl-section {
+  padding-top: 64px;
   padding-bottom: 96px;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 56px;
+  }
+}
+
+.gl-section-inner {
+  padding-top: 0;
+  padding-bottom: 96px;
+
   @media (max-width: 767px) {
     width: 100%;
     padding-bottom: 56px;
@@ -59,12 +72,7 @@
   }
 }
 
-.gl-first-section {
-  padding-top: 64px;
-  @media (max-width: 767px) {
-    padding-top: 40px;
-  }
-}
+
 
 .gl-sectionTitle {
   padding-bottom: 32px;

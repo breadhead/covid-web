@@ -3,6 +3,13 @@
   padding: 12px 16px 12px 20px;
   border-radius: 36px 20px 20px 0px;
   animation: fade 0.7s ease-in;
+  font: var(--text16-24);
+
+  @media (--mediumSecondDown) {
+    padding: 12px 12px 12px 16px;
+    font: var(--text14-20);
+    margin-right: 42px;
+  }
 }
 
 .hint :global{

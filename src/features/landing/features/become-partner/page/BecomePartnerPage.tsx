@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 import cx from 'classnames';
-import { head } from 'lodash';
 
-import { MainLayout } from '@app/src/features/common/layout';
 import { SystemLayout } from '@app/src/features/system/layout';
 
 import { BecomePartnerForm } from '../BecomePartnerForm';
@@ -20,7 +18,7 @@ export const BecomePartnerPage = ({ themeValue }: BecomePartnerPage) => {
         <title>Помочь проекту | Просто спросить</title>
       </Head>
 
-      <section className="gl-wrapper--narrow gl-first-section gl-section">
+      <section className="gl-wrapper--narrow gl-section">
         <h1 className="gl-pageTitle">Помочь проекту</h1>
 
         <p className={cx('gl-text', styles.text)}>

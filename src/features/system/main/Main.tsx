@@ -21,15 +21,18 @@ export const SystemMain = () => {
         <title>Система борьбы с инфекцией COVID‑19 | Просто спросить</title>
       </Head>
       <SystemHero />
-      <div className="gl-wrapper gl-first-section gl-section">
+      <div className="gl-wrapper gl-section">
         <SystemHelp />
       </div>
-      <SystemAbout />
-      <PartnersList
-        pageType={PageType.Info}
-        link={`help-partners?type=${HelpPartnersType.BecomePartner}`}
-        className="gl-wrapper gl-section"
-      />
+      <div className="gl-wrapper gl-section-inner">
+        <SystemAbout />
+      </div>
+      <div className="gl-wrapper gl-section-inner">
+        <PartnersList
+          pageType={PageType.Info}
+          link={`help-partners?type=${HelpPartnersType.BecomePartner}`}
+        />
+      </div>
       <SystemDonation />
     </SystemLayout>
   );
