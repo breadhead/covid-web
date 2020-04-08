@@ -11,7 +11,7 @@ import { ShareWidget } from '@app/src/features/common/shareWidget';
 import { getFromConfig } from '@app/src/helpers/getPublicRuntimeConfig';
 
 import s from './NewsItemContent.css';
-import { CategoriesTags } from '../../../categoriesTags';
+import { CategoriesTags } from '../../../../../../../ui/categoriesTags';
 import { FeaturedNews } from '../../../featuredNews';
 
 interface NewsItemContentProps {

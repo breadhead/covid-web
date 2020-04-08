@@ -4,7 +4,7 @@ import cx from 'classnames';
 import { NavLink } from '@app/src/ui/nav-link';
 
 import s from './Tag.css';
-import { uppercaseFirstLetter } from '../../../../../helpers/uppercaseFirstLetter';
+import { uppercaseFirstLetter } from '../../helpers/uppercaseFirstLetter';
 
 interface TagProps {
   href: string;

@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { TagType } from './node_modules/@app/src/domain/models/common/Tag';
+import { TagType } from '@app/src/domain/models/common/Tag';
 import {
   getCategoryText,
   CategoryType,
-} from './node_modules/@app/src/domain/models/common/NewsCategoryType';
+} from '@app/src/domain/models/common/NewsCategoryType';
+
 import s from './CategoriesTags.css';
 import { Tag } from '../tag';
 
