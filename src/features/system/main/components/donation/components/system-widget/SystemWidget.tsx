@@ -43,6 +43,7 @@ export const SystemWidget = () => {
       case 2:
         return (
           <SecondStep
+            formData={state}
             isSubmitted={isSubmitted}
             styles={styles}
             name={name}
@@ -79,6 +80,7 @@ export const SystemWidget = () => {
         onSubmit={async (event: any) => {
           event.preventDefault();
           event.stopPropagation();
+          console.log('submit');
           await dispatch(setPaymetWidgetData(state));
           setIsSubmitted(true);
         }}
