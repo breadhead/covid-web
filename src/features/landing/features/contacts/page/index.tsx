@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-import { MainLayout } from '@app/src/features/common/layout';
+import { SystemLayout } from '@app/src/features/system/layout';
 
 import * as styles from './Contacts.css';
 import FeedbackForm from '../organisms/FeedbackForm';
@@ -12,16 +12,18 @@ export interface Props {
 }
 
 const ContactsPage = ({ claimNumber }: Props) => (
-  <MainLayout className={styles.main}>
+  <SystemLayout>
     <Head>
       <title>Контакты | Просто спросить</title>
     </Head>
-    <h1 className={styles.title}>Контакты</h1>
-    <div className={styles.mapContainer}>
-      <YandexMap />
-    </div>
-    <FeedbackForm claimNumber={claimNumber} />
-  </MainLayout>
+    <section className="gl-wrapper gl-section">
+      <h1 className={styles.title}>Контакты</h1>
+      <div className={styles.mapContainer}>
+        <YandexMap />
+      </div>
+      <FeedbackForm claimNumber={claimNumber} />
+    </section>
+  </SystemLayout>
 );
 
 export default ContactsPage;

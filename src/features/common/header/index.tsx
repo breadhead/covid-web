@@ -2,7 +2,7 @@ import * as React from 'react';
 import cx from 'classnames';
 
 import LogoClient from '@app/src/ui/LogoClient';
-import { CLientMenu } from '@app/src/features/common/layout/organisms/Header/organisms/ClientMenu';
+import { ClientMenu } from '@app/src/features/common/layout/organisms/Header/organisms/ClientMenu';
 
 import * as styles from './Header.css';
 
@@ -13,7 +13,7 @@ interface Props {
 const Header = ({ className }: Props) => (
   <header className={cx(styles.header, className)}>
     <LogoClient />
-    <CLientMenu />
+    <ClientMenu />
   </header>
 );
 
