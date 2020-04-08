@@ -1,15 +1,11 @@
 import BlockContent from '@sanity/block-content-to-react';
-import cx from 'classnames';
 import React from 'react';
 
-import { Photo } from '@app/src/domain/models/sanity/Photo';
-import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
 import { ActionBlock as UIActionBlock } from '@app/src/ui/actionBlock/ActionBlock';
 
-import { getSimpleSerialier } from '../../getSimpleSerializer';
-import { SerializerActionButton } from '../actionButton/SerializerActionButton';
-import s from './ActionBlock.css';
 import offsets from '../../editorOffsets.css';
+import { getSimpleSerialier } from '../../getSimpleSerializer';
+import s from './ActionBlock.css';
 
 interface ActionBlockProps {
   props: {
