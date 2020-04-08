@@ -14,4 +14,7 @@ export enum RouteType {
   landingForHospitals = '/landing/for-hospitals',
   helpVolunteers = '/landing/help-volunteers',
   helpPartners = '/landing/help-partners',
+  ask = '/ask',
+  askAbout = '/ask#about',
+  landingNews = '/landing/news',
 }
