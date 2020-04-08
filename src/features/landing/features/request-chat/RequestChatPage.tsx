@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import { AppContext } from '@app/src/lib/server-types';
 import { RequestChat } from '@app/src/features/landing/features/request-chat';
+import { SystemLayout } from '@app/src/features/system/layout';
 
 interface Props {
   id: string;
@@ -25,8 +26,11 @@ class RequstChatPage extends React.Component<Props> {
         <Head>
           <title>Ваш результат | Просто спросить </title>
         </Head>
-
-        <RequestChat />
+        <SystemLayout>
+          <section className="gl-wrapper gl-section">
+            <RequestChat />
+          </section>
+        </SystemLayout>
       </>
     );
   }

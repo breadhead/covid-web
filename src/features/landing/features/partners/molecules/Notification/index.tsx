@@ -6,7 +6,7 @@ import { NavLink } from '@app/src/ui/nav-link';
 
 import * as styles from './Notification.css';
 
-const Notification = () => (
+export const Notification = () => (
   <article className={styles.notification}>
     <img
       className={styles.logo}
@@ -27,5 +27,3 @@ const Notification = () => (
     </div>
   </article>
 );
-
-export default Notification;

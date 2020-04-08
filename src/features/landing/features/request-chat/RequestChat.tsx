@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { FooterTheme } from '@app/src/ui/organisms/Footer';
 import routes from '@app/routes';
-import { ClientLayout } from '@app/src/features/common/client-layout';
 
 import { Chat } from './Chat';
 import { AskButton } from './components/askButton';
@@ -30,11 +28,7 @@ export const RequestChat = () => {
   };
 
   return (
-    <ClientLayout
-      headerClassName={styles.mainHeader}
-      pageClassName={styles.page}
-      footerTheme={FooterTheme.White}
-    >
+    <>
       <div className={styles.wrapper}>
         <Conclution />
 
@@ -54,6 +48,6 @@ export const RequestChat = () => {
         )}
       </div>
       <Chat />
-    </ClientLayout>
+    </>
   );
 };
