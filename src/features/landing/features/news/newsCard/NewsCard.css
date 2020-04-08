@@ -17,6 +17,7 @@
 .body {
   display: flex;
   flex-direction: column;
+  max-width: 100%;
 }
 
 .date {
@@ -29,6 +30,9 @@
   margin: 0;
   color: var(--text-color-primary);
   font: var(--text18-28);
+
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .tags {

@@ -13,7 +13,7 @@ export const newsListRequestBuilder = (
     tagIds,
   )} ${renderCategories(
     category,
-  )}]  | order(_updatedAt desc) {..., 'tags': tags[]->{...}}`;
+  )}]  | order(_updatedAt desc) {..., 'tags': tags[]-> }`;
 };
 
 const renderTags = (tagIds: string[]) => {
