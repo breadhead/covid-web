@@ -9,7 +9,7 @@ import {
 
 import { NewsItem } from '../../../models/common/NewsItem';
 import { NewsFetchParams } from './config';
-import { getQueryKey, getPageKey } from './query';
+import { getQueryKey, getPageKeyFromParams } from './query';
 
 interface State extends FetchingState {
   list: { key?: string; pages: { [pageKey: string]: NewsItem[] | undefined } };
@@ -28,7 +28,7 @@ const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   (state: State, news: NewsItem[], params: NewsFetchParams) => {
     const key = getQueryKey(params);
     const shouldReplace = state.list.key !== key;
-    const pageKey = getPageKey(params);
+    const pageKey = getPageKeyFromParams(params);
 
     if (shouldReplace) {
       return { ...state, list: { key, pages: { [pageKey]: news } } };

@@ -1,9 +1,9 @@
 import { State } from '@app/src/lib/store';
 
-import { getPageKey } from './query';
+import { getPageKeyFromQuery } from './query';
 
-export const selectNews = (state: State) => (query: any) => {
-  const key = getPageKey(query);
+export const selectNews = (query: any) => (state: State) => {
+  const key = getPageKeyFromQuery(query);
 
   return state.news.list.list.pages[key] || [];
 };

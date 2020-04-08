@@ -20,6 +20,10 @@ export const getQueryKey = (params: NewsFetchParams) => {
   return params.category + (params.tags || []).join('-');
 };
 
-export const getPageKey = (params: NewsFetchParams) => {
+export const getPageKeyFromQuery = (query: any) => {
+  return getPageKeyFromParams(getParamsFromQuery(query));
+};
+
+export const getPageKeyFromParams = (params: NewsFetchParams) => {
   return getQueryKey(params) + '-page-' + params.page;
 };

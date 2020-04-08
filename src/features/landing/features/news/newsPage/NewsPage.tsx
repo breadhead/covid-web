@@ -10,9 +10,12 @@ import { getParamsFromQuery } from '@app/src/domain/reducers/newsReducer/list/qu
 
 import s from './NewsPage.css';
 import { NewsCard } from '../newsCard';
+interface Props {
+  query: any;
+}
 
-export const NewsPage = () => {
-  const news = useMappedState(selectNews);
+export const NewsPage = ({ query }: Props) => {
+  const news = useMappedState(selectNews(query));
 
   return (
     <SystemLayout>
@@ -24,9 +27,9 @@ export const NewsPage = () => {
         <h1 className="gl-pageTitle">Новости</h1>
 
         <div>
-          {/* {news.map((newsItem) => (
+          {news.map((newsItem) => (
             <NewsCard data={newsItem} key={newsItem._id}></NewsCard>
-          ))} */}
+          ))}
         </div>
       </div>
     </SystemLayout>
@@ -38,5 +41,5 @@ NewsPage.getInitialProps = async (ctx) => {
 
   await (ctx.reduxStore as Store).dispatch(getNewsFromSanity(params) as any);
 
-  return {};
+  return { query: ctx.query };
 };
