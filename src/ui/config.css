@@ -120,6 +120,7 @@ body {
 @custom-media --mediumSecondUp (min-width: 833px);
 @custom-media --mediumUp (min-width: 928px);
 @custom-media --largeUp (min-width: 1200px);
+@custom-media --largeSecondUp (min-width: 1280px);
 
 #__next {
   display: flex;

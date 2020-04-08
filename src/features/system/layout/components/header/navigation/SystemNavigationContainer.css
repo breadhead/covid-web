@@ -166,3 +166,19 @@
 .buttonWrap {
   border: none;
 }
+
+
+.textWide {
+  display: block;
+
+  @media (--largeSecondUp) {
+    display: none;
+  }
+}
+.textNarrow {
+  display: none;
+  
+  @media (--largeSecondUp) {
+    display: block;
+  }
+}
