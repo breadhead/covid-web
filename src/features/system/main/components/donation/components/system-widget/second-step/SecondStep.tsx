@@ -4,7 +4,6 @@ import * as yup from 'yup';
 
 import { NavLink } from '@app/src/ui/nav-link';
 import { SPACE } from '@app/src/lib/config';
-import { selectPaymentWidgetData } from '@app/src/domain/reducers/paymentWidgetReducer/selectPartners';
 
 import { CloudPayments } from '../cloud-payments';
 import { schema } from './schema';
@@ -21,6 +20,7 @@ interface SecondStepProps {
   setStep: (value: number) => void;
   styles: { [key: string]: string };
   isSubmitted: boolean;
+  formData: WidgetForm;
 }
 
 export const SecondStep = ({
@@ -33,8 +33,8 @@ export const SecondStep = ({
   setStep,
   isSubmitted,
   styles,
+  formData,
 }: SecondStepProps) => {
-  const data: WidgetForm = useMappedState(selectPaymentWidgetData);
   const [errors, setErrors] = useState<any[]>([{}]);
 
   const validate = useCallback(() => {
@@ -110,10 +110,10 @@ export const SecondStep = ({
         </button>
         <CloudPayments
           isSubmitted={isSubmitted}
-          data={data}
           validate={validate}
           styles={styles}
           setStep={setStep}
+          formData={formData}
         />
       </div>
       <p className={styles.cancelText}>

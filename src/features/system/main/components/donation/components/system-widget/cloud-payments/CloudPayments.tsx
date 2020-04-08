@@ -9,7 +9,7 @@ import cx from 'classnames';
 import { Button } from '@app/src/ui/button';
 
 import { WidgetForm } from '../widgetReducer';
-import { FrequencyEnum } from '../formConfig';
+import { getWidgetData } from './getWidgetData';
 
 enum CloudPaymentsState {
   Initial = 'initial',
@@ -18,21 +18,20 @@ enum CloudPaymentsState {
 }
 
 interface CloudPaymentsProps {
-  data: WidgetForm;
   styles: { [key: string]: string };
   isSubmitted: boolean;
   validate: any;
   setStep: (value: number) => void;
+  formData: WidgetForm;
 }
 
 export const CloudPayments = ({
-  data: formData,
   styles,
   isSubmitted,
   validate,
+  formData,
   setStep: setFormStep,
 }: CloudPaymentsProps) => {
-  // TODO: refactor
   const [cloudPayments, setCloudPayments] = useState(null);
   const [step, setStep] = useState(CloudPaymentsState.Initial);
   const [reason, setReason] = useState(null);
@@ -49,30 +48,10 @@ export const CloudPayments = ({
   }, [step]);
 
   const showWidget = () => {
-    const data = {
-      firstname: name,
-      lastname: formData.surname,
-      email: formData.email,
-    };
-
-    const recurrent = formData.frequency === FrequencyEnum.Monthly;
-
-    if (recurrent) {
-      (data as any).cloudPayments = {
-        recurrent: { interval: 'Month', period: 1 },
-      };
-    }
+    const widgetData = getWidgetData(formData);
 
     (cloudPayments as any).charge(
-      // TODO: get from config
-      {
-        publicId: 'pk_61c70158bccb923e31954e244319a',
-        description: formData.target,
-        amount: Number(formData.cost),
-        currency: 'RUB',
-        accountId: formData.email,
-        data,
-      },
+      widgetData,
       (data) => {
         setStep(CloudPaymentsState.Complete);
       },
@@ -88,7 +67,7 @@ export const CloudPayments = ({
   const pay = useCallback(async () => {
     const isValid = await validate();
 
-    if (isSubmitted && isValid) {
+    if (isValid) {
       showWidget();
     }
   }, [isSubmitted, validate]);

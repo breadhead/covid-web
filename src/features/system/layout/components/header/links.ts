@@ -7,6 +7,7 @@ export const mainLinks = [
   {
     href: '/news',
     text: 'Врачам',
+    narrowText: 'Врачам',
   },
   {
     href: '/for-hospitals',
@@ -19,17 +20,21 @@ export const contentLinks = [
   {
     href: '/experts',
     text: 'Наблюдательный совет',
+    narrowText: 'Наблюдательный совет',
   },
   {
     href: '/partners',
     text: 'Партнеры',
+    narrowText: 'Партнеры',
   },
   {
     href: '/news?reports=true',
     text: 'Отчёты',
+    narrowText: 'Отчёты',
   },
   {
     href: '/contacts',
     text: 'Контакты',
+    narrowText: 'Контакты',
   },
 ];
