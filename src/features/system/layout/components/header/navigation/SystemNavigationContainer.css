@@ -37,6 +37,23 @@
   line-height: 28px;
   padding: 18px 16px;
   border-bottom: none;
+
+  &.active {
+    background: white !important;
+    color: var(--text-color-primary);
+  }
+
+  &:hover {
+    border-bottom: none;
+  }
+
+  &:active {
+    border-bottom: none;
+  }
+
+  &:focus {
+    border-bottom: none;
+  }
 }
 
 .mainLink {
@@ -44,10 +61,6 @@
     &:last-child {
       border-bottom: none;
     }
-  }
-
-  &.active {
-    background: white;
   }
 }
 
@@ -152,4 +165,20 @@
 
 .buttonWrap {
   border: none;
+}
+
+
+.textWide {
+  display: block;
+
+  @media (--largeSecondUp) {
+    display: none;
+  }
+}
+.textNarrow {
+  display: none;
+  
+  @media (--largeSecondUp) {
+    display: block;
+  }
 }

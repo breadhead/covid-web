@@ -11,6 +11,7 @@ export const NavLink = ({
   children,
   className,
   href,
+  as,
   blank = false,
   withoutUnderline = false,
 }: NavLinkProps) => {
@@ -32,7 +33,7 @@ export const NavLink = ({
   }
 
   return (
-    <NextLink href={href} as={href}>
+    <NextLink href={href} as={as || href}>
       <a
         className={cx(
           styles.navlink,

@@ -10,7 +10,6 @@ interface LinksListProps {
   className: string;
   asPath: string;
   narrow?: boolean;
-  width?: number;
   linkClassName?: string;
 }
 
@@ -20,15 +19,8 @@ export const LinksList = ({
   className,
   asPath,
   narrow,
-  width,
   linkClassName,
 }: LinksListProps) => {
-  const getText = (link: any) => {
-    if (!link.narrowText) {
-      return link.text;
-    }
-    return !!width && width <= LARGE_SECOND_DOWN ? link.narrowText : link.text;
-  };
   return (
     <div className={cx(className, narrow && styles.narrowMenu)}>
       {children.map((link) => (
@@ -38,7 +30,8 @@ export const LinksList = ({
           href={link.href}
           className={cx(linkClassName, asPath === link.href && styles.active)}
         >
-          {getText(link)}
+          <span className={styles.textWide}>{link.text}</span>
+          <span className={styles.textNarrow}>{link.narrowText}</span>
         </NavLink>
       ))}
     </div>
