@@ -15,7 +15,7 @@ export const HelpRequest = ({}: HelpRequestProps) => {
 
   return (
     <div className={s.helpRequest}>
-      <div className={cx('gl-wrapper gl-section', s.wrapper)}>
+      <div className={cx('gl-wrapper gl-section')}>
         <h2 id="help-request-form" className="gl-sectionTitle">
           Расскажите, какая помощь вам нужна
         </h2>

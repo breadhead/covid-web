@@ -20,7 +20,7 @@ export const VolunteerPage = () => {
         <title>Хочу стать волонтером | Просто спросить</title>
       </Head>
 
-      <div className="gl-wrapper gl-first-section gl-section">
+      <div className="gl-wrapper gl-section">
         <h1 className="gl-pageTitle">Хочу стать волонтером</h1>
         <p className={cx('gl-text', styles.text)}>
           Если вы хотите помочь нам в борьбе с пандемией, заполните, пожалуйста,

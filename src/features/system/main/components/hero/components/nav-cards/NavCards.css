@@ -64,8 +64,10 @@
 .title {
   font: var(--title-regular);
   color: var(--color-primary);
+  margin-bottom: 32px;
 
   @media (--mediumSecondDown) {
+    margin-bottom: 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
