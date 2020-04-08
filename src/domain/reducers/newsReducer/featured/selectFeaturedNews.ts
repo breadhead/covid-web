@@ -1,3 +1,4 @@
 import { State } from '@app/src/lib/store';
 
-export const selectNews = (state: State) => state.news.featuredNews.list;
+export const selectFeaturedNews = (state: State) =>
+  state.news.featuredNews.list;

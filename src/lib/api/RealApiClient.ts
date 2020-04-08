@@ -135,7 +135,8 @@ export default class RealApiClient implements ApiClient {
       .then((res) => res.data);
   };
   public getNews = (query: string) => {
-    return this.apiProxyInstance.get(query).then((res) => res.data);
+    return sanityClient.fetch(query, { actve: true });
+    // return this.apiProxyInstance.get(query).then((res) => res.data);
   };
   public getNewsItem = (query: string) => {
     return sanityClient.fetch(query, { actve: true });

@@ -132,3 +132,11 @@
     margin-bottom: 56px;
   }
 }
+
+.featuredNews {
+  margin-top: 64px;
+
+  @media (--smallDown) {
+    margin-top: 56px;
+  }
+}

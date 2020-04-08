@@ -1,1 +1,0 @@
-export { CategoriesTags } from './CategoriesTags'
