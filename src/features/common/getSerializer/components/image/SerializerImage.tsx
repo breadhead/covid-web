@@ -45,7 +45,7 @@ export const SerializerImage = ({ props }: SerializerImageProps) => {
       id={src}
       className={cx(
         s.wrapper,
-
+        offsets.imageSideOffset,
         offsets['s-editor-customimage'],
       )}
     >

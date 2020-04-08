@@ -1,5 +1,7 @@
 import * as React from 'react';
+import cx from 'classnames';
 
+import s from './SystemLayout.css';
 import { SystemHeader } from './components/header';
 import { SystemFooter } from './components/footer';
 
@@ -17,7 +19,7 @@ export const SystemLayout = ({
   return (
     <>
       <SystemHeader />
-      <main className={className}>{children}</main>
+      <main className={cx(s.main, className)}>{children}</main>
       {!withoutFooter && <SystemFooter />}
     </>
   );

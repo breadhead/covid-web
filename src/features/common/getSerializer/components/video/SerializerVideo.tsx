@@ -17,7 +17,11 @@ export const SerializerVideo = ({ props }: SerializerVideoProps) => {
 
   return (
     <iframe
-      className={cx(s.video, offsets['s-editor-customimage'])}
+      className={cx(
+        s.video,
+        offsets.imageSideOffset,
+        offsets['s-editor-customimage'],
+      )}
       title="YouyTube preview"
       src={src}
       frameBorder="0"

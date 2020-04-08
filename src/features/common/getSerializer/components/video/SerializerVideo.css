@@ -1,5 +1,14 @@
 .video {
-  width: 100%;
-  min-height: 440px;
-  max-width: 800px;
+  position: relative;
+  width: 928px;
+  height: 488px;
+  @media (--largeDown) {
+    width: 100vw;
+    height: 53vw;
+    left: calc(-1 * (100vw - 768px) / 2);
+  }
+
+  @media (--smallDown) {
+    left: -16px;
+  }
 }

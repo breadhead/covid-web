@@ -1,10 +1,18 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  width: 928px;
 
-  @media (--mediumDown) {
+  position: relative;
+  width: 928px;
+  /* height: 488px */
+  @media (--largeDown) {
     width: 100vw;
+    /* height: 53vw; */
+    left: calc(-1 * (100vw - 768px) / 2);
+  }
+
+  @media (--smallDown) {
+    left: -16px;
   }
 }
 
@@ -58,6 +66,10 @@
 
 .text {
   margin-top: 16px;
+
+  @media (--largeDown) {
+    margin-left: 16px;
+  }
 }
 
 .fullscreen {
