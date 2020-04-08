@@ -32,14 +32,8 @@ export const CloudPayments = ({
   formData,
   setStep: setFormStep,
 }: CloudPaymentsProps) => {
-  const [cloudPayments, setCloudPayments] = useState(null);
   const [step, setStep] = useState(CloudPaymentsState.Initial);
   const [reason, setReason] = useState(null);
-
-  useLayoutEffect(() => {
-    const widget = new (window as any).cp.CloudPayments();
-    setCloudPayments(widget);
-  }, []);
 
   useEffect(() => {
     if (step === CloudPaymentsState.Complete) {
@@ -50,7 +44,7 @@ export const CloudPayments = ({
   const showWidget = () => {
     const widgetData = getWidgetData(formData);
 
-    (cloudPayments as any).charge(
+    (new (window as any).cp.CloudPayments() as any).charge(
       widgetData,
       (data) => {
         setStep(CloudPaymentsState.Complete);
@@ -60,8 +54,6 @@ export const CloudPayments = ({
         setReason(reason);
       },
     );
-
-    return cloudPayments;
   };
 
   const pay = useCallback(async () => {

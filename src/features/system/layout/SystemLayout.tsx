@@ -29,10 +29,11 @@ export const SystemLayout = ({
   useEffect(() => {
     if (asPath.includes('#')) {
       setShowByRoute(true);
-
+      console.log('setShowByRoute:');
       const timerId = setTimeout(() => {
         setShowByRoute(false);
-      }, 1000);
+        console.log('unsetShowByRoute:');
+      }, 3000);
 
       return () => clearTimeout(timerId);
     }
