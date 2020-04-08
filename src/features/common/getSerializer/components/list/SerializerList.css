@@ -16,5 +16,5 @@
 
 .list-item {
   padding-left: 8px;
-  margin-bottom: var(--offset-16);
+  margin-bottom: var(--editor-offset-16);
 }

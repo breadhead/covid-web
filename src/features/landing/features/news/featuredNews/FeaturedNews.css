@@ -1,0 +1,6 @@
+.list {
+  margin-bottom: 32px;
+  @media (--smallDown) {
+    margin-bottom: 24px;
+  }
+}
