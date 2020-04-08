@@ -126,7 +126,7 @@
   height: 100%;
   font-size: 18px;
   line-height: 28px;
-  transition: color 0.2s, background-color 0.2s, padding ease-in 0.5s !important;
+  transition: color 0.2s, background-color 0.2s !important;
 
   @media (--largeDown) {
     color: var(--color-primary);
