@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import BlockContent from '@sanity/block-content-to-react';
+import Head from 'next/head';
 
 import { NewsItem } from '@app/src/domain/models/common/NewsItem';
 import { getSerializer } from '@app/src/features/common/getSerializer/getSerializer';
@@ -17,13 +18,15 @@ interface NewsItemContentProps {
 }
 
 export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
-  console.log('NewsItemContent -> newsItem', newsItem);
   const serializers = getSerializer({});
 
   const imageSrc = getImageSrc(newsItem.image);
   const shareUrl = getFromConfig('siteUrl') + '/news/' + newsItem.code.current;
   return (
     <div className={s.wrapperOuter}>
+      <Head>
+        <title>{newsItem.name}</title>
+      </Head>
       <div className={s.header}>
         <div className={s.type}>Врачам</div>
 
@@ -60,6 +63,13 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
           shareUrl={shareUrl}
           imageSrc={imageSrc || undefined}
         />
+        <div className={cx(s.categoriesTags, s.categoriesTagsFooter)}>
+          <CategoriesTags
+            categories={newsItem.categories}
+            tags={newsItem.tags}
+            big
+          />
+        </div>
       </div>
     </div>
   );
