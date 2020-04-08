@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import cx from 'classnames';
+import { useRouter } from 'next/router';
+
+import { RouteType } from '@app/src/lib/routing/RouteType';
 
 import s from './SystemLayout.css';
 import { SystemHeader } from './components/header';
@@ -20,28 +23,51 @@ export const SystemLayout = ({
   className,
 }: SystemLayoutProps) => {
   const [show, setShow] = useState(false);
+  const [showByRoute, setShowByRoute] = useState(false);
+  const { route, asPath } = useRouter();
+
+  useEffect(() => {
+    if (asPath.includes('#')) {
+      setShowByRoute(true);
+
+      const timerId = setTimeout(() => {
+        setShowByRoute(false);
+      }, 1000);
+
+      return () => clearTimeout(timerId);
+    }
+  }, []);
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
+      let isShow;
+
       if (currPos.y > -64) {
         setShow(false);
       } else {
-        const isShow = currPos.y > prevPos.y;
+        isShow = currPos.y > prevPos.y;
+
+        if (showByRoute) {
+          isShow = true;
+        }
+
         if (isShow !== show) {
           setShow(isShow);
         }
       }
     },
-    [show],
+    [show, showByRoute],
     undefined,
     false,
     100,
   );
 
+  const white = headerWhite || route === RouteType.landing;
+
   return (
     <>
-      <SystemHeader white={headerWhite} />
-      <SystemHeader fixed show={show} white={headerWhite} />
+      <SystemHeader white={white} />
+      <SystemHeader fixed show={show} white={white} />
       <main className={cx(s.main, className)}>{children}</main>
       {!withoutFooter && <SystemFooter />}
     </>
