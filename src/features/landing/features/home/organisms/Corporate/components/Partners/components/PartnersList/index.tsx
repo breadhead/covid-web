@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useMappedState } from 'redux-react-hook';
+import cx from 'classnames';
 
 import PartnerCard from '@app/src/features/landing/organisms/PartnerCard';
 import { selectPartners } from '@app/src/domain/reducers/partnerReducer/selectPartners';
@@ -10,15 +11,16 @@ import * as styles from './PartnersList.css';
 interface Props {
   pageType: string;
   link?: string;
+  className?: string;
 }
 
-const PartnersList = ({ pageType, link = '/contacts' }: Props) => {
+const PartnersList = ({ pageType, link = '/contacts', className }: Props) => {
   const partners = useMappedState(selectPartners).filter((partner) =>
     partner.pageToShow.includes(pageType),
   );
 
   return (
-    <section className={styles.partnersList}>
+    <section className={cx(styles.partnersList, className)}>
       {partners.map((partner) => (
         <PartnerCard key={partner._id} partner={partner} />
       ))}

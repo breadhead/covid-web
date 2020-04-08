@@ -2,6 +2,8 @@ import * as React from 'react';
 import cx from 'classnames';
 import Head from 'next/head';
 
+import { Divider } from '@app/src/ui/divider/Divider';
+
 import { SystemLayout } from '../../../layout';
 import { Helping } from '../Helping/Helping';
 import { HelpRequest } from '../HelpRequest/HelpRequest';
@@ -19,17 +21,18 @@ export const ForHospitalsPage = ({}: ForHospitalsProps) => {
         <title>Помощь больницам | Просто спросить</title>
       </Head>
 
-      <div className="gl-wrapper gl-first-section gl-section">
-        <ForHospitalsHero></ForHospitalsHero>
-      </div>
       <div className="gl-wrapper gl-section">
-        <Helping></Helping>
+        <ForHospitalsHero />
+      </div>
+      <div className="gl-wrapper gl-section-inner">
+        <Helping />
       </div>
       <HelpRequest />
 
-      <div className="gl-wrapper gl-first-section gl-section">
+      <div className="gl-wrapper gl-section">
         <Partners />
       </div>
+      <Divider />
       <div className="gl-wrapper gl-section">
         <SystemHelp />
       </div>

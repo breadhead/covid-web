@@ -15,9 +15,9 @@ const AllExperts = () => {
   return (
     <SystemLayout className={styles.main}>
       <Head>
-        <title>Экспертный совет | Просто спросить</title>
+        <title>Наблюдательный совет | Просто спросить</title>
       </Head>
-      <h1 className={styles.title}>Экспертный совет</h1>
+      <h1 className={styles.title}>Наблюдательный совет</h1>
       <ExpertsList experts={experts} />
     </SystemLayout>
   );

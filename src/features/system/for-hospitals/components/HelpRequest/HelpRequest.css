@@ -6,16 +6,6 @@
   }
 }
 
-.wrapper {
-  max-width: 928px;
-  margin: 0 auto;
-  padding-top: 64px;
-
-  @media (--smallDown) {
-    padding-top: 0;
-  }
-}
-
 .body {
   display: flex;
   align-items: flex-start;

@@ -4,7 +4,7 @@ import cx from 'classnames';
 import { NavLink } from '@app/src/ui/nav-link';
 import { Button } from '@app/src/ui/button';
 
-import * as styles from './SystemNavigation.css';
+import * as styles from './SystemNavigationContainer.css';
 import { SystemNavigation } from './SystemNavigation';
 
 interface Props {

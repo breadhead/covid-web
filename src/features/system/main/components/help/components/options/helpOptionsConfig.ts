@@ -1,4 +1,4 @@
-import { PartnerTypes } from '@app/src/domain/models/common/PartnerTypes';
+import { HelpPartnersType } from '@app/src/domain/models/common/PartnerTypes';
 
 enum HelpItemType {
   Button = 'Button',
@@ -25,7 +25,7 @@ export const options = [
         id: '30',
         type: HelpItemType.Link,
         label: 'Волонтерский фандрайзинг',
-        link: `/help-partners?${PartnerTypes.VolunteerFundraising}`,
+        link: `/help-partners?type=${HelpPartnersType.VolunteerFundraising}`,
       },
     ],
   },
@@ -36,19 +36,19 @@ export const options = [
         id: '10',
         type: HelpItemType.Link,
         label: 'Стать партнером',
-        link: `/help-partners?${PartnerTypes.BecomePartner}`,
+        link: `/help-partners?type=${HelpPartnersType.BecomePartner}`,
       },
       {
         id: '20',
         type: HelpItemType.Link,
         label: 'Стать инфопартнером',
-        link: `/help-partners?${PartnerTypes.BecomeInfopartner}`,
+        link: `/help-partners?type=${HelpPartnersType.BecomeInfopartner}`,
       },
       {
         id: '30',
         type: HelpItemType.Link,
         label: 'Заказать лекцию',
-        link: `/help-partners?${PartnerTypes.LectureRequest}`,
+        link: `/help-partners?type=${HelpPartnersType.LectureRequest}`,
       },
     ],
   },

@@ -1,5 +1,6 @@
 .menu {
   height: 100%;
+  width: 100vw;
   background-color: var(--background-system);
 }
 
@@ -26,9 +27,14 @@
 .helpButtonWrap {
   border-bottom: none;
   width: 100%;
+  display: flex;
 
   & button {
     width: 100%;
+  }
+
+  @media (--largeDown) {
+    padding: 0 16px;
   }
 }
 

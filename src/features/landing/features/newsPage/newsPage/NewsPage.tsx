@@ -19,7 +19,7 @@ export const NewsPage = () => {
         <title>Новости | Просто спросить</title>
       </Head>
 
-      <div className="gl-wrapper gl-first-section gl-section">
+      <div className="gl-wrapper gl-section">
         <h1 className="gl-pageTitle">Новости</h1>
 
         <div>
