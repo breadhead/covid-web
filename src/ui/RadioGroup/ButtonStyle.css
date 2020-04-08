@@ -30,8 +30,7 @@
       color: #000;
       text-align: center;
       background-color: #e8e9f2;
-      border-radius: 100px;
-      transition: all 0.36s;
+      transition: color, background-color 0.36s;
     }
 
     & .ant-radio-checked + span {
