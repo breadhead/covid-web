@@ -1,0 +1,1 @@
+export { ArticlesItemPage } from './articlesItemPage';

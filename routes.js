@@ -16,6 +16,7 @@ module.exports = nextRoutes()
   .add('landing-for-doctors', '/for-doctors', 'landing/for-doctors')
   .add('landing-news', '/news', 'landing/news')
   .add('landing-news-item', '/news/:id', 'landing/news-item')
+  .add('landing-articles-item', '/articles/:id', 'landing/articles-item')
   // ask
   .add('ask-experts', '/ask/experts/', 'ask/experts')
   .add('ask-expert', '/ask/experts/:id', 'ask/expert')
