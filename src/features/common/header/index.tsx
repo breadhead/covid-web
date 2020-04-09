@@ -12,7 +12,6 @@ interface Props {
 
 const Header = ({ className }: Props) => (
   <header className={cx(styles.header, className)}>
-    <LogoClient />
     <ClientMenu />
   </header>
 );

@@ -1,10 +1,8 @@
 import Head from 'next/head';
 import * as React from 'react';
 
-import Header from '@app/src/features/common/layout/organisms/Header';
+import { AskHeader } from '@app/src/features/common/layout/organisms/Header';
 import { Divider } from '@app/src/ui/divider/Divider';
-import { SystemHeader } from '@app/src/features/system/layout/components/header';
-import { SystemFooter } from '@app/src/features/system/layout/components/footer';
 import { SystemLayout } from '@app/src/features/system/layout';
 
 import * as styles from './Home.css';
@@ -25,7 +23,7 @@ const LandingPage = () => {
         <title>Просто спросить | COVID-19</title>
       </Head>
       <SystemLayout>
-        <Header />
+        <AskHeader />
         <Main />
         <Divider />
         <div className={styles.backgroundWrapper}>
