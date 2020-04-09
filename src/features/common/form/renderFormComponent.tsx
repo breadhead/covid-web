@@ -81,7 +81,11 @@ export const renderFormComponent = (
   }
 
   return (
-    <div style={{ display: hidden ? 'none' : undefined }} className={props.outerClassName} key={key}>
+    <div
+      style={{ display: hidden ? 'none' : undefined }}
+      className={props.outerClassName}
+      key={key}
+    >
       {label &&
         getFormComponent(FormComponentType.Label, {
           className: cx(styles.label),

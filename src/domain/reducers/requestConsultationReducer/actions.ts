@@ -89,14 +89,17 @@ export const saveWebinarRegistrationForm = (formData: any) => async (
   try {
     dispatch(actions.request());
 
-    await api.saveCoronaRequestForm(formData, FormRequestType.WebinarRegistration);
+    await api.saveCoronaRequestForm(
+      formData,
+      FormRequestType.WebinarRegistration,
+    );
 
     return dispatch(actions.success(formData));
   } catch (error) {
     dispatch(actions.error(error.message));
     throw error;
   }
-}
+};
 
 export const updateRequestFormData = () => async (
   _dispatch: Dispatch<any>,
