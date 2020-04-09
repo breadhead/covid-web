@@ -21,6 +21,8 @@ import { PageFilter } from '../../common/pageFilter';
 import { NewsCard } from '../../landing/features/news/newsCard';
 import * as styles from './ForDoctorsPage.css';
 import { ResourcesDesktop } from './components/resources-desktop';
+import PartnersList from '../../landing/features/home/organisms/Corporate/components/Partners/components/PartnersList';
+import { PageType } from '../../landing/features/partners/organisms/PartnersList/config';
 interface Props {
   query: any;
 }
@@ -51,6 +53,12 @@ export const ForDoctorsPage = ({ query }: Props) => {
                 {articles.map((newsItem) => (
                   <NewsCard data={newsItem} key={newsItem._id}></NewsCard>
                 ))}
+              </div>
+              <div className="gl-section">
+                <PartnersList
+                  title="Партнеры раздела"
+                  pageType={PageType.Doctors}
+                />
               </div>
             </section>
             <ResourcesDesktop resources={resources} />

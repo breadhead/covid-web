@@ -99,3 +99,8 @@
     }
   }
 }
+
+.title {
+  font: var(--title-medium);
+  margin-bottom: 32px;
+}
