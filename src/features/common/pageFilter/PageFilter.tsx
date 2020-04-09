@@ -55,20 +55,15 @@ export const PageFilter = ({ categories, query, tags }: PageFilterProps) => {
   );
 };
 
-const getCategoryLink = (
-  category: string,
-  { category: _, ...newQuery }: any,
-) => {
-  const categoryValue = category === ALL_CATEGORIES ? '' : '/' + category;
+const getCategoryLink = (category: string, query: any) => {
+  const categoryValue = query.category === ALL_CATEGORIES ? '' : category;
 
-  return { pathname: `/news${categoryValue}`, query: newQuery };
+  return { pathname: `/news`, query: { ...query, category: categoryValue } };
 };
 
-const getTagLink = (tag: TagType, { category, ...query }: any) => {
-  const categoryValue = !category ? '' : '/' + category;
-
+const getTagLink = (tag: TagType, query: any) => {
   const newQuery = addOrRemoveTag(tag, query);
-  return { pathname: `/news${categoryValue}`, query: newQuery };
+  return { pathname: `/news`, query: newQuery };
 };
 
 const addOrRemoveTag = (tag: TagType, query: any) => {

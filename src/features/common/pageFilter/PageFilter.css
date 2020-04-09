@@ -1,7 +1,20 @@
 .categories {
+  display: flex;
   margin-bottom: 24px;
+  max-width: 100%;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
   @media (--smallDown) {
     margin-bottom: 20px;
+  }
+}
+
+.tags {
+  & > * {
+    margin-bottom: 4px;
   }
 }
 
