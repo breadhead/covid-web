@@ -1,0 +1,1 @@
+export { ResourcesDesktop } from './ResourcesDesktop';

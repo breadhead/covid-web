@@ -7,10 +7,10 @@ import {
   FetchingState,
 } from '@app/src/lib/symbioteFactory';
 
-import { TagType } from '../../models/common/Tag';
+import { ResourcesItem } from '../../models/common/ResourcesItem';
 
 interface State extends FetchingState {
-  list: TagType[];
+  list: ResourcesItem[];
 }
 
 interface Actions extends FetchingActions {
@@ -23,7 +23,7 @@ const initialState = createInitialState({
 
 const { actions, reducer } = createFetchingSymbiote<State, Actions>(
   initialState,
-  (state: State, resources: TagType[]) => {
+  (state: State, resources: ResourcesItem[]) => {
     return {
       ...state,
       list: resources,

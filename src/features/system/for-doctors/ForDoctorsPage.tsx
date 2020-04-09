@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { useMappedState } from 'redux-react-hook';
+import Head from 'next/head';
+import cx from 'classnames';
 
 import { CategoryType } from '@app/src/domain/models/common/ArticlesCategoryType';
 import { getParamsFromQuery } from '@app/src/domain/reducers/articlesReducer/list/query';
@@ -12,11 +14,13 @@ import {
 import { CategoryTypes } from '@app/src/domain/models/common/CategoryTypes';
 import { selectArticles } from '@app/src/domain/reducers/articlesReducer/list/selectArticles';
 import { getResourcesFromSanity } from '@app/src/domain/reducers/resourcesReducer';
+import { selectResources } from '@app/src/domain/reducers/resourcesReducer/selectResources';
 
 import { SystemLayout } from '../layout';
 import { PageFilter } from '../../common/pageFilter';
 import { NewsCard } from '../../landing/features/news/newsCard';
-
+import * as styles from './ForDoctorsPage.css';
+import { ResourcesDesktop } from './components/resources-desktop';
 interface Props {
   query: any;
 }
@@ -25,24 +29,35 @@ export const ForDoctorsPage = ({ query }: Props) => {
   const categories = Object.values(CategoryType);
   const tags = useMappedState(selectTags(TagsType.Articles));
   const articles = useMappedState(selectArticles(query));
+  const resources = useMappedState(selectResources());
 
   return (
-    <SystemLayout>
-      <section className="gl-wrapper gl-section">
-        <h1 className="gl-pageTitle">Врачам</h1>
-        <PageFilter
-          type={CategoryTypes.Articles}
-          tags={tags}
-          categories={categories}
-          query={query}
-        />
-        <div>
-          {articles.map((newsItem) => (
-            <NewsCard data={newsItem} key={newsItem._id}></NewsCard>
-          ))}
+    <>
+      <Head>
+        <title>Врачам | Просто спросить</title>
+      </Head>
+      <SystemLayout>
+        <div className={cx(styles.mainContainer, 'gl-section')}>
+          <div className={cx(styles.wrapper)}>
+            <section className={cx(styles.main, 'gl-wrapper')}>
+              <h1 className="gl-pageTitle">Врачам</h1>
+              <PageFilter
+                type={CategoryTypes.Articles}
+                tags={tags}
+                categories={categories}
+                query={query}
+              />
+              <div>
+                {articles.map((newsItem) => (
+                  <NewsCard data={newsItem} key={newsItem._id}></NewsCard>
+                ))}
+              </div>
+            </section>
+            <ResourcesDesktop resources={resources} />
+          </div>
         </div>
-      </section>
-    </SystemLayout>
+      </SystemLayout>
+    </>
   );
 };
 
