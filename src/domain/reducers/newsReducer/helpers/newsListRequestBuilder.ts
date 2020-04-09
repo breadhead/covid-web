@@ -41,6 +41,8 @@ const renderCategories = (category: string) => {
 };
 
 const renderAmount = (page: number) => {
+  return '';
+
   const end = PER_PAGE_NEWS * page - 1;
   const start = end - PER_PAGE_NEWS + 1;
   return `[${start}..${end}]`;
