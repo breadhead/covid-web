@@ -49,11 +49,7 @@ export const ForDoctorsPage = ({ query }: Props) => {
               />
               <div>
                 {articles.map((newsItem) => (
-                  <NewsCard
-                    type={CategoryTypes.Articles}
-                    data={newsItem}
-                    key={newsItem._id}
-                  ></NewsCard>
+                  <NewsCard data={newsItem} key={newsItem._id}></NewsCard>
                 ))}
               </div>
             </section>

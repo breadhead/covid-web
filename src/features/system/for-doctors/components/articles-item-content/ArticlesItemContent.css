@@ -128,11 +128,3 @@
 }
 
 
-.featuredarticles {
-  margin-top: 64px;
-
-  @media (--smallDown) {
-    margin-top: 56px;
-  }
-}
-

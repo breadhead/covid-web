@@ -13,10 +13,9 @@ import { ShareWidget } from '@app/src/features/common/shareWidget';
 import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
 import { CategoriesTags } from '@app/src/ui/categoriesTags';
 import { selectFeaturedArticles } from '@app/src/domain/reducers/articlesReducer/featured/selectFeaturedArticles';
+import { FeaturedNews } from '@app/src/features/landing/features/news/featuredNews';
 
 import s from './ArticlesItemContent.css';
-
-// import { FeaturedArticles } from '../../../../articles/featuredArticles';
 
 interface ArticlesItemContentProps {
   articlesItem: ArticlesItem;
@@ -31,7 +30,7 @@ export const ArticlesItemContent = ({
   const shareUrl =
     getFromConfig('siteUrl') + '/for-doctors/' + articlesItem.code.current;
   const featuredArticles = useMappedState(selectFeaturedArticles);
-  console.log('featuredArticles:', featuredArticles);
+
   return (
     <div className={s.wrapperOuter}>
       <Head>
@@ -82,11 +81,13 @@ export const ArticlesItemContent = ({
             big
           />
         </div>
-
-        {/* <FeaturedArticles
-            // articlesList={featuredArticles}
-            className={s.featuredArticles}
-          ></FeaturedArticles> */}
+        <FeaturedNews
+          title="Другие статьи"
+          className="gl-section"
+          href="for-doctors"
+          linkLabel="Все статьи"
+          list={featuredArticles}
+        />
       </div>
     </div>
   );

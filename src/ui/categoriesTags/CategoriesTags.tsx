@@ -6,19 +6,20 @@ import {
   CategoryType,
 } from '@app/src/domain/models/common/NewsCategoryType';
 
-import s from './CategoriesTags.css';
 import { Tag } from '../tag';
 
 interface TagsProps {
   tags?: TagType[];
   categories?: CategoryType[];
   big?: boolean;
+  href?: string;
 }
 
 export const CategoriesTags = ({
   tags,
   categories,
   big = false,
+  href = 'news',
 }: TagsProps) => {
   return (
     <>
@@ -27,15 +28,15 @@ export const CategoriesTags = ({
           big={big}
           highlighted
           key={category}
-          href={`/news?category=${category}`}
+          href={`/${href}?category=${category}`}
           text={getNewsCategoryText(category)}
         />
       ))}
       {tags?.map((tag) => (
         <Tag
           big={big}
-          key={tag.code.current}
-          href={`/news?tags=${tag.code.current}`}
+          key={tag?.code?.current}
+          href={`/${href}?tags=${tag?.code?.current}`}
           text={tag.name}
         />
       ))}

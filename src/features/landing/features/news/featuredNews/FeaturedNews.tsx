@@ -1,40 +1,40 @@
 import React from 'react';
 import cx from 'classnames';
-import { useMappedState } from 'redux-react-hook';
 
-import { selectFeaturedNews } from '@app/src/domain/reducers/newsReducer/featured/selectFeaturedNews';
 import { NavLink } from '@app/src/ui/nav-link';
 import { NewsItem } from '@app/src/domain/models/common/NewsItem';
 import { CategoryTypes } from '@app/src/domain/models/common/CategoryTypes';
+import { ArticlesItem } from '@app/src/domain/models/common/ArticlesItem';
 
 import s from './FeaturedNews.css';
 import { NewsCard } from '../newsCard';
 
 interface FeaturedNewsProps {
+  list: NewsItem[] | ArticlesItem[];
+  cardType?: CategoryTypes;
   title?: string;
+  href?: string;
+  linkLabel?: string;
   className?: string;
-  newsList: NewsItem[];
 }
 
 export const FeaturedNews = ({
   title = 'Другие новости',
+  href = '/news',
+  linkLabel = 'Читать все новости',
   className,
-  newsList,
+  list,
 }: FeaturedNewsProps) => {
   return (
     <div className={cx(s.wrapper, className)}>
       <h2 className={cx(s.title, 'gl-sectionTitle')}>{title}</h2>
       <div className={s.list}>
-        {newsList.map((newsItem) => (
-          <NewsCard
-            type={CategoryTypes.News}
-            key={newsItem._id}
-            data={newsItem}
-          ></NewsCard>
+        {(list as any).slice(0, 2).map((item) => (
+          <NewsCard href="/for-doctors" key={item._id} data={item} />
         ))}
       </div>
-      <NavLink href="/news" className={s.readAll}>
-        Читать все новости
+      <NavLink href={`/${href}`} className={s.readAll}>
+        {linkLabel}
       </NavLink>
     </div>
   );

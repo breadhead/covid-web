@@ -42,11 +42,7 @@ export const NewsPage = ({ query }: Props) => {
         />
         <div>
           {news.map((newsItem) => (
-            <NewsCard
-              type={CategoryTypes.News}
-              data={newsItem}
-              key={newsItem._id}
-            ></NewsCard>
+            <NewsCard data={newsItem} key={newsItem._id}></NewsCard>
           ))}
         </div>
         {/* <Pagination count={40} perPage={PER_PAGE_NEWS} /> */}

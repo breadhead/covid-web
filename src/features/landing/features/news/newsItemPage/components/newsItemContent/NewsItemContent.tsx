@@ -78,10 +78,7 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
           />
         </div>
 
-        <FeaturedNews
-          newsList={featuredNews}
-          className={s.featuredNews}
-        ></FeaturedNews>
+        <FeaturedNews list={featuredNews} className={s.featuredNews} />
       </div>
     </div>
   );
