@@ -1,21 +1,17 @@
-import * as React from 'react';
 import Head from 'next/head';
-import cx from 'classnames';
+import * as React from 'react';
+
+import { NON_BREAKING_SPACE } from '@app/src/lib/config';
+import { Button, ButtonKind, ButtonSize } from '@app/src/ui/button';
+import { NavLink } from '@app/src/ui/nav-link';
+
+import { SystemLayout } from '../../system/layout';
+import * as styles from './NotFound.css';
 
 export { default as notFoundMiddleware } from './notFoundMiddleware';
 export { reducer } from './reducer';
 export type { State } from './reducer';
 export { getFound } from './selectors';
-
-import StartConsultationButton from '@app/src/features/landing/features/home/molecules/StartConsultationButton';
-import { NON_BREAKING_SPACE } from '@app/src/lib/config';
-import { Icon } from '@app/src/ui/icon';
-import { NavLink } from '@app/src/ui/nav-link';
-import { IconsList } from '@app/src/ui/sprite';
-import { Button, ButtonSize, ButtonKind } from '@app/src/ui/button';
-
-import * as styles from './NotFound.css';
-import { SystemLayout } from '../../system/layout';
 
 const NotFound = () => (
   <>

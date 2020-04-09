@@ -27,7 +27,6 @@ export const getNewsItemFromSanity = (code: string) => async (
       if (newsItem) {
         return dispatch(actions.success(newsItem));
       }
-      throw new Error('not found');
     } catch (error) {
       return dispatch(actions.error(error.message));
     }
