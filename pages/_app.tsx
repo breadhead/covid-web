@@ -37,7 +37,6 @@ import { getFeaturedNewsFromSanity } from '@app/src/domain/reducers/newsReducer/
 import { getExpertBoardFromSanity } from '@front/domain/reducers/expertBoardReducer';
 
 import ErrorComponent from './_error';
-
 import '@app/src/ui/antd-styles.less';
 import '@app/src/ui/config.css?CSSModulesDisable';
 import '@app/src/ui/globals.css?CSSModulesDisable';

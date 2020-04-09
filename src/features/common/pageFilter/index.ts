@@ -1,1 +1,1 @@
-export { PageFilter } from './PageFilter'
+export { PageFilter } from './PageFilter';
