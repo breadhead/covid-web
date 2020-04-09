@@ -1,20 +1,22 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-import { MainLayout } from '@app/src/features/common/layout';
+import { SystemLayout } from '@app/src/features/system/layout';
 
 import { HospitalAidForm } from '../../../../system/for-hospitals/components/form/HospitalAidForm';
 import * as styles from './HospitalAidPage.css';
 
 export const HospitalAidPage = () => {
   return (
-    <MainLayout className={styles.main}>
+    <SystemLayout className={styles.main}>
       <Head>
         <title>Помощь больницам | Просто спросить</title>
       </Head>
 
-      <h1 className={styles.title}>Помощь больницам</h1>
-      <HospitalAidForm onSubmit={(data) => Promise.resolve(data)} />
-    </MainLayout>
+      <section className="gl-wrapper gl-section">
+        <h1 className={styles.title}>Помощь больницам</h1>
+        <HospitalAidForm onSubmit={(data) => Promise.resolve(data)} />
+      </section>
+    </SystemLayout>
   );
 };

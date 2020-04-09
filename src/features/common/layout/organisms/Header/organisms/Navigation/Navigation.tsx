@@ -11,7 +11,7 @@ import * as styles from './Navigation.css';
 import NavIcon from '../../atoms/NavIcon';
 import LoginButton from '../../atoms/LoginButton';
 import SignInMobileMenu from '../SignInMobileMenu';
-import { CLientMenu } from '../ClientMenu';
+import { ClientMenu } from '../ClientMenu';
 
 interface Props {
   showLoginButton?: boolean;
@@ -37,7 +37,7 @@ export const Navigation = ({
     ) : (
       <>
         <MediaQuery query={Query.FromExtraLarge}>
-          <CLientMenu className={styles.loginMenu} signOut={signOut} />
+          <ClientMenu className={styles.loginMenu} signOut={signOut} />
         </MediaQuery>
         <MediaQuery
           className={styles.mobileMenuWrapper}

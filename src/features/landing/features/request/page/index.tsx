@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-import { MainLayout } from '@app/src/features/common/layout';
 import { AppContext } from '@app/src/lib/server-types';
+import { SystemLayout } from '@app/src/features/system/layout';
 
 import * as styles from './Request.css';
 import { Notification } from '../molecules/Notification';
@@ -25,15 +25,16 @@ class RequstPage extends React.Component<Props> {
 
   public render() {
     return (
-      <MainLayout className={styles.main}>
+      <SystemLayout>
         <Head>
           <title>Новое обращение | Просто спросить</title>
         </Head>
-
-        <h1 className={styles.title}>Новое обращение</h1>
-        <Notification />
-        <RequestForm />
-      </MainLayout>
+        <section className="gl-wrapper gl-section">
+          <h1 className={styles.title}>Новое обращение</h1>
+          <Notification />
+          <RequestForm />
+        </section>
+      </SystemLayout>
     );
   }
 }

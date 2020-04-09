@@ -2,8 +2,6 @@ import React, { useState, useCallback } from 'react';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
 
-import { NavLink } from '@app/src/ui/nav-link';
-import MediaQuery, { Query } from '@app/src/ui/MediaQuery';
 import { RouteType } from '@app/src/lib/routing/RouteType';
 import { SystemLogo } from '@app/src/ui/system-logo';
 import BurgerButton from '@app/src/features/common/layout/organisms/Header/atoms/BurgerButton';
@@ -20,7 +18,6 @@ interface SystemHeaderProps {
 }
 
 export const SystemHeader = ({ white, fixed, show }: SystemHeaderProps) => {
-  const { route } = useRouter();
   const [menuOpened, setOpened] = useState(false);
   const { lock, unlock } = useScrollBodyLock();
 
@@ -45,7 +42,6 @@ export const SystemHeader = ({ white, fixed, show }: SystemHeaderProps) => {
           white && styles.white,
           fixed && styles.fixed,
           fixedStyles,
-          route === RouteType.landing && styles.landing,
         )}
       >
         <SystemLogo className={styles.logo} />

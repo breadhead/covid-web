@@ -4,14 +4,24 @@
   padding: 20px 16px;
   min-height: 150px;
   background-color: #fff;
-  border: 1px solid rgba(97, 102, 129, 0.04);
+  border: var(--border-card);
   margin-bottom: 24px;
   line-height: 28px;
 
   &:hover {
     box-shadow: 0 24px 40px 0 rgba(21, 24, 51, 0.16);
     transform: scale(1.02);
+    border: var(--border-card);
   }
+
+  &:active {
+    border: var(--border-card);
+  }
+
+  &:focus {
+    border: var(--border-card);
+  }
+
 
   @media (--smallDown) {
     min-width: 280px;

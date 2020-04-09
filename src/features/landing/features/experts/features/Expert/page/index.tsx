@@ -1,9 +1,10 @@
 import * as React from 'react';
+import cx from 'classnames';
 
-import { MainLayout } from '@app/src/features/common/layout';
 import { Expert as ExpertModel } from '@app/src/domain/models/common/Expert';
 import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
 import { NavLink } from '@app/src/ui/nav-link';
+import { SystemLayout } from '@app/src/features/system/layout';
 
 import * as styles from './ExpertPage.css';
 
@@ -13,8 +14,8 @@ interface Props {
 
 const ExpertPage = ({ expert }: Props) => {
   return (
-    <MainLayout className={styles.main}>
-      <div className={styles.container}>
+    <SystemLayout>
+      <div className={cx(styles.container, 'gl-wrapper gl-section')}>
         <NavLink className={styles.link} href="/ask/experts">
           Все эксперты
         </NavLink>
@@ -37,7 +38,7 @@ const ExpertPage = ({ expert }: Props) => {
           </div>
         </section>
       </div>
-    </MainLayout>
+    </SystemLayout>
   );
 };
 

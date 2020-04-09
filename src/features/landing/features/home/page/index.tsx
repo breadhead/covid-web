@@ -5,6 +5,7 @@ import Header from '@app/src/features/common/layout/organisms/Header';
 import { Divider } from '@app/src/ui/divider/Divider';
 import { SystemHeader } from '@app/src/features/system/layout/components/header';
 import { SystemFooter } from '@app/src/features/system/layout/components/footer';
+import { SystemLayout } from '@app/src/features/system/layout';
 
 import * as styles from './Home.css';
 import Corporate from '../organisms/Corporate';
@@ -23,30 +24,29 @@ const LandingPage = () => {
       <Head>
         <title>Просто спросить | COVID-19</title>
       </Head>
-      <SystemHeader />
-      <Header />
-      <Main />
-      <Divider />
-      <div className={styles.backgroundWrapper}>
-        <div className={styles.wrapper}>
-          <Steps />
-        </div>
+      <SystemLayout>
+        <Header />
+        <Main />
         <Divider />
-        <div className={styles.wrapper}>
-          <Corporate />
+        <div className={styles.backgroundWrapper}>
+          <div className={styles.wrapper}>
+            <Steps />
+          </div>
+          <Divider />
+          <div className={styles.wrapper}>
+            <Corporate />
+          </div>
+          <Divider />
+          <div className={styles.wrapper}>
+            <About />
+          </div>
+          <Divider />
+          <div className={styles.wrapper}>
+            <Experts />
+            <Donation />
+          </div>
         </div>
-        <Divider />
-        <div className={styles.wrapper}>
-          <About />
-        </div>
-        <Divider />
-        <div className={styles.wrapper}>
-          <Experts />
-          <Donation />
-        </div>
-      </div>
-      <SystemFooter />
-      {/* <Footer type={FooterType.Primary} theme={FooterTheme.Default} /> */}
+      </SystemLayout>
     </>
   );
 };
