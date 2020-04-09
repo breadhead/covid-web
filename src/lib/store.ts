@@ -53,6 +53,7 @@ import {
 } from '@app/src/domain/reducers/paymentWidgetReducer/';
 import * as tags from '@app/src/domain/reducers/tagsReducer';
 import * as news from '@app/src/domain/reducers/newsReducer';
+import * as articles from '@app/src/domain/reducers/articlesReducer';
 
 import ApiClient from './api/ApiClient';
 import factory from './api/apiFactory';
@@ -72,6 +73,7 @@ export interface State {
   paymentWidget: PaymentWidgetState;
   tags: tags.State;
   news: news.State;
+  articles: articles.State;
 }
 
 const reducer = combineReducers({
@@ -88,6 +90,7 @@ const reducer = combineReducers({
   paymentWidget: paymentWidgetReducer,
   tags: tags.reducer,
   news: news.reducer,
+  articles: articles.reducer,
 } as any);
 
 export interface ExtraArgs {
