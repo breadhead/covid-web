@@ -1,4 +1,5 @@
 import { SubmitTooltip } from '@front/features/common/form/components/SubmitTooltip';
+import { parse, isAfter } from 'date-fns';
 import { FormConstructor } from '@front/features/common/form/FormConstructor';
 import { formConfig } from './formConfig';
 import { ButtonSize, Button } from '@app/src/ui/button';
@@ -14,8 +15,8 @@ import s from './RegisterForm.css';
 interface RegisterFormProps {
   node: {
     webinarName: string
-    startDate: string
-    webinarLink: string
+    startDate?: string
+    webinarLink?: string
   }
 }
 
@@ -23,29 +24,38 @@ interface RegisterFormProps {
 export const RegisterForm = ({ node: { webinarName, startDate, webinarLink }}: RegisterFormProps) => {
   const dispatch = useThunk();
   const onSubmit = (data: any) => dispatch(saveWebinarRegistrationForm(data));
+  const webinarStarted = startDate && isAfter(new Date(), parse(startDate));
 
   return (
     <div className={s.wrapper}>
-      <FormConstructor
-        options={formConfig}
-        onSubmit={onSubmit}
-        saveDraft={console.log}
-        initialValues={{ webinarName }}
-      >
-        {(context) => (
-          <>
-          <SubmitTooltip context={context} />
-          <Button
-            disabled={context.submitting}
-            size={ButtonSize.ExtraLarge}
-            className={cx(commonStyles.button, commonStyles.largeButton)}
-            submit
-          >
-            Отправить
-          </Button>
-          </>
-        )}
-      </FormConstructor>
+      {!webinarStarted &&
+        <FormConstructor
+          options={formConfig}
+          onSubmit={onSubmit}
+          saveDraft={console.log}
+          initialValues={{webinarName}}
+        >
+          {(context) => (
+            <>
+            <SubmitTooltip context={context}/>
+            <Button
+              disabled={context.submitting}
+              size={ButtonSize.ExtraLarge}
+              className={cx(commonStyles.button, commonStyles.largeButton)}
+              submit
+            >
+              Отправить
+            </Button>
+            </>
+          )}
+        </FormConstructor>
+      }
+      {!!webinarStarted && !!webinarLink &&
+        <a href={webinarLink}>Вебинар уже начался</a>
+      }
+      {webinarStarted && !webinarLink &&
+        <div>Регистрация на вебинар закрыта</div>
+      }
     </div>
   );
 };
