@@ -1,0 +1,7 @@
+.wrapper {
+    background: #faf9f7;
+
+    @media (--smallDown) {
+        background: white;
+    }
+}

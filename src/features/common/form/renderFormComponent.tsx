@@ -73,7 +73,7 @@ const getFormComponent = (type: FormComponentType, props: any) => {
 };
 
 export const renderFormComponent = (
-  { type, required, label, props }: FormComponentOptions,
+  { type, required, label, props, hidden }: FormComponentOptions,
   key: any,
 ) => {
   if (required) {
@@ -81,7 +81,7 @@ export const renderFormComponent = (
   }
 
   return (
-    <div className={props.outerClassName} key={key}>
+    <div style={{ display: hidden ? 'none' : undefined }} className={props.outerClassName} key={key}>
       {label &&
         getFormComponent(FormComponentType.Label, {
           className: cx(styles.label),
