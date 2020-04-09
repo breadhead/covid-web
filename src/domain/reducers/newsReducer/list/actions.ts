@@ -8,6 +8,7 @@ import { newsListRequestBuilder } from '../helpers/newsListRequestBuilder';
 import { ALL_CATEGORIES } from '../../../models/common/NewsCategoryType';
 import { selectNews } from './selectNews';
 import { NewsFetchParams } from './config';
+import { selectTags } from '../../tagsReducer/selectTags';
 
 export const getNewsFromSanity = (params: NewsFetchParams) => async (
   dispatch: Dispatch<any>,
@@ -18,8 +19,8 @@ export const getNewsFromSanity = (params: NewsFetchParams) => async (
   const api = getApi(getState);
   try {
     dispatch(actions.request());
-
-    const query = newsListRequestBuilder(params);
+    const tags = selectTags(getState());
+    const query = newsListRequestBuilder(params, tags);
     console.log('query', query);
 
     const news = await api.getNews(query);

@@ -1,15 +1,17 @@
 import { isEmpty } from 'lodash';
 
-import {
-  NewsCategoryQueryType,
-  ALL_CATEGORIES,
-} from '@app/src/domain/models/common/NewsCategoryType';
+import { ALL_CATEGORIES } from '@app/src/domain/models/common/NewsCategoryType';
+import { TagType } from '@app/src/domain/models/common/Tag';
 
-import { PER_PAGE_NEWS, NewsFetchParams } from '../list/config';
+import { NewsFetchParams, PER_PAGE_NEWS } from '../list/config';
 
-export const newsListRequestBuilder = (params: NewsFetchParams) => {
+export const newsListRequestBuilder = (
+  params: NewsFetchParams,
+  tagValues: TagType[],
+) => {
   return `*[_type == 'news' &&  !(_id in path("drafts.**")) ${renderTags(
     params.tags,
+    tagValues,
   )} ${renderCategories(
     params.category,
   )}]  | order(_updatedAt desc) ${renderAmount(
@@ -17,11 +19,19 @@ export const newsListRequestBuilder = (params: NewsFetchParams) => {
   )} {..., 'tags': tags[]-> }`;
 };
 
-const renderTags = (tagIds: string[]) => {
-  console.log('renderTags -> tagIds', tagIds);
-  if (isEmpty(tagIds)) return '';
+const renderTags = (tagSlugs: string[], tagValues: TagType[]) => {
+  if (isEmpty(tagSlugs)) return '';
 
-  return ` && tags[]._ref in [${tagIds.join(', ')}]`;
+  const tagIds = tagSlugs
+    .map(
+      (slug) =>
+        tagValues.find((tagValue) => tagValue.code.current === slug)?._id,
+    )
+    .filter((it) => !!it)
+    .map((tagId) => `'${tagId}'`)
+    .join(', ');
+
+  return ` && tags[]._ref in [${tagIds}]`;
 };
 
 const renderCategories = (category: string) => {
