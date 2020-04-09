@@ -2,7 +2,7 @@ import React from 'react';
 
 import { TagType } from '@app/src/domain/models/common/Tag';
 import {
-  getCategoryText,
+  getNewsCategoryText,
   CategoryType,
 } from '@app/src/domain/models/common/NewsCategoryType';
 
@@ -28,7 +28,7 @@ export const CategoriesTags = ({
           highlighted
           key={category}
           href={`/news?category=${category}`}
-          text={getCategoryText(category)}
+          text={getNewsCategoryText(category)}
         />
       ))}
       {tags?.map((tag) => (

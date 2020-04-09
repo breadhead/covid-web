@@ -8,11 +8,11 @@ import { TagType } from './Tag';
 export interface NewsItem extends SanityBase {
   status: boolean;
   name: string;
-  showOnMain: boolean;
   sortIndex: number;
-  image?: Photo;
   code: { current: string };
+  image?: Photo;
   content?: Block[];
+  showOnMain?: boolean;
   categories?: CategoryType[];
   tags?: TagType[];
 }

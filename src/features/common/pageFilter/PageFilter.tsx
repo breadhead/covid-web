@@ -2,23 +2,28 @@ import { isEmpty } from 'lodash';
 import React from 'react';
 import { useRouter } from 'next/router';
 
-import {
-  ALL_CATEGORIES,
-  getCategoryText,
-} from '@app/src/domain/models/common/NewsCategoryType';
 import { TagType } from '@app/src/domain/models/common/Tag';
 import { getParamsFromQuery } from '@app/src/domain/reducers/newsReducer/list/query';
 import { Tag } from '@app/src/ui/tag';
+import { ALL_CATEGORIES } from '@app/src/domain/models/common/NewsCategoryType';
+import { CategoryTypes } from '@app/src/domain/models/common/CategoryTypes';
 
 import s from './PageFilter.css';
+import { getCategoryText } from './helpers/getCategoryText';
 
 interface PageFilterProps {
+  type: CategoryTypes;
   categories: string[];
   tags: TagType[];
   query: any;
 }
 
-export const PageFilter = ({ categories, query, tags }: PageFilterProps) => {
+export const PageFilter = ({
+  categories,
+  query,
+  tags,
+  type,
+}: PageFilterProps) => {
   const router = useRouter();
   const pathname = router.asPath.split('?')[0];
 
@@ -31,7 +36,7 @@ export const PageFilter = ({ categories, query, tags }: PageFilterProps) => {
           huge
           active={ALL_CATEGORIES === params.category}
           href={getCategoryLink(ALL_CATEGORIES, query, pathname)}
-          text={getCategoryText(ALL_CATEGORIES)}
+          text={getCategoryText(ALL_CATEGORIES, type)}
         />
         {categories.map((category) => (
           <Tag
@@ -39,7 +44,7 @@ export const PageFilter = ({ categories, query, tags }: PageFilterProps) => {
             active={category === params.category}
             key={category}
             href={getCategoryLink(category, query, pathname)}
-            text={getCategoryText(category)}
+            text={getCategoryText(category, type)}
           />
         ))}
       </div>
