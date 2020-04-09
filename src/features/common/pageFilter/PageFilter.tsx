@@ -56,9 +56,7 @@ export const PageFilter = ({ categories, query, tags }: PageFilterProps) => {
 };
 
 const getCategoryLink = (category: string, query: any) => {
-  const categoryValue = category === ALL_CATEGORIES ? '' : category;
-
-  return { pathname: `/news`, query: { ...query, category: categoryValue } };
+  return { pathname: `/news`, query: { ...query, category: category } };
 };
 
 const getTagLink = (tag: TagType, query: any) => {
