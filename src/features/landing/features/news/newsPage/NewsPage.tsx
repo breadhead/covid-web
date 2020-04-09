@@ -10,6 +10,8 @@ import { getParamsFromQuery } from '@app/src/domain/reducers/newsReducer/list/qu
 import { PageFilter } from '@app/src/features/common/pageFilter';
 import { CategoryType } from '@app/src/domain/models/common/NewsCategoryType';
 import { selectTags } from '@app/src/domain/reducers/tagsReducer/selectTags';
+import { Pagination } from '@app/src/features/common/pagination';
+import { PER_PAGE_NEWS } from '@app/src/domain/reducers/newsReducer/list/config';
 
 import s from './NewsPage.css';
 import { NewsCard } from '../newsCard';
@@ -35,6 +37,7 @@ export const NewsPage = ({ query }: Props) => {
             <NewsCard data={newsItem} key={newsItem._id}></NewsCard>
           ))}
         </div>
+        {/* <Pagination count={40} perPage={PER_PAGE_NEWS} /> */}
       </div>
     </SystemLayout>
   );

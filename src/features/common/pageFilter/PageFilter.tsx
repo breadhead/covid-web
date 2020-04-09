@@ -1,15 +1,13 @@
-import React from 'react';
-import qs from 'query-string';
 import { isEmpty } from 'lodash';
+import React from 'react';
 
-import { TagType } from '@app/src/domain/models/common/Tag';
-import { Tag } from '@app/src/ui/tag';
 import {
-  getCategoryText,
   ALL_CATEGORIES,
+  getCategoryText,
 } from '@app/src/domain/models/common/NewsCategoryType';
-import { pushRoute } from '@app/src/lib/routing/pushRoute';
+import { TagType } from '@app/src/domain/models/common/Tag';
 import { getParamsFromQuery } from '@app/src/domain/reducers/newsReducer/list/query';
+import { Tag } from '@app/src/ui/tag';
 
 import s from './PageFilter.css';
 
