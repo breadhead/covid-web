@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import BlockContent from '@sanity/block-content-to-react';
 import Head from 'next/head';
+import { useMappedState } from 'redux-react-hook';
 
 import { NewsItem } from '@app/src/domain/models/common/NewsItem';
 import { getSerializer } from '@app/src/features/common/getSerializer/getSerializer';
@@ -9,6 +10,8 @@ import { formatDateWithTime } from '@app/src/helpers/formatDate';
 import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
 import { ShareWidget } from '@app/src/features/common/shareWidget';
 import { getFromConfig } from '@app/src/helpers/getPublicRuntimeConfig';
+import { selectFeaturedNews } from '@app/src/domain/reducers/newsReducer/featured/selectFeaturedNews';
+import { NavLink } from '@app/src/ui/nav-link';
 
 import s from './NewsItemContent.css';
 import { CategoriesTags } from '../../../../../../../ui/categoriesTags';
@@ -23,14 +26,17 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
 
   const imageSrc = getImageSrc(newsItem.image);
   const shareUrl = getFromConfig('siteUrl') + '/news/' + newsItem.code.current;
+  const featuredNews = useMappedState(selectFeaturedNews);
+
   return (
     <div className={s.wrapperOuter}>
       <Head>
         <title>{newsItem.name}</title>
       </Head>
       <div className={s.header}>
-        <div className={s.type}>Врачам</div>
-
+        <NavLink withoutUnderline href="/news">
+          <div className={s.type}>Новости</div>
+        </NavLink>
         <div className={s.categoriesTags}>
           <CategoriesTags
             categories={newsItem.categories}
@@ -72,7 +78,10 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
           />
         </div>
 
-        <FeaturedNews className={s.featuredNews}></FeaturedNews>
+        <FeaturedNews
+          newsList={featuredNews}
+          className={s.featuredNews}
+        ></FeaturedNews>
       </div>
     </div>
   );

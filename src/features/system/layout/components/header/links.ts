@@ -28,7 +28,7 @@ export const contentLinks = [
     narrowText: 'Партнеры',
   },
   {
-    href: '/news?reports=true',
+    href: '/news?category=report',
     text: 'Отчёты',
     narrowText: 'Отчёты',
   },
