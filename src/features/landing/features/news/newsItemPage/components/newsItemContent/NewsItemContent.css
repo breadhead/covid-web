@@ -26,6 +26,8 @@
   display: flex;
   align-items: baseline;
   position: relative;
+  text-decoration: none;
+
   &::after {
     position: absolute;
     content: '';

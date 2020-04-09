@@ -4,6 +4,7 @@ import { FormRequestType } from '@app/src/domain/models/common/FormRequestType';
 import { User } from '@app/src/domain/models/common/User';
 import { TagType } from '@app/src/domain/models/common/Tag';
 import { NewsItem } from '@app/src/domain/models/common/NewsItem';
+import { ArticlesItem } from '@app/src/domain/models/common/ArticlesItem';
 
 export interface UploadedFile {
   path: string;
@@ -30,4 +31,6 @@ export default interface ApiClient {
   getTags(): Promise<TagType[]>;
   getNews(query: string): Promise<NewsItem[]>;
   getNewsItem(query: string): Promise<NewsItem[]>;
+  getArticles(query: string): Promise<ArticlesItem[]>;
+  getArticlesItem(query: string): Promise<ArticlesItem[]>;
 }

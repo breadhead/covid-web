@@ -14,7 +14,7 @@ export const newsListRequestBuilder = (
     tagValues,
   )} ${renderCategories(
     params.category,
-  )}]  | order(_updatedAt desc) ${renderAmount(
+  )}]  | order(_updatedAt desc) |  order(sortIndex desc)  ${renderAmount(
     params.page,
   )} {..., 'tags': tags[]-> }`;
 };
@@ -41,6 +41,8 @@ const renderCategories = (category: string) => {
 };
 
 const renderAmount = (page: number) => {
+  return '';
+
   const end = PER_PAGE_NEWS * page - 1;
   const start = end - PER_PAGE_NEWS + 1;
   return `[${start}..${end}]`;

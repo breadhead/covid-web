@@ -5,7 +5,7 @@ export const mainLinks = [
     narrowText: 'Справочная',
   },
   {
-    href: '/news',
+    href: '/for-doctors',
     text: 'Врачам',
     narrowText: 'Врачам',
   },
@@ -28,7 +28,7 @@ export const contentLinks = [
     narrowText: 'Партнеры',
   },
   {
-    href: '/news?reports=true',
+    href: '/news?category=report',
     text: 'Отчёты',
     narrowText: 'Отчёты',
   },

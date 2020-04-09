@@ -5,6 +5,12 @@
   &:last-of-type {
     border-bottom: 1px solid rgba(21, 24, 51, 0.12);
   }
+
+  &:hover {
+    & .title {
+      color: var(--color-primary);
+    }
+  }
 }
 
 .image {
@@ -33,6 +39,7 @@
 
   word-wrap: break-word;
   word-break: break-all;
+  transition: all 0.2s ease;
 }
 
 .tags {
