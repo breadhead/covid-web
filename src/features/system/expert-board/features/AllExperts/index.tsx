@@ -18,7 +18,7 @@ const AllExperts = () => {
         <title>Наблюдательный совет | Просто спросить</title>
       </Head>
       <h1 className={styles.title}>Наблюдательный совет</h1>
-      <ExpertsList experts={experts} />
+      <ExpertsList href="supervisory" experts={experts} />
     </SystemLayout>
   );
 };

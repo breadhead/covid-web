@@ -17,7 +17,7 @@ export const linksMobile = [
   { title: 'Справочная служба', href: '/ask' },
   { title: 'О проекте', href: '/ask/#about' },
   { title: 'Помощь больницам', href: '/for-hospitals' },
-  { title: 'Наблюдательный совет', href: '/experts' },
+  { title: 'Наблюдательный совет', href: '/supervisory' },
   { title: 'Врачам', href: '/for-doctors' },
   { title: 'Партнеры', href: '/partners' },
   { title: 'Отчеты', href: '/news?reports' },
