@@ -71,7 +71,5 @@ export const SerializerBlock = ({ props }: { props: any }) => {
     );
   }
 
-  return (
-    <span className={offsets['s-editor-text']}>{getText(props, type)}</span>
-  );
+  return <p className={offsets['s-editor-text']}>{getText(props, type)}</p>;
 };
