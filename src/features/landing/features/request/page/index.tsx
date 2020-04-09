@@ -3,6 +3,8 @@ import Head from 'next/head';
 
 import { AppContext } from '@app/src/lib/server-types';
 import { SystemLayout } from '@app/src/features/system/layout';
+import Header from '@app/src/features/common/header';
+import { AskHeader } from '@app/src/features/common/layout/organisms/Header';
 
 import * as styles from './Request.css';
 import { Notification } from '../molecules/Notification';
@@ -26,6 +28,7 @@ class RequstPage extends React.Component<Props> {
   public render() {
     return (
       <SystemLayout>
+        <AskHeader />
         <Head>
           <title>Новое обращение | Просто спросить</title>
         </Head>
