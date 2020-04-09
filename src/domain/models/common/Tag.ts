@@ -6,4 +6,6 @@ export interface TagType extends SanityBase {
   };
   sortIndex: number;
   status: boolean;
+  newsCount: number;
+  articlesCount: number;
 }
