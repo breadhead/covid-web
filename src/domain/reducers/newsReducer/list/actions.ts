@@ -23,7 +23,6 @@ export const getNewsFromSanity = (params: NewsFetchParams) => async (
     console.log('query', query);
 
     const news = await api.getNews(query);
-    console.log('news', news);
 
     return dispatch(actions.success(news, params));
   } catch (error) {

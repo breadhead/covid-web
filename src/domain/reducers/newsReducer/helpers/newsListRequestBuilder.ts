@@ -27,7 +27,7 @@ const renderTags = (tagIds: string[]) => {
 const renderCategories = (category: string) => {
   if (category === ALL_CATEGORIES) return '';
 
-  return ` && categories[] == ${category}`;
+  return ` && '${category}' in categories[]`;
 };
 
 const renderAmount = (page: number) => {

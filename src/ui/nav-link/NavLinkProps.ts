@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 export interface NavLinkProps {
-  href: string;
+  href: string | object;
   children: ReactNode;
   withoutUnderline?: boolean;
   as?: string;

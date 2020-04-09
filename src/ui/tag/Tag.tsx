@@ -7,17 +7,32 @@ import s from './Tag.css';
 import { uppercaseFirstLetter } from '../../helpers/uppercaseFirstLetter';
 
 interface TagProps {
-  href: string;
+  href: string | object;
   text: string;
   highlighted?: boolean;
   big?: boolean;
+  huge?: boolean;
+  active?: boolean;
 }
 
-export const Tag = ({ href, text, highlighted, big }: TagProps) => {
+export const Tag = ({
+  href,
+  text,
+  highlighted,
+  big,
+  huge,
+  active,
+}: TagProps) => {
   return (
     <NavLink
       withoutUnderline
-      className={cx(s.tag, big && s.big, highlighted && s.highlighted)}
+      className={cx(
+        s.tag,
+        big && s.big,
+        huge && s.huge,
+        highlighted && s.highlighted,
+        active && s.active,
+      )}
       href={href}
     >
       {uppercaseFirstLetter(text)}

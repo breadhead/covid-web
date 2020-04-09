@@ -7,6 +7,9 @@ import { getNewsFromSanity } from '@app/src/domain/reducers/newsReducer/list';
 import { SystemLayout } from '@app/src/features/system/layout';
 import { selectNews } from '@app/src/domain/reducers/newsReducer/list/selectNews';
 import { getParamsFromQuery } from '@app/src/domain/reducers/newsReducer/list/query';
+import { PageFilter } from '@app/src/features/common/pageFilter';
+import { CategoryType } from '@app/src/domain/models/common/NewsCategoryType';
+import { selectTags } from '@app/src/domain/reducers/tagsReducer/selectTags';
 
 import s from './NewsPage.css';
 import { NewsCard } from '../newsCard';
@@ -16,7 +19,8 @@ interface Props {
 
 export const NewsPage = ({ query }: Props) => {
   const news = useMappedState(selectNews(query));
-
+  const categories = Object.values(CategoryType);
+  const tags = useMappedState(selectTags);
   return (
     <SystemLayout>
       <Head>
@@ -25,7 +29,7 @@ export const NewsPage = ({ query }: Props) => {
 
       <div className="gl-wrapper gl-section">
         <h1 className="gl-pageTitle">Новости</h1>
-
+        <PageFilter tags={tags} categories={categories} query={query} />
         <div>
           {news.map((newsItem) => (
             <NewsCard data={newsItem} key={newsItem._id}></NewsCard>

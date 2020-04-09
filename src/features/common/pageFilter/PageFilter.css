@@ -1,0 +1,10 @@
+.categories {
+  margin-bottom: 24px;
+  @media (--smallDown) {
+    margin-bottom: 20px;
+  }
+}
+
+.wrapper {
+  margin-bottom: 24px;
+}
