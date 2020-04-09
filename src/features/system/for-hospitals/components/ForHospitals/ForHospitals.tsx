@@ -1,8 +1,12 @@
 import * as React from 'react';
 import cx from 'classnames';
 import Head from 'next/head';
+import { useMappedState } from 'redux-react-hook';
 
 import { Divider } from '@app/src/ui/divider/Divider';
+import { FeaturedNews } from '@app/src/features/landing/features/news/featuredNews';
+import { selectHospitalNews } from '@app/src/domain/reducers/newsReducer/hospitalsList/selectHospitalNews';
+import { getNewsForHospitals } from '@app/src/domain/reducers/newsReducer/hospitalsList';
 
 import { SystemLayout } from '../../../layout';
 import { Helping } from '../Helping/Helping';
@@ -15,6 +19,8 @@ import { ForHospitalsHero } from '../Hero/Hero';
 interface ForHospitalsProps {}
 
 export const ForHospitalsPage = ({}: ForHospitalsProps) => {
+  const newsList = useMappedState(selectHospitalNews);
+
   return (
     <SystemLayout>
       <Head>
@@ -36,6 +42,16 @@ export const ForHospitalsPage = ({}: ForHospitalsProps) => {
       <div className="gl-wrapper gl-section">
         <SystemHelp />
       </div>
+      <div className="gl-wrapper gl-section-inner">
+        <FeaturedNews newsList={newsList} title="Новости и отчеты" />
+      </div>
     </SystemLayout>
   );
+};
+
+ForHospitalsPage.getInitialProps = async (ctx) => {
+  const dispatch = ctx.reduxStore.dispatch;
+  await dispatch(getNewsForHospitals() as any);
+
+  return {};
 };
