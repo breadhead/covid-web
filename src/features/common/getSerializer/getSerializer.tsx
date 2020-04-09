@@ -50,7 +50,7 @@ export const getSerializer = ({ types, marks }: SerializerProps) => {
         return <SmallText props={props} />;
       },
       registerForm: (props: any) => {
-        return <RegisterForm props={props} />
+        return <RegisterForm {...props} />
       },
     },
     list: (props: any) => {
