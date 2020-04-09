@@ -6,9 +6,9 @@ import { getArticlesItemFromSanity } from '@app/src/domain/reducers/articlesRedu
 import { selectArticlesItem } from '@app/src/domain/reducers/articlesReducer/item/selectArticlesItem';
 import { SystemLayout } from '@app/src/features/system/layout';
 
-import { ArticlesItemContent } from './components/articlesItemContent';
+import { ArticlesItemContent } from './components/articles-item-content';
 
-export const ArticlesItemPage = () => {
+export const ForDoctorsArticlePage = () => {
   const articlesItem = useMappedState(selectArticlesItem);
 
   if (!articlesItem)
@@ -24,7 +24,7 @@ export const ArticlesItemPage = () => {
   );
 };
 
-ArticlesItemPage.getInitialProps = async (ctx) => {
+ForDoctorsArticlePage.getInitialProps = async (ctx) => {
   await (ctx.reduxStore as Store).dispatch(
     getArticlesItemFromSanity(ctx.query.id) as any,
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import BlockContent from '@sanity/block-content-to-react';
 import Head from 'next/head';
+import { useMappedState } from 'redux-react-hook';
 
 import { ArticlesItem } from '@app/src/domain/models/common/ArticlesItem';
 import { getSerializer } from '@app/src/features/common/getSerializer/getSerializer';
@@ -10,9 +11,11 @@ import { getFromConfig } from '@app/src/helpers/getPublicRuntimeConfig';
 import { NavLink } from '@app/src/ui/nav-link';
 import { ShareWidget } from '@app/src/features/common/shareWidget';
 import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
+import { CategoriesTags } from '@app/src/ui/categoriesTags';
+import { selectFeaturedArticles } from '@app/src/domain/reducers/articlesReducer/featured/selectFeaturedArticles';
 
 import s from './ArticlesItemContent.css';
-import { CategoriesTags } from '../../../../../../../ui/categoriesTags';
+
 // import { FeaturedArticles } from '../../../../articles/featuredArticles';
 
 interface ArticlesItemContentProps {
@@ -23,12 +26,12 @@ export const ArticlesItemContent = ({
   articlesItem,
 }: ArticlesItemContentProps) => {
   const serializers = getSerializer({});
-  console.log('articlesItem:', articlesItem);
+
   const imageSrc = getImageSrc(articlesItem.image);
   const shareUrl =
     getFromConfig('siteUrl') + '/for-doctors/' + articlesItem.code.current;
-  // const featuredArticles = useMappedState(selectFeaturedArticles);
-
+  const featuredArticles = useMappedState(selectFeaturedArticles);
+  console.log('featuredArticles:', featuredArticles);
   return (
     <div className={s.wrapperOuter}>
       <Head>
