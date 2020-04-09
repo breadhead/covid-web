@@ -11,6 +11,7 @@ import {
 } from '@app/src/domain/reducers/tagsReducer/selectTags';
 import { CategoryTypes } from '@app/src/domain/models/common/CategoryTypes';
 import { selectArticles } from '@app/src/domain/reducers/articlesReducer/list/selectArticles';
+import { getResourcesFromSanity } from '@app/src/domain/reducers/resourcesReducer';
 
 import { SystemLayout } from '../layout';
 import { PageFilter } from '../../common/pageFilter';
@@ -48,9 +49,10 @@ export const ForDoctorsPage = ({ query }: Props) => {
 ForDoctorsPage.getInitialProps = async (ctx) => {
   const params = getParamsFromQuery(ctx.query);
 
-  await (ctx.reduxStore as Store).dispatch(
-    getArticlesFromSanity(params) as any,
-  );
+  await await Promise.all([
+    (ctx.reduxStore as Store).dispatch(getArticlesFromSanity(params) as any),
+    (ctx.reduxStore as Store).dispatch(getResourcesFromSanity() as any),
+  ]);
 
   return { query: ctx.query };
 };

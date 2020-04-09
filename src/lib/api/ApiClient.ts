@@ -33,4 +33,5 @@ export default interface ApiClient {
   getNewsItem(query: string): Promise<NewsItem[]>;
   getArticles(query: string): Promise<ArticlesItem[]>;
   getArticlesItem(query: string): Promise<ArticlesItem[]>;
+  getResources(): Promise<any>;
 }

@@ -172,4 +172,11 @@ export default class RealApiClient implements ApiClient {
     return sanityClient.fetch(query, { active: true });
     // return this.apiProxyInstance.get(query).then((res) => res.data);
   };
+
+  public getResources = () => {
+    return sanityClient.fetch(
+      `*[_type == "resource" &&  !(_id in path("drafts.**"))]`,
+      { active: true },
+    );
+  };
 }
