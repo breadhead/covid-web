@@ -14,7 +14,7 @@ export const newsListRequestBuilder = (
     tagValues,
   )} ${renderCategories(
     params.category,
-  )}]  | order(_updatedAt desc) ${renderAmount(
+  )}]  | order(_updatedAt desc) |  order(sortIndex desc)  ${renderAmount(
     params.page,
   )} {..., 'tags': tags[]-> }`;
 };

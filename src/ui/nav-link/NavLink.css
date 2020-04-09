@@ -2,7 +2,6 @@
   font: var(--text16-24);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  white-space: nowrap;
 
   &:focus {
     text-decoration: none;

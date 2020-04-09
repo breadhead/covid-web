@@ -1,10 +1,13 @@
 import * as React from 'react';
 import Head from 'next/head';
+import { useMappedState } from 'redux-react-hook';
 
 import { AppContext } from '@app/src/lib/server-types';
 import { getPartnersFromSanity } from '@app/src/domain/reducers/partnerReducer';
 import PartnersList from '@app/src/features/landing/features/home/organisms/Corporate/components/Partners/components/PartnersList';
 import { HelpPartnersType } from '@app/src/domain/models/common/PartnerTypes';
+import { getMainPageListFromSanity } from '@app/src/domain/reducers/newsReducer/mainPageList';
+import { selectMainPageNews } from '@app/src/domain/reducers/newsReducer/mainPageList/selectMainPageNews';
 
 import { PageType } from '@front/features/landing/features/partners/organisms/PartnersList/config';
 
@@ -13,8 +16,10 @@ import { SystemHero } from './components/hero';
 import { SystemHelp } from './components/help';
 import { SystemAbout } from './components/about';
 import { SystemDonation } from './components/donation';
+import { FeaturedNews } from '../../landing/features/news/featuredNews';
 
 export const SystemMain = () => {
+  const mainPageNews = useMappedState(selectMainPageNews);
   return (
     <SystemLayout>
       <Head>
@@ -34,12 +39,20 @@ export const SystemMain = () => {
         />
       </div>
       <SystemDonation />
+      <div className="gl-wrapper gl-section">
+        <FeaturedNews title="Новости и отчеты" newsList={mainPageNews} />
+      </div>
     </SystemLayout>
   );
 };
 
 SystemMain.getInitialProps = async (context: AppContext) => {
-  await context.reduxStore.dispatch(getPartnersFromSanity() as any);
+  const dispatch = context.reduxStore.dispatch;
+
+  await Promise.all[
+    (dispatch(getPartnersFromSanity() as any),
+    dispatch(getMainPageListFromSanity() as any))
+  ];
 
   return {};
 };
