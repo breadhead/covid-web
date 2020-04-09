@@ -114,7 +114,7 @@ export default class RealApiClient implements ApiClient {
   public getPartners = () => {
     return sanityClient.fetch(
       `*[_type == "partner" &&  !(_id in path("drafts.**"))]`,
-      { actve: true },
+      { active: true },
     );
     // return this.apiProxyInstance
     //   .get(`*[_type == "partner" &&  !(_id in path("drafts.**"))]`)
@@ -124,7 +124,7 @@ export default class RealApiClient implements ApiClient {
   public getExperts = () => {
     return sanityClient.fetch(
       `*[_type == "expert" &&  !(_id in path("drafts.**"))]`,
-      { actve: true },
+      { active: true },
     );
     // return this.apiProxyInstance
     //   .get(`*[_type == "expert" &&  !(_id in path("drafts.**"))]`)
@@ -134,7 +134,7 @@ export default class RealApiClient implements ApiClient {
   public getExpertBoard = () => {
     return sanityClient.fetch(
       `*[_type == "expertBoard" &&  !(_id in path("drafts.**"))]`,
-      { actve: true },
+      { active: true },
     );
     // return this.apiProxyInstance
     //   .get(`*[_type == "expertBoard" &&  !(_id in path("drafts.**"))]`)
@@ -144,7 +144,7 @@ export default class RealApiClient implements ApiClient {
   public getTags = () => {
     return sanityClient.fetch(
       `*[_type == "tag" &&  !(_id in path("drafts.**"))]`,
-      { actve: true },
+      { active: true },
     );
 
     // return this.apiProxyInstance
@@ -152,11 +152,11 @@ export default class RealApiClient implements ApiClient {
     //   .then((res) => res.data);
   };
   public getNews = (query: string) => {
-    return sanityClient.fetch(query, { actve: true });
+    return sanityClient.fetch(query, { active: true });
     // return this.apiProxyInstance.get(query).then((res) => res.data);
   };
   public getNewsItem = (query: string) => {
-    return sanityClient.fetch(query, { actve: true });
+    return sanityClient.fetch(query, { active: true });
     // return this.apiProxyInstance.get(query).then((res) => res.data);
   };
 }

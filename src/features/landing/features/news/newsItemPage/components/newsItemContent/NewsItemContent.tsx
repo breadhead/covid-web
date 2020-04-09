@@ -11,6 +11,7 @@ import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
 import { ShareWidget } from '@app/src/features/common/shareWidget';
 import { getFromConfig } from '@app/src/helpers/getPublicRuntimeConfig';
 import { selectFeaturedNews } from '@app/src/domain/reducers/newsReducer/featured/selectFeaturedNews';
+import { NavLink } from '@app/src/ui/nav-link';
 
 import s from './NewsItemContent.css';
 import { CategoriesTags } from '../../../../../../../ui/categoriesTags';
@@ -33,8 +34,9 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
         <title>{newsItem.name}</title>
       </Head>
       <div className={s.header}>
-        <div className={s.type}>Врачам</div>
-
+        <NavLink withoutUnderline href="/news">
+          <div className={s.type}>Новости</div>
+        </NavLink>
         <div className={s.categoriesTags}>
           <CategoriesTags
             categories={newsItem.categories}
