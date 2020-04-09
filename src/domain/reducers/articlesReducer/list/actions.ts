@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 import { needToFetch } from '@app/src/helpers/needToFetch';
 import { ExtraArgs, State } from '@app/src/lib/store';
 
-import { selectTags } from '../../tagsReducer/selectTags';
+import { selectAllTags } from '../../tagsReducer/selectTags';
 import { articlesListRequestBuilder } from '../helpers/articlesListRequestBuilder';
 import { ArticlesFetchParams } from './config';
 import { actions } from './reducer';
@@ -18,7 +18,7 @@ export const getArticlesFromSanity = (params: ArticlesFetchParams) => async (
     const api = getApi(getState);
     try {
       dispatch(actions.request());
-      const tags = selectTags(getState());
+      const tags = selectAllTags(getState());
       const query = articlesListRequestBuilder(params, tags);
 
       const articles = await api.getArticles(query);

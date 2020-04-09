@@ -5,7 +5,10 @@ import { CategoryType } from '@app/src/domain/models/common/ArticlesCategoryType
 import { getParamsFromQuery } from '@app/src/domain/reducers/articlesReducer/list/query';
 import { getArticlesFromSanity } from '@app/src/domain/reducers/articlesReducer/list';
 import { Store } from '@app/src/lib/store';
-import { selectTags } from '@app/src/domain/reducers/tagsReducer/selectTags';
+import {
+  selectTags,
+  TagsType,
+} from '@app/src/domain/reducers/tagsReducer/selectTags';
 import { CategoryTypes } from '@app/src/domain/models/common/CategoryTypes';
 import { selectArticles } from '@app/src/domain/reducers/articlesReducer/list/selectArticles';
 
@@ -19,7 +22,7 @@ interface Props {
 
 export const ForDoctorsPage = ({ query }: Props) => {
   const categories = Object.values(CategoryType);
-  const tags = useMappedState(selectTags);
+  const tags = useMappedState(selectTags(TagsType.Articles));
   const articles = useMappedState(selectArticles(query));
 
   return (
