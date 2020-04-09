@@ -28,7 +28,10 @@ export const LinksList = ({
           key={link.href}
           withoutUnderline
           href={link.href}
-          className={cx(linkClassName, asPath === link.href && styles.active)}
+          className={cx(
+            linkClassName,
+            asPath.includes(link.href) && styles.active,
+          )}
         >
           <span className={styles.textWide}>{link.text}</span>
           <span className={styles.textNarrow}>{link.narrowText}</span>
