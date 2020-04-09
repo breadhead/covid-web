@@ -6,7 +6,7 @@ import { NavLink } from '@app/src/ui/nav-link';
 
 import s from './NewsCard.css';
 import { formatDate } from '../../../../../helpers/formatDate';
-import { CategoriesTags } from '../categoriesTags';
+import { CategoriesTags } from '../../../../../ui/categoriesTags';
 
 interface NewsCardProps {
   data: NewsItem;

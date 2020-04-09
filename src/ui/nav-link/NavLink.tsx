@@ -18,7 +18,8 @@ export const NavLink = ({
   if (blank) {
     return (
       <a
-        href={href}
+        href="/"
+        // href={href}
         className={cx(
           styles.navlink,
           styles[getLinkStyle(withoutUnderline)],

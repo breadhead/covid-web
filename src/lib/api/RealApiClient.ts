@@ -112,27 +112,44 @@ export default class RealApiClient implements ApiClient {
       .then((res) => res.data as any);
 
   public getPartners = () => {
-    return this.apiProxyInstance
-      .get(`*[_type == "partner" &&  !(_id in path("drafts.**"))]`)
-      .then((res) => res.data);
+    return sanityClient.fetch(
+      `*[_type == "partner" &&  !(_id in path("drafts.**"))]`,
+      { actve: true },
+    );
+    // return this.apiProxyInstance
+    //   .get(`*[_type == "partner" &&  !(_id in path("drafts.**"))]`)
+    //   .then((res) => res.data);
   };
 
   public getExperts = () => {
-    return this.apiProxyInstance
-      .get(`*[_type == "expert" &&  !(_id in path("drafts.**"))]`)
-      .then((res) => res.data);
+    return sanityClient.fetch(
+      `*[_type == "expert" &&  !(_id in path("drafts.**"))]`,
+      { actve: true },
+    );
+    // return this.apiProxyInstance
+    //   .get(`*[_type == "expert" &&  !(_id in path("drafts.**"))]`)
+    //   .then((res) => res.data);
   };
 
   public getExpertBoard = () => {
-    return this.apiProxyInstance
-      .get(`*[_type == "expertBoard" &&  !(_id in path("drafts.**"))]`)
-      .then((res) => res.data);
+    return sanityClient.fetch(
+      `*[_type == "expertBoard" &&  !(_id in path("drafts.**"))]`,
+      { actve: true },
+    );
+    // return this.apiProxyInstance
+    //   .get(`*[_type == "expertBoard" &&  !(_id in path("drafts.**"))]`)
+    //   .then((res) => res.data);
   };
 
   public getTags = () => {
-    return this.apiProxyInstance
-      .get(`*[_type == "tag" &&  !(_id in path("drafts.**"))]`)
-      .then((res) => res.data);
+    return sanityClient.fetch(
+      `*[_type == "tag" &&  !(_id in path("drafts.**"))]`,
+      { actve: true },
+    );
+
+    // return this.apiProxyInstance
+    //   .get(`*[_type == "tag" &&  !(_id in path("drafts.**"))]`)
+    //   .then((res) => res.data);
   };
   public getNews = (query: string) => {
     return sanityClient.fetch(query, { actve: true });

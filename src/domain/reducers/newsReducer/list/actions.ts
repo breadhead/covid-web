@@ -1,26 +1,31 @@
 import { Dispatch } from 'redux';
 
+import { needToFetch } from '@app/src/helpers/needToFetch';
 import { ExtraArgs, State } from '@app/src/lib/store';
 
-import { actions } from './reducer';
+import { selectTags } from '../../tagsReducer/selectTags';
 import { newsListRequestBuilder } from '../helpers/newsListRequestBuilder';
-import { ALL_CATEGORIES } from '../../../models/common/NewsCategoryType';
+import { NewsFetchParams } from './config';
+import { actions } from './reducer';
+import { selectNewsWithParams } from './selectNews';
 
-export const getNewsFromSanity = () => async (
+export const getNewsFromSanity = (params: NewsFetchParams) => async (
   dispatch: Dispatch<any>,
   getState: () => State,
   { getApi }: ExtraArgs,
 ) => {
-  const api = getApi(getState);
-  try {
-    dispatch(actions.request());
-    // TODO: pass query from above
-    const query = newsListRequestBuilder(ALL_CATEGORIES, []);
+  if (needToFetch(selectNewsWithParams(params)(getState()))) {
+    const api = getApi(getState);
+    try {
+      dispatch(actions.request());
+      const tags = selectTags(getState());
+      const query = newsListRequestBuilder(params, tags);
 
-    const news = await api.getNews(query);
+      const news = await api.getNews(query);
 
-    return dispatch(actions.success(news));
-  } catch (error) {
-    return dispatch(actions.error(error.message));
+      return dispatch(actions.success(news, params));
+    } catch (error) {
+      return dispatch(actions.error(error.message));
+    }
   }
 };

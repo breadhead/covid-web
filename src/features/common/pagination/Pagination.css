@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+}
+
+.paginationButton {
+  flex-shrink: 0;
+  text-decoration: none;
+  align-items: center;
+  cursor: pointer;
+  background: transparent;
+  padding: 0;
+  border: none;
+
+  min-width: 48px;
+  height: 48px;
+  padding: 12px 14px;
+  color: #151833;
+  outline: 1px solid #e3e3f0;
+}
+
+.active {
+  background: #616681;
+  color: #ffffff;
+  outline: 1px solid #616681;
+}
