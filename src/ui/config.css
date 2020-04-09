@@ -38,6 +38,8 @@ body {
 
   --title-extra: 64px/72px var(--fontFamily-title);
   --title-system: 40px/48px var(--fontFamily-title);
+  --title-system-medium: 20px/24px var(--fontFamily-title);
+
   --title-regular: 40px/48px var(--fontFamily-title);
   --title-regular-editor: 48px/56px var(--fontFamily-title);
   --title-medium: 32px/40px var(--fontFamily-title);

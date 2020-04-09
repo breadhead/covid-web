@@ -14,4 +14,5 @@ export interface ArticlesItem extends SanityBase {
   content?: Block[];
   categories?: CategoryType[];
   image?: Photo;
+  pin?: boolean;
 }

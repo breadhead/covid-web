@@ -23,6 +23,7 @@ import * as styles from './ForDoctorsPage.css';
 import { ResourcesDesktop } from './components/resources-desktop';
 import PartnersList from '../../landing/features/home/organisms/Corporate/components/Partners/components/PartnersList';
 import { PageType } from '../../landing/features/partners/organisms/PartnersList/config';
+import { ArticleCards } from './components/article-card/ArticleCards';
 interface Props {
   query: any;
 }
@@ -32,7 +33,7 @@ export const ForDoctorsPage = ({ query }: Props) => {
   const tags = useMappedState(selectTags(TagsType.Articles));
   const articles = useMappedState(selectArticles(query));
   const resources = useMappedState(selectResources());
-
+  // const pinnedArticles = articles.filter((art) => !!art.pin);
   return (
     <>
       <Head>
@@ -43,6 +44,7 @@ export const ForDoctorsPage = ({ query }: Props) => {
           <div className={cx(styles.wrapper)}>
             <section className={cx(styles.main, 'gl-wrapper')}>
               <h1 className="gl-pageTitle">Врачам</h1>
+              <ArticleCards cards={articles} />
               <PageFilter
                 type={CategoryTypes.Articles}
                 tags={tags}
