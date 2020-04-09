@@ -1,5 +1,6 @@
 import { isEmpty } from 'lodash';
 import React from 'react';
+import { useRouter } from 'next/router';
 
 import {
   ALL_CATEGORIES,
@@ -18,6 +19,9 @@ interface PageFilterProps {
 }
 
 export const PageFilter = ({ categories, query, tags }: PageFilterProps) => {
+  const router = useRouter();
+  const pathname = router.asPath.split('?')[0];
+
   const params = getParamsFromQuery(query);
 
   return (
@@ -26,7 +30,7 @@ export const PageFilter = ({ categories, query, tags }: PageFilterProps) => {
         <Tag
           huge
           active={ALL_CATEGORIES === params.category}
-          href={getCategoryLink(ALL_CATEGORIES, query)}
+          href={getCategoryLink(ALL_CATEGORIES, query, pathname)}
           text={getCategoryText(ALL_CATEGORIES)}
         />
         {categories.map((category) => (
@@ -34,7 +38,7 @@ export const PageFilter = ({ categories, query, tags }: PageFilterProps) => {
             huge
             active={category === params.category}
             key={category}
-            href={getCategoryLink(category, query)}
+            href={getCategoryLink(category, query, pathname)}
             text={getCategoryText(category)}
           />
         ))}
@@ -46,7 +50,7 @@ export const PageFilter = ({ categories, query, tags }: PageFilterProps) => {
             active={params.tags.includes(tag.code.current)}
             big
             key={tag.code.current}
-            href={getTagLink(tag, query)}
+            href={getTagLink(tag, query, pathname)}
             text={tag.name}
           />
         ))}
@@ -55,13 +59,13 @@ export const PageFilter = ({ categories, query, tags }: PageFilterProps) => {
   );
 };
 
-const getCategoryLink = (category: string, query: any) => {
-  return { pathname: `/news`, query: { ...query, category: category } };
+const getCategoryLink = (category: string, query: any, pathname: string) => {
+  return { pathname, query: { ...query, category: category } };
 };
 
-const getTagLink = (tag: TagType, query: any) => {
+const getTagLink = (tag: TagType, query: any, pathname: string) => {
   const newQuery = addOrRemoveTag(tag, query);
-  return { pathname: `/news`, query: newQuery };
+  return { pathname, query: newQuery };
 };
 
 const addOrRemoveTag = (tag: TagType, query: any) => {
