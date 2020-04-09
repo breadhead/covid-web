@@ -1,21 +1,22 @@
-import React from 'react';
 import Head from 'next/head';
+import React from 'react';
 import { useMappedState } from 'redux-react-hook';
 
-import { Store } from '@app/src/lib/store';
 import { getNewsFromSanity } from '@app/src/domain/reducers/newsReducer/list';
-import { SystemLayout } from '@app/src/features/system/layout';
-import { selectNews } from '@app/src/domain/reducers/newsReducer/list/selectNews';
 import { getParamsFromQuery } from '@app/src/domain/reducers/newsReducer/list/query';
+import { selectNews } from '@app/src/domain/reducers/newsReducer/list/selectNews';
+import {
+  selectTags,
+  TagsType,
+} from '@app/src/domain/reducers/tagsReducer/selectTags';
 import { PageFilter } from '@app/src/features/common/pageFilter';
-import { CategoryType } from '@app/src/domain/models/common/NewsCategoryType';
-import { selectTags } from '@app/src/domain/reducers/tagsReducer/selectTags';
-import { Pagination } from '@app/src/features/common/pagination';
-import { PER_PAGE_NEWS } from '@app/src/domain/reducers/newsReducer/list/config';
 import { CategoryTypes } from '@app/src/domain/models/common/CategoryTypes';
+import { SystemLayout } from '@app/src/features/system/layout';
+import { Store } from '@app/src/lib/store';
+import { CategoryType } from '@app/src/domain/models/common/NewsCategoryType';
 
-import s from './NewsPage.css';
 import { NewsCard } from '../newsCard';
+
 interface Props {
   query: any;
 }
@@ -24,7 +25,7 @@ export const NewsPage = ({ query }: Props) => {
   const news = useMappedState(selectNews(query));
 
   const categories = Object.values(CategoryType);
-  const tags = useMappedState(selectTags);
+  const tags = useMappedState(selectTags(TagsType.News));
   return (
     <SystemLayout>
       <Head>
