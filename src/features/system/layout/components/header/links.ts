@@ -5,7 +5,7 @@ export const mainLinks = [
     narrowText: 'Справочная',
   },
   {
-    href: '/news',
+    href: '/for-doctors',
     text: 'Врачам',
     narrowText: 'Врачам',
   },

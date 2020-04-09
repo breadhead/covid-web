@@ -1,1 +1,0 @@
-export { SystemDoctors } from './Doctors';
