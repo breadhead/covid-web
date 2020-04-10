@@ -14,12 +14,14 @@ interface Props {
   link?: string;
   title?: string;
   className?: string;
+  blank?: boolean;
 }
 
 const PartnersList = ({
   pageType,
   title,
   link = '/contacts',
+  blank = false,
   className,
 }: Props) => {
   const partners = useMappedState(selectPartners).filter((partner) => {
@@ -35,6 +37,7 @@ const PartnersList = ({
         ))}
         <div className={styles.buttonWrapper}>
           <NavLink
+            blank={blank}
             className={styles.buttonContainer}
             href={link}
             withoutUnderline

@@ -71,6 +71,8 @@ export const ForDoctorsPage = ({ query }: Props) => {
               <ResourcesMobile resources={resources} />
               <Divider className={styles.dividerMobile} />
               <PartnersList
+                blank
+                link="/help-partners?type=become-partner"
                 className="gl-section"
                 title="Партнёры раздела"
                 pageType={PageType.Doctors}

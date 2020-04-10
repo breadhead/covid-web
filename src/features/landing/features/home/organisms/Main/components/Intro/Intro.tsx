@@ -50,26 +50,20 @@ export const Intro = () => (
         />
       </NavLink>
 
-      <div className={styles.withHint}>
-        <span className={styles.hint}>скоро</span>
-
-        <div
-          className={cx(
-            styles.buttonContainer,
-            styles.buttonContainerHighlight,
-            styles.disable,
-          )}
-        >
-          <span className={cx(styles.buttonTextSmall)}>
-            Я врач. Где найти самые{NON_BREAKING_SPACE}актуальные инструкции?
-          </span>
-          <img
-            className={cx(styles.image, styles.imageSmall)}
-            src="/static/images/landing/doc.png"
-            srcSet="/static/images/landing/doc2x.png 2x"
-          />
-        </div>
-      </div>
+      <NavLink
+        withoutUnderline
+        href="/for-doctors"
+        className={cx(styles.buttonContainer, styles.buttonContainerHighlight)}
+      >
+        <span className={cx(styles.buttonTextSmall)}>
+          Я врач. Где найти самые{NON_BREAKING_SPACE}актуальные инструкции?
+        </span>
+        <img
+          className={cx(styles.image, styles.imageSmall)}
+          src="/static/images/landing/doc.png"
+          srcSet="/static/images/landing/doc2x.png 2x"
+        />
+      </NavLink>
 
       <div className={styles.withHint}>
         <span className={styles.hint}>готовим</span>

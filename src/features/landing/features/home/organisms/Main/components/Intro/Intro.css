@@ -192,8 +192,27 @@
 
 .buttonContainerHighlight {
   grid-row: 1;
-
+  transform: scale(1);
+  border: var(--border-card) !important;
   background: linear-gradient(0deg, #ffc751, #ffe094 100%);
+
+  &:hover {
+    transform: scale(1.02);
+    border: var(--border-card) !important;
+
+
+    &::before {
+      box-shadow: 0 24px 40px 0 rgba(21, 24, 51, 0.16);
+    }
+  }
+
+  &:active {
+    border: var(--border-card) !important;
+  }
+
+  &:focus {
+    border: var(--border-card) !important;
+  }
 }
 
 .image {

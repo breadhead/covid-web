@@ -10,7 +10,11 @@ export const Partners = ({}: PartnersProps) => {
   return (
     <div>
       <h2 className="gl-sectionTitle">Партнёры</h2>
-      <PartnersList pageType={PageType.Hospitals} />
+      <PartnersList
+        blank
+        link="/help-partners?type=become-partner"
+        pageType={PageType.Hospitals}
+      />
     </div>
   );
 };
