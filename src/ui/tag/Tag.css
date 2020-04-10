@@ -9,6 +9,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   border: none !important;
+  white-space: nowrap;
 
   &:hover {
     color: var(--text-color-primary);

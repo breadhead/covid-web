@@ -12,7 +12,11 @@ interface ArticleCardProps {
 
 export const ArticleCard = ({ article }: ArticleCardProps) => {
   return (
-    <NavLink href={`/${article.code}`} withoutUnderline className={styles.card}>
+    <NavLink
+      href={`/for-doctors/${article.code.current}`}
+      withoutUnderline
+      className={styles.card}
+    >
       <div className={styles.textWrapper}>
         <span className={styles.date}>дата</span>
         <h4 className={styles.title}>{article.name}</h4>
@@ -22,7 +26,7 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
           {article.tags?.map((tag) => (
             <Tag
               key={tag._id}
-              href={`/for-doctors?category=${tag.code}`}
+              href={`/for-doctors?category=${tag?.code?.current}`}
               text={tag.name}
             />
           ))}
