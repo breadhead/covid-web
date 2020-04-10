@@ -33,11 +33,7 @@ const FeedbackForm = ({ onFormSubmit, claimNumber }: Props) => {
   return (
     <article id="feedback-form" className={styles.FeedbackFormWrapper}>
       <h2 className={styles.title}>Обратная связь</h2>
-      <Form
-        initialValues={initial}
-        onSubmit={onFormSubmit as any}
-        resetAfterSubmit
-      >
+      <Form initialValues={initial} onSubmit={onFormSubmit as any}>
         {() => (
           <>
             <Input
