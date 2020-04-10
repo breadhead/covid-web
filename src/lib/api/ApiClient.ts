@@ -25,6 +25,7 @@ export default interface ApiClient {
   searchClinic(query: string): Promise<string[]>;
   searchClinicByRegion(region: string, name: string): Promise<string[]>;
   saveCoronaRequestForm(data: any, type: FormRequestType): Promise<any>;
+  savePartnerRequestForm(data: any, type: FormRequestType): Promise<any>;
   updateCoronaRequestForm(data: any): Promise<any>;
   getPartners(): Promise<Partner[]>;
   getExperts(): Promise<Expert[]>;
