@@ -4,6 +4,7 @@
   border-radius: 36px 20px 20px 0px;
   animation: fade 0.7s ease-in;
   font: var(--text16-24);
+  display: inline-block;
 
   @media (--mediumSecondDown) {
     padding: 12px 12px 12px 16px;
