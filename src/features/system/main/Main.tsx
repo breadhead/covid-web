@@ -23,7 +23,7 @@ export const SystemMain = () => {
   return (
     <SystemLayout>
       <Head>
-        <title>Система борьбы с инфекцией COVID‑19 | Просто спросить</title>
+        <title>Система борьбы с инфекцией COVID‑19 | Что делать?</title>
       </Head>
       <SystemHero />
       <div className="gl-wrapper gl-section">

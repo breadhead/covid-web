@@ -11,7 +11,7 @@ export const SystemHelp = () => {
       <div id="help" className={styles.anchor} />
       <h2 className="gl-sectionTitle">Как помочь</h2>
       <HelpOptions />
-      <ShareWidget title={'Пусть больше людей узнает о проекте'} />
+      <ShareWidget support title={'Пусть больше людей узнает о проекте'} />
     </section>
   );
 };
