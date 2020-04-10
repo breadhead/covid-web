@@ -15,12 +15,14 @@ const AllExperts = () => {
   const experts = useMappedState(selectExpertBoard);
 
   return (
-    <SystemLayout className={styles.main}>
+    <SystemLayout>
       <Head>
         <title>Наблюдательный совет | Просто спросить</title>
       </Head>
-      <h1 className={styles.title}>Наблюдательный совет</h1>
-      <ExpertsList href="supervisory" experts={experts} />
+      <div className="gl-wrapper gl-section">
+        <h1 className="gl-pageTitle">Наблюдательный совет</h1>
+        <ExpertsList href="supervisory" experts={experts} />
+      </div>
     </SystemLayout>
   );
 };

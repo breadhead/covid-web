@@ -1,9 +1,11 @@
 .expertsList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 16px;
+  margin: 48px 0 0 0;
 
-  @media (--smallDown) {
-    justify-content: space-between;
+  @media (--mediumDown) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px; 
   }
 }

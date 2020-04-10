@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import { Expert } from '@app/src/domain/models/common/Expert';
+import ExpertCard from '@app/src/features/landing/features/experts/organisms/ExpertCard';
 
 import * as styles from './ExpertsList.css';
-import ExpertCard from '../ExpertCard';
 
 interface Props {
   experts: Expert[];

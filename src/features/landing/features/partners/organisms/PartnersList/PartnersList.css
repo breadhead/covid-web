@@ -38,23 +38,19 @@
   }
 }
 
-.partnersList {
-  display: flex;
-  flex-wrap: wrap;
+.partnersPageList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 16px;
   margin: 48px 0 0 0;
-  overflow: scroll;
-  overscroll-behavior: contain;
 
   @media (--mediumDown) {
-    justify-content: center;
-  }
-
-  @media (--smallDown) {
-    justify-content: space-between;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px; 
   }
 }
 
-.partnersList::-webkit-scrollbar {
+.partnersPageList::-webkit-scrollbar {
   display: none;
 }
 
