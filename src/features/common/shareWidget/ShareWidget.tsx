@@ -4,6 +4,7 @@ import { getFromConfig } from '@front/lib/getPublicRuntimeConfig';
 
 import * as styles from './ShareWidget.css';
 import { ShareButtons } from './components/share-buttons/ShareButtons';
+import { SHARE_IMAGE, SHARE_IMAGE_SUPPORT } from '../seo/SEO';
 
 interface Props {
   title?: string;
@@ -18,9 +19,7 @@ export const ShareWidget = ({
   imageSrc,
   support = false,
 }: Props) => {
-  const currentImageSrc = support
-    ? '/static/images/share/dc_facebook-share-support.png'
-    : '/static/images/share/dc_facebook-share.png';
+  const currentImageSrc = support ? SHARE_IMAGE_SUPPORT : SHARE_IMAGE;
 
   const realImageSrc = imageSrc || getFromConfig('siteUrl') + currentImageSrc;
 

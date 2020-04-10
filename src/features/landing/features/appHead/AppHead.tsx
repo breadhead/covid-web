@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 
-import { description, keywords } from '../../../common/seo/SEO';
+import { description, keywords, SHARE_IMAGE } from '../../../common/seo/SEO';
 export const AppHead = (props) => (
   <Head>
     <meta name="viewport" content="width=device-width, initial=scale=1" />
@@ -54,11 +54,11 @@ export const AppHead = (props) => (
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
-      content={`${props.publicRuntimeConfig.siteUrl}/static/images/dc_facebook-share.png`}
+      content={`${props.publicRuntimeConfig.siteUrl}${SHARE_IMAGE}`}
     />
     <meta
       property="og:image:secure_url"
-      content={`${props.publicRuntimeConfig.siteUrl}/static/images/dc_facebook-share.png`}
+      content={`${props.publicRuntimeConfig.siteUrl}${SHARE_IMAGE}`}
     />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="600" />
@@ -78,7 +78,7 @@ export const AppHead = (props) => (
     />
     <meta
       name="twitter:image"
-      content={`${props.publicRuntimeConfig.siteUrl}/static/images/dc_facebook-share.png`}
+      content={`${props.publicRuntimeConfig.siteUrl}${SHARE_IMAGE}`}
     />
     <meta
       name="twitter:image:alt"
@@ -86,7 +86,7 @@ export const AppHead = (props) => (
     />
     <meta
       name="vk:image"
-      content={`${props.publicRuntimeConfig.siteUrl}/static/images/dc_facebook-share.png`}
+      content={`${props.publicRuntimeConfig.siteUrl}${SHARE_IMAGE}`}
     />
     <meta property="fb:306467899461959" content="306467899461959" />
   </Head>

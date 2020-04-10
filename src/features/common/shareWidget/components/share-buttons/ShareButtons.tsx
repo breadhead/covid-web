@@ -13,6 +13,7 @@ import { Icon } from '@front/ui/icon';
 import { getFromConfig } from '@front/lib/getPublicRuntimeConfig';
 
 import * as styles from './ShareButtons.css';
+import { SHARE_IMAGE_SUPPORT } from '../../../seo/SEO';
 
 interface ShareButtonsProps {
   title?: string;
@@ -25,8 +26,7 @@ interface ShareButtonsProps {
 export const ShareButtons = ({
   shareUrl = getFromConfig('prodUrl') + '#help',
   title = 'ЧТО ДЕЛАТЬ | COVID-19',
-  imageSrc = getFromConfig('siteUrl') +
-    '/static/images/share/dc_facebook-share-support.png',
+  imageSrc = getFromConfig('siteUrl') + SHARE_IMAGE_SUPPORT,
   inForm = false,
   className,
 }: ShareButtonsProps) => {
