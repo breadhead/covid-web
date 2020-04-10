@@ -28,7 +28,7 @@ export const CategoriesTags = ({
           big={big}
           highlighted
           key={category}
-          href={`/${href}?category=${category}`}
+          href={`/${href}?category=${category}`.replace(/^\/\//gi, '/')}
           text={getCategoryText(category, type as any)}
         />
       ))}
@@ -36,7 +36,7 @@ export const CategoriesTags = ({
         <Tag
           big={big}
           key={tag?.code?.current}
-          href={`/${href}?tags=${tag?.code?.current}`}
+          href={`/${href}?tags=${tag?.code?.current}`.replace(/^\/\//gi, '/')}
           text={tag.name}
         />
       ))}
