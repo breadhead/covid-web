@@ -39,7 +39,8 @@ export const ShareButtons = ({
       </FacebookShareButton>
       <VKShareButton
         url={shareUrl}
-        image={`${publicRuntimeConfig.siteUrl}${imageSrc}`}
+        // image={`${publicRuntimeConfig.siteUrl}${imageSrc}`}
+        image="https://covid.breadhead.ru/static/images/dc_facebook-share-support.png"
         className={styles.iconWrapper}
         title={title}
       >
