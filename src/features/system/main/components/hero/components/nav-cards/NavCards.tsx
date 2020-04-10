@@ -51,7 +51,7 @@ export const NavCards = () => {
         </div>
       </NavLink>
       {/* for-doctors */}
-      <article className={cx(styles.card, styles.disable)}>
+      <NavLink withoutUnderline href={'/for-doctors'} className={styles.card}>
         <div className={styles.content}>
           <h3 className={styles.title}>Врачам</h3>
           <ul className={styles.list}>
@@ -63,9 +63,10 @@ export const NavCards = () => {
           </ul>
         </div>
         <div className={styles.block}>
-          <span className={styles.hint}>скоро</span>
+          Подробнее
+          <Icon className={styles.linkIcon} name={IconsList.ArrowRight2} />
         </div>
-      </article>
+      </NavLink>
     </div>
   );
 };
