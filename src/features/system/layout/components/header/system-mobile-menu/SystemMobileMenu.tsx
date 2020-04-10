@@ -37,14 +37,16 @@ export const SystemMobileMenu = ({ menuOpened, hide }: SystemMobileMenu) => {
           </header>
 
           <div className={styles.mainMenu}>
-            <NavLink
-              withoutUnderline
-              className={cx(styles.askLink, styles.mainLink)}
-              key={askLink.href}
-              href={askLink.href}
-            >
-              {askLink.text}
-            </NavLink>
+            {mainLinks.map((link) => (
+              <NavLink
+                withoutUnderline
+                className={styles.mainLink}
+                key={link.href}
+                href={link.href}
+              >
+                {link.mobileMenuText}
+              </NavLink>
+            ))}
             <div className={styles.askLinks}>
               <Button
                 onClick={() => openSignIn(SIGN_IN_MODAL)}
@@ -62,17 +64,6 @@ export const SystemMobileMenu = ({ menuOpened, hide }: SystemMobileMenu) => {
                 Эксперты справочной
               </NavLink>
             </div>
-
-            {mainLinks.slice(1).map((link) => (
-              <NavLink
-                withoutUnderline
-                className={styles.mainLink}
-                key={link.href}
-                href={link.href}
-              >
-                {link.mobileMenuText}
-              </NavLink>
-            ))}
           </div>
 
           <div className={styles.contentMenu}>

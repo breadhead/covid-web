@@ -11,19 +11,19 @@ import * as styles from './NavCards.css';
 export const NavCards = () => {
   return (
     <div className={styles.cards}>
-      <NavLink withoutUnderline href={'/ask'} className={styles.card}>
+      <NavLink withoutUnderline href={'/for-doctors'} className={styles.card}>
         <div className={styles.content}>
-          <h3 className={styles.title}>
-            Справочная служба
-            <Icon
-              className={cx(styles.linkIcon, styles.mobileIcon)}
-              name={IconsList.ArrowRight2}
-            />
-          </h3>
-          <Bubble />
+          <h3 className={styles.title}>Врачам</h3>
+          <ul className={styles.list}>
+            <li className={styles.listItem}>
+              Клинические рекомендации и статьи
+            </li>
+            <li className={styles.listItem}>Вебинары</li>
+            <li className={styles.listItem}>Чеклист для реанимации</li>
+          </ul>
         </div>
         <div className={styles.block}>
-          Просто спросить
+          Подробнее
           <Icon className={styles.linkIcon} name={IconsList.ArrowRight2} />
         </div>
       </NavLink>
@@ -50,20 +50,20 @@ export const NavCards = () => {
           <Icon className={styles.linkIcon} name={IconsList.ArrowRight2} />
         </div>
       </NavLink>
-      {/* for-doctors */}
-      <NavLink withoutUnderline href={'/for-doctors'} className={styles.card}>
+
+      <NavLink withoutUnderline href={'/ask'} className={styles.card}>
         <div className={styles.content}>
-          <h3 className={styles.title}>Врачам</h3>
-          <ul className={styles.list}>
-            <li className={styles.listItem}>
-              Клинические рекомендации и статьи
-            </li>
-            <li className={styles.listItem}>Вебинары</li>
-            <li className={styles.listItem}>Чеклист для реанимации</li>
-          </ul>
+          <h3 className={styles.title}>
+            Справочная служба
+            <Icon
+              className={cx(styles.linkIcon, styles.mobileIcon)}
+              name={IconsList.ArrowRight2}
+            />
+          </h3>
+          <Bubble />
         </div>
         <div className={styles.block}>
-          Подробнее
+          Просто спросить
           <Icon className={styles.linkIcon} name={IconsList.ArrowRight2} />
         </div>
       </NavLink>

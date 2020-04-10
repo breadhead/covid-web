@@ -10,6 +10,8 @@
   @media (--mediumDown) {
     justify-content: space-between;
     padding: 6px;
+    padding-left: 16px;
+    padding-right: 12px;
     min-height: 48px;
   }
 }
@@ -53,9 +55,10 @@
 
 .logo {
   margin-left: 16px;
-  margin-right: 16px;
+  margin-right: 24px;
 
   @media (--mediumDown) {
+    margin-right: 16px;
     margin-left: 0;
   }
 }
