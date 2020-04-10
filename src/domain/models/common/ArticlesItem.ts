@@ -1,9 +1,9 @@
 import { SanityBase } from '@app/src/domain/models/sanity/SanityBase';
 import { Block } from '@app/src/domain/models/sanity/Block';
 
-import { CategoryType } from './NewsCategoryType';
 import { TagType } from './Tag';
 import { Photo } from '../sanity/Photo';
+import { CategoryType } from './NewsCategoryType';
 
 export interface ArticlesItem extends SanityBase {
   tags?: TagType[];

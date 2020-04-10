@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { RegisterForm } from '@front/features/common/getSerializer/components/registerForm/RegisterForm';
+
 import { ActionBlock } from './components/actionBlock';
 import { SerializerBlock } from './components/block';
 import { SerializerEm } from './components/em';
@@ -47,6 +49,9 @@ export const getSerializer = ({ types, marks }: SerializerProps) => {
       },
       smallText: (props: any) => {
         return <SmallText props={props} />;
+      },
+      registerForm: (props: any) => {
+        return <RegisterForm {...props} />;
       },
     },
     list: (props: any) => {
