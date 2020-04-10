@@ -17,7 +17,6 @@ interface Query {
 
 const Expert = ({ id }: Props) => {
   const experts = useMappedState(selectExpertBoard);
-  console.log('experts:', experts);
   const expert = experts.find((e) => e.code.current === id);
 
   return !!expert ? <ExpertPage expert={expert} /> : null;

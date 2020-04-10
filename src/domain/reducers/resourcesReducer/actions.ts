@@ -9,7 +9,6 @@ export const getResourcesFromSanity = () => async (
   getState: () => State,
   { getApi }: ExtraArgs,
 ) => {
-  console.log('getResourcesFromSanity');
   const api = getApi(getState);
   try {
     dispatch(actions.request());
