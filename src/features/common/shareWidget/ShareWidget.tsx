@@ -19,8 +19,8 @@ export const ShareWidget = ({
   support = false,
 }: Props) => {
   const currentImageSrc = support
-    ? '/static/images/dc_facebook-share-support.png'
-    : '/static/images/dc_facebook-share.png';
+    ? '/static/images/share/dc_facebook-share-support.png'
+    : '/static/images/share/dc_facebook-share.png';
 
   const realImageSrc = imageSrc || getFromConfig('siteUrl') + currentImageSrc;
 
