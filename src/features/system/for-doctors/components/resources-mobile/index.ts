@@ -1,1 +1,1 @@
-export { ResourcesDesktop } from './ResourcesDesktop';
+export { ResourcesMobile } from './ResourcesMobile';

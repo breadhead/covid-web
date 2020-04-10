@@ -26,7 +26,7 @@ import PartnersList from '../../landing/features/home/organisms/Corporate/compon
 import { PageType } from '../../landing/features/partners/organisms/PartnersList/config';
 import { ArticleCards } from './components/article-card/ArticleCards';
 import { Aside } from './components/aside';
-import { ResourcesMobile } from './components/resources-mobile/ResourcesMobile';
+import { ResourcesMobile } from './components/resources-mobile';
 interface Props {
   query: any;
 }
