@@ -67,8 +67,8 @@ export const SystemLayout = ({
 
   return (
     <>
-      <SystemHeader white={white} />
-      <SystemHeader fixed show={show} white={white} />
+      <SystemHeader />
+      <SystemHeader fixed show={show} />
       <main className={cx(s.main, className)}>{children}</main>
       {!withoutFooter && <SystemFooter />}
     </>
