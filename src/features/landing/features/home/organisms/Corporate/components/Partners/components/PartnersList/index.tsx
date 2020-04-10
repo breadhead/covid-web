@@ -22,7 +22,6 @@ const PartnersList = ({
   link = '/contacts',
   className,
 }: Props) => {
-  console.log('link:', link);
   const partners = useMappedState(selectPartners).filter((partner) => {
     return partner.pageToShow.includes(pageType);
   });
