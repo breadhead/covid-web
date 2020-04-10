@@ -13,5 +13,5 @@ export const selectArticlesWithParams = (params: ArticlesFetchParams) => (
   state: State,
 ) => {
   const key = getPageKeyFromParams(params);
-  return state.articles.list.list.pages[key] || [];
+  return state?.articles?.list?.list?.pages[key] || [];
 };
