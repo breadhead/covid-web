@@ -46,6 +46,10 @@
     margin-right: 0;
     margin-bottom: 10px;
     background-color: #fff;
+    border-top-color: rgba(21, 24, 51, 0.04);
+    border-right-color: rgba(21, 24, 51, 0.04);
+    border-left-color: rgba(21, 24, 51, 0.04);
+    border: var(--border-card) !important;
 
     &:last-child {
       margin-bottom: 0;
