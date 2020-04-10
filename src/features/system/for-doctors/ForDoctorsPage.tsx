@@ -39,7 +39,7 @@ export const ForDoctorsPage = ({ query }: Props) => {
   const partners = useMappedState(selectPartners).filter((partner) => {
     return partner.pageToShow.includes(PageType.Doctors);
   });
-  // const pinnedArticles = articles.filter((art) => !!art.pin);
+  const pinnedArticles = articles.filter((art) => !!art.pin);
   return (
     <>
       <Head>
@@ -50,7 +50,7 @@ export const ForDoctorsPage = ({ query }: Props) => {
           <div className={cx(styles.wrapper)}>
             <section className={cx(styles.main, 'gl-wrapper')}>
               <h1 className="gl-pageTitle">Врачам</h1>
-              <ArticleCards cards={articles} />
+              <ArticleCards cards={pinnedArticles} />
               <PageFilter
                 type={CategoryTypes.Articles}
                 tags={tags}

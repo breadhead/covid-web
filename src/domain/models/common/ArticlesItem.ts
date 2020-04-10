@@ -15,5 +15,6 @@ export interface ArticlesItem extends SanityBase {
   categories?: CategoryType[];
   image?: Photo;
   pin?: boolean;
+  date?: string;
   webinarDate?: string;
 }

@@ -12,9 +12,7 @@ export const articlesListRequestBuilder = (
   return `*[_type == 'article' &&  !(_id in path("drafts.**")) ${renderTags(
     params.tags,
     tagValues,
-  )} ${renderCategories(
-    params.category,
-  )}]  | order(_updatedAt desc) ${renderAmount(
+  )} ${renderCategories(params.category)}]  | order(date desc) ${renderAmount(
     params.page,
   )} {..., 'tags': tags[]-> }`;
 };

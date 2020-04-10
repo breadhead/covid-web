@@ -7,7 +7,7 @@ export const newsForHospitalsQueryBuilder = () => {
   showOnMain == true  &&
   '${CategoryType.Help}' in categories[]
   ]  | 
-  order(_updatedAt desc) |
+  order(date desc) |
   order(sortIndex desc)
   {..., 'tags': tags[]-> }`;
 };
