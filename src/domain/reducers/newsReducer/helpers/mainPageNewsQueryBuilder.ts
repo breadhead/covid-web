@@ -4,7 +4,7 @@ export const featuredNewsQueryBuilder = () => {
   !(_id in path("drafts.**")) && 
   showOnMain == true 
   ]  | 
-  order(_updatedAt desc) |
+  order(date desc) |
   order(sortIndex desc)
   {..., 'tags': tags[]-> }`;
 };

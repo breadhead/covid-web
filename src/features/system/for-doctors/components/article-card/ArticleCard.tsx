@@ -18,7 +18,9 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
       className={styles.card}
     >
       <div className={styles.textWrapper}>
-        <span className={styles.date}>дата</span>
+        {article.webinarDate && (
+          <span className={styles.date}>{article.webinarDate}</span>
+        )}
         <h4 className={styles.title}>{article.name}</h4>
       </div>
       {!!article.tags && (
