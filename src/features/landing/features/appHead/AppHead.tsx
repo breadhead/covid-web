@@ -33,12 +33,15 @@ export const AppHead = (props) => (
     />
     <meta name="msapplication-TileColor" content="#ffc40d" />
     <meta name="theme-color" content="#ffffff" />
-    <meta property="og:title" content="Просто спросить | COVID-19" />
+    <meta
+      property="og:title"
+      content="ЧТО ДЕЛАТЬ | Система борьбы с инфекцией COVID-19"
+    />
     <meta property="og:site_name" content={props.publicRuntimeConfig.siteUrl} />
     <meta property="og:url" content={props.publicRuntimeConfig.siteUrl} />
     <meta
       property="og:description"
-      content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+      content="Отвечаем на вопросы, помогаем врачам и больницам"
     />
     <meta property="og:type" content="website" />
     <meta
@@ -52,18 +55,27 @@ export const AppHead = (props) => (
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="315" />
-    <meta property="og:image:alt" content="Просто спросить | COVID-19" />
+    <meta
+      property="og:image:alt"
+      content="ЧТО ДЕЛАТЬ | Система борьбы с инфекцией COVID-19"
+    />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Просто спросить | COVID-19" />
+    <meta
+      name="twitter:title"
+      content="ЧТО ДЕЛАТЬ | Система борьбы с инфекцией COVID-19"
+    />
     <meta
       name="twitter:description"
-      content="Справочная служба по вопросам коронавирусной инфекции COVID-19"
+      content="Отвечаем на вопросы, помогаем врачам и больницам"
     />
     <meta
       name="twitter:image"
       content={`${props.publicRuntimeConfig.siteUrl}/static/images/dc_facebook-share.png`}
     />
-    <meta name="twitter:image:alt" content="Просто спросить | COVID-19" />
+    <meta
+      name="twitter:image:alt"
+      content="ЧТО ДЕЛАТЬ | Система борьбы с инфекцией COVID-19"
+    />
     <meta
       name="vk:image"
       content={`${props.publicRuntimeConfig.siteUrl}/static/images/dc_facebook-share.png`}
