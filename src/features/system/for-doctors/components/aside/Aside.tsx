@@ -17,6 +17,7 @@ export const Aside = ({ items, title = 'Официальные ресурсы' }
       <div className={styles.items}>
         {items.map((res) => (
           <NavLink
+            blank
             href={res.url}
             withoutUnderline
             className={styles.item}
