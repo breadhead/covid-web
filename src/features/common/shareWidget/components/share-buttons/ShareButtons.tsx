@@ -25,8 +25,8 @@ interface ShareButtonsProps {
 
 export const ShareButtons = ({
   shareUrl = getFromConfig('prodUrl') + '#help',
-  title = 'Просто спросить | COVID-19',
-  imageSrc = `/static/images/covid-image.png`,
+  title = 'ЧТО ДЕЛАТЬ | COVID-19',
+  imageSrc = `/static/images/dc_facebook-share.png`,
   inForm = false,
   className,
 }: ShareButtonsProps) => {
@@ -54,9 +54,7 @@ export const ShareButtons = ({
       <OKShareButton
         url={shareUrl}
         title={title}
-        description={
-          'Справочная служба по вопросам коронавирусной инфекции COVID-19'
-        }
+        description={'Отвечаем на вопросы, помогаем врачам и больницам'}
         image={publicRuntimeConfig.siteUrl + imageSrc}
         className={styles.iconWrapper}
       >
