@@ -43,11 +43,11 @@ export const AppHead = (props) => (
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
-      content={`${props.publicRuntimeConfig.siteUrl}/static/images/covid-image.png`}
+      content={`${props.publicRuntimeConfig.siteUrl}/static/images/share.png`}
     />
     <meta
       property="og:image:secure_url"
-      content={`${props.publicRuntimeConfig.siteUrl}/static/images/covid-image.png`}
+      content={`${props.publicRuntimeConfig.siteUrl}/static/images/share.png`}
     />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="600" />
@@ -61,12 +61,12 @@ export const AppHead = (props) => (
     />
     <meta
       name="twitter:image"
-      content={`${props.publicRuntimeConfig.siteUrl}/static/images/covid-image.png`}
+      content={`${props.publicRuntimeConfig.siteUrl}/static/images/share.png`}
     />
     <meta name="twitter:image:alt" content="Просто спросить | COVID-19" />
     <meta
       name="vk:image"
-      content={`${props.publicRuntimeConfig.siteUrl}/static/images/covid-image.png`}
+      content={`${props.publicRuntimeConfig.siteUrl}/static/images/share.png`}
     />
     <meta property="fb:306467899461959" content="306467899461959" />
   </Head>
