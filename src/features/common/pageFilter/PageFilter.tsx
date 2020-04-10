@@ -67,7 +67,7 @@ export const PageFilter = ({
 };
 
 const getCategoryLink = (category: string, query: any, pathname: string) => {
-  return { pathname, query: { ...query, category: category } };
+  return { pathname, query: { ...query, category: category, tags: undefined } };
 };
 
 const getTagLink = (tag: TagType, query: any, pathname: string) => {
