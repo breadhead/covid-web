@@ -30,7 +30,7 @@ export const FeaturedNews = ({
       <h2 className={cx(s.title, 'gl-sectionTitle')}>{title}</h2>
       <div className={s.list}>
         {(list as any).slice(0, 2).map((item) => (
-          <NewsCard href="/for-doctors" key={item._id} data={item} />
+          <NewsCard href="/news" key={item._id} data={item} />
         ))}
       </div>
       <NavLink href={`/${href}`} className={s.readAll}>

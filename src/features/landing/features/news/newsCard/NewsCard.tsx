@@ -24,7 +24,7 @@ export const NewsCard = ({ data, href = 'news' }: NewsCardProps) => {
   return (
     <NavLink
       withoutUnderline
-      href={`/${href}/${data.code.current}`}
+      href={`/${href}/${data.code.current}`.replace(/^\/\//gi, '/')}
       className={s.newsCard}
     >
       {image && <img className={s.image} src={image} alt={data.name} />}
