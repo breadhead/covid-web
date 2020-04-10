@@ -39,6 +39,7 @@ export const ShareButtons = ({
       </FacebookShareButton>
       <VKShareButton
         url={shareUrl}
+        image={`${publicRuntimeConfig.siteUrl}${imageSrc}`}
         className={styles.iconWrapper}
         title={title}
       >
@@ -55,7 +56,7 @@ export const ShareButtons = ({
         url={shareUrl}
         title={title}
         description={'Отвечаем на вопросы, помогаем врачам и больницам'}
-        image={publicRuntimeConfig.siteUrl + imageSrc}
+        image={`${publicRuntimeConfig.siteUrl}${imageSrc}`}
         className={styles.iconWrapper}
       >
         <Icon className={styles.icon} name={IconsList.OK} />
