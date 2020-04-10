@@ -5,7 +5,7 @@ import { AppContext } from '@app/src/lib/server-types';
 import { getExpertBoardFromSanity } from '@app/src/domain/reducers/expertBoardReducer';
 import { selectExpertBoard } from '@app/src/domain/reducers/expertBoardReducer/selectExperts';
 
-import ExpertPage from './page';
+import SupervisorPage from './page';
 
 interface Props {
   id: string;
@@ -19,7 +19,7 @@ const Expert = ({ id }: Props) => {
   const experts = useMappedState(selectExpertBoard);
   const expert = experts.find((e) => e.code.current === id);
 
-  return !!expert ? <ExpertPage expert={expert} /> : null;
+  return !!expert ? <SupervisorPage expert={expert} /> : null;
 };
 
 Expert.getInitialProps = async (context: AppContext<Query>) => {

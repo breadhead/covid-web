@@ -1,52 +1,28 @@
 .expertCard {
-  max-width: 160px;
-  margin: 0 32px 64px;
   text-align: center;
   animation: fade 1s ease-in;
-
-  &:first-of-type {
-    margin-left: 0;
-  }
-
-  &:nth-of-type(4n) {
-    margin-right: 0;
-  }
-
-  &:nth-of-type(4n + 1) {
-    margin-left: 0;
-  }
-
-  @media (max-width: 880px) {
-    &:nth-of-type(4n) {
-      margin-right: 32px;
-    }
-
-    &:nth-of-type(4n + 1) {
-      margin-left: 32px;
-    }
-  }
-
-  @media (--smallDown) {
-    max-width: 128px;
-
-    &:nth-of-type(n) {
-      margin: 0 16px 32px;
-    }
-  }
-
-  @media (max-width: 351px) {
-    &:nth-of-type(n) {
-      margin: 0 16px 32px 0;
-    }
-
-    &:nth-of-type(2n) {
-      margin: 0 0 32px 16px;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 220px;
+  color: var(--text-color-primary);
 }
 
 .expertCard .link {
   white-space: normal;
+  border-bottom: 0;
+  
+  &:hover {
+    border-bottom: 0;
+  }
+
+  &:active {
+    border-bottom: 0;
+  }
+
+  &:focus {
+    border-bottom: 0;
+  }
 }
 
 @keyframes fade {
@@ -59,17 +35,18 @@
 }
 
 .image {
-  width: 100%;
   width: 160px;
   height: 160px;
+  max-height: 100%;
+  object-fit: contain;
   margin: 0 0 16px 0;
   border-radius: 50%;
   object-fit: cover;
 
   @media (--smallDown) {
-    max-width: 128px;
-    max-height: 128px;
     margin: 0 0 12px 0;
+    width: 128px;
+    height: 128px;
   }
 }
 

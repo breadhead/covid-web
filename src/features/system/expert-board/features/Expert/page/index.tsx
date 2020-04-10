@@ -11,7 +11,7 @@ interface Props {
   expert: ExpertModel;
 }
 
-const ExpertPage = ({ expert }: Props) => {
+const SupervisorPage = ({ expert }: Props) => {
   return (
     <SystemLayout className={styles.main}>
       <div className={styles.container}>
@@ -41,4 +41,4 @@ const ExpertPage = ({ expert }: Props) => {
   );
 };
 
-export default ExpertPage;
+export default SupervisorPage;

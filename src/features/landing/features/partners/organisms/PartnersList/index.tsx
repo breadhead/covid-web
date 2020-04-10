@@ -54,13 +54,9 @@ export const PartnersPageList = ({ type = PartnersType.All }: Props) => {
           className={styles.select}
         />
       </header>
-      <div className={styles.partnersList}>
+      <div className={styles.partnersPageList}>
         {list.map((partner) => (
-          <PartnerCard
-            key={partner._id}
-            partner={partner}
-            className={styles.partnerCard}
-          />
+          <PartnerCard key={partner._id} partner={partner} />
         ))}
       </div>
     </>
