@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Head from 'next/head';
 
 import { SystemLayout } from '@app/src/features/system/layout';
 import { Expert as ExpertModel } from '@app/src/domain/models/common/Expert';
@@ -13,31 +14,36 @@ interface Props {
 
 const SupervisorPage = ({ expert }: Props) => {
   return (
-    <SystemLayout className={styles.main}>
-      <div className={styles.container}>
-        <NavLink className={styles.link} href="/supervisory">
-          Весь наблюдательный совет
-        </NavLink>
-        <section className={styles.expert}>
-          <img
-            className={styles.photo}
-            src={getImageSrc(expert.logo) || ''}
-            alt={expert.name}
-          />
-          <div className={styles.textWrapper}>
-            <h1 className={styles.title}>{expert.name}</h1>
-            <p className={styles.description}>{expert.subtitle}</p>
-            <div className={styles.info}>
-              {expert.description.map((blob) =>
-                blob.children.map((child) => (
-                  <p key={child._key}>{child.text}</p>
-                )),
-              )}
+    <>
+      <Head>
+        <title>{expert.name} | Что делать?</title>
+      </Head>
+      <SystemLayout className={styles.main}>
+        <div className={styles.container}>
+          <NavLink className={styles.link} href="/supervisory">
+            Весь наблюдательный совет
+          </NavLink>
+          <section className={styles.expert}>
+            <img
+              className={styles.photo}
+              src={getImageSrc(expert.logo) || ''}
+              alt={expert.name}
+            />
+            <div className={styles.textWrapper}>
+              <h1 className={styles.title}>{expert.name}</h1>
+              <p className={styles.description}>{expert.subtitle}</p>
+              <div className={styles.info}>
+                {expert.description.map((blob) =>
+                  blob.children.map((child) => (
+                    <p key={child._key}>{child.text}</p>
+                  )),
+                )}
+              </div>
             </div>
-          </div>
-        </section>
-      </div>
-    </SystemLayout>
+          </section>
+        </div>
+      </SystemLayout>
+    </>
   );
 };
 
