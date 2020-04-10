@@ -1,7 +1,20 @@
 .wrapper {
-    background: #faf9f7;
+}
 
-    @media (--smallDown) {
-        background: white;
-    }
+.badgeWrapper {
+  margin-bottom: 32px;
+}
+
+.badgeTitle {
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 12px;
+}
+
+.text {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (--smallDown) {
 }

@@ -14,6 +14,8 @@ import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
 import { CategoriesTags } from '@app/src/ui/categoriesTags';
 import { selectFeaturedArticles } from '@app/src/domain/reducers/articlesReducer/featured/selectFeaturedArticles';
 import { FeaturedNews } from '@app/src/features/landing/features/news/featuredNews';
+import { getIsWebinar } from '@app/src/helpers/isWebinar';
+import { WebinarHeader } from '@app/src/ui/webinarHeader';
 
 import s from './ArticlesItemContent.css';
 
@@ -30,7 +32,7 @@ export const ArticlesItemContent = ({
   const shareUrl =
     getFromConfig('siteUrl') + '/for-doctors/' + articlesItem.code.current;
   const featuredArticles = useMappedState(selectFeaturedArticles);
-
+  const isWebinar = getIsWebinar(articlesItem);
   return (
     <div className={s.wrapperOuter}>
       <Head>
@@ -52,7 +54,11 @@ export const ArticlesItemContent = ({
       <div className={cx(s.wrapper, 'gl-wrapper--narrow', 'gl-section')}>
         <div className={s.head}>
           <div className={s.publishDate}>
-            {formatDateWithTime(articlesItem._updatedAt)}
+            {isWebinar ? (
+              <WebinarHeader data={articlesItem} />
+            ) : (
+              formatDateWithTime(articlesItem.date || articlesItem._createdAt)
+            )}
           </div>
           <h1 className={s.title}>{articlesItem.name}</h1>
 
