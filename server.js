@@ -5,7 +5,6 @@ const args = require('args-parser')(process.argv);
 const cors = require('cors');
 
 const apiProxyProd = require('./apiProxy');
-const apiProxyDev = require('./apiProxyDev');
 const routes = require('./routes');
 
 const FALLBACK_PORT = 3001;
@@ -15,7 +14,7 @@ const dev = process.env.NODE_ENV !== 'production';
 
 const app = next({ dev });
 const handler = routes.getRequestHandler(app);
-const apiProxy = dev ? apiProxyDev : apiProxyProd;
+const apiProxy = apiProxyProd;
 
 const assetsProxy = require('./assetsProxy');
 
