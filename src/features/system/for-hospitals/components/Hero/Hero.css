@@ -17,5 +17,5 @@
 }
 
 .highlighted {
-  font: var(--title-small);
+  font: var(--title-small) !important;
 }

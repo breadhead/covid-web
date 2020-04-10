@@ -1,18 +1,21 @@
 export const mainLinks = [
   {
-    href: '/ask',
-    text: 'Справочная служба',
-    narrowText: 'Справочная',
-  },
-  {
     href: '/for-doctors',
     text: 'Врачам',
     narrowText: 'Врачам',
+    mobileMenuText: 'Врачам',
   },
   {
     href: '/for-hospitals',
-    text: 'Помощь больницам',
+    text: 'Больницам',
     narrowText: 'Больницам',
+    mobileMenuText: 'Больницам',
+  },
+  {
+    href: '/ask',
+    text: 'Всем',
+    narrowText: 'Всем',
+    mobileMenuText: 'Справочная служба',
   },
 ];
 
@@ -28,9 +31,9 @@ export const contentLinks = [
     narrowText: 'Партнёры',
   },
   {
-    href: '/news?category=report',
-    text: 'Отчёты',
-    narrowText: 'Отчёты',
+    href: '/news',
+    text: 'Новости',
+    narrowText: 'Новости',
   },
   {
     href: '/contacts',

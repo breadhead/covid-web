@@ -7,7 +7,7 @@ export const linksDesktop = [
   { title: 'Наблюдательный совет', href: '/supervisory' },
   { title: 'Партнёры', href: '/partners' },
   { title: '', href: '' },
-  { title: 'Отчеты', href: '/news?reports' },
+  { title: 'Новости', href: '/news' },
   { title: '', href: '' },
   { title: 'Контакты', href: '/contacts' },
 ] as PrimaryFooterLink[];
@@ -19,6 +19,6 @@ export const linksMobile = [
   { title: 'Наблюдательный совет', href: '/supervisory' },
   { title: 'Врачам', href: '/for-doctors' },
   { title: 'Партнёры', href: '/partners' },
-  { title: 'Отчеты', href: '/news?reports' },
+  { title: 'Новости', href: '/news' },
   { title: 'Контакты', href: '/contacts' },
 ] as PrimaryFooterLink[];

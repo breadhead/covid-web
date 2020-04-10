@@ -70,7 +70,7 @@ export const SystemMobileMenu = ({ menuOpened, hide }: SystemMobileMenu) => {
                 key={link.href}
                 href={link.href}
               >
-                {link.text}
+                {link.mobileMenuText}
               </NavLink>
             ))}
           </div>
