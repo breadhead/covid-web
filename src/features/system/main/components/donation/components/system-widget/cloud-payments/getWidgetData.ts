@@ -1,5 +1,9 @@
+import getConfig from 'next/config';
+
 import { WidgetForm } from '../widgetReducer';
 import { FrequencyEnum } from '../formConfig';
+
+const { publicRuntimeConfig } = getConfig();
 
 export const getWidgetData = (formData: WidgetForm) => {
   const data = {
@@ -16,8 +20,7 @@ export const getWidgetData = (formData: WidgetForm) => {
   }
 
   return {
-    // TODO: get from config
-    publicId: 'pk_61c70158bccb923e31954e244319a',
+    publicId: publicRuntimeConfig.cloudPaymentId,
     description: formData.target,
     amount: Number(formData.cost),
     currency: 'RUB',
