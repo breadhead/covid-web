@@ -3,7 +3,7 @@
   margin-bottom: 24px;
   max-width: 100%;
   overflow-x: scroll;
-
+  -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -20,12 +20,12 @@
     scrollbar-width: none !important;
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
-  
+
+    -webkit-overflow-scrolling: touch;
     &::-webkit-scrollbar {
       display: none;
     }
   }
-
 
   & > * {
     margin-bottom: 4px;

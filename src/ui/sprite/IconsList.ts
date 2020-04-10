@@ -53,4 +53,6 @@ export enum IconsList {
   CloseSystem = 'close-system',
   Enlarge = 'enlarge',
   Camera = 'camera',
+  LogoDesktop = 'logoDesktop',
+  LogoMobile = 'logoMobile',
 }

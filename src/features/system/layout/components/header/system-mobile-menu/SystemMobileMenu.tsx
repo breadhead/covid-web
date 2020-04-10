@@ -30,7 +30,6 @@ export const SystemMobileMenu = ({ menuOpened, hide }: SystemMobileMenu) => {
       <TransitionMenu isVisible={menuOpened}>
         <nav className={styles.menu}>
           <header className={styles.header}>
-            <SystemLogo className={styles.logo} />
             <button className={styles.closeButton} onClick={hide}>
               закрыть меню
               <Icon className={styles.NavIcon} name={IconsList.CloseSystem} />

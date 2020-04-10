@@ -33,6 +33,7 @@ export const PageFilter = ({
     <div className={s.wrapper}>
       <div className={s.categories}>
         <Tag
+          highlighted
           huge
           active={ALL_CATEGORIES === params.category}
           href={getCategoryLink(ALL_CATEGORIES, query, pathname)}
@@ -41,6 +42,7 @@ export const PageFilter = ({
         {categories.map((category) => (
           <Tag
             huge
+            highlighted
             active={category === params.category}
             key={category}
             href={getCategoryLink(category, query, pathname)}

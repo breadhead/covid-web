@@ -5,10 +5,12 @@
   display: flex;
   align-items: center;
   background: var(--color-beige);
+  min-height: 64px;
 
   @media (--mediumDown) {
     justify-content: space-between;
     padding: 6px;
+    min-height: 48px;
   }
 }
 
@@ -20,8 +22,7 @@
   width: 100%;
   transition: box-shadow 0.5s ease-in, transform 0.2s ease-in;
   transform: translate(0, -100%);
- } 
-
+}
 
 .white {
   background-color: #fff;
@@ -35,7 +36,6 @@
 .hide {
   transform: translate(0, -100%);
 }
-
 
 .navContainer {
   width: 100%;
@@ -63,7 +63,6 @@
 .burger {
   display: none;
   margin-right: 24px;
-
 
   @media (--largeDown) {
     display: block;
