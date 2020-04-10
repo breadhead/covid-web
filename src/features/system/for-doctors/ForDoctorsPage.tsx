@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useMappedState } from 'redux-react-hook';
 import Head from 'next/head';
 import cx from 'classnames';
+import { uniq, uniqBy } from 'lodash';
 
 import { CategoryType } from '@app/src/domain/models/common/ArticlesCategoryType';
 import { getParamsFromQuery } from '@app/src/domain/reducers/articlesReducer/list/query';
@@ -17,6 +18,7 @@ import { getResourcesFromSanity } from '@app/src/domain/reducers/resourcesReduce
 import { selectResources } from '@app/src/domain/reducers/resourcesReducer/selectResources';
 import { selectPartners } from '@app/src/domain/reducers/partnerReducer/selectPartners';
 import { Divider } from '@app/src/ui/divider/Divider';
+import { selectFeaturedArticles } from '@app/src/domain/reducers/articlesReducer/featured/selectFeaturedArticles';
 
 import { SystemLayout } from '../layout';
 import { PageFilter } from '../../common/pageFilter';
@@ -32,14 +34,41 @@ interface Props {
 }
 
 export const ForDoctorsPage = ({ query }: Props) => {
-  const categories = Object.values(CategoryType);
   const tags = useMappedState(selectTags(TagsType.Articles));
   const articles = useMappedState(selectArticles(query));
+  const featuredArticles = useMappedState(selectFeaturedArticles);
+  const pinnedArticles = articles.filter((art) => !!art.pin);
   const resources = useMappedState(selectResources());
+  const tagsIds = tags.map((tag) => tag._id);
   const partners = useMappedState(selectPartners).filter((partner) => {
     return partner.pageToShow.includes(PageType.Doctors);
   });
-  const pinnedArticles = articles.filter((art) => !!art.pin);
+
+  const categoriesForShowing = Array.from(
+    new Set(
+      featuredArticles
+        .map((article) => article.categories)
+        .reduce((acc: any, it: any) => {
+          return [...acc, ...it];
+        }, []),
+    ),
+  );
+
+  const tagsForShowing = articles
+    .map((article) => article.tags)
+    .filter((tag) => !!tag)
+    .filter((tag) => {
+      return (
+        !!tag &&
+        tag.map((it) => {
+          return tagsIds.includes((it as any)?._ref);
+        })
+      );
+    })
+    ?.reduce((acc: any, it: any) => {
+      return [...acc, ...it];
+    }, []);
+
   return (
     <>
       <Head>
@@ -53,8 +82,8 @@ export const ForDoctorsPage = ({ query }: Props) => {
               <ArticleCards cards={pinnedArticles} />
               <PageFilter
                 type={CategoryTypes.Articles}
-                tags={tags}
-                categories={categories}
+                tags={uniqBy(tagsForShowing, '_id')}
+                categories={categoriesForShowing}
                 query={query}
               />
               <div>
