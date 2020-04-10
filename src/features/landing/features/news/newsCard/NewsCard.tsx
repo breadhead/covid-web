@@ -27,7 +27,7 @@ export const NewsCard = ({ data, href = 'news' }: NewsCardProps) => {
   const isWebinar = (data as ArticlesItem).categories?.includes(
     CategoryType.Webinar as any,
   );
-  console.log('NewsCard -> isWebinar', isWebinar);
+
   return (
     <NavLink
       withoutUnderline
