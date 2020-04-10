@@ -15,7 +15,7 @@ export const BecomePartnerPage = ({ themeValue }: BecomePartnerPage) => {
   return (
     <SystemLayout className={styles.main}>
       <Head>
-        <title>Помочь проекту | Просто спросить</title>
+        <title>Помочь проекту | Что делать?</title>
       </Head>
 
       <section className="gl-wrapper--narrow gl-section">

@@ -45,7 +45,7 @@ export const ForDoctorsPage = ({ query }: Props) => {
   return (
     <>
       <Head>
-        <title>Врачам | Просто спросить</title>
+        <title>Врачам | Что делать?</title>
       </Head>
       <SystemLayout>
         <div className={cx(styles.mainContainer, 'gl-section')}>
