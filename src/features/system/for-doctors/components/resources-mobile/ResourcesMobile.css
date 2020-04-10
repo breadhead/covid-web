@@ -1,0 +1,20 @@
+.wrapper {
+  display: none;
+
+  @media (--largeDown) {
+    display: block;
+  }
+}
+
+.resources {
+  display: none;
+
+  @media (--largeDown) {
+    display: flex;
+  }
+}
+
+.title {
+  font: var(--title-medium);
+  margin-bottom: 32px;
+}

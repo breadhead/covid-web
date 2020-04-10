@@ -40,7 +40,7 @@ export const SystemMain = () => {
       </div>
       <SystemDonation />
       <div className="gl-wrapper gl-section">
-        <FeaturedNews title="Новости и отчеты" newsList={mainPageNews} />
+        <FeaturedNews title="Новости и отчеты" list={mainPageNews} />
       </div>
     </SystemLayout>
   );

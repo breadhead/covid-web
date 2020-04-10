@@ -1,0 +1,1 @@
+export { ResourcesMobile } from './ResourcesMobile';

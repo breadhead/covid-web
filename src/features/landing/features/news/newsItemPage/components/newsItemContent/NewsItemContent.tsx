@@ -55,7 +55,7 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
 
           {imageSrc && (
             <div className={s.imageWrapper}>
-              <img className={s.image} src={imageSrc} alt="" />
+              <img className={s.image} src={imageSrc} alt={newsItem.name} />
             </div>
           )}
         </div>
@@ -78,10 +78,7 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
           />
         </div>
 
-        <FeaturedNews
-          newsList={featuredNews}
-          className={s.featuredNews}
-        ></FeaturedNews>
+        <FeaturedNews list={featuredNews} className={s.featuredNews} />
       </div>
     </div>
   );

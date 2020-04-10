@@ -43,7 +43,7 @@ export const ForHospitalsPage = ({}: ForHospitalsProps) => {
         <SystemHelp />
       </div>
       <div className="gl-wrapper gl-section-inner">
-        <FeaturedNews newsList={newsList} title="Новости и отчеты" />
+        <FeaturedNews list={newsList} title="Новости и отчеты" />
       </div>
     </SystemLayout>
   );

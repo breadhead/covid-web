@@ -15,7 +15,7 @@ interface Props {
   type?: PartnersType;
 }
 
-const PartnersList = ({ type = PartnersType.All }: Props) => {
+export const PartnersPageList = ({ type = PartnersType.All }: Props) => {
   const partners = useMappedState(selectPartners);
 
   const [list, setList] = useState(partners);
@@ -66,5 +66,3 @@ const PartnersList = ({ type = PartnersType.All }: Props) => {
     </>
   );
 };
-
-export default PartnersList;

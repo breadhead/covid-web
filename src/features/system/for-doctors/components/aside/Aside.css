@@ -1,0 +1,42 @@
+.itemsWrap {
+  max-width: 256px;
+  margin-bottom: 40px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (--largeDown) {
+    display: none;
+  }
+}
+
+.title {
+  margin-bottom: 16px;
+  font: var(--text18-28);
+}
+
+.item {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.photo {
+  margin-right: 12px;
+  object-fit: contain;
+}
+
+.name {
+  font: var(--text14-20);
+}
+
+.link {
+  font: var(--text14-20);
+  color: #82839b !important;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+}

@@ -5,6 +5,7 @@ import { User } from '@app/src/domain/models/common/User';
 import { TagType } from '@app/src/domain/models/common/Tag';
 import { NewsItem } from '@app/src/domain/models/common/NewsItem';
 import { ArticlesItem } from '@app/src/domain/models/common/ArticlesItem';
+import { ResourcesItem } from '@app/src/domain/models/common/ResourcesItem';
 
 export interface UploadedFile {
   path: string;
@@ -33,4 +34,5 @@ export default interface ApiClient {
   getNewsItem(query: string): Promise<NewsItem[]>;
   getArticles(query: string): Promise<ArticlesItem[]>;
   getArticlesItem(query: string): Promise<ArticlesItem[]>;
+  getResources(): Promise<ResourcesItem[]>;
 }

@@ -54,6 +54,7 @@ import {
 import * as tags from '@app/src/domain/reducers/tagsReducer';
 import * as news from '@app/src/domain/reducers/newsReducer';
 import * as articles from '@app/src/domain/reducers/articlesReducer';
+import * as resources from '@app/src/domain/reducers/resourcesReducer';
 
 import ApiClient from './api/ApiClient';
 import factory from './api/apiFactory';
@@ -74,6 +75,7 @@ export interface State {
   tags: tags.State;
   news: news.State;
   articles: articles.State;
+  resources: resources.State;
 }
 
 const reducer = combineReducers({
@@ -91,6 +93,7 @@ const reducer = combineReducers({
   tags: tags.reducer,
   news: news.reducer,
   articles: articles.reducer,
+  resources: resources.reducer,
 } as any);
 
 export interface ExtraArgs {

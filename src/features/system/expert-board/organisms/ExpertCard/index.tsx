@@ -10,15 +10,16 @@ import * as styles from './ExpertCard.css';
 
 interface Props {
   expert: Expert;
+  href?: string;
 }
 
-const ExpertCard = ({ expert }: Props) => {
+const ExpertCard = ({ expert, href = 'experts' }: Props) => {
   return (
     <article className={styles.expertCard}>
       <NavLink
         className={styles.link}
         withoutUnderline
-        href={`/experts/${expert.code.current}`}
+        href={`/${href}/${expert.code.current}`}
       >
         <img
           className={styles.image}

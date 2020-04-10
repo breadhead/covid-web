@@ -52,9 +52,9 @@ export const PageFilter = ({
       <div className={s.tags}>
         {tags.map((tag) => (
           <Tag
-            active={params.tags.includes(tag.code.current)}
+            active={params.tags.includes(tag?.code?.current)}
             big
-            key={tag.code.current}
+            key={tag?.code?.current}
             href={getTagLink(tag, query, pathname)}
             text={tag.name}
           />
@@ -76,14 +76,14 @@ const getTagLink = (tag: TagType, query: any, pathname: string) => {
 const addOrRemoveTag = (tag: TagType, query: any) => {
   const { tags } = getParamsFromQuery(query);
   const presentIndex = tags.findIndex(
-    (tagItem) => tagItem === tag.code.current,
+    (tagItem) => tagItem === tag?.code?.current,
   );
   if (presentIndex === -1) {
-    const newTags = [...tags, tag.code.current];
+    const newTags = [...tags, tag?.code?.current];
     return { ...query, tags: newTags.join(',') };
   }
   const newTags = tags
-    .filter((tagItem) => tagItem !== tag.code.current)
+    .filter((tagItem) => tagItem !== tag?.code?.current)
     .filter((it) => !!it);
 
   return { ...query, tags: isEmpty(newTags) ? undefined : newTags.join(',') };

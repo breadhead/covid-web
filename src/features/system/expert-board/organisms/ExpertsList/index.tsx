@@ -7,13 +7,14 @@ import ExpertCard from '../ExpertCard';
 
 interface Props {
   experts: Expert[];
+  href?: string;
 }
 
-const ExpertsList = ({ experts }: Props) => {
+const ExpertsList = ({ experts, href }: Props) => {
   return (
     <section className={styles.expertsList}>
       {experts.map((expert) => (
-        <ExpertCard key={expert._id} expert={expert} />
+        <ExpertCard href={href} key={expert._id} expert={expert} />
       ))}
     </section>
   );

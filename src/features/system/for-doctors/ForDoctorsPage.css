@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  @media (--largeDown) {
+    display: block;
+  }
+}
+
+.main {
+  margin-right: 32px;
+
+  @media (--largeDown) {
+    margin: 0 auto;
+  }
+}
+
+.mainContainer {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.asideWrapper {
+  display: flex;
+  flex-direction: column;
+  
+  @media (--largeDown) {
+    display: none;
+  }
+}
+
+.dividerMobile {
+  display: none;
+
+  @media (--largeDown) {
+    display: block;
+  }
+}

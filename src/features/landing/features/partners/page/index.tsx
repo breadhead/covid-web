@@ -7,7 +7,7 @@ import { SystemLayout } from '@app/src/features/system/layout';
 
 import * as styles from './Partners.css';
 import { Notification } from '../molecules/Notification';
-import PartnersList from '../organisms/PartnersList';
+import { PartnersPageList } from '../organisms/PartnersList';
 import { PartnersType } from '../organisms/PartnersList/config';
 
 interface Props {
@@ -39,7 +39,7 @@ class PartnersPage extends React.Component<Props> {
         <section className="gl-wrapper gl-section">
           <h1 className={styles.title}>Партнёры</h1>
           <Notification />
-          <PartnersList type={this.props.id as PartnersType} />
+          <PartnersPageList type={this.props.id as PartnersType} />
         </section>
       </SystemLayout>
     );
