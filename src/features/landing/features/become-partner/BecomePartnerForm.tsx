@@ -27,7 +27,6 @@ export const BecomePartnerForm = ({ themeValue }: BecomePartnerFormProps) => {
 
   return (
     <FormConstructor
-      resetAfterSubmit
       className={styles.wrapper}
       options={formConfig}
       initialValues={initialValues}

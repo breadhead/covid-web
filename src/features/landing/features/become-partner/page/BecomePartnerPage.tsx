@@ -20,7 +20,6 @@ export const BecomePartnerPage = ({ themeValue }: BecomePartnerPage) => {
 
       <section className="gl-wrapper--narrow gl-section">
         <h1 className="gl-pageTitle">Помочь проекту</h1>
-
         <p className={cx('gl-text', styles.text)}>
           Если вы хотите помочь нам в борьбе с пандемией, заполните, пожалуйста,
           эту анкету.
