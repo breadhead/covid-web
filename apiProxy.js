@@ -39,9 +39,7 @@ module.exports = function (req, res) {
         });
 
     case 'flush':
-      console.log('=======================redis=============================');
-      console.log('=======================redis=============================');
-      console.log('=======================redis=============================');
+      console.log('redis cache cleared ' + new Date());
       redisClient.flushdb();
       return res.json({ flushed: true });
 
