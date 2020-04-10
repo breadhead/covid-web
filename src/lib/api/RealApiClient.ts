@@ -3,6 +3,7 @@ import axios, { AxiosInstance } from 'axios';
 import { FormRequestType } from '@app/src/domain/models/common/FormRequestType';
 import { User } from '@app/src/domain/models/common/User';
 import { getFromConfig } from '@app/src/helpers/getPublicRuntimeConfig';
+import { ACTIVE_AND_NOT_DRAFT_SANITY } from '@app/src/helpers/activeAndNotDraftSanity';
 
 import ApiClient, { UploadedFile } from './ApiClient';
 import { queryString } from './helper/queryString';
@@ -112,71 +113,51 @@ export default class RealApiClient implements ApiClient {
       .then((res) => res.data as any);
 
   public getPartners = () => {
-    return sanityClient.fetch(
-      `*[_type == "partner" &&  !(_id in path("drafts.**"))]`,
-      { active: true },
-    );
-    // return this.apiProxyInstance
-    //   .get(`*[_type == "partner" &&  !(_id in path("drafts.**"))]`)
-    //   .then((res) => res.data);
+    return this.apiProxyInstance
+      .get(`*[_type == "partner" &&  ${ACTIVE_AND_NOT_DRAFT_SANITY}]`)
+      .then((res) => res.data);
   };
 
   public getExperts = () => {
-    return sanityClient.fetch(
-      `*[_type == "expert" &&  !(_id in path("drafts.**"))]`,
-      { active: true },
-    );
-    // return this.apiProxyInstance
-    //   .get(`*[_type == "expert" &&  !(_id in path("drafts.**"))]`)
-    //   .then((res) => res.data);
+    return this.apiProxyInstance
+      .get(`*[_type == "expert" &&  ${ACTIVE_AND_NOT_DRAFT_SANITY}]`)
+      .then((res) => res.data);
   };
 
   public getExpertBoard = () => {
-    return sanityClient.fetch(
-      `*[_type == "expertBoard" &&  !(_id in path("drafts.**"))]`,
-      { active: true },
-    );
-    // return this.apiProxyInstance
-    //   .get(`*[_type == "expertBoard" &&  !(_id in path("drafts.**"))]`)
-    //   .then((res) => res.data);
+    return this.apiProxyInstance
+      .get(`*[_type == "expertBoard" &&  ${ACTIVE_AND_NOT_DRAFT_SANITY}]`)
+      .then((res) => res.data);
   };
 
   public getTags = () => {
-    return sanityClient.fetch(
-      `*[_type == "tag" &&  !(_id in path("drafts.**"))] {..., 
+    return this.apiProxyInstance
+      .get(
+        `*[_type == "tag" &&  ${ACTIVE_AND_NOT_DRAFT_SANITY}] {..., 
         'newsCount': count(*[_type == 'news' && references(^._id) && ^.status == true ]), 
         'articlesCount': count(*[_type == 'article' && references(^._id)  && ^.status == true ])
       
       }`,
-      { active: true },
-    );
-
-    // return this.apiProxyInstance
-    //   .get(`*[_type == "tag" &&  !(_id in path("drafts.**"))]`)
-    //   .then((res) => res.data);
+      )
+      .then((res) => res.data);
   };
   public getNews = (query: string) => {
-    return sanityClient.fetch(query, { active: true });
-    // return this.apiProxyInstance.get(query).then((res) => res.data);
+    return this.apiProxyInstance.get(query).then((res) => res.data);
   };
   public getNewsItem = (query: string) => {
-    return sanityClient.fetch(query, { active: true });
-    // return this.apiProxyInstance.get(query).then((res) => res.data);
+    return this.apiProxyInstance.get(query).then((res) => res.data);
   };
 
   public getArticles = (query: string) => {
-    return sanityClient.fetch(query, { active: true });
-    // return this.apiProxyInstance.get(query).then((res) => res.data);
+    return this.apiProxyInstance.get(query).then((res) => res.data);
   };
   public getArticlesItem = (query: string) => {
-    return sanityClient.fetch(query, { active: true });
-    // return this.apiProxyInstance.get(query).then((res) => res.data);
+    return this.apiProxyInstance.get(query).then((res) => res.data);
   };
 
   public getResources = () => {
-    return sanityClient.fetch(
-      `*[_type == "resource" &&  !(_id in path("drafts.**"))]`,
-      { active: true },
-    );
+    return this.apiProxyInstance
+      .get(`*[_type == "resource" &&  ${ACTIVE_AND_NOT_DRAFT_SANITY}]`)
+      .then((res) => res.data);
   };
 }
