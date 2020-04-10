@@ -11,10 +11,6 @@
   width: 100%;
   max-height: 100%;
   object-fit: contain;
-
-  @media (--xxsmallDown) {
-    margin-right: 40px;
-  }
 }
 
 .logoWrapper {
