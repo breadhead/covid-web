@@ -17,7 +17,8 @@ export const SystemLogo = ({ className }: SystemLogoProps) => {
       withoutUnderline
       href="/"
     >
-      <Icon name={IconsList.SystemLogo} />
+      <Icon className={styles.logoDesktop} name={IconsList.LogoDesktop} />
+      <Icon className={styles.logoMobile} name={IconsList.LogoMobile} />
     </NavLink>
   );
 };

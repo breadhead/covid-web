@@ -1,10 +1,23 @@
 .iconWrapper {
   border-bottom: none;
-  width: 156px !important;
-  height: 36px !important;
+  display: flex;
+  align-items: baseline;
 }
 
 .iconWrapper svg {
-  width: 156px !important;
-  height: 36px !important;
+}
+
+.logoDesktop {
+  width: 208px;
+  height: 24px;
+  @media (--smallDown) {
+    display: none;
+  }
+}
+.logoMobile {
+  width: 174px;
+  height: 20px;
+  @media (--smallUp) {
+    display: none;
+  }
 }
