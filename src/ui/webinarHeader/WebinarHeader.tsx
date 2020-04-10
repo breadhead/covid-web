@@ -14,7 +14,7 @@ interface WebinarHeaderProps {
 
 export const WebinarHeader = ({ data }: WebinarHeaderProps) => {
   const webinar = data as ArticlesItem;
-  const showRegistrationBadge = hasWebinarStarted(data.webinarDate);
+  const showRegistrationBadge = !hasWebinarStarted(data.webinarDate);
   return (
     <div className={s.webinarHeader}>
       <Icon className={s.webinarIcon} name={IconsList.Camera}></Icon>

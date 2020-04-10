@@ -1,6 +1,8 @@
-import { isBefore, addHours } from 'date-fns';
+import { addHours, isAfter } from 'date-fns';
 
-import { ArticlesItem } from '@app/src/domain/models/common/ArticlesItem';
+export const hasWebinarStarted = (startDate?: string) => {
+  const now = new Date();
+  const webinarDate = addHours(startDate || new Date(), -1);
 
-export const hasWebinarStarted = (startDate?: string) =>
-  !!startDate && isBefore(new Date(), addHours(startDate, -1));
+  return !!startDate && isAfter(now, webinarDate);
+};

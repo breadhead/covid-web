@@ -18,6 +18,7 @@ import { getIsWebinar } from '@app/src/helpers/isWebinar';
 import { WebinarHeader } from '@app/src/ui/webinarHeader';
 
 import s from './ArticlesItemContent.css';
+import { articleContext } from './articleContext';
 
 interface ArticlesItemContentProps {
   articlesItem: ArticlesItem;
@@ -34,67 +35,73 @@ export const ArticlesItemContent = ({
   const featuredArticles = useMappedState(selectFeaturedArticles);
   const isWebinar = getIsWebinar(articlesItem);
   return (
-    <div className={s.wrapperOuter}>
-      <Head>
-        <title>{articlesItem.name}</title>
-      </Head>
-      <div className={s.header}>
-        <NavLink withoutUnderline href="/for-doctors">
-          <div className={s.type}>Врачам</div>
-        </NavLink>
-        <div className={s.categoriesTags}>
-          <CategoriesTags
-            categories={articlesItem.categories}
-            tags={articlesItem.tags}
-            big
-          />
+    <articleContext.Provider value={{ data: articlesItem }}>
+      <div className={s.wrapperOuter}>
+        <Head>
+          <title>{articlesItem.name}</title>
+        </Head>
+        <div className={s.header}>
+          <NavLink withoutUnderline href="/for-doctors">
+            <div className={s.type}>Врачам</div>
+          </NavLink>
+          <div className={s.categoriesTags}>
+            <CategoriesTags
+              categories={articlesItem.categories}
+              tags={articlesItem.tags}
+              big
+            />
+          </div>
         </div>
-      </div>
 
-      <div className={cx(s.wrapper, 'gl-wrapper--narrow', 'gl-section')}>
-        <div className={s.head}>
-          <div className={s.publishDate}>
-            {isWebinar ? (
-              <WebinarHeader data={articlesItem} />
-            ) : (
-              formatDateWithTime(articlesItem.date || articlesItem._createdAt)
+        <div className={cx(s.wrapper, 'gl-wrapper--narrow', 'gl-section')}>
+          <div className={s.head}>
+            <div className={s.publishDate}>
+              {isWebinar ? (
+                <WebinarHeader data={articlesItem} />
+              ) : (
+                formatDateWithTime(articlesItem.date || articlesItem._createdAt)
+              )}
+            </div>
+            <h1 className={s.title}>{articlesItem.name}</h1>
+
+            {imageSrc && (
+              <div className={s.imageWrapper}>
+                <img
+                  className={s.image}
+                  src={imageSrc}
+                  alt={articlesItem.name}
+                />
+              </div>
             )}
           </div>
-          <h1 className={s.title}>{articlesItem.name}</h1>
-
-          {imageSrc && (
-            <div className={s.imageWrapper}>
-              <img className={s.image} src={imageSrc} alt={articlesItem.name} />
+          {articlesItem.content && (
+            <div>
+              <BlockContent
+                blocks={articlesItem.content}
+                serializers={serializers}
+              />
             </div>
           )}
         </div>
-        {articlesItem.content && (
-          <div>
-            <BlockContent
-              blocks={articlesItem.content}
-              serializers={serializers}
+        <div className="gl-wrapper">
+          <ShareWidget title={articlesItem.name} shareUrl={shareUrl} />
+
+          <div className={cx(s.categoriesTags, s.categoriesTagsFooter)}>
+            <CategoriesTags
+              categories={articlesItem.categories}
+              tags={articlesItem.tags}
+              big
             />
           </div>
-        )}
-      </div>
-      <div className="gl-wrapper">
-        <ShareWidget title={articlesItem.name} shareUrl={shareUrl} />
-
-        <div className={cx(s.categoriesTags, s.categoriesTagsFooter)}>
-          <CategoriesTags
-            categories={articlesItem.categories}
-            tags={articlesItem.tags}
-            big
+          <FeaturedNews
+            title="Другие статьи"
+            className="gl-section"
+            href="for-doctors"
+            linkLabel="Все статьи"
+            list={featuredArticles}
           />
         </div>
-        <FeaturedNews
-          title="Другие статьи"
-          className="gl-section"
-          href="for-doctors"
-          linkLabel="Все статьи"
-          list={featuredArticles}
-        />
       </div>
-    </div>
+    </articleContext.Provider>
   );
 };
