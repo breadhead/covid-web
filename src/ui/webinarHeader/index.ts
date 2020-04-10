@@ -1,1 +1,1 @@
-export { WebinarHeader } from './WebinarHeader'
+export { WebinarHeader } from './WebinarHeader';
