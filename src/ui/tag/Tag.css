@@ -3,9 +3,9 @@
   font: var(--text12-16);
   padding: 4px;
   display: inline-block;
-  background: #f7f6f2;
+  background: #e6e3dc;
   text-decoration: none;
-  margin-right: 8px;
+  margin-right: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
   border: none !important;

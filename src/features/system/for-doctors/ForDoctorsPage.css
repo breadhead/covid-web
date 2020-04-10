@@ -18,6 +18,12 @@
 .mainContainer {
   padding-left: 16px;
   padding-right: 16px;
+
+
+  @media (--largeDown) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .asideWrapper {

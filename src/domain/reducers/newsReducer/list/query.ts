@@ -21,7 +21,6 @@ export const getQueryKey = (params: NewsFetchParams) => {
 };
 
 export const getPageKeyFromQuery = (query: any) => {
-  console.log('query: 2222', query);
   return getPageKeyFromParams(getParamsFromQuery(query));
 };
 
