@@ -14,6 +14,20 @@ export const IconsSprite = () => (
   >
     <defs>
       <symbol
+        id={IconsList.Camera}
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M5 7C3.89543 7 3 7.89543 3 9V15C3 16.1046 3.89543 17 5 17H14C15.1046 17 16 16.1046 16 15V12.6667L20.2227 15.4818C20.5549 15.7033 21 15.4651 21 15.0657V8.93426C21 8.53491 20.5549 8.29671 20.2227 8.51823L16 11.3333V9C16 7.89543 15.1046 7 14 7H5Z"
+          fill="#151833"
+        />
+      </symbol>
+      <symbol
         id={IconsList.Enlarge}
         width="24"
         height="24"

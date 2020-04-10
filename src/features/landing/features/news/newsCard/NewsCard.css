@@ -44,3 +44,43 @@
   margin-top: 8px;
   display: flex;
 }
+
+.webinarHeader {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+
+  color: #151833 !important;
+
+  & * {
+    font: var(--text18-20);
+  }
+}
+
+.webinarIcon {
+  align-self: center;
+  margin-right: 4px;
+}
+
+.divider {
+  height: 20px;
+  width: 1px;
+  margin-left: 8px;
+  margin-right: 8px;
+  background: #dcdce7;
+  align-self: center;
+
+  @media (--smallDown) {
+    margin-right: 4px;
+    margin-left: 4px;
+  }
+}
+
+.registrationBadge {
+  margin-left: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  background: #ffeab7;
+  padding: 4px;
+  align-self: center;
+}
