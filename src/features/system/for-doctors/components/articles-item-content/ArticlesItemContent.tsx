@@ -49,6 +49,7 @@ export const ArticlesItemContent = ({
               type={articlesItem._type}
               categories={articlesItem.categories}
               tags={articlesItem.tags}
+              href="for-doctors"
               big
             />
           </div>
@@ -89,6 +90,7 @@ export const ArticlesItemContent = ({
 
           <div className={cx(s.categoriesTags, s.categoriesTagsFooter)}>
             <CategoriesTags
+              href="for-doctors"
               type={articlesItem._type}
               categories={articlesItem.categories}
               tags={articlesItem.tags}
