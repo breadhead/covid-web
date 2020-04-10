@@ -35,7 +35,6 @@ const PartnersList = ({
         ))}
         <div className={styles.buttonWrapper}>
           <NavLink
-            blank
             className={styles.buttonContainer}
             href={link}
             withoutUnderline
