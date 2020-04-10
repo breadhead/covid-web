@@ -76,7 +76,7 @@ export const ForDoctorsPage = ({ query }: Props) => {
                 pageType={PageType.Doctors}
               />
             </section>
-            <div className="asideWrapper">
+            <div className={styles.asideWrapper}>
               <Aside items={resources} />
               <Aside title="Партнёры раздела" items={partners} />
             </div>
