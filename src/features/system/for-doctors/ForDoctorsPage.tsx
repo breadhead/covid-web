@@ -59,7 +59,11 @@ export const ForDoctorsPage = ({ query }: Props) => {
               />
               <div>
                 {articles.map((newsItem) => (
-                  <NewsCard data={newsItem} key={newsItem._id}></NewsCard>
+                  <NewsCard
+                    href="for-doctors"
+                    data={newsItem}
+                    key={newsItem._id}
+                  ></NewsCard>
                 ))}
               </div>
               <ResourcesMobile resources={resources} />
