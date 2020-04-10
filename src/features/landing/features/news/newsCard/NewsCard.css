@@ -38,6 +38,11 @@
   font: var(--text18-28);
 
   transition: all 0.2s ease;
+
+  @media (--smallDown) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 
 .tags {
@@ -54,12 +59,24 @@
 
   & * {
     font: var(--text18-20);
+
+    @media (--smallDown) {
+      font-size: 14px;
+      line-height: 20px;
+      color: #616681;
+    }
   }
 }
 
 .webinarIcon {
   align-self: center;
   margin-right: 4px;
+
+  @media (--smallDown) {
+    position: relative;
+
+    bottom: 2px;
+  }
 }
 
 .divider {
