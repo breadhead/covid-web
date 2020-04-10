@@ -10,7 +10,7 @@ export const HospitalAidPage = () => {
   return (
     <SystemLayout className={styles.main}>
       <Head>
-        <title>Помощь больницам | Просто спросить</title>
+        <title>Помощь больницам | Что делать?</title>
       </Head>
 
       <section className="gl-wrapper gl-section">

@@ -17,7 +17,7 @@ export const VolunteerPage = () => {
   return (
     <SystemLayout>
       <Head>
-        <title>Хочу стать волонтером | Просто спросить</title>
+        <title>Хочу стать волонтером | Что делать?</title>
       </Head>
 
       <div className="gl-wrapper--narrow  gl-section">

@@ -5,7 +5,6 @@ import {
   TelegramShareButton,
   VKShareButton,
 } from 'react-share';
-import getConfig from 'next/config';
 import cx from 'classnames';
 
 import { IconsList } from '@app/src/ui/sprite';
@@ -18,7 +17,7 @@ import * as styles from './ShareButtons.css';
 interface ShareButtonsProps {
   title?: string;
   shareUrl?: string;
-  imageSrc?: string;
+  imageSrc?: string | null;
   className?: string;
   inForm?: boolean;
 }
@@ -26,12 +25,11 @@ interface ShareButtonsProps {
 export const ShareButtons = ({
   shareUrl = getFromConfig('prodUrl') + '#help',
   title = 'ЧТО ДЕЛАТЬ | COVID-19',
-  imageSrc = `/static/images/dc_facebook-share.png`,
+  imageSrc = getFromConfig('siteUrl') +
+    '/static/images/dc_facebook-share-support.png',
   inForm = false,
   className,
 }: ShareButtonsProps) => {
-  const { publicRuntimeConfig } = getConfig();
-
   return (
     <nav className={cx(styles.social, inForm && styles.inForm, className)}>
       <FacebookShareButton url={shareUrl} className={styles.iconWrapper}>
@@ -39,6 +37,7 @@ export const ShareButtons = ({
       </FacebookShareButton>
       <VKShareButton
         url={shareUrl}
+        image={imageSrc}
         className={styles.iconWrapper}
         title={title}
       >
@@ -55,7 +54,7 @@ export const ShareButtons = ({
         url={shareUrl}
         title={title}
         description={'Отвечаем на вопросы, помогаем врачам и больницам'}
-        image={publicRuntimeConfig.siteUrl + imageSrc}
+        image={imageSrc}
         className={styles.iconWrapper}
       >
         <Icon className={styles.icon} name={IconsList.OK} />

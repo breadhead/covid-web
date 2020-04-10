@@ -9,12 +9,20 @@ interface Props {
   title?: string;
   imageSrc?: string;
   shareUrl?: string;
+  support?: boolean;
 }
 
-export const ShareWidget = ({ shareUrl, title, imageSrc }: Props) => {
-  const realImageSrc =
-    imageSrc ||
-    getFromConfig('siteUrl') + '/static/images/dc_facebook-share.png';
+export const ShareWidget = ({
+  shareUrl,
+  title,
+  imageSrc,
+  support = false,
+}: Props) => {
+  const currentImageSrc = support
+    ? '/static/images/dc_facebook-share-support.png'
+    : '/static/images/dc_facebook-share.png';
+
+  const realImageSrc = imageSrc || getFromConfig('siteUrl') + currentImageSrc;
 
   return (
     <footer className={styles.helpFooter}>

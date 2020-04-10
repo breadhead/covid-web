@@ -14,7 +14,7 @@ export interface Props {
 const ContactsPage = ({ claimNumber }: Props) => (
   <SystemLayout>
     <Head>
-      <title>Контакты | Просто спросить</title>
+      <title>Контакты | Что делать?</title>
     </Head>
     <section className="gl-wrapper gl-section">
       <h1 className={styles.title}>Контакты</h1>

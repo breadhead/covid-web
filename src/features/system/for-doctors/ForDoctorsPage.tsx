@@ -45,7 +45,7 @@ export const ForDoctorsPage = ({ query }: Props) => {
   return (
     <>
       <Head>
-        <title>Врачам | Просто спросить</title>
+        <title>Врачам | Что делать?</title>
       </Head>
       <SystemLayout>
         <div className={cx(styles.mainContainer, 'gl-section')}>
@@ -71,6 +71,8 @@ export const ForDoctorsPage = ({ query }: Props) => {
               <ResourcesMobile resources={resources} />
               <Divider className={styles.dividerMobile} />
               <PartnersList
+                blank
+                link="/help-partners?type=become-partner"
                 className="gl-section"
                 title="Партнёры раздела"
                 pageType={PageType.Doctors}

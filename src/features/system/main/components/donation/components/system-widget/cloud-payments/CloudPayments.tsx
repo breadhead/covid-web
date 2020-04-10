@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useCallback,
-  useLayoutEffect,
-  useEffect,
-} from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import cx from 'classnames';
 
 import { Button } from '@app/src/ui/button';
@@ -16,6 +11,8 @@ enum CloudPaymentsState {
   Complete = 'complete',
   Error = 'error',
 }
+
+const CANCELLED_ERROR = 'User has cancelled';
 
 interface CloudPaymentsProps {
   styles: { [key: string]: string };
@@ -50,7 +47,12 @@ export const CloudPayments = ({
         setStep(CloudPaymentsState.Complete);
       },
       (reason, options) => {
-        setStep(CloudPaymentsState.Error);
+        if (reason === CANCELLED_ERROR) {
+          setStep(CloudPaymentsState.Initial);
+        } else {
+          setStep(CloudPaymentsState.Error);
+        }
+
         setReason(reason);
       },
     );
@@ -74,7 +76,7 @@ export const CloudPayments = ({
       {step === CloudPaymentsState.Error && (
         <>
           <span className={cx(styles.error, styles.paymentError)}>
-            Ошибка
+            Ошибка: ${reason}
             {console.log('error', reason)}
           </span>
           <Button submit onClick={pay} className={styles.actionButton}>

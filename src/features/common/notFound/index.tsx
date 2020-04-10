@@ -16,7 +16,7 @@ export { getFound } from './selectors';
 const NotFound = () => (
   <>
     <Head>
-      <title>Такой страницы не существует | Просто спросить</title>
+      <title>Такой страницы не существует | Что делать?</title>
     </Head>
 
     <SystemLayout headerWhite withoutFooter>
