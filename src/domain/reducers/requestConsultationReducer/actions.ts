@@ -20,7 +20,6 @@ export const saveCoronaRequestForm = (requestFormData: any) => async (
   getState: () => State,
   { getApi }: ExtraArgs,
 ) => {
-  console.log('requestFormData', requestFormData);
   const api = getApi(getState);
   try {
     dispatch(actions.request());
@@ -62,6 +61,25 @@ export const saveForHospitalsForm = (requestFormData: any) => async (
     throw error;
   }
 };
+
+export const savePartnerForm = (requestFormData: any) => async (
+  dispatch: Dispatch<any>,
+  getState: () => State,
+  { getApi }: ExtraArgs,
+) => {
+  const api = getApi(getState);
+  try {
+    dispatch(actions.request());
+
+    await api.saveCoronaRequestForm(requestFormData, FormRequestType.Partner);
+
+    return dispatch(actions.success(requestFormData));
+  } catch (error) {
+    dispatch(actions.error(error.message));
+    throw error;
+  }
+};
+
 export const saveVolunteerForm = (requestFormData: any) => async (
   dispatch: Dispatch<any>,
   getState: () => State,
