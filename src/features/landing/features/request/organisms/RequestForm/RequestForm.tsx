@@ -52,91 +52,99 @@ export const RequestForm = () => {
   }, []);
 
   return (
-    <Form
-      onSubmit={onFormSubmit as any}
-      initialValues={initialFields}
-      className={styles.form}
-      saveDebounced={saveRequestFormDraft()}
-      saveOnBlur={saveRequestFormDraft()}
-    >
-      {() => {
-        return (
-          <>
-            <label htmlFor="target" className={cx(styles.label, styles.field)}>
-              Для кого вы ищете информацию?
-            </label>
-            <RadioGroup
-              className={commonStyles.field}
-              validate={schema.target}
-              name="target"
-              buttons={targetList}
-            />
-            <RegionSelect
-              changeField={() => null}
-              validate={schema.region}
-              name={`region`}
-              styles={styles}
-              textRegion="Регион"
-              textCountry="Страна, где проходили лечение"
-              textSwitch="Вы проходили лечение в России?"
-            />
-            <label htmlFor="gender" className={cx(styles.label, styles.field)}>
-              Пол
-            </label>
-            <RadioGroup
-              className={commonStyles.field}
-              validate={schema.gender}
-              name="gender"
-              buttons={genderRadioGroup}
-            />
+    <div className="gl-formContainer">
+      <Form
+        onSubmit={onFormSubmit as any}
+        initialValues={initialFields}
+        className={styles.form}
+        saveDebounced={saveRequestFormDraft()}
+        saveOnBlur={saveRequestFormDraft()}
+      >
+        {() => {
+          return (
+            <>
+              <label
+                htmlFor="target"
+                className={cx(styles.label, styles.field)}
+              >
+                Для кого вы ищете информацию?
+              </label>
+              <RadioGroup
+                className={commonStyles.field}
+                validate={schema.target}
+                name="target"
+                buttons={targetList}
+              />
+              <RegionSelect
+                changeField={() => null}
+                validate={schema.region}
+                name={`region`}
+                styles={styles}
+                textRegion="Регион"
+                textCountry="Страна, где проходили лечение"
+                textSwitch="Вы проходили лечение в России?"
+              />
+              <label
+                htmlFor="gender"
+                className={cx(styles.label, styles.field)}
+              >
+                Пол
+              </label>
+              <RadioGroup
+                className={commonStyles.field}
+                validate={schema.gender}
+                name="gender"
+                buttons={genderRadioGroup}
+              />
 
-            <label
-              htmlFor="personalData.age"
-              className={cx(styles.label, styles.field)}
-            >
-              Возраст (полных лет)
-            </label>
-            <Input
-              className={cx(styles.ageField, commonStyles.field)}
-              validate={schema.age}
-              name="age"
-              type={InputType.Number}
-            />
+              <label
+                htmlFor="personalData.age"
+                className={cx(styles.label, styles.field)}
+              >
+                Возраст (полных лет)
+              </label>
+              <Input
+                className={cx(styles.ageField, commonStyles.field)}
+                validate={schema.age}
+                name="age"
+                type={InputType.Number}
+              />
 
-            <Symptoms
-              initialFields={!!initialFields && initialFields.symptoms}
-              checked={checked}
-              setCheked={setCheked}
-            />
+              <Symptoms
+                initialFields={!!initialFields && initialFields.symptoms}
+                checked={checked}
+                setCheked={setCheked}
+              />
 
-            <label
-              htmlFor="deseases"
-              className={cx(styles.label, styles.field)}
-            >
-              Сопутствующие заболевания
-            </label>
-            {deseasesList.map((it) => {
-              return (
-                <Checkbox
-                  key={it.id}
-                  name={`deseases.${it.id}`}
-                  type="checkbox"
-                  className={styles.checkbox}
-                >
-                  {it.value}
-                </Checkbox>
-              );
-            })}
-            <Button
-              size={ButtonSize.ExtraLarge}
-              className={cx(styles.button, styles.largeButton)}
-              submit
-            >
-              Отправить
-            </Button>
-          </>
-        );
-      }}
-    </Form>
+              <label
+                htmlFor="deseases"
+                className={cx(styles.label, styles.field)}
+              >
+                Сопутствующие заболевания
+              </label>
+              {deseasesList.map((it) => {
+                return (
+                  <Checkbox
+                    key={it.id}
+                    name={`deseases.${it.id}`}
+                    type="checkbox"
+                    className={styles.checkbox}
+                  >
+                    {it.value}
+                  </Checkbox>
+                );
+              })}
+              <Button
+                size={ButtonSize.ExtraLarge}
+                className={cx(styles.button, styles.largeButton)}
+                submit
+              >
+                Отправить
+              </Button>
+            </>
+          );
+        }}
+      </Form>
+    </div>
   );
 };

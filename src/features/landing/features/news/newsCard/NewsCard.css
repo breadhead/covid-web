@@ -48,6 +48,10 @@
 .tags {
   margin-top: 8px;
   display: flex;
+
+  & a {
+   margin-right: 2px;
+  }
 }
 
 .webinarHeader {
