@@ -33,7 +33,7 @@ export const RegisterForm = ({ node: { webinarLink } }: RegisterFormProps) => {
   const articleContext = useArticleContext();
 
   if (!articleContext.data) return null;
-  const webinarStarted = !hasWebinarStarted(articleContext.data.webinarDate);
+  const webinarStarted = hasWebinarStarted(articleContext.data.webinarDate);
 
   return (
     <div className={cx(s.wrapper)}>
