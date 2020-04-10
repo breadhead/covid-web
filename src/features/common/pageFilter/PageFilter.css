@@ -13,6 +13,20 @@
 }
 
 .tags {
+  @media (--largeDown) {
+    overflow-x: scroll;
+    display: flex;
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+
   & > * {
     margin-bottom: 4px;
   }

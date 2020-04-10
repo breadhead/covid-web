@@ -14,6 +14,7 @@ import { CategoryTypes } from '@app/src/domain/models/common/CategoryTypes';
 import { SystemLayout } from '@app/src/features/system/layout';
 import { Store } from '@app/src/lib/store';
 import { CategoryType } from '@app/src/domain/models/common/NewsCategoryType';
+import { selectFeaturedNews } from '@app/src/domain/reducers/newsReducer/featured/selectFeaturedNews';
 
 import { NewsCard } from '../newsCard';
 
@@ -23,9 +24,19 @@ interface Props {
 
 export const NewsPage = ({ query }: Props) => {
   const news = useMappedState(selectNews(query));
-
-  const categories = Object.values(CategoryType);
+  const featuredNews = useMappedState(selectFeaturedNews);
   const tags = useMappedState(selectTags(TagsType.News));
+
+  const categoriesForShowing = Array.from(
+    new Set(
+      featuredNews
+        .map((newsItem) => newsItem.categories)
+        .reduce((acc: any, it: any) => {
+          return [...acc, ...it];
+        }, []),
+    ),
+  );
+
   return (
     <SystemLayout>
       <Head>
@@ -37,7 +48,7 @@ export const NewsPage = ({ query }: Props) => {
         <PageFilter
           type={CategoryTypes.News}
           tags={tags}
-          categories={categories}
+          categories={categoriesForShowing}
           query={query}
         />
         <div>

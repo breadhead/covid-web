@@ -42,7 +42,8 @@ export const ForHospitalsPage = ({}: ForHospitalsProps) => {
       <div className="gl-wrapper gl-section">
         <SystemHelp />
       </div>
-      <div className="gl-wrapper gl-section-inner">
+      <Divider />
+      <div className="gl-wrapper gl-section">
         <FeaturedNews list={newsList} title="Новости и отчеты" />
       </div>
     </SystemLayout>

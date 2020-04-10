@@ -6,7 +6,7 @@ export const linksDesktop = [
   { title: 'Помощь больницам', href: '/for-hospitals' },
   { title: 'Наблюдательный совет', href: '/experts' },
   { title: 'Врачам', href: '/for-doctors' },
-  { title: 'Партнеры', href: '/partners' },
+  { title: 'Партнёры', href: '/partners' },
   { title: '', href: '' },
   { title: 'Отчеты', href: '/news?reports' },
   { title: '', href: '' },
@@ -19,7 +19,7 @@ export const linksMobile = [
   { title: 'Помощь больницам', href: '/for-hospitals' },
   { title: 'Наблюдательный совет', href: '/supervisory' },
   { title: 'Врачам', href: '/for-doctors' },
-  { title: 'Партнеры', href: '/partners' },
+  { title: 'Партнёры', href: '/partners' },
   { title: 'Отчеты', href: '/news?reports' },
   { title: 'Контакты', href: '/contacts' },
 ] as PrimaryFooterLink[];

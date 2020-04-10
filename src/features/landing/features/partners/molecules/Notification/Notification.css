@@ -3,7 +3,8 @@
   width: 100%;
   padding: 20px;
   margin-bottom: 64px;
-  border: 2px solid #f1f1f2;
+  border: 1px solid rgba(21,24,51,.12);
+  
 
   @media (--smallDown) {
     margin-bottom: 32px;

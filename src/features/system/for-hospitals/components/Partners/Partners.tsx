@@ -9,7 +9,7 @@ interface PartnersProps {}
 export const Partners = ({}: PartnersProps) => {
   return (
     <div>
-      <h2 className="gl-sectionTitle">Партнеры</h2>
+      <h2 className="gl-sectionTitle">Партнёры</h2>
       <PartnersList pageType={PageType.Hospitals} />
     </div>
   );
