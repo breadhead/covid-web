@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useMappedState } from 'redux-react-hook';
 import Head from 'next/head';
 import cx from 'classnames';
+import { uniq, uniqBy } from 'lodash';
 
 import { CategoryType } from '@app/src/domain/models/common/ArticlesCategoryType';
 import { getParamsFromQuery } from '@app/src/domain/reducers/articlesReducer/list/query';
@@ -36,12 +37,12 @@ export const ForDoctorsPage = ({ query }: Props) => {
   const tags = useMappedState(selectTags(TagsType.Articles));
   const articles = useMappedState(selectArticles(query));
   const featuredArticles = useMappedState(selectFeaturedArticles);
-
+  const pinnedArticles = articles.filter((art) => !!art.pin);
   const resources = useMappedState(selectResources());
+  const tagsIds = tags.map((tag) => tag._id);
   const partners = useMappedState(selectPartners).filter((partner) => {
     return partner.pageToShow.includes(PageType.Doctors);
   });
-  const pinnedArticles = articles.filter((art) => !!art.pin);
 
   const categoriesForShowing = Array.from(
     new Set(
@@ -52,6 +53,21 @@ export const ForDoctorsPage = ({ query }: Props) => {
         }, []),
     ),
   );
+
+  const tagsForShowing = articles
+    .map((article) => article.tags)
+    .filter((tag) => !!tag)
+    .filter((tag) => {
+      return (
+        !!tag &&
+        tag.map((it) => {
+          return tagsIds.includes((it as any)?._ref);
+        })
+      );
+    })
+    ?.reduce((acc: any, it: any) => {
+      return [...acc, ...it];
+    }, []);
 
   return (
     <>
@@ -66,7 +82,7 @@ export const ForDoctorsPage = ({ query }: Props) => {
               <ArticleCards cards={pinnedArticles} />
               <PageFilter
                 type={CategoryTypes.Articles}
-                tags={tags}
+                tags={uniqBy(tagsForShowing, '_id')}
                 categories={categoriesForShowing}
                 query={query}
               />
