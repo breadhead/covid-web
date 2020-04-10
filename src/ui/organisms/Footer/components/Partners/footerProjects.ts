@@ -11,7 +11,7 @@ export const footerProjects = [
     id: '20',
     text: `Бесплатная справочная служба для онкологических пациентов`,
     logo: '/static/images/footer/covid-logo.png',
-    href: 'https://defeatcovid.ru/ask',
+    href: 'https://ask.nenaprasno.ru',
   },
   {
     id: '30',
