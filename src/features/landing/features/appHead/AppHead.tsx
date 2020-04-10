@@ -16,6 +16,18 @@ export const AppHead = (props) => (
     <link
       rel="icon"
       type="image/png"
+      sizes="192x192"
+      href="/static/images/favicons/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/static/images/favicons/android-chrome-512x512.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
       sizes="32x32"
       href="/static/images/favicons/favicon-32x32.png"
     />
@@ -26,11 +38,7 @@ export const AppHead = (props) => (
       href="/static/images/favicons/favicon-16x16.png"
     />
     <link rel="manifest" href="/static/images/favicons/site.webmanifest" />
-    <link
-      rel="mask-icon"
-      href="/static/images/favicons/safari-pinned-tab.svg"
-      color="#ffc40d"
-    />
+
     <meta name="msapplication-TileColor" content="#ffc40d" />
     <meta name="theme-color" content="#ffffff" />
     <meta
