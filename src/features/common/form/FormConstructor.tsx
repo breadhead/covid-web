@@ -52,6 +52,7 @@ interface Props {
   className?: string;
   children: (context: FormContext) => React.ReactNode;
   resetAfterSubmit?: boolean;
+  badge?: React.ReactNode;
 }
 
 export const FormConstructor = ({
@@ -62,6 +63,7 @@ export const FormConstructor = ({
   className,
   children,
   resetAfterSubmit,
+  badge,
 }: Props) => {
   const submitHandler = async (values: any) => {
     try {
@@ -72,24 +74,27 @@ export const FormConstructor = ({
   };
 
   return (
-    <Form
-      resetAfterSubmit={resetAfterSubmit}
-      onSubmit={submitHandler as any}
-      saveDebounced={saveDraft}
-      saveOnBlur={saveDraft}
-      initialValues={initialValues}
-      className={className}
-    >
-      {(formContext) => (
-        <>
-          {options.steps
-            .filter(
-              ({ condition }) => !condition || condition(formContext.values),
-            )
-            .map((step, i) => renderFormComponent(step, i))}
-          {children(formContext)}
-        </>
-      )}
-    </Form>
+    <>
+      {badge}
+      <Form
+        resetAfterSubmit={resetAfterSubmit}
+        onSubmit={submitHandler as any}
+        saveDebounced={saveDraft}
+        saveOnBlur={saveDraft}
+        initialValues={initialValues}
+        className={className}
+      >
+        {(formContext) => (
+          <>
+            {options.steps
+              .filter(
+                ({ condition }) => !condition || condition(formContext.values),
+              )
+              .map((step, i) => renderFormComponent(step, i))}
+            {children(formContext)}
+          </>
+        )}
+      </Form>
+    </>
   );
 };

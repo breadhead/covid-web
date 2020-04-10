@@ -2,6 +2,7 @@ import { isEmpty } from 'lodash';
 
 import { ALL_CATEGORIES } from '@app/src/domain/models/common/ArticlesCategoryType';
 import { TagType } from '@app/src/domain/models/common/Tag';
+import { ACTIVE_AND_NOT_DRAFT_SANITY } from '@app/src/helpers/activeAndNotDraftSanity';
 
 import { ArticlesFetchParams, PER_PAGE_ARTICLES } from '../list/config';
 
@@ -9,7 +10,7 @@ export const articlesListRequestBuilder = (
   params: ArticlesFetchParams,
   tagValues: TagType[],
 ) => {
-  return `*[_type == 'article' &&  !(_id in path("drafts.**")) ${renderTags(
+  return `*[_type == 'article' &&  ${ACTIVE_AND_NOT_DRAFT_SANITY} ${renderTags(
     params.tags,
     tagValues,
   )} ${renderCategories(params.category)}]  | order(date desc) ${renderAmount(

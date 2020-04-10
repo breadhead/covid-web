@@ -42,6 +42,7 @@
 
 .text {
   margin-bottom: 20px;
+  font: var(--text16-24);
   @media (--smallDown) {
     margin-bottom: 16px;
   }

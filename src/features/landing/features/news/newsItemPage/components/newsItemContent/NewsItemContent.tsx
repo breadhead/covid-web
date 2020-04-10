@@ -39,6 +39,7 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
         </NavLink>
         <div className={s.categoriesTags}>
           <CategoriesTags
+            type={newsItem._type}
             categories={newsItem.categories}
             tags={newsItem.tags}
             big
@@ -49,7 +50,7 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
       <div className={cx(s.wrapper, 'gl-wrapper--narrow', 'gl-section')}>
         <div className={s.head}>
           <div className={s.publishDate}>
-            {formatDateWithTime(newsItem._updatedAt)}
+            {formatDateWithTime(newsItem._createdAt)}
           </div>
           <h1 className={s.title}>{newsItem.name}</h1>
 
@@ -72,6 +73,7 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
         />
         <div className={cx(s.categoriesTags, s.categoriesTagsFooter)}>
           <CategoriesTags
+            type={newsItem._type}
             categories={newsItem.categories}
             tags={newsItem.tags}
             big

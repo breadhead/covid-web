@@ -1,5 +1,7 @@
+import { ACTIVE_AND_NOT_DRAFT_SANITY } from '@app/src/helpers/activeAndNotDraftSanity';
+
 export const newsItemRequestBuilder = (code: string) => {
-  return `*[_type == 'news' &&  !(_id in path("drafts.**")) && code.current == '${code}']
+  return `*[_type == 'news' &&  ${ACTIVE_AND_NOT_DRAFT_SANITY} && code.current == '${code}']
   {
     ...,
     'tags': tags[]->
