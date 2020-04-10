@@ -60,6 +60,8 @@ module.exports = withPlugins(
         prodUrl: process.env.PROD_IMGPROXY_URL || 'https://covid.breadhead.ru',
         storageUrl:
           process.env.STORAGE_URL || 'https://image.covid.breadhead.ru',
+        cloudPaymentId:
+          process.env.CLOUD_PAYMENT_ID || 'pk_ae5b79dd2b9e73b5a2640f0738fcf',
       },
     },
   ],
