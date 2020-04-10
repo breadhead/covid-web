@@ -52,4 +52,5 @@ export enum IconsList {
   OK = 'ok',
   CloseSystem = 'close-system',
   Enlarge = 'enlarge',
+  Camera = 'camera',
 }
