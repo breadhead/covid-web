@@ -34,7 +34,7 @@ export const SystemMain = () => {
       </div>
       <div className="gl-wrapper gl-section-inner">
         <PartnersList
-          pageType={PageType.Info}
+          pageType={PageType.Main}
           link={`help-partners?type=${HelpPartnersType.BecomePartner}`}
         />
       </div>
