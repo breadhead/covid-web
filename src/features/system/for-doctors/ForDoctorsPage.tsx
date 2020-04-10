@@ -99,13 +99,13 @@ export const ForDoctorsPage = ({ query }: Props) => {
               <Divider className={styles.dividerMobile} />
               <PartnersList
                 className="gl-section"
-                title="Партнеры раздела"
+                title="Партнёры раздела"
                 pageType={PageType.Doctors}
               />
             </section>
             <div className="asideWrapper">
               <Aside items={resources} />
-              <Aside title="Партнеры раздела" items={partners} />
+              <Aside title="Партнёры раздела" items={partners} />
             </div>
           </div>
         </div>
