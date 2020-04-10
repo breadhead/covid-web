@@ -46,6 +46,7 @@ export const ArticlesItemContent = ({
           </NavLink>
           <div className={s.categoriesTags}>
             <CategoriesTags
+              type={articlesItem._type}
               categories={articlesItem.categories}
               tags={articlesItem.tags}
               big
@@ -88,6 +89,7 @@ export const ArticlesItemContent = ({
 
           <div className={cx(s.categoriesTags, s.categoriesTagsFooter)}>
             <CategoriesTags
+              type={articlesItem._type}
               categories={articlesItem.categories}
               tags={articlesItem.tags}
               big
