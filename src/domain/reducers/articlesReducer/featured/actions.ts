@@ -18,7 +18,7 @@ export const getFeaturedArticlesFromSanity = () => async (
       dispatch(actions.request());
 
       // const query = featuredArticlesQueryBuilder();
-      const query = `*[_type == 'article' &&  ${ACTIVE_AND_NOT_DRAFT_SANITY}]`;
+      const query = `*[_type == 'article' &&  ${ACTIVE_AND_NOT_DRAFT_SANITY}]{..., 'tags': tags[] -> }`;
 
       const articles = await api.getArticles(query);
 
