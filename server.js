@@ -25,6 +25,7 @@ app.prepare().then(() => {
   server.use(cors());
   server.get('/content/*', assetsProxy);
   server.get('/api/:type/:params?', apiProxy);
+  server.post('/api/:type/:params?', apiProxy);
   server.use(handler);
 
   server.get('*', (req, res) => {
