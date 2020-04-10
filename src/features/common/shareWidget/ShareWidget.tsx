@@ -12,6 +12,10 @@ interface Props {
 }
 
 export const ShareWidget = ({ shareUrl, title, imageSrc }: Props) => {
+  const realImageSrc =
+    imageSrc ||
+    getFromConfig('siteUrl') + '/static/images/dc_facebook-share.png';
+
   return (
     <footer className={styles.helpFooter}>
       <p className={styles.text}>
@@ -20,7 +24,7 @@ export const ShareWidget = ({ shareUrl, title, imageSrc }: Props) => {
           Поделитесь с друзьями и коллегами. Вместе победим! 💪
         </span>
       </p>
-      <ShareButtons shareUrl={shareUrl} title={title} imageSrc={imageSrc} />
+      <ShareButtons shareUrl={shareUrl} title={title} imageSrc={realImageSrc} />
     </footer>
   );
 };

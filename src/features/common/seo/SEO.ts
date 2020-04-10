@@ -1,4 +1,5 @@
 export const keywords = [
+  'Что делать',
   'Просто спросить',
   'не напрасно',
   'COVID-19',
@@ -7,5 +8,4 @@ export const keywords = [
   'Фонд профилактики рака',
 ];
 
-export const description =
-  'Справочная служба по вопросам коронавирусной инфекции COVID-19';
+export const description = 'Отвечаем на вопросы, помогаем врачам и больницам';
