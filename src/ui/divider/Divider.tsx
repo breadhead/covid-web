@@ -1,7 +1,12 @@
 import * as React from 'react';
+import cx from 'classnames';
 
 import * as s from './Divider.css';
 
-export const Divider = () => {
-  return <div className={s.divider} />;
+interface DividerProps {
+  className?: string;
+}
+
+export const Divider = ({ className }: DividerProps) => {
+  return <div className={cx(s.divider, className)} />;
 };

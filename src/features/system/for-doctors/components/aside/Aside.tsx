@@ -1,21 +1,21 @@
 import React from 'react';
 
-import { ResourcesItem } from '@app/src/domain/models/common/ResourcesItem';
 import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
 import { NavLink } from '@app/src/ui/nav-link';
 
-import * as styles from './ResourcesDesktop.css';
+import * as styles from './Aside.css';
 
-interface ResourcesProps {
-  resources: ResourcesItem[];
+interface AsideProps {
+  items: any[];
+  title?: string;
 }
 
-export const ResourcesDesktop = ({ resources }: ResourcesProps) => {
-  return resources.length > 0 ? (
-    <aside className={styles.resourcesWrap}>
-      <h4 className={styles.title}>Официальные ресурсы</h4>
-      <div className={styles.resources}>
-        {resources.map((res) => (
+export const Aside = ({ items, title = 'Официальные ресурсы' }: AsideProps) => {
+  return items.length > 0 ? (
+    <aside className={styles.itemsWrap}>
+      {!!title && <h4 className={styles.title}>{title}</h4>}
+      <div className={styles.items}>
+        {items.map((res) => (
           <NavLink
             href={res.url}
             withoutUnderline

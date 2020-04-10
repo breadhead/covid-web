@@ -15,15 +15,18 @@ import { CategoryTypes } from '@app/src/domain/models/common/CategoryTypes';
 import { selectArticles } from '@app/src/domain/reducers/articlesReducer/list/selectArticles';
 import { getResourcesFromSanity } from '@app/src/domain/reducers/resourcesReducer';
 import { selectResources } from '@app/src/domain/reducers/resourcesReducer/selectResources';
+import { selectPartners } from '@app/src/domain/reducers/partnerReducer/selectPartners';
+import { Divider } from '@app/src/ui/divider/Divider';
 
 import { SystemLayout } from '../layout';
 import { PageFilter } from '../../common/pageFilter';
 import { NewsCard } from '../../landing/features/news/newsCard';
 import * as styles from './ForDoctorsPage.css';
-import { ResourcesDesktop } from './components/resources-desktop';
 import PartnersList from '../../landing/features/home/organisms/Corporate/components/Partners/components/PartnersList';
 import { PageType } from '../../landing/features/partners/organisms/PartnersList/config';
 import { ArticleCards } from './components/article-card/ArticleCards';
+import { Aside } from './components/aside';
+import { ResourcesMobile } from './components/resources-mobile/ResourcesMobile';
 interface Props {
   query: any;
 }
@@ -33,6 +36,9 @@ export const ForDoctorsPage = ({ query }: Props) => {
   const tags = useMappedState(selectTags(TagsType.Articles));
   const articles = useMappedState(selectArticles(query));
   const resources = useMappedState(selectResources());
+  const partners = useMappedState(selectPartners).filter((partner) => {
+    return partner.pageToShow.includes(PageType.Doctors);
+  });
   // const pinnedArticles = articles.filter((art) => !!art.pin);
   return (
     <>
@@ -56,14 +62,18 @@ export const ForDoctorsPage = ({ query }: Props) => {
                   <NewsCard data={newsItem} key={newsItem._id}></NewsCard>
                 ))}
               </div>
-              <div className="gl-section">
-                <PartnersList
-                  title="Партнеры раздела"
-                  pageType={PageType.Doctors}
-                />
-              </div>
+              <ResourcesMobile resources={resources} />
+              <Divider className={styles.dividerMobile} />
+              <PartnersList
+                className="gl-section"
+                title="Партнеры раздела"
+                pageType={PageType.Doctors}
+              />
             </section>
-            <ResourcesDesktop resources={resources} />
+            <div className="asideWrapper">
+              <Aside items={resources} />
+              <Aside title="Партнеры раздела" items={partners} />
+            </div>
           </div>
         </div>
       </SystemLayout>

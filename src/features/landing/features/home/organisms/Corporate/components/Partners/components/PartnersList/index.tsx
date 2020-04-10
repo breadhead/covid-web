@@ -27,9 +27,9 @@ const PartnersList = ({
   });
 
   return partners.length > 0 ? (
-    <>
+    <div className={className}>
       {title && <h3 className={styles.title}>{title}</h3>}
-      <section className={cx(styles.partnersList, className)}>
+      <section className={cx(styles.partnersList)}>
         {partners.map((partner) => (
           <PartnerCard key={partner._id} partner={partner} />
         ))}
@@ -45,7 +45,7 @@ const PartnersList = ({
           <p className={styles.buttonLabel}>Стать партнёром</p>
         </div>
       </section>
-    </>
+    </div>
   ) : null;
 };
 
