@@ -39,6 +39,7 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
         </NavLink>
         <div className={s.categoriesTags}>
           <CategoriesTags
+            type={newsItem._type}
             categories={newsItem.categories}
             tags={newsItem.tags}
             big
@@ -72,6 +73,7 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
         />
         <div className={cx(s.categoriesTags, s.categoriesTagsFooter)}>
           <CategoriesTags
+            type={newsItem._type}
             categories={newsItem.categories}
             tags={newsItem.tags}
             big

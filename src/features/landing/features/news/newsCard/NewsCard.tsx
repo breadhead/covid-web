@@ -34,6 +34,7 @@ export const NewsCard = ({ data, href = 'news' }: NewsCardProps) => {
         {(data.tags || data.categories) && (
           <div className={s.tags}>
             <CategoriesTags
+              type={data._type}
               href={href}
               tags={data.tags}
               categories={data.categories}

@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { ArticlesItem } from '@app/src/domain/models/common/ArticlesItem';
+import { formatDate } from '@app/src/helpers/formatDate';
 import { NavLink } from '@app/src/ui/nav-link';
 import { Tag } from '@app/src/ui/tag';
-import { formatDate } from '@app/src/helpers/formatDate';
 
 import * as styles from './ArticleCards.css';
 

@@ -1,4 +1,4 @@
 export enum CategoryTypes {
-  Articles = 'articles',
+  Articles = 'article',
   News = 'news',
 }

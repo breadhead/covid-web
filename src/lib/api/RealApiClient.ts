@@ -144,8 +144,8 @@ export default class RealApiClient implements ApiClient {
   public getTags = () => {
     return sanityClient.fetch(
       `*[_type == "tag" &&  !(_id in path("drafts.**"))] {..., 
-        'newsCount': count(*[_type == 'news' && references(^._id)]), 
-        'articlesCount': count(*[_type == 'article' && references(^._id)])
+        'newsCount': count(*[_type == 'news' && references(^._id) && ^.status == true ]), 
+        'articlesCount': count(*[_type == 'article' && references(^._id)  && ^.status == true ])
       
       }`,
       { active: true },
