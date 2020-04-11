@@ -13,6 +13,7 @@ import { Icon } from '@front/ui/icon';
 import { getFromConfig } from '@front/lib/getPublicRuntimeConfig';
 
 import * as styles from './ShareButtons.css';
+import { SHARE_IMAGE_SUPPORT, SHARE_IMAGE_SUPPORT_VK } from '../../../seo/SEO';
 
 interface ShareButtonsProps {
   title?: string;
@@ -20,13 +21,14 @@ interface ShareButtonsProps {
   imageSrc?: string | null;
   className?: string;
   inForm?: boolean;
+  vkImageSrc?: string;
 }
 
 export const ShareButtons = ({
   shareUrl = getFromConfig('prodUrl') + '#help',
   title = 'ЧТО ДЕЛАТЬ | COVID-19',
-  imageSrc = getFromConfig('siteUrl') +
-    '/static/images/share/dc_facebook-share-support.png',
+  imageSrc = getFromConfig('siteUrl') + SHARE_IMAGE_SUPPORT,
+  vkImageSrc = SHARE_IMAGE_SUPPORT_VK,
   inForm = false,
   className,
 }: ShareButtonsProps) => {
@@ -37,7 +39,7 @@ export const ShareButtons = ({
       </FacebookShareButton>
       <VKShareButton
         url={shareUrl}
-        image={imageSrc}
+        image={vkImageSrc}
         className={styles.iconWrapper}
         title={title}
       >
