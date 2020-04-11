@@ -4,7 +4,6 @@ import ReactModal from 'react-modal';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { Action, AnyAction, Dispatch } from 'redux';
-import withLockScroll from '@breadhead/with-scroll-lock';
 
 import { State } from '@app/src/lib/store';
 
@@ -23,13 +22,6 @@ interface Props {
 }
 
 class Modal extends React.Component<Props> {
-  public componentDidUpdate({ modal: prevModal }: Props) {
-    const { modal } = this.props;
-    if (modal !== prevModal) {
-      this.handleScrollLock(modal);
-    }
-  }
-
   public render() {
     const { modal, close, className } = this.props;
 
@@ -51,17 +43,6 @@ class Modal extends React.Component<Props> {
     );
   }
 
-  private handleScrollLock = (modal: string) => {
-    const { bodyScrolling } = this.props;
-    const { lock, unlock } = bodyScrolling;
-
-    if (shouldOpenModal(modal)) {
-      lock();
-    } else {
-      unlock();
-    }
-  };
-
   private getModalComponent = (modal: string) =>
     ModalDispatcher.getInstance().components[modal];
 }
@@ -74,9 +55,6 @@ const mapDispatch = (dispatch: Dispatch<AnyAction>) => ({
   close: () => dispatch(actions.close()),
 });
 
-const hoc = compose<Props, {}>(
-  connect(mapState, mapDispatch),
-  withLockScroll(),
-);
+const hoc = compose<Props, {}>(connect(mapState, mapDispatch));
 
 export default hoc(Modal);

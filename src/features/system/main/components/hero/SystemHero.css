@@ -23,6 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
   margin-bottom: 40px;
 
   @media (--smallDown) {
