@@ -3,6 +3,7 @@ import cx from 'classnames';
 
 import { NavLink } from '@app/src/ui/nav-link';
 import { ActionBlock } from '@app/src/ui/actionBlock';
+import { SPACE } from '@app/src/lib/config';
 
 import s from './Hero.css';
 
@@ -31,7 +32,8 @@ export const ForHospitalsHero = () => (
           <li>
             Вместе с сотрудниками медучреждения сопоставляем список с нашим
             чек-листом для реанимации, составленным вместе с членами
-            наблюдательного совета.
+            {SPACE}
+            <NavLink href="/supervisory">наблюдательного совета</NavLink>.
           </li>
           <li>
             Корректируем и дополняем список нужд в соответствии с этим
