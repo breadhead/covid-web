@@ -24,7 +24,7 @@ export const ForHospitalsPage = ({}: ForHospitalsProps) => {
   return (
     <SystemLayout>
       <Head>
-        <title>Помощь больницам | Что делать?</title>
+        <title>Больницам | Что делать?</title>
       </Head>
 
       <div className="gl-wrapper gl-section">

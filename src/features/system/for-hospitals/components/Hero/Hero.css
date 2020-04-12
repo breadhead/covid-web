@@ -19,3 +19,11 @@
 .highlighted {
   font: var(--title-small) !important;
 }
+
+.list {
+  padding-left: 20px;
+}
+
+.list > * + * {
+  margin-top: 16px;
+}
