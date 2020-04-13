@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import cx from 'classnames';
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
 
 import * as styles from './Bubble.css';
 import { bubbleText } from './text';
@@ -11,14 +13,26 @@ export const Bubble = () => {
       setIndex((prev) => {
         return prev === bubbleText.length - 1 ? 0 : prev + 1;
       });
-    }, 5000);
+    }, 2000);
 
     return () => clearInterval(id);
   }, []);
 
   return (
-    <div key={index} className={styles.bubble}>
-      <span className={styles.hint}>{bubbleText[index]}</span>
+    <div>
+      <SwitchTransition>
+        <CSSTransition
+          key={index}
+          addEndListener={(node, done) => {
+            node.addEventListener('transitionend', done, false);
+          }}
+          classNames="bubble"
+        >
+          <div className={cx(styles.bubble)}>
+            <span>{bubbleText[index]}</span>
+          </div>
+        </CSSTransition>
+      </SwitchTransition>
     </div>
   );
 };

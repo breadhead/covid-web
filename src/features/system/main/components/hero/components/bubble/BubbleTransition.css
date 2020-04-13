@@ -1,0 +1,16 @@
+.bubble-enter {
+  opacity: 0;
+}
+.bubble-enter-active {
+  opacity: 1;
+}
+.bubble-exit {
+  opacity: 1;
+}
+.bubble-exit-active {
+  opacity: 0;
+}
+.bubble-enter-active,
+.bubble-exit-active {
+  transition: opacity 1s ease-in;
+}

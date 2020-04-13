@@ -42,6 +42,7 @@ import ErrorComponent from './_error';
 import '@app/src/ui/antd-styles.less';
 import '@app/src/ui/config.css?CSSModulesDisable';
 import '@app/src/ui/globals.css?CSSModulesDisable';
+import 'src/features/system/main/components/hero/components/bubble/BubbleTransition.css?CSSModulesDisable';
 import { AppHead } from '../src/features/landing/features/appHead/AppHead';
 
 interface Props {
