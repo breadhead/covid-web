@@ -22,6 +22,7 @@ interface ShareButtonsProps {
   className?: string;
   inForm?: boolean;
   vkImageSrc?: string;
+  facebookQuote?: string;
 }
 
 export const ShareButtons = ({
@@ -30,11 +31,16 @@ export const ShareButtons = ({
   imageSrc = getFromConfig('siteUrl') + SHARE_IMAGE_SUPPORT,
   vkImageSrc = SHARE_IMAGE_SUPPORT_VK,
   inForm = false,
+  facebookQuote,
   className,
 }: ShareButtonsProps) => {
   return (
     <nav className={cx(styles.social, inForm && styles.inForm, className)}>
-      <FacebookShareButton url={shareUrl} className={styles.iconWrapper}>
+      <FacebookShareButton
+        quote={facebookQuote}
+        url={shareUrl}
+        className={styles.iconWrapper}
+      >
         <Icon className={styles.icon} name={IconsList.Facebook} />
       </FacebookShareButton>
       <VKShareButton

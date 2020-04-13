@@ -86,7 +86,11 @@ export const ArticlesItemContent = ({
           )}
         </div>
         <div className="gl-wrapper">
-          <ShareWidget title={articlesItem.name} shareUrl={shareUrl} />
+          <ShareWidget
+            title={articlesItem.name}
+            facebookQuote={articlesItem.name}
+            shareUrl={shareUrl}
+          />
 
           <div className={cx(s.categoriesTags, s.categoriesTagsFooter)}>
             <CategoriesTags
