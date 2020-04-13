@@ -1,29 +1,36 @@
 import React, { useReducer, useState } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import { setPaymetWidgetData } from '@app/src/domain/reducers/paymentWidgetReducer';
 import { useThunk } from '@app/src/helpers/hooks/useThunk';
+import { PageType } from '@app/src/features/landing/features/partners/organisms/PartnersList/config';
 
 import * as styles from './SystemWidget.css';
 import { FirstStep } from './first-step';
-import { reducer, initialState } from './widgetReducer';
+import { reducer, getInitialState } from './widgetReducer';
 import * as actions from './widgetActions';
 import { SecondStep } from './second-step';
 import { ThirdStep } from './third-step';
 
 export const SystemWidget = () => {
+  const router = useRouter();
+  const dispatch = useThunk();
+
+  const pageType = PageType.Ask;
+  const initialState = getInitialState(pageType);
+
   const [state, dispatchFormState] = useReducer(reducer, initialState);
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   const { frequency, cost, target, name, surname, email, otherCost } = state;
-  const dispatch = useThunk();
 
   const getStep = () => {
     switch (step) {
       case 1:
         return (
           <FirstStep
+            pageType={pageType}
             cost={cost}
             frequency={frequency}
             target={target}

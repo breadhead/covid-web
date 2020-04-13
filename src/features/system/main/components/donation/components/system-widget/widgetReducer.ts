@@ -1,4 +1,6 @@
-import { frequencyForm, costForm, targetSelect } from './formConfig';
+import { PageType } from '@app/src/features/landing/features/partners/organisms/PartnersList/config';
+
+import { frequencyForm, costForm, getTargetSelect } from './formConfig';
 import * as actions from './widgetActions';
 
 interface WidgetReducerType {
@@ -21,15 +23,17 @@ export interface WidgetForm {
   otherCost: string;
 }
 
-export const initialState: WidgetReducerType = {
+export const getInitialState = (pageType: PageType): WidgetReducerType => ({
   frequency: frequencyForm.find((it) => !!it.checked)?.id || null,
   cost: costForm.find((it) => !!it.checked)?.id || null,
-  target: targetSelect.options.find((opt) => !!opt.selected)?.value || null,
+  target:
+    getTargetSelect(pageType).options.find((opt) => !!opt.selected)?.value ||
+    null,
   name: '',
   surname: '',
   email: '',
   otherCost: '',
-};
+});
 
 export const reducer = (state, action) => {
   switch (action.type) {

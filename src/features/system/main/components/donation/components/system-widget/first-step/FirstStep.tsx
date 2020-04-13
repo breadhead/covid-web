@@ -3,9 +3,10 @@ import React, { Dispatch, SetStateAction } from 'react';
 import { Button, ButtonSize } from '@app/src/ui/button';
 import { NavLink } from '@app/src/ui/nav-link';
 import { SPACE } from '@app/src/lib/config';
+import { PageType } from '@app/src/features/landing/features/partners/organisms/PartnersList/config';
 
 import { SytemRadioButton } from '../../system-radio-button';
-import { frequencyForm, costForm, targetSelect } from '../formConfig';
+import { frequencyForm, costForm, getTargetSelect } from '../formConfig';
 import { PaymentWidgetInput } from '../input';
 
 interface FirstStepProps {
@@ -13,6 +14,7 @@ interface FirstStepProps {
   frequency: string | null;
   target: string | null;
   otherCost: string;
+  pageType: PageType;
   setCost: (value: string) => void;
   setFrequency: (value: string) => void;
   setTarget: (value: string) => void;
@@ -32,8 +34,10 @@ export const FirstStep = ({
   setOtherCost,
   setStep,
   styles,
+  pageType,
 }: FirstStepProps) => {
-  const hideSelect = true;
+  const targetSelect = getTargetSelect(pageType);
+
   return (
     <>
       <div className={styles.frequencyForm}>
@@ -71,7 +75,7 @@ export const FirstStep = ({
         })}
       </div>
 
-      {targetSelect && !hideSelect ? (
+      {targetSelect && (
         <div className={styles.selectWrapper}>
           <label className={styles.selectLabel} htmlFor={targetSelect.name}>
             {targetSelect.label}
@@ -91,8 +95,6 @@ export const FirstStep = ({
             ))}
           </select>
         </div>
-      ) : (
-        <div className={styles.selectWrapper} />
       )}
       {cost === 'other' && (
         <PaymentWidgetInput
