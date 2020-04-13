@@ -6,6 +6,7 @@ import { TagType } from '@app/src/domain/models/common/Tag';
 import { NewsItem } from '@app/src/domain/models/common/NewsItem';
 import { ArticlesItem } from '@app/src/domain/models/common/ArticlesItem';
 import { ResourcesItem } from '@app/src/domain/models/common/ResourcesItem';
+import { Hospital } from '@app/src/domain/models/common/Hospital';
 
 export interface UploadedFile {
   path: string;
@@ -35,4 +36,5 @@ export default interface ApiClient {
   getArticles(query: string): Promise<ArticlesItem[]>;
   getArticlesItem(query: string): Promise<ArticlesItem[]>;
   getResources(): Promise<ResourcesItem[]>;
+  getHospitals(): Promise<Hospital[]>;
 }
