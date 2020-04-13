@@ -4,3 +4,4 @@ export const SET_TARGET = 'SET_TARGET';
 export const SET_NAME = 'SET_NAME';
 export const SET_SURNAME = 'SET_SURNAME';
 export const SET_EMAIL = 'SET_EMAIL';
+export const SET_OTHER_COST = 'SET_OTHER_COST';

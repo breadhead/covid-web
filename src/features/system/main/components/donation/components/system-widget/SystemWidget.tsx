@@ -16,7 +16,7 @@ export const SystemWidget = () => {
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const { frequency, cost, target, name, surname, email } = state;
+  const { frequency, cost, target, name, surname, email, otherCost } = state;
   const dispatch = useThunk();
 
   const getStep = () => {
@@ -27,6 +27,7 @@ export const SystemWidget = () => {
             cost={cost}
             frequency={frequency}
             target={target}
+            otherCost={otherCost}
             setCost={(value) =>
               dispatchFormState({ type: actions.SET_COST, value })
             }
@@ -35,6 +36,9 @@ export const SystemWidget = () => {
             }
             setTarget={(value) =>
               dispatchFormState({ type: actions.SET_TARGET, value })
+            }
+            setOtherCost={(value) =>
+              dispatchFormState({ type: actions.SET_OTHER_COST, value })
             }
             setStep={setStep}
             styles={styles}

@@ -6,14 +6,17 @@ import { SPACE } from '@app/src/lib/config';
 
 import { SytemRadioButton } from '../../system-radio-button';
 import { frequencyForm, costForm, targetSelect } from '../formConfig';
+import { PaymentWidgetInput } from '../input';
 
 interface FirstStepProps {
   cost: string | null;
   frequency: string | null;
   target: string | null;
+  otherCost: string;
   setCost: (value: string) => void;
   setFrequency: (value: string) => void;
   setTarget: (value: string) => void;
+  setOtherCost: (value: string) => void;
   setStep: Dispatch<SetStateAction<number>>;
   styles: { [key: string]: string };
 }
@@ -22,9 +25,11 @@ export const FirstStep = ({
   cost,
   frequency,
   target,
+  otherCost,
   setCost,
   setFrequency,
   setTarget,
+  setOtherCost,
   setStep,
   styles,
 }: FirstStepProps) => {
@@ -88,6 +93,17 @@ export const FirstStep = ({
         </div>
       ) : (
         <div className={styles.selectWrapper} />
+      )}
+      {cost === 'other' && (
+        <PaymentWidgetInput
+          key={'otherCost'}
+          styles={styles}
+          // errors={errors}
+          setValue={setOtherCost}
+          label={'Введите другую сумму:'}
+          name={name}
+          value={otherCost}
+        />
       )}
       <Button
         className={styles.button}
