@@ -12,7 +12,7 @@ export const ForHospitalsHero = () => (
     <h1 className="gl-pageTitle">Больницам</h1>
 
     <div className={cx(s.description)}>
-      <div className="gl-text">
+      <div className={s.text}>
         <ActionBlock
           className={s.bottomOffset}
           title="Вашей больнице нужна помощь?"
