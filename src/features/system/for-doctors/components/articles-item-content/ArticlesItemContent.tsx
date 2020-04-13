@@ -79,6 +79,7 @@ export const ArticlesItemContent = ({
           {articlesItem.content && (
             <div>
               <BlockContent
+                className={s.textWrapper}
                 blocks={articlesItem.content}
                 serializers={serializers}
               />
