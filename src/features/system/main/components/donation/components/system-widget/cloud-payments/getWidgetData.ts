@@ -6,12 +6,14 @@ import { FrequencyEnum } from '../formConfig';
 const { publicRuntimeConfig } = getConfig();
 
 export const getWidgetData = (formData: WidgetForm) => {
+  const { name, surname, email, frequency, target, cost, otherCost } = formData;
+
   const data = {
     firstname: name,
-    lastname: formData.surname,
-    email: formData.email,
+    lastname: surname,
+    email,
   };
-  const recurrent = formData.frequency === FrequencyEnum.Monthly;
+  const recurrent = frequency === FrequencyEnum.Monthly;
 
   if (recurrent) {
     (data as any).cloudPayments = {
@@ -19,12 +21,14 @@ export const getWidgetData = (formData: WidgetForm) => {
     };
   }
 
+  const amount = !!otherCost ? otherCost : cost;
+
   return {
     publicId: publicRuntimeConfig.cloudPaymentId,
-    description: formData.target,
-    amount: Number(formData.cost),
+    description: target,
+    amount: Number(amount),
     currency: 'RUB',
-    accountId: formData.email,
+    accountId: email,
     data,
   };
 };

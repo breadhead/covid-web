@@ -6,6 +6,10 @@
   align-items: center;
   width: 220px;
   color: var(--text-color-primary);
+
+  @media (--smallDown) {
+    width: auto;
+  }
 }
 
 .expertCard .link {

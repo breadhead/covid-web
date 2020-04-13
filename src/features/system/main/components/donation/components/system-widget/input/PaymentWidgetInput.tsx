@@ -5,13 +5,17 @@ import Input from '@app/src/ui/Input';
 interface PaymentWidgetInputProps {
   styles: { [key: string]: string };
   setValue: (value: any) => void;
-  errors: any[];
   label: string;
   name: string;
   value: any;
+  errors?: any[];
 }
 
-const getError = (errors: any[], key: string) => {
+const getError = (key: string, errors?: any[]) => {
+  if (!errors || errors.length === 0) {
+    return false;
+  }
+
   const errorField = errors.find((er) => !!er[key]);
   if (!errorField) {
     return false;
@@ -38,10 +42,10 @@ export const PaymentWidgetInput = ({
         value={value}
         label={label}
         name={name}
-        error={getError(errors, name)}
+        error={getError(name, errors)}
       />
-      {!!getError(errors, name) && (
-        <span className={styles.error}>{getError(errors, name)}</span>
+      {!!getError(name, errors) && (
+        <span className={styles.error}>{getError(name, errors)}</span>
       )}
     </div>
   );

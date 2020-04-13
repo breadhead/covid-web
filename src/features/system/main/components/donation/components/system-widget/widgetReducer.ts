@@ -8,6 +8,7 @@ interface WidgetReducerType {
   name: string;
   surname: string;
   email: string;
+  otherCost: string;
 }
 
 export interface WidgetForm {
@@ -17,6 +18,7 @@ export interface WidgetForm {
   cost: string;
   frequency: string;
   target: string;
+  otherCost: string;
 }
 
 export const initialState: WidgetReducerType = {
@@ -26,6 +28,7 @@ export const initialState: WidgetReducerType = {
   name: '',
   surname: '',
   email: '',
+  otherCost: '',
 };
 
 export const reducer = (state, action) => {
@@ -42,6 +45,8 @@ export const reducer = (state, action) => {
       return { ...state, surname: action.value };
     case actions.SET_EMAIL:
       return { ...state, email: action.value };
+    case actions.SET_OTHER_COST:
+      return { ...state, otherCost: action.value };
     default:
       return state;
   }

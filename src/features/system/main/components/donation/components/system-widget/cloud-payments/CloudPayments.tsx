@@ -40,6 +40,7 @@ export const CloudPayments = ({
 
   const showWidget = () => {
     const widgetData = getWidgetData(formData);
+    console.log('widgetData:', widgetData);
 
     (new (window as any).cp.CloudPayments() as any).charge(
       widgetData,
