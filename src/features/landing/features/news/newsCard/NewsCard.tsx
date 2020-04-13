@@ -47,7 +47,11 @@ export const NewsCard = ({ data, href = 'news' }: NewsCardProps) => {
 
   function renderHeader() {
     if (!isWebinar)
-      return <time className={s.date}>{formatDate(data._updatedAt)}</time>;
+      return (
+        <time className={s.date}>
+          {formatDate(new Date(data.date as string) || data._updatedAt)}
+        </time>
+      );
 
     return <WebinarHeader data={data} />;
   }

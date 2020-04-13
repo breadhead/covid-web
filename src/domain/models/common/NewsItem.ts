@@ -15,4 +15,5 @@ export interface NewsItem extends SanityBase {
   showOnMain?: boolean;
   categories?: CategoryType[];
   tags?: TagType[];
+  date?: string;
 }
