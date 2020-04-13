@@ -1,7 +1,7 @@
-import * as React from 'react';
 import cx from 'classnames';
-import { compose } from 'recompose';
+import * as React from 'react';
 
+import { stripUrl } from '@app/src/helpers/stripUrl';
 import { NavLink } from '@app/src/ui/nav-link';
 
 import s from './SerializerLink.css';
@@ -25,9 +25,17 @@ const SerializerLinkComponent = ({
 
   return (
     <NavLink className={cx(s.link, className)} href={href} blank={blank}>
-      {text}
+      {formatUrlsIfNeeded(text)}
     </NavLink>
   );
+};
+
+const formatUrlsIfNeeded = (url: string) => {
+  if (url.includes('http') && url.length > 15) {
+    return stripUrl(url);
+  }
+
+  return url;
 };
 
 export const SerializerLink = SerializerLinkComponent;
