@@ -3,11 +3,10 @@
   flex-direction: column;
 
   position: relative;
-  width: 928px;
-  /* height: 488px */
+
   @media (--largeDown) {
     width: 100vw;
-    /* height: 53vw; */
+  
     left: calc(-1 * (100vw - 768px) / 2);
   }
 

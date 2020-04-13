@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Input from '@app/src/ui/Input';
+import Input, { InputType } from '@app/src/ui/Input';
 
 interface PaymentWidgetInputProps {
   styles: { [key: string]: string };
@@ -8,6 +8,7 @@ interface PaymentWidgetInputProps {
   label: string;
   name: string;
   value: any;
+  type?: InputType;
   errors?: any[];
 }
 
@@ -30,11 +31,13 @@ export const PaymentWidgetInput = ({
   errors,
   label,
   name,
+  type,
   value,
 }: PaymentWidgetInputProps) => {
   return (
     <div className={styles.inputWrapper}>
       <Input
+        type={type}
         className={styles.input}
         onChange={(event: any) => {
           setValue(event?.target.value);

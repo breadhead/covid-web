@@ -18,7 +18,7 @@ export const SystemFooter = () => {
         <NavLink
           className={styles.desktopButton}
           withoutUnderline
-          href="/#donation"
+          href="/#help"
         >
           <Button kind={ButtonKind.Secondary} size={ButtonSize.Small}>
             Помочь проекту
@@ -26,11 +26,7 @@ export const SystemFooter = () => {
         </NavLink>
       </div>
 
-      <NavLink
-        className={styles.mobileButton}
-        withoutUnderline
-        href="/#donation"
-      >
+      <NavLink className={styles.mobileButton} withoutUnderline href="/#help">
         <Button size={ButtonSize.Small}>Помочь проекту</Button>
       </NavLink>
       <div className={styles.projects}>

@@ -12,7 +12,7 @@ export const ForHospitalsHero = () => (
     <h1 className="gl-pageTitle">Больницам</h1>
 
     <div className={cx(s.description)}>
-      <div className="gl-text">
+      <div className={s.text}>
         <ActionBlock
           className={s.bottomOffset}
           title="Вашей больнице нужна помощь?"
@@ -24,7 +24,7 @@ export const ForHospitalsHero = () => (
         />
         <h2 className="gl-sectionTitle">Как работает помощь больницам</h2>
 
-        <ol className={cx(s.list)}>
+        <ul className={cx(s.list)}>
           <li>
             Мы получаем запрос от медучреждения на инструменты, расходные
             материалы.
@@ -43,7 +43,7 @@ export const ForHospitalsHero = () => (
           <li>Получаем пожертвование от компании или собираем средства.</li>
           <li>Закупаем всё необходимое.</li>
           <li>Организуем доставку в клинику.</li>
-        </ol>
+        </ul>
       </div>
     </div>
   </div>

@@ -1,3 +1,5 @@
+import { PageType } from '@app/src/features/landing/features/partners/organisms/PartnersList/config';
+
 export enum FrequencyEnum {
   Monthly = 'monthly',
   Once = 'once',
@@ -89,19 +91,28 @@ export const costForm = [
   },
 ];
 
-export const targetSelect = {
-  label: 'Назначение:',
-  name: 'target',
-  options: [
-    {
-      value: 'spb',
-      label: 'Для больниц Санкт-Петербурга',
-      selected: true,
-    },
-    {
-      value: 'moscow',
-      label: 'Для больниц Москвы',
-      selected: false,
-    },
-  ],
+const targetSelectOptions = [
+  {
+    value: PageType.Hospitals,
+    label: 'Помощь больницам',
+  },
+  {
+    value: PageType.Ask,
+    label: 'Справочная служба',
+  },
+  {
+    value: PageType.Doctors,
+    label: 'Обучение врачей',
+  },
+];
+
+export const getTargetSelect = (pageType: PageType) => {
+  return {
+    label: 'Назначение:',
+    name: 'target',
+    options: targetSelectOptions.map((opt) => ({
+      ...opt,
+      selected: pageType === opt.value,
+    })),
+  };
 };

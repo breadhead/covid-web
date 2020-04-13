@@ -54,7 +54,8 @@ export const NavCards = () => {
       <NavLink withoutUnderline href={'/ask'} className={styles.card}>
         <div className={styles.content}>
           <h3 className={styles.title}>
-            Справочная служба
+            Справочная <br />
+            служба
             <Icon
               className={cx(styles.linkIcon, styles.mobileIcon)}
               name={IconsList.ArrowRight2}

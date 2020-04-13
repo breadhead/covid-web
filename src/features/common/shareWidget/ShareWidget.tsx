@@ -45,7 +45,6 @@ export const ShareWidget = ({
         imageSrc={realImageSrc}
         vkImageSrc={currenVkImageSrc}
         facebookQuote={facebookQuote}
-        support={support}
       />
     </footer>
   );
