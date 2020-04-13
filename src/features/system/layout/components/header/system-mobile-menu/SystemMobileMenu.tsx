@@ -82,7 +82,7 @@ export const SystemMobileMenu = ({ menuOpened, hide }: SystemMobileMenu) => {
           <NavLink
             className={styles.helpButtonWrap}
             withoutUnderline
-            href="/#donation"
+            href="/#help"
           >
             <Button onClick={hide} size={ButtonSize.Small}>
               Помочь проекту

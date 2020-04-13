@@ -27,7 +27,7 @@ export const SystemMain = () => {
       </Head>
       <SystemHero />
       <div className="gl-wrapper gl-section">
-        <SystemHelp />
+        <SystemHelp helpLink={`/?${PageType.Ask}#donation`} />
       </div>
       <div className="gl-wrapper gl-section-inner">
         <SystemAbout />

@@ -35,16 +35,17 @@ export const NavLink = ({
   }
   const realHref = isObject(href) ? objectUrlToString(href as any) : href;
   return (
-    <a
-      className={cx(
-        styles.navlink,
-        styles[getLinkStyle(withoutUnderline)],
-        className,
-      )}
-      href={realHref as any}
-    >
-      {children}
-    </a>
+    <routes.Link route={realHref as any}>
+      <a
+        className={cx(
+          styles.navlink,
+          styles[getLinkStyle(withoutUnderline)],
+          className,
+        )}
+      >
+        {children}
+      </a>
+    </routes.Link>
   );
 };
 

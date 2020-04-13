@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Button, ButtonSize } from '@app/src/ui/button';
 import { NavLink } from '@app/src/ui/nav-link';
 
-import { options } from './helpOptionsConfig';
+import { getHelpOptions } from './helpOptionsConfig';
 import * as styles from './HelpOptions.css';
 
 export enum HelpItemType {
@@ -23,10 +23,14 @@ interface HelpOption {
   items: HelpOptionItem[];
 }
 
-export const HelpOptions = () => {
+interface HelpOptionsProps {
+  helpLink?: string;
+}
+
+export const HelpOptions = ({ helpLink }: HelpOptionsProps) => {
   return (
     <div className={styles.options}>
-      {options.map((option: HelpOption) => {
+      {getHelpOptions(helpLink).map((option: HelpOption) => {
         return (
           <article className={styles.option} key={option.title}>
             <h3 className={styles.title}>{option.title}</h3>

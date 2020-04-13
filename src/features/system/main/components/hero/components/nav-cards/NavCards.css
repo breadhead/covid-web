@@ -51,6 +51,10 @@
     border-left-color: rgba(21, 24, 51, 0.04);
     border: var(--border-card) !important;
 
+    &::before {
+      z-index: 0;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }
