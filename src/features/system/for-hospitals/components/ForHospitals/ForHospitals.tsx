@@ -7,6 +7,7 @@ import { Divider } from '@app/src/ui/divider/Divider';
 import { FeaturedNews } from '@app/src/features/landing/features/news/featuredNews';
 import { selectHospitalNews } from '@app/src/domain/reducers/newsReducer/hospitalsList/selectHospitalNews';
 import { getNewsForHospitals } from '@app/src/domain/reducers/newsReducer/hospitalsList';
+import { PageType } from '@app/src/features/landing/features/partners/organisms/PartnersList/config';
 
 import { SystemLayout } from '../../../layout';
 import { Helping } from '../Helping/Helping';
@@ -40,7 +41,7 @@ export const ForHospitalsPage = ({}: ForHospitalsProps) => {
       </div>
       <Divider />
       <div className="gl-wrapper gl-section">
-        <SystemHelp />
+        <SystemHelp helpLink={`/?${PageType.Hospitals}#help`} />
       </div>
       <Divider />
       <div className="gl-wrapper gl-section">
