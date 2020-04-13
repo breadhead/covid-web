@@ -35,26 +35,9 @@ export const ShareButtons = ({
   inForm = false,
   facebookQuote,
   className,
-  support = false,
 }: ShareButtonsProps) => {
   return (
     <>
-      <Head>
-        {support && (
-          <>
-            <meta
-              key="og:image"
-              property="og:image"
-              content={`${getFromConfig('prodUrl')}${SHARE_IMAGE_SUPPORT}`}
-            />
-            <meta
-              key="og:image:secure_url"
-              property="og:image:secure_url"
-              content={`${getFromConfig('prodUrl')}${SHARE_IMAGE_SUPPORT}`}
-            />
-          </>
-        )}
-      </Head>
       <nav className={cx(styles.social, inForm && styles.inForm, className)}>
         <FacebookShareButton
           quote={facebookQuote}
