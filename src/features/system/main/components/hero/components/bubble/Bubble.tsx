@@ -13,7 +13,7 @@ export const Bubble = () => {
       setIndex((prev) => {
         return prev === bubbleText.length - 1 ? 0 : prev + 1;
       });
-    }, 2000);
+    }, 4000);
 
     return () => clearInterval(id);
   }, []);
