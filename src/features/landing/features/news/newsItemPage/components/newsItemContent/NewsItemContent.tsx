@@ -70,6 +70,7 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
           title={newsItem.name}
           shareUrl={shareUrl}
           imageSrc={imageSrc || undefined}
+          facebookQuote={newsItem.name}
         />
         <div className={cx(s.categoriesTags, s.categoriesTagsFooter)}>
           <CategoriesTags

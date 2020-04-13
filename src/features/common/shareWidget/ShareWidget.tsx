@@ -16,12 +16,14 @@ interface Props {
   imageSrc?: string;
   shareUrl?: string;
   support?: boolean;
+  facebookQuote?: string;
 }
 
 export const ShareWidget = ({
   shareUrl,
   title,
   imageSrc,
+  facebookQuote,
   support = false,
 }: Props) => {
   const currentImageSrc = support ? SHARE_IMAGE_SUPPORT : SHARE_IMAGE;
@@ -42,6 +44,7 @@ export const ShareWidget = ({
         title={title}
         imageSrc={realImageSrc}
         vkImageSrc={currenVkImageSrc}
+        facebookQuote={facebookQuote}
       />
     </footer>
   );
