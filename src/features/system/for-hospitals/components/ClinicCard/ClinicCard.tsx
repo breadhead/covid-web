@@ -2,26 +2,27 @@ import * as React from 'react';
 
 import { NavLink } from '@app/src/ui/nav-link';
 import { Icon } from '@app/src/ui/icon';
+import { Hospital } from '@app/src/domain/models/common/Hospital';
+import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
 
 import s from './ClinicCard.css';
 
 export interface ClicicCardProps {
-  clinic: {
-    logo: string;
-    name: string;
-    city: string;
-    link: string;
-  };
+  hospital: Hospital;
 }
 
 export const ClinicCard = ({
-  clinic: { logo, name, city, link },
-}: ClicicCardProps) => (
-  <NavLink className={s.clinicCard} withoutUnderline blank href={link}>
-    <img className={s.logo} src={logo} alt={name} />
-    <h3 className={s.title}>{name}</h3>
-    <p className={s.city}>{city}</p>
+  hospital: { logo, name, city, url },
+}: ClicicCardProps) => {
+  const logoSrc = getImageSrc(logo) || '';
 
-    <Icon name="away-link" className={s.icon} />
-  </NavLink>
-);
+  return (
+    <NavLink className={s.clinicCard} withoutUnderline blank href={url || ''}>
+      <img className={s.logo} src={logoSrc} alt={name} />
+      {name && <h3 className={s.title}>{name}</h3>}
+      {city && <p className={s.city}>{city}</p>}
+
+      <Icon name="away-link" className={s.icon} />
+    </NavLink>
+  );
+};

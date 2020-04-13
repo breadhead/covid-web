@@ -1,18 +1,25 @@
 import * as React from 'react';
+import { useMappedState } from 'redux-react-hook';
+
+import { selectHospitals } from '@app/src/domain/reducers/hospitalsReducer/selectHospitals';
 
 import { ClinicCard } from '../ClinicCard/ClinicCard';
 import s from './Helping.css';
 
-export const Helping = () => (
-  <div>
-    <h2 className="gl-sectionTitle">Уже помогаем</h2>
-    <div className={s.list}>
-      {helpingHospitals.map((clinic) => (
-        <ClinicCard key={clinic.name} clinic={clinic} />
-      ))}
+export const Helping = () => {
+  const hospitals = useMappedState(selectHospitals);
+
+  return (
+    <div>
+      <h2 className="gl-sectionTitle">Уже помогаем</h2>
+      <div className={s.list}>
+        {hospitals.map((clinic) => (
+          <ClinicCard key={clinic.name} hospital={clinic} />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const helpingHospitals = [
   {

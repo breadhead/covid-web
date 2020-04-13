@@ -160,4 +160,11 @@ export default class RealApiClient implements ApiClient {
       .get(`*[_type == "resource" &&  ${ACTIVE_AND_NOT_DRAFT_SANITY}]`)
       .then((res) => res.data);
   };
+  public getHospitals = () => {
+    return this.apiProxyInstance
+      .get(
+        `*[_type == "hospital" &&  ${ACTIVE_AND_NOT_DRAFT_SANITY}] | order(sortIndex desc)`,
+      )
+      .then((res) => res.data);
+  };
 }
