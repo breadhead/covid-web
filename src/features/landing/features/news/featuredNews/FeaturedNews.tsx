@@ -29,7 +29,7 @@ export const FeaturedNews = ({
     <div className={cx(s.wrapper, className)}>
       <h2 className={cx(s.title, 'gl-sectionTitle')}>{title}</h2>
       <div className={s.list}>
-        {(list as any).slice(0, 2).map((item) => (
+        {(list as any).slice(0, 5).map((item) => (
           <NewsCard href={href} key={item._id} data={item} />
         ))}
       </div>
