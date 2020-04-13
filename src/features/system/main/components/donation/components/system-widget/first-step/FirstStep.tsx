@@ -63,7 +63,9 @@ export const FirstStep = ({
             ...prev.filter((er) => Object.keys(er) === path),
             newError,
           ]);
+          return false;
         }
+        return true;
       })
       .then(function (valid) {
         if (!!valid) {
