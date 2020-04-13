@@ -2,6 +2,7 @@ import React from 'react';
 
 import { getImageSrc } from '@app/src/lib/useImageSrc/getImageSrc';
 import { NavLink } from '@app/src/ui/nav-link';
+import { stripUrl } from '@app/src/helpers/stripUrl';
 
 import * as styles from './Aside.css';
 
@@ -30,7 +31,7 @@ export const Aside = ({ items, title = 'Официальные ресурсы' }
             />
             <div className={styles.textContainer}>
               <span>{res.name}</span>
-              <span className={styles.link}>{res.url}</span>
+              <span className={styles.link}>{stripUrl(res.url)}</span>
             </div>
           </NavLink>
         ))}
