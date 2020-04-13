@@ -82,4 +82,5 @@
   right: 0;
   bottom: 0;
   cursor: zoom-out;
+  object-fit: contain;
 }

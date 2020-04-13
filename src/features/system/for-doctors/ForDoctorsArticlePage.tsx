@@ -4,19 +4,15 @@ import { useMappedState } from 'redux-react-hook';
 import { Store } from '@app/src/lib/store';
 import { getArticlesItemFromSanity } from '@app/src/domain/reducers/articlesReducer/item/actions';
 import { selectArticlesItem } from '@app/src/domain/reducers/articlesReducer/item/selectArticlesItem';
-import { SystemLayout } from '@app/src/features/system/layout';
 
+import NotFound from '../../common/notFound';
+import { SystemLayout } from '../layout';
 import { ArticlesItemContent } from './components/articles-item-content';
 
 export const ForDoctorsArticlePage = () => {
   const articlesItem = useMappedState(selectArticlesItem);
 
-  if (!articlesItem)
-    return (
-      <SystemLayout>
-        <div>Такой статьи нет</div>
-      </SystemLayout>
-    );
+  if (!articlesItem) return <NotFound />;
   return (
     <SystemLayout>
       <ArticlesItemContent articlesItem={articlesItem}></ArticlesItemContent>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useMappedState } from 'redux-react-hook';
+import Head from 'next/head';
 
 import { Store } from '@app/src/lib/store';
 import { getNewsItemFromSanity } from '@app/src/domain/reducers/newsReducer/item/actions';
@@ -14,11 +15,16 @@ interface NewsItemProps {}
 
 export const NewsItemPage = ({}: NewsItemProps) => {
   const newsItem = useMappedState(selectNewsItem);
-  if (!newsItem) return <NotFound></NotFound>;
+  if (!newsItem) return <NotFound />;
   return (
-    <SystemLayout>
-      <NewsItemContent newsItem={newsItem}></NewsItemContent>
-    </SystemLayout>
+    <>
+      <Head>
+        <title>{newsItem.name}</title>
+      </Head>
+      <SystemLayout>
+        <NewsItemContent newsItem={newsItem}></NewsItemContent>
+      </SystemLayout>
+    </>
   );
 };
 
