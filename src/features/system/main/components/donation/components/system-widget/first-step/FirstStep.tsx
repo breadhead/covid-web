@@ -1,9 +1,11 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useState, useCallback } from 'react';
+import * as yup from 'yup';
 
 import { Button, ButtonSize } from '@app/src/ui/button';
 import { NavLink } from '@app/src/ui/nav-link';
 import { SPACE } from '@app/src/lib/config';
 import { PageType } from '@app/src/features/landing/features/partners/organisms/PartnersList/config';
+import { InputType } from '@app/src/ui/Input';
 
 import { SytemRadioButton } from '../../system-radio-button';
 import { frequencyForm, costForm, getTargetSelect } from '../formConfig';
@@ -23,6 +25,10 @@ interface FirstStepProps {
   styles: { [key: string]: string };
 }
 
+const schema = {
+  otherCost: yup.string().required('Обязательное поле'),
+};
+
 export const FirstStep = ({
   cost,
   frequency,
@@ -36,7 +42,45 @@ export const FirstStep = ({
   styles,
   pageType,
 }: FirstStepProps) => {
+  const [errors, setErrors] = useState<any[]>([]);
   const targetSelect = getTargetSelect(pageType);
+  const isOtherCost = cost === 'other';
+
+  const validate = useCallback(() => {
+    return yup
+      .object()
+      .shape(schema)
+      .validate({ otherCost })
+      .catch(function (err) {
+        const { path, errors } = err;
+
+        const errorCondition = path === 'otherCost' && isOtherCost;
+
+        if (errorCondition) {
+          const newError = { [path]: errors[0] };
+
+          setErrors((prev) => [
+            ...prev.filter((er) => Object.keys(er) === path),
+            newError,
+          ]);
+        }
+      })
+      .then(function (valid) {
+        if (!!valid) {
+          setErrors([]);
+          return true;
+        }
+        return false;
+      });
+  }, [cost, errors, otherCost, isOtherCost]);
+
+  const onButtonClick = async () => {
+    const isValid = await validate();
+
+    if (isValid) {
+      setStep(2);
+    }
+  };
 
   return (
     <>
@@ -96,20 +140,20 @@ export const FirstStep = ({
           </select>
         </div>
       )}
-      {cost === 'other' && (
+      {isOtherCost && (
         <PaymentWidgetInput
-          key={'otherCost'}
           styles={styles}
-          // errors={errors}
+          errors={errors}
           setValue={setOtherCost}
           label={'Введите другую сумму:'}
-          name={name}
+          name={'otherCost'}
+          type={InputType.Number}
           value={otherCost}
         />
       )}
       <Button
         className={styles.button}
-        onClick={() => setStep(2)}
+        onClick={onButtonClick}
         size={ButtonSize.ExtraLarge}
       >
         Продолжить
