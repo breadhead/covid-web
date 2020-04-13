@@ -41,7 +41,7 @@ export const ForHospitalsPage = ({}: ForHospitalsProps) => {
       </div>
       <Divider />
       <div className="gl-wrapper gl-section">
-        <SystemHelp helpLink={`/?${PageType.Hospitals}#help`} />
+        <SystemHelp helpLink={`/?${PageType.Hospitals}#donation`} />
       </div>
       <Divider />
       <div className="gl-wrapper gl-section">

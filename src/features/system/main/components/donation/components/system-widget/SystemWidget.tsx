@@ -15,9 +15,10 @@ import { ThirdStep } from './third-step';
 
 export const SystemWidget = () => {
   const router = useRouter();
+  const { query } = router;
   const dispatch = useThunk();
 
-  const pageType = PageType.Ask;
+  const pageType = Object.keys(query)[0] as PageType;
   const initialState = getInitialState(pageType);
 
   const [state, dispatchFormState] = useReducer(reducer, initialState);

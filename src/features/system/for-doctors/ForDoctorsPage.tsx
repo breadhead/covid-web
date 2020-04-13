@@ -79,7 +79,7 @@ export const ForDoctorsPage = ({ query }: Props) => {
                 pageType={PageType.Doctors}
               />
               <div className="gl-section">
-                <SystemHelp helpLink={`/?${PageType.Doctors}#help`} />
+                <SystemHelp helpLink={`/?${PageType.Doctors}#donation`} />
               </div>
             </section>
             <div className={styles.asideWrapper}>

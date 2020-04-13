@@ -23,7 +23,9 @@ export interface WidgetForm {
   otherCost: string;
 }
 
-export const getInitialState = (pageType: PageType): WidgetReducerType => ({
+export const getInitialState = (
+  pageType = PageType.Ask,
+): WidgetReducerType => ({
   frequency: frequencyForm.find((it) => !!it.checked)?.id || null,
   cost: costForm.find((it) => !!it.checked)?.id || null,
   target:
