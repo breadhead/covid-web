@@ -1,4 +1,4 @@
-export enum CategoryType {
+export enum NewsCategoryType {
   News = 'news',
   Help = 'help',
   Report = 'report',
@@ -8,8 +8,8 @@ export const ALL_CATEGORIES = 'all_categories';
 
 export const getNewsCategoryText = (category: string) =>
   ({
-    [CategoryType.Help]: 'Помощь больницам',
-    [CategoryType.News]: 'Новости',
-    [CategoryType.Report]: 'Отчёты',
+    [NewsCategoryType.Help]: 'Помощь больницам',
+    [NewsCategoryType.News]: 'Новости',
+    [NewsCategoryType.Report]: 'Отчёты',
     [ALL_CATEGORIES]: 'Все категории',
   }[category]);

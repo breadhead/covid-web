@@ -35,7 +35,8 @@ interface Props {
 
 export const ForDoctorsPage = ({ query }: Props) => {
   const categories = Object.values(CategoryType);
-  const tags = useMappedState(selectTags(TagsType.Articles));
+  const params = getParamsFromQuery(query);
+  const tags = useMappedState(selectTags(TagsType.Articles, params.category));
   const articles = useMappedState(selectArticles(query));
   const resources = useMappedState(selectResources());
   const partners = useMappedState(selectPartners).filter((partner) => {

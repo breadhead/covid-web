@@ -3,7 +3,7 @@ import { Block } from '@app/src/domain/models/sanity/Block';
 
 import { TagType } from './Tag';
 import { Photo } from '../sanity/Photo';
-import { CategoryType } from './NewsCategoryType';
+import { NewsCategoryType } from './NewsCategoryType';
 
 export interface ArticlesItem extends SanityBase {
   tags?: TagType[];
@@ -12,7 +12,7 @@ export interface ArticlesItem extends SanityBase {
   name: string;
   code: { current: string };
   content?: Block[];
-  categories?: CategoryType[];
+  categories?: NewsCategoryType[];
   image?: Photo;
   pin?: boolean;
   date?: string;
