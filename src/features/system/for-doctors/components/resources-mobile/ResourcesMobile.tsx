@@ -3,6 +3,7 @@ import cx from 'classnames';
 
 import { ResourcesItem } from '@app/src/domain/models/common/ResourcesItem';
 import PartnerCard from '@app/src/features/landing/organisms/PartnerCard';
+import { stripUrl } from '@app/src/helpers/stripUrl';
 
 import * as styles from './ResourcesMobile.css';
 
@@ -18,7 +19,7 @@ export const ResourcesMobile = ({ resources }: ResourcesProps) => {
         {resources.map((res) => (
           <PartnerCard
             key={res._id}
-            partner={{ ...res, subtitle: res.url } as any}
+            partner={{ ...res, subtitle: stripUrl(res.url) } as any}
           />
         ))}
       </div>
