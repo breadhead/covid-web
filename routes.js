@@ -21,5 +21,6 @@ module.exports = nextRoutes()
   .add('ask-experts', '/ask/experts/', 'ask/experts')
   .add('ask-expert', '/ask/experts/:id', 'ask/expert')
   .add('ask', '/ask', 'ask')
+  .add('docs', '/docs', 'landing/docs')
 
   .add('icons-demo', '/icons-demo', 'icons-demo');

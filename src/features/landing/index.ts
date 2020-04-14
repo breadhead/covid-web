@@ -13,3 +13,5 @@ export { BecomePartnerPage } from './features/become-partner';
 export { HospitalAidPage } from './features/hospital-aid';
 
 export { default as RequstChatPage } from './features/request-chat/RequestChatPage';
+
+export { Docs } from '../system/docs';
