@@ -32,6 +32,7 @@
 
 .buttons {
   display: flex;
+  background: white;
 }
 
 .button {
@@ -75,11 +76,44 @@
 .fullscreen {
   position: fixed;
   z-index: 10000000;
-
+  height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  cursor: zoom-out;
+  margin: 0;
+  overflow: scroll;
+}
+
+.fullscreenImage {
   object-fit: contain;
+}
+
+
+.header {
+  display: none;
+  align-self: center;
+  justify-content: space-between;
+  margin: 0;
+  background-color: #fff;
+}
+
+
+.closeButton {
+  border: none;
+  background-color: var(--color-dark);
+  font-size: 0;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.fullscreenButtons {
+  display: none;
+}
+
+.fullscreenHeader {
+  display: flex;
 }
