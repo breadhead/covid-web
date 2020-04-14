@@ -81,7 +81,7 @@ export const SerializerImage = ({ props }: SerializerImageProps) => {
               className={cx(s.button, s.download)}
             >
               <Icon name={IconsList.AwayLink} />
-              <span>Скачать</span>
+              <span>Оригинал</span>
             </a>
           </div>
         </div>
