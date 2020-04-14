@@ -29,7 +29,7 @@
 .card {
   position: relative;
   transform: scale(1);
-  padding: 12px 16px 20px 12px;
+  padding: 12px;
   border: var(--border-card);
   display: flex;
   flex-direction: column;
@@ -59,13 +59,12 @@
 
   @media (--smallDown) {
     min-width: 300px;
-    margin: 0 auto;  
+    margin: 0 auto;
     margin-right: 8px;
 
     &:last-child {
       margin-right: 0;
     }
-
   }
 }
 
@@ -76,10 +75,24 @@
 }
 
 .textWrapper {
-text-align: left;
+  text-align: left;
 }
 
 .title {
   font: var(--title-system-medium);
   margin-bottom: 32px;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.image {
+  width: 72px;
+  height: 72px;
+
+  border-radius: 6px;
 }
