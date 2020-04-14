@@ -11,6 +11,15 @@
 
   @media (--largeDown) {
     display: flex;
+    overflow-x: scroll;
+
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 

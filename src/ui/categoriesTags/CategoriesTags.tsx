@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { CategoryType } from '@app/src/domain/models/common/NewsCategoryType';
 import { TagType } from '@app/src/domain/models/common/Tag';
 import { getCategoryText } from '@app/src/features/common/pageFilter/helpers/getCategoryText';
+import { NewsCategoryType } from '@app/src/domain/models/common/NewsCategoryType';
 
 import { Tag } from '../tag';
 
 interface TagsProps {
   tags?: TagType[];
-  categories?: CategoryType[];
+  categories?: NewsCategoryType[];
   big?: boolean;
   href?: string;
   type: string;

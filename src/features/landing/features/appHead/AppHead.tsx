@@ -53,10 +53,12 @@ export const AppHead = (props) => (
     />
     <meta property="og:type" content="website" />
     <meta
+      key="og:image"
       property="og:image"
       content={`${props.publicRuntimeConfig.siteUrl}${SHARE_IMAGE}`}
     />
     <meta
+      key="og:image:secure_url"
       property="og:image:secure_url"
       content={`${props.publicRuntimeConfig.siteUrl}${SHARE_IMAGE}`}
     />

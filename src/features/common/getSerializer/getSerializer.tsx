@@ -71,10 +71,8 @@ export const getSerializer = ({ types, marks }: SerializerProps) => {
       link: ({ children, mark }: any) => {
         const { href, options } = mark;
 
-        const blank = !!options && options === 'blank';
-
         return (
-          <SerializerLink href={href} blank={blank}>
+          <SerializerLink href={href} blank>
             {children}
           </SerializerLink>
         );

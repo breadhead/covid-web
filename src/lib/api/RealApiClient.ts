@@ -4,6 +4,7 @@ import { FormRequestType } from '@app/src/domain/models/common/FormRequestType';
 import { User } from '@app/src/domain/models/common/User';
 import { getFromConfig } from '@app/src/helpers/getPublicRuntimeConfig';
 import { ACTIVE_AND_NOT_DRAFT_SANITY } from '@app/src/helpers/activeAndNotDraftSanity';
+import { tagsQuery } from '@app/src/domain/reducers/tagsReducer/config';
 
 import ApiClient, { UploadedFile } from './ApiClient';
 import { queryString } from './helper/queryString';
@@ -131,15 +132,7 @@ export default class RealApiClient implements ApiClient {
   };
 
   public getTags = () => {
-    return this.apiProxyInstance
-      .get(
-        `*[_type == "tag" &&  ${ACTIVE_AND_NOT_DRAFT_SANITY}] {..., 
-        'newsCount': count(*[_type == 'news' && references(^._id) && ^.status == true ]), 
-        'articlesCount': count(*[_type == 'article' && references(^._id)  && ^.status == true ])
-      
-      }`,
-      )
-      .then((res) => res.data);
+    return this.apiProxyInstance.get(tagsQuery).then((res) => res.data);
   };
   public getNews = (query: string) => {
     return this.apiProxyInstance.get(query).then((res) => res.data);

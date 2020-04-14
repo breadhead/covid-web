@@ -3,7 +3,6 @@ import React from 'react';
 import { useMappedState } from 'redux-react-hook';
 
 import { CategoryTypes } from '@app/src/domain/models/common/CategoryTypes';
-import { CategoryType } from '@app/src/domain/models/common/NewsCategoryType';
 import { getNewsFromSanity } from '@app/src/domain/reducers/newsReducer/list';
 import { getParamsFromQuery } from '@app/src/domain/reducers/newsReducer/list/query';
 import { selectNews } from '@app/src/domain/reducers/newsReducer/list/selectNews';
@@ -14,6 +13,7 @@ import {
 import { PageFilter } from '@app/src/features/common/pageFilter';
 import { SystemLayout } from '@app/src/features/system/layout';
 import { Store } from '@app/src/lib/store';
+import { NewsCategoryType } from '@app/src/domain/models/common/NewsCategoryType';
 
 import { NewsCard } from '../newsCard';
 
@@ -23,10 +23,10 @@ interface Props {
 
 export const NewsPage = ({ query }: Props) => {
   const news = useMappedState(selectNews(query));
+  const params = getParamsFromQuery(query);
+  const tags = useMappedState(selectTags(TagsType.News, params.category));
 
-  const tags = useMappedState(selectTags(TagsType.News));
-
-  const categories = Object.values(CategoryType);
+  const categories = Object.values(NewsCategoryType);
 
   return (
     <SystemLayout>

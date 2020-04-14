@@ -9,6 +9,10 @@
   }
 }
 
+.text {
+  max-width: 768px;
+}
+
 .textImage {
   display: block;
 
@@ -27,3 +31,4 @@
 .list > * + * {
   margin-top: 16px;
 }
+

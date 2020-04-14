@@ -7,9 +7,18 @@
   }
 
   &:hover {
+    border-bottom: 0;
     & .title {
       color: var(--color-primary);
     }
+  }
+
+  &:active {
+    border-bottom: 0;
+  }
+
+  &:focus {
+    border-bottom: 0;
   }
 }
 

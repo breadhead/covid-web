@@ -21,6 +21,7 @@ enum PageType {
   Hospitals = 'hospitals',
   Info = 'info',
   Doctors = 'doctors',
+  Ask = 'ask',
 }
 
 const customOptions = [

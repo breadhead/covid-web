@@ -29,13 +29,15 @@ import { PageType } from '../../landing/features/partners/organisms/PartnersList
 import { ArticleCards } from './components/article-card/ArticleCards';
 import { Aside } from './components/aside';
 import { ResourcesMobile } from './components/resources-mobile';
+import { SystemHelp } from '../main/components/help';
 interface Props {
   query: any;
 }
 
 export const ForDoctorsPage = ({ query }: Props) => {
   const categories = Object.values(CategoryType);
-  const tags = useMappedState(selectTags(TagsType.Articles));
+  const params = getParamsFromQuery(query);
+  const tags = useMappedState(selectTags(TagsType.Articles, params.category));
   const articles = useMappedState(selectArticles(query));
   const resources = useMappedState(selectResources());
   const partners = useMappedState(selectPartners).filter((partner) => {
@@ -77,6 +79,9 @@ export const ForDoctorsPage = ({ query }: Props) => {
                 title="Партнёры раздела"
                 pageType={PageType.Doctors}
               />
+              <div className="gl-section">
+                <SystemHelp helpLink={`/?${PageType.Doctors}#donation`} />
+              </div>
             </section>
             <div className={styles.asideWrapper}>
               <Aside items={resources} />

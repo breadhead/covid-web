@@ -38,11 +38,6 @@
   padding: 18px 16px;
   border-bottom: none;
 
-  &.active {
-    background: white !important;
-    color: var(--text-color-primary);
-  }
-
   &:hover {
     border-bottom: none;
   }
@@ -57,6 +52,11 @@
 }
 
 .mainLink {
+  &.active {
+    background: white !important;
+    color: var(--text-color-primary);
+  }
+  
   @media (max-width: 959px) {
     &:last-child {
       border-bottom: none;
@@ -116,8 +116,19 @@
 
 .contentLink {
   color: #82839b;
+  padding: 18px 8px;
+
+
+  &:last-child {
+    padding-right: 24px;
+  }
+
   @media (max-width: 959px) {
     color: var(--color-text-primary);
+
+    &:last-child {
+      padding-right: 8px;
+    }
   }
 }
 

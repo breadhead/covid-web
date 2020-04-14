@@ -8,4 +8,5 @@ export interface TagType extends SanityBase {
   status: boolean;
   newsCount: number;
   articlesCount: number;
+  count: { [key: string]: number | undefined };
 }
