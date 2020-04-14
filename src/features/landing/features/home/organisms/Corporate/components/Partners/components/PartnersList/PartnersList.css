@@ -6,7 +6,7 @@
   @media (--mediumSecondDown) {
     margin-bottom: 0;
     overflow: scroll;
-    overscroll-behavior: contain;
+    overscroll-behavior: unset;
     padding-left: 16px;
     margin-left: -16px;
     margin-right: -16px;

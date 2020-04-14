@@ -34,51 +34,63 @@ export const SerializerImage = ({ props }: SerializerImageProps) => {
     },
   );
 
-  const onImageClick = () => {
+  const onCloseClick = () => {
     if (fullscreen) {
       setFullScreen(false);
     }
   };
 
   return (
-    <div
-      id={src}
-      className={cx(
-        s.wrapper,
-        offsets.imageSideOffset,
-        offsets['s-editor-customimage'],
-      )}
-    >
-      <div className={s.imageWrapper}>
-        <img
-          onClick={onImageClick}
-          className={cx(s.image, fullscreen && s.fullscreen)}
-          src={src}
-          alt="Картинка"
-        />
+    <>
+      <div
+        id={src}
+        className={cx(
+          s.wrapper,
+          offsets.imageSideOffset,
+          offsets['s-editor-customimage'],
+          fullscreen && s.fullscreen,
+        )}
+      >
+        <div className={s.imageWrapper}>
+          <header className={cx(s.header, fullscreen && s.fullscreenHeader)}>
+            <button className={s.closeButton} onClick={onCloseClick}>
+              закрыть меню
+              <Icon name={IconsList.CloseSystem} />
+            </button>
+          </header>
 
-        <div className={s.buttons}>
-          <button onClick={onEnlargeClick} className={cx(s.button, s.enlarge)}>
-            <Icon name={IconsList.Enlarge} /> Увеличить
-            <span></span>
-          </button>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href={src}
-            className={cx(s.button, s.download)}
-          >
-            <Icon name={IconsList.DownloadLight} />
-            <span>Скачать</span>
-          </a>
+          <img
+            // onClick={onCloseClick}
+            className={cx(s.image, fullscreen && s.fullscreenImage)}
+            src={src}
+            alt="Картинка"
+          />
+
+          <div className={cx(s.buttons, fullscreen && s.fullscreenButtons)}>
+            <button
+              onClick={onEnlargeClick}
+              className={cx(s.button, s.enlarge)}
+            >
+              <Icon name={IconsList.Enlarge} /> Увеличить
+              <span></span>
+            </button>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={src}
+              className={cx(s.button, s.download)}
+            >
+              <Icon name={IconsList.AwayLink} />
+              <span>Скачать</span>
+            </a>
+          </div>
         </div>
       </div>
-
       {text && (
         <div className={s.text}>
           <BlockContent blocks={text} serializers={simpleSerializer} />
         </div>
       )}
-    </div>
+    </>
   );
 };
