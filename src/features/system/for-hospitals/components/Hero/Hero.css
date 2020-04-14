@@ -32,3 +32,18 @@
   margin-top: 16px;
 }
 
+.item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+}
+
+.index {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-highlight);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import cx from 'classnames';
+import htmlParser from 'react-html-parser';
 
-import { NavLink } from '@app/src/ui/nav-link';
 import { ActionBlock } from '@app/src/ui/actionBlock';
-import { SPACE } from '@app/src/lib/config';
 
 import s from './Hero.css';
+import { helpHospitalsList } from './helpHospitalsList';
 
 export const ForHospitalsHero = () => (
   <div>
@@ -25,24 +25,12 @@ export const ForHospitalsHero = () => (
         <h2 className="gl-sectionTitle">Как работает помощь больницам</h2>
 
         <ul className={cx(s.list)}>
-          <li>
-            Мы получаем запрос от медучреждения на инструменты, расходные
-            материалы.
-          </li>
-          <li>
-            Вместе с сотрудниками медучреждения сопоставляем список с нашим
-            чек-листом для реанимации, составленным вместе с членами
-            {SPACE}
-            <NavLink href="/supervisory">наблюдательного совета</NavLink>.
-          </li>
-          <li>
-            Корректируем и дополняем список нужд в соответствии с этим
-            чек-листом.
-          </li>
-          <li>Составляем смету и показываем её компании-донору.</li>
-          <li>Получаем пожертвование от компании или собираем средства.</li>
-          <li>Закупаем всё необходимое.</li>
-          <li>Организуем доставку в клинику.</li>
+          {helpHospitalsList.map((li) => (
+            <li className={s.item} key={li.id}>
+              <span className={s.index}>{li.id}</span>
+              <span>{htmlParser(li.text)}</span>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
