@@ -20,7 +20,7 @@ const SupervisorPage = ({ expert }: Props) => {
   return (
     <>
       <Head>
-        <title>{expert.name} | Что делать?</title>
+        <title>{expert.name} | Что делать:</title>
       </Head>
       <SystemLayout className={styles.main}>
         <div className={styles.container}>

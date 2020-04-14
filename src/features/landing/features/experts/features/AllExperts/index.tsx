@@ -16,7 +16,7 @@ const AllExperts = () => {
   return (
     <>
       <Head>
-        <title>Эксперты | Что делать?</title>
+        <title>Эксперты | Что делать:</title>
       </Head>
       <SystemLayout>
         <section className="gl-wrapper gl-section">

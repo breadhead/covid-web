@@ -17,7 +17,7 @@ const ExpertPage = ({ expert }: Props) => {
   return (
     <>
       <Head>
-        <title>{expert.name} | Что делать?</title>
+        <title>{expert.name} | Что делать:</title>
       </Head>
       <SystemLayout>
         <div className={cx(styles.container, 'gl-wrapper gl-section')}>

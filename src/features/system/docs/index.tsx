@@ -10,7 +10,7 @@ export const Docs = () => {
   return (
     <>
       <Head>
-        <title>Реквизиты | Что делать?</title>
+        <title>Реквизиты | Что делать:</title>
       </Head>
       <SystemLayout>
         <div className="gl-wrapper gl-section">

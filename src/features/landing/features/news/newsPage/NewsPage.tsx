@@ -31,7 +31,7 @@ export const NewsPage = ({ query }: Props) => {
   return (
     <SystemLayout>
       <Head>
-        <title>Новости | Что делать?</title>
+        <title>Новости | Что делать:</title>
       </Head>
 
       <div className="gl-wrapper gl-section">
