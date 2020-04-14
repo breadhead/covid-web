@@ -1,0 +1,7 @@
+.infoBlock {
+  & p {
+    margin: 0 8px 0 0;
+  }
+  
+  margin-bottom: 24px;
+}

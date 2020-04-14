@@ -30,7 +30,7 @@ class RequstPage extends React.Component<Props> {
       <SystemLayout>
         <AskHeader />
         <Head>
-          <title>Новое обращение | Что делать?</title>
+          <title>Новое обращение | Что делать:</title>
         </Head>
         <section className="gl-wrapper gl-section">
           <h1 className={styles.title}>Новое обращение</h1>

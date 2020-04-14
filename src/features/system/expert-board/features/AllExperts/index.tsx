@@ -17,7 +17,7 @@ const AllExperts = () => {
   return (
     <SystemLayout>
       <Head>
-        <title>Наблюдательный совет | Что делать?</title>
+        <title>Наблюдательный совет | Что делать:</title>
       </Head>
       <div className="gl-wrapper gl-section">
         <h1 className="gl-pageTitle">Наблюдательный совет</h1>

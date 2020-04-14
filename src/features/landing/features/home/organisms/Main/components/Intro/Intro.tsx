@@ -41,7 +41,7 @@ export const Intro = () => (
         href="http://faq.defeatcovid.ru/ru/articles/3831105-%D1%87%D1%82%D0%BE-%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C-%D0%B5%D1%81%D0%BB%D0%B8-%D1%83-%D0%B2%D0%B0%D1%81-%D0%B5%D1%81%D1%82%D1%8C-%D1%81%D0%B8%D0%BC%D0%BF%D1%82%D0%BE%D0%BC%D1%8B"
       >
         <span className={styles.buttonText}>
-          Есть симптомы COVID. Что делать?
+          Есть симптомы COVID. Что делать:
         </span>
         <img
           className={cx(styles.image, styles.imagePatient)}

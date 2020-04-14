@@ -34,7 +34,7 @@ class PartnersPage extends React.Component<Props> {
     return (
       <SystemLayout>
         <Head>
-          <title>Партнёры | Что делать?</title>
+          <title>Партнёры | Что делать:</title>
         </Head>
         <section className="gl-wrapper gl-section">
           <h1 className={styles.title}>Партнёры</h1>
