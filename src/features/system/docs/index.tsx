@@ -1,6 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
 
+import { NavLink } from '@app/src/ui/nav-link';
+import { SPACE } from '@app/src/lib/config';
+
 import * as styles from './Docs.css';
 import { SystemLayout } from '../layout';
 
@@ -36,7 +39,14 @@ export const Docs = () => {
 
             <div className={styles.infoBlock}>
               <p>
-                Президент Фонда — Бурханов В.Р. Действует на основании Устава.
+                Президент Фонда — Бурханов В.Р. Действует на основании{SPACE}
+                <NavLink
+                  blank
+                  href="https://nenaprasno.ru/upload/iblock/460/46062625565355ba0ca0ccac8645e256.pdf"
+                >
+                  Устава
+                </NavLink>
+                .
               </p>
             </div>
           </div>
