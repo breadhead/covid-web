@@ -27,6 +27,7 @@
   width: 72px;
   display: block;
   margin-right: 12px;
+  flex-shrink: 0;
 }
 
 .body {
