@@ -38,7 +38,7 @@ export const SystemMain = () => {
           link={`help-partners?type=${HelpPartnersType.BecomePartner}`}
         />
       </div>
-      <SystemDonation />
+      <SystemDonation pageType={PageType.Hospitals} />
       <div className="gl-wrapper gl-section">
         <FeaturedNews title="Новости и отчеты" list={mainPageNews} />
       </div>
