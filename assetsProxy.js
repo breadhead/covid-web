@@ -21,9 +21,10 @@ module.exports = function (req, res) {
     .then(
       (image) =>
         new Promise((resolve, reject) => {
-          image.body.pipe(fileStream);
-          image.body.on('end', () => res.sendFile(filepath));
-          fileStream.on('error', reject);
+          image.body
+            .pipe(fileStream)
+            .on('finish', () => res.sendFile(filepath))
+            .on('error', reject);
         }),
     )
     .catch((e) => res.status(500) && res.end(e));
