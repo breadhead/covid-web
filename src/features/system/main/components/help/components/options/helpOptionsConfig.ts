@@ -34,6 +34,12 @@ export const getHelpOptions = (helpLink = '/#help') => {
       title: 'Организациям',
       items: [
         {
+          id: '0',
+          type: HelpItemType.Link,
+          label: 'Реквизиты',
+          link: `/docs`,
+        },
+        {
           id: '10',
           type: HelpItemType.Link,
           label: 'Стать партнером',
