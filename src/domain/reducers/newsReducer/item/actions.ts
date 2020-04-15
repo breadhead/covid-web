@@ -14,7 +14,7 @@ export const getNewsItemFromSanity = (code: string) => async (
   { getApi }: ExtraArgs,
 ) => {
   const item = selectNewsItem(getState());
-  if (needToFetch(item) && item?.code.current !== code) {
+  if (needToFetch(item) || item?.code.current !== code) {
     const api = getApi(getState);
     try {
       dispatch(actions.request());
