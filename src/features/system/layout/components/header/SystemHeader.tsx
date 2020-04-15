@@ -6,6 +6,7 @@ import { RouteType } from '@app/src/lib/routing/RouteType';
 import { SystemLogo } from '@app/src/ui/system-logo';
 import BurgerButton from '@app/src/features/common/layout/organisms/Header/atoms/BurgerButton';
 import { useScrollBodyLock } from '@app/src/lib/scroll-lock/useScrollBodyLock';
+import { useResetScrollLock } from '@app/src/lib/resetScrollLock';
 
 import * as styles from './SystemHeader.css';
 import { SystemMobileMenu } from './system-mobile-menu';
@@ -20,7 +21,7 @@ interface SystemHeaderProps {
 export const SystemHeader = ({ white, fixed, show }: SystemHeaderProps) => {
   const [menuOpened, setOpened] = useState(false);
   const { lock, unlock } = useScrollBodyLock();
-
+  useResetScrollLock();
   const showMenu = useCallback(() => {
     setOpened(true);
     lock();
