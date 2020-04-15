@@ -13,6 +13,7 @@ import { Main } from '../organisms/Main';
 import { useAuthModalByUrl } from './useAuthModalByUrl';
 import About from '../organisms/Main/components/About';
 import Steps from '../organisms/Main/components/Steps';
+import { PageType } from '../../partners/organisms/PartnersList/config';
 
 const LandingPage = () => {
   useAuthModalByUrl();
@@ -41,7 +42,7 @@ const LandingPage = () => {
           <Divider />
           <div className={styles.wrapper}>
             <Experts />
-            <Donation />
+            <Donation pageType={PageType.Ask} />
           </div>
         </div>
       </SystemLayout>

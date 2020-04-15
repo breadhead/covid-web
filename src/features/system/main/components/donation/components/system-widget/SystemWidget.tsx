@@ -13,13 +13,17 @@ import * as actions from './widgetActions';
 import { SecondStep } from './second-step';
 import { ThirdStep } from './third-step';
 
-export const SystemWidget = () => {
+interface SystemWidgetProps {
+  pageType?: PageType;
+}
+
+export const SystemWidget = ({ pageType }: SystemWidgetProps) => {
   const router = useRouter();
   const { query } = router;
   const dispatch = useThunk();
 
-  const pageType = Object.keys(query)[0] as PageType;
-  const initialState = getInitialState(pageType);
+  const selectPageType = pageType || (Object.keys(query)[0] as PageType);
+  const initialState = getInitialState(selectPageType);
 
   const [state, dispatchFormState] = useReducer(reducer, initialState);
   const [step, setStep] = useState(1);
@@ -31,7 +35,7 @@ export const SystemWidget = () => {
       case 1:
         return (
           <FirstStep
-            pageType={pageType}
+            pageType={selectPageType}
             cost={cost}
             frequency={frequency}
             target={target}
