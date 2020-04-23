@@ -21,7 +21,7 @@ export const ChecklistForm = ({ onSubmit }: Props) => {
       className={styles.form}
     >
       {(context) => (
-        <>
+        <div className={styles.submit}>
           <SubmitTooltip context={context} />
           <Button
             disabled={context.submitting}
@@ -31,7 +31,8 @@ export const ChecklistForm = ({ onSubmit }: Props) => {
           >
             Отправить
           </Button>
-        </>
+        </div>
+        
       )}
     </FormConstructor>
   );

@@ -33,7 +33,7 @@ const getTitleForLevel = (text: string, level?: number) => {
     case 1:
       return <h2>{text}</h2>;
     case 2:
-      return <h3>{text}</h3>;
+      return <h4>{text}</h4>;
     default:
       return <h4>{text}</h4>;
   }
@@ -53,6 +53,8 @@ const getFormComponent = (type: FormComponentType, props: any) => {
       return <EmergingFormElement {...props} />;
     case FormComponentType.Input:
       return <Input {...props} />;
+    case FormComponentType.Number:
+      return <Input type="number" {...props} />;
     case FormComponentType.PhoneInput:
       return <PhoneInput {...props} />;
     case FormComponentType.RadioButton:
@@ -116,7 +118,7 @@ export const renderFormComponent = (
           htmlFor: props ? props.name : '',
           required: required,
         })}
-      {getFormComponent(type, { className: styles.field, ...props })}
+      {getFormComponent(type, { className: cx(styles.field), ...props })}
       {children && children.map(renderFormComponent)}
     </div>
   );

@@ -37,3 +37,14 @@
     margin: 0 0 24px 0;
   }
 }
+
+
+.text {
+  margin: 0;
+  text-align: left;
+  margin-bottom: 16px;
+
+  @media (--smallDown) {
+    margin-bottom: 16px;
+  }
+}

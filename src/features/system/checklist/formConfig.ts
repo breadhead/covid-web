@@ -3,17 +3,20 @@ import * as yup from 'yup';
 import { FormComponentType } from '@front/features/common/form/FormConstructor';
 import { InputType } from '@front/ui/Input';
 
-const standardInputGroup = (name, title, className, level = 2) => {
+import cx from 'classnames';
+
+const standardInputGroup = (name, title, styles, level = 2) => {
   return {
     type: FormComponentType.FieldGroup,
     title,
     level,
-    className,
+    className: styles.rowInputGroup,
     children: [
       {
-        type: FormComponentType.Input,
+        type: FormComponentType.Number,
+        className: styles.small,
         label: {
-          text: 'На сколько суток хватит',
+          text: 'На сколько суток хватит?',
         },
         props: {
           name: `${name}DaysRemaining`,
@@ -22,6 +25,7 @@ const standardInputGroup = (name, title, className, level = 2) => {
       },
       {
         type: FormComponentType.Toggle,
+        className: cx(styles.small, styles.thumblr),
         label: {
           text: 'Прогнозируете проблемы с поставкой?',
         },
@@ -44,40 +48,41 @@ export const formConfig = (styles) => ({
         standardInputGroup(
           'disposableSuits',
           'Одноразовые костюмы',
-          styles.rowInputGroup,
+          styles,
+          
         ),
         standardInputGroup(
           'disposableRobes',
           'Одноразовые халаты',
-          styles.rowInputGroup,
+          styles,
         ),
-        standardInputGroup('glasses', 'Очки', styles.rowInputGroup),
+        standardInputGroup('glasses', 'Очки', styles),
         standardInputGroup(
           'regularMasks',
           'Маски обычные',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'respiratorsFFP2',
           'Респираторы FFP2',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'respiratorsFFP3',
           'Респираторы FFP3',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'shoeCovers',
           'Бахилы (высокие, хирургические)',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'disposableGloves',
           'Одноразовые перчатки',
-          styles.rowInputGroup,
+          styles,
         ),
-        standardInputGroup('antiseptics', 'Антисептики', styles.rowInputGroup),
+        standardInputGroup('antiseptics', 'Антисептики', styles),
       ],
     },
     {
@@ -89,37 +94,37 @@ export const formConfig = (styles) => ({
         standardInputGroup(
           'videoLaryngoscopes',
           'Видеоларингоскопы',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'oxygenConcentrators',
           'Кислородные концентраторы',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'regularNasalCannula',
           'Обычная носовая канюля',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'oxygenMask',
           'Кислородная лицевая маска с мешком (non-rebreather)',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'oxygenMoisturizers',
           'Увлажнители кислорода',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'nebulizersCompressors',
           'Небулайзеры-компрессоры',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'nebulizerAttachments',
           'Небулайзерные насадки',
-          styles.rowInputGroup,
+          styles,
         ),
       ],
     },
@@ -136,7 +141,8 @@ export const formConfig = (styles) => ({
           className: styles.rowInputGroup,
           children: [
             {
-              type: FormComponentType.Input,
+              type: FormComponentType.Number,
+              className: cx(styles.small),
               label: {
                 text: 'Количество аппаратов',
               },
@@ -147,6 +153,7 @@ export const formConfig = (styles) => ({
             },
             {
               type: FormComponentType.Toggle,
+              className: cx(styles.small, styles.thumblr),
               label: {
                 text: 'Прогнозируете проблемы с поставкой?',
               },
@@ -159,7 +166,7 @@ export const formConfig = (styles) => ({
         standardInputGroup(
           'masksForCPAP/BIPAP',
           'Маски для аппараторв НИВЛ CPAP/BIPAP (однопатрубочных)',
-          styles.rowInputGroup,
+          styles,
         ),
         {
           type: FormComponentType.FieldGroup,
@@ -168,7 +175,8 @@ export const formConfig = (styles) => ({
           className: styles.rowInputGroup,
           children: [
             {
-              type: FormComponentType.Input,
+              type: FormComponentType.Number,
+              className: styles.small,
               label: {
                 text: 'Количество аппаратов',
               },
@@ -179,6 +187,7 @@ export const formConfig = (styles) => ({
             },
             {
               type: FormComponentType.Toggle,
+              className: cx(styles.small, styles.thumblr),
               label: {
                 text: 'Прогнозируете проблемы с поставкой?',
               },
@@ -196,8 +205,9 @@ export const formConfig = (styles) => ({
           children: [
             {
               type: FormComponentType.Toggle,
+              className: cx(styles.small),
               label: {
-                text: 'Свитчер: Обеспечены/Нет',
+                text: 'Обеспечены?',
               },
               props: {
                 name: `ambuBagsSwitcher`,
@@ -205,6 +215,7 @@ export const formConfig = (styles) => ({
             },
             {
               type: FormComponentType.Toggle,
+              className: cx(styles.small, styles.thumblr),
               label: {
                 text: 'Прогнозируете проблемы с поставкой?',
               },
@@ -221,7 +232,8 @@ export const formConfig = (styles) => ({
           className: styles.rowInputGroup,
           children: [
             {
-              type: FormComponentType.Input,
+              type: FormComponentType.Number,
+              className: cx(styles.small),
               label: {
                 text: 'Количество обеспеченных коек',
               },
@@ -232,6 +244,7 @@ export const formConfig = (styles) => ({
             },
             {
               type: FormComponentType.Toggle,
+              className: cx(styles.small, styles.thumblr),
               label: {
                 text: 'Прогнозируете проблемы с поставкой?',
               },
@@ -249,8 +262,9 @@ export const formConfig = (styles) => ({
           children: [
             {
               type: FormComponentType.Toggle,
+              className: cx(styles.small),
               label: {
-                text: 'Свитчер: Есть/Нет',
+                text: 'Есть в наличии?',
               },
               props: {
                 name: `highPressureOxygenConcentratorsSwitcher`,
@@ -258,6 +272,7 @@ export const formConfig = (styles) => ({
             },
             {
               type: FormComponentType.Toggle,
+              className: cx(styles.small, styles.thumblr),
               label: {
                 text: 'Прогнозируете проблемы с поставкой?',
               },
@@ -270,52 +285,52 @@ export const formConfig = (styles) => ({
         standardInputGroup(
           'punctureTracheostomy',
           'Пункционнные трахеостомы',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'tracheostomyTube',
           'Трахеостомические трубки',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'closedTBDsystems',
           'Закрытые системы для санации ТБД',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'TBDcatheter',
           'Обычные катетеры для санации ТБД',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'disposableBreathingCircuits',
           'Одноразовые дыхательные контуры',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'virusBacterialFilters',
           'Вирусно-бактериальные фильтры',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'heatMoistureExchangers',
           'Тепловлагообменники',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'breathingCircuitConnectors',
           'Уголковые коннекторы между контуром и эндотрахеальной трубкой',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'endotrachealTubes',
           'Эндотрахеальные трубки разных диаметров',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'intubationStylets',
           'Проводники для интубации',
-          styles.rowInputGroup,
+          styles,
         ),
         {
           type: FormComponentType.FieldGroup,
@@ -325,7 +340,8 @@ export const formConfig = (styles) => ({
           className: styles.rowInputGroup,
           children: [
             {
-              type: FormComponentType.Input,
+              type: FormComponentType.Number,
+              className: cx(styles.small),
               label: {
                 text: 'Количество обеспеченных коек',
               },
@@ -336,6 +352,7 @@ export const formConfig = (styles) => ({
             },
             {
               type: FormComponentType.Toggle,
+              className: cx(styles.small, styles.thumblr),
               label: {
                 text: 'Прогнозируете проблемы с поставкой?',
               },
@@ -353,21 +370,21 @@ export const formConfig = (styles) => ({
       className: styles.step,
       level: 1,
       children: [
-        standardInputGroup('IVBags', 'Капельницы', styles.rowInputGroup),
+        standardInputGroup('IVBags', 'Капельницы', styles),
         standardInputGroup(
           'peripheralVenousCatheters',
           'Периферические венозные катетеры',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'centralVenousCatheters',
           'Центральные венозные катетеры',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'threeWayStopcocks',
           'Трехходовые краники',
-          styles.rowInputGroup,
+          styles,
         ),
         {
           type: FormComponentType.FieldGroup,
@@ -376,7 +393,8 @@ export const formConfig = (styles) => ({
           className: styles.rowInputGroup,
           children: [
             {
-              type: FormComponentType.Input,
+              type: FormComponentType.Number,
+              className: cx(styles.small),
               label: {
                 text: 'Количество обеспеченных коек',
               },
@@ -387,6 +405,7 @@ export const formConfig = (styles) => ({
             },
             {
               type: FormComponentType.Toggle,
+              className: cx(styles.small, styles.thumblr),
               label: {
                 text: 'Прогнозируете проблемы с поставкой?',
               },
@@ -399,22 +418,22 @@ export const formConfig = (styles) => ({
         standardInputGroup(
           'peristalticInfusionPumps',
           'Инфузоматы перистальтические',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'infusionSyringes',
           'Шприцы для инфузоматов (50 мл)',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'infusionLines',
           'Инфузионные линии',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'infusionBags',
           'Капельницы для инфузоматов',
-          styles.rowInputGroup,
+          styles,
         ),
       ],
     },
@@ -427,23 +446,23 @@ export const formConfig = (styles) => ({
         standardInputGroup(
           'portablePulseOximeters',
           'Пульсоксиметры (портативные)',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'pulseOximeters',
           'Пульсоксиметры-мониторы',
-          styles.rowInputGroup,
+          styles,
         ),
-        standardInputGroup('capnographs', 'Капнографы', styles.rowInputGroup),
+        standardInputGroup('capnographs', 'Капнографы', styles),
         standardInputGroup(
           'simpleMonitors',
           'Простые мониторы (ниАД, ЭКГ, SpO2)',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'bloodGasAnalyzer',
           'Анализаторы газов крови',
-          styles.rowInputGroup,
+          styles,
         ),
       ],
     },
@@ -456,17 +475,17 @@ export const formConfig = (styles) => ({
         standardInputGroup(
           'enteralInfusionSystems',
           'Системы для инфузии энтерального питания',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'nasogastricTubes',
           'Назогастральные/дуоденальные зонды для питания',
-          styles.rowInputGroup,
+          styles,
         ),
         standardInputGroup(
           'peristalticEnteralInfusionPumps',
           'Инфузоматы перистальтические для энтерального питания',
-          styles.rowInputGroup,
+          styles,
         ),
       ],
     },
@@ -476,22 +495,22 @@ export const formConfig = (styles) => ({
       className: styles.step,
       level: 1,
       children: [
-        standardInputGroup('bandages', 'Бинты', styles.rowInputGroup),
-        standardInputGroup('bandAids', 'Пластыри', styles.rowInputGroup),
-        standardInputGroup('stickers', 'Наклейки', styles.rowInputGroup),
+        standardInputGroup('bandages', 'Бинты', styles),
+        standardInputGroup('bandAids', 'Пластыри', styles),
+        standardInputGroup('stickers', 'Наклейки', styles),
         standardInputGroup(
           'foleyCatheters',
           'Катетеры Фолея',
-          styles.rowInputGroup,
+          styles,
         ),
-        standardInputGroup('urineBags', 'Мочеприемники', styles.rowInputGroup),
+        standardInputGroup('urineBags', 'Мочеприемники', styles),
       ],
     },
     {
       type: FormComponentType.FieldGroup,
       title:
         'Оставьте контактные данные, чтобы мы могли с вами связаться для консультации и возможного оказания помощи',
-      className: styles.step,
+      className: cx(styles.step, styles.contacts),
       level: 1,
       children: [
         {

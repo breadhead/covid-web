@@ -2,11 +2,11 @@
   position: relative;
   width: 100%;
   margin: 0 auto;
-  padding: 24px 32px;
+  
   background-color: #fff;
   margin-top: 40px;
   text-align: left;
-  border: var(--border-card);
+  
 
   @media (--smallDown) {
     width: 100vw;

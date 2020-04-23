@@ -12,6 +12,7 @@ export enum FormComponentType {
   ComboSearch = 'comboSearch',
   EmergingFormElement = 'emergingFormElement',
   Input = 'input',
+  Number = 'number',
   PhoneInput = 'phoneInput',
   RadioButton = 'radioButton',
   RadioGroup = 'radioGroup',
