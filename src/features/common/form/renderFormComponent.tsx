@@ -28,6 +28,18 @@ import { REQUIRED_MESSAGE } from '@front/helpers/validationMessages';
 
 import styles from './commonStyles.css';
 
+const getTitleForLevel = (text: string, level?: number, ) => {
+  switch (level) {
+    case 1:
+      return <h2>{text}</h2>
+    case 2:
+      return <h3>{text}</h3>
+    default:
+      return <h4>{text}</h4>
+  }
+}
+
+
 const getFormComponent = (type: FormComponentType, props: any) => {
   switch (type) {
     case FormComponentType.ButtonWithTooltip:
@@ -73,7 +85,7 @@ const getFormComponent = (type: FormComponentType, props: any) => {
 };
 
 export const renderFormComponent = (
-  { type, required, label, props, hidden }: FormComponentOptions,
+  { type, required, label, props, hidden, title, level, className, children }: FormComponentOptions,
   key: any,
 ) => {
   if (required) {
@@ -83,9 +95,10 @@ export const renderFormComponent = (
   return (
     <div
       style={{ display: hidden ? 'none' : undefined }}
-      className={props.outerClassName}
+      className={className}
       key={key}
     >
+      {title && getTitleForLevel(title, level)}
       {label &&
         getFormComponent(FormComponentType.Label, {
           className: cx(styles.label),
@@ -95,6 +108,7 @@ export const renderFormComponent = (
           required: required,
         })}
       {getFormComponent(type, { className: styles.field, ...props })}
+      {children && children.map(renderFormComponent)}
     </div>
   );
 };

@@ -24,6 +24,7 @@ export enum FormComponentType {
   Toggle = 'toggle',
   ValidationTooltip = 'validationTooltip',
   Label = 'label',
+  FieldGroup = 'fieldGroup',
 }
 
 interface LabelOptions {
@@ -38,6 +39,10 @@ export interface FormComponentOptions {
   required?: boolean;
   label?: LabelOptions;
   condition?: (values: any[]) => boolean;
+  children?: FormComponentOptions[],
+  title?: string,
+  level?: number,
+  className?: string,
 }
 
 interface FormOptions {

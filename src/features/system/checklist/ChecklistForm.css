@@ -1,0 +1,25 @@
+.rowInputGroup {
+    display: flex;
+}
+
+.rowInputGroup > div {
+    margin-left: 20px;
+    flex-basis: 25%;
+}
+
+.rowInputGroup > h3 {
+    flex-basis: 50%;
+}
+
+.form > form {
+    max-width: 800px;
+}
+
+.form h2 {
+    margin-bottom: 30px;
+}
+
+.step {
+    border-bottom: 1px dashed grey;
+    margin-bottom: 30px;
+}

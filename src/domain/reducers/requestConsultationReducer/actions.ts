@@ -98,6 +98,24 @@ export const saveVolunteerForm = (requestFormData: any) => async (
   }
 };
 
+export const saveChecklistForm = (requestFormData: any) => async (
+  dispatch: Dispatch<any>,
+  getState: () => State,
+  { getApi }: ExtraArgs,
+) => {
+  const api = getApi(getState);
+  try {
+    dispatch(actions.request());
+
+    await api.saveCoronaRequestForm(requestFormData, FormRequestType.Checklist);
+
+    return dispatch(actions.success(requestFormData));
+  } catch (error) {
+    dispatch(actions.error(error.message));
+    throw error;
+  }
+}
+
 export const saveWebinarRegistrationForm = (formData: any) => async (
   dispatch: Dispatch<any>,
   getState: () => State,
