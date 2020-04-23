@@ -114,7 +114,7 @@ export const saveChecklistForm = (requestFormData: any) => async (
     dispatch(actions.error(error.message));
     throw error;
   }
-}
+};
 
 export const saveWebinarRegistrationForm = (formData: any) => async (
   dispatch: Dispatch<any>,

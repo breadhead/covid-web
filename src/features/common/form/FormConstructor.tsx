@@ -39,10 +39,10 @@ export interface FormComponentOptions {
   required?: boolean;
   label?: LabelOptions;
   condition?: (values: any[]) => boolean;
-  children?: FormComponentOptions[],
-  title?: string,
-  level?: number,
-  className?: string,
+  children?: FormComponentOptions[];
+  title?: string;
+  level?: number;
+  className?: string;
 }
 
 interface FormOptions {

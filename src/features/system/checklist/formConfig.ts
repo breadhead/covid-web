@@ -1,6 +1,7 @@
-import { FormComponentType } from '@front/features/common/form/FormConstructor'
-import { InputType } from '@front/ui/Input'
-import * as yup from 'yup'
+import * as yup from 'yup';
+
+import { FormComponentType } from '@front/features/common/form/FormConstructor';
+import { InputType } from '@front/ui/Input';
 
 const standardInputGroup = (name, title, className, level = 2) => {
   return {
@@ -29,9 +30,8 @@ const standardInputGroup = (name, title, className, level = 2) => {
         },
       },
     ],
-  }
-}
-
+  };
+};
 
 export const formConfig = (styles) => ({
   steps: [
@@ -41,14 +41,42 @@ export const formConfig = (styles) => ({
       className: styles.step,
       level: 1,
       children: [
-        standardInputGroup('disposableSuits', 'Одноразовые костюмы', styles.rowInputGroup),
-        standardInputGroup('disposableRobes', 'Одноразовые халаты', styles.rowInputGroup),
+        standardInputGroup(
+          'disposableSuits',
+          'Одноразовые костюмы',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'disposableRobes',
+          'Одноразовые халаты',
+          styles.rowInputGroup,
+        ),
         standardInputGroup('glasses', 'Очки', styles.rowInputGroup),
-        standardInputGroup('regularMasks', 'Маски обычные', styles.rowInputGroup),
-        standardInputGroup('respiratorsFFP2', 'Респираторы FFP2', styles.rowInputGroup),
-        standardInputGroup('respiratorsFFP3', 'Респираторы FFP3', styles.rowInputGroup),
-        standardInputGroup('shoeCovers', 'Бахилы (высокие, хирургические)', styles.rowInputGroup),
-        standardInputGroup('disposableGloves', 'Одноразовые перчатки', styles.rowInputGroup),
+        standardInputGroup(
+          'regularMasks',
+          'Маски обычные',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'respiratorsFFP2',
+          'Респираторы FFP2',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'respiratorsFFP3',
+          'Респираторы FFP3',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'shoeCovers',
+          'Бахилы (высокие, хирургические)',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'disposableGloves',
+          'Одноразовые перчатки',
+          styles.rowInputGroup,
+        ),
         standardInputGroup('antiseptics', 'Антисептики', styles.rowInputGroup),
       ],
     },
@@ -58,13 +86,41 @@ export const formConfig = (styles) => ({
       className: styles.step,
       level: 1,
       children: [
-        standardInputGroup('videoLaryngoscopes', 'Видеоларингоскопы', styles.rowInputGroup),
-        standardInputGroup('oxygenConcentrators', 'Кислородные концентраторы', styles.rowInputGroup),
-        standardInputGroup('regularNasalCannula', 'Обычная носовая канюля', styles.rowInputGroup),
-        standardInputGroup('oxygenMask', 'Кислородная лицевая маска с мешком (non-rebreather)', styles.rowInputGroup),
-        standardInputGroup('oxygenMoisturizers', 'Увлажнители кислорода', styles.rowInputGroup),
-        standardInputGroup('nebulizersCompressors', 'Небулайзеры-компрессоры', styles.rowInputGroup),
-        standardInputGroup('nebulizerAttachments', 'Небулайзерные насадки', styles.rowInputGroup),
+        standardInputGroup(
+          'videoLaryngoscopes',
+          'Видеоларингоскопы',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'oxygenConcentrators',
+          'Кислородные концентраторы',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'regularNasalCannula',
+          'Обычная носовая канюля',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'oxygenMask',
+          'Кислородная лицевая маска с мешком (non-rebreather)',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'oxygenMoisturizers',
+          'Увлажнители кислорода',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'nebulizersCompressors',
+          'Небулайзеры-компрессоры',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'nebulizerAttachments',
+          'Небулайзерные насадки',
+          styles.rowInputGroup,
+        ),
       ],
     },
     {
@@ -100,7 +156,11 @@ export const formConfig = (styles) => ({
             },
           ],
         },
-        standardInputGroup('masksForCPAP/BIPAP', 'Маски для аппараторв НИВЛ CPAP/BIPAP (однопатрубочных)', styles.rowInputGroup),
+        standardInputGroup(
+          'masksForCPAP/BIPAP',
+          'Маски для аппараторв НИВЛ CPAP/BIPAP (однопатрубочных)',
+          styles.rowInputGroup,
+        ),
         {
           type: FormComponentType.FieldGroup,
           title: 'Рабочих аппаратов ИВЛ',
@@ -207,19 +267,60 @@ export const formConfig = (styles) => ({
             },
           ],
         },
-        standardInputGroup('punctureTracheostomy', 'Пункционнные трахеостомы', styles.rowInputGroup),
-        standardInputGroup('tracheostomyTube', 'Трахеостомические трубки', styles.rowInputGroup),
-        standardInputGroup('closedTBDsystems', 'Закрытые системы для санации ТБД', styles.rowInputGroup),
-        standardInputGroup('TBDcatheter', 'Обычные катетеры для санации ТБД', styles.rowInputGroup),
-        standardInputGroup('disposableBreathingCircuits', 'Одноразовые дыхательные контуры', styles.rowInputGroup),
-        standardInputGroup('virusBacterialFilters', 'Вирусно-бактериальные фильтры', styles.rowInputGroup),
-        standardInputGroup('heatMoistureExchangers', 'Тепловлагообменники', styles.rowInputGroup),
-        standardInputGroup('breathingCircuitConnectors', 'Уголковые коннекторы между контуром и эндотрахеальной трубкой', styles.rowInputGroup),
-        standardInputGroup('endotrachealTubes', 'Эндотрахеальные трубки разных диаметров', styles.rowInputGroup),
-        standardInputGroup('intubationStylets', 'Проводники для интубации', styles.rowInputGroup),
+        standardInputGroup(
+          'punctureTracheostomy',
+          'Пункционнные трахеостомы',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'tracheostomyTube',
+          'Трахеостомические трубки',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'closedTBDsystems',
+          'Закрытые системы для санации ТБД',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'TBDcatheter',
+          'Обычные катетеры для санации ТБД',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'disposableBreathingCircuits',
+          'Одноразовые дыхательные контуры',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'virusBacterialFilters',
+          'Вирусно-бактериальные фильтры',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'heatMoistureExchangers',
+          'Тепловлагообменники',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'breathingCircuitConnectors',
+          'Уголковые коннекторы между контуром и эндотрахеальной трубкой',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'endotrachealTubes',
+          'Эндотрахеальные трубки разных диаметров',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'intubationStylets',
+          'Проводники для интубации',
+          styles.rowInputGroup,
+        ),
         {
           type: FormComponentType.FieldGroup,
-          title: 'Гелевые подушки подлобные подгрудные для вентиляции в прон-позиции',
+          title:
+            'Гелевые подушки подлобные подгрудные для вентиляции в прон-позиции',
           level: 2,
           className: styles.rowInputGroup,
           children: [
@@ -253,9 +354,21 @@ export const formConfig = (styles) => ({
       level: 1,
       children: [
         standardInputGroup('IVBags', 'Капельницы', styles.rowInputGroup),
-        standardInputGroup('peripheralVenousCatheters', 'Периферические венозные катетеры', styles.rowInputGroup),
-        standardInputGroup('centralVenousCatheters', 'Центральные венозные катетеры', styles.rowInputGroup),
-        standardInputGroup('threeWayStopcocks', 'Трехходовые краники', styles.rowInputGroup),
+        standardInputGroup(
+          'peripheralVenousCatheters',
+          'Периферические венозные катетеры',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'centralVenousCatheters',
+          'Центральные венозные катетеры',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'threeWayStopcocks',
+          'Трехходовые краники',
+          styles.rowInputGroup,
+        ),
         {
           type: FormComponentType.FieldGroup,
           title: 'Инфузоматы шприцевые',
@@ -283,10 +396,26 @@ export const formConfig = (styles) => ({
             },
           ],
         },
-        standardInputGroup('peristalticInfusionPumps', 'Инфузоматы перистальтические', styles.rowInputGroup),
-        standardInputGroup('infusionSyringes', 'Шприцы для инфузоматов (50 мл)', styles.rowInputGroup),
-        standardInputGroup('infusionLines', 'Инфузионные линии', styles.rowInputGroup),
-        standardInputGroup('infusionBags', 'Капельницы для инфузоматов', styles.rowInputGroup),
+        standardInputGroup(
+          'peristalticInfusionPumps',
+          'Инфузоматы перистальтические',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'infusionSyringes',
+          'Шприцы для инфузоматов (50 мл)',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'infusionLines',
+          'Инфузионные линии',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'infusionBags',
+          'Капельницы для инфузоматов',
+          styles.rowInputGroup,
+        ),
       ],
     },
     {
@@ -295,11 +424,27 @@ export const formConfig = (styles) => ({
       className: styles.step,
       level: 1,
       children: [
-        standardInputGroup('portablePulseOximeters', 'Пульсоксиметры (портативные)', styles.rowInputGroup),
-        standardInputGroup('pulseOximeters', 'Пульсоксиметры-мониторы', styles.rowInputGroup),
+        standardInputGroup(
+          'portablePulseOximeters',
+          'Пульсоксиметры (портативные)',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'pulseOximeters',
+          'Пульсоксиметры-мониторы',
+          styles.rowInputGroup,
+        ),
         standardInputGroup('capnographs', 'Капнографы', styles.rowInputGroup),
-        standardInputGroup('simpleMonitors', 'Простые мониторы (ниАД, ЭКГ, SpO2)', styles.rowInputGroup),
-        standardInputGroup('bloodGasAnalyzer', 'Анализаторы газов крови', styles.rowInputGroup),
+        standardInputGroup(
+          'simpleMonitors',
+          'Простые мониторы (ниАД, ЭКГ, SpO2)',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'bloodGasAnalyzer',
+          'Анализаторы газов крови',
+          styles.rowInputGroup,
+        ),
       ],
     },
     {
@@ -308,9 +453,21 @@ export const formConfig = (styles) => ({
       className: styles.step,
       level: 1,
       children: [
-        standardInputGroup('enteralInfusionSystems', 'Системы для инфузии энтерального питания', styles.rowInputGroup),
-        standardInputGroup('nasogastricTubes', 'Назогастральные/дуоденальные зонды для питания', styles.rowInputGroup),
-        standardInputGroup('peristalticEnteralInfusionPumps', 'Инфузоматы перистальтические для энтерального питания', styles.rowInputGroup),
+        standardInputGroup(
+          'enteralInfusionSystems',
+          'Системы для инфузии энтерального питания',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'nasogastricTubes',
+          'Назогастральные/дуоденальные зонды для питания',
+          styles.rowInputGroup,
+        ),
+        standardInputGroup(
+          'peristalticEnteralInfusionPumps',
+          'Инфузоматы перистальтические для энтерального питания',
+          styles.rowInputGroup,
+        ),
       ],
     },
     {
@@ -322,13 +479,18 @@ export const formConfig = (styles) => ({
         standardInputGroup('bandages', 'Бинты', styles.rowInputGroup),
         standardInputGroup('bandAids', 'Пластыри', styles.rowInputGroup),
         standardInputGroup('stickers', 'Наклейки', styles.rowInputGroup),
-        standardInputGroup('foleyCatheters', 'Катетеры Фолея', styles.rowInputGroup),
+        standardInputGroup(
+          'foleyCatheters',
+          'Катетеры Фолея',
+          styles.rowInputGroup,
+        ),
         standardInputGroup('urineBags', 'Мочеприемники', styles.rowInputGroup),
       ],
     },
     {
       type: FormComponentType.FieldGroup,
-      title: 'Оставьте контактные данные, чтобы мы могли с вами связаться для консультации и возможного оказания помощи',
+      title:
+        'Оставьте контактные данные, чтобы мы могли с вами связаться для консультации и возможного оказания помощи',
       className: styles.step,
       level: 1,
       children: [

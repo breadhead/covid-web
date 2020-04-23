@@ -1,1 +1,1 @@
-export { ChecklistPage } from './ChecklistPage'
+export { ChecklistPage } from './ChecklistPage';
