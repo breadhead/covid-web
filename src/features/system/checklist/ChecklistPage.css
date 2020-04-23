@@ -1,0 +1,16 @@
+.title {
+  margin: 0 0 24px 0;
+  font: var(--title-extra);
+  text-align: left;
+
+  @media (--smallDown) {
+    margin: 0 0 24px 0;
+  }
+}
+
+.text {
+  margin-bottom: 48px;
+  @media (--smallDown) {
+    margin-bottom: 40px;
+  }
+}

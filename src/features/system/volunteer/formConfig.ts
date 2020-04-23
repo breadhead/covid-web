@@ -83,6 +83,7 @@ export const formConfig = (styles) => ({
     {
       type: FormComponentType.RadioGroup,
       required: true,
+      className: styles.professeionWrapper,
       label: {
         text: 'Кто вы по профессии?',
       },
@@ -90,7 +91,6 @@ export const formConfig = (styles) => ({
         name: 'profession',
         buttons: professionOptions,
         className: styles.professionRadioGroup,
-        outerClassName: styles.professeionWrapper,
         radioStyle: RadioButtonStyles.Radio,
       },
     },
