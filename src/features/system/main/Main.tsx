@@ -17,6 +17,7 @@ import { SystemHelp } from './components/help';
 import { SystemAbout } from './components/about';
 import { SystemDonation } from './components/donation';
 import { FeaturedNews } from '../../landing/features/news/featuredNews';
+import {HospitalsHelpWidget} from "@front/features/common/hospitalsHelpWidget";
 
 export const SystemMain = () => {
   const mainPageNews = useMappedState(selectMainPageNews);
@@ -25,6 +26,7 @@ export const SystemMain = () => {
       <Head>
         <title>Система борьбы с инфекцией COVID‑19 | Что делать:</title>
       </Head>
+      <HospitalsHelpWidget />
       <SystemHero />
       <div className="gl-wrapper gl-section">
         <SystemHelp helpLink={`/?${PageType.Ask}#donation`} />

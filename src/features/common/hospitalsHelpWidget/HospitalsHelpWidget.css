@@ -1,0 +1,67 @@
+.popup {
+  
+  position: relative;
+  display: flex;
+  white-space: normal;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: var(--border-card);
+  padding: 8px 12px 12px;
+ 
+  background: #fff;
+  
+  @media (--mediumUp) {
+    border: var(--border-card);
+    position: fixed;
+    transform: translate(0,16px);
+    width: 176px;
+    flex-direction: column;
+    right: 16px;
+    
+
+  }
+}
+
+@media (--mediumUp) {
+.popup::before {
+  box-shadow: 0px 32px 40px rgba(0, 9, 92, 0.12);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  z-index: -1;
+}
+}
+
+
+.label {
+  font-size: 12px;
+  line-height: 16px;
+  color: #82839B;
+}
+
+.text {
+  margin-bottom: 8px;
+  line-height: 20px;
+  
+}
+
+@media (--mediumDown) {
+  .text {
+    line-height: 28px;  
+    margin-bottom: 0;
+  }
+  
+}
+
+@media (--mediumUp) {
+  .short .extended {
+    display: none;
+  }
+}
+
+.buttonWrapper {
+  color: var(--color-primary);
+} 
