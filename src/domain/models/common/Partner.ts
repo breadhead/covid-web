@@ -5,6 +5,7 @@ export interface Partner extends SanityBase {
   status: boolean;
   name: string;
   type: string;
+  isATrust?: boolean;
   url: string;
   subtitle: string;
   logo: Photo;
