@@ -30,6 +30,7 @@ import { ArticleCards } from './components/article-card/ArticleCards';
 import { Aside } from './components/aside';
 import { ResourcesMobile } from './components/resources-mobile';
 import { SystemHelp } from '../main/components/help';
+import {Button, ButtonSize} from "@front/ui/button";
 interface Props {
   query: any;
 }
@@ -55,6 +56,11 @@ export const ForDoctorsPage = ({ query }: Props) => {
             <section className={cx(styles.main, 'gl-wrapper')}>
               <h1 className="gl-pageTitle">Врачам</h1>
               <ArticleCards cards={pinnedArticles} />
+              <div className={styles.mobileChecklist}>
+                <Button className={styles.wide} href="/checklist" icon="/static/images/landing/check.png" size={ButtonSize.Medium}>
+                  <span>Чеклист готовности ОРИТ</span>
+                </Button>
+              </div>
               <PageFilter
                 type={CategoryTypes.Articles}
                 tags={tags}
@@ -84,6 +90,12 @@ export const ForDoctorsPage = ({ query }: Props) => {
               </div>
             </section>
             <div className={styles.asideWrapper}>
+              <div className={styles.checklist}>
+                <h4 className={styles.title}>Чеклист готовности ОРИТ</h4>
+                <Button href="/checklist" icon="/static/images/landing/check.png" size={ButtonSize.Large}>
+                  <span>Заполнить чеклист</span>
+                </Button>
+              </div>
               <Aside items={resources} />
               <Aside title="Партнёры раздела" items={partners} />
             </div>
