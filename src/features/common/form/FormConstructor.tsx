@@ -1,4 +1,5 @@
-import React from 'react';
+import { getRequestFormDraft } from '@front/features/landing/features/request/organisms/RequestForm/localStorage'
+import { useEffect, default as React, useState } from 'react'
 import { FORM_ERROR } from 'final-form';
 
 import {
@@ -83,9 +84,18 @@ export const FormConstructor = ({
   resetAfterSubmit = true,
   badge,
 }: Props) => {
+  const [initialFields, setInitialFields] = useState<any>(initialValues);
+
   const saveDraftWithDefault = saveDraft || saveFormDraft(name);
   const getDraftWithDefault = getDraft || getFormDraft(name);
   const resetDraftWithDefault = resetDraft || resetFormDraft(name);
+
+  useEffect(() => {
+    const draft = getDraftWithDefault();
+    if (draft) {
+      setInitialFields(draft);
+    }
+  }, []);
 
   const submitHandler = async (values: any) => {
     try {
@@ -104,7 +114,7 @@ export const FormConstructor = ({
         onSubmit={submitHandler as any}
         saveDebounced={saveDraftWithDefault}
         saveOnBlur={saveDraftWithDefault}
-        initialValues={getDraftWithDefault() || initialValues}
+        initialValues={initialFields}
         className={className}
       >
         {(formContext) => (
