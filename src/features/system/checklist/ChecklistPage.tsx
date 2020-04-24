@@ -7,9 +7,9 @@ import { saveChecklistForm } from '@app/src/domain/reducers/requestConsultationR
 
 import { SystemLayout } from '@front/features/system/layout';
 import { ChecklistForm } from '@front/features/system/checklist/ChecklistForm';
+import { Notification } from '@front/features/landing/features/request/molecules/Notification';
 
 import * as styles from './ChecklistPage.css';
-import {Notification} from "@front/features/landing/features/request/molecules/Notification";
 
 export const ChecklistPage = () => {
   const dispatch = useThunk();
@@ -26,24 +26,23 @@ export const ChecklistPage = () => {
         <h1 className="gl-pageTitle">Чеклист готовности ОРИТ</h1>
 
         <Notification>
-          <p className={cx( styles.text)}>
+          <p className={cx(styles.text)}>
             Заполните контрольный лист готовности отделения реанимации и
             интенсивной терапии к приему вирусных пневмоний и получите нашу
             консультацию.
           </p>
-          <p className={cx( styles.text)}>
+          <p className={cx(styles.text)}>
             &quot;Контрольный лист построен вокруг стандартной единицы ОРИТ —
             поста реанимации (6 коек, один врач, одна медицинская сестра).
-            Представьте себе ситуацию, когда на 4-х из 6 коек стандартного поста у
-            вас лежат пациенты с COVID-пневмонией, которые нуждаются в ИВЛ, а на
-            двух койках — пациенты, которые нуждаются в оксигенации. Исходя из
-            этой ситуации укажите ниже насколько хорошо обеспечен пост. Исходите
-            из приблизительной оценки в количестве суток, на которые этот пост
-            обеспечен каждой из позиций.&quot;
+            Представьте себе ситуацию, когда на 4-х из 6 коек стандартного поста
+            у вас лежат пациенты с COVID-пневмонией, которые нуждаются в ИВЛ, а
+            на двух койках — пациенты, которые нуждаются в оксигенации. Исходя
+            из этой ситуации укажите ниже насколько хорошо обеспечен пост.
+            Исходите из приблизительной оценки в количестве суток, на которые
+            этот пост обеспечен каждой из позиций.&quot;
           </p>
         </Notification>
-        
-        
+
         <div>
           <ChecklistForm onSubmit={onSubmit} />
         </div>
