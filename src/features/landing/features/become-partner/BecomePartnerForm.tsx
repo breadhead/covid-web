@@ -27,11 +27,11 @@ export const BecomePartnerForm = ({ themeValue }: BecomePartnerFormProps) => {
 
   return (
     <FormConstructor
+      name={'becomePartner'}
       className={styles.wrapper}
       options={formConfig}
       initialValues={initialValues}
       onSubmit={onSubmit}
-      saveDraft={console.log}
     >
       {(context) => (
         <>

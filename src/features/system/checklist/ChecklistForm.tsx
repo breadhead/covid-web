@@ -15,9 +15,9 @@ interface Props {
 export const ChecklistForm = ({ onSubmit }: Props) => {
   return (
     <FormConstructor
+      name={'checklist'}
       options={formConfig(styles)}
       onSubmit={onSubmit}
-      saveDraft={console.log}
       className={styles.form}
     >
       {(context) => (
@@ -32,7 +32,6 @@ export const ChecklistForm = ({ onSubmit }: Props) => {
             Отправить
           </Button>
         </div>
-        
       )}
     </FormConstructor>
   );

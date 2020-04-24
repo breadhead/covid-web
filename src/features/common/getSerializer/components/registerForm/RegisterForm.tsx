@@ -40,9 +40,9 @@ export const RegisterForm = ({ node: { webinarLink } }: RegisterFormProps) => {
       {!webinarStarted ? (
         <div className="gl-formContainer">
           <FormConstructor
+            name={'webinarSignUp'}
             options={formConfig}
             onSubmit={onSubmit}
-            saveDraft={console.log}
             initialValues={{ webinarName: articleContext.data.name }}
             badge={<Badge data={articleContext.data} />}
           >

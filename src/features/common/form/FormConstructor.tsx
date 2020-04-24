@@ -1,5 +1,12 @@
-import React from 'react';
+import { useEffect, default as React, useState } from 'react';
 import { FORM_ERROR } from 'final-form';
+
+import { getRequestFormDraft } from '@front/features/landing/features/request/organisms/RequestForm/localStorage';
+import {
+  saveFormDraft,
+  getFormDraft,
+  resetFormDraft,
+} from '@front/features/common/form/localStorage';
 
 import { renderFormComponent } from './renderFormComponent';
 import { Form } from '.';
@@ -51,9 +58,12 @@ interface FormOptions {
 }
 
 interface Props {
+  name: string;
   options: FormOptions;
   onSubmit: (data: any) => Promise<any>;
-  saveDraft: (data: any) => any;
+  saveDraft?: (data: any) => any;
+  getDraft?: () => any;
+  resetDraft?: () => any;
   initialValues?: any;
   className?: string;
   children: (context: FormContext) => React.ReactNode;
@@ -62,18 +72,35 @@ interface Props {
 }
 
 export const FormConstructor = ({
+  name,
   options,
   onSubmit,
   saveDraft,
+  getDraft,
+  resetDraft,
   initialValues,
   className,
   children,
-  resetAfterSubmit,
+  resetAfterSubmit = true,
   badge,
 }: Props) => {
+  const [initialFields, setInitialFields] = useState<any>(initialValues);
+
+  const saveDraftWithDefault = saveDraft || saveFormDraft(name);
+  const getDraftWithDefault = getDraft || getFormDraft(name);
+  const resetDraftWithDefault = resetDraft || resetFormDraft(name);
+
+  useEffect(() => {
+    const draft = getDraftWithDefault();
+    if (draft) {
+      setInitialFields(draft);
+    }
+  }, []);
+
   const submitHandler = async (values: any) => {
     try {
       await onSubmit(values);
+      resetDraftWithDefault();
     } catch (error) {
       return { [FORM_ERROR]: 'error' };
     }
@@ -85,9 +112,9 @@ export const FormConstructor = ({
       <Form
         resetAfterSubmit={resetAfterSubmit}
         onSubmit={submitHandler as any}
-        saveDebounced={saveDraft}
-        saveOnBlur={saveDraft}
-        initialValues={initialValues}
+        saveDebounced={saveDraftWithDefault}
+        saveOnBlur={saveDraftWithDefault}
+        initialValues={initialFields}
         className={className}
       >
         {(formContext) => (
