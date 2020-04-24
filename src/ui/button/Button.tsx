@@ -15,21 +15,35 @@ export const Button = ({
   kind = ButtonKind.Primary,
   disabled = false,
   submit = false,
+  icon,
   loading = false,
   onClick,
   className,
-}: ButtonProps) => (
-  <button
-    className={cx(
-      styles.button,
+  href,
+}: ButtonProps) => {
+  
+  const props = {
+    className: cx(
+        styles.button,
       styles[getSizeClassName(size)],
       styles[getKindClassName(kind)],
       className,
-    )}
-    onClick={onClick}
-    disabled={disabled || loading}
-    type={getButtonType(submit)}
-  >
+    ),
+    onClick,
+    disabled: disabled || loading,
+    type: getButtonType(submit),
+    href
+  }
+  
+  const TagName = (href ? "a" : "button");
+  return  (<TagName {...props} >
     {children}
-  </button>
-);
+    {icon && (<img
+      className={styles.buttonIcon}
+      src={icon}
+    />)}
+  </TagName>
+  )
+}
+ 
+

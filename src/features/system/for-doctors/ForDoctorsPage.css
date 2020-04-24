@@ -43,3 +43,25 @@
     display: block;
   }
 }
+
+
+.title {
+  margin-bottom: 16px;
+  font: var(--text18-28);
+}
+
+.checklist {
+  margin-bottom: 40px;
+}
+
+.mobileChecklist {
+  @media (--largeUp) {
+    display: none;
+  }
+  
+  margin-bottom: 16px;
+}
+
+.wide {
+  width: 100%;
+}

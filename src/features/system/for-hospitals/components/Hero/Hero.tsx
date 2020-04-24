@@ -15,11 +15,12 @@ export const ForHospitalsHero = () => (
       <div className={s.text}>
         <ActionBlock
           className={s.bottomOffset}
-          title="Вашей больнице нужна помощь?"
-          buttonText="Отправить заявку"
-          href="/for-hospitals#help-request-form"
+          title="Чеклист готовности ОРИТ"
+          text="Проверьте свое отделение ОРИТ заполнив контрольный лист для получения консультации и возможной помощи."
+          buttonText="Заполнить контрольный лист"
+          href="/checklist"
           icon={
-            <img className={s.bottomOffset} src="/static/images/answers.png" />
+            <img className={s.bottomOffset} src="/static/images/continue-filling.png" />
           }
         />
         <h2 className="gl-sectionTitle">Как работает помощь больницам</h2>

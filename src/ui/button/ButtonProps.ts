@@ -8,10 +8,12 @@ export interface ButtonProps {
   size?: ButtonSize;
   kind?: ButtonKind;
   onClick?: (
-    event: React.MouseEvent<HTMLButtonElement>,
+    event: React.MouseEvent<HTMLButtonElement|HTMLAnchorElement>,
   ) => void | undefined | any;
   disabled?: boolean;
   loading?: boolean;
   submit?: boolean;
   className?: string;
+  icon?: string;
+  href?: string;
 }
