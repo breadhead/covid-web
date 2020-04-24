@@ -7,23 +7,20 @@ import { IconsList } from '@app/src/ui/sprite';
 
 import * as styles from './SystemHero.css';
 import { NavCards } from './components/nav-cards';
+import PartnersList
+  from "@front/features/landing/features/home/organisms/Corporate/components/Partners/components/PartnersList";
+import TrustPartners
+  from "@front/features/landing/features/home/organisms/Corporate/components/Partners/components/TrustPartners";
 
 export const SystemHero = () => {
   return (
     <section className={styles.hero}>
       <h1 className={styles.title}>
-        Система борьбы с{NON_BREAKING_SPACE}инфекцией COVID{NON_BREAKING_HYPHEN}
-        19
+        Движение{NON_BREAKING_SPACE}против COVID{NON_BREAKING_HYPHEN}19
       </h1>
 
-      <NavLink
-        className={styles.logoWrapper}
-        withoutUnderline
-        href="https://nenaprasno.ru"
-        blank
-      >
-        <Icon className={styles.logo} name={IconsList.FoundationLogo} />
-      </NavLink>
+      <TrustPartners />
+     
 
       <NavCards />
     </section>
