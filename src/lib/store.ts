@@ -40,6 +40,10 @@ import {
   State as PartnerState,
 } from '@app/src/domain/reducers/partnerReducer/reducer';
 import {
+  reducer as hospitalsHelpWidgetReducer,
+  State as HospitalsHelpWidgetState,
+} from '@app/src/domain/reducers/hospitalsHelpWidgetReducer/reducer';
+import {
   reducer as expertReducer,
   State as ExpertState,
 } from '@app/src/domain/reducers/expertReducer/reducer';
@@ -78,6 +82,7 @@ export interface State {
   articles: articles.State;
   resources: resources.State;
   hospitals: hospitals.State;
+  hospitalsHelpWidget: HospitalsHelpWidgetState;
 }
 
 const reducer = combineReducers({
@@ -92,6 +97,7 @@ const reducer = combineReducers({
   experts: expertReducer,
   expertBoard: expertBoardReducer,
   paymentWidget: paymentWidgetReducer,
+  hospitalsHelpWidget: hospitalsHelpWidgetReducer,
   tags: tags.reducer,
   news: news.reducer,
   articles: articles.reducer,

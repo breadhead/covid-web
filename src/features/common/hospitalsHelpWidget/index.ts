@@ -1,0 +1,1 @@
+export { HospitalsHelpWidget } from './HospitalsHelpWidget';

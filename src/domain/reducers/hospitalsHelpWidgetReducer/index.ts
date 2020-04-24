@@ -1,0 +1,1 @@
+export { getHospitalsHelpWidgetDataFromSanity } from './actions';

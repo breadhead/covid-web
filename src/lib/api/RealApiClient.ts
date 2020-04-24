@@ -119,6 +119,12 @@ export default class RealApiClient implements ApiClient {
       .then((res) => res.data);
   };
 
+  public getHospitalsHelpWidget = () => {
+    return this.apiProxyInstance
+      .get('*[_type == "hospitalsHelpWidget"][0]')
+      .then((res) => res.data);
+  };
+
   public getExperts = () => {
     return this.apiProxyInstance
       .get(`*[_type == "expert" &&  ${ACTIVE_AND_NOT_DRAFT_SANITY}]`)

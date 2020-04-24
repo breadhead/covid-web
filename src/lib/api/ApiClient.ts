@@ -8,6 +8,8 @@ import { ArticlesItem } from '@app/src/domain/models/common/ArticlesItem';
 import { ResourcesItem } from '@app/src/domain/models/common/ResourcesItem';
 import { Hospital } from '@app/src/domain/models/common/Hospital';
 
+import { HospitalsHelpWidgetData } from '@front/domain/models/common/HospitalsHelpWidgetData';
+
 export interface UploadedFile {
   path: string;
 }
@@ -28,6 +30,7 @@ export default interface ApiClient {
   saveCoronaRequestForm(data: any, type: FormRequestType): Promise<any>;
   updateCoronaRequestForm(data: any): Promise<any>;
   getPartners(): Promise<Partner[]>;
+  getHospitalsHelpWidget(): Promise<HospitalsHelpWidgetData>;
   getExperts(): Promise<Expert[]>;
   getExpertBoard(): Promise<Expert[]>;
   getTags(): Promise<TagType[]>;
