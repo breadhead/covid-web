@@ -16,9 +16,9 @@ interface Props {
 export const VolunteerForm = ({ onSubmit }: Props) => {
   return (
     <FormConstructor
+      name={'volunteer'}
       options={formConfig(styles)}
       onSubmit={onSubmit}
-      saveDraft={console.log}
     >
       {(context) => (
         <>

@@ -1,9 +1,8 @@
 import * as yup from 'yup';
+import cx from 'classnames';
 
 import { FormComponentType } from '@front/features/common/form/FormConstructor';
 import { InputType } from '@front/ui/Input';
-
-import cx from 'classnames';
 
 const standardInputGroup = (name, title, styles, level = 2) => {
   return {
@@ -45,43 +44,18 @@ export const formConfig = (styles) => ({
       className: styles.step,
       level: 1,
       children: [
-        standardInputGroup(
-          'disposableSuits',
-          'Одноразовые костюмы',
-          styles,
-          
-        ),
-        standardInputGroup(
-          'disposableRobes',
-          'Одноразовые халаты',
-          styles,
-        ),
+        standardInputGroup('disposableSuits', 'Одноразовые костюмы', styles),
+        standardInputGroup('disposableRobes', 'Одноразовые халаты', styles),
         standardInputGroup('glasses', 'Очки', styles),
-        standardInputGroup(
-          'regularMasks',
-          'Маски обычные',
-          styles,
-        ),
-        standardInputGroup(
-          'respiratorsFFP2',
-          'Респираторы FFP2',
-          styles,
-        ),
-        standardInputGroup(
-          'respiratorsFFP3',
-          'Респираторы FFP3',
-          styles,
-        ),
+        standardInputGroup('regularMasks', 'Маски обычные', styles),
+        standardInputGroup('respiratorsFFP2', 'Респираторы FFP2', styles),
+        standardInputGroup('respiratorsFFP3', 'Респираторы FFP3', styles),
         standardInputGroup(
           'shoeCovers',
           'Бахилы (высокие, хирургические)',
           styles,
         ),
-        standardInputGroup(
-          'disposableGloves',
-          'Одноразовые перчатки',
-          styles,
-        ),
+        standardInputGroup('disposableGloves', 'Одноразовые перчатки', styles),
         standardInputGroup('antiseptics', 'Антисептики', styles),
       ],
     },
@@ -91,11 +65,7 @@ export const formConfig = (styles) => ({
       className: styles.step,
       level: 1,
       children: [
-        standardInputGroup(
-          'videoLaryngoscopes',
-          'Видеоларингоскопы',
-          styles,
-        ),
+        standardInputGroup('videoLaryngoscopes', 'Видеоларингоскопы', styles),
         standardInputGroup(
           'oxygenConcentrators',
           'Кислородные концентраторы',
@@ -381,11 +351,7 @@ export const formConfig = (styles) => ({
           'Центральные венозные катетеры',
           styles,
         ),
-        standardInputGroup(
-          'threeWayStopcocks',
-          'Трехходовые краники',
-          styles,
-        ),
+        standardInputGroup('threeWayStopcocks', 'Трехходовые краники', styles),
         {
           type: FormComponentType.FieldGroup,
           title: 'Инфузоматы шприцевые',
@@ -425,11 +391,7 @@ export const formConfig = (styles) => ({
           'Шприцы для инфузоматов (50 мл)',
           styles,
         ),
-        standardInputGroup(
-          'infusionLines',
-          'Инфузионные линии',
-          styles,
-        ),
+        standardInputGroup('infusionLines', 'Инфузионные линии', styles),
         standardInputGroup(
           'infusionBags',
           'Капельницы для инфузоматов',
@@ -448,11 +410,7 @@ export const formConfig = (styles) => ({
           'Пульсоксиметры (портативные)',
           styles,
         ),
-        standardInputGroup(
-          'pulseOximeters',
-          'Пульсоксиметры-мониторы',
-          styles,
-        ),
+        standardInputGroup('pulseOximeters', 'Пульсоксиметры-мониторы', styles),
         standardInputGroup('capnographs', 'Капнографы', styles),
         standardInputGroup(
           'simpleMonitors',
@@ -498,11 +456,7 @@ export const formConfig = (styles) => ({
         standardInputGroup('bandages', 'Бинты', styles),
         standardInputGroup('bandAids', 'Пластыри', styles),
         standardInputGroup('stickers', 'Наклейки', styles),
-        standardInputGroup(
-          'foleyCatheters',
-          'Катетеры Фолея',
-          styles,
-        ),
+        standardInputGroup('foleyCatheters', 'Катетеры Фолея', styles),
         standardInputGroup('urineBags', 'Мочеприемники', styles),
       ],
     },

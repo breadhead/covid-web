@@ -16,7 +16,7 @@ export const HospitalAidForm = ({ onSubmit }: Props) => {
     <FormConstructor
       options={formConfig}
       onSubmit={onSubmit}
-      saveDraft={console.log}
+      name={'hospitalAid'}
     >
       {(context) => (
         <>
