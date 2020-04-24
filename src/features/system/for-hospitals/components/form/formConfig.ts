@@ -34,6 +34,16 @@ export const formConfig = {
       },
     },
     {
+      type: FormComponentType.Input,
+      required: true,
+      label: {
+        text: 'Должность',
+      },
+      props: {
+        name: 'position',
+      },
+    },
+    {
       type: FormComponentType.PhoneInput,
       required: true,
       label: {
