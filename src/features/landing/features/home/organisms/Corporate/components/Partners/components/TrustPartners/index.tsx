@@ -15,15 +15,15 @@ const TrustPartners = () => {
 
   return partners.length > 0 ? (
     <div className={styles.container}>
-      <NavLink
-        className={styles.logoWrapper}
-        withoutUnderline
-        href="https://nenaprasno.ru"
-        blank
-      >
-        <Icon className={styles.mainLogo} name={IconsList.FoundationLogo} />
-      </NavLink>
-      <div className={styles.plus}/>
+      {/*<NavLink*/}
+      {/*  className={styles.logoWrapper}*/}
+      {/*  withoutUnderline*/}
+      {/*  href="https://nenaprasno.ru"*/}
+      {/*  blank*/}
+      {/*>*/}
+      {/*  <Icon className={styles.mainLogo} name={IconsList.FoundationLogo} />*/}
+      {/*</NavLink>*/}
+      {/*<div className={styles.plus}/>*/}
       <section className={styles.scrollContainer}>
         {partners.map(({ name, logo, url }) => (
           <NavLink
