@@ -116,8 +116,9 @@
   margin-right: 32px;
 
   @media (--smallDown) {
-    background-color: none;
-    margin: 0 0 24px 0;
+    background: none;
+    margin: 0 8px 0 0;
+    padding: 0;
     max-width: 80px;
   }
 }
@@ -128,10 +129,6 @@
 
   & .actionButton {
     width: 100%;
-  }
-
-  @media (--smallDown) {
-    flex-direction: column;
   }
 }
 

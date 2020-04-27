@@ -5,7 +5,7 @@
   border: none;
   font-size: 18px;
   line-height: 28px;
-
+  
   &[disabled] {
     opacity: 0.4;
   }
@@ -111,13 +111,14 @@
 }
 
 .buttonIcon {
- /* width: 48px;
-  height: 48px;*/
+  width: 48px;
+  height: 48px;
   margin-left: 16px;
 
   @media (--smallDown) {
-  /*  width: 32px;
-    height: 32px;*/
+    width: 32px;
+    height: 32px;
+    margin-left: 12px;
   }
 }
 
