@@ -13,7 +13,12 @@ export const NavCards = () => {
     <div className={styles.cards}>
       <NavLink withoutUnderline href={'/for-doctors'} className={styles.card}>
         <div className={styles.content}>
-          <h3 className={styles.title}>Врачам</h3>
+          <h3 className={styles.title}>Врачам
+            <Icon
+              className={cx(styles.linkIcon, styles.mobileIcon)}
+              name={IconsList.ArrowRight2}
+            />
+          </h3>
           <ul className={styles.list}>
             <li className={styles.listItem}>
               Клинические рекомендации и статьи

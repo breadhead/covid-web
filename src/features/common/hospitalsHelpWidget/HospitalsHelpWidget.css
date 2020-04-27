@@ -17,6 +17,7 @@
     width: 176px;
     flex-direction: column;
     right: 16px;
+    z-index: 1000;
     
 
   }

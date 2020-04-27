@@ -77,7 +77,7 @@
 
 .title {
   font: var(--title-system);
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   margin-bottom: 32px;
   transition: all 0.3s ease-in-out;
 
