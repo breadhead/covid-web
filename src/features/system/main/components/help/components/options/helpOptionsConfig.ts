@@ -35,10 +35,12 @@ export const getHelpOptions = (helpLink = '/#help') => {
       items: [
         {
           id: '0',
-          type: HelpItemType.Link,
-          label: 'Реквизиты',
+          type: HelpItemType.Button,
+          secondary: true, 
+          label: 'Пожертвовать деньги',
           link: `/docs`,
         },
+        
         {
           id: '10',
           type: HelpItemType.Link,

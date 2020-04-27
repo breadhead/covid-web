@@ -12,7 +12,7 @@
 .option {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 16px 24px 24px 20px;
   background-color: var(--background-system);
   width: 100%;
@@ -35,7 +35,7 @@
 
 .title {
   font: var(--title-small);
-  color: var(--text-color-secondary);
+  color: var(--text-color-primary);
   margin-bottom: 40px;
 
   @media (--smallDown) {
