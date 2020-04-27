@@ -58,7 +58,7 @@ export const ForDoctorsPage = ({ query }: Props) => {
               <ArticleCards cards={pinnedArticles} />
               <div className={styles.mobileChecklist}>
                 <Button className={styles.wide} href="/checklist" icon="/static/images/landing/check.png" size={ButtonSize.Medium}>
-                  <span>Чеклист готовности ОРИТ</span>
+                  Чеклист готовности ОРИТ
                 </Button>
               </div>
               <PageFilter

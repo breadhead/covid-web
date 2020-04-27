@@ -117,8 +117,10 @@
 
   @media (--smallDown) {
     width: 32px;
+    transform: translateY(-4px);
     height: 32px;
-    margin-left: 12px;
+    
+    margin: -4px 12px;
   }
 }
 
