@@ -56,7 +56,7 @@ const HospitalsHelpWidget = () => {
           <NavLink
             className={styles.buttonWrapper}
             withoutUnderline
-            href="/#help"
+            href="/#donation"
           >
            ❤️Поддержать
           </NavLink>

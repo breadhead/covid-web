@@ -96,7 +96,6 @@ export const SystemWidget = ({ pageType }: SystemWidgetProps) => {
         onSubmit={async (event: any) => {
           event.preventDefault();
           event.stopPropagation();
-          console.log('submit');
           await dispatch(setPaymetWidgetData(state));
           setIsSubmitted(true);
         }}

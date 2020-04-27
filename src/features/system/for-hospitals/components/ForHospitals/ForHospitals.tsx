@@ -16,6 +16,7 @@ import { SystemHelp } from '../../../main/components/help';
 import s from './ForHospitals.css';
 import { Partners } from '../Partners/Partners';
 import { ForHospitalsHero } from '../Hero/Hero';
+import {HospitalsHelpWidget} from "@front/features/common/hospitalsHelpWidget";
 
 interface ForHospitalsProps {}
 
@@ -27,7 +28,7 @@ export const ForHospitalsPage = ({}: ForHospitalsProps) => {
       <Head>
         <title>Больницам | Что делать:</title>
       </Head>
-
+      <HospitalsHelpWidget />
       <div className="gl-wrapper gl-section">
         <ForHospitalsHero />
       </div>

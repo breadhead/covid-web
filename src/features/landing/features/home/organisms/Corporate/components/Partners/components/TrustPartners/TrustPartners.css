@@ -20,7 +20,7 @@
   max-height: 56px;
 
   @media (--smallDown) {
-    max-height: 40px;
+    max-height: 30px;
   }
 }
 
@@ -73,7 +73,6 @@
 }
 
 .scrollContainer {
-  overflow-y: scroll;
   flex-direction: row;
   display: flex;
   padding-right: 16px;
