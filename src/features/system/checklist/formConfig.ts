@@ -233,12 +233,34 @@ export const formConfig = (styles) => ({
             },
           ],
         },
-        standardInputGroup(
-          'ambuBags',
-          'Мешки Амбу',
-          styles,
-          standardInputType.supplied,
-        ),
+        {
+          type: FormComponentType.FieldGroup,
+          title: 'Мешки Амбу',
+          level: 2,
+          className: styles.rowInputGroup,
+          children: [
+            {
+              type: FormComponentType.Toggle,
+              className: cx(styles.small),
+              label: {
+                text: 'Обеспечены?',
+              },
+              props: {
+                name: `ambuBagsSwitcher`,
+              },
+            },
+            {
+              type: FormComponentType.Toggle,
+              className: cx(styles.small, styles.thumblr),
+              label: {
+                text: 'Прогнозируете проблемы с поставкой?',
+              },
+              props: {
+                name: `ambuBagsShortageExpected`,
+              },
+            },
+          ],
+        },
         standardInputGroup(
           'airCompressor',
           'Компрессоры сжатого воздуха',
