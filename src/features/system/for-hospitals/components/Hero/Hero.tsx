@@ -20,7 +20,10 @@ export const ForHospitalsHero = () => (
           buttonText="Заполнить контрольный лист"
           href="/checklist"
           icon={
-            <img className={s.bottomOffset} src="/static/images/continue-filling.png" />
+            <img
+              className={s.bottomOffset}
+              src="/static/images/continue-filling.png"
+            />
           }
         />
         <h2 className="gl-sectionTitle">Как работает помощь больницам</h2>
