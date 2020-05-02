@@ -10,6 +10,7 @@ import { getMainPageListFromSanity } from '@app/src/domain/reducers/newsReducer/
 import { selectMainPageNews } from '@app/src/domain/reducers/newsReducer/mainPageList/selectMainPageNews';
 
 import { PageType } from '@front/features/landing/features/partners/organisms/PartnersList/config';
+import { HospitalsHelpWidget } from '@front/features/common/hospitalsHelpWidget';
 
 import { SystemLayout } from '../layout/SystemLayout';
 import { SystemHero } from './components/hero';
@@ -17,7 +18,6 @@ import { SystemHelp } from './components/help';
 import { SystemAbout } from './components/about';
 import { SystemDonation } from './components/donation';
 import { FeaturedNews } from '../../landing/features/news/featuredNews';
-import {HospitalsHelpWidget} from "@front/features/common/hospitalsHelpWidget";
 
 export const SystemMain = () => {
   const mainPageNews = useMappedState(selectMainPageNews);

@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import {Button, ButtonKind, ButtonSize} from '@app/src/ui/button';
-import {NavLink} from '@app/src/ui/nav-link';
+import { Button, ButtonKind, ButtonSize } from '@app/src/ui/button';
+import { NavLink } from '@app/src/ui/nav-link';
 
-import {getHelpOptions} from './helpOptionsConfig';
+import { getHelpOptions } from './helpOptionsConfig';
 import * as styles from './HelpOptions.css';
 
 export enum HelpItemType {
@@ -44,7 +44,16 @@ export const HelpOptions = ({ helpLink }: HelpOptionsProps) => {
                     href={item.link}
                     key={item.id}
                   >
-                    <Button kind={item.secondary ? ButtonKind.Secondary : ButtonKind.Primary} size={ButtonSize.Small}>{item.label}</Button>
+                    <Button
+                      kind={
+                        item.secondary
+                          ? ButtonKind.Secondary
+                          : ButtonKind.Primary
+                      }
+                      size={ButtonSize.Small}
+                    >
+                      {item.label}
+                    </Button>
                   </NavLink>
                 ) : (
                   <NavLink

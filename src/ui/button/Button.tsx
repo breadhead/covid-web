@@ -21,10 +21,9 @@ export const Button = ({
   className,
   href,
 }: ButtonProps) => {
-  
   const props = {
     className: cx(
-        styles.button,
+      styles.button,
       styles[getSizeClassName(size)],
       styles[getKindClassName(kind)],
       className,
@@ -32,18 +31,14 @@ export const Button = ({
     onClick,
     disabled: disabled || loading,
     type: getButtonType(submit),
-    href
-  }
-  
-  const TagName = (href ? "a" : "button");
-  return  (<TagName {...props} >
-    {children}
-    {icon && (<img
-      className={styles.buttonIcon}
-      src={icon}
-    />)}
-  </TagName>
-  )
-}
- 
+    href,
+  };
 
+  const TagName = href ? 'a' : 'button';
+  return (
+    <TagName {...props}>
+      {children}
+      {icon && <img className={styles.buttonIcon} src={icon} />}
+    </TagName>
+  );
+};

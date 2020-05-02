@@ -5,10 +5,10 @@ import { selectTrustPartners } from '@app/src/domain/reducers/partnerReducer/sel
 import { NavLink } from '@app/src/ui/nav-link';
 
 import { getImageSrc } from '@front/lib/useImageSrc/getImageSrc';
+import { Icon } from '@front/ui/icon';
+import { IconsList } from '@front/ui/sprite';
 
 import * as styles from './TrustPartners.css';
-import {Icon} from "@front/ui/icon";
-import {IconsList} from "@front/ui/sprite";
 
 const TrustPartners = () => {
   const partners = useMappedState(selectTrustPartners);
