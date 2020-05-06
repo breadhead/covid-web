@@ -41,7 +41,7 @@ export const ForDoctorsPage = ({ query }: Props) => {
   const articles = useMappedState(selectArticles(query));
   const resources = useMappedState(selectResources());
   const partners = useMappedState(selectPartners).filter((partner) => {
-    return partner.pageToShow.includes(PageType.Doctors);
+    return partner?.pageToShow?.includes(PageType.Doctors);
   });
   const pinnedArticles = articles.filter((art) => !!art.pin);
   return (
