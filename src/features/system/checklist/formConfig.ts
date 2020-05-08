@@ -4,14 +4,38 @@ import cx from 'classnames';
 import { FormComponentType } from '@front/features/common/form/FormConstructor';
 import { InputType } from '@front/ui/Input';
 
-const standardInputGroup = (name, title, styles, level = 2) => {
-  return {
-    type: FormComponentType.FieldGroup,
-    title,
-    level,
-    className: styles.rowInputGroup,
-    children: [
-      {
+enum standardInputType {
+  daysRemaining = 'daysRemaining',
+  count = 'count',
+  supplied = 'supplied',
+  bedsCount = 'bedsCount',
+}
+
+const standardInputGroup = (
+  name,
+  title,
+  styles,
+  type = standardInputType.daysRemaining,
+  level = 2,
+) => {
+  let firstInput;
+
+  switch (type) {
+    case standardInputType.count:
+      firstInput = {
+        type: FormComponentType.Number,
+        className: cx(styles.small),
+        label: {
+          text: 'Количество',
+        },
+        props: {
+          name: `${name}Count`,
+          validate: yup.number(),
+        },
+      };
+      break;
+    case standardInputType.daysRemaining:
+      firstInput = {
         type: FormComponentType.Number,
         className: styles.small,
         label: {
@@ -21,7 +45,42 @@ const standardInputGroup = (name, title, styles, level = 2) => {
           name: `${name}DaysRemaining`,
           validate: yup.number(),
         },
-      },
+      };
+      break;
+    case standardInputType.bedsCount:
+      firstInput = {
+        type: FormComponentType.Number,
+        className: cx(styles.small),
+        label: {
+          text: 'Количество обеспеченных коек',
+        },
+        props: {
+          name: `${name}BedsCount`,
+          validate: yup.number(),
+        },
+      };
+      break;
+    case standardInputType.supplied:
+      firstInput = {
+        type: FormComponentType.Toggle,
+        className: cx(styles.small),
+        label: {
+          text: 'Обеспечены?',
+        },
+        props: {
+          name: `${name}`,
+        },
+      };
+      break;
+  }
+
+  return {
+    type: FormComponentType.FieldGroup,
+    title,
+    level,
+    className: styles.rowInputGroup,
+    children: [
+      firstInput,
       {
         type: FormComponentType.Toggle,
         className: cx(styles.small, styles.thumblr),
@@ -65,11 +124,17 @@ export const formConfig = (styles) => ({
       className: styles.step,
       level: 1,
       children: [
-        standardInputGroup('videoLaryngoscopes', 'Видеоларингоскопы', styles),
+        standardInputGroup(
+          'videoLaryngoscopes',
+          'Видеоларингоскопы',
+          styles,
+          standardInputType.count,
+        ),
         standardInputGroup(
           'oxygenConcentrators',
           'Кислородные концентраторы',
           styles,
+          standardInputType.supplied,
         ),
         standardInputGroup(
           'regularNasalCannula',
@@ -90,6 +155,7 @@ export const formConfig = (styles) => ({
           'nebulizersCompressors',
           'Небулайзеры-компрессоры',
           styles,
+          standardInputType.count,
         ),
         standardInputGroup(
           'nebulizerAttachments',
@@ -195,35 +261,12 @@ export const formConfig = (styles) => ({
             },
           ],
         },
-        {
-          type: FormComponentType.FieldGroup,
-          title: 'Компрессоры сжатого воздуха',
-          level: 2,
-          className: styles.rowInputGroup,
-          children: [
-            {
-              type: FormComponentType.Number,
-              className: cx(styles.small),
-              label: {
-                text: 'Количество обеспеченных коек',
-              },
-              props: {
-                name: `airCompressorBedsCount`,
-                validate: yup.number(),
-              },
-            },
-            {
-              type: FormComponentType.Toggle,
-              className: cx(styles.small, styles.thumblr),
-              label: {
-                text: 'Прогнозируете проблемы с поставкой?',
-              },
-              props: {
-                name: `airCompressorShortageExpected`,
-              },
-            },
-          ],
-        },
+        standardInputGroup(
+          'airCompressor',
+          'Компрессоры сжатого воздуха',
+          styles,
+          standardInputType.bedsCount,
+        ),
         {
           type: FormComponentType.FieldGroup,
           title: 'Концентраторы кислорода высокого давления',
@@ -302,36 +345,12 @@ export const formConfig = (styles) => ({
           'Проводники для интубации',
           styles,
         ),
-        {
-          type: FormComponentType.FieldGroup,
-          title:
-            'Гелевые подушки подлобные подгрудные для вентиляции в прон-позиции',
-          level: 2,
-          className: styles.rowInputGroup,
-          children: [
-            {
-              type: FormComponentType.Number,
-              className: cx(styles.small),
-              label: {
-                text: 'Количество обеспеченных коек',
-              },
-              props: {
-                name: `heliumPillowsBedCount`,
-                validate: yup.number(),
-              },
-            },
-            {
-              type: FormComponentType.Toggle,
-              className: cx(styles.small, styles.thumblr),
-              label: {
-                text: 'Прогнозируете проблемы с поставкой?',
-              },
-              props: {
-                name: `heliumPillowsShortageExpected`,
-              },
-            },
-          ],
-        },
+        standardInputGroup(
+          'heliumPillows',
+          'Гелевые подушки подлобные подгрудные для вентиляции в прон-позиции',
+          styles,
+          standardInputType.bedsCount,
+        ),
       ],
     },
     {
@@ -352,39 +371,17 @@ export const formConfig = (styles) => ({
           styles,
         ),
         standardInputGroup('threeWayStopcocks', 'Трехходовые краники', styles),
-        {
-          type: FormComponentType.FieldGroup,
-          title: 'Инфузоматы шприцевые',
-          level: 2,
-          className: styles.rowInputGroup,
-          children: [
-            {
-              type: FormComponentType.Number,
-              className: cx(styles.small),
-              label: {
-                text: 'Количество обеспеченных коек',
-              },
-              props: {
-                name: `syringeInfusionPumpsBedCount`,
-                validate: yup.number(),
-              },
-            },
-            {
-              type: FormComponentType.Toggle,
-              className: cx(styles.small, styles.thumblr),
-              label: {
-                text: 'Прогнозируете проблемы с поставкой?',
-              },
-              props: {
-                name: `syringeInfusionPumpsShortageExpected`,
-              },
-            },
-          ],
-        },
+        standardInputGroup(
+          'syringeInfusionPumps',
+          'Инфузоматы шприцевые',
+          styles,
+          standardInputType.bedsCount,
+        ),
         standardInputGroup(
           'peristalticInfusionPumps',
           'Инфузоматы перистальтические',
           styles,
+          standardInputType.count,
         ),
         standardInputGroup(
           'infusionSyringes',
@@ -405,22 +402,81 @@ export const formConfig = (styles) => ({
       className: styles.step,
       level: 1,
       children: [
+        {
+          type: FormComponentType.FieldGroup,
+          title: 'Пульсоксиметры (портативные)',
+          level: 2,
+          className: styles.rowInputGroup,
+          children: [
+            {
+              type: FormComponentType.Number,
+              className: cx(styles.small),
+              label: {
+                text: 'Приблизительное количество',
+              },
+              props: {
+                name: `portablePulseOximetersCount`,
+                validate: yup.number(),
+              },
+            },
+            {
+              type: FormComponentType.Toggle,
+              className: cx(styles.small, styles.thumblr),
+              label: {
+                text: 'Прогнозируете проблемы с поставкой?',
+              },
+              props: {
+                name: `portablePulseOximetersShortageExpected`,
+              },
+            },
+          ],
+        },
+        {
+          type: FormComponentType.FieldGroup,
+          title: 'Пульсоксиметры-мониторы',
+          level: 2,
+          className: styles.rowInputGroup,
+          children: [
+            {
+              type: FormComponentType.Number,
+              className: cx(styles.small),
+              label: {
+                text: 'Приблизительное количество',
+              },
+              props: {
+                name: `pulseOximetersCount`,
+                validate: yup.number(),
+              },
+            },
+            {
+              type: FormComponentType.Toggle,
+              className: cx(styles.small, styles.thumblr),
+              label: {
+                text: 'Прогнозируете проблемы с поставкой?',
+              },
+              props: {
+                name: `pulseOximetersShortageExpected`,
+              },
+            },
+          ],
+        },
         standardInputGroup(
-          'portablePulseOximeters',
-          'Пульсоксиметры (портативные)',
+          'capnographs',
+          'Капнографы',
           styles,
+          standardInputType.count,
         ),
-        standardInputGroup('pulseOximeters', 'Пульсоксиметры-мониторы', styles),
-        standardInputGroup('capnographs', 'Капнографы', styles),
         standardInputGroup(
           'simpleMonitors',
           'Простые мониторы (ниАД, ЭКГ, SpO2)',
           styles,
+          standardInputType.count,
         ),
         standardInputGroup(
           'bloodGasAnalyzer',
           'Анализаторы газов крови',
           styles,
+          standardInputType.count,
         ),
       ],
     },
@@ -444,6 +500,7 @@ export const formConfig = (styles) => ({
           'peristalticEnteralInfusionPumps',
           'Инфузоматы перистальтические для энтерального питания',
           styles,
+          standardInputType.count,
         ),
       ],
     },

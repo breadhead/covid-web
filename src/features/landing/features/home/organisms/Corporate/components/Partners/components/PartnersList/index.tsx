@@ -25,7 +25,7 @@ const PartnersList = ({
   className,
 }: Props) => {
   const partners = useMappedState(selectPartners).filter((partner) => {
-    return partner.pageToShow.includes(pageType);
+    return partner?.pageToShow?.includes(pageType);
   });
 
   return partners.length > 0 ? (

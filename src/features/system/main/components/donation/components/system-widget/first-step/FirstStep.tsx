@@ -3,7 +3,7 @@ import * as yup from 'yup';
 
 import { Button, ButtonSize } from '@app/src/ui/button';
 import { NavLink } from '@app/src/ui/nav-link';
-import {NON_BREAKING_SPACE, SPACE} from '@app/src/lib/config';
+import { NON_BREAKING_SPACE, SPACE } from '@app/src/lib/config';
 import { PageType } from '@app/src/features/landing/features/partners/organisms/PartnersList/config';
 import { InputType } from '@app/src/ui/Input';
 
@@ -172,7 +172,8 @@ export const FirstStep = ({
         </NavLink>
       </p>
       <p className={styles.cancelText}>
-        Средства направляются на расчётный счёт Фонда профилактики рака «Не{NON_BREAKING_SPACE}напрасно».
+        Средства направляются на расчётный счёт Фонда профилактики рака «Не
+        {NON_BREAKING_SPACE}напрасно».
       </p>
     </>
   );

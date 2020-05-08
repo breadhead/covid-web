@@ -9,6 +9,8 @@ import { selectHospitalNews } from '@app/src/domain/reducers/newsReducer/hospita
 import { getNewsForHospitals } from '@app/src/domain/reducers/newsReducer/hospitalsList';
 import { PageType } from '@app/src/features/landing/features/partners/organisms/PartnersList/config';
 
+import { HospitalsHelpWidget } from '@front/features/common/hospitalsHelpWidget';
+
 import { SystemLayout } from '../../../layout';
 import { Helping } from '../Helping/Helping';
 import { HelpRequest } from '../HelpRequest/HelpRequest';
@@ -16,7 +18,6 @@ import { SystemHelp } from '../../../main/components/help';
 import s from './ForHospitals.css';
 import { Partners } from '../Partners/Partners';
 import { ForHospitalsHero } from '../Hero/Hero';
-import {HospitalsHelpWidget} from "@front/features/common/hospitalsHelpWidget";
 
 interface ForHospitalsProps {}
 

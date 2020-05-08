@@ -20,6 +20,8 @@ import { selectPartners } from '@app/src/domain/reducers/partnerReducer/selectPa
 import { Divider } from '@app/src/ui/divider/Divider';
 import { selectFeaturedArticles } from '@app/src/domain/reducers/articlesReducer/featured/selectFeaturedArticles';
 
+import { Button, ButtonSize } from '@front/ui/button';
+
 import { SystemLayout } from '../layout';
 import { PageFilter } from '../../common/pageFilter';
 import { NewsCard } from '../../landing/features/news/newsCard';
@@ -30,7 +32,6 @@ import { ArticleCards } from './components/article-card/ArticleCards';
 import { Aside } from './components/aside';
 import { ResourcesMobile } from './components/resources-mobile';
 import { SystemHelp } from '../main/components/help';
-import {Button, ButtonSize} from "@front/ui/button";
 interface Props {
   query: any;
 }
@@ -42,7 +43,7 @@ export const ForDoctorsPage = ({ query }: Props) => {
   const articles = useMappedState(selectArticles(query));
   const resources = useMappedState(selectResources());
   const partners = useMappedState(selectPartners).filter((partner) => {
-    return partner.pageToShow.includes(PageType.Doctors);
+    return partner?.pageToShow?.includes(PageType.Doctors);
   });
   const pinnedArticles = articles.filter((art) => !!art.pin);
   return (
@@ -57,7 +58,12 @@ export const ForDoctorsPage = ({ query }: Props) => {
               <h1 className="gl-pageTitle">Врачам</h1>
               <ArticleCards cards={pinnedArticles} />
               <div className={styles.mobileChecklist}>
-                <Button className={styles.wide} href="/checklist" icon="/static/images/landing/check.png" size={ButtonSize.Medium}>
+                <Button
+                  className={styles.wide}
+                  href="/checklist"
+                  icon="/static/images/landing/check.png"
+                  size={ButtonSize.Medium}
+                >
                   Чеклист готовности ОРИТ
                 </Button>
               </div>
@@ -92,7 +98,11 @@ export const ForDoctorsPage = ({ query }: Props) => {
             <div className={styles.asideWrapper}>
               <div className={styles.checklist}>
                 <h4 className={styles.title}>Чеклист готовности ОРИТ</h4>
-                <Button href="/checklist" icon="/static/images/landing/check.png" size={ButtonSize.Large}>
+                <Button
+                  href="/checklist"
+                  icon="/static/images/landing/check.png"
+                  size={ButtonSize.Large}
+                >
                   <span>Заполнить чеклист</span>
                 </Button>
               </div>
