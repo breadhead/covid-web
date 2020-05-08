@@ -17,6 +17,22 @@
   font-display: block;
 }
 
+@font-face {
+  font-family: 'CoFo';
+  font-style: normal;
+  font-display: fallback;
+  font-weight: 400;
+  src: url('/static/fonts/CoFo/CoFo_Sans-Regular.eot');
+  src: url('/static/fonts/CoFo/CoFo_Sans-Regular.eot?#iefix')
+  format('embedded-opentype'),
+  url('/static/fonts/CoFo/CoFo_Sans-Regular.woff2')
+  format('woff2'),
+  url('/static/fonts/CoFo/CoFo_Sans-Regular.woff')
+  format('woff');
+  font-display: block;
+}
+
+
 *,
 *::before,
 *::after {
@@ -33,7 +49,7 @@ body {
   /* fonts */
   --fontFamily: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  --fontFamily-title: 'Muller Regular', -apple-system, BlinkMacSystemFont,
+  --fontFamily-title: 'CoFo', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue',
     sans-serif;
 
