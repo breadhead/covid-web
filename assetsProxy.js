@@ -1,31 +1,36 @@
 const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch');
+const util = require('util');
+const stream = require('stream');
+const pipeline = util.promisify(stream.pipeline);
+const exists = util.promisify(fs.exists);
+const mkdir = util.promisify(fs.mkdir);
 
 const root = path.resolve(__dirname, 'public', 'content');
 
-module.exports = function (req, res) {
-  const filepath = path.resolve(root, req.params[0]);
+module.exports = async (req, res) => {
+  try {
+    const filePath = path.resolve(root, req.params[0]);
 
-  if (fs.existsSync(filepath)) {
-    return res.sendFile(filepath);
+    if (await exists(filePath)) {
+      return res.sendFile(filePath);
+    }
+
+    const [urlQuery, ...urlPath] = req.params[0].split('/');
+    const apiUrl = `https://cdn.sanity.io/${urlPath.join('/')}?${urlQuery}`;
+
+    await mkdir(path.dirname(filePath), { recursive: true });
+
+    const fileStream = fs.createWriteStream(filePath);
+
+    const image = await fetch(apiUrl);
+
+    await pipeline(image.body, fileStream);
+
+    res.sendFile(filePath);
+  } catch (e) {
+    res.status(500);
+    res.end(e);
   }
-
-  const [urlQuery, ...urlPath] = req.params[0].split('/');
-  const apiUrl = `https://cdn.sanity.io/${urlPath.join('/')}?${urlQuery}`;
-
-  fs.mkdirSync(path.dirname(filepath), { recursive: true });
-  const fileStream = fs.createWriteStream(filepath);
-
-  return fetch(apiUrl)
-    .then(
-      (image) =>
-        new Promise((resolve, reject) => {
-          image.body
-            .pipe(fileStream)
-            .on('finish', () => res.sendFile(filepath))
-            .on('error', reject);
-        }),
-    )
-    .catch((e) => res.status(500) && res.end(e));
 };
