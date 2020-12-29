@@ -16,16 +16,12 @@
   }
 }
 
-.headerWrapper {
-  display: block;
-}
-
 .headerNotice {
   width: 100%;
   font-size: 16px;
   background-color: #ffeab7;
   padding: 16px;
-  border-bottom: 10px solid #f7f6f2;
+  
 }
 
 .fixed {
