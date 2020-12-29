@@ -45,6 +45,13 @@ export const SystemHeader = ({ white, fixed, show }: SystemHeaderProps) => {
           fixedStyles,
         )}
       >
+        <div className={styles.headerNotice}>
+          <div className={styles.text}>
+            {
+              'Мы понимаем, что вы переживаете за свое здоровье и здоровье своих близких. В новогодние праздники — с 31 декабря по 8 января — время ответа специалиста может увеличиться. Если вы чувствуете, что вам необходима экстренная консультация, пожалуйста, не дожидайтесь ответа эксперта и срочно обратитесь к врачу или вызовите скорую помощь.'
+            }
+          </div>
+        </div>
         <SystemLogo className={styles.logo} />
         <SystemNavigationContainer />
         <div className={styles.burger}>

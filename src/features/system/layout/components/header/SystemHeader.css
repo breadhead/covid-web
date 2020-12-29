@@ -16,6 +16,16 @@
   }
 }
 
+.headerWrapper {
+  display: block;
+}
+
+.headerNotice {
+  width: 100%;
+  font-size: 16px;
+  background-color: #ffeab7;
+}
+
 .fixed {
   position: fixed;
   top: 0;
