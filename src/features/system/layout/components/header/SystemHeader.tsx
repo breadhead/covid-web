@@ -36,13 +36,13 @@ export const SystemHeader = ({ white, fixed, show }: SystemHeaderProps) => {
 
   return (
     <>
-      <div className={styles.headerNotice}>
+      {!fixed && (<div className={styles.headerNotice}>
         <div className={styles.text}>
           {
             'Мы понимаем, что вы переживаете за свое здоровье и здоровье своих близких. В новогодние праздники — с 31 декабря по 8 января — время ответа специалиста может увеличиться. Если вы чувствуете, что вам необходима экстренная консультация, пожалуйста, не дожидайтесь ответа эксперта и срочно обратитесь к врачу или вызовите скорую помощь.'
           }
         </div>
-      </div>
+      </div>)}
       <SystemMobileMenu hide={hideMenu} menuOpened={menuOpened} />
       <header
         className={cx(
