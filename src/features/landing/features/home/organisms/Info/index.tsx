@@ -21,7 +21,7 @@ const DonationInfo = ({ text }: DonationInfoProps) => (
         <p className={styles.authorPosition}>
           Исполнительный директор
           <br />
-          Фонда профилактики рака «Не напрасно»
+          Фонда медицинских решений «Не напрасно»
         </p>
       </div>
     </div>

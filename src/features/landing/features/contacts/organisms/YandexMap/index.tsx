@@ -27,16 +27,24 @@ class YandexMap extends React.Component {
             <Placemark geometry={[LAT, LON]} />
             <article className={styles.infoBlock}>
               <p className={styles.text}>
-                {/* <NavLink
+                <NavLink
                   blank
                   withoutUnderline
                   className={styles.link}
                   href="tel:+78124685797"
                 >
                   +7 812 468-57-97
-                </NavLink> */}
-                В связи с карантином мы работаем из дома. Пожалуйста, пишите на
-                почту.
+                </NavLink>
+
+                <NavLink
+                  blank
+                  withoutUnderline
+                  className={styles.link}
+                  href="mailto:ask@nenaprasno.ru"
+                >
+                  ask@nenaprasno.ru
+                </NavLink>
+                Санкт-Петербург, 2-я линия Васильевского острова, д. 37, офис 310
               </p>
               <p className={styles.text}>
                 <NavLink

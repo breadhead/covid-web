@@ -18,7 +18,7 @@ export const Docs = () => {
       <SystemLayout>
         <div className="gl-wrapper gl-section">
           <h1 className="gl-pageTitle">Реквизиты</h1>
-          <h2 className="gl-sectionTitle"> Фонд профилактики рака</h2>
+          <h2 className="gl-sectionTitle"> Фонд медицинских решений «Не напрасно»</h2>
           <div className="gl-text">
             <div className={styles.infoBlock}>
               <p>
@@ -33,13 +33,13 @@ export const Docs = () => {
               <p>Банковские реквизиты:</p>
               <p>Р/сч: 40701810855000000517</p>
               <p>в СЕВЕРО-ЗАПАДНЫЙ БАНК ПАО «СБЕРБАНК РОССИИ»</p>
-              <p>К/сч: 30101810500000000653</p>
+              <p>К/сч: 30101810500000000653</p>ди
               <p>БИК: 044030653</p>
             </div>
 
             <div className={styles.infoBlock}>
               <p>
-                Президент Фонда — Бурханов В.Р. Действует на основании{SPACE}
+                Президент Фонда — Бурханов Владислав Родионович Действует на основании{SPACE}
                 <NavLink
                   blank
                   href="https://nenaprasno.ru/upload/iblock/460/46062625565355ba0ca0ccac8645e256.pdf"

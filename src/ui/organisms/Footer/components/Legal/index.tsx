@@ -13,7 +13,7 @@ interface Props {
 const Legal = ({ className }: Props) => (
   <div className={cx(styles.bottom, className)}>
     <div className={styles.oncohelp}>
-      <span className={styles.copyright}>© Фонд профилактики рака, 2020</span>
+      <span className={styles.copyright}>© Фонд медицинских решений «Не напрасно», { (new Date()).getFullYear()}</span>
       <NavLink
         blank
         className={styles.infoLink}

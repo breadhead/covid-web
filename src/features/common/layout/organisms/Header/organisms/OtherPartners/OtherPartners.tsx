@@ -28,7 +28,7 @@ export const OtherPartners = () => {
           className={styles.link}
           href="https://nenaprasno.ru/"
         >
-          Фонд профилактики рака
+          Фонд медицинских решений
         </NavLink>
         <NavLink
           withoutUnderline
