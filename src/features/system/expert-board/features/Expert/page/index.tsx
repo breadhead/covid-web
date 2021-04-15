@@ -28,7 +28,8 @@ const SupervisorPage = ({ expert }: Props) => {
             Весь наблюдательный совет
           </NavLink>
           <section className={styles.expert}>
-            <img
+            <img 
+              loading="lazy" 
               className={styles.photo}
               src={getImageSrc(expert.logo) || ''}
               alt={expert.name}

@@ -18,6 +18,7 @@ const Photos = ({ experts }: Props) => {
       {photos.map((photo) => (
         <div key={photo._id} className={styles.photoWrap}>
           <img
+            loading="lazy"
             className={styles.photo}
             src={getImageSrc(photo.logo) || ''}
             alt={photo.name}

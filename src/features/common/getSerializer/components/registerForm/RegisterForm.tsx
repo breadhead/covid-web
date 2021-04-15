@@ -64,7 +64,7 @@ export const RegisterForm = ({ node: { webinarLink } }: RegisterFormProps) => {
       ) : (
         <ActionBlock
           title={`Вебинар «${articleContext.data.name}»`}
-          icon={<img src="/static/images/answers.png" />}
+          icon={<img loading="lazy" src="/static/images/answers.png" />}
           text={
             articleContext.data.webinarDate
               ? formatDateWithTime(articleContext.data.webinarDate)

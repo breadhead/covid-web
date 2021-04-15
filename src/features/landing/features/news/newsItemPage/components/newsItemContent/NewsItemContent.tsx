@@ -56,7 +56,7 @@ export const NewsItemContent = ({ newsItem }: NewsItemContentProps) => {
 
           {imageSrc && (
             <div className={s.imageWrapper}>
-              <img className={s.image} src={imageSrc} alt={newsItem.name} />
+              <img loading="lazy" className={s.image} src={imageSrc} alt={newsItem.name} />
             </div>
           )}
         </div>

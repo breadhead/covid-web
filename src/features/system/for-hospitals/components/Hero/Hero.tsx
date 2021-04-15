@@ -20,7 +20,8 @@ export const ForHospitalsHero = () => (
           buttonText="Заполнить контрольный лист"
           href="/checklist"
           icon={
-            <img
+            <img 
+              loading="lazy" 
               className={s.bottomOffset}
               src="/static/images/continue-filling.png"
             />

@@ -24,7 +24,8 @@ export const Aside = ({ items, title = 'Официальные ресурсы' }
             className={styles.item}
             key={res._id}
           >
-            <img
+            <img 
+              loading="lazy" 
               className={styles.photo}
               src={getImageSrc(res.logo, 48, 48) || ''}
               alt={res.name}

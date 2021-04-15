@@ -25,7 +25,7 @@ export const RegisterButton = ({
       text={
         text && <BlockContent blocks={text} serializers={simpleSerializer} />
       }
-      icon={<img className={s.bottomOffset} src="/static/images/answers.png" />}
+      icon={<img loading="lazy" className={s.bottomOffset} src="/static/images/answers.png" />}
       buttonText="Записаться на вебинар"
       action={() => {
         console.log(webinarId);

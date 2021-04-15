@@ -9,6 +9,7 @@ import * as styles from './Notification.css';
 export const Notification = () => (
   <article className={styles.notification}>
     <img
+      loading="lazy"
       className={styles.logo}
       src="/static/images/doc-recommendation.png"
       alt="пожертвования"
@@ -16,7 +17,7 @@ export const Notification = () => (
     <div className={styles.infoWrapper}>
       <p className={styles.text}>
         Наш проект существует на{NON_BREAKING_SPACE}частные и
-        {NON_BREAKING_SPACE}корпоративные пожертвования. <br />
+        {NON_BREAKING_SPACE}корпоративные пожертвования. <br/>
         Станьте нашим партнёром и{NON_BREAKING_SPACE}поддержите работу сервиса.
       </p>
       <NavLink withoutUnderline href="/contacts">

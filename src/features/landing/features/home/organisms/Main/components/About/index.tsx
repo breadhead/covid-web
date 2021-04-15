@@ -13,6 +13,7 @@ const About = () => (
           снизить нагрузку на систему здравоохранения
         </h2>
         <img
+          loading="lazy"
           className={styles.logo}
           src="/static/images/answers.png"
           alt="Помогаем разобраться в ситуации и найти хорошего онколога"

@@ -18,7 +18,7 @@ export const ClinicCard = ({
 
   return (
     <NavLink className={s.clinicCard} withoutUnderline blank href={url || ''}>
-      <img className={s.logo} src={logoSrc} alt={name} />
+      <img loading="lazy" className={s.logo} src={logoSrc} alt={name} />
       {name && <h3 className={s.title}>{name}</h3>}
       {city && <p className={s.city}>{city}</p>}
 

@@ -12,6 +12,7 @@ const DonationInfo = ({ text }: DonationInfoProps) => (
     <p className={styles.message}>{htmlParser(text)}</p>
     <div className={styles.author}>
       <img
+        loading="lazy"
         className={styles.authorPhoto}
         src="/static/images/fomin_avatar.jpg"
         alt="Илья Фоминцев"

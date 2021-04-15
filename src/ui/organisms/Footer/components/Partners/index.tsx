@@ -19,7 +19,7 @@ const Partners = ({ className }: Props) => (
         className={styles.partner}
       >
         <p className={styles.text}>{text}</p>
-        <img className={styles.logo} src={logo} alt={text} />
+        <img loading="lazy" className={styles.logo} src={logo} alt={text} />
       </a>
     ))}
   </div>

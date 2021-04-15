@@ -39,7 +39,7 @@ export const SystemFooter = () => {
             className={styles.project}
           >
             <p className={styles.text}>{text}</p>
-            <img className={styles.logo} src={logo} alt={text} />
+            <img loading="lazy" className={styles.logo} src={logo} alt={text} />
           </a>
         ))}
       </div>

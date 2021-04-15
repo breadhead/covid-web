@@ -23,7 +23,7 @@ const PartnerCard = ({ partner, className }: Props) => {
       className={cx(styles.card, className)}
     >
       <div className={styles.logoWrapper}>
-        <img className={styles.logo} src={image} alt={partner.name} />
+        <img loading="lazy" className={styles.logo} src={image} alt={partner.name} />
       </div>
       <p className={styles.label}>{partner.name}</p>
       <p className={styles.description}>{partner.subtitle}</p>

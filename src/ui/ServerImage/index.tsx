@@ -15,7 +15,7 @@ const ServerImage = ({ src, ...rest }: Props) => {
     [src],
   );
 
-  return <img src={path} {...rest} />;
+  return <img loading="lazy" src={path} {...rest} />;
 };
 
 export default ServerImage;

@@ -68,7 +68,8 @@ export const ArticlesItemContent = ({
 
             {imageSrc && (
               <div className={s.imageWrapper}>
-                <img
+                <img 
+                  loading="lazy" 
                   className={s.image}
                   src={imageSrc}
                   alt={articlesItem.name}

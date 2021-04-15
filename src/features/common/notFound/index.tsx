@@ -22,6 +22,7 @@ const NotFound = () => (
     <SystemLayout headerWhite withoutFooter>
       <div className={styles.container}>
         <img
+          loading="lazy"
           className={styles.image}
           src="/static/images/404.png"
           alt="Такой страницы не существует"

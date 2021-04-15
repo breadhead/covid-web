@@ -12,11 +12,11 @@ interface StepProps {
   step: Step;
 }
 
-const Step = ({ step }: StepProps) => {
-  const { img, text, index } = step;
+const Step = ({step}: StepProps) => {
+  const {img, text, index} = step;
   return (
     <article className={styles.step}>
-      <img className={styles.img} src={img} alt={text} />
+      <img loading="lazy" className={styles.img} src={img} alt={text}/>
       <p className={styles.text}>
         {index}. {text}
       </p>

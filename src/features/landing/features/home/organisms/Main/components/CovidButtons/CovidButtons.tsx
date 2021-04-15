@@ -17,6 +17,7 @@ export const CovidButtons = () => {
         <Button size={ButtonSize.ExtraLarge}>
           <span>Справочник по COVID-19</span>
           <img
+            loading="lazy"
             className={styles.image}
             src="/static/images/landing/check.png"
             alt="Полный справочник по COVID-19"
@@ -27,6 +28,7 @@ export const CovidButtons = () => {
         <Button size={ButtonSize.ExtraLarge}>
           <span>Персональная консультация</span>
           <img
+            loading="lazy"
             className={styles.image}
             src="/static/images/landing/result.png"
             alt="Полный справочник по COVID-19"

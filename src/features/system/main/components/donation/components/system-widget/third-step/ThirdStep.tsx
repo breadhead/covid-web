@@ -16,7 +16,8 @@ export const ThirdStep = ({ styles }: ThirdStepProps) => {
       </p>
       <p className={styles.slogan}>Расскажите миру о добром деле:</p>
       <div className={styles.share}>
-        <img
+        <img 
+          loading="lazy" 
           className={styles.photo}
           src="/static/images/support.png"
           alt={`В наших силах сдержать распространение вируса и спасти

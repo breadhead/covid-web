@@ -61,6 +61,7 @@ export const SerializerImage = ({ props }: SerializerImageProps) => {
 
           <img
             // onClick={onCloseClick}
+            loading="lazy"
             className={cx(s.image, fullscreen && s.fullscreenImage)}
             src={src}
             alt="Картинка"

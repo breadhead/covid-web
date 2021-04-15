@@ -38,7 +38,7 @@ export const Button = ({
   return (
     <TagName {...props}>
       {children}
-      {icon && <img className={styles.buttonIcon} src={icon} />}
+      {icon && <img loading="lazy" className={styles.buttonIcon} src={icon} />}
     </TagName>
   );
 };

@@ -22,6 +22,7 @@ const ExpertCard = ({ expert, href = 'ask/experts' }: Props) => {
         href={`/${href}/${expert.code.current}`}
       >
         <img
+          loading="lazy"
           className={styles.image}
           src={getImageSrc(expert.logo) || ''}
           alt={expert.name}

@@ -26,6 +26,7 @@ const ExpertPage = ({ expert }: Props) => {
           </NavLink>
           <section className={styles.expert}>
             <img
+              loading="lazy"
               className={styles.photo}
               src={getImageSrc(expert.logo) || ''}
               alt={expert.name}

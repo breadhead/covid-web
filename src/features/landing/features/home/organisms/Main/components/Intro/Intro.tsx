@@ -29,7 +29,8 @@ export const Intro = () => (
         <span className={styles.buttonText}>
           Хочу быть в курсе. Как защитить себя и близких?
         </span>
-        <img
+        <img 
+          loading="lazy" 
           className={cx(styles.image, styles.imageStudents)}
           src="/static/images/landing/students.png"
           srcSet="/static/images/landing/students2x.png 2x"
@@ -43,7 +44,8 @@ export const Intro = () => (
         <span className={styles.buttonText}>
           Есть симптомы COVID. Что делать:
         </span>
-        <img
+        <img 
+          loading="lazy" 
           className={cx(styles.image, styles.imagePatient)}
           src="/static/images/landing/withPatient.png"
           srcSet="/static/images/landing/withPatient2x.png 2x"
@@ -58,7 +60,8 @@ export const Intro = () => (
         <span className={cx(styles.buttonTextSmall)}>
           Я врач. Где найти самые{NON_BREAKING_SPACE}актуальные инструкции?
         </span>
-        <img
+        <img 
+          loading="lazy" 
           className={cx(styles.image, styles.imageSmall)}
           src="/static/images/landing/doc.png"
           srcSet="/static/images/landing/doc2x.png 2x"
@@ -78,8 +81,9 @@ export const Intro = () => (
           <span className={styles.buttonTextSmall}>
             Что делать, если{NON_BREAKING_SPACE}диагностировали COVID?
           </span>
-          <img
-            className={cx(styles.image, styles.imageSmall)}
+          <img 
+          loading="lazy" 
+          className={cx(styles.image, styles.imageSmall)}
             src="/static/images/landing/crown.png"
             srcSet="/static/images/landing/crown2x.png 2x"
           />

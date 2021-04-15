@@ -10,7 +10,8 @@ const Steps = () => (
     <h2 className={styles.title}>Как работает персональная консультация</h2>
     <section className={styles.steps}>
       <article className={styles.step}>
-        <img
+        <img 
+          loading="lazy" 
           className={styles.img}
           src="/static/images/process_step-1.png"
           alt="Пройдите короткий тест и получите рекомендации"
@@ -24,7 +25,8 @@ const Steps = () => (
         </p>
       </article>
       <article className={styles.step}>
-        <img
+        <img 
+          loading="lazy" 
           className={styles.img}
           src="/static/images/process_step-2.png"
           alt="Если останутся вопросы, задайте их в чате"
@@ -34,7 +36,8 @@ const Steps = () => (
         </p>
       </article>
       <article className={styles.step}>
-        <img
+        <img 
+          loading="lazy" 
           className={styles.img}
           src="/static/images/process_step-3.png"
           alt="Подождите пока эксперт ответит вам"

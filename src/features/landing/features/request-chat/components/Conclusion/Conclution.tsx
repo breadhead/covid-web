@@ -31,7 +31,8 @@ export const Conclution = () => {
   return (
     <>
       <div className={styles.notification}>
-        <img
+        <img 
+          loading="lazy" 
           className={styles.image}
           src="/static/images/doc-attention.png"
           alt="врач"

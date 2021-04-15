@@ -30,7 +30,7 @@ export const Analytics = () => (
 
     <noscript
       dangerouslySetInnerHTML={{
-        __html: `<img src="https://vk.com/rtrg?p=VK-RTRG-447034-ak54Y" style="position:fixed; left:-999px;" alt=""/>`,
+        __html: `<img loading="lazy" src="https://vk.com/rtrg?p=VK-RTRG-447034-ak54Y" style="position:fixed; left:-999px;" alt=""/>`,
       }}
     />
   </>

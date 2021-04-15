@@ -34,6 +34,7 @@ const TrustPartners = () => {
             key={name}
           >
             <img
+              loading="lazy"
               className={styles.logo}
               src={getImageSrc(logo, 0, 112) || ''}
               alt={name}
