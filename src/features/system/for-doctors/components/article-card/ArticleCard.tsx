@@ -42,7 +42,7 @@ export const ArticleCard = ({ article }: ArticleCardProps) => {
           </div>
         )}
         {!!imageSrc && (
-          <img className={styles.image} src={imageSrc} alt={article.name} />
+          <img loading="lazy" className={styles.image} src={imageSrc} alt={article.name} />
         )}
       </div>
     </NavLink>

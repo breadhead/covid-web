@@ -18,7 +18,6 @@ import { getResourcesFromSanity } from '@app/src/domain/reducers/resourcesReduce
 import { selectResources } from '@app/src/domain/reducers/resourcesReducer/selectResources';
 import { selectPartners } from '@app/src/domain/reducers/partnerReducer/selectPartners';
 import { Divider } from '@app/src/ui/divider/Divider';
-import { selectFeaturedArticles } from '@app/src/domain/reducers/articlesReducer/featured/selectFeaturedArticles';
 
 import { Button, ButtonSize } from '@front/ui/button';
 

@@ -15,7 +15,7 @@ export const articlesListRequestBuilder = (
     tagValues,
   )} ${renderCategories(params.category)}]  | order(date desc) ${renderAmount(
     params.page,
-  )} {..., 'tags': tags[]-> }`;
+  )} {  _type, status, sortIndex, name, code, categories, image, pin, date, webinarDate, 'tags': tags[]-> }`;
 };
 
 const renderTags = (tagSlugs: string[], tagValues: TagType[]) => {

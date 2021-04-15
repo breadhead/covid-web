@@ -33,7 +33,6 @@ import { getPartnersFromSanity } from '@app/src/domain/reducers/partnerReducer';
 import { getExpertsFromSanity } from '@app/src/domain/reducers/expertReducer';
 import { getTagsFromSanity } from '@app/src/domain/reducers/tagsReducer';
 import { getFeaturedNewsFromSanity } from '@app/src/domain/reducers/newsReducer/featured/actions';
-import { getFeaturedArticlesFromSanity } from '@app/src/domain/reducers/articlesReducer/featured';
 import { getHospitalsFromSanity } from '@app/src/domain/reducers/hospitalsReducer';
 
 import { getExpertBoardFromSanity } from '@front/domain/reducers/expertBoardReducer';
@@ -43,6 +42,12 @@ import '@app/src/ui/antd-styles.less';
 import '@app/src/ui/config.css?CSSModulesDisable';
 import '@app/src/ui/globals.css?CSSModulesDisable';
 import { AppHead } from '../src/features/landing/features/appHead/AppHead';
+
+declare module "react" {
+  interface ImgHTMLAttributes<T> extends HTMLAttributes<T> {
+    loading?: "auto" | "eager" | "lazy";
+  }
+}
 
 interface Props {
   reduxStore: Store;
@@ -72,7 +77,6 @@ class OncohelpWeb extends App<Props> {
       dispatch(getExpertBoardFromSanity() as any),
       dispatch(getTagsFromSanity() as any),
       dispatch(getFeaturedNewsFromSanity() as any),
-      dispatch(getFeaturedArticlesFromSanity() as any),
       dispatch(getHospitalsFromSanity() as any),
     ]);
     const { isSecure } = context.Component as any;

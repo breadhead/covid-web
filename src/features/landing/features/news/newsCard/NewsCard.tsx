@@ -27,7 +27,7 @@ export const NewsCard = ({ data, href = 'news' }: NewsCardProps) => {
       href={`/${href}/${data.code.current}`.replace(/^\/\//gi, '/')}
       className={s.newsCard}
     >
-      {image && <img className={s.image} src={image} alt={data.name} />}
+      {image && <img loading="lazy" className={s.image} src={image} alt={data.name} />}
       <div className={s.body}>
         {renderHeader()}
         <h2 className={s.title}>{data.name}</h2>
