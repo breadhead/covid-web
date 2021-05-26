@@ -29,10 +29,6 @@ const LandingPage = () => {
         <Divider />
         <div className={styles.backgroundWrapper}>
           <div className={styles.wrapper}>
-            <Steps />
-          </div>
-          <Divider />
-          <div className={styles.wrapper}>
             <Corporate />
           </div>
           <Divider />

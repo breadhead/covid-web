@@ -70,7 +70,7 @@ export const NavCards = () => {
           <Bubble />
         </div>
         <div className={styles.block}>
-          Просто спросить
+          Подробнее
           <Icon className={styles.linkIcon} name={IconsList.ArrowRight2} />
         </div>
       </NavLink>

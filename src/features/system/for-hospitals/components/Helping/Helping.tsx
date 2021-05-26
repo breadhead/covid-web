@@ -11,7 +11,7 @@ export const Helping = () => {
 
   return (
     <div>
-      <h2 className="gl-sectionTitle">Уже помогаем</h2>
+      <h2 className="gl-sectionTitle">Мы помогли</h2>
       <div className={s.list}>
         {hospitals.map((clinic) => (
           <ClinicCard key={clinic.name} hospital={clinic} />

@@ -16,14 +16,14 @@ const Experts = () => {
       <div className={styles.expertsWrapper}>
         <section className={styles.experts}>
           <div className={styles.textWrapper}>
-            <h2 className={styles.title}>Кто консультирует</h2>
+            <h2 className={styles.title}>Наша команда</h2>
             <p className={styles.text}>
               На большинство вопросов в нашей службе отвечают врачи-волонтёры.
               Ответы постоянно подвергаются супервизии проверенных
               экспертов-инфекционистов Санкт-Петербурга и Москвы.
             </p>
             <NavLink className={styles.link} href="/ask/experts">
-              Посмотреть всех экспертов
+              Посмотреть всех
             </NavLink>
           </div>
         </section>

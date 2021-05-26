@@ -26,7 +26,7 @@ export const CovidButtons = () => {
       </NavLink>
       <NavLink className={styles.last} withoutUnderline href="/request">
         <Button size={ButtonSize.ExtraLarge}>
-          <span>Персональная консультация</span>
+          <span>Пройти тест</span>
           <img
             loading="lazy"
             className={styles.image}

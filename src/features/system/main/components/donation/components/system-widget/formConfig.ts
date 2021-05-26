@@ -93,16 +93,8 @@ export const costForm = [
 
 const targetSelectOptions = [
   {
-    value: PageType.Hospitals,
-    label: 'Помощь больницам',
-  },
-  {
     value: PageType.Ask,
     label: 'Справочная служба',
-  },
-  {
-    value: PageType.Doctors,
-    label: 'Обучение врачей',
   },
 ];
 

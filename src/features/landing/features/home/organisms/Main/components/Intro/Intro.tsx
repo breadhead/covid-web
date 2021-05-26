@@ -68,27 +68,22 @@ export const Intro = () => (
         />
       </NavLink>
 
-      <div className={styles.withHint}>
-        <span className={styles.hint}>готовим</span>
-
-        <div
-          className={cx(
-            styles.buttonContainer,
-            styles.buttonContainerLast,
-            styles.disable,
-          )}
-        >
+      <NavLink
+        withoutUnderline
+        href="https://faq.defeatcovid.ru/ru/collections/2751131-%D0%B2%D0%B0%D0%BA%D1%86%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D1%8F"
+        className={cx(styles.buttonContainer, styles.buttonContainerLast)}
+      >
+       
           <span className={styles.buttonTextSmall}>
-            Что делать, если{NON_BREAKING_SPACE}диагностировали COVID?
-          </span>
+            Вопросы по вакцинации</span>
           <img 
           loading="lazy" 
           className={cx(styles.image, styles.imageSmall)}
             src="/static/images/landing/crown.png"
             srcSet="/static/images/landing/crown2x.png 2x"
           />
-        </div>
-      </div>
+      
+      </NavLink>
     </div>
 
     <CovidButtons />

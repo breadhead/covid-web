@@ -61,11 +61,6 @@ const HospitalsHelpWidget = () => {
             </p>
           </div>
           <div className={styles.half}>
-            <span className={styles.label}>Ждут нашей помощи ещё</span>
-            <p className={styles.text}>
-              {' '}
-              {data.helpWanted} {hospitals(data.helpWanted)}
-            </p>
             <NavLink
               className={styles.buttonWrapper}
               withoutUnderline

@@ -31,8 +31,7 @@ export const RequestChat = () => {
     <>
       <div className={styles.wrapper}>
         <Conclution />
-
-        <AskButton>Спросить в чате</AskButton>
+        
         {formFinished ? (
           <button
             onClick={onRepeatTestClick}
@@ -41,10 +40,7 @@ export const RequestChat = () => {
             Пройти тест заново
           </button>
         ) : (
-          <p className={styles.registrationDisclamer}>
-            Потребуется регистрация, чтобы вы могли вернуться к чату в любой
-            момент
-          </p>
+          <></>
         )}
       </div>
       <Chat />
