@@ -12,7 +12,6 @@ import withReduxStore from '@app/src/lib/with-redux-store';
 import { Store } from '@app/src/lib/store';
 import Modal from '@app/src/features/common/modal';
 import { Analytics } from '@app/src/features/common/analytics';
-import { Intercom } from '@app/src/features/common/intercom';
 import NotFound, { getFound } from '@app/src/features/common/notFound';
 import { canUseDOM } from '@app/src/lib/helpers/canUseDOM';
 import registerModals from '@app/src/lib/register-modals';
@@ -119,7 +118,6 @@ class OncohelpWeb extends App<Props> {
       <ErrorBoundary FallbackComponent={ErrorComponent}>
         <Container>
           <AppHead publicRuntimeConfig={publicRuntimeConfig}></AppHead>
-          <Intercom />
           <Sprite />
           <Provider store={reduxStore}>
             <StoreContext.Provider value={reduxStore}>
